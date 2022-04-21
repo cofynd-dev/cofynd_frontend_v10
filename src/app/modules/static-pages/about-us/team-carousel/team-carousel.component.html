@@ -1,0 +1,38 @@
+<section class="team-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>The CoFynd Knowledge Center</h2>
+        <p>Coming together is a beginning. Staying together is progress. Working together is success.</p>
+        <div class="team-carousel">
+          <!-- <ngu-carousel #popularSpaceCarousel
+            [inputs]="carouselConfig"
+            [dataSource]="teams">
+            <div *nguCarouselDef="let team; let i = index;"
+              class="item">
+              <div class="box">
+                <div class="img">
+                  <img [src]="team.img"
+                    [alt]="team.name">
+                </div>
+                <h5>{{ team.name }}</h5>
+                <p>{{ team.designation }}</p>
+              </div>
+            </div>
+          </ngu-carousel> -->
+          <div class="row">
+            <div class="col-md-3 col-6" *ngFor=" let team of teams;">
+              <div class="item">
+                <img [src]="team.img"
+                  class="img-fluid m-auto d-block"
+                  [alt]="team.name">
+                <h5 class="mt-2 mb-0">{{ team.name }}</h5>
+                <p class="mt-2">{{ team.designation }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

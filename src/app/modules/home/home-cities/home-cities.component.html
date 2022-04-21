@@ -1,0 +1,14 @@
+<div class="city-list">
+  <button (click)="locateMyLocation()"
+    type="button">
+    <img src="/assets/images/home/near-me.svg"
+      alt="'Office Space for Rent near me" />
+    Near Me
+  </button>
+  <a *ngFor="let city of cities"
+    (click)="openModal(city.name)">
+    <img [src]="'/assets/images/city/' + city.icon"
+      [alt]="city.name" />
+    {{ city.name }}
+  </a>
+</div>

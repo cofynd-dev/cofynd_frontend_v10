@@ -1,0 +1,53 @@
+$font-primary: 'Montserrat', sans-serif;
+
+$color-primary: #4343e8;
+$color-primary-hover: darken($color-primary, 10%);
+
+$color-accent: #4dbd74;;
+$color-accent-hover: darken($color-accent, 10%);
+
+$color-ng-accent: #c05085;
+$color-ng-accent-hover: darken($color-ng-accent, 10%);
+
+$color-additional: #999999;
+$color-additional-hover: darken($color-additional, 10%);
+
+$color-yellow: #ffcc04;
+$color-yellow-hover: darken($color-yellow, 10%);
+
+$color-violet: #c88ffa;
+
+$color-red: #ff4861;
+$color-red-hover: darken($color-red, 10%);
+
+$color-pink: #ffa2cc;
+$color-pink-hover: darken($color-pink, 10%);
+
+$color-blue: #70bbfd;
+$color-blue-hover: darken($color-blue, 10%);
+
+$color-gray: #787985;
+$color-light-gray: #d8dfe9;
+
+$color-green: #b8e986;
+$color-green-hover: darken($color-green, 10%);
+
+$color-black: #333;
+$color-black-hover: darken($color-black, 10%);
+
+@mixin progressBarColored($main-color) {
+  .progress-bar {
+    background-color: $main-color;
+  }
+}
+
+@mixin progressBarColoredGradient($main-color) {
+  .progress-bar {
+    background-color: unset;
+    background-image: linear-gradient(to left, lighten($main-color, 10%), $main-color);
+  }
+
+  .progress-label {
+    color: $main-color;
+  }
+}

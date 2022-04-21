@@ -1,0 +1,302 @@
+.logo-height {
+  height: 50px;
+  width: auto;
+}
+
+.spaces {
+  background: linear-gradient(180deg, #4343E8 65%, #fff 35%);
+}
+
+.font-28 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.font-30 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.font-wt500 {
+  font-weight: 500;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.lineHeight-35 {
+  line-height: 35px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+p.plan-pricing::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.plan-box {
+  padding-right: 15px;
+  padding-left: 15px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.border-rds10 {
+  border-radius: 10px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font-14-lite {
+  font-size: 14px;
+  line-height: 20px;
+  color: #272728;
+}
+
+.text-rt {
+  text-align: right;
+  padding-top: 30px;
+  margin-top: 15px;
+  padding-right: 25px;
+}
+
+.font-wt300 {
+  font-weight: 300;
+}
+
+.font-wt600 {
+  font-weight: 600
+}
+
+.main-blue {
+  color: #4343E8;
+}
+
+.mb-only {
+  display: none;
+}
+
+.box-detail {
+  padding-top: 25px;
+  margin-top: 3px;
+}
+
+.mb-only {
+  display: block;
+  position: relative;
+  right: 35px;
+  top: 0px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+h2.plug-play::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.font-size-14 {
+  font-size: 14;
+}
+
+.why-cofynd {
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.font-26-mid {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #262626;
+}
+
+h3.top-partner::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.side-from {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.height-14 {
+  height: 14px;
+}
+
+.height-40 {
+  height: 40px;
+}
+
+.height-50 {
+  height: 50px;
+}
+
+.enquire-button {
+  font-size: 16px;
+  height: 45px;
+  background-color: #3131e6;
+}
+
+.num-border {
+  border: 1px solid #4343e8;
+  border-radius: 5px;
+}
+
+.contactWithC {
+  background-color: #4343e8;
+  width: 100%;
+}
+
+.cofynd-desk-image {
+  height: 160px;
+  width: auto;
+  position: absolute;
+  top: -80px;
+  right: -50px;
+  display: block
+}
+
+.in_mobileContact {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  position: fixed;
+  z-index: 999999
+}
+
+#as_form {
+  height: calc(100% - 44px);
+  position: fixed;
+  padding: 15px;
+  background: white;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none
+}
+
+#as_form .as_form-title {
+  font-size: 20px;
+  text-align: center
+}
+
+#as_form .as_form_close {
+  font-size: 26px;
+  margin-top: -3px;
+  border: 1px solid lightgray;
+  width: 35px;
+  color: lightgray;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%
+}
+
+.in_container {
+  position: relative;
+  text-align: center;
+  height: 44px
+}
+
+.side-fixed-part {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .font-28 {
+    font-size: 25px;
+  }
+
+  .font12 {
+    font-size: 18px;
+  }
+
+  .font-14-lite {
+    display: none;
+  }
+
+  .text-rt {
+    text-align: left;
+    padding-top: 0px;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+
+  .box-detail {
+    padding-top: 10px;
+  }
+
+  h2.plug-play::before {
+    height: 40px;
+    width: 40px;
+    left: -12px;
+    top: 30px;
+  }
+
+  .img-htw {
+    height: 50px;
+    width: auto;
+  }
+
+  h3.top-partner::before {
+    height: 40px;
+    width: 40px;
+    left: -12px;
+    top: 30px;
+  }
+
+  .cofynd-desk-image {
+    display: none;
+  }
+
+  .only-mobile {
+    margin: 20px 0px;
+  }
+
+  .in_mobileContact {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .spaces h1 {
+    font-size: 25px;
+  }
+}

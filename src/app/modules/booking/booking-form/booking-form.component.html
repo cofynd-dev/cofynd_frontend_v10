@@ -1,0 +1,252 @@
+<section>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-6 col-md-8">
+        <h1>Your Booking</h1>
+        <form class="form booking-form"
+          [formGroup]="bookingForm"
+          appScrollToInvalidField
+          (ngSubmit)="onSubmit()">
+
+          <div class="section">
+            <div class="booking-info">
+              <div class="booking-title">
+                <h5>{{enquiryType}}</h5>
+              </div>
+              <div class="person-select">
+                <ng-select *ngIf="enquiryType"
+                  [clearable]="false"
+                  [searchable]="false"
+                  placeholder="1"
+                  formControlName="numberOfVisitors"
+                  (change)="onChangeVisitors($event)">
+                  <ng-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"
+                    [value]="i">
+                    {{i}}
+                  </ng-option>
+                </ng-select>
+                <span class="price">
+                  <i class="icon-rupee"></i>{{ workspacePlan?.price }}/<small *ngIf="isPricePerDay">day</small>
+                  <small *ngIf="!isPricePerDay">month</small>
+                </span>
+              </div>
+            </div>
+            <div class="form-group date-field">
+              <!-- for Day Pass -->
+              <input *ngIf="isPricePerDay"
+                type="text"
+                class="form-control"
+                placeholder="Select Date"
+                formControlName="date"
+                bsDaterangepicker
+                [minDate]="minDate"
+                [bsConfig]="bsConfig"
+                (bsValueChange)="onChangeDate($event)" />
+              <app-input-validation [control]="bookingForm.controls.date">
+              </app-input-validation>
+
+
+
+              <!-- for Other enquiries -->
+              <div *ngIf="!isPricePerDay">
+                <div>
+                  <div class="booking-title other-enquiries">
+                    <strong>Choose Month</strong><span>&nbsp; (If you want to book for 1 Month then please select
+                      1)</span>
+                  </div>
+                  <ng-select [clearable]="false"
+                    [searchable]="false"
+                    placeholder="Select Month"
+                    formControlName="month"
+                    (change)="onChangeMonth($event)">
+                    <ng-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]"
+                      [value]="i">
+                      for {{i}}<span *ngIf="i==1"> month</span><span *ngIf="i!==1"> months</span>
+                    </ng-option>
+                  </ng-select>
+                  <app-input-validation [control]="bookingForm.controls.month">
+                  </app-input-validation>
+                </div>
+                <br>
+                <div class="other-payment-type"
+                  *ngIf="bookingForm.controls.month.value">
+                  <div style="width:40%">
+                    <div class="booking-title other-enquiries">
+                      <strong>Choose Date</strong><span>&nbsp; (End Date will be calculated by 30 Days approx)</span>
+                    </div>
+                    <input class="form-control"
+                      placeholder="Select Start Date"
+                      [bsConfig]="bsConfigForOther"
+                      [minDate]="minDate"
+                      formControlName="date"
+                      (bsValueChange)="onChangeDateForOther($event)"
+                      bsDatepicker>
+                    <app-input-validation [control]="bookingForm.controls.date">
+                    </app-input-validation>
+                  </div>
+
+                  <div *ngIf="bookingForm.controls.date.value"
+                    style="padding-top:10%">
+                    <span>to</span>
+                  </div>
+
+                  <div *ngIf="bookingForm.controls.date.value"
+                    style="padding-top:10%">
+                    <span class="form-control">{{toDate| date: 'MMMM d, y'}}</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="form-group floating-label">
+              <input type="text"
+                class="form-control"
+                formControlName="name"
+                [appDisableInput]="user"
+                appMaterialInput>
+              <label>Full Name</label>
+              <app-input-validation [control]="bookingForm.controls.name">
+              </app-input-validation>
+            </div>
+            <div class="form-group floating-label">
+              <input type="text"
+                class="form-control"
+                formControlName="email"
+                [appDisableInput]="user"
+                appMaterialInput>
+              <label>Email Id</label>
+              <app-input-validation [control]="bookingForm.controls.email">
+              </app-input-validation>
+            </div>
+            <div class="form-group floating-label">
+              <label>Phone Number</label>
+              <input type="text"
+                class="form-control"
+                placeholder="Your Phone Number"
+                formControlName="phone_number"
+                [appDisableInput]="user"
+                appMaterialInput>
+              <app-input-validation [control]="bookingForm.controls.phone_number">
+              </app-input-validation>
+            </div>
+          </div>
+
+          <div class="section"
+            *ngIf="visitorCount">
+            <div *ngFor="let visitor of visitors.controls; let i = index;">
+              <div [formGroup]="visitor">
+                <div class="title-block">
+                  <h3 *ngIf="i === 0">Member Details</h3>
+                  <h5>Member {{ i + 1}}</h5>
+                </div>
+                <div class="form-group floating-label">
+                  <input type="text"
+                    class="form-control"
+                    formControlName="name"
+                    appMaterialInput>
+                  <label>Full Name</label>
+                </div>
+                <div class="form-group floating-label">
+                  <input type="text"
+                    class="form-control"
+                    formControlName="email"
+                    appMaterialInput>
+                  <label>Email Id</label>
+                  <app-input-validation [control]="visitors.controls[i].get('email')">
+                  </app-input-validation>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="visitorCount && visitors.length < visitorCount"
+            class="text-right">
+            <button type="button"
+              class="btn-link"
+              style="position: relative; top: -25px;"
+              (click)="addMoreVisitor()">
+              <span>+</span>&nbsp;&nbsp;Add Member
+            </button>
+          </div>
+
+          <div class="section"
+            *ngIf="isDateSelected">
+            <div class="title-block border-bottom-0">
+              <h3>Amount Payable</h3>
+              <ul class="payment-info">
+                <li *ngFor="let visitor of paymentCounts; let i = index;">
+                  {{enquiryType}} {{ i + 1 }} x {{ workspacePlan.price }} x {{ numberOfDays }} Days
+                  <span><i class="icon-rupee"></i>{{ workspacePlan.price * numberOfDays }}</span>
+                </li>
+
+                <li class="tax">
+                  GST - 18%
+                  <span><i class="icon-rupee"></i>{{addGst()}}</span>
+                </li>
+
+                <li class="amount">
+                  Net Amount
+                  <span><i
+                      class="icon-rupee"></i>{{ (workspacePlan.price * numberOfDays) * visitorCount + addGst() }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section"
+            *ngIf="numberOfMonths">
+            <div class="title-block border-bottom-0">
+              <h3>Amount Payable</h3>
+              <ul class="payment-info">
+                <li *ngFor="let visitor of paymentCounts; let i = index;">
+                  {{enquiryType}} {{ i + 1 }} x {{ workspacePlan.price }} x {{ numberOfMonths }} Months
+                  <span><i class="icon-rupee"></i>{{ workspacePlan.price * numberOfMonths }}</span>
+                </li>
+                <li class="tax">
+                  GST - 18%
+                  <span><i class="icon-rupee"></i>{{addGst(true)}}</span>
+                </li>
+                <li class="amount">
+                  Net Amount
+                  <span><i
+                      class="icon-rupee"></i>{{ (workspacePlan.price * numberOfMonths) * visitorCount + addGst(true) }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit"
+              class="btn btn-primary">
+              Pay Now
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="col-lg-4 d-none d-md-none d-lg-block">
+        <div class="workspace-thumbnail"
+          *ngIf="workSpace">
+          <img src="/assets/images/02.jpg"
+            alt="">
+          <h4>{{ workSpace.name }}</h4>
+          <p>{{ workSpace.location.address1 || workSpace.location.address}}</p>
+          <div class="about-space">
+            About this Space
+            <p>This is a coworking space that hosts 200+ entrepreneurs and freelancers. We support their growth through
+              high community engagement within, as well as classes, events and partnerships. </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<app-payment-loader *ngIf="isPaymentLoader"></app-payment-loader>

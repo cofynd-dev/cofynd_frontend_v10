@@ -1,0 +1,247 @@
+.enquire-box {
+  // position: absolute;
+  width: 100%;
+  max-width: 370px;
+  top: -40px;
+  z-index: 1;
+  background: #fff;
+  border-radius: 6px;
+
+  @media(max-width: 1170px) and (min-width: 768px) {
+    max-width: 300px;
+    right: 10px;
+  }
+
+  &-content {
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+
+    @media(max-width:767px) {
+      border-radius: 0;
+      border: 0;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+
+    .enquire-box-content {
+      position: fixed;
+      width: 23%;
+      border-top: 2px solid rgb(67, 67, 232);
+    }
+
+  }
+
+  .title {
+    padding: 25px;
+    border-bottom: 1px solid #e4e4e4;
+
+    h4 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 500;
+      color: #262626;
+
+      .icon-left {
+        display: none;
+      }
+    }
+  }
+
+  .form-layout-outline {
+
+    .field-select {
+      padding: 10px 25px;
+    }
+
+    .btn-primary {
+      font-size: 16.5px;
+      font-weight: 600;
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border-radius: 0 0 5px 5px;
+    }
+
+  }
+}
+
+@media(max-width:940px) {
+  .marketing-content {
+    .col-md-8 {
+      flex: 0 0 55%;
+      max-width: 55%;
+    }
+  }
+}
+
+
+.success-box {
+  text-align: center;
+  padding: 80px 20px 20px;
+
+  h6 {
+    color: #3b3b3b;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 20px 0 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #3b3b3b;
+    margin-bottom: 115px;
+    padding: 0;
+  }
+}
+
+.get-in-content {
+  border: 1px solid #cccccb;
+  padding: 15px;
+  display: flex;
+  border-radius: 5px;
+  margin: 10px 0;
+
+  img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: normal;
+    margin: 4px 0 7px;
+    color: #808080;
+    padding-left: 20px;
+  }
+
+  p {
+    padding-left: 20px;
+    color: #343434;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+
+    a {
+      color: #343434;
+    }
+  }
+
+}
+
+
+@media(max-width:767px) {
+  .enquire-box {
+    padding-bottom: 60px;
+    max-width: 100%;
+    position: static;
+    top: 0;
+
+    &.fixed {
+      position: static;
+    }
+
+    .title {
+      padding: 20px;
+
+      h4 {
+        font-size: 20px;
+        line-height: 24px;
+
+        .icon-left {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 20px;
+          position: relative;
+          top: -2px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .enquiry-footer {
+      // padding: 10px;
+      padding: 1rem !important;
+
+      .contact-person {
+        height: 50px;
+        margin-left: 20% !important;
+      }
+
+      .contact-text {
+        font-size: 12px;
+        color: #6c6a6a;
+      }
+    }
+
+    .form-layout-outline {
+
+      .btn-primary {
+        // position: fixed;
+        // bottom: 0;
+        border-radius: 0;
+        display: block;
+        margin: 0;
+        left: 0;
+      }
+    }
+
+  }
+}
+
+.header-side {
+  height: 40px;
+  margin: auto !important;
+  width: auto !important;
+  display: block !important;
+  max-width: 100%;
+}
+
+.font-30 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+  line-height: 40px;
+}
+
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important;
+}
+
+.font-medium {
+  font-size: medium;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  border-top: 2px solid rgb(67, 67, 232);
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+  border-radius: 10px;
+}
+
+.contact-person {
+  height: 50px;
+}
+
+
+ng-select {
+  padding-left: 8%;
+  padding-top: 5%;
+}

@@ -1,0 +1,69 @@
+<div class="row"
+  *ngIf="reviews.length">
+  <div class="col-md-8 col-12">
+    <div class="review-box pt-3 pb-3 pl-4 pr-4 bg-light">
+      <div class="row">
+        <div class="col-6">
+          <p class="addreview">Leave a Review</p>
+        </div>
+        <div class="col-6">
+          <button *ngIf="!userReview"
+            class="btn btn-secondary float-right btn-review pl-4 pr-4"
+            (click)="openModal()">Add a
+            review</button>
+          <div *ngIf="userReview"
+            class="row">
+            <div class="col-md-4 offset-md-8">
+              <button (click)="openModal(userReview)"
+                class="btn btn-sm bg-white pl-3 pr-3 addDelBtn"><i class="fa fa-pencil-square-o"
+                  aria-hidden="true"></i> Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div id="reviewSection"
+        class="reviewSection"
+        onscroll="onScroll()">
+        <div *ngFor="let review of reviews;let index=index"
+          class="bg-white pt-2 pb-2 pl-3 pr-3 mt-2 mb-2 border-r-12 ">
+          <div class="row">
+            <div class="col-md-1 col-2 pr-0 mt-3">
+              <span class="user-name">
+                {{ getUserName(review.user.name) }}
+              </span>
+            </div>
+            <div class="col-md-4 col-5 mt-3">
+              <p class="mb-0 font-s-1rem">{{review.user.name | titlecase}}
+                <b *ngIf="userDetail && review.user.id === userDetail.id">(You)</b>
+              </p>
+              <p class="text-12 mb-0">{{review.date | date: 'mediumDate'}}</p>
+            </div>
+            <div class="col-md-1 col-5 mt-3"></div>
+            <div class="col-md-6 col-5">
+              <div class="star-rating">
+                <app-star-rating [rating]='review.rating'
+                  [id]="index"></app-star-rating>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-justify">
+                {{!review.shouldReadMore ? review.description : review.description|slice:0:250}}
+                <b class="readMoreLess"
+                  (click)="toggleCommentDiv(review)">
+                  <i *ngIf="review.shouldReadMore && review.description && review.description.length>250"> . . . Read
+                    More</i>
+                  <i *ngIf="!review.shouldReadMore && review.description && review.description.length>250"> . . . Read
+                    Less</i>
+                </b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

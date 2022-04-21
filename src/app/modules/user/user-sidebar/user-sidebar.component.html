@@ -1,0 +1,20 @@
+<div class="user-sidebar">
+  <div class="user-information">
+    <div class="user-img">
+      {{ getUserName() }}
+    </div>
+    <p class="name">
+      {{ getName() }}
+    </p>
+  </div>
+  <ul>
+    <li *ngFor="let menu of menuItems">
+      <a [routerLink]="menu.url"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}">
+        <small class="icon-{{ menu.icon }}"></small>
+        {{ menu.title }}
+      </a>
+    </li>
+  </ul>
+</div>

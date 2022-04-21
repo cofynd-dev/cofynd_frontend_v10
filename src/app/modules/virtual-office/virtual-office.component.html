@@ -1,0 +1,365 @@
+<div class="wrapper">
+  <section class="banner"
+    style="margin-top: 0 !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Find the Best<br /><span>Virtual Office</span> in India</h1>
+          <!-- <app-home-cities></app-home-cities> -->
+          <div class="city-list">
+            <a *ngFor="let city of cities"
+              [routerLink]="city.name">
+              <img [lazyLoad]="'/assets/images/city/' + city.icon"
+                [alt]="'Office Space for Rent in ' + city.name" />
+              {{ city.name }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Virtual-banner-bg"></div>
+  </section>
+
+  <!-- Catagory Services -->
+  <section class="facilities">
+    <div class="container">
+      <div class="option-box">
+        <div class="row hide-d">
+          <div class="col-12 blueLine text-center">
+            <p>Amenities offered</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-6"
+            *ngFor="let data of service"
+            (click)="openModalWithComponent(data.title)">
+            <div class="mt-3 mb-3"
+              style="cursor: pointer;">
+              <img [src]="'../../../assets/images/'+data.icon"
+                class="img-fluid d-block"
+                [alt]="data.title">
+              <p class="mt-2 mb-2 h-font18">{{data.title}}</p>
+              <p class="text-dark mb-0 hide-m">{{data.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- booking navigation -->
+  <section class="booking-navigation bg-light">
+    <div class="container">
+      <div class=" ">
+        <div class="row">
+          <div class="col-md-12 blueLine">
+            <p class="font-36 text-center"
+              style="font-weight: 600;">Book Your Virtual Office in 3 Easy Steps</p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">01</p>
+            <p class="steps">Step 01</p>
+            <p class="pt-3">Select your desired city and search for the best suited virtual office.</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">02</p>
+            <p class="steps">Step 02</p>
+            <p class="pt-3">Choose the Virtual office plan and fill in your details in the query form.</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">03</p>
+            <p class="steps">Step 03</p>
+            <p class="pt-3">Our virtual office team will get in touch with you and help you get your desired virtual
+              office.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- top Spaces -->
+  <section class="virtualSpace">
+    <div class="container">
+      <div class="page-title pt-3">
+        <h2>Top Virtual Office Cities in India</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 pt-2"
+          *ngFor=" let _centerCity of popularVirtualOffice | slice:0:1">
+          <div style="position: relative; cursor: pointer;" (click)="openWorkSpace(_centerCity.name.split(',').pop())">
+            <img [src]="_centerCity.image"
+              class="img-fluid d-block m-auto"
+              style="height:516px; object-fit:cover; border-radius:10px;">
+            <div class="SpaceText">
+              <p class="mb-0 pl-2 text-center text-white"
+                style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i>
+                {{_centerCity.name}}</p>
+              <p class="text-white pl-2 text-center"
+                style="font-weight:500;"> ₹ {{_centerCity.price}}/ Year</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4 p-2"
+              *ngFor="let _centerCity of popularVirtualOffice | slice:1:7">
+              <div class="spaceCenter" style="cursor: pointer;"
+                (click)="openWorkSpace(_centerCity.name.split(',').pop())">
+                <img [src]="_centerCity.image"
+                  class="img-fluid d-block m-auto">
+                <div class="SpaceText">
+                  <p class="text-center text-white mb-0"
+                    style="font-size: 20px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i>
+                    {{_centerCity.name}}</p>
+                  <p class="text-white text-center"
+                    style="font-weight:500;"> ₹ {{_centerCity.price}}/ Year </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <span class="mobileViewColiving">
+    <app-home-popular-space [shouldOfficeVisible]="true"
+      [officeSlug]="false"
+      [shouldCoWorkingVisible]="false"
+      [popularOfficeSpaces]="popularVirtualOffice"
+      [pageTitle]="'Top Virtual Office Cities in India'">
+    </app-home-popular-space>
+  </span>
+
+  <section class="pt-0">
+    <app-home-brand-list *ngIf="coworkingBrands"
+      [coworkingBrands]="coworkingBrands"
+      [pageTitle]="'Our Virtual Office Partners'">
+    </app-home-brand-list>
+  </section>
+
+  <!-- Why Cofynd -->
+  <section class="why-cofynd bg-light">
+    <div class="container">
+      <div class="bg-style">
+        <div class="row">
+          <div class="col-md-12 blueLine">
+            <p class="font-36 text-center">CoFynd Advantages</p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="pt-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/work-spaces.svg"
+                  class="d-block img-60"
+                  alt="25,000+ Spaces">
+                <p class="font-20-mid mt-3 mb-1">25,000+ Spaces</p>
+                <p class="font-14">Get access to 25,000+ workspaces with easy availability and convenience anytime and
+                  anywhere. Space Search Made Simple with CoFynd</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/fee.svg"
+                  class="d-block img-60"
+                  alt="No Booking Fees">
+                <p class="font-20-mid mt-3 mb-1">No Booking Fees</p>
+                <p class="font-14">CoFynd is India's fastest growing space discovery platform that doesn't charge
+                  anything
+                  from the customers.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/support.svg"
+                  class="d-block img-60"
+                  alt="100% Offline Support">
+                <p class="font-20-mid mt-3 mb-1">100% Offline Support</p>
+                <p class="font-14">We provide you 100% offline support from giving you the various space options,
+                  scheduling
+                  the site visit, booking the space to the after-sales support also.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-0">
+    <app-home-brand-list [shouldOtherBrandVisible]="true"
+      [shouldCoWorkingVisible]="false"></app-home-brand-list>
+  </section>
+
+  <section class="listSpaceBox">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a routerLink="/list-your-space"
+            target="_blank">
+            <img src="../../../assets/images/listYourSpace.jpg"
+              style="cursor: pointer;"
+              class="enquiry-box forLapT"
+              alt="Co Working Spaces" />
+            <img src="../../../assets/images/listYourSpaceMobile.jpg"
+              style="cursor: pointer;"
+              class="enquiry-box forMob"
+              alt="Co Working Spaces" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visiteOther pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="p-4 border br5px">
+            <div class="row">
+              <div class="col-md-8">
+                <div>
+                  <p class="mb-1 quote">Search for collaborative and innovative <span
+                      style="font-weight: 500;">Coworking Spaces</span></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <p routerLink="/coworking"
+                  class="text-center mt-3"><button class="br5px btn pt-2 pb-2 pl-4 pr-4"
+                    style="background-color: #4343e8;"><strong>Explore</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 border br5px">
+            <div class="row">
+              <div class="col-md-8">
+                <div>
+                  <p class="mb-1 quote">Filter your search for Customized <span style="font-weight:500;">Office Space
+                      Solution</span></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <p routerLink="/office-space/rent"
+                  class="text-center mt-3"><button class="br5px btn pt-2 pb-2 pl-4 pr-4"
+                    style="background-color: #ffcc05;"><strong>Explore</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Coliving -->
+  <section class="faq">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-title">
+            <h2>Frequently Asked Questions</h2>
+            <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a
+              virtual office. We
+              have gathered the most crucial ones and answer here to help you in making the right decision. </p>
+          </div>
+          <accordion [isAnimated]="true">
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What is a virtual office?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- A virtual office is a popular remote workspace model which offers a professional business address.
+                It comes with various office-related facilities and services. From mail handling to reception facilities
+                and access to meeting rooms, various office facilities are provided without having a physical office
+                setup. </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What are the types of virtual offices?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- There are mainly three types of Virtual Offices-<br><br>
+                Virtual Office for Company Registration<br>
+                Virtual Office for Mail Handling<br>
+                Virtual Office for GST Registration
+              </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What are the advantages of having a virtual office address?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- There are so many advantages of having a virtual office in this city, some of them are listed
+                below-<br><br>
+
+                Zero furniture required<br>
+                Access to Global Talent<br>
+                Increased Productivity<br>
+                No daily commuting to an office for work<br>
+                Zero Utility Payments<br>
+                Zero hardware cost<br>
+                No hefty office leases<br>
+                Liberty and Flexibility in work style etc.<br>
+              </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What type of businesses opt for virtual offices?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- From a real estate business, boutique, courier company to legal firm, and creative agencies etc.
+                Several types of businesses use a virtual office space including freelancers, business owners, young
+                entrepreneurs, SMEs etc. </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What facilities do you get when you book a virtual office?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- Following are the state-of-the-art facilities offered by a virtual office in this city-<br><br>
+                Envelope Opening Service<br>
+                Mailing Address<br>
+                Video Conferencing Facilities<br>
+                Meeting Space <br>
+                Business Telephone Number<br>
+                Scanning Service<br>
+                Administrative Staff<br>
+                Phone Answering Services<br>
+                Professional Business Address etc.
+              </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What documents are required while booking a virtual office space?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans- Following are the required documents to be submitted by the companies which are
+                incorporated-<br><br>
+                Director’s or Trustees ID Proof<br>
+                Organization Incorporation Certificate<br>
+                PAN Card<br>
+                GST Number (if any) <br><br>
+
+                Following are the required documents to be submitted by the companies which are not
+                incorporated-<br><br>
+                Director’s or Trustees ID Proof<br>
+                Planned Organization’s Name (for agreement)
+              </p>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

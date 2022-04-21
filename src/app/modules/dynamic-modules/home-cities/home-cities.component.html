@@ -1,0 +1,11 @@
+<div class="city-list">
+    <button (click)="locateMyLocation()" type="button">
+    <img src="/assets/images/home/singapore-near-me.jpg"
+      alt="'Office Space for Rent near me" />
+    Near Me
+  </button>
+    <!-- <span>{{newarray.length}}</span> -->
+    <a style="cursor: pointer;" *ngFor="let city of countryCities" (click)="openModal(city.name.toLowerCase(),city.Country.name.toLowerCase())">
+        <img [src]="city?.image?.s3_link" [alt]="city.name"> {{ removedash(city.name) }}
+    </a>
+</div>

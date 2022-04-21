@@ -1,0 +1,37 @@
+<div class="user-title">
+  <h2>Schedule Visits</h2>
+</div>
+<app-user-list-loader *ngIf="loading"></app-user-list-loader>
+
+<app-user-blank-screen *ngIf="!loading && !enquires.length"
+  [type]="'visit'"
+  [title]="'You don\'t have any enquires yet!'">
+</app-user-blank-screen>
+
+<ul class="workspaces"
+  *ngIf="!loading && enquires.length">
+  <li *ngFor="let enquiry of enquires">
+    <div class="box">
+      <div class="workspace-img">
+        <img [src]="enquiry.work_space.images[0]?.image?.s3_link"
+          alt="">
+      </div>
+      <div class="workspace-detail">
+      <h5>{{ enquiry.work_space ? enquiry.work_space.name : 'NA' }}</h5>
+        <p>
+          <i class="icon-location"></i>
+          {{ enquiry.work_space ? enquiry.work_space.location.address1 : 'NA' }}
+        </p>
+        <div class="divider"></div>
+        <div class="visit-info">
+          <div class="visitors-count">
+            <i class="icon-account"></i>
+            <span>Visitors</span>
+            <span class="text-small">{{ enquiry.no_of_person }}</span>
+          </div>
+        </div>
+        <div class="visit-tag text-capitalize">{{ planCategory[enquiry.interested_in] }}</div>
+      </div>
+    </div>
+  </li>
+</ul>

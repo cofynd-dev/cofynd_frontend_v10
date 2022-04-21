@@ -1,0 +1,76 @@
+<app-search-breadcrumb [breadcrumbs]="breadcrumbs"
+  [isPageScrolled]="isScrolled"
+  (priceFilterChanged)="onFilterPriceChange($event)"
+  (mapViewChanged)="toggleMapView($event)">
+</app-search-breadcrumb>
+<section class="search-container clearfix">
+  <div class="search-grid-container"
+    [class.search-grid-full]="!isMapView">
+    <div class="search-grid-wrapper">
+
+      <h1 class="page-heading"
+        *ngIf="!loading && workSpaces.length">
+        {{ pageTitle }}
+      </h1>
+
+      <app-search-no-result *ngIf="!loading && !workSpaces.length"
+        [title]="'Coworking'"
+        [url]="'/coworking'">
+      </app-search-no-result>
+
+      <app-search-card-loader *ngIf="loading">
+      </app-search-card-loader>
+
+      <div class="row"
+        *ngIf="!loading">
+        <ng-container *ngFor="let space of workSpaces; let i = index">
+          <div class="col-sm-6"
+            [class.col-md-4]="!isMapView"
+            [class.col-md-6]="isMapView">
+            <app-search-card [workspace]="space">
+            </app-search-card>
+          </div>
+          <div class="col-sm-12"
+            *ngIf="(i + 1) % 4 === 0">
+            <app-search-contact-us-text [cities]="availableCities"
+              [type]="'for_coWorking'">
+            </app-search-contact-us-text>
+          </div>
+        </ng-container>
+      </div>
+
+      <div *ngIf="!loading"
+        class="pagination-container">
+        <pagination [totalItems]="totalRecords"
+          [itemsPerPage]="20"
+          [(ngModel)]="page"
+          [maxSize]="maxSize"
+          (pageChanged)="loadMore($event)">
+        </pagination>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="loading"
+    class="search-map-container">
+  </div>
+  <div *ngIf="!loading"
+    class="search-map-container"
+    [style.marginTop.px]="'-' + scrollCount"
+    [class.absolute-map]="isSearchFooterVisible"
+    [class.hide-map]="!isMapView">
+    <app-search-map-view (pageScrollEvent)="onPageScroll($event)"
+      [workspaces]="workSpaces"></app-search-map-view>
+  </div>
+</section>
+<section class="search-description"
+  *ngIf="!loading && seoData">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ seoData?.footer_title }}</h2>
+        <div [innerHTML]="seoData?.footer_description"></div>
+      </div>
+    </div>
+  </div>
+</section>

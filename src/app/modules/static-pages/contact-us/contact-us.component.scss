@@ -1,0 +1,123 @@
+.contact-us-section {
+  background: #fff;
+}
+
+.contact-form {
+  padding: 30px 0 0;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #262626;
+    margin: 0 0 10px;
+  }
+
+  .form {
+    padding: 0;
+    background: #fff;
+    max-width: 490px;
+    margin: 0 auto;
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 40px 20px;
+    }
+
+    .cofynd-tag {
+      font-size: 16px;
+      font-weight: 700;
+      color: #212529;
+      text-align: center;
+      margin: 0;
+
+      span {
+        color: #ffcc06
+      }
+
+      small {
+        font-size: 200%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .btn {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .contact-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #4343e8;
+    padding: 20px 0;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+
+    div {
+      margin-right: 30px;
+      font-size: 15px;
+      font-weight: 500;
+      position: relative;
+      padding-left: 20px;
+
+      i {
+        position: absolute;
+        left: 0;
+        font-size: 15px;
+        top: 5px;
+      }
+    }
+  }
+}
+
+.success-box {
+  text-align: center;
+  max-width: 570px;
+  padding: 80px 40px;
+  background: #fff;
+  box-shadow: 0px 8px 9.8px 0.2px rgba(0, 0, 0, 0.03);
+
+  h6 {
+    color: #3b3b3b;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 20px 0 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 17px;
+    color: #3b3b3b;
+    margin-bottom: 125px;
+    font-weight: 300;
+    padding: 0;
+  }
+}
+
+address {
+  padding: 100px 20px 60px;
+  margin: 0;
+  box-shadow: 0 -6px 6px rgba(0,0,0,0.5);
+  text-align: center;
+
+  h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 30px;
+    color: #262626;
+    font-weight: 600;
+  }
+}

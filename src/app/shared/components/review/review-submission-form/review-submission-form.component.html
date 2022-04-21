@@ -1,0 +1,54 @@
+<div>
+  <div class="headingDiv"
+    style="background-color: #4343e8;">
+    <h5 class="modalHeading">CoFynd - {{space.name | uppercase}} {{space.location.name | uppercase}}</h5>
+  </div>
+  <div>
+    <div class="row mt-3 textDiv">
+      <div class="col-2">
+        <span class="user-name">
+          {{ getUserName(review.user.name) }}
+        </span>
+      </div>
+      <div class="col-10 pr-0">
+        <div class="all-info">
+          <p class="mr-0 mb-0"
+            style="font-size: 15px; font-weight: 600;">{{review.user.name | uppercase}}</p>
+          <p class="mt-0"
+            style="font-size: 12px;">Your review will be posted
+            publically on the web</p>
+
+        </div>
+      </div>
+      <div class="col-12 pd-5">
+        <div class="star-rating pos-abs">
+          <ngx-star-rating [(ngModel)]="review.rating"
+            [disabled]="false">
+          </ngx-star-rating>
+        </div>
+      </div>
+    </div>
+    <div class="row textDiv">
+      <div class="col-md-12">
+        <div class="all-info">
+          <textarea rows="5"
+            maxlength="1000"
+            [(ngModel)]="review.description"
+            id="reviewsRating"
+            class="input-borderless"
+            placeholder="Describe Your Experience"
+            style="padding-left:10px;"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modalFooter">
+    <button type="button"
+      class="btn btn-secondary btncls"
+      (click)="closeReviewPopup()">Close</button>
+    <button type="button"
+      class="btn btn-primary btncls"
+      (click)="authAddReview()"
+      [disabled]="!review.rating">Post</button>
+  </div>
+</div>

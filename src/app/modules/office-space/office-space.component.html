@@ -1,0 +1,460 @@
+<!-- <router-outlet></router-outlet> -->
+<div class="wrapper">
+
+  <section class="banner"
+    style="margin-top: 0 !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Find the Best<br /><span>Office Spaces</span> in India</h1>
+          <!-- <app-home-cities></app-home-cities> -->
+          <div class="city-list">
+            <a *ngFor="let city of cities"
+              [routerLink]="city.name">
+              <img [lazyLoad]="'/assets/images/city/' + city.icon"
+                [alt]="'Office Space for Rent in ' + city.name" />
+              {{ city.name }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="office-banner-bg"></div>
+  </section>
+
+  <!-- Catagory Services -->
+  <section class="facilities">
+    <div class="container">
+      <div class="option-box">
+        <div class="row hide-d">
+          <div class="col-12 blueLine text-center">
+            <p>Amenities offered</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-6"
+            *ngFor="let data of service">
+            <div class="mt-3 mb-3">
+              <img [src]="'../../../assets/images/'+data.icon"
+                class="img-fluid d-block"
+                [alt]="data.title">
+              <p class="mt-2 mb-2 h-font18">{{data.title}}</p>
+              <p class="text-dark mb-0 hide-m">{{data.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- booking navigation -->
+  <section class="booking-navigation bg-light">
+    <div class="container">
+      <div class=" ">
+        <div class="row">
+          <div class="col-md-12 blueLine">
+            <p class="font-36 text-center"
+              style="font-weight: 600;">Book Your Office Space in 3 Easy Steps</p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">01</p>
+            <p class="steps">Step 01</p>
+            <p class="pt-3">Select your desired city and search for the best suited Office Space.</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">02</p>
+            <p class="steps">Step 02</p>
+            <p class="pt-3">Choose the Office Space plan and fill in your details in the query form.</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0 stepNumber">03</p>
+            <p class="steps">Step 03</p>
+            <p class="pt-3">Our Office Space team will get in touch with you and help you get your desired Office Space.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- top Spaces -->
+  <section class="virtualSpace">
+    <div class="container">
+      <div class="page-title pt-3">
+        <h2>Top Office Space Cities in India</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 pt-2" style="cursor: pointer;"
+          *ngFor=" let _centerCity of popularOfficeSpaces | slice:0:1">
+          <div style="position: relative;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+            <img [src]="_centerCity.image"
+              class="img-fluid d-block m-auto"
+              style="height:516px; object-fit:cover; border-radius:10px;">
+            <div class="SpaceText">
+              <p class="mb-3 pl-2 text-center text-white"
+                style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i>
+                {{_centerCity.address.split(",").pop()}}</p>
+              <!-- <p class="text-white pl-2 text-center"
+                  style="font-weight:500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address}}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4 p-2" style="cursor: pointer;"
+              *ngFor="let _centerCity of popularOfficeSpaces | slice:1:7">
+              <div class="spaceCenter" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                <img [src]="_centerCity.image"
+                  class="img-fluid d-block m-auto">
+                <div class="SpaceText">
+                  <p class="text-center text-white mb-3"
+                    style="font-size: 20px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i>
+                    {{_centerCity.address.split(",").pop()}}</p>
+                  <!-- <p class="text-white text-center"
+                      style="font-weight:500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address}} </p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <span class="mobileViewColiving">
+    <app-home-popular-space [shouldOfficeVisible]="true"
+      [shouldCoWorkingVisible]="false"
+      [popularOfficeSpaces]="popularOfficeSpaces"
+      [pageTitle]="'Top Office Space Cities in India'">
+    </app-home-popular-space>
+  </span>
+
+  <section class="office-benifits bg-light pad100">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"
+          (click)="openModalWithComponent('Raw Office')">
+          <div class="benifits p-5">
+            <img src="https://alexandro.in/img/icon/icons8-term-100.png"
+              class="img-fluid d-block img50 mb-3"
+              alt="Raw Office Space">
+            <p><span class="pb-2 yellow-border">Looking for</span></p>
+            <p class="font-20 mb-1 mt-4"><strong>Raw Office Space</strong></p>
+            <p>Starting from <span class="blue-text"><strong>&#8377; 40/- sqft</strong></span></p>
+            <p class="blue-text font-18-mid mt-4 mb-0">Enquire Now <i class="fas fa-angle-right arrow-icon"></i></p>
+          </div>
+        </div>
+        <div class="col-md-4"
+          (click)="openModalWithComponent('Furnished Office')">
+          <div class="benifits p-5">
+            <img src="../../../assets/images/office-space/briefcase.png"
+              class="img-fluid d-block img50 mb-3"
+              alt="Furnished Office Space">
+            <p><span class="pb-2 yellow-border">Looking for</span></p>
+            <p class="font-20 mb-1 mt-4"><strong>Furnished Office Space</strong></p>
+            <p>Starting from <span class="blue-text"><strong>&#8377; 70/- sqft</strong></span></p>
+            <p class="blue-text font-18-mid mt-4 mb-0">Enquire Now <i class="fas fa-angle-right arrow-icon"></i></p>
+          </div>
+        </div>
+        <div class="col-md-4"
+          (click)="openModalWithComponent('Customized Office')">
+          <div class="benifits p-5">
+            <img src="../../../assets/images/office-space/office-365.png"
+              class="img-fluid d-block img50 mb-3"
+              alt="Customized Furnished Office Space">
+            <p><span class="pb-2 yellow-border">Looking for</span></p>
+            <p class="font-20 mb-1 mt-4"><strong>Customized Office Space</strong></p>
+            <p>Starting from <span class="blue-text"><strong>&#8377; 100/- sqft</strong></span></p>
+            <p class="blue-text font-18-mid mt-4 mb-0">Enquire Now <i class="fas fa-angle-right arrow-icon"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Covid-19 Section -->
+  <section class="covid-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="covid-content">
+            <h3>
+              <span>COVID-19 RESPONSE</span>
+              We are ready for <br>the new normal!
+            </h3>
+            <ul>
+              <li>
+                <div class="img">
+                  <img lazyLoad="/assets/images/amenities/mask.svg"
+                    alt="Free Mask">
+                </div>
+                <h4>Free Masks Provided</h4>
+                <p>Each of our hubs will provide you with free masks whenever you visit.</p>
+              </li>
+              <li>
+                <div class="img">
+                  <img lazyLoad="/assets/images/amenities/sanitizer.svg"
+                    alt="Sanitized Spaces">
+                </div>
+                <h4>Sanitized Spaces</h4>
+                <p>All our Workspaces are sanitized
+                  regularly to make sure you have the best experience</p>
+              </li>
+              <li>
+                <div class="img">
+                  <img lazyLoad="/assets/images/amenities/hand-sanitizers.svg"
+                    alt="Hand Sanitizers">
+                </div>
+                <h4>Hand Sanitizers Provided</h4>
+                <p>We provide you with sanitizers at each desk so that you have a clean experience.</p>
+              </li>
+              <li>
+                <div class="img">
+                  <img lazyLoad="/assets/images/amenities/social-distancing.svg"
+                    alt="Social Distancing">
+                </div>
+                <h4>Social Distancing </h4>
+                <p>Each of our hubs makes sure that we maintain social distancing norms.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Cofynd Advantages-->
+  <section class="why-cofynd bg-light">
+    <div class="container">
+      <div class="bg-style">
+        <div class="row">
+          <div class="col-md-12 blueLine">
+            <p class="font-36 text-center">CoFynd Advantages</p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="pt-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/work-spaces.svg"
+                  class="d-block img-60"
+                  alt="25,000+ Spaces">
+                <p class="font-20-mid mt-3 mb-1">25,000+ Spaces</p>
+                <p class="font-14">Get access to 25,000+ spaces with easy availability and convenience anytime and
+                  anywhere. Space Search Made Simple with CoFynd</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/fee.svg"
+                  class="d-block img-60"
+                  alt="No Booking Fees">
+                <p class="font-20-mid mt-3 mb-1">No Booking Fees</p>
+                <p class="font-14">CoFynd is India's fastest growing space discovery platform that doesn't charge
+                  anything
+                  from the customers.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mt-2 mb-2">
+                <img src="https://cofynd.com/assets/images/home/support.svg"
+                  class="d-block img-60"
+                  alt="100% Offline Support">
+                <p class="font-20-mid mt-3 mb-1">100% Offline Support</p>
+                <p class="font-14">We provide you 100% offline support from giving you the various space options,
+                  scheduling
+                  the site visit, booking the space to the after-sales support also.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Looking For Section -->
+  <section class="customized">
+    <div class="container">
+      <div class="mt-5 pt-4 pb-4 pl-3 pr-3 option-box">
+        <div class="row">
+          <div class="col-md-3">
+            <p class="pt-4">Looking for a Customized Office Solution</p>
+          </div>
+          <div class="col-md-9">
+            <div class="row"
+              style="cursor: pointer;">
+              <div class="col-4"
+                (click)="openModalWithComponent('Office Suite')">
+                <img class="img-fluid d-block"
+                  src="../../../assets/images/workspace/hot-desk.svg">
+                <h4 class="mt-2 mb-2">Office Suite</h4>
+                <p class="mb-0 hide-m">Office space for larger teams with their own reception. </p>
+              </div>
+              <div class="col-4"
+                (click)="openModalWithComponent('CXOs Suite')">
+                <img class="img-fluid d-block img-ht50"
+                  src="../../../assets/images/workspace/dedicated-desk.svg">
+                <h4 class="mt-2 mb-2">CXO's Suite</h4>
+                <p class="mb-0 hide-m">Customised office spaces for CEO’S &amp; CXO’s.</p>
+              </div>
+              <div class="col-4"
+                (click)="openModalWithComponent('Custom Buildout')">
+                <img class="img-fluid d-block img-ht50"
+                  src="../../../assets/images/workspace/private-cabin.svg">
+                <h4 class="mt-2 mb-2">Custom Buildout</h4>
+                <p class=" mb-0 hide-m">Custom built offices as per your requirements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-0">
+    <app-home-brand-list [shouldOtherBrandVisible]="true"
+      [shouldCoWorkingVisible]="false">
+    </app-home-brand-list>
+  </section>
+
+  <section class="listSpaceBox">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a routerLink="/list-your-space"
+            target="_blank">
+            <img src="../../../assets/images/listYourSpace.jpg"
+              style="cursor: pointer;"
+              class="enquiry-box forLapT"
+              alt="Co Working Spaces" />
+            <img src="../../../assets/images/listYourSpaceMobile.jpg"
+              style="cursor: pointer;"
+              class="enquiry-box forMob"
+              alt="Co Working Spaces" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- visite other section -->
+  <section class="visiteOther pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="p-4 border br5px mt-2 mb-2">
+            <div class="row">
+              <div class="col-8">
+                <div>
+                  <p class="mb-1 quote">Search for collaborative and innovative <span style="font-weight: 500;">Virtual
+                      Offices</span></p>
+                </div>
+              </div>
+              <div class="col-4">
+                <p routerLink="/virtual-office"
+                  class="text-center mt-3"><button class="br5px btn pt-2 pb-2 pl-4 pr-4"
+                    style="background-color: #4343e8;"><strong>Explore</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="p-4 border br5px mt-2 mb-2">
+            <div class="row">
+              <div class="col-8">
+                <div>
+                  <p class="mb-1 quote">Search for collaborative and innovative <span style="font-weight:500;">Coworking
+                      Spaces</span></p>
+                </div>
+              </div>
+              <div class="col-4">
+                <p routerLink="/coworking"
+                  class="text-center mt-3 mb-0"><button class="br5px btn pt-2 pb-2 pl-4 pr-4"
+                    style="background-color: #ffcc05;"><strong>Explore</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-title">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <p>Here are the frequently asked questions that people enquired online before choosing an office space. We
+              have gathered the most crucial ones and answer here to help you in making the right decision.</p>
+          </div>
+          <accordion [isAnimated]="true">
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What are the benefits of an office space?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans. An office space offers benefits like a great amount of privacy, high concentration, healthy
+                atmosphere, regular cleaning, full of amenities, prestige and more.</p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- What are the types of office space?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans. The types of an office space are serviced, managed, leased and subleased.</p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- Who should choose an office?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans. An office space is suitable for both large and small enterprises.</p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- Where are office spaces most popular in India?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans. office spaces are most popular in <a href="https://cofynd.com/office-space/rent/delhi">Delhi</a>,
+                <a href="https://cofynd.com/office-space/rent/gurugram">Gurgaon</a>, <a
+                  href="https://cofynd.com/office-space/rent/mumbai">Mumbai</a>, <a
+                  href="https://cofynd.com/office-space/rent/pune">Pune</a>, <a
+                  href="https://cofynd.com/office-space/rent/bangalore">Bangalore</a> and <a
+                  href="https://cofynd.com/office-space/rent/noida">Noida</a>.
+              </p>
+            </accordion-group>
+            <accordion-group>
+              <h4 accordion-heading>
+                Q- Are visitors allowed in an office space?
+                <i class="icon-arrow-down"></i>
+              </h4>
+              <p>Ans. Yes, visitors can be taken to your cabin. </p>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>{{footer_title }}</h2>
+          <div [innerHTML]="footer_description"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

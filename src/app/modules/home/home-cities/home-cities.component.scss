@@ -1,0 +1,62 @@
+.city-list {
+  max-width: 530px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    /* IE 10+ */
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+      /* Chrome/Safari/Webkit */
+    }
+  }
+
+  button,
+  a {
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    text-align: center;
+    background: #f8f8f8;
+    font-size: 10px;
+    font-weight: 600;
+    color: #000;
+    margin-right: 10px;
+    text-transform: capitalize;
+    transition: all ease-in .5s;
+    padding: 0;
+    outline: none;
+    vertical-align: middle;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+      max-height: 32px;
+      max-width: 40px;
+      margin-bottom: 2px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: #f0f0fe;
+    }
+
+    @media (max-width: 380px) {
+      width: 72px;
+      height: 72px;
+    }
+  }
+}

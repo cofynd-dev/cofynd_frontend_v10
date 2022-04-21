@@ -1,0 +1,77 @@
+@import "base/variable";
+
+.user-sidebar {
+
+  .user-information {
+    padding: 40px 20px 15px;
+    text-align: center;
+    background: #fff;
+    border-radius: 6px 6px 0 0;
+
+    .user-img {
+      width: 140px;
+      height: 140px;
+      background: #f1f0ef;
+      border-radius: 100%;
+      font-size: 58px;
+      font-weight: 500;
+      text-align: center;
+      color: $color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .name {
+      color: #262626;
+      font-size: 19px;
+      font-weight: 500;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 20px 0;
+    }
+  }
+
+  ul {
+    background: #fff;
+    border-radius: 0 0 6px 6px;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    overflow: hidden;
+
+    li {
+
+      a {
+        font-size: 15px;
+        color: #a6a6a6;
+        display: block;
+        padding: 15px 0 15px 30px;
+        border-left: 4px solid #fff;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+
+        &:hover,
+        &.active {
+          color: $color-primary;
+          cursor: pointer;
+
+          small {
+            color: $color-primary;
+            font-weight: bold;
+          }
+        }
+
+        small {
+          color: #787878;
+          font-size: 20px;
+          font-weight: 500;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,90 @@
+.wrapper .banner .office-banner-bg {
+  background     : url('../../../assets/images/home/office-space_banner.jpg') no-repeat top right;
+  width          : 50%;
+  position       : absolute;
+  right          : 0;
+  top            : 0;
+  height         : 100%;
+  border-radius  : 0 0 0 30%;
+  background-size: cover;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.office-benifits {
+  .benifits {
+    border-radius      : 10px;
+    border             : 1px solid #dee2e6;
+    border-bottom      : 1px solid #dee2e6;
+    transition-delay   : .3s;
+    transition-duration: .5s;
+  }
+
+  .pad100 {
+    padding: 100px 0px;
+  }
+
+  .img50 {
+    height: 50px;
+    width : auto;
+  }
+
+  .yellow-border {
+    border-bottom: 3px solid #ffcc05;
+  }
+
+  .font-20 {
+    font-size  : 20px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+
+  .blue-text {
+    color: #4343e8;
+  }
+
+  .font-18-mid {
+    font-size  : 18px;
+    line-height: 26px;
+    color      : #010101;
+    font-weight: 500;
+  }
+}
+
+.customized {
+  .option-box {
+    box-shadow         : 0 6px 16px rgb(0 0 0 / 20%);
+    border-radius      : 12px;
+    border             : 1px solid rgba(0, 0, 0, 0.02);
+    transition-delay   : 0.5s;
+    transition-duration: 0.7s;
+
+    p:first-child {
+      font-size  : 23px;
+      line-height: 32px;
+    }
+  }
+
+  img {
+    height: 50px;
+    width : auto;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hide-m {
+    display: none;
+  }
+}
+
+.benifits {
+  cursor: pointer;
+}
+
+.book-now {
+  cursor: pointer;
+
+}

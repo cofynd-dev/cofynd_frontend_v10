@@ -1,0 +1,7 @@
+<div class="similar-places" [class.fixed]="isPageScrolled">
+  <ul class="visible-list">
+    <li *ngFor="let location of popularLocationList;">
+      <a (click)="reRoute(location)">{{ location }}</a>
+    </li>
+  </ul>
+</div>

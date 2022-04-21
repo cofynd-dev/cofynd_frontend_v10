@@ -1,0 +1,127 @@
+<section class="contact-us-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 p-0 d-none d-lg-block">
+        <address>
+          <img style="max-width: 340px;"
+            src="/assets/images/contact-desk.png" />
+          <h2>CoFynd Infotech Pvt. Ltd.<br>
+            Landmark Cyber Park,<br>
+            Sector 67, Gurugram, Haryana</h2>
+        </address>
+      </div>
+      <div class="col-md-12 col-lg-6">
+        <div class="contact-form">
+
+          <div *ngIf="showSuccessMessage"
+            class="success-box">
+            <app-check-mark-circle></app-check-mark-circle>
+            <h6>Hi! {{ contactUserName }}</h6>
+            <h3>Thank You for Your Query</h3>
+            <p>Your request has been initiated and
+              a Cofynd executive will contact you
+              shortly for further details.</p>
+            <a routerLink="/coworking">Search More Spaces</a>
+          </div>
+
+          <form *ngIf="!showSuccessMessage"
+            class="form"
+            [formGroup]="contactForm"
+            appScrollToInvalidField
+            (ngSubmit)="onSubmit()">
+
+            <h1>Connect with CoFynd</h1>
+
+            <div class="form-group">
+              <input type="text"
+                class="form-control"
+                placeholder="Name*"
+                formControlName="name">
+              <app-input-validation [control]="contactForm.controls.name"></app-input-validation>
+            </div>
+
+            <div class="form-group">
+              <input type="text"
+                class="form-control"
+                placeholder="Email*"
+                formControlName="email">
+              <app-input-validation [control]="contactForm.controls.email"></app-input-validation>
+            </div>
+
+            <div class="form-group">
+              <input type="text"
+                class="form-control"
+                placeholder="Phone Number*"
+                formControlName="phone_number">
+              <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <ng-select placeholder="I am interested in*"
+                    [clearable]="false"
+                    [searchable]="false"
+                    formControlName="interest">
+                    <ng-option value="Coworking Space">Coworking Space</ng-option>
+                    <ng-option value="Coliving">Coliving Space</ng-option>
+                    <ng-option value="Broker Partnership Program">Broker Partnership Program</ng-option>
+                    <ng-option value="CoFynd for Landlords">CoFynd for Landlords</ng-option>
+                    <ng-option value="Talk about my membership">Talk about my membership</ng-option>
+                    <ng-option value="Any/Other Query">Any/Other Query</ng-option>
+                  </ng-select>
+                  <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <ng-select [items]="cities"
+                    bindValue="name"
+                    bindLabel="name"
+                    placeholder="Select City*"
+                    [clearable]="false"
+                    [searchable]="false"
+                    formControlName="city">
+                  </ng-select>
+                  <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <textarea type="text"
+                class="form-control"
+                placeholder="Your Query"
+                formControlName="message"></textarea>
+              <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
+            </div>
+
+            <button type="submit"
+              [appLoadingButton]="loading"
+              class="btn btn-primary btn-block">
+              Submit
+            </button>
+
+            <div class="contact-footer">
+              <div>
+                <i class="icon-phone"></i>
+                <a [href]="'tel:' + contactInfo.phone"
+                  [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{
+                  contactInfo.phone }}</a>
+              </div>
+              <div>
+                <i class="icon-email"></i>
+                <a [href]="'mailto:' + contactInfo.email"
+                  [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{
+                  contactInfo.email }}</a>
+              </div>
+            </div>
+            <p class="cofynd-tag">CoFynd, <span>Possibilities are Infinite</span>&nbsp;<small>&infin;</small></p>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

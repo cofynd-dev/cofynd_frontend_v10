@@ -1,0 +1,55 @@
+.team-section {
+  padding         : 50px 0;
+  background-color: #f8f8f9;
+
+  img {
+    border-radius: 6px;
+    border       : 1px solid #f1f1f1;
+  }
+
+  h2 {
+    font-size    : 26px;
+    line-height  : 32px;
+    font-weight  : 300;
+    color        : #262626;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 767px) {
+      font-size  : 24px;
+      font-weight: 500;
+    }
+  }
+
+  p {
+    font-size  : 14px;
+    line-height: 20px;
+    color      : #212529;
+  }
+
+  .team-carousel {
+    margin: 0 -10px;
+  }
+
+  .item {
+    padding: 0 10px;
+
+    h5 {
+      font-size  : 20px;
+      line-height: 26px;
+      font-weight: 600;
+      color      : #000;
+      margin     : 2px 0 5px;
+      @media screen and (max-width: 567px) {
+        font-size  : 16px;
+        line-height: normal;
+      }
+    }
+
+    p {
+      font-size  : 17px;
+      color      : #010101;
+      font-weight: 300;
+    }
+  }
+
+}

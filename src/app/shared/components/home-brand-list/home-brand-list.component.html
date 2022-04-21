@@ -1,0 +1,45 @@
+<section class="partners"
+  *ngIf="coworkingBrands.length && shouldCoWorkingVisible"
+  [class.grey-layout]="layout === 'grey'">
+  <div class="page-title"
+    [class.remove-side-circle]="layout !== 'grey'">
+    <h2>{{ pageTitle }}</h2>
+  </div>
+  <div class="partner-carousel slider-on-mobile-view">
+    <div class="band-img"
+      *ngFor="let brand of coworkingBrands">
+      <img (click)="goToBrandPage(brand)"
+        [lazyLoad]="brand.image?.s3_link"
+        [alt]="brand.name">
+    </div>
+  </div>
+</section>
+
+<section class="partners"
+  *ngIf="coLivingBrands.length && shouldCoLivingVisible">
+  <div class="page-title remove-side-circle">
+    <h2>{{pageTitle}}</h2>
+  </div>
+  <div class="partner-carousel slider-on-mobile-view">
+    <div class="band-img"
+      *ngFor="let brand of coLivingBrands">
+      <img (click)="goToBrandPage(brand, true)"
+        [lazyLoad]="brand.image?.s3_link"
+        [alt]="brand.name">
+    </div>
+  </div>
+</section>
+
+<section class="partners pb-5"
+  *ngIf="shouldOtherBrandVisible">
+  <div class="page-title">
+    <h2>Our Brand Partners</h2>
+  </div>
+  <div class="partner-carousel slider-on-mobile-view">
+    <div class="band-img"
+      *ngFor="let brand of [11,12,2,3,4,6]">
+      <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'"
+        [alt]="brand" class="brand-partner">
+    </div>
+  </div>
+</section>

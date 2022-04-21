@@ -1,0 +1,519 @@
+@import "base/variable";
+
+$input-border-color: #ccc;
+$input-focus-border-color: #666;
+$input-text-size: 14px;
+$input-text-color: #000;
+$label-color: #919191;
+$label-text-size: 10px;
+
+$color-error: #f44c47;
+$color-error-border: #f44c47;
+$color-error-background: #fff1f1;
+
+@mixin inputError {
+  border-color: $color-error-border;
+  background-color: $color-error-background;
+}
+
+@mixin errorMessageBoxedStyle {
+  position: absolute;
+  margin: 0;
+  top: -13px;
+  padding: 5px 10px;
+  background: #ffbcbc;
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #ad4444;
+  display: block;
+  height: 24px;
+  right: 10px;
+  width: auto;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    border: 4px solid transparent;
+    border-top-color: #ffbcbc;
+    right: 10px;
+  }
+}
+
+.form-group {
+  position: relative;
+}
+
+// Material Form Style
+.material-form {
+  &-field {
+    position: relative;
+    width: 100%;
+    margin: 15px 0 35px;
+
+    input {
+      width: 100%;
+      height: 30px;
+      box-sizing: border-box;
+      line-height: 30px;
+      font-size: 14px;
+      border: 0;
+      background: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      border-radius: 0;
+      -webkit-appearance: none;
+
+      &:focus,
+      &:valid {
+        &~label {
+          color: $color-primary;
+          transform: translateY(-20px);
+          font-size: 0.825em;
+          cursor: default;
+        }
+      }
+
+      &:focus {
+        &~.underline {
+          width: 100%;
+        }
+      }
+
+      &.ng-invalid.ng-touched {
+        border-color: $color-error-border;
+      }
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 30px;
+      line-height: 30px;
+      color: #ccc;
+      cursor: text;
+      transition: all 200ms ease-out;
+      z-index: 10;
+      margin: 0;
+
+      &.active {
+        color: $color-primary;
+        transform: translateY(-20px);
+        font-size: 0.825em;
+        cursor: default;
+      }
+    }
+
+    .underline {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $color-primary;
+      transition: all 200ms ease-out;
+    }
+
+    .ng-select .ng-select-container {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 1px solid #ccc;
+      min-height: 30px;
+    }
+
+    .ng-select.ng-select.ng-select-opened>.ng-select-container {
+      border: 0;
+    }
+
+    .ng-select .ng-select-container .ng-value-container {
+      padding-left: 0;
+    }
+  }
+}
+
+
+
+// Basic Form Layout
+
+.form {
+
+  label {
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: $label-color;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    display: block;
+    margin: 0;
+    font-weight: 500;
+
+    small {
+      color: #fc4f68;
+      font-size: 10px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 22px;
+  }
+
+  .error-message {
+    position: absolute;
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 85px;
+  }
+
+  .ng-invalid.ng-touched {
+    .bs-timepicker-field {
+      @include inputError;
+    }
+  }
+}
+
+.form-control {
+  width: 100%;
+  resize: none;
+  border-radius: 4px;
+  font-size: 13px;
+  box-shadow: 0 0 4px inset rgba(204, 204, 204, 0.3);
+  height: 45px;
+  transition: border 0.3s;
+  background: transparent;
+  border: 1px solid $color-light-gray;
+  color: $input-text-color;
+
+  &::-webkit-input-placeholder {
+    color: $color-additional;
+  }
+
+  &::-moz-placeholder {
+    color: $color-additional;
+  }
+
+  /* Firefox 19+ */
+  &:-moz-placeholder {
+    color: $color-additional;
+  }
+
+  /* Firefox 18- */
+  &:-ms-input-placeholder {
+    color: $color-additional;
+  }
+
+  &[disabled] {
+
+    background: #f5f5f5;
+    cursor: not-allowed;
+
+    &:focus,
+    &:active {
+      border-color: $color-light-gray;
+    }
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: none;
+  }
+
+  &.ng-invalid.ng-touched {
+    @include inputError;
+  }
+}
+
+.ng-select {
+
+  .ng-select-container,
+  .ng-dropdown-panel {
+    border: 1px solid $color-light-gray;
+    color: $input-text-color;
+
+    .ng-dropdown-footer {
+      button {
+        border: 0;
+        background: #e6e6e6;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        &:hover {
+          background: #ccc;
+        }
+      }
+    }
+  }
+
+  .ng-select-container {
+    border-radius: 4px;
+    min-height: 45px;
+    box-shadow: 0 0 4px inset rgba(204, 204, 204, 0.3);
+    text-transform: capitalize;
+
+    .ng-value-container .ng-input>input {
+      height: 30px;
+    }
+  }
+
+  &.ng-select {
+    &.ng-select-opened>.ng-select-container {
+      border: 1px solid $color-light-gray;
+      color: $input-text-color;
+    }
+  }
+
+  &.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border-color: $color-primary;
+    box-shadow: none;
+  }
+
+  &.ng-select-multiple {
+    .ng-select-container {
+      .ng-value-container {
+        .ng-placeholder {
+          top: 11px;
+        }
+
+        .ng-value {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.ng-select-multiple {
+    .ng-select-container {
+      .ng-value-container {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &.ng-invalid.ng-touched .ng-select-container {
+    @include inputError;
+  }
+
+  .ng-clear-wrapper {
+    text-align: center;
+  }
+
+  .ng-option {
+    text-transform: capitalize;
+  }
+
+
+  .ng-arrow-wrapper {
+    background: url('/assets/images/down-arrow.svg') no-repeat center center;
+    background-size: 10px auto;
+
+    .ng-arrow {
+      border: 0;
+    }
+  }
+
+}
+
+.error-message {
+  color: $color-error;
+  font-size: 10px;
+}
+
+.formLayout {
+  background: #fff url('/assets/images/form-bg.png') no-repeat right bottom;
+  background-size: 350px auto;
+  padding: 20px 30px 200px;
+  border-radius: 5px;
+}
+
+.is-loading {
+  span {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: loader-rotate 1s linear infinite;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin: 0 3px;
+  }
+}
+
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Booking Form
+.booking-form {
+  .booking-info {
+    .ng-select.ng-select-single .ng-select-container {
+      min-height: 40px;
+    }
+
+    .ng-select .ng-select-container .ng-value-container {
+      padding-left: 20px;
+    }
+
+    .ng-select .ng-arrow-wrapper {
+      width: 30px;
+    }
+
+  }
+
+  .form-control.ng-invalid.ng-touched {
+    background: #fff;
+  }
+
+  .error-message {
+    @include errorMessageBoxedStyle();
+  }
+}
+
+// Outlined Form
+.form-layout-outline {
+  .ng-select {
+    .ng-select-container {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      min-height: 44px;
+
+      .ng-value-container {
+        padding-left: 0;
+        border-top: 8px solid transparent;
+
+        .ng-placeholder {
+          color: #919191;
+          font-size: 15px;
+          position: absolute;
+          transform-origin: 0 0;
+          top: 8px;
+          transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+      }
+    }
+
+    .ng-has-value {
+      .ng-placeholder {
+        display: initial;
+      }
+    }
+
+    &.ng-select-opened {
+      .ng-select-container {
+        border: 0;
+
+        .ng-arrow {
+          top: 0;
+        }
+      }
+    }
+
+    &.ng-select-opened,
+    .ng-has-value {
+      .ng-placeholder {
+        transform: scale(0.8) translateY(-15px);
+      }
+    }
+
+    &.ng-select-focused {
+      .ng-value-container {
+        .ng-placeholder {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  .ng-select.ng-invalid.ng-touched .ng-select-container,
+  .form-control.ng-invalid.ng-touched {
+    background: transparent;
+  }
+
+  .error-message {
+    @include errorMessageBoxedStyle();
+  }
+}
+
+.floating-label {
+  margin: 0;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 10px 0 0;
+
+  // &:last-child {
+  //   border-bottom: 0;
+  // }
+
+  .form-control {
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    height: 50px;
+    z-index: 1;
+    position: relative;
+    padding: 0 25px;
+    color: #5d5e5e;
+  }
+
+  label {
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    left: 25px;
+    color: #919191;
+    font-weight: 400;
+    font-size: 15px;
+    white-space: nowrap;
+    transform-origin: 0 0;
+    transition-duration: 0.3s;
+    transition-property: color, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (max-width: 767px) {
+    .form-control {
+      padding: 0 20px;
+    }
+
+    label {
+      left: 20px;
+    }
+  }
+
+  // Focused & Filled States
+  &.focused,
+  &.filled {
+    label {
+      transform: scale(0.8) translateY(-15px);
+    }
+  }
+
+  &.focused {
+    label {
+      color: $color-primary;
+    }
+  }
+}
