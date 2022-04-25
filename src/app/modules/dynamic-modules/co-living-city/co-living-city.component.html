@@ -10,7 +10,7 @@
                 {{ removedash(pageTitle ? pageTitle : 'Coliving in ' + title) }}
             </h1>
 
-            <app-search-no-result *ngIf="!loading && !coLivings.length" [title]="'Co-Living'" [shouldShowContactForm]="true" [url]="'/co-living'">
+            <app-search-no-result *ngIf="!loading && !coLivings.length" [title]="'Co-Living'" [shouldShowContactForm]="true" [url]="noDataRouteUrl">
             </app-search-no-result>
 
             <app-search-card-loader *ngIf="loading">

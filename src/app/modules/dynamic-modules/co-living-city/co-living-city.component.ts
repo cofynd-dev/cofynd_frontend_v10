@@ -50,6 +50,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   country_name: any;
   countryId: any;
+  noDataRouteUrl: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -92,6 +93,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
               const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
               this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, city: filteredCity[0].id, ...params, ...prevParam };
               this.getOfficeList(this.queryParams);
+              this.noDataRouteUrl = `/${this.country_name}/co-living`
               this.page = params['page'] ? +params['page'] : 1;
               this.addSeoTags(this.title.toLowerCase());
             })
