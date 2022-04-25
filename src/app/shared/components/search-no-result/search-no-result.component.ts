@@ -13,4 +13,5 @@ export class SearchNoResultComponent {
   @Input() shouldShowContactForm: boolean = false;
   availableCities: City[] = AVAILABLE_CITY;
   @Input() type: string = 'for_office';
+
 }
