@@ -237,17 +237,11 @@
                 <app-input-validation [control]="enquiryForm.controls.phone_number">
                 </app-input-validation>
             </div>
-            <!-- <div class="col-md-12"
-        *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-        <input class="form-control"
-          type="password"
-          placeholder="OTP"
-          formControlName="otp"
-          appMaterialInput
-          autofocus />
-        <app-input-validation [control]="enquiryForm.controls.otp">
-        </app-input-validation>
-      </div> -->
+            <div class="col-md-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                <input class="form-control" type="password" placeholder="OTP" formControlName="otp" appMaterialInput autofocus />
+                <app-input-validation [control]="enquiryForm.controls.otp">
+                </app-input-validation>
+            </div>
 
             <div class="col-md-12" *ngIf="isCityVisible">
                 <div class="form-group">

@@ -191,9 +191,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   onSubmit() {
     this.enquiryForm.markAllAsTouched();
 
-    // if (this.enquiryForm.invalid) { // remove when otp service start
-    //   return;
-    // }
+    if (this.enquiryForm.invalid) {
+      return;
+    }
 
     if (this.isAuthenticated()) {
       this.createEnquiry();
@@ -212,7 +212,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
           this.loading = false;
           this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
           this.addValidationOnOtpField();
-          this.validateOtp(); // remove when otp service start
         },
         error => {
           this.loading = false;
@@ -227,8 +226,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   validateOtp() {
     const phone = this.enquiryForm.get('phone_number').value;
-    // const otp = this.enquiryForm.get('otp').value;
-    const otp = '0000' // remove when otp service start
+    const otp = this.enquiryForm.get('otp').value;
     this.loading = true;
     this.authService.verifyOtp(phone, otp).subscribe(
       () => {
