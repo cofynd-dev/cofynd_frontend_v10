@@ -108,11 +108,13 @@ export class WorkSpaceService {
 
 
   setStartingPrice(workspace: WorkSpace) {
+    console.log(workspace);
     if (workspace.plans.length) {
       const planPrice = workspace.plans.map(plan => {
         workspace.show_price = plan.should_show;
-        return plan.category !== WorkSpacePlan.DAY_PASS ? plan.price : null;
+        return plan.duration !== WorkSpacePlan.DAY_PASS ? plan.price : null;
       });
+      console.log(planPrice);
       const updatedWorkspace = workspace;
       workspace.starting_price = Math.min(...planPrice.filter(Boolean));
       let index = workspace.plans.findIndex(x => x.price == workspace.starting_price);

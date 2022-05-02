@@ -133,14 +133,14 @@ export interface SizeFilter {
 export enum WorkSpacePlan {
   HOT_DESK = 'hot-desk',
   DEDICATED_DESK = 'dedicated-desk',
-  DAY_PASS = 'day-pass',
+  DAY_PASS = 'day',
   PRIVATE_CABIN = 'private-cabin',
   VIRTUAL_OFFICE = "virtual-office"
 }
 
 export enum WorkSpacePlanType {
   'hot-desk' = 'hot desk',
-  'day-pass' = 'day pass',
+  'Day Pass' = 'Day Pass',
   'private-cabin' = 'private cabin',
   'dedicated-desk' = 'dedicated desk',
   'dedicated-pass' = 'dedicated pass',
