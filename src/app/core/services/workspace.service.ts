@@ -110,11 +110,17 @@ export class WorkSpaceService {
   setStartingPrice(workspace: WorkSpace) {
     console.log(workspace);
     if (workspace.plans.length) {
-      const planPrice = workspace.plans.map(plan => {
+      let planPrice = []
+      planPrice = workspace.plans.map(plan => {
         workspace.show_price = plan.should_show;
         return plan.duration !== WorkSpacePlan.DAY_PASS ? plan.price : null;
       });
-      console.log(planPrice);
+      if (planPrice.length == 1 && planPrice[0] == null) {
+        planPrice = workspace.plans.map(plan => {
+          workspace.show_price = plan.should_show;
+          return plan.duration == WorkSpacePlan.DAY_PASS ? plan.price : null;
+        });
+      }
       const updatedWorkspace = workspace;
       workspace.starting_price = Math.min(...planPrice.filter(Boolean));
       let index = workspace.plans.findIndex(x => x.price == workspace.starting_price);
