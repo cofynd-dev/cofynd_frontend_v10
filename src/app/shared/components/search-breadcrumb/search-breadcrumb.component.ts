@@ -18,6 +18,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   @Input() breadcrumbs: BreadCrumb[];
   @Input() typeFilterName: string = 'Type';
   @Input() breadcumbType: string = 'coworking';
+  @Input() priceFilters: any[] = [];
   @Input() resetButton: boolean = true;
   @Input() filter: boolean = false;
 
@@ -26,6 +27,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   @Output() typeFilterChanged: EventEmitter<SizeFilter> = new EventEmitter<SizeFilter>();
   @Output() sortTypeChanged: EventEmitter<SizeFilter> = new EventEmitter<SizeFilter>();
   @Output() mapViewChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() filterChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() onResetFilter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input() priceFilter: PriceFilter[];
@@ -37,12 +39,13 @@ export class SearchBreadcrumbComponent implements OnChanges {
   ];
 
   selectedPriceRange: PriceFilter;
+  selectedPriceRanges: any;
   selectedSizeRange: SizeFilter;
   selectedType: any;
   selectedSort: any;
   mobileView: boolean;
 
-  constructor() { }
+  constructor() {}
 
   @HostListener('window:resize', [])
   onResize() {
@@ -69,7 +72,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   }
   removedash(name: string) {
     if (name) {
-      return name.replace(/-/, ' ')
+      return name.replace(/-/, ' ');
     }
   }
 
@@ -82,6 +85,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
+    console.log(this.priceFilters);
     this.mobileView = window.screen.width < 500;
     if (!this.priceFilter || !this.priceFilter.length) {
       this.priceFilter = this.getPriceFilter();
@@ -156,6 +160,9 @@ export class SearchBreadcrumbComponent implements OnChanges {
 
   toggleMapView(event) {
     this.mapViewChanged.emit(event.target.checked);
+  }
+  onChange(data) {
+    this.filterChanged.emit(data);
   }
 
   resetFilter() {

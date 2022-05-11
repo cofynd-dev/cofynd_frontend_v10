@@ -13,12 +13,10 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { CoLiving } from '../../co-living/co-living.model';
 import { CoLivingService } from '../../co-living/co-living.service';
-import { script } from '../../../core/config/script'
+import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-
 
 @Component({
   selector: 'app-co-living-city',
@@ -40,7 +38,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   isScrolled: boolean;
   isSearchFooterVisible: boolean;
   seoData: SeoSocialShareData;
-
+  price_filters = [];
   // Pagination
   maxSize = 10;
   totalRecords: number;
@@ -51,6 +49,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   country_name: any;
   countryId: any;
   noDataRouteUrl: string;
+  number_record: number = 20;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -91,21 +90,25 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
               this.title = filteredCity[0].name;
               this.createBreadcrumb();
               const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
-              this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, city: filteredCity[0].id, ...params, ...prevParam };
+              this.queryParams = {
+                ...AppConstant.DEFAULT_SEARCH_PARAMS,
+                city: filteredCity[0].id,
+                ...params,
+                ...prevParam,
+              };
               this.getOfficeList(this.queryParams);
-              this.noDataRouteUrl = `/${this.country_name}/co-living`
+              this.noDataRouteUrl = `/${this.country_name}/co-living`;
               this.page = params['page'] ? +params['page'] : 1;
               this.addSeoTags(this.title.toLowerCase());
-            })
-          })
-        })
+            });
+          });
+        });
       });
     if (this.title) {
       for (let scrt of script.coliving[this.title]) {
-        this.setHeaderScript(scrt)
+        this.setHeaderScript(scrt);
       }
     }
-
   }
 
   createBreadcrumb() {
@@ -128,8 +131,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     ];
   }
 
-  getOfficeList(param: {}) {
+  getOfficeList(param: any = {}) {
     this.loading = true;
+    param.limit = 20;
+    this.number_record = 20;
+    this.price_filters.length = 0;
     this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data.sort((a: any, b: any) => {
         if (b.priority) {
@@ -137,9 +143,25 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         }
       });
 
+      // const found = this.coLivings.find(element => element.starting_price < 15000);
+      // const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+      // const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
+      // if (found) {
+      //   this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
+      // }
+
+      // if (found1) {
+      //   this.price_filters.push({ id: '29999', value: '15,000-30,000' });
+      // }
+      // if (found2) {
+      //   this.price_filters.push({ id: '30000', value: 'More than 30,000' });
+      // }
+
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-        const filteredLocations = this.availableCities.filter(city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim());
+        const filteredLocations = this.availableCities.filter(
+          city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim(),
+        );
         if (filteredLocations && filteredLocations.length) {
           this.popularLocation = filteredLocations[0].locations;
         }
@@ -259,7 +281,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.getOfficeList(this.queryParams);
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
 
   onPageScroll(event: { scroll: boolean; count: number }) {
@@ -279,6 +301,58 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.isSearchFooterVisible = true;
     } else {
       this.isSearchFooterVisible = false;
+    }
+  }
+  filterMapView(data) {
+    this.loading = true;
+    if (data == '') {
+      this.getOfficeList(this.queryParams);
+    } else {
+      this.queryParams.limit = 10000;
+      this.coLivingService.getCoLivings(sanitizeParams(this.queryParams)).subscribe(allOffices => {
+        let coLivings = allOffices.data.sort((a: any, b: any) => {
+          if (b.priority) {
+            return a.priority.location.order > b.priority.location.order ? 1 : -1;
+          }
+        });
+
+        if (+data == 29999) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+        }
+        if (+data == 15000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price < 15000);
+        }
+        if (+data == 30000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 30000);
+        }
+        if (data == '') {
+          this.coLivings = coLivings;
+        }
+        this.loading = false;
+        if (allOffices.data.length) {
+          const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
+
+          const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
+          if (filteredLocations && filteredLocations.length) {
+            this.popularLocation = filteredLocations[0].locations;
+          }
+
+          const IMAGE_STATIC_ALT = [
+            'Co Living Space in ' + altCity,
+            'Best Co Living Space in ' + altCity,
+            'Rented Co Living Space in ' + altCity,
+            'Shared Co Living Space in ' + altCity,
+          ];
+          this.coLivings[0].images.map((image, index) => {
+            image.image.alt = IMAGE_STATIC_ALT[index];
+          });
+        }
+        this.totalRecords = coLivings.length;
+        this.number_record = coLivings.length;
+
+        const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
+        this.setRelationCanonical(this.page, totalPageCount);
+      });
     }
   }
 

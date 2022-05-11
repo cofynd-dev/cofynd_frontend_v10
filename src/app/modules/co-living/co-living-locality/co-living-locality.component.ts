@@ -40,14 +40,15 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
 
   // Pagination
   maxSize = 10;
-  totalRecords: number;
+  totalRecords: number = 20;
   pageTitle: string;
   subTitle: string;
 
   popularLocation = [];
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
-
+  price_filters = [];
+  number_record: number;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -62,7 +63,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
-   // this.isMapView = true;
+    // this.isMapView = true;
   }
 
   ngOnInit() {
@@ -124,7 +125,10 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   getOfficeList(param: {}) {
+    this.price_filters.length = 0;
     this.loading = true;
+    this.queryParams.limit = 20;
+    this.number_record = 20;
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data;
 
@@ -145,6 +149,20 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.coLivings[0].images.map((image, index) => {
           image.image.alt = IMAGE_STATIC_ALT[index];
         });
+      }
+
+      const found = this.coLivings.find(element => element.starting_price < 15000);
+      const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+      const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
+      if (found) {
+        this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
+      }
+
+      if (found1) {
+        this.price_filters.push({ id: '29999', value: '15,000-30,000' });
+      }
+      if (found2) {
+        this.price_filters.push({ id: '30000', value: 'More than 30,000' });
       }
 
       this.totalRecords = allOffices.totalRecords;
@@ -169,7 +187,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         };
         this.seoService.setData(this.seoData);
       }
-    })
+    });
 
     // if (this.activatedRoute.snapshot.url[1].path) {
     //   console.log("fn run");
@@ -284,7 +302,59 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       this.isSearchFooterVisible = false;
     }
   }
+  filterMapView(data) {
+    this.loading = true;
+    if (data == '') {
+      this.getOfficeList(this.queryParams);
+    } else {
+      this.queryParams.limit = 10000;
+      delete this.queryParams.page;
+      this.coLivingService.getPopularCoLivings(sanitizeParams(this.queryParams)).subscribe(allOffices => {
+        let coLivings = allOffices.data.sort((a: any, b: any) => {
+          if (b.priority) {
+            return a.priority.location.order > b.priority.location.order ? 1 : -1;
+          }
+        });
 
+        if (+data == 29999) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+        }
+        if (+data == 15000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price < 15000);
+        }
+        if (+data == 30000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 30000);
+        }
+        if (data == '') {
+          this.coLivings = coLivings;
+        }
+        this.loading = false;
+        if (allOffices.data.length) {
+          const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
+
+          const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
+          if (filteredLocations && filteredLocations.length) {
+            this.popularLocation = filteredLocations[0].locations;
+          }
+
+          const IMAGE_STATIC_ALT = [
+            'Co Living Space in ' + altCity,
+            'Best Co Living Space in ' + altCity,
+            'Rented Co Living Space in ' + altCity,
+            'Shared Co Living Space in ' + altCity,
+          ];
+          this.coLivings[0].images.map((image, index) => {
+            image.image.alt = IMAGE_STATIC_ALT[index];
+          });
+        }
+        this.totalRecords = coLivings.length;
+        this.number_record = coLivings.length;
+
+        const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
+        this.setRelationCanonical(this.page, totalPageCount);
+      });
+    }
+  }
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
   }

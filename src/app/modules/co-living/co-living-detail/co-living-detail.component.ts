@@ -92,7 +92,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -245,7 +245,7 @@ export class CoLivingDetailComponent implements OnInit {
   scrollOnMap(scrollId: any) {
     document.getElementById(scrollId).scrollIntoView();
   }
-  haftAmenities: boolean = true
+  haftAmenities: boolean = true;
   toggleAmenitiesDiv() {
     this.haftAmenities = !this.haftAmenities;
   }
@@ -253,7 +253,6 @@ export class CoLivingDetailComponent implements OnInit {
   seeMore: boolean = true;
   toggleAboutMore() {
     this.seeMore = !this.seeMore;
-
   }
 
   ngOnDestroy() {

@@ -26,19 +26,26 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   openWorkSpace(coLiving) {
     console.log(coLiving);
-    if (coLiving.country_dbname !== 'India' && coLiving.country_dbname !== 'INDIA' && coLiving.country_dbname !== 'india') {
-      var url = `/${coLiving.country_dbname.toLowerCase().trim()}/co-living-details/${coLiving.slug.toLowerCase().trim()}`;
-      this.router.navigate([url])
+    if (
+      coLiving.country_dbname !== 'India' &&
+      coLiving.country_dbname !== 'INDIA' &&
+      coLiving.country_dbname !== 'india'
+    ) {
+      var url = `/${coLiving.country_dbname
+        .toLowerCase()
+        .trim()}/co-living-details/${coLiving.slug.toLowerCase().trim()}`;
+      this.router.navigate([url]);
+      // window.open(url, '_blank');
     } else {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${coLiving.slug}`]));
-      this.router.navigate([url])
-      // window.open(url, '_blank');
+      this.router.navigate([url]);
+      window.open(url, '_blank');
     }
   }
 

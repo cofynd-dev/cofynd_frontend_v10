@@ -1,5 +1,6 @@
 <app-search-breadcrumb [breadcrumbs]="breadcrumbs"
   [isPriceFilter]="true"
+  [priceFilters]="price_filters"
   [isSortFilter]="true"
   breadcumbType='coliving'
   (priceFilterChanged)="onFilterPriceChange($event)"
@@ -7,6 +8,7 @@
   (onResetFilter)="resetFilter()"
   [isPageScrolled]="false"
   [breadcrumbs]="breadcrumbs"
+  (filterChanged)="filterMapView($event)"
   (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 
@@ -66,7 +68,7 @@
       <div *ngIf="!loading"
         class="pagination-container">
         <pagination [totalItems]="totalRecords"
-          [itemsPerPage]="20"
+          [itemsPerPage]="number_record"
           [(ngModel)]="page"
           [maxSize]="maxSize"
           (pageChanged)="loadMore($event)">

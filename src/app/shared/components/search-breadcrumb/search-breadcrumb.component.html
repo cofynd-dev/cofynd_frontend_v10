@@ -2,7 +2,7 @@
   [class.fixed]="isPageScrolled">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-5">
+      <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a [routerLink]="['/']">home</a></li>
@@ -127,6 +127,15 @@
             </div>
           </ng-template>
         </div>
+      </div>
+
+      <div class="col-md-1 form-group" *ngIf="breadcumbType === 'coliving' && priceFilters.length > 0">
+          <select style="margin-top: 5px; height: 32px;" class="form-select form-select-sm" (change)="onChange($event.target.value)">
+            <option value="">Select Price </option>
+            <option *ngFor="let price of priceFilters; index as i" [value]="price.id">{{price?.value}}</option>
+            <!-- <option value="29999">15,000-30,000</option>
+            <option value="30000">More than 30,000</option> -->
+          </select>
       </div>
 
       <div class="col-md-1">

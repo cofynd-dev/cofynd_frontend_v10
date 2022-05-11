@@ -50,7 +50,8 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   IMAGE_STATIC_ALT = [];
   country_name: any;
   countryId: any;
-
+  price_filters = [];
+  number_record: number = 20;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -109,7 +110,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
               this.setHeaderScript(scrt);
             }
           }
-        })
+        });
       });
   }
 
@@ -138,10 +139,27 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     ];
   }
 
-  getOfficeList(param: {}) {
+  getOfficeList(param: any = {}) {
     this.loading = true;
+    this.coLivings.length = 0;
+    this.price_filters.length = 0;
+    param.limit = 20;
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data;
+
+      const found = this.coLivings.find(element => element.starting_price < 15000);
+      const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+      const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
+      if (found) {
+        this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
+      }
+
+      if (found1) {
+        this.price_filters.push({ id: '29999', value: '15,000-30,000' });
+      }
+      if (found2) {
+        this.price_filters.push({ id: '30000', value: 'More than 30,000' });
+      }
 
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
@@ -163,6 +181,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       }
 
       this.totalRecords = allOffices.totalRecords;
+      this.number_record = this.coLivings.length;
       this.loading = false;
       const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
       this.setRelationCanonical(this.page, totalPageCount);
@@ -184,7 +203,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         };
         this.seoService.setData(this.seoData);
       }
-    })
+    });
 
     // if (this.activatedRoute.snapshot.url[1].path) {
     //   console.log("fn run");
@@ -297,6 +316,57 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       this.isSearchFooterVisible = true;
     } else {
       this.isSearchFooterVisible = false;
+    }
+  }
+  filterMapView(data) {
+    this.loading = true;
+
+    if (data == '') {
+      this.getOfficeList(this.queryParams);
+    } else {
+      this.coLivingService.getPopularCoLivings(sanitizeParams(this.queryParams)).subscribe(allOffices => {
+        let coLivings = allOffices.data.sort((a: any, b: any) => {
+          if (b.priority) {
+            return a.priority.location.order > b.priority.location.order ? 1 : -1;
+          }
+        });
+
+        if (+data == 29999) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+        }
+        if (+data == 15000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price < 15000);
+        }
+        if (+data == 30000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 30000);
+        }
+        if (data == '') {
+          this.coLivings = coLivings;
+        }
+        this.loading = false;
+        if (allOffices.data.length) {
+          const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
+
+          const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
+          if (filteredLocations && filteredLocations.length) {
+            this.popularLocation = filteredLocations[0].locations;
+          }
+
+          const IMAGE_STATIC_ALT = [
+            'Co Living Space in ' + altCity,
+            'Best Co Living Space in ' + altCity,
+            'Rented Co Living Space in ' + altCity,
+            'Shared Co Living Space in ' + altCity,
+          ];
+          this.coLivings[0].images.map((image, index) => {
+            image.image.alt = IMAGE_STATIC_ALT[index];
+          });
+        }
+        this.totalRecords = coLivings.length;
+        this.number_record = coLivings.length;
+        const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
+        this.setRelationCanonical(this.page, totalPageCount);
+      });
     }
   }
 

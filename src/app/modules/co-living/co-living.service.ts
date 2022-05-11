@@ -10,7 +10,7 @@ import { CoLiving } from './co-living.model';
   providedIn: 'root',
 })
 export class CoLivingService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/coLivingSpaces?${params}`).pipe(
@@ -58,9 +58,9 @@ export class CoLivingService {
     if (coLiving.coliving_plans) {
       let data = coLiving.coliving_plans;
       if (data.length > 0) {
-        data.map((v) => {
-          prices.push(v.price)
-        })
+        data.map(v => {
+          prices.push(v.price);
+        });
       } else {
         prices = Object.values(coLiving.price);
       }

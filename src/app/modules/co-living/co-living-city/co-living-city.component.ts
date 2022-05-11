@@ -13,7 +13,7 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
-import { script } from '../../../core/config/script'
+import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
@@ -44,7 +44,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
   popularLocation = [];
   breadcrumbs: BreadCrumb[];
-
+  price_filters = [];
+  number_record: number = 20;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -66,7 +67,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      this.title = this.activatedRoute.snapshot.url[0].path,
+      (this.title = this.activatedRoute.snapshot.url[0].path),
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
           localStorage.setItem('country_name', res.data.country.name);
           localStorage.setItem('country_id', res.data.country.id);
@@ -76,18 +77,22 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           this.title = filteredCity[0].name;
           this.createBreadcrumb();
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
-          this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, city: filteredCity[0].id, ...params, ...prevParam };
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            city: filteredCity[0].id,
+            ...params,
+            ...prevParam,
+          };
           this.getOfficeList(this.queryParams);
           this.page = params['page'] ? +params['page'] : 1;
           this.addSeoTags(this.title.toLowerCase());
-        })
+        });
     });
     if (this.title) {
       for (let scrt of script.coliving[this.title]) {
-        this.setHeaderScript(scrt)
+        this.setHeaderScript(scrt);
       }
     }
-
   }
 
   createBreadcrumb() {
@@ -105,8 +110,14 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     ];
   }
 
-  getOfficeList(param: {}) {
+  getOfficeList(param: any = {}) {
+    this.price_filters.length = 0;
+    this.number_record = 20;
     this.loading = true;
+    // (param.limit = 100000),
+    // (param.maxPrice = 15000),
+    // param.minPrice = 15000;
+    // param.maxPrice = 30000;
     this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data.sort((a: any, b: any) => {
         if (b.priority) {
@@ -132,7 +143,18 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           image.image.alt = IMAGE_STATIC_ALT[index];
         });
       }
-
+      const found = this.coLivings.find(element => element.starting_price < 15000);
+      const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+      const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
+      if (found) {
+        this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
+      }
+      if (found1) {
+        this.price_filters.push({ id: '29999', value: '15,000-30,000' });
+      }
+      if (found2) {
+        this.price_filters.push({ id: '30000', value: 'More than 30,000' });
+      }
       this.totalRecords = allOffices.totalRecords;
       this.loading = false;
       const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
@@ -199,6 +221,61 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
   toggleMapView(isMapView: boolean) {
     this.isMapView = isMapView;
+  }
+  filterMapView(data) {
+    if (data == '') {
+      this.getOfficeList(this.queryParams);
+    } else {
+      localStorage.setItem('range_', data);
+      this.loading = true;
+      let obj = {
+        limit: 10000,
+        city: this.queryParams.city,
+      };
+      this.coLivingService.getCoLivings(sanitizeParams(obj)).subscribe(allOffices => {
+        let coLivings = allOffices.data.sort((a: any, b: any) => {
+          if (b.priority) {
+            return a.priority.location.order > b.priority.location.order ? 1 : -1;
+          }
+        });
+
+        if (+data == 29999) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
+        }
+        if (+data == 15000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price < 15000);
+        }
+        if (+data == 30000) {
+          this.coLivings = coLivings.filter(obj => obj.starting_price >= 30000);
+        }
+        if (data == '') {
+          this.coLivings = coLivings;
+        }
+        this.loading = false;
+        if (allOffices.data.length) {
+          const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
+
+          const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
+          if (filteredLocations && filteredLocations.length) {
+            this.popularLocation = filteredLocations[0].locations;
+          }
+
+          const IMAGE_STATIC_ALT = [
+            'Co Living Space in ' + altCity,
+            'Best Co Living Space in ' + altCity,
+            'Rented Co Living Space in ' + altCity,
+            'Shared Co Living Space in ' + altCity,
+          ];
+          this.coLivings[0].images.map((image, index) => {
+            image.image.alt = IMAGE_STATIC_ALT[index];
+          });
+        }
+        this.totalRecords = coLivings.length;
+        this.number_record = coLivings.length;
+        const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
+        this.setRelationCanonical(this.page, totalPageCount);
+      });
+    }
   }
 
   onSortTypeChange(sort) {
