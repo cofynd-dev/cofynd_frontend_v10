@@ -42,16 +42,22 @@ export class SearchCardComponent implements AfterViewInit {
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-  ) { }
+  ) {}
 
   openWorkSpace(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
-    if (workspace.country_dbname == 'india' || workspace.country_dbname == 'India' || workspace.country_dbname == 'INDIA') {
+    if (
+      workspace.country_dbname == 'india' ||
+      workspace.country_dbname == 'India' ||
+      workspace.country_dbname == 'INDIA'
+    ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
       this.router.navigateByUrl(url);
     } else {
-      var url = `/${workspace.country_dbname.toLowerCase().trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
+      var url = `/${workspace.country_dbname
+        .toLowerCase()
+        .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
       this.router.navigate([url]);
       // window.open(url, "_blank")
     }
@@ -59,10 +65,16 @@ export class SearchCardComponent implements AfterViewInit {
   openDetailsPage(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
-    if (workspace.country_dbname == 'india' || workspace.country_dbname == 'India' || workspace.country_dbname == 'INDIA') {
+    if (
+      workspace.country_dbname == 'india' ||
+      workspace.country_dbname == 'India' ||
+      workspace.country_dbname == 'INDIA'
+    ) {
       this.router.navigate([`/coworking/${workspace.slug.toLowerCase().trim()}`]);
     } else {
-      var url = `/${workspace.country_dbname.toLowerCase().trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
+      var url = `/${workspace.country_dbname
+        .toLowerCase()
+        .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
       this.router.navigate([url]);
     }
   }

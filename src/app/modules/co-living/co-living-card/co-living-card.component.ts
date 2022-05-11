@@ -32,8 +32,8 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
 
   openWorkSpace(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${slug}`]));
-    this.router.navigate([url]);
-    // window.open(url, '_blank');
+    // this.router.navigate([url]);
+    window.open(url, '_blank');
   }
 
   getFloorSuffix(floor: number) {

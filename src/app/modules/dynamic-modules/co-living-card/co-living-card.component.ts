@@ -40,8 +40,8 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
       var url = `/${coLiving.country_dbname
         .toLowerCase()
         .trim()}/co-living-details/${coLiving.slug.toLowerCase().trim()}`;
-      this.router.navigate([url]);
-      // window.open(url, '_blank');
+      // this.router.navigate([url]);
+      window.open(url, '_blank');
     } else {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${coLiving.slug}`]));
       this.router.navigate([url]);
