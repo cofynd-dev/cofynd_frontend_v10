@@ -66,7 +66,7 @@ export const AVAILABLE_CITY = [
       'Unitech Cyber Park',
       'Sushant Lok',
       'Sector 57',
-      'Manesar'
+      'Manesar',
     ],
   },
   {
@@ -299,14 +299,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
-    locations: [
-      'Salt Lake',
-      'Rajarhat',
-      'Dalhousie',
-      'Howrah',
-      'Bidhannagar',
-      'Bhowanipur',
-    ],
+    locations: ['Salt Lake', 'Rajarhat', 'Dalhousie', 'Howrah', 'Bidhannagar', 'Bhowanipur'],
   },
   {
     name: 'coimbatore',
@@ -315,12 +308,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
-    locations: [
-      'Ramanathapuram',
-      'RS Puram',
-      'Eachanari',
-      'Cross Cut Road',
-    ],
+    locations: ['Ramanathapuram', 'RS Puram', 'Eachanari', 'Cross Cut Road'],
   },
   {
     name: 'goa',
@@ -418,8 +406,10 @@ export const AVAILABLE_CITY_CO_LIVING = [
       'Sector 48',
       'Sector 47',
       'Sector 44',
+      'Sector 45',
       'Sector 43',
       'Sector 42',
+      'Sector 52',
       'Sector 53',
       'Sector 54',
       'Sector 55',
@@ -938,7 +928,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     id: '5e3e77de936bc06de1f9a5e2',
@@ -948,7 +938,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     id: '5f2a4210ecdb5a5d67f0bbbc',
@@ -958,7 +948,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     id: '5f338a5f59d5584617676837',
@@ -968,7 +958,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     id: '5e3eb83c18c88277e8142795',
@@ -978,7 +968,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     id: '5f5b1f728bbbb85328976417',
@@ -988,7 +978,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: true,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     name: 'indore',
@@ -998,7 +988,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     name: 'ahmedabad',
@@ -1008,7 +998,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     name: 'kochi',
@@ -1018,7 +1008,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
   {
     name: 'chennai',
@@ -1028,6 +1018,6 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
-    locations: []
+    locations: [],
   },
-]
+];

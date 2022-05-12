@@ -53,13 +53,14 @@ export class SearchCardComponent implements AfterViewInit {
       workspace.country_dbname == 'INDIA'
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
-      this.router.navigateByUrl(url);
+      // this.router.navigateByUrl(url);
+      window.open(url, '_blank');
     } else {
       var url = `/${workspace.country_dbname
         .toLowerCase()
         .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
-      this.router.navigate([url]);
-      // window.open(url, "_blank")
+      // this.router.navigate([url]);
+      window.open(url, '_blank');
     }
   }
   openDetailsPage(workspace) {
