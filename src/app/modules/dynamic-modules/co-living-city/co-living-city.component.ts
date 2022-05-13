@@ -76,6 +76,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
           this.title = results.routeParams[1].path;
           this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
+            this.country_name = res.data.country.name;
             localStorage.setItem('country_name', res.data.country.name);
             localStorage.setItem('country_id', res.data.country.id);
             this.workSpaceService.getCity(res.data.country.id).subscribe((res: any) => {

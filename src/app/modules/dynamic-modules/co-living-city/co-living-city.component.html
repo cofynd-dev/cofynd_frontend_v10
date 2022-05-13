@@ -16,7 +16,7 @@
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
 
-            <app-search-similar-location *ngIf="!loading" [relativeUrl]="'co-living'" [cityName]="title" [isPageScrolled]="isScrolled" [popularLocationList]="popularLocation">
+            <app-search-similar-location *ngIf="!loading" [relativeUrl]="'co-living'" [cityName]="title" [isPageScrolled]="isScrolled" [popularLocationList]="popularLocation" [country_names]="country_name">
             </app-search-similar-location>
 
             <div class="row" *ngIf="!loading">

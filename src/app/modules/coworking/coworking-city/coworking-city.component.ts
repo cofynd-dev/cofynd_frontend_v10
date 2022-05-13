@@ -51,6 +51,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
+  country_name: string = '';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -75,6 +76,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       .subscribe(results => {
         this.title = results.routeParams[0].path;
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
+          this.country_name = res.data.country.name;
           localStorage.setItem('country_name', res.data.country.name);
           localStorage.setItem('country_id', res.data.country.id);
           const filteredCity = this.availableCities.filter(
@@ -111,13 +113,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           }
           this.createBreadcrumb();
           this.loadWorkSpaces(this.queryParams);
-          console.log(this.workSpaces)
+          console.log(this.workSpaces);
         });
       });
 
     if (this.title) {
       for (let scrt of script.coworking[this.title]) {
-        this.setHeaderScript(scrt)
+        this.setHeaderScript(scrt);
       }
     }
   }

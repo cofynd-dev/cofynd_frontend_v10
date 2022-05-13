@@ -19,6 +19,7 @@
       <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length"
         [cityName]="title"
         [relativeUrl]="'coworking'"
+        [country_names]="country_name"
         [popularLocationList]="cityWisePopularLocation">
       </app-search-similar-location>
 

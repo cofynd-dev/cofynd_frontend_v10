@@ -46,6 +46,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   price_filters = [];
   number_record: number = 20;
+  country_name: string = '';
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -69,6 +70,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       (this.title = this.activatedRoute.snapshot.url[0].path),
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
+          this.country_name = res.data.country.name;
           localStorage.setItem('country_name', res.data.country.name);
           localStorage.setItem('country_id', res.data.country.id);
           const filteredCity = this.availableCities.filter(
@@ -114,6 +116,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.price_filters.length = 0;
     this.number_record = 20;
     this.loading = true;
+    // this.coLivings.length = 0;
     // (param.limit = 100000),
     // (param.maxPrice = 15000),
     // param.minPrice = 15000;
