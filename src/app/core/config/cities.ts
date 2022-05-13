@@ -190,6 +190,8 @@ export const AVAILABLE_CITY = [
       'Baner',
       'Aundh',
       'Kharadi',
+      'Shivaji Nagar',
+      'Balewadi',
       'Viman Nagar',
       'Wakad',
       'Hinjewadi',
