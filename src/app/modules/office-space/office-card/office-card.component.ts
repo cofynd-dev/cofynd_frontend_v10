@@ -38,6 +38,11 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
   getFloorSuffix(floor: number) {
     return !isNaN(floor) ? intToOrdinalNumberString(floor) : floor;
   }
+  getoffceType(type: string) {
+    let stringToReplace = type;
+    var desired = stringToReplace.replace(/[^\w\s]/gi, ' ');
+    return desired;
+  }
 
   ngAfterViewInit() {
     this.cdr.detectChanges();

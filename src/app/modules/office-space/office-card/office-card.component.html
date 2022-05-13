@@ -27,7 +27,8 @@
     </p>
     <p class="capacity">
       <i class="building-icon"></i>
-      {{ getFloorSuffix(office.location.floor) }} Floor
+      <!-- {{ getFloorSuffix(office.location.floor) }} Floor -->
+      {{ getoffceType(office.other_detail.office_type) | titlecase}}
     </p>
     <hr />
     <div class="price-box">
