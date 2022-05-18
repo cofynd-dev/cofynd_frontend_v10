@@ -26,9 +26,9 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   openWorkSpace(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/office-space/rent/${slug}`]));

@@ -1,46 +1,32 @@
 <div class="listing-card">
-  <div class="image"
-    *ngIf="office.images.length">
-    <ngu-carousel [inputs]="carouselTile"
-      [dataSource]="office.images">
-      <div *nguCarouselDef="let images; let i = index;"
-        class="item">
-        <img (click)="openWorkSpace(office.slug)"
-          [lazyLoad]="images?.image?.s3_link"
-          style="display: block; height: 100%; width: 100%;"
-          [alt]="images?.image?.alt ? images?.image?.alt : ''">
-      </div>
-      <button NguCarouselPrev
-        class='carousel-arrow icon-back'></button>
-      <button NguCarouselNext
-        class='carousel-arrow icon-next'></button>
-    </ngu-carousel>
-  </div>
-  <div class="image"
-    *ngIf="!office.images.length"></div>
-  <div class="detail"
-    (click)="openWorkSpace(office.slug)">
-    <h4 class="text-capitalize">{{ office.name }}</h4>
-    <p class="address">
-      <i class="icon-location-outline"></i>
-      {{ office.location.address }}
-    </p>
-    <p class="capacity">
-      <i class="building-icon"></i>
-      <!-- {{ getFloorSuffix(office.location.floor) }} Floor -->
-      {{ getoffceType(office.other_detail.office_type) | titlecase}}
-    </p>
-    <hr />
-    <div class="price-box">
-      <div class="price">
-        <span>Monthly Rent*</span>
-        <i
-          class="icon-rupee"></i>{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}
-      </div>
-      <a target="_blank"
-        [routerLink]="['/office-space/rent/', office.slug]"
-        class="btn-link">Explore Now<small class="icon-next"></small>
-      </a>
+    <div class="image" *ngIf="office.images.length">
+        <ngu-carousel [inputs]="carouselTile" [dataSource]="office.images">
+            <div *nguCarouselDef="let images; let i = index;" class="item">
+                <img (click)="openWorkSpace(office.slug)" [lazyLoad]="images?.image?.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
+            </div>
+            <button NguCarouselPrev class='carousel-arrow icon-back'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next'></button>
+        </ngu-carousel>
     </div>
-  </div>
+    <div class="image" *ngIf="!office.images.length"></div>
+    <div class="detail" (click)="openWorkSpace(office.slug)">
+        <h4 class="text-capitalize">{{ office.name }}</h4>
+        <p class="address">
+            <i class="icon-location-outline"></i> {{ office.location.address }}
+        </p>
+        <p class="capacity">
+            <i class="building-icon"></i>
+            <!-- {{ getFloorSuffix(office.location.floor) }} Floor -->
+            {{ getoffceType(office.other_detail.office_type) | titlecase}}
+        </p>
+        <hr />
+        <div class="price-box">
+            <div class="price">
+                <span>Monthly Rent*</span>
+                <i class="icon-rupee"></i>{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}
+            </div>
+            <a target="_blank" [routerLink]="['/office-space/rent/', office.slug]" class="btn-link">Explore Now<small class="icon-next"></small>
+      </a>
+        </div>
+    </div>
 </div>

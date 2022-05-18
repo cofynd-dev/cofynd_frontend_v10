@@ -42,7 +42,7 @@ export class SearchCardComponent implements AfterViewInit {
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-  ) {}
+  ) { }
 
   openWorkSpace(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
