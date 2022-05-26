@@ -97,7 +97,7 @@ export const AVAILABLE_CITY = [
     name: 'bangalore',
     icon: 'bangalore.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Koramangala',
@@ -133,7 +133,7 @@ export const AVAILABLE_CITY = [
     name: 'hyderabad',
     icon: 'hyderabad.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Madhapur',
@@ -152,7 +152,7 @@ export const AVAILABLE_CITY = [
     name: 'mumbai',
     icon: 'mumbai.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Navi Mumbai',
@@ -184,7 +184,7 @@ export const AVAILABLE_CITY = [
     name: 'pune',
     icon: 'pune.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Baner',
@@ -220,7 +220,7 @@ export const AVAILABLE_CITY = [
     icon: 'indore.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['AB Road', 'LIC Colony', 'Ratna Lok Colony', 'Ravindra Nagar', 'South Tukoganj', 'Vijay Nagar'],
   },
   {
@@ -229,7 +229,7 @@ export const AVAILABLE_CITY = [
     icon: 'chennai.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['Guindy', 'Anna Nagar', 'OMR', 'Nungambakkam', 'Adyar', 'T Nagar', 'Velachery'],
   },
   {
@@ -247,7 +247,7 @@ export const AVAILABLE_CITY = [
     icon: 'kochi.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['Ernakulam', 'Kadavanthra', 'Kakkanad', 'VIP Road'],
   },
   {
@@ -274,7 +274,7 @@ export const AVAILABLE_CITY = [
     icon: 'jaipur.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: [
       'Vaishali Nagar',
       'Indarpuri',
@@ -300,7 +300,7 @@ export const AVAILABLE_CITY = [
     icon: 'kolkata.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['Salt Lake', 'Rajarhat', 'Dalhousie', 'Howrah', 'Bidhannagar', 'Bhowanipur'],
   },
   {
@@ -309,7 +309,7 @@ export const AVAILABLE_CITY = [
     icon: 'coimbatore.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['Ramanathapuram', 'RS Puram', 'Eachanari', 'Cross Cut Road'],
   },
   {
@@ -318,7 +318,7 @@ export const AVAILABLE_CITY = [
     icon: 'goa.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: ['Margao', 'Anjuna', 'Panaji'],
   },
   {
@@ -327,7 +327,7 @@ export const AVAILABLE_CITY = [
     icon: 'dehradun.jpeg',
     for_coWorking: false,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: [],
   },
   {
@@ -336,7 +336,7 @@ export const AVAILABLE_CITY = [
     icon: 'bhuvneshwar.jpeg',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: [],
   },
 ];
@@ -404,6 +404,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
       'DLF Phase 3',
       'DLF Phase 4',
       'DLF Phase 5',
+      'Sector 31',
       'Sector 69',
       'Sector 48',
       'Sector 47',
@@ -462,7 +463,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     name: 'bangalore',
     icon: 'bangalore.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Koramangala',
@@ -525,7 +526,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     name: 'hyderabad',
     icon: 'hyderabad.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Gachibowli',
@@ -552,7 +553,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     name: 'mumbai',
     icon: 'mumbai.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Thane',
@@ -584,7 +585,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     name: 'pune',
     icon: 'pune.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     locations: [
       'Baner',
@@ -883,7 +884,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     icon: 'coimbatore.png',
     for_coWorking: true,
     for_office: false,
-    for_coLiving: true,
+    for_coLiving: false,
     locations: [
       'Panjim',
       'Mapusa',
@@ -947,7 +948,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'bangalore',
     icon: 'bangalore.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
     locations: [],
@@ -957,7 +958,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'hyderabad',
     icon: 'hyderabad.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
     locations: [],
@@ -967,7 +968,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'pune',
     icon: 'pune.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
     locations: [],
@@ -977,7 +978,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'mumbai',
     icon: 'mumbai.svg',
     for_coWorking: true,
-    for_office: true,
+    for_office: false,
     for_coLiving: true,
     for_virtualOffice: true,
     locations: [],

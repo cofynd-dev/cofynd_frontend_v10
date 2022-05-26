@@ -42,12 +42,21 @@ export class HomeCitiesComponent {
       .catch(error => console.log(error));
   }
 
-  openModal(city) {
-    this.bsModalService.show(HomeCityPopupComponent, {
-      class: 'modal-dialog-centered',
-      initialState: {
-        city,
-      },
-    });
+  openModal(cityData, city) {
+    console.log(cityData);
+    if (cityData.for_coLiving == true && cityData.for_coWorking == true) {
+      this.bsModalService.show(HomeCityPopupComponent, {
+        class: 'modal-dialog-centered',
+        initialState: {
+          city,
+        },
+      });
+    }
+    if (cityData.for_coWorking == true && cityData.for_coLiving == false) {
+      this.router.navigate([`/coworking/${cityData.name}`])
+    }
+    if (cityData.for_coWorking == false && cityData.for_coLiving == true) {
+      this.router.navigate([`/co-living/${cityData.name}`])
+    }
   }
 }

@@ -14,7 +14,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
   @Input() relativeUrl: string;
   @Input() isPageScrolled: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   getSlug(location: string) {
     console.log(generateSlug(location));
