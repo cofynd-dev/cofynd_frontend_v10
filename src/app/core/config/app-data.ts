@@ -32,31 +32,31 @@ export const DEFAULT_APP_DATA = {
   ],
 
   footerLinks: [
-    {
-      name: 'Spaces on Golf Course Road',
-      city: 'gurugram',
-      slug: 'golf-course-road',
-    },
-    {
-      name: 'Spaces in DLF Cyber City',
-      city: 'gurugram',
-      slug: 'dlf-cyber-city',
-    },
-    {
-      name: 'Spaces in Udyog Vihar',
-      city: 'gurugram',
-      slug: 'udyog-vihar-gurugram',
-    },
-    {
-      name: 'Spaces in Saket',
-      city: 'delhi',
-      slug: 'saket-delhi',
-    },
-    {
-      name: 'Spaces in Connaught Place',
-      city: 'delhi',
-      slug: 'connaught-place',
-    },
+    // {
+    //   name: 'Spaces on Golf Course Road',
+    //   city: 'gurugram',
+    //   slug: 'golf-course-road',
+    // },
+    // {
+    //   name: 'Spaces in DLF Cyber City',
+    //   city: 'gurugram',
+    //   slug: 'dlf-cyber-city',
+    // },
+    // {
+    //   name: 'Spaces in Udyog Vihar',
+    //   city: 'gurugram',
+    //   slug: 'udyog-vihar-gurugram',
+    // },
+    // {
+    //   name: 'Spaces in Saket',
+    //   city: 'delhi',
+    //   slug: 'saket-delhi',
+    // },
+    // {
+    //   name: 'Spaces in Connaught Place',
+    //   city: 'delhi',
+    //   slug: 'connaught-place',
+    // },
   ],
 
   footerCoworkingLinks: [

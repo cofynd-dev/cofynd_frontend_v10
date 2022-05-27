@@ -46,7 +46,7 @@ export class HeaderComponent implements AfterViewInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.menuPopularCoWorkings = AVAILABLE_CITY.filter(city => city.for_coWorking === true);
+    this.menuPopularCoWorkings = AVAILABLE_CITY.filter(city => city.for_coWorking === true && city.id !== '5f8d3541c2502350f24feeb6');
     this.menuPopularOffices = AVAILABLE_CITY.filter(city => city.for_office === true);
     this.menuPopularCoLiving = AVAILABLE_CITY_CO_LIVING.filter(city => city.id !== '5f9bf559c2502350f2500152');
     router.events.subscribe(() => {

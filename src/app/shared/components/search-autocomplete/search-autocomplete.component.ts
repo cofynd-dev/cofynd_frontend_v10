@@ -51,7 +51,7 @@ export class SearchAutocompleteComponent implements OnInit, OnDestroy {
     private readonly coLivingService: CoLivingService,
     private readonly officeSpaceService: OfficeSpaceService,
     private readonly el: ElementRef,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.searchResult$ = this.searchSubject.pipe(

@@ -14,7 +14,7 @@
             <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
                 <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
         </button>
-                <app-search-autocomplete [placeholder]="'Start typing location (Delhi, Gurgaon, Noida, Bangalore)'" (locationSelected)="closeMobileSearch()">
+                <app-search-autocomplete [placeholder]="'Start typing location'" (locationSelected)="closeMobileSearch()">
                 </app-search-autocomplete>
             </div>
         </div>
@@ -127,7 +127,7 @@
                 </ul>
             </li>
             <li>
-                <h5 class="mb-2 mt-4" routerLink="/coworking" (click)="closeMobileMenu()">Popular Coworking</h5>
+                <h5 class="mb-2 mt-4" routerLink="/coworking" (click)="closeMobileMenu()">Coworking</h5>
                 <ul class="city-list">
                     <li *ngFor="let city of menuPopularCoWorkings;">
                         <a class="text-capitalize city-name" [routerLink]="'/coworking/' + city.name" (click)="closeMobileMenu()">
@@ -139,7 +139,7 @@
                 </ul>
             </li>
             <li>
-                <h5 class="mb-2 mt-4" routerLink="/co-living" (click)="closeMobileMenu()">Popular Coliving</h5>
+                <h5 class="mb-2 mt-4" routerLink="/co-living" (click)="closeMobileMenu()">Coliving</h5>
                 <ul class="city-list">
                     <li *ngFor="let city of menuPopularCoLiving;">
                         <a class="text-capitalize city-name" [routerLink]="'/co-living/' + city.name" (click)="closeMobileMenu()">
@@ -150,18 +150,18 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <h5 class="mb-2 mt-4" routerLink="/office-space/rent" (click)="closeMobileMenu()">Popular Offices</h5>
+            <!-- <li>
+                <h5 class="mb-2 mt-4" routerLink="/office-space/rent" (click)="closeMobileMenu()">Offices</h5>
                 <ul class="city-list mb-2">
                     <li *ngFor="let city of menuPopularOffices;">
                         <a class="text-capitalize city-name" [routerLink]="'/office-space/rent/' + city.name" (click)="closeMobileMenu()">
-                            <!-- <img [src]="'/assets/images/city/' + city.icon"
-                alt=""> -->
+                             <img [src]="'/assets/images/city/' + city.icon"
+                alt=""> 
                             {{ city.name }}
-                        </a>
+                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
             <li class="spacer-item"><a routerLink="/list-your-space" (click)="closeMobileMenu()">List Your Space</a></li>
             <li class="spacer-item"><a routerLink="/about-us" (click)="closeMobileMenu()">About CoFynd</a></li>
