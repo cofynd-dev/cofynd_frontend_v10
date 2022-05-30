@@ -162,7 +162,7 @@
                     </li>
                 </ul>
             </li> -->
-
+            <br>
             <li class="spacer-item"><a routerLink="/list-your-space" (click)="closeMobileMenu()">List Your Space</a></li>
             <li class="spacer-item"><a routerLink="/about-us" (click)="closeMobileMenu()">About CoFynd</a></li>
             <li class="spacer-item"><a routerLink="/contact-us" (click)="closeMobileMenu()">Connect CoFynd</a></li>
@@ -171,7 +171,9 @@
                 <h5>GET IN TOUCH</h5>
             </li>
             <li>
-                <a class="btn btn-primary enquiry-btn" (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}
+                <a (click)="closeMobileMenu()" style="color: blue;" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}
+        </a>
+                <a style="text-transform: none; color: blue;">hello@cofynd.com
         </a>
             </li>
         </ul>
