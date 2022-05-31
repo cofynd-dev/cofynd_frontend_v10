@@ -7,7 +7,7 @@ export const AVAILABLE_CITY = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Connaught Place',
       'South Delhi',
       'Dwarka Delhi',
@@ -54,7 +54,7 @@ export const AVAILABLE_CITY = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Udyog Vihar',
       'MG Road',
       'Cyber City',
@@ -79,7 +79,7 @@ export const AVAILABLE_CITY = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Sector 2',
       'Sector 62',
       'Sector 63',
@@ -103,7 +103,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Koramangala',
       'Indiranagar',
       'HSR Layout',
@@ -140,7 +140,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Madhapur',
       'Banjara Hills',
       'Jubilee Hills',
@@ -160,7 +160,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Navi Mumbai',
       'Andheri',
       'Andheri East',
@@ -193,7 +193,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Baner',
       'Aundh',
       'Kharadi',
@@ -228,7 +228,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['AB Road', 'LIC Colony', 'Ratna Lok Colony', 'Ravindra Nagar', 'South Tukoganj', 'Vijay Nagar'],
+    locations: ['Near Me', 'AB Road', 'LIC Colony', 'Ratna Lok Colony', 'Ravindra Nagar', 'South Tukoganj', 'Vijay Nagar'],
   },
   {
     name: 'chennai',
@@ -237,7 +237,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Guindy', 'Anna Nagar', 'OMR', 'Nungambakkam', 'Adyar', 'T Nagar', 'Velachery'],
+    locations: ['Near Me', 'Guindy', 'Anna Nagar', 'OMR', 'Nungambakkam', 'Adyar', 'T Nagar', 'Velachery'],
   },
   {
     name: 'ahmedabad',
@@ -246,7 +246,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
-    locations: ['SG Highway', 'Navrangpura', 'Vastrapur', 'Prahlad Nagar', 'Satellite', 'Ellisbridge'],
+    locations: ['Near Me', 'SG Highway', 'Navrangpura', 'Vastrapur', 'Prahlad Nagar', 'Satellite', 'Ellisbridge'],
   },
   {
     name: 'kochi',
@@ -255,7 +255,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Ernakulam', 'Kadavanthra', 'Kakkanad', 'VIP Road'],
+    locations: ['Near Me', 'Ernakulam', 'Kadavanthra', 'Kakkanad', 'VIP Road'],
   },
   {
     name: 'chandigarh',
@@ -265,7 +265,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Mohali',
       'Zirakpur',
       'Madhya Marg',
@@ -284,7 +284,7 @@ export const AVAILABLE_CITY = [
     for_office: false,
     for_coLiving: false,
     locations: [
-
+      'Near Me',
       'Vaishali Nagar',
       'Indarpuri',
       'Mansarovar',
@@ -301,7 +301,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
-    locations: ['Gomti Nagar', 'Indira Nagar', 'Vibhuti Khand'],
+    locations: ['Near Me', 'Gomti Nagar', 'Indira Nagar', 'Vibhuti Khand'],
   },
   {
     name: 'kolkata',
@@ -310,7 +310,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Salt Lake', 'Rajarhat', 'Dalhousie', 'Howrah', 'Bidhannagar', 'Bhowanipur'],
+    locations: ['Near Me', 'Salt Lake', 'Rajarhat', 'Dalhousie', 'Howrah', 'Bidhannagar', 'Bhowanipur'],
   },
   {
     name: 'coimbatore',
@@ -319,7 +319,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Ramanathapuram', 'RS Puram', 'Eachanari', 'Cross Cut Road'],
+    locations: ['Near Me', 'Ramanathapuram', 'RS Puram', 'Eachanari', 'Cross Cut Road'],
   },
   {
     name: 'goa',
@@ -328,7 +328,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Margao', 'Anjuna', 'Panaji'],
+    locations: ['Near Me', 'Margao', 'Anjuna', 'Panaji'],
   },
   // {
   //   name: 'dehradun',
@@ -359,7 +359,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Connaught Place',
       'South Delhi',
       'Dwarka',
@@ -401,7 +401,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Golf Course Road',
       'Sohna Road',
       'MG Road',
@@ -455,7 +455,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: true,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Sector 2',
       'Sector 62',
       'Sector 63',
@@ -478,7 +478,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Koramangala',
       'Marathahalli',
       'HSR Layout',
@@ -542,7 +542,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Gachibowli',
       'Kondapur',
       'Miyapur',
@@ -570,7 +570,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Thane',
       'Navi Mumbai',
       'Andheri',
@@ -603,7 +603,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'Baner',
       'Aundh',
       'Kharadi',
@@ -647,7 +647,7 @@ export const AVAILABLE_CITY_CO_LIVING = [
     for_office: false,
     for_coLiving: true,
     locations: [
-
+      'Near Me',
       'SG Highway',
       'Navrangpura',
       'Vastrapur',

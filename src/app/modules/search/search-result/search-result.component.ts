@@ -72,7 +72,19 @@ export class SearchResultComponent implements OnInit, OnDestroy {
 
         if (!isEmptyObject(results.queryParams)) {
           this.isLatLongSearch = true;
-          this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...results.queryParams };
+          let obj = {
+            'latitude': '',
+            'longitude': ''
+          };
+          if (results.queryParams['coworking-latitude']) {
+            obj['latitude'] = results.queryParams['coworking-latitude'];
+            obj['longitude'] = results.queryParams['longitude']
+          }
+          if (results.queryParams['coliving-latitude']) {
+            obj['latitude'] = results.queryParams['coliving-latitude'];
+            obj['longitude'] = results.queryParams['longitude']
+          }
+          this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...obj };
           const urlSplit = this.globalUrl.split('-');
           if (urlSplit && urlSplit[0] === '/search?coworking') {
             this.loadWorkSpacesByLatLong(this.queryParams);
