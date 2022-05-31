@@ -48,20 +48,60 @@ export class SearchCardComponent implements AfterViewInit {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
     if (
-      workspace.country_dbname == 'india' ||
-      workspace.country_dbname == 'India' ||
-      workspace.country_dbname == 'INDIA'
+      (workspace.country_dbname == 'india' ||
+        workspace.country_dbname == 'India' ||
+        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.space_type == 'coworking')
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
       window.open(url, '_blank');
-    } else {
-      var url = `/${workspace.country_dbname
+    }
+    if (
+      (workspace.country_dbname !== 'india' ||
+        workspace.country_dbname !== 'India' ||
+        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.space_type == 'coworking')
+    ) {
+      let country_name;
+      if (workspace.country_dbname) {
+        country_name = workspace.country_dbname
+      } else {
+        country_name = workspace.location.country.name
+      }
+      var url = `/${country_name
         .toLowerCase()
         .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
       window.open(url, '_blank');
     }
+
+    if (
+      (workspace.country_dbname == 'india' ||
+        workspace.country_dbname == 'India' ||
+        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.space_type == 'co-living')
+    ) {
+      const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${workspace.slug}`]));
+      // this.router.navigateByUrl(url);
+      window.open(url, '_blank');
+    }
+
+    if (
+      (workspace.country_dbname !== 'india' ||
+        workspace.country_dbname !== 'India' ||
+        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.space_type == 'co-living')
+    ) {
+      let country_name;
+      if (workspace.country_dbname) {
+        country_name = workspace.country_dbname
+      } else {
+        country_name = workspace.location.country.name
+      }
+      var url = `/${country_name
+        .toLowerCase()
+        .trim()}/co-living-details/${workspace.slug.toLowerCase().trim()}`;
+      // this.router.navigate([url]);
+      window.open(url, '_blank');
+    }
+
   }
   openDetailsPage(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);

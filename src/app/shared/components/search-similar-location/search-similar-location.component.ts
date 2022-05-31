@@ -1,6 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { generateSlug } from '@app/shared/utils';
+import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-search-similar-location',
@@ -14,7 +17,10 @@ export class SearchSimilarLocationComponent implements OnChanges {
   @Input() relativeUrl: string;
   @Input() isPageScrolled: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private mapsAPILoader: MapsAPILoader,
+    private toastrService: ToastrService,
+  ) { }
 
   getSlug(location: string) {
     console.log(generateSlug(location));
@@ -22,6 +28,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
   }
 
   reRoute(location) {
+    console.log(location);
     let country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
     if (this.relativeUrl === 'co-living' && country != 'india' && country != 'India' && country != 'INDIA') {
       const url = `/${country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
@@ -30,6 +37,24 @@ export class SearchSimilarLocationComponent implements OnChanges {
       this.router.navigate([url]);
     }
     if (this.relativeUrl === 'co-living' && (country == 'india' || country == 'India' || country == 'INDIA')) {
+      if (location === 'Near Me') {
+        this.mapsAPILoader
+          .load()
+          .then(() => {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(position => {
+                const pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                };
+                this.router.navigateByUrl(`/search?coliving-latitude=${pos.lat}&longitude=${pos.lng}`);
+              });
+            } else {
+              this.toastrService.error('Your browser does not support this feature');
+            }
+          })
+          .catch(error => console.log(error));
+      }
       const url =
         '/' +
         this.relativeUrl +
@@ -51,6 +76,24 @@ export class SearchSimilarLocationComponent implements OnChanges {
     }
 
     if (this.relativeUrl === 'coworking' && (country == 'india' || country == 'India' || country == 'INDIA')) {
+      if (location === 'Near Me') {
+        this.mapsAPILoader
+          .load()
+          .then(() => {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(position => {
+                const pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                };
+                this.router.navigateByUrl(`/search?coworking-latitude=${pos.lat}&longitude=${pos.lng}`);
+              });
+            } else {
+              this.toastrService.error('Your browser does not support this feature');
+            }
+          })
+          .catch(error => console.log(error));
+      }
       const url =
         '/' +
         this.relativeUrl +

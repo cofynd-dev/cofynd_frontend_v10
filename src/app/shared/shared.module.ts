@@ -54,6 +54,7 @@ import { StarRatingComponent } from './components/review/star-rating/star-rating
 import { ReviewSubmissionFormComponent } from './components/review/review-submission-form/review-submission-form.component';
 import { HomeCityPopupComponent } from './components/home-city-popup/home-city-popup.component';
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
+import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-nearme-popup.component';
 
 const MODULES = [
   CommonModule,
@@ -93,6 +94,7 @@ const COMPONENTS = [
   StarRatingComponent,
   ReviewSubmissionFormComponent,
   HomeCityPopupComponent,
+  HomeNearmePopupComponent,
   CarouselItemComponent,
 ];
 const DIRECTIVES = [
@@ -119,7 +121,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -142,7 +144,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     DIRECTIVES,
     COMPONENTS,
   ],
-  entryComponents: [AuthDialogComponent, HomeCityPopupComponent],
+  entryComponents: [AuthDialogComponent, HomeCityPopupComponent, HomeNearmePopupComponent],
   providers: [
     {
       provide: BsDatepickerConfig,

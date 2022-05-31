@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstant } from '@app/shared/constants/app.constant';
 import { isEmptyObject, sanitizeParams } from '@app/shared/utils';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
@@ -12,6 +12,7 @@ import { environment } from '@env/environment';
 import { combineLatest, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { AVAILABLE_CITY } from '@core/config/cities';
+import { CoLivingService } from '@app/modules/co-living/co-living.service';
 
 @Component({
   selector: 'app-search-result',
@@ -40,12 +41,15 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   isMapView: boolean;
   isLatLongSearch: boolean;
   breadcrumbs: BreadCrumb[];
+  globalUrl: any;
 
   constructor(
     private workSpaceService: WorkSpaceService,
     private configService: ConfigService,
     private activatedRoute: ActivatedRoute,
     private scrollService: ScrollService,
+    private router: Router,
+    private coLivingService: CoLivingService,
   ) {
     this.configService.configs.footer = false;
     // Set map view true by default
@@ -57,6 +61,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     combineLatest(this.activatedRoute.params, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
+        this.globalUrl = this.router.url;
         if (results.routeParams.slug) {
           this.isLatLongSearch = false;
           this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, key: results.routeParams.slug };
@@ -68,7 +73,13 @@ export class SearchResultComponent implements OnInit, OnDestroy {
         if (!isEmptyObject(results.queryParams)) {
           this.isLatLongSearch = true;
           this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...results.queryParams };
-          this.loadWorkSpacesByLatLong(this.queryParams);
+          const urlSplit = this.globalUrl.split('-');
+          if (urlSplit && urlSplit[0] === '/search?coworking') {
+            this.loadWorkSpacesByLatLong(this.queryParams);
+          }
+          if (urlSplit && urlSplit[0] === '/search?coliving') {
+            this.loadColivingSpacesByLatLong(this.queryParams);
+          }
           return;
         }
         this.createBreadcrumb();
@@ -93,6 +104,18 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
       this.workSpaces = allWorkSpaces.data;
 
+      this.count = allWorkSpaces.data.length;
+      if (allWorkSpaces.totalRecords > this.count) {
+        this.showLoadMore = true;
+      }
+
+      this.loading = false;
+    });
+  }
+  loadColivingSpacesByLatLong(param: {}) {
+    this.loading = true;
+    this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allWorkSpaces => {
+      this.workSpaces = allWorkSpaces.data;
       this.count = allWorkSpaces.data.length;
       if (allWorkSpaces.totalRecords > this.count) {
         this.showLoadMore = true;
