@@ -16,6 +16,7 @@ export class WorkSpace {
   likes: [];
   status: string;
   plans: Plan[];
+  coliving_plans: [];
   seats: number;
   price?: any;
   // display_price: number;
