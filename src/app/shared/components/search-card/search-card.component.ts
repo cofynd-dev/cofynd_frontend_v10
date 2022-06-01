@@ -50,7 +50,7 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname == 'india' ||
         workspace.country_dbname == 'India' ||
-        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.space_type == 'coworking')
+        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.plans)
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
@@ -59,7 +59,7 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname !== 'india' ||
         workspace.country_dbname !== 'India' ||
-        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.space_type == 'coworking')
+        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.plans)
     ) {
       let country_name;
       if (workspace.country_dbname) {
@@ -77,7 +77,7 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname == 'india' ||
         workspace.country_dbname == 'India' ||
-        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.space_type == 'co-living')
+        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.coliving_plans)
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
@@ -87,7 +87,7 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname !== 'india' ||
         workspace.country_dbname !== 'India' ||
-        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.space_type == 'co-living')
+        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.coliving_plans)
     ) {
       let country_name;
       if (workspace.country_dbname) {
