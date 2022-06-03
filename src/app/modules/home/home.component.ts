@@ -10,6 +10,15 @@ import { BrandService } from '@core/services/brand.service';
 import { sanitizeParams } from '@app/shared/utils';
 import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
+import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
+
+interface PopularSpace {
+  name: string;
+  address: string;
+  image: string;
+  id: string;
+  slug?: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -22,6 +31,37 @@ export class HomeComponent {
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
   coLivingBrands: Brand[] = [];
+
+  popularSpaceCarousel: NguCarousel<PopularSpace>;
+  active = 0;
+
+  carouselConfig: NguCarouselConfig = {
+    grid: { xs: 1.4, sm: 1.4, md: 3, lg: 4, all: 0 },
+    slide: 1,
+    speed: 250,
+    point: {
+      visible: true,
+    },
+    interval: { timing: 4000, initialDelay: 1000 },
+    load: 4,
+    velocity: 0,
+    touch: true,
+    easing: 'cubic-bezier(0, 0, 0.2, 1)',
+  };
+
+
+  onSliderMove(slideData: NguCarouselStore) {
+    this.active = slideData.currentSlide;
+  }
+
+  goToPrev() {
+    this.popularSpaceCarousel.moveTo(this.active - 1);
+  }
+
+  goToNext() {
+    this.popularSpaceCarousel.moveTo(this.active + 1);
+  }
+
 
   popularCoLivingSpaces = [
     {
