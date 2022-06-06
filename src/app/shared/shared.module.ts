@@ -55,6 +55,7 @@ import { ReviewSubmissionFormComponent } from './components/review/review-submis
 import { HomeCityPopupComponent } from './components/home-city-popup/home-city-popup.component';
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
 import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-nearme-popup.component';
+import { CuratedCityPopupComponent } from './components/curated-city-popup/curated-city-popup.component';
 
 const MODULES = [
   CommonModule,
@@ -95,6 +96,7 @@ const COMPONENTS = [
   ReviewSubmissionFormComponent,
   HomeCityPopupComponent,
   HomeNearmePopupComponent,
+  CuratedCityPopupComponent,
   CarouselItemComponent,
 ];
 const DIRECTIVES = [
@@ -121,7 +123,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -144,7 +146,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     DIRECTIVES,
     COMPONENTS,
   ],
-  entryComponents: [AuthDialogComponent, HomeCityPopupComponent, HomeNearmePopupComponent],
+  entryComponents: [AuthDialogComponent, HomeCityPopupComponent, HomeNearmePopupComponent, CuratedCityPopupComponent],
   providers: [
     {
       provide: BsDatepickerConfig,

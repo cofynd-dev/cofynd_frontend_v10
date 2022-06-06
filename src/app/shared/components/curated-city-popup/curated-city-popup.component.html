@@ -1,0 +1,23 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select City</h5>
+        <button (click)="closeModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <div class="coworking_cities">
+            <div class="city-left-box" *ngFor="let city of cities">
+                <div class="cities-icon-item">
+                    <div class="cities-img">
+                        <img [src]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
+                    </div>
+                    <div class="cities-icon-content">
+                        <h4>{{ removedash(city.name) }}</h4>
+                    </div>
+                    <a (click)="closeModal()" [routerLink]="'/coworking/' + city.name.toLowerCase()" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

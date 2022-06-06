@@ -11,6 +11,9 @@ import { sanitizeParams } from '@app/shared/utils';
 import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
+import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
+
+
 
 interface PopularSpace {
   name: string;
@@ -27,6 +30,8 @@ interface PopularSpace {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+
+
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -168,6 +173,14 @@ export class HomeComponent {
       ]
     }`;
     this._renderer2.appendChild(this._document.body, script);
+  }
+  openModal(price) {
+    this.bsModalService.show(CuratedCityPopupComponent, {
+      class: 'modal-dialog-centered',
+      initialState: {
+        price,
+      },
+    });
   }
 
   openModalWithComponent(openForDayPass = false) {

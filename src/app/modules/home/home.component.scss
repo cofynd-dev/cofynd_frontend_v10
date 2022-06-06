@@ -1409,3 +1409,27 @@ ul {
         padding: 5px 5px;
     }
 }
+
+@media (max-width: 480px) {
+    .item {
+        padding: 0 15px;
+    }
+    .page-title {
+        padding: 20px 0 10px;
+        h2::after {
+            bottom: -15px;
+        }
+    }
+}
+
+.page-title h2::after {
+    width: 92px;
+    height: 2px;
+    background: #4343e8;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -46px;
+    content: "";
+    display: inline-block;
+}
