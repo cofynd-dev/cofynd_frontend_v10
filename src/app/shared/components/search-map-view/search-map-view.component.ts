@@ -45,9 +45,11 @@ export class SearchMapViewComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: any,
     private mapsAPILoader: MapsAPILoader,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit() {
+    console.log("><<<<<<<<<<<<<??????????????", this.workspaces);
+
     if (this.workspaces && this.workspaces.length) {
       this.addMap(this.workspaces);
     }
@@ -164,7 +166,7 @@ export class SearchMapViewComponent implements OnInit {
       title: 'searchAreaMarker',
     });
 
-    google.maps.event.addListener(searchAreaMarker, 'dragend', function(e) {
+    google.maps.event.addListener(searchAreaMarker, 'dragend', function (e) {
       searchArea.setOptions({
         center: e.latLng,
       });

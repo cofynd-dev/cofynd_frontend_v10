@@ -320,10 +320,12 @@
                     </div>
                     <h2 class="hideOnMobile">Location</h2>
                     <h2 class="onlyMobile mb-1">You'll be here</h2>
-                    <p class="onlyMobile" *ngIf="workspace">
+                    <p *ngIf="workspace">
                         {{ workspace.location.address }}
                     </p>
-                    <div #workspaceMap class="map-container">
+                    <!-- <div #workspaceMap class="map-container">
+                    </div> -->
+                    <div *ngIf="options.zoom" style="height: 300px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                     </div>
                 </div>
                 <div class="onlyMobile">

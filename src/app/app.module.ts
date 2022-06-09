@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapApiLoaderModule } from '@core/map-api-loader/map-api-loader.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 // Default google map param
 const googleMapsParams = {
   apiKey: environment.keys.GOOGLE_MAP,
@@ -32,6 +33,7 @@ const googleMapsParams = {
     }),
     CoreModule,
     SharedModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent],

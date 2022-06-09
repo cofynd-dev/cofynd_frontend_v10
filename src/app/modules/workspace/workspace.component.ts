@@ -1,4 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { HttpBackend } from '@angular/common/http';
 import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
@@ -17,6 +18,11 @@ import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
+import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+
+
 
 @Component({
   selector: 'app-work-space',
@@ -34,7 +40,12 @@ export class WorkSpaceComponent implements OnInit {
   userReview: Review;
   isEnquireModal: boolean;
 
-  // Map
+  //locationIq Map code 
+  options: any;
+  markers: Layer[] = [];
+
+
+  //Google Map
   @ViewChild('workspaceMap', {
     static: true,
   })
@@ -57,6 +68,8 @@ export class WorkSpaceComponent implements OnInit {
   unsubscribe$: Subject<boolean> = new Subject();
   country_name: string;
 
+
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
@@ -67,6 +80,7 @@ export class WorkSpaceComponent implements OnInit {
     private seoService: SeoService,
     private authService: AuthService,
     private router: Router,
+    private http: HttpClient,
   ) {
     this.workSpaceService
       .getProfileReviewByUser()
@@ -103,6 +117,7 @@ export class WorkSpaceComponent implements OnInit {
       }
       if (this.activeWorkSpaceId) {
         this.getWorkSpace(this.activeWorkSpaceId);
+
         this.getAverageRating(this.activeWorkSpaceId);
       }
     });
@@ -119,8 +134,27 @@ export class WorkSpaceComponent implements OnInit {
     });
   }
 
+
   ngOnInit() {
-    console.log(this.router.url);
+
+  }
+  ngAfterViewInit() {
+
+  }
+  addMarker(latitute, longitute) {
+    const newMarker = marker(
+      [latitute, longitute],
+      {
+        icon: icon({
+          iconSize: [45, 58],
+          iconAnchor: [13, 41],
+          iconUrl: 'assets/images/marker-icon.png',
+          iconRetinaUrl: 'assets/images/marker-icon.png',
+          // shadowUrl: 'assets/images/marker-icon.png1'
+        })
+      }
+    );
+    this.markers.push(newMarker);
   }
 
   getWorkSpace(workspaceId: string) {
@@ -140,7 +174,15 @@ export class WorkSpaceComponent implements OnInit {
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
           // lng , lat from api
-          this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          this.options = {
+            layers: [
+              tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=pk.c0dc118d922d758a22955af83b95f5c4', { maxZoom: 18, attribution: 'Open Street Map' })
+            ],
+            zoom: 10,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
+          }
+          this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
         if (workspaceDetail.images.length) {
@@ -157,6 +199,7 @@ export class WorkSpaceComponent implements OnInit {
       },
     );
   }
+
 
   getAverageRating(workspaceId: string) {
     this.workSpaceService.getAverageRating(workspaceId).subscribe(res => {
@@ -187,12 +230,22 @@ export class WorkSpaceComponent implements OnInit {
       .load()
       .then(() => {
         const mapOrigin = new google.maps.LatLng(lat, lng);
+        console.log(mapOrigin);
         const mapOptions = this.getGoogleMapOptions(mapOrigin);
         this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
         this.setMarker(mapOrigin);
       })
       .catch(error => console.log(error));
   }
+
+  createMap1(lat, lng) {
+    axios.get(`https://us1.locationiq.com/v1/reverse.php?key=pk.c0dc118d922d758a22955af83b95f5c4&lat=${lat}&lon=${lng}&format=json`, {
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+  }
+
 
   setMarker(position: google.maps.LatLng) {
     const infoWindowText = `<div id="map-title"><h4>${this.workspace.name}</h4><p>${this.workspace.location.address1}</p></div>`;

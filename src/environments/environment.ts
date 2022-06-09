@@ -10,7 +10,7 @@ export const environment = {
   // apiEndPoint: 'http://localhost:7000/api',
   appUrl: 'https://cofynd.com',
   keys: {
-    GOOGLE_MAP: 'AIzaSyDrIBoEI-pQOvA87Q6UGXvKsyv1XBT5KEg1',
+    GOOGLE_MAP: 'AIzaSyDrIBoEI-pQOvA87Q6UGXvKsyv1XBT5KEg',
     RAZOR_PAY: 'rzp_live_1psf55EiMDZ4Vb',
     FACEBOOK_APP: '173373107448062',
   },

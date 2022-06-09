@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { OfficeSpaceDetailComponent } from './office-space-detail.component';
 import { OfficeSpaceSimilarComponent } from './office-space-similar/office-space-similar.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,6 +14,6 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [OfficeSpaceDetailComponent, OfficeSpaceSimilarComponent],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, SharedModule, LeafletModule, RouterModule.forChild(routes)],
 })
-export class OfficeSpaceDetailModule {}
+export class OfficeSpaceDetailModule { }

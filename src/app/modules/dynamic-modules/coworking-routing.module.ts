@@ -12,10 +12,15 @@ import { CoLivingCityComponent } from './co-living-city/co-living-city.component
 import { CoLivingLocalityComponent } from './co-living-locality/co-living-locality.component';
 import { CoLivingDetailComponent } from './co-living-detail/co-living-detail.component';
 import { CountryColivingVerticalPageComponent } from './country-coliving-vertical-page/country-coliving-vertical-page.component';
+import { LocationIqImportComponent } from './location-iq-import/location-iq-import.component';
 
 const routes: Routes = [
   { path: '', component: CoworkingComponent },
   { path: 'home', component: CoworkingHomeComponent },
+  {
+    path: 'locationIqMap',
+    component: LocationIqImportComponent,
+  },
   {
     path: 'coworking',
     component: CountryVerticalPageComponent,
