@@ -55,19 +55,12 @@
                             "src/assets",
                             "src/robots.txt",
                             "src/sitemap.xml",
-                            "src/sitemap1.xml",
-                            {
-                                "glob": "**/*",
-                                "input": "./node_modules/leaflet/dist/images",
-                                "output": "leaflet/"
-                            },
-                            "src/assets",
-                            "src/favicon.ico"
+                            "src/sitemap1.xml"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.scss",
-                            "./node_modules/leaflet/dist/leaflet.css"
+                            "node_modules/leaflet/dist/leaflet.css"
                         ],
                         "scripts": []
                     },
