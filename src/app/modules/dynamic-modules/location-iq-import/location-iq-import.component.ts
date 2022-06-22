@@ -10,7 +10,7 @@ import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer } from 'le
 export class LocationIqImportComponent implements OnInit {
   options = {
     layers: [
-      tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=pk.c0dc118d922d758a22955af83b95f5c4', { maxZoom: 18, attribution: '...' })
+      tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}', { maxZoom: 18, attribution: '...' })
     ],
     zoom: 7,
     center: latLng(28.6326204, 77.22187869999999)
@@ -29,7 +29,7 @@ export class LocationIqImportComponent implements OnInit {
       [28.6326204, 77.22187869999999],
       {
         icon: icon({
-          iconSize: [45, 58],
+          iconSize: [25, 41],
           iconAnchor: [13, 41],
           iconUrl: 'assets/images/marker-icon.png',
           iconRetinaUrl: 'assets/images/marker-icon.png',

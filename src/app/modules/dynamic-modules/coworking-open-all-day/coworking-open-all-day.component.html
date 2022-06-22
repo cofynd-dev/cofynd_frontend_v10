@@ -37,7 +37,7 @@
     <div *ngIf="loading" class="search-map-container">
     </div>
     <div *ngIf="!loading" class="search-map-container" [style.marginTop.px]="'-' + scrollCount" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
-        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [workspaces]="workSpaces"></app-search-map-view>
+        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
     </div>
 </section>
 <section class="search-description" *ngIf="!loading && seoData">

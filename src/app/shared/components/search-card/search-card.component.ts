@@ -57,9 +57,9 @@ export class SearchCardComponent implements AfterViewInit {
       window.open(url, '_blank');
     }
     if (
-      (workspace.country_dbname !== 'india' ||
-        workspace.country_dbname !== 'India' ||
-        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.plans)
+      (workspace.country_dbname !== 'india' &&
+        workspace.country_dbname !== 'India' &&
+        workspace.country_dbname !== 'INDIA' && workspace.location.country.name !== 'India') && (workspace.plans)
     ) {
       let country_name;
       if (workspace.country_dbname) {

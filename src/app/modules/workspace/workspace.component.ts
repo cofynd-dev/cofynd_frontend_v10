@@ -146,7 +146,7 @@ export class WorkSpaceComponent implements OnInit {
       [latitute, longitute],
       {
         icon: icon({
-          iconSize: [45, 58],
+          iconSize: [25, 41],
           iconAnchor: [13, 41],
           iconUrl: 'assets/images/marker-icon.png',
           iconRetinaUrl: 'assets/images/marker-icon.png',
@@ -177,7 +177,7 @@ export class WorkSpaceComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=pk.c0dc118d922d758a22955af83b95f5c4', { maxZoom: 18, attribution: 'Open Street Map' })
+              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
             ],
             zoom: 10,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
@@ -239,7 +239,7 @@ export class WorkSpaceComponent implements OnInit {
   }
 
   createMap1(lat, lng) {
-    axios.get(`https://us1.locationiq.com/v1/reverse.php?key=pk.c0dc118d922d758a22955af83b95f5c4&lat=${lat}&lon=${lng}&format=json`, {
+    axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`, {
     })
       .then(function (response) {
         console.log(response);

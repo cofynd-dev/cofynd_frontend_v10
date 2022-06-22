@@ -42,7 +42,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   isLatLongSearch: boolean;
   breadcrumbs: BreadCrumb[];
   globalUrl: any;
-
+  spaceType: any;
   constructor(
     private workSpaceService: WorkSpaceService,
     private configService: ConfigService,
@@ -78,11 +78,13 @@ export class SearchResultComponent implements OnInit, OnDestroy {
           };
           if (results.queryParams['coworking-latitude']) {
             obj['latitude'] = results.queryParams['coworking-latitude'];
-            obj['longitude'] = results.queryParams['longitude']
+            obj['longitude'] = results.queryParams['longitude'];
+            this.spaceType = 'coworking'
           }
           if (results.queryParams['coliving-latitude']) {
             obj['latitude'] = results.queryParams['coliving-latitude'];
-            obj['longitude'] = results.queryParams['longitude']
+            obj['longitude'] = results.queryParams['longitude'];
+            this.spaceType = 'co-living'
           }
           this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...obj };
           const urlSplit = this.globalUrl.split('-');

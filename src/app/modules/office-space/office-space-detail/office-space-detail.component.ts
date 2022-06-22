@@ -104,7 +104,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=pk.c0dc118d922d758a22955af83b95f5c4', { maxZoom: 18, attribution: 'Open Street Map' })
+              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
             ],
             zoom: 10,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
@@ -153,7 +153,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
       [latitute, longitute],
       {
         icon: icon({
-          iconSize: [45, 58],
+          iconSize: [25, 41],
           iconAnchor: [13, 41],
           iconUrl: 'assets/images/marker-icon.png',
           iconRetinaUrl: 'assets/images/marker-icon.png',
