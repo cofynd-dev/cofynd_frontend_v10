@@ -168,6 +168,7 @@ export class WorkSpaceService {
         country: workspace.country_dbname,
         countryId: workspace.location.country,
         city: workspace.location.city.name,
+        space_type: workspace.space_type,
         image:
           (workspace.images.length && workspace.images[0].image.s3_link) ||
           '/assets/images/home/Gohive_Gurgaon_ParasTrinity_GolfCourseExtnRoad.png',

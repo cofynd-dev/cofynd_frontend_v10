@@ -34,6 +34,10 @@ export class WorkSpace {
   hours_of_operation: { [key: string]: WorkingHours };
   seo: SeoMeta;
   space_type?: string;
+  options: {
+    zoom: number,
+  }
+
 }
 
 export class WorkingHours {

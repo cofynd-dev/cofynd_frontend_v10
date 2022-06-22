@@ -71,7 +71,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
-   // this.isMapView = true;
+    // this.isMapView = true;
   }
 
   ngOnInit() {
@@ -84,13 +84,24 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
         this.title = results.routeParams[0].path;
         this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
         const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_OFFICE_FILTER_KEY));
-        this.queryParams = {
-          ...AppConstant.DEFAULT_SEARCH_PARAMS,
-          key: results.routeParams[1].path + '-' + this.title,
-          city: filteredCity[0].id,
-          ...results.queryParams,
-          ...prevParam,
-        };
+        if (results.routeParams[1].path === 'near-me') {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: this.title + '-' + 'india',
+            city: filteredCity[0].id,
+            ...results.queryParams,
+            ...prevParam,
+          };
+        } else {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            ...results.queryParams,
+            ...prevParam,
+          };
+        }
+
 
         this.IMAGE_STATIC_ALT.push(
           'Office Space in ' + this.subTitle,

@@ -24,6 +24,8 @@ import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
+import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+
 
 @Component({
   selector: 'app-co-living-detail',
@@ -42,7 +44,14 @@ export class CoLivingDetailComponent implements OnInit {
   isEnquireModal: boolean;
   shouldReloadEnquiryForm: boolean;
 
-  // Map
+
+  //locationIq Map code 
+  options: any;
+  markers: Layer[] = [];
+
+
+
+  //Google Map
   @ViewChild('workspaceMap', {
     static: true,
   })
@@ -92,7 +101,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -104,7 +113,15 @@ export class CoLivingDetailComponent implements OnInit {
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
           // lng , lat from api
-          this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          this.options = {
+            layers: [
+              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+            ],
+            zoom: 10,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
+          }
+          this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
         if (workspaceDetail.images.length) {
@@ -141,6 +158,22 @@ export class CoLivingDetailComponent implements OnInit {
         this.setMarker(mapOrigin);
       })
       .catch(error => console.log(error));
+  }
+
+  addMarker(latitute, longitute) {
+    const newMarker = marker(
+      [latitute, longitute],
+      {
+        icon: icon({
+          iconSize: [25, 41],
+          iconAnchor: [13, 41],
+          iconUrl: 'assets/images/marker-icon.png',
+          iconRetinaUrl: 'assets/images/marker-icon.png',
+          // shadowUrl: 'assets/images/marker-icon.png1'
+        })
+      }
+    );
+    this.markers.push(newMarker);
   }
 
   setMarker(position: google.maps.LatLng) {

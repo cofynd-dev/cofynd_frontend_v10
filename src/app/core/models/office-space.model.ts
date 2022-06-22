@@ -23,6 +23,9 @@ export class OfficeSpaceOtherDetail {
   is_electricity_bill_included: boolean;
   rent_per_bed: number;
   type_of_co_living: string;
+  options: {
+    zoom: number,
+  }
 }
 
 export class FoodOption {

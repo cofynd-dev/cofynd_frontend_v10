@@ -56,6 +56,8 @@ import { HomeCityPopupComponent } from './components/home-city-popup/home-city-p
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
 import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-nearme-popup.component';
 import { CuratedCityPopupComponent } from './components/curated-city-popup/curated-city-popup.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 const MODULES = [
   CommonModule,
@@ -134,6 +136,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     PaginationModule.forRoot(),
     LazyLoadImageModule.forRoot(intersectionObserverPreset),
     AccordionModule.forRoot(),
+    LeafletModule
   ],
   exports: [
     MODULES,

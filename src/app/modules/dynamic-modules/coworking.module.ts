@@ -23,6 +23,10 @@ import { CountryColivingVerticalPageComponent } from './country-coliving-vertica
 import { HomeCitiesComponent } from './home-cities/home-cities.component';
 import { HomeMenuModalComponent } from './home-menu-modal/home-menu-modal.component';
 import { HomeCityPopupComponent } from './home-city-popup/home-city-popup.component';
+import { LocationIqImportComponent } from './location-iq-import/location-iq-import.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
+
 
 @NgModule({
   declarations: [
@@ -45,9 +49,10 @@ import { HomeCityPopupComponent } from './home-city-popup/home-city-popup.compon
     CountryColivingVerticalPageComponent,
     HomeCitiesComponent,
     HomeMenuModalComponent,
-    HomeCityPopupComponent
+    HomeCityPopupComponent,
+    LocationIqImportComponent
   ],
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
-  imports: [CommonModule, SharedModule, CoworkingRoutingModule],
+  imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
 })
 export class CoworkingModule { }

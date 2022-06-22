@@ -15,6 +15,8 @@ import { OfficeSpaceService } from './../office-space.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { AuthService } from '@app/core/services/auth.service';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
+import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+
 
 @Component({
   selector: 'app-office-space-detail',
@@ -33,7 +35,11 @@ export class OfficeSpaceDetailComponent implements OnInit {
   isEnquireModal: boolean;
   supportPhone = DEFAULT_APP_DATA.contact.phone;
 
-  // Map
+  //locationIq Map code 
+  options: any;
+  markers: Layer[] = [];
+
+  //Google Map
   @ViewChild('workspaceMap', {
     static: true,
   })
@@ -95,7 +101,15 @@ export class OfficeSpaceDetailComponent implements OnInit {
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
           // lng , lat from api
-          this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
+          this.options = {
+            layers: [
+              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+            ],
+            zoom: 10,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
+          }
+          this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
         if (workspaceDetail.images.length) {
@@ -134,6 +148,21 @@ export class OfficeSpaceDetailComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
+  addMarker(latitute, longitute) {
+    const newMarker = marker(
+      [latitute, longitute],
+      {
+        icon: icon({
+          iconSize: [25, 41],
+          iconAnchor: [13, 41],
+          iconUrl: 'assets/images/marker-icon.png',
+          iconRetinaUrl: 'assets/images/marker-icon.png',
+          // shadowUrl: 'assets/images/marker-icon.png1'
+        })
+      }
+    );
+    this.markers.push(newMarker);
+  }
   setMarker(position: google.maps.LatLng) {
     const infoWindowText = `<div id="map-title"><h4>${this.workspace.other_detail.building_name}</h4><p>${this.workspace.location.address}</p></div>`;
 
