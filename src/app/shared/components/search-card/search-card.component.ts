@@ -85,9 +85,9 @@ export class SearchCardComponent implements AfterViewInit {
     }
 
     if (
-      (workspace.country_dbname !== 'india' ||
-        workspace.country_dbname !== 'India' ||
-        workspace.country_dbname !== 'INDIA' || workspace.location.country.name !== 'India') && (workspace.coliving_plans)
+      (workspace.country_dbname !== 'india' &&
+        workspace.country_dbname !== 'India' &&
+        workspace.country_dbname !== 'INDIA' && workspace.location.country.name !== 'India') && (workspace.coliving_plans)
     ) {
       let country_name;
       if (workspace.country_dbname) {
