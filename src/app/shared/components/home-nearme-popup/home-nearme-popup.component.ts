@@ -25,7 +25,7 @@ export class HomeNearmePopupComponent implements OnInit {
   ngOnInit() {
 
   }
-  private getCurrentPosition(): any {
+  getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position: any) => {
