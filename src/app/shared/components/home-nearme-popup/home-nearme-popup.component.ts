@@ -23,20 +23,30 @@ export class HomeNearmePopupComponent implements OnInit {
     private bsModalRef: BsModalRef) { }
 
   ngOnInit() {
+
+  }
+  private getCurrentPosition(): any {
+    return new Observable((observer: Subscriber<any>) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          observer.next({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          observer.complete();
+        });
+      } else {
+        observer.error();
+      }
+    });
   }
 
   searchCoworking() {
     this.getCurrentPosition()
       .subscribe((position: any) => {
-        console.log(position);
-        if (position) {
-          this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
-
-        } else {
-          this.toastrService.error('Your browser does not support this feature');
-        }
+        this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
+        this.bsModalRef.hide();
       })
-    this.bsModalRef.hide();
 
     // this.mapsAPILoader
     //   .load()
@@ -60,13 +70,10 @@ export class HomeNearmePopupComponent implements OnInit {
     this.getCurrentPosition()
       .subscribe((position: any) => {
         console.log(position);
-        if (position) {
-          this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
-        } else {
-          this.toastrService.error('Your browser does not support this feature');
-        }
+        this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
+        this.bsModalRef.hide();
+
       })
-    this.bsModalRef.hide();
     // this.mapsAPILoader
     //   .load()
     //   .then(() => {
@@ -86,19 +93,5 @@ export class HomeNearmePopupComponent implements OnInit {
     // this.bsModalRef.hide();
   }
 
-  private getCurrentPosition(): any {
-    return new Observable((observer: Subscriber<any>) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position: any) => {
-          observer.next({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-          observer.complete();
-        });
-      } else {
-        observer.error();
-      }
-    });
-  }
+
 }

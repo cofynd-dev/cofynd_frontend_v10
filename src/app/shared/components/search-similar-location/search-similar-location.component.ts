@@ -56,12 +56,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
       if (location === 'Near Me') {
         this.getCurrentPosition()
           .subscribe((position: any) => {
-            console.log(position);
-            if (position) {
-              this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
-            } else {
-              this.toastrService.error('Your browser does not support this feature');
-            }
+            this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
           })
         //   this.mapsAPILoader
         //     .load()
@@ -105,12 +100,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
         this.getCurrentPosition()
           .subscribe((position: any) => {
             console.log(position);
-            if (position) {
-              this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
-
-            } else {
-              this.toastrService.error('Your browser does not support this feature');
-            }
+            this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
           })
         // this.mapsAPILoader
         //   .load()

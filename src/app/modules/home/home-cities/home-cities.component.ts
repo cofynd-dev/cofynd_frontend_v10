@@ -28,23 +28,6 @@ export class HomeCitiesComponent {
     this.bsModalService.show(HomeNearmePopupComponent, {
       class: 'modal-dialog-centered',
     });
-
-    // this.mapsAPILoader
-    //   .load()
-    //   .then(() => {
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(position => {
-    //         const pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude,
-    //         };
-    //         this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
-    //       });
-    //     } else {
-    //       this.toastrService.error('Your browser does not support this feature');
-    //     }
-    //   })
-    //   .catch(error => console.log(error));
   }
 
   openModal(cityData, city) {
