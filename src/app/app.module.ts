@@ -24,7 +24,7 @@ const googleMapsParams = {
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MapApiLoaderModule.forRoot(googleMapsParams),
+    // MapApiLoaderModule.forRoot(googleMapsParams),
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-center',

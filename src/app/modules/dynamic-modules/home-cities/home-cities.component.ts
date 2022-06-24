@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit, ViewRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
+// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { City } from '@core/models/city.model';
 import { BsModalService } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -18,7 +18,7 @@ export class HomeCitiesComponent implements OnInit {
   title: string;
   // newarray: ['sachin', 'chandan']
   constructor(
-    private mapsAPILoader: MapsAPILoader,
+    // private mapsAPILoader: MapsAPILoader,
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
@@ -49,22 +49,22 @@ export class HomeCitiesComponent implements OnInit {
   }
 
   locateMyLocation() {
-    this.mapsAPILoader
-      .load()
-      .then(() => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(position => {
-            const pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
-          });
-        } else {
-          this.toastrService.error('Your browser does not support this feature');
-        }
-      })
-      .catch(error => console.log(error));
+    // this.mapsAPILoader
+    //   .load()
+    //   .then(() => {
+    //     if (navigator.geolocation) {
+    //       navigator.geolocation.getCurrentPosition(position => {
+    //         const pos = {
+    //           lat: position.coords.latitude,
+    //           lng: position.coords.longitude,
+    //         };
+    //         this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
+    //       });
+    //     } else {
+    //       this.toastrService.error('Your browser does not support this feature');
+    //     }
+    //   })
+    //   .catch(error => console.log(error));
   }
   removedash(name: string) {
     return name.replace(/-/, ' ')

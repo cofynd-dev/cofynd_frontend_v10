@@ -20,7 +20,11 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import * as compression from 'compression';
 import { join } from 'path';
-
+const MockBrowser = require('mock-browser').mocks.MockBrowser;
+const mock = new MockBrowser();
+global['window'] = mock.getWindow();
+global['document'] = mock.getDocument();
+global['navigator'] = mock.getNavigator();
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 

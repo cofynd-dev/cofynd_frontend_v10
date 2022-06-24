@@ -16,7 +16,7 @@ import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
+// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -75,7 +75,7 @@ export class CoLivingDetailComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private activatedRoute: ActivatedRoute,
     private coLivingService: CoLivingService,
-    private mapsAPILoader: MapsAPILoader,
+    // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
     private seoService: SeoService,
     private router: Router,
@@ -163,17 +163,17 @@ export class CoLivingDetailComponent implements OnInit {
     this.seoService.setData(seoData);
   }
 
-  createMap(lat, lng) {
-    this.mapsAPILoader
-      .load()
-      .then(() => {
-        const mapOrigin = new google.maps.LatLng(lat, lng);
-        const mapOptions = this.getGoogleMapOptions(mapOrigin);
-        this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
-        this.setMarker(mapOrigin);
-      })
-      .catch(error => console.log(error));
-  }
+  // createMap(lat, lng) {
+  //   this.mapsAPILoader
+  //     .load()
+  //     .then(() => {
+  //       const mapOrigin = new google.maps.LatLng(lat, lng);
+  //       const mapOptions = this.getGoogleMapOptions(mapOrigin);
+  //       this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
+  //       this.setMarker(mapOrigin);
+  //     })
+  //     .catch(error => console.log(error));
+  // }
 
 
   addMarker(latitute, longitute) {

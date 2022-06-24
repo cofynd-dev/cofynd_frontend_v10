@@ -13,7 +13,7 @@ import { Brand } from '@app/core/models/brand.model';
 import { BrandService } from '@app/core/services/brand.service';
 import { HomeMenuModalComponent } from '../home/home-menu-modal/home-menu-modal.component';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
-import { MapsAPILoader } from '@app/core/map-api-loader/maps-api-loader';
+// import { MapsAPILoader } from '@app/core/map-api-loader/maps-api-loader';
 import { ToastrService } from 'ngx-toastr';
 
 interface PopularSpace {
@@ -827,7 +827,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
     private cdr: ChangeDetectorRef,
-    private mapsAPILoader: MapsAPILoader,
+    // private mapsAPILoader: MapsAPILoader,
     private toastrService: ToastrService,
   ) {
     // Handle header position on scroll
@@ -910,22 +910,22 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   }
 
   locateMyLocation() {
-    this.mapsAPILoader
-      .load()
-      .then(() => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(position => {
-            const pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
-          });
-        } else {
-          this.toastrService.error('Your browser does not support this feature');
-        }
-      })
-      .catch(error => console.log(error));
+    // this.mapsAPILoader
+    //   .load()
+    //   .then(() => {
+    //     if (navigator.geolocation) {
+    //       navigator.geolocation.getCurrentPosition(position => {
+    //         const pos = {
+    //           lat: position.coords.latitude,
+    //           lng: position.coords.longitude,
+    //         };
+    //         this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
+    //       });
+    //     } else {
+    //       this.toastrService.error('Your browser does not support this feature');
+    //     }
+    //   })
+    //   .catch(error => console.log(error));
   }
 
   ngAfterViewInit() {

@@ -12,7 +12,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
+// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { WorkSpace } from '@core/models/workspace.model';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 import { environment } from '@env/environment';
@@ -55,7 +55,7 @@ export class SearchMapViewComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
-    private mapsAPILoader: MapsAPILoader,
+    // private mapsAPILoader: MapsAPILoader,
     private router: Router,
   ) { }
 

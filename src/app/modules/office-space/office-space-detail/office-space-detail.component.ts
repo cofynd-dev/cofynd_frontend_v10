@@ -3,7 +3,7 @@ import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewC
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { HelperService } from '@app/core/services/helper.service';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
+// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -65,7 +65,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
     private officeSpaceService: OfficeSpaceService,
-    private mapsAPILoader: MapsAPILoader,
+    // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
     private seoService: SeoService,
     private router: Router,
@@ -136,17 +136,17 @@ export class OfficeSpaceDetailComponent implements OnInit {
     this.seoService.setData(seoData);
   }
 
-  createMap(lat, lng) {
-    this.mapsAPILoader
-      .load()
-      .then(() => {
-        const mapOrigin = new google.maps.LatLng(lat, lng);
-        const mapOptions = this.getGoogleMapOptions(mapOrigin);
-        this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
-        this.setMarker(mapOrigin);
-      })
-      .catch(error => console.log(error));
-  }
+  // createMap(lat, lng) {
+  //   this.mapsAPILoader
+  //     .load()
+  //     .then(() => {
+  //       const mapOrigin = new google.maps.LatLng(lat, lng);
+  //       const mapOptions = this.getGoogleMapOptions(mapOrigin);
+  //       this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
+  //       this.setMarker(mapOrigin);
+  //     })
+  //     .catch(error => console.log(error));
+  // }
 
   addMarker(latitute, longitute) {
     const newMarker = marker(

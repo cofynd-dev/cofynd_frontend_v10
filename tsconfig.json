@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"],
@@ -11,6 +10,7 @@
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "skipLibCheck": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
