@@ -772,7 +772,64 @@ export class CoLivingComponent implements OnInit {
         starting: '13,000',
       },
     ],
-
+    yourspace: [
+      {
+        name: 'Your Space Bannerghatta Boys',
+        address: 'Between 1st Cross & 2nd Cross, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/21faa6daf9c799d90fa9f074b969613306444bd4.jpg',
+        slug: 'yourspace-bennarghatta-road-boys',
+        starting: '16,000',
+      },
+      {
+        name: 'Your Space Bannerghatta Girls ',
+        address: 'Hulimavu, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4239dbad25d049ca533e2bf6f9ef9c90eeb9feb3.jpg',
+        slug: 'yourspace-bennarghatta-road-girls',
+        starting: '12,000',
+      },
+      {
+        name: 'Your Space koramangala - Girls',
+        address: 'Hosur Road, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/178008243f5804f80d6dca9031567cc4e64e80ba.jpg',
+        slug: 'yourspace-kormangala-girls',
+        starting: '16,000',
+      },
+      {
+        name: 'Your Space Viman Nagar (Boys)',
+        address: 'Sakore Nagar, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0cd3c49b1e13c6abb12331ccfaabbe6d44924ba8.jpg',
+        slug: 'your-space-viman-nagar',
+        starting: '15,000',
+      },
+      {
+        name: 'Your Space Bungalow Road ',
+        address: 'Bungalow road, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/31cb06225e639ff48aea74882c6eac6da467c53c.jpg',
+        slug: 'your-space-bungalow-road39',
+        starting: '21,000',
+      },
+      {
+        name: 'Your Space Pearl Nest NFC',
+        address: 'New Friends Colony, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b821ecf183263b44e6a4f8fdff714bd70a18e3e.jpg',
+        slug: 'your-space-pearl-nfc',
+        starting: '21,000',
+      },
+      {
+        name: 'Your Space Vile Parle (Girls)',
+        address: 'Vile Parle West, Mumbai',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c2d037a25ca3938bfe69472a718591b18e14d8a.jpg',
+        slug: 'your-space-vile-parle-girls',
+        starting: '34,000',
+      },
+    ],
     housr: [
       {
         name: 'Housr 38-II',
@@ -958,6 +1015,7 @@ export class CoLivingComponent implements OnInit {
 
   getBrands() {
     this.brandService.getBrands(sanitizeParams({ type: 'coliving' })).subscribe(res => {
+      console.log("coLivingBrands", res)
       this.coLivingBrands = res;
     });
   }
