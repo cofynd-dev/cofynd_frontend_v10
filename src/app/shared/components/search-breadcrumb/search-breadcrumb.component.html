@@ -5,11 +5,11 @@
       <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/']">home</a></li>
+            <li class="breadcrumb-item"><a (click)="removeLocalStorage()" [routerLink]="['/']">home</a></li>
             <li class="breadcrumb-item"
               [class.active]="item.isActive"
               *ngFor="let item of breadcrumbs">
-              <a *ngIf="!item.isActive"
+              <a *ngIf="!item.isActive" (click)="removeLocalStorage()"
                 [routerLink]="['/' + item.url + '/']">{{ removedash(item.title) }}</a>
               <span *ngIf="item.isActive">{{ removedash(item.title) }}</span>
             </li>

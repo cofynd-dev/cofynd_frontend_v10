@@ -24,6 +24,18 @@ export class CuratedCityPopupComponent implements OnInit {
     this.workSpaceService.getCity("6231ae062a52af3ddaa73a39").subscribe((res: any) => {
       this.cities = res.data.filter(city => city.for_coWorking === true);
       console.log(this.price);
+      if (this.price && this.price == '10,000') {
+        localStorage.setItem("minPrice", '0')
+        localStorage.setItem("maxPrice", '10000')
+      }
+      if (this.price && this.price == '20,000') {
+        localStorage.setItem("minPrice", '10000')
+        localStorage.setItem("maxPrice", '20000')
+      }
+      if (this.price && this.price == 'above 20,000') {
+        localStorage.setItem("minPrice", '20000')
+        localStorage.setItem("maxPrice", '200000')
+      }
     })
   }
   removedash(name: string) {

@@ -76,6 +76,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           const filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );
+          console.log(this.activatedRoute.snapshot.url);
+          console.log(filteredCity);
           this.title = filteredCity[0].name;
           this.createBreadcrumb();
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));

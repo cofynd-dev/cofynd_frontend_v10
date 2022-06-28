@@ -121,6 +121,9 @@ export class HeaderComponent implements AfterViewInit {
     });
   }
   logoClick() {
+    localStorage.removeItem('minPrice');
+    localStorage.removeItem('maxPrice');
+    console.log("removeItem");
     this.workSpaceService.getCountry({ "for_coWorking": true }).subscribe((res: any) => {
       this.country = res.data.filter(country => country.name === "India" || country.name === "india" || country.name === "INDIA");
       if (this.country.length > 0) {

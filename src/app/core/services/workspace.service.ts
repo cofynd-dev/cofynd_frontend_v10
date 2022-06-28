@@ -108,7 +108,7 @@ export class WorkSpaceService {
 
 
   setStartingPrice(workspace: WorkSpace) {
-    console.log(workspace);
+    // console.log(workspace);
     if (workspace.plans.length) {
       let planPrice = []
       planPrice = workspace.plans.map(plan => {
