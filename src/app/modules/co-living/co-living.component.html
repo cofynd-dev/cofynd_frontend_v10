@@ -116,7 +116,21 @@
       [pageTitle]="'Top Coliving Cities in India'">
     </app-home-popular-space>
   </span>
-
+  <section class="enquiry-section" style="padding: 0px 0;">
+    <div class="container" (click)="goToBrand()">
+      <div class="row">
+        <div class="col-md-12">
+            <!-- <a routerLink="brand/gostops"> -->
+          <a >
+            <img lazyLoad="../../../assets/images/co-living/M2.png"
+              style="cursor: pointer;"
+              class="enquiry-box"
+              alt="Co Working Spaces" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
     <app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
     </app-carousel-item>
 
@@ -125,7 +139,21 @@
 
     <app-carousel-item [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.bangalore">
     </app-carousel-item>
-
+    <section class="enquiry-section" style="padding: 0px 0;">
+        <div class="container" (click)="goToBrand()">
+          <div class="row">
+            <div class="col-md-12">
+                <!-- <a routerLink="brand/gostops"> -->
+              <a >
+                <img lazyLoad="../../../assets/images/co-living/banner.jpeg"
+                  style="cursor: pointer;"
+                  class="enquiry-box"
+                  alt="Co Working Spaces" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     <app-carousel-item [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.hyderabad">
     </app-carousel-item>
 
