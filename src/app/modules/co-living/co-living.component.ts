@@ -153,7 +153,7 @@ export class CoLivingComponent implements OnInit {
         name: '89 XQUISIT',
         address: 'New BEL Road',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e888e278f28ddaf82a865632b969f0b312c5091.jpg',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1045178796f04649997581cddec72f22246b544.jpg',
         slug: '89-xquisit',
         starting: '11,000',
       },
@@ -1023,7 +1023,9 @@ export class CoLivingComponent implements OnInit {
   openWorkSpace(slug: string) {
     this.router.navigate([`/co-living/${slug.toLowerCase().trim()}`]);
   }
-
+  goToBrand() {
+    this.router.navigate([`/brand/co-living/yourspace`]);
+  }
   addSeoTags() {
     this.loading = true;
     this.seoService.getMeta('co-living').subscribe(seoMeta => {

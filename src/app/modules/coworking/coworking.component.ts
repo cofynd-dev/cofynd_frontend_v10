@@ -665,8 +665,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
           slug: 'incuspaze-the-first',
           starting: '599'
         },
-      ],
-      chennai: [
+      ], chennai: [
         {
           name: 'The Hive VR Mall',
           address: 'Thirumangalam',
