@@ -183,6 +183,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.cityWisePopularLocation = filteredLocations[0].locations;
+          console.log(this.availableCities)
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;

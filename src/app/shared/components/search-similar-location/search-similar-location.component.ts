@@ -22,7 +22,9 @@ export class SearchSimilarLocationComponent implements OnChanges {
   constructor(private router: Router,
     // private mapsAPILoader: MapsAPILoader,
     private toastrService: ToastrService,
-  ) { }
+  ) {
+
+  }
 
   getSlug(location: string) {
     console.log(generateSlug(location));
@@ -136,6 +138,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
     }
   }
   ngOnChanges(): void {
-    console.log(this.country_names);
+    console.log(this.country_names, this.popularLocationList);
   }
 }
