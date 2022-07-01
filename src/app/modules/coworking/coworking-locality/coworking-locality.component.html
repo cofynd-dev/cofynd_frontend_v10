@@ -5,7 +5,7 @@
         <div class="search-grid-wrapper">
 
             <h1 class="page-heading" *ngIf="!loading && workSpaces.length">
-                {{ pageTitle ? pageTitle : 'Coworking space in ' + subTitle}}
+                {{ pageTitle ? pageTitle : '1Coworking space in ' + subTitle}}
             </h1>
 
             <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length" [cityName]="title" [relativeUrl]="'coworking'" [popularLocationList]="cityWisePopularLocation">
