@@ -340,7 +340,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
         {
           name: 'CoworkInsta',
           address: 'DLF Phase-4, Gurgaon',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008742192d66274cc3bb0a0b4c18d9a4e589f65f.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/528b86699c8bce851c0519a0c0164a99c21b9ce5.jpg',
           slug: 'coworkinsta-dlf-phase-4',
           starting: '5,000'
         },
@@ -611,61 +611,62 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       ahmedabad: [
         {
           name: 'DevX Vastrapur',
-          address: 'Vastrapur, Ahmeda..',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ba93c2945fe7f58752c9a6b53c5fc60fba8d85e9.jpg',
+          address: 'Vastrapur, Ahmedabad',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/79ec40336ea77c14d3a1ed2171dcf51078dad326.jpg',
           slug: 'devx-ahmedabad',
-          starting: '499'
+          starting: '6,500'
         },
         {
           name: 'Karma Workspaces',
           address: 'Shivarth THE ACE',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e1c21d1583c0c6c69a301769680e4d34cfe2bb45.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09b1c12e3264e7641b1411bb0c564a689769c065.jpg',
           slug: 'karma-workspaces',
-          starting: '1,000'
+          starting: '7,500'
         },
         {
           name: 'Connekt Ahmedabad',
           address: 'Memnagar, Ahmeda..',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5f8b90a657150474424a8a63511a93b750b749b3.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f6817e36e799c995fc8f63700b6f052316d52338.jpg',
           slug: 'connekt-ahmedabad',
           starting: '7,500'
         },
         {
           name: 'Opulence Privilon',
           address: 'Iscon BRT Road',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5f661b5f4b5b5160f15013d7856e538f5324cb07.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cee1a52b4ab38037a3086599e8d96f87d35272e8.jpg',
           slug: 'opulence-privilon',
-          starting: '7,500'
+          starting: '8,500'
         },
         {
           name: '5B Colab Ahmedabad',
           address: 'Vishwabharti society',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9af45edcea843589e410f74786bd53e5c28b6e50.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/364783ebcfc48e10bae468efe3de7549db0bc7c5.jpg',
           slug: '5b-colab-ahmedabad',
-          starting: '600'
+          starting: '6,500'
         },
         {
           name: 'Paragraph',
           address: 'S.G. Highway',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e365dcffdfb7bade0fafd9c335a720cf794a5f82.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3d1ddc816f331edfe3077f6fb20c50874116e49e.jpg',
           slug: 'paragraph',
-          starting: '590'
+          starting: '8,900'
         },
         {
           name: 'The Address',
           address: 'SG Highway, Ahmedabad',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/50f551d1e180bdc0a407d0804ce2b846a2b27ead.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02c2e6e719825db8cb398bfb4f769daa562417fa.jpg',
           slug: 'the-address',
           starting: '9,500'
         },
         {
           name: 'Incuspaze The First',
           address: 'Vastrapur, Ahmedabad',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ccfbbc096342a83af14f5dee8d7d1533aed91fc8.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b0236d071b6b5c46d7f882267487068685cf506.jpg',
           slug: 'incuspaze-the-first',
-          starting: '599'
+          starting: '7,000'
         },
-      ], chennai: [
+      ],
+      chennai: [
         {
           name: 'The Hive VR Mall',
           address: 'Thirumangalam',
@@ -697,7 +698,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
         {
           name: 'Fuel Workspaces',
           address: 'Anna Nagar West',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87f6c8409ad43e24871da4b4c5ef8e43b5bc6f65.jpg',
+          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/65628eff3046569a155a9206253c13175638bc47.jpg',
           slug: 'fuel-workspaces',
           starting: '500'
         },
