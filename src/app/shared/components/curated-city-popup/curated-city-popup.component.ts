@@ -36,6 +36,15 @@ export class CuratedCityPopupComponent implements OnInit {
         localStorage.setItem("minPrice", '20000')
         localStorage.setItem("maxPrice", '200000')
       }
+      if (this.price && this.price == 'Inclusive') {
+        localStorage.setItem("featuredColiving", 'Inclusive')
+      }
+      if (this.price && this.price == '625698d3a91948671a4c590b') {
+        localStorage.setItem("featuredColiving", '625698d3a91948671a4c590b')
+      }
+      if (this.price && this.price == '625698e8a91948671a4c590c') {
+        localStorage.setItem("featuredColiving", '625698e8a91948671a4c590c')
+      }
     })
   }
   removedash(name: string) {

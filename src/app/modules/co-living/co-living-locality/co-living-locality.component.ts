@@ -49,6 +49,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   IMAGE_STATIC_ALT = [];
   price_filters = [];
   number_record: number;
+  featuredColiving: string;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -67,6 +68,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.featuredColiving = localStorage.getItem('featuredColiving');
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -76,14 +78,44 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
 
         this.title = results.routeParams[0].path;
         this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
-        this.queryParams = {
-          ...AppConstant.DEFAULT_SEARCH_PARAMS,
-          key: results.routeParams[1].path + '-' + this.title,
-          city: filteredCity[0].id,
-          micro_location: 'enabled',
-          ...results.queryParams,
-        };
-
+        if (this.featuredColiving && this.featuredColiving == 'Inclusive') {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            food: this.featuredColiving,
+            micro_location: 'enabled',
+            ...results.queryParams,
+          };
+        }
+        else if (this.featuredColiving && this.featuredColiving == '625698d3a91948671a4c590b') {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            privaterooom: this.featuredColiving,
+            micro_location: 'enabled',
+            ...results.queryParams,
+          };
+        }
+        else if (this.featuredColiving && this.featuredColiving == '625698e8a91948671a4c590c') {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            micro_location: 'enabled',
+            twinsharing: this.featuredColiving,
+            ...results.queryParams,
+          };
+        } else {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            micro_location: 'enabled',
+            ...results.queryParams,
+          };
+        }
         this.IMAGE_STATIC_ALT.push(
           'Co-Living Space in ' + this.subTitle,
           'Co-Living Space ' + this.subTitle + ' ' + this.title,

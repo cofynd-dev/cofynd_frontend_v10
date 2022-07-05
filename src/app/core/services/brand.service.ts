@@ -48,4 +48,8 @@ export class BrandService {
   setAvailableCites(cities: City[]) {
     this.availableCities.next(cities);
   }
+
+  getFeaturedImages() {
+    return this.http.get<ApiResponse<City[]>>(`/user/getfeaturedImages`).pipe(map(response => response.data));
+  }
 }
