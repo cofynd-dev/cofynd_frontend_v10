@@ -79,8 +79,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           const filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );
-          console.log(this.activatedRoute.snapshot.url);
-          console.log(filteredCity);
+          console.log("filteredCity", this.availableCities, filteredCity)
           this.title = filteredCity[0].name;
           this.createBreadcrumb();
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
@@ -146,6 +145,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   getOfficeList(param: any = {}) {
+    console.log("param", param);
     this.price_filters.length = 0;
     this.number_record = 20;
     this.loading = true;
@@ -155,6 +155,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     // param.minPrice = 15000;
     // param.maxPrice = 30000;
     this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allOffices => {
+      console.log("allOffices", allOffices);
       this.coLivings = allOffices.data.sort((a: any, b: any) => {
         if (b.priority) {
           return a.priority.location.order > b.priority.location.order ? 1 : -1;

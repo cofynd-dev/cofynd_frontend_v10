@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SearchResult } from '@app/core/models/search-result.model';
-import { ApiResponse } from '@core/models/api-response.model';
+import { ApiResponse, ObjectResponseModel } from '@core/models/api-response.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CoLiving } from './co-living.model';
@@ -10,7 +10,7 @@ import { CoLiving } from './co-living.model';
   providedIn: 'root',
 })
 export class CoLivingService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/coLivingSpaces?${params}`).pipe(
@@ -31,14 +31,32 @@ export class CoLivingService {
   }
 
   getPopularCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
+    console.log("params", params);
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/popularCoLivingSpaces?${params}`).pipe(
       map(coLivings => {
+        console.log("**", coLivings);
         coLivings.data.map(coLiving => this.setStartingPrice(coLiving));
         return coLivings;
       }),
     );
   }
-
+  getPriorityWorkSpaces(params): Observable<ObjectResponseModel<any>> {
+    console.log("params", params);
+    return this.http.get<ObjectResponseModel<CoLiving>>(`/user/coLivingSpaces/priority/type`, { params: params }).pipe(
+      map(coLivings => {
+        console.log("**", coLivings);
+        // coLivings.data.map(coLiving => this.setStartingPrice(coLiving));
+        return coLivings;
+      }),
+    );
+  }
+  // getPriorityWorkSpaces1(params): Observable<ObjectResponseModel<any>> {
+  //   console.log("TTTT",params);
+  //   return this.http.get<ObjectResponseModel<CoLiving>>(
+  //     `${environment.baseUrl}admin/coLivingSpaces/priority/type`,
+  //     { params: params }
+  //   );
+  // }
   getColivingByBrand(slug: string, params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/colivingByBrand/${slug}?${params}`).pipe(
       map(coLivings => {
