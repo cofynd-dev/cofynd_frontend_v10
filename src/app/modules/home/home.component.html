@@ -413,7 +413,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of coworkingImages">
                         <!-- <img src="/assets/images/star-coworking-img.jpg" alt="" class="img-fluid"> -->
-                        <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
+                       <a [routerLink]="item.description" target="_blank"> <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
                 </div>
             </div>
@@ -522,7 +522,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of colivingImages" >
                         <!-- <img src="img/pearl-premium-lux-homes.jpg" alt="" class="img-fluid"> -->
-                        <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
+                        <a  [routerLink]="item.description" target="_blank">  <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
                    
                 </div>

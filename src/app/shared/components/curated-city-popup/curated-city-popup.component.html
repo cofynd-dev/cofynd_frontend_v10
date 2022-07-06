@@ -13,7 +13,7 @@
                         <img [src]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
                     </div>
                     <div class="cities-icon-content">
-                        <h4>{{ removedash(city.name) }}</h4>
+                        <h4>{{ removedash(city.name) | titlecase}}</h4>
                     </div>
                     <a (click)="closeModal()" [routerLink]="'/coworking/' + city.name.toLowerCase()" class="stretched-link"></a>
                 </div>
@@ -37,7 +37,7 @@
                         <img [src]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
                     </div>
                     <div class="cities-icon-content">
-                        <h4>{{ removedash(city.name) }}</h4>
+                        <h4>{{ removedash(city.name) | titlecase}}</h4>
                     </div>
                     <a (click)="closeModal()" [routerLink]="'/co-living/' + city.name.toLowerCase()" class="stretched-link"></a>
                 </div>
