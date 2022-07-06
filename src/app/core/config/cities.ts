@@ -752,16 +752,6 @@ export const AVAILABLE_CITY_CO_LIVING = [
       'Subhash Nagar',
     ],
   },
-  {
-    name: 'kochi',
-    id: '5f8d31a7c2502350f24fee9b',
-    icon: 'kochi.png',
-    for_coWorking: true,
-    for_office: false,
-    for_coLiving: false,
-    for_virtualOffice: true,
-    locations: [],
-  },
   // {
   //   name: 'lucknow',
   //   id: '5f8d31b0c2502350f24fee9c',
