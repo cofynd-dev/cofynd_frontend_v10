@@ -631,15 +631,15 @@ export const AVAILABLE_CITY_CO_LIVING = [
   //   locations: ['AB Road', 'LIC Colony', 'Ratna Lok Colony', 'Ravindra Nagar', 'South Tukoganj', 'Vijay Nagar'],
   // },
 
-  // {
-  //   name: 'chennai',
-  //   id: '5f7410348c4e6961990e5a21',
-  //   icon: 'chennai.png',
-  //   for_coWorking: true,
-  //   for_office: false,
-  //   for_coLiving: true,
-  //   locations: ['Guindy', 'Anna Nagar', 'OMR', 'Nungambakkam', 'Adyar', 'T Nagar', 'Velachery'],
-  // },
+  {
+    name: 'chennai',
+    id: '5f7410348c4e6961990e5a21',
+    icon: 'chennai.png',
+    for_coWorking: true,
+    for_office: false,
+    for_coLiving: false,
+    locations: ['Guindy', 'Anna Nagar', 'OMR', 'Nungambakkam', 'Adyar', 'T Nagar', 'Velachery'],
+  },
   {
     name: 'ahmedabad',
     id: '5f7af1c48c4e6961990e620e',

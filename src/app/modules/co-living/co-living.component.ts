@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AVAILABLE_CITY } from '@app/core/config/cities';
+import { AVAILABLE_CITY, AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
 import { Brand } from '@app/core/models/brand.model';
 import { City } from '@app/core/models/city.model';
 import { BrandService } from '@app/core/services/brand.service';
@@ -1005,7 +1005,8 @@ export class CoLivingComponent implements OnInit {
   ];
 
   constructor(private brandService: BrandService, private seoService: SeoService, private router: Router) {
-    this.cities = AVAILABLE_CITY.filter(city => city.for_coLiving === true);
+    this.cities = AVAILABLE_CITY_CO_LIVING.filter(city => city.for_coLiving === true);
+    console.log("cities", this.cities);
   }
 
   ngOnInit() {

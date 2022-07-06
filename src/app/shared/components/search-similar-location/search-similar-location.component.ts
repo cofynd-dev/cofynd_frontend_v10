@@ -47,6 +47,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
   }
   reRoute(location) {
     console.log(location);
+    // debugger
     let country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
     if (this.relativeUrl === 'co-living' && country != 'india' && country != 'India' && country != 'INDIA') {
       const url = `/${country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
