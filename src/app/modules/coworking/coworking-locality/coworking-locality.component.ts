@@ -49,6 +49,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   IMAGE_STATIC_ALT = [];
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
+  minPrice: string;
+  maxPrice: string;
 
   constructor(
     @Inject(DOCUMENT) private _document: Document,
@@ -70,6 +72,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.minPrice = localStorage.getItem('minPrice');
+    this.maxPrice = localStorage.getItem('maxPrice');
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -84,14 +88,28 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         this.title = results.routeParams[0].path;
         this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
         const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COWORKING_FILTER_KEY));
-        this.queryParams = {
-          key: results.routeParams[1].path + '-' + this.title,
-          city: filteredCity[0].id,
-          micro_location: 'enabled',
-          ...AppConstant.DEFAULT_SEARCH_PARAMS,
-          ...results.queryParams,
-          ...prevParam,
-        };
+        if (this.minPrice && this.maxPrice) {
+          this.queryParams = {
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            minPrice: +this.minPrice,
+            maxPrice: +this.maxPrice,
+            micro_location: 'enabled',
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            ...results.queryParams,
+            ...prevParam,
+          };
+        } else {
+          this.queryParams = {
+            key: results.routeParams[1].path + '-' + this.title,
+            city: filteredCity[0].id,
+            micro_location: 'enabled',
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            ...results.queryParams,
+            ...prevParam,
+          };
+        }
+
         this.IMAGE_STATIC_ALT.push(
           'Coworking Space in ' + this.subTitle,
           'Coworking Space ' + this.subTitle + ' ' + this.title,

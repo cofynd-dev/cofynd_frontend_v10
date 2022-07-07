@@ -47,6 +47,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   price_filters = [];
   number_record: number = 20;
   country_name: string = '';
+  featuredColiving: string;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -67,7 +68,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log("rpppp")
+    this.featuredColiving = localStorage.getItem('featuredColiving');
+    console.log("HIIIIIIIIIIII", this.featuredColiving);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       (this.title = this.activatedRoute.snapshot.url[0].path),
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
@@ -81,12 +83,40 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           this.title = filteredCity[0].name;
           this.createBreadcrumb();
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
-          this.queryParams = {
-            ...AppConstant.DEFAULT_SEARCH_PARAMS,
-            city: filteredCity[0].id,
-            ...params,
-            ...prevParam,
-          };
+          if (this.featuredColiving && this.featuredColiving == 'Inclusive') {
+            this.queryParams = {
+              ...AppConstant.DEFAULT_SEARCH_PARAMS,
+              city: filteredCity[0].id,
+              food: this.featuredColiving,
+              ...params,
+              ...prevParam,
+            };
+          }
+          else if (this.featuredColiving && this.featuredColiving == '625698d3a91948671a4c590b') {
+            this.queryParams = {
+              ...AppConstant.DEFAULT_SEARCH_PARAMS,
+              city: filteredCity[0].id,
+              privaterooom: this.featuredColiving,
+              ...params,
+              ...prevParam,
+            };
+          }
+          else if (this.featuredColiving && this.featuredColiving == '625698e8a91948671a4c590c') {
+            this.queryParams = {
+              ...AppConstant.DEFAULT_SEARCH_PARAMS,
+              city: filteredCity[0].id,
+              twinsharing: this.featuredColiving,
+              ...params,
+              ...prevParam,
+            };
+          } else {
+            this.queryParams = {
+              ...AppConstant.DEFAULT_SEARCH_PARAMS,
+              city: filteredCity[0].id,
+              ...params,
+              ...prevParam,
+            };
+          }
           this.getOfficeList(this.queryParams);
           this.page = params['page'] ? +params['page'] : 1;
           this.addSeoTags(this.title.toLowerCase());

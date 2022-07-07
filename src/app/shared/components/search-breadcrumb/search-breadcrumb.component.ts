@@ -45,7 +45,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   selectedSort: any;
   mobileView: boolean;
 
-  constructor() {}
+  constructor() { }
 
   @HostListener('window:resize', [])
   onResize() {
@@ -121,6 +121,11 @@ export class SearchBreadcrumbComponent implements OnChanges {
   onSortChange(type) {
     this.selectedSort = type;
     this.sortTypeChanged.emit(type);
+  }
+  removeLocalStorage() {
+    localStorage.removeItem('minPrice');
+    localStorage.removeItem('maxPrice');
+    localStorage.removeItem('featuredColiving');
   }
 
   getPriceFilter(): PriceFilter[] {

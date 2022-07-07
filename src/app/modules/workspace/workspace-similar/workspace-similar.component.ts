@@ -35,12 +35,16 @@ export class WorkspaceSimilarComponent implements OnInit {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
+  minPrice: string;
+  maxPrice: string;
 
   constructor(private workSpaceService: WorkSpaceService, private cdr: ChangeDetectorRef,
     private router: Router,
   ) { }
 
   ngOnInit() {
+    this.minPrice = localStorage.getItem('minPrice');
+    this.maxPrice = localStorage.getItem('maxPrice');
     this.loadWorkSpaces();
   }
   openDetailsPage(slug) {
@@ -56,7 +60,16 @@ export class WorkspaceSimilarComponent implements OnInit {
   loadWorkSpaces() {
     const address = this.address.replace('#', '');
     this.loading = true;
-    const queryParam = { limit: 9, key: address };
+    var queryParam = {};
+    if (this.minPrice && this.maxPrice) {
+      queryParam = {
+        limit: 9, key: address, minPrice: +this.minPrice,
+        maxPrice: +this.maxPrice,
+      };
+
+    } else {
+      queryParam = { limit: 9, key: address };
+    }
     this.workSpaceService
       .getWorSpacesByAddress(sanitizeParams(queryParam))
       .pipe(
