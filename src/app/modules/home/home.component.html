@@ -59,7 +59,7 @@
         </div>
     </div>
 </section>
-
+<!-- <span><h2 class="page-title onlyMobile" style="margin-left: 20px;  font-size: 22px;">Categories</h2></span> -->
 <section class="categories_sec onlyMobile">
     <div class="container">
         <div class="row">
@@ -346,6 +346,11 @@
 <app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
 
 
+<div class="pb-5">
+    <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands">
+    </app-home-brand-list>
+</div>
+
 <section class="curated_section onlyMobile">
     <div class="container">
         <div class="row">
@@ -421,10 +426,6 @@
     </div>
 </section>
 
-<div class="pb-5">
-    <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands">
-    </app-home-brand-list>
-</div>
 
 
 <section class="enquiry-section hideOnMobile" style="padding-top: 90px !important;">
@@ -438,7 +439,7 @@
 </section>
 
 <!-- We are ready for the new normal! -->
-<section class="onlyMobile covid-safety pt-5 pb-5">
+<!-- <section class="onlyMobile covid-safety pt-5 pb-5">
     <div class="container pb-5">
         <div class="row">
             <div class="col-12">
@@ -449,11 +450,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
 </app-home-popular-space>
+
+
+<app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
+</app-home-brand-list>
 
 <section class="curated_section onlyMobile">
     <div class="container">
@@ -531,8 +536,6 @@
     </div>
 </section>
 
-<app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
-</app-home-brand-list>
 
 <section class="client_logo_sec partners pb-5 onlyMobile">
     <div class="container">
@@ -598,7 +601,7 @@
     </div>
 </section>
 
-<section class="enquiry-section">
+<section class="enquiry-section hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -610,9 +613,30 @@
     </div>
 </section>
 
+
+
+<section class="cta_section onlyMobile">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="cta_area">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <p>List Your Vacant Space with Cofynd and Start Earning</p>
+                        <a href="https://cofynd.com/list-your-space" class="btn site_btn">List Your Space</a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="../../../assets/images/cta-img.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false"></app-home-brand-list>
 
-<section class="enquiry-section">
+
+<section class="enquiry-section hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
