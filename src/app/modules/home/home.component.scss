@@ -2,7 +2,7 @@
     padding: 120px 0 80px;
     position: relative;
     @media (max-width: 580px) {
-        padding: 80px 0;
+        padding: 50px 0;
     }
     .banner-bg {
         background: url('/assets/images/home/banner-1.webp') no-repeat top right;
@@ -1542,3 +1542,32 @@ ul {
     }
   }
   
+  .cta_section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.cta_section .cta_area {
+    background-color: #F8F9FA;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.16);
+    width: 96%;
+    margin: 0 auto;
+}
+.cta_section p {
+    font-size: 14px;
+    line-height: 22px;
+}
+.cta_section span {
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+}
+.cta_section .img-fluid {
+    width: 80%;
+}
+.cta_content {
+    padding: 10px 0px;
+}
