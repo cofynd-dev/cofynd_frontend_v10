@@ -85,6 +85,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             city: filteredCity[0].id,
             food: this.featuredColiving,
             micro_location: 'enabled',
+            type: 'micro_location',
             ...results.queryParams,
           };
         }
@@ -95,6 +96,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             city: filteredCity[0].id,
             privaterooom: this.featuredColiving,
             micro_location: 'enabled',
+            type: 'micro_location',
             ...results.queryParams,
           };
         }
@@ -104,6 +106,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             key: results.routeParams[1].path + '-' + this.title,
             city: filteredCity[0].id,
             micro_location: 'enabled',
+            type: 'micro_location',
             twinsharing: this.featuredColiving,
             ...results.queryParams,
           };
@@ -113,6 +116,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             key: results.routeParams[1].path + '-' + this.title,
             city: filteredCity[0].id,
             micro_location: 'enabled',
+            type: 'micro_location',
             ...results.queryParams,
           };
         }
@@ -125,10 +129,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         );
         this.createBreadcrumb();
         // this.getOfficeList(this.queryParams);
-        this.getOfficeList(this.queryParams, {
-          type: 'micro_location',
-          city: filteredCity[0].id,
-        });
+        this.getOfficeList(this.queryParams);
         this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
         this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
 
@@ -160,17 +161,18 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     ];
   }
 
-  getOfficeList(param: {}, param1) {
+  getOfficeList(param: {}) {
     // debugger
-    // this.coLivingService.getPriorityWorkSpaces({ type: 'micro_location', city: '5e3eb83c18c88277e8142795' }).subscribe(d => {
-    //   console.log("uu", d);
-    // })
+    this.coLivingService.getPriorityWorkSpaces(param).subscribe(d => {
+      console.log("uu", d);
+    })
     this.price_filters.length = 0;
     this.loading = true;
     this.queryParams.limit = 20;
     this.number_record = 20;
-    this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
-      this.coLivings = allOffices.data;
+    // this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
+    this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
+      this.coLivings = allOffices.data.prioritySpaces;
       console.log("coLivings", this.coLivings);
 
       if (allOffices.data.length) {
@@ -311,14 +313,14 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
 
   private recallOfficeList() {
     localStorage.setItem(AppConstant.LS_COWORKING_FILTER_KEY, JSON.stringify(this.queryParams));
-    // this.getOfficeList(this.queryParams);
+    this.getOfficeList(this.queryParams);
   }
 
   resetFilter() {
     const key = `${this.subTitle.replace(/ /g, '-')}-${this.title}`;
     this.queryParams = { key };
     localStorage.removeItem(AppConstant.LS_COWORKING_FILTER_KEY);
-    // this.getOfficeList(this.queryParams);
+    this.getOfficeList(this.queryParams);
   }
 
   onPageScroll(event: { scroll: boolean; count: number }) {
@@ -346,7 +348,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   filterMapView(data) {
     this.loading = true;
     if (data == '') {
-      // this.getOfficeList(this.queryParams);
+      this.getOfficeList(this.queryParams);
     } else {
       this.queryParams.limit = 10000;
       delete this.queryParams.page;

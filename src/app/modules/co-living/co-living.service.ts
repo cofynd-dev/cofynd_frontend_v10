@@ -43,9 +43,9 @@ export class CoLivingService {
   getPriorityWorkSpaces(params): Observable<ObjectResponseModel<any>> {
     console.log("params", params);
     return this.http.get<ObjectResponseModel<CoLiving>>(`/user/coLivingSpaces/priority/type`, { params: params }).pipe(
-      map(coLivings => {
+      map((coLivings: any) => {
         console.log("**", coLivings);
-        // coLivings.data.map(coLiving => this.setStartingPrice(coLiving));
+        coLivings.data.prioritySpaces.map(coLiving => this.setStartingPrice(coLiving));
         return coLivings;
       }),
     );

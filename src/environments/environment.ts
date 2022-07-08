@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   blogUrl: 'http://blog.cofynd.com',
   apiEndPoint: 'https://api.cofynd.com/api',
-  // apiEndPoint: 'http://localhost:7000/api',
+  //apiEndPoint: 'http://localhost:7000/api',
   appUrl: 'https://cofynd.com',
   keys: {
     // GOOGLE_MAP: 'AIzaSyDrIBoEI-pQOvA87Q6UGXvKsyv1XBT5KEg',
@@ -22,9 +22,6 @@ export const environment = {
     GA_ENABLED: false,
   },
 };
-
-
-
 
 /*
  * For easier debugging in development mode, you can import the following file
