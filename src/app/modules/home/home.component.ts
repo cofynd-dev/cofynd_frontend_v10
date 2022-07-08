@@ -36,7 +36,8 @@ export class HomeComponent {
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
   coLivingBrands: Brand[] = [];
-
+  coworkingImages: any = [];
+  colivingImages: any = [];
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
 
@@ -135,7 +136,7 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-
+    this.getFeaturedImages()
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
       this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
@@ -147,6 +148,13 @@ export class HomeComponent {
     });
   }
 
+  getFeaturedImages() {
+    this.brandService.getFeaturedImages().subscribe((res: any) => {
+      this.coworkingImages = res.filter(city => city.for_coWorking === true);
+      this.colivingImages = res.filter(city => city.for_coLiving === true);
+      console.log(this.coworkingImages, this.colivingImages);
+    })
+  }
   setScript() {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
