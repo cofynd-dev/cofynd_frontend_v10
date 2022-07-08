@@ -163,16 +163,17 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
 
   getOfficeList(param: {}) {
     // debugger
-    this.coLivingService.getPriorityWorkSpaces(param).subscribe(d => {
-      console.log("uu", d);
-    })
+    // this.coLivingService.getPriorityWorkSpaces(param).subscribe(d => {
+    //   console.log("uu", d);
+    // })
     this.price_filters.length = 0;
     this.loading = true;
     this.queryParams.limit = 20;
     this.number_record = 20;
-    // this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
-    this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
-      this.coLivings = allOffices.data.prioritySpaces;
+    this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
+      // this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
+      // this.coLivings = allOffices.data.prioritySpaces;
+      this.coLivings = allOffices.data;
       console.log("coLivings", this.coLivings);
 
       if (allOffices.data.length) {
