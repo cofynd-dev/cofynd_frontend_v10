@@ -170,9 +170,9 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.queryParams.limit = 20;
     this.number_record = 20;
+    console.log("**");
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       // this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
-      // this.coLivings = allOffices.data.prioritySpaces;
       this.coLivings = allOffices.data;
       console.log("coLivings", this.coLivings);
 
@@ -353,6 +353,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     } else {
       this.queryParams.limit = 10000;
       delete this.queryParams.page;
+      console.log("*");
       this.coLivingService.getPopularCoLivings(sanitizeParams(this.queryParams)).subscribe(allOffices => {
         let coLivings = allOffices.data.sort((a: any, b: any) => {
           if (b.priority) {
