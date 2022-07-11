@@ -1036,8 +1036,8 @@ ul {
         line-height: 38px;
     }
     h2 {
-        font-size: 22px;
-        line-height: 38px;
+        font-size: 18px;
+        line-height: 30px;
     }
     .site_title {
         position: relative;
@@ -1570,4 +1570,19 @@ ul {
 }
 .cta_content {
     padding: 10px 0px;
+}
+.partner-carousel::-webkit-scrollbar {
+    height: 0;
+  }
+  .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
+	padding: 0px 8px;
+}
+.curated-img[_ngcontent-app-root-c6] {
+	position: relative;
+	height: 100px;
+}
+
+.curated-img[_ngcontent-app-root-c6] img[_ngcontent-app-root-c6] {
+	object-fit: cover;
+	height: 100px;
 }
