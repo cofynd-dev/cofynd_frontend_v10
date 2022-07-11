@@ -1579,9 +1579,10 @@ ul {
 }
 .curated-img[_ngcontent-app-root-c6] {
 	position: relative;
-	height: 120px;
+	height: 100px;
 }
-.curated-img img {
+
+.curated-img[_ngcontent-app-root-c6] img[_ngcontent-app-root-c6] {
 	object-fit: cover;
-	height: 100%;
+	height: 100px;
 }
