@@ -672,11 +672,12 @@ Amenity Icons
                 height: 55px;
                 left: -20px;
                 top: -20px;
+                background: white;
             }
         }
         @media(max-width: 480px) {
             margin-left: 0;
-            font-size: 22px;
+            font-size: 18px;
             line-height: 38px;
             &::before {
                 width: 50px;
