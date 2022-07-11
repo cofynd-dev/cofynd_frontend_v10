@@ -1577,3 +1577,11 @@ ul {
   .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
 	padding: 0px 8px;
 }
+.curated-img[_ngcontent-app-root-c6] {
+	position: relative;
+	height: 120px;
+}
+.curated-img img {
+	object-fit: cover;
+	height: 100%;
+}
