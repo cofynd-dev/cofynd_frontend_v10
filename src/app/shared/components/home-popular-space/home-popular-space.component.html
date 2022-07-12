@@ -70,7 +70,7 @@
                     <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularOfficeSpaces" (onMove)="onSliderMove($event)">
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
                             <div *ngIf="officeSlug; else freeSlug" (click)="openOfficeSpace(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                                <img [lazyLoad]="space.image" [alt]="space.name">
+                                <img [src]="space.image" [alt]="space.name">
                                 <div class="space-detail">
                                     <h5>{{ removedash(space.name) }}</h5>
                                     <p><i class="icon-location"></i>{{ space.address }}</p>
@@ -79,7 +79,7 @@
 
                             <ng-template #freeSlug>
                                 <div (click)="openWithFreeSlug(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                                    <img [lazyLoad]="space.image" [alt]="space.name">
+                                    <img [src]="space.image" [alt]="space.name">
                                     <div class="space-detail">
                                         <h5>{{ space.name }}</h5>
                                         <p><i class="icon-location"></i>{{ space.address }}</p>
