@@ -344,12 +344,12 @@
 </section>
 
 <app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
-
+<!-- 
 
 <div class="pb-5">
     <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands">
     </app-home-brand-list>
-</div>
+</div> -->
 
 <section class="curated_section onlyMobile">
     <div class="container">
@@ -418,7 +418,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of coworkingImages">
                         <!-- <img src="/assets/images/star-coworking-img.jpg" alt="" class="img-fluid"> -->
-                       <a [routerLink]="item.description" target="_blank"> <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                       <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
                 </div>
             </div>
@@ -456,9 +456,9 @@
 <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
 </app-home-popular-space>
 
-
+<!-- 
 <app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
-</app-home-brand-list>
+</app-home-brand-list> -->
 
 <section class="curated_section onlyMobile">
     <div class="container">
@@ -527,7 +527,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of colivingImages" >
                         <!-- <img src="img/pearl-premium-lux-homes.jpg" alt="" class="img-fluid"> -->
-                        <a  [routerLink]="item.description" target="_blank">  <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                        <a  [routerLink]="item.description" target="_blank">  <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
                    
                 </div>
@@ -563,7 +563,7 @@
     </div>
 </section>
 
-<section class="feature_sec onlyMobile">
+<section class="advantages_sec  onlyMobile">
     <div class="container">
         <div class="row mb-2">
             <div class="col-12">
@@ -582,13 +582,13 @@
             <div class="col-6">
                 <div class="icon_box">
                     <img src="../../../assets/images/trusted-icon.png" alt="">
-                    <h4>Verified & Trusted Spaces</h4>
+                    <h4>Verified Spaces</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box">
                     <img src="../../../assets/images/support-icon.png" alt="">
-                    <h4>100% Offline Support</h4>
+                    <h4>100% Support</h4>
                 </div>
             </div>
             <div class="col-6">
@@ -662,7 +662,7 @@
                         to their highest in life.</p>
                     <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
                     <div class="space-btn pb-5">
-                        <p class="live-spaces-button p-2 text-center text-white"><a><span class="pr-2" routerLink="/coworking">India </span></a>|
+                        <p class="live-spaces-button p-2 text-center text-white "><a><span class="pr-2" routerLink="/coworking">India </span></a>|
                             <span class="pl-2 pr-2" routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
                         </p>
                     </div>

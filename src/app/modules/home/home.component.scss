@@ -631,7 +631,7 @@
     }
     @media(max-width:480px) {
         h4 {
-            font-size: 22px;
+            font-size: 18px;
             margin: 25px 0 15px;
             font-weight: 500;
         }
@@ -646,6 +646,12 @@
         }
         .space-btn {
             margin: auto;
+        }
+        .live-spaces-button {
+            font-weight: 500;
+            background-color: #4343e8;
+            font-size: 12px;
+            border-radius: 20px;
         }
     }
 }
