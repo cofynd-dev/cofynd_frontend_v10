@@ -85,6 +85,14 @@
       .col-sm-4 {
         padding: 10px 5px 5px 10px;
       }
+      .col-sm-7 {
+        border-right: 1px solid #e4e4e4;
+        padding: 10px 5px 5px 25px;
+      }
+
+      .col-sm-5 {
+        padding: 10px 5px 5px 10px;
+      }
 
       .col-sm-12 {
         border-right: 1px solid #e4e4e4;
@@ -191,6 +199,15 @@
         }
 
         .col-sm-4 {
+          padding: 10px 20px 6px;
+        }
+        .col-sm-7 {
+          border-right: 0;
+          border-bottom: 1px solid #e4e4e4;
+          padding: 10px 20px 6px;
+        }
+
+        .col-sm-5 {
           padding: 10px 20px 6px;
         }
       }

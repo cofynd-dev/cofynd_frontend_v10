@@ -29,7 +29,9 @@ export class WorkspacePlanComponent {
   planCategory = WorkSpacePlanType;
   workSpacePlanDescription = WorkSpacePlanDescription;
 
-  constructor(private router: Router, private authService: AuthService, private helperService: HelperService) { }
+  constructor(private router: Router, private authService: AuthService, private helperService: HelperService) {
+    console.log("plans", this.plans);
+  }
 
   onBooking(interestedIn) {
     if (this.authService.getToken()) {
