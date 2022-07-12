@@ -72,7 +72,7 @@ export class HomeComponent {
   popularCoLivingSpaces = [
     {
       name: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/19a85ebc62e685a77d8185fd041191baaa1354c1.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30c9886ab2f435389383acff8e74d1feb508e2f9.jpg',
       slug: 'delhi',
       address: 'The Nation Capital',
 
@@ -85,19 +85,19 @@ export class HomeComponent {
     },
     {
       name: 'Noida',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3cf39ce402e67c8fad130db6b0dae64915e20cd2.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae54cf7e062c1b1730f9232a89082f703c343fc5.jpg',
       slug: 'noida',
       address: 'The Hitech City',
     },
     {
       name: 'Bangalore',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da4a46369387bbd79f2c178e07944090e50d58a7.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74a8090ee807625aa2b4aba29c4d35de02cbf5d8.jpg',
       slug: 'bangalore',
       address: "India's Silicon Valley",
     },
     {
       name: 'Hyderabad',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ba01fdedce7ac6846cc542b84ee146cededc36c.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/45755519ffdf69dc1b1178cf777ee6df98ced7b1.jpg',
       slug: 'hyderabad',
       address: "A City of Nawabs",
     },

@@ -12,7 +12,7 @@
                             <div (click)="openWorkSpace(space.address.split(',').pop(),space.city,space.country,space.countryId)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <img [lazyLoad]="space.image" [alt]="space.name">
                                 <div class="space-detail">
-                                    <h5>{{removedash(space?.city)}}</h5>
+                                    <h5>{{removedash(space?.city) | titlecase}}</h5>
                                     <!-- <p><i class="sicon-location"></i>{{ space.address }}</p> -->
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                             <div (click)="openCoLivingSpace(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <img [lazyLoad]="space.image" [alt]="space.name">
                                 <div class="space-detail">
-                                    <h5>{{ removedash(space.name) }}</h5>
+                                    <h5>{{ removedash(space.name) | titlecase }}</h5>
                                     <p><i class="icon-location"></i>{{ space.address }}</p>
                                 </div>
                             </div>
