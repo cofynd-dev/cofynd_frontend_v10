@@ -110,11 +110,13 @@
 
 @media (max-width: 480px) {
   .our_brands {
-    padding: 30px 15px !important;
+    padding: 30px 15px 15px !important;
   }
   .our_brands .page-title {
     text-align: left;
     padding-left: 15px !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   .our_brands .page-title h2::after {
     display: none;
