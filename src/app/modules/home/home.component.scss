@@ -1030,12 +1030,186 @@ ul {
     background: #F8F9FA;
 }
 
+.page-title h2::after {
+    width: 92px;
+    height: 2px;
+    background: #4343e8;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -46px;
+    content: "";
+    display: inline-block;
+}
+
+.partners {
+    // padding: 0 9%;
+    overflow: hidden;
+    background: #fff url(../../../assets/images/pattern-bg.png) no-repeat center center;
+  
+    &.grey-layout {
+      background: #f8f9fa;
+      padding: 30px 0 60px;
+  
+      @media (max-width: 767px) {
+  
+        .page-title h2::before {
+          display: none;
+        }
+  
+        .partner-carousel {
+          white-space: nowrap;
+          overflow: hidden;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          justify-content: flex-start;
+        }
+      }
+    }
+  
+    .remove-side-circle {
+      padding: 70px 0;
+  
+      h2 {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  
+    .partner-carousel {
+      // display: flex;
+      display: -webkit-box;
+      justify-content: space-evenly;
+      // flex-wrap: wrap;
+      // padding: 0 15px;
+      // margin-right: 30px;
+      // margin-left: 50px;
+  
+      .band-img {
+        flex-grow: 1;
+        text-align: center;
+      }
+  
+  
+      img {
+        cursor: pointer;
+        max-width: 100%;
+        width: 238px;
+        transition: filter 1000ms ease-out;
+        // filter: grayscale(100%);
+  
+        // &:hover {
+        //   // filter: grayscale(0%);
+        // }
+      }
+  
+      .brand-partner{
+        cursor: text !important;
+      }
+  
+      @media (max-width: 767px) {
+        margin-right: 0;
+        margin-left: 0;
+  
+        .band-img {
+          flex-grow: 1;
+          max-width: 33%;
+          flex: 0 0 33%;
+          padding: 15px 5px;
+          text-align: center;
+        }
+  
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  
+  .slider-on-mobile-view {
+    display: none;
+  
+    @media (max-width: 767px) {
+      justify-content: space-evenly;
+      width: 100%;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding: 0 15px;
+      overflow-x: auto;
+      flex-wrap: unset;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .partners .remove-side-circle {
+      padding: 40px 0;
+    }
+    .partners .page-title{
+      padding: 20px 0;
+    }
+  }
+  
+  .cta_section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.cta_section .cta_area {
+    background-color: #F8F9FA;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.16);
+    width: 96%;
+    margin: 0 auto;
+}
+.cta_section p {
+    font-size: 14px;
+    line-height: 22px;
+}
+.cta_section span {
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+}
+.cta_section .img-fluid {
+    width: 80%;
+}
+.cta_content {
+    padding: 10px 0px;
+}
+.partner-carousel::-webkit-scrollbar {
+    height: 0;
+  }
+  .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
+	padding: 0px 5px;
+}
+.categories_sec .col-12 {
+	margin-top: 10px !important;
+}
+.curated-img[_ngcontent-app-root-c6] {
+	position: relative;
+	height: 100px;
+}
+.curated-img[_ngcontent-app-root-c6] img[_ngcontent-app-root-c6] {
+	object-fit: cover;
+	height: 100px;
+}
+
+
 
 /**************  Responsive  *************/
 
 @media (max-width: 480px) {
     .banner_content {
         padding: 40px 15px 30px 15px;
+    }
+    .page-title {
+        text-align: left;
+        padding: 0px 0px 0px 15px !important;
+        position: relative;
+        z-index: 1;
     }
     .page-title h2::after {
         display: none !important;
@@ -1044,7 +1218,9 @@ ul {
         margin-bottom: 0px;
         display: block;
         text-align: left;
+        margin-bottom: 15px;
     }
+    
     h1 {
         font-size: 28px;
         line-height: 38px;
@@ -1212,7 +1388,7 @@ ul {
         font-weight: 500;
     }
     .partners {
-        padding: 0px 15px;
+        padding: 30px 15px !important;
     }
     .partners .partner-carousel .band-img {
         padding: 0px 5px;
@@ -1241,8 +1417,7 @@ ul {
         margin: 0px 5px;
     }
     .client_logo_sec {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 30px 0px !important;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -1283,12 +1458,11 @@ ul {
         font-size: 11px;
         font-weight: 500;
     }
-    .popular-spaces{
-        padding-bottom: 30px;
+    .popular-spaces .page-title h2::after {
+        display: none !important;
     }
     .feature_sec {
-        padding-top: 50px;
-        padding-bottom: 20px;
+        padding: 30px 0px 30px !important;
     }
     .icon_box {
         margin-bottom: 40px;
@@ -1337,6 +1511,9 @@ ul {
     .cofynd_desk_content h2 {
         text-align: center;
     }
+    .cofynd-desk h4 {
+        margin: 25px 0 5px !important;
+    }
     .cofynd-desk p {
         padding-right: 0;
         font-size: 11px;
@@ -1350,6 +1527,7 @@ ul {
         font-size: 12px;
         line-height: 15px;
     }
+    
     .space_search_made_sec {
         background: #F8F8F8;
         padding: 20px 0px;
@@ -1451,187 +1629,53 @@ ul {
     .sub-footer p {
         font-size: 11px;
     }
-}
-
-@media (max-width: 480px) {
     .item {
         padding: 0 5px;
     }
-    .page-title {
-        padding: 20px 0 10px;
-        h2::after {
-            bottom: -15px;
-           
-        }
+    .popular-spaces .item {
+        padding: 0 5px;
     }
-}
-
-.page-title h2::after {
-    width: 92px;
-    height: 2px;
-    background: #4343e8;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    margin-left: -46px;
-    content: "";
-    display: inline-block;
-}
-
-.partners {
-    // padding: 0 9%;
-    overflow: hidden;
-    background: #fff url(../../../assets/images/pattern-bg.png) no-repeat center center;
-  
-    &.grey-layout {
-      background: #f8f9fa;
-      padding: 30px 0 60px;
-  
-      @media (max-width: 767px) {
-  
-        .page-title h2::before {
-          display: none;
-        }
-  
-        .partner-carousel {
-          white-space: nowrap;
-          overflow: hidden;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          justify-content: flex-start;
-        }
-      }
+    .popular-spaces .popular-space-box:hover::before {
+        background-image: linear-gradient(to bottom,rgba(255,255,255,0) 60%,#000 100%) !important;
     }
-  
-    .remove-side-circle {
-      padding: 70px 0;
-  
-      h2 {
-        &::before {
-          display: none;
-        }
-      }
+    .curated_section .col-4:first-child {
+        padding-left: 15px !important;
     }
-  
-    .partner-carousel {
-      // display: flex;
-      display: -webkit-box;
-      justify-content: space-evenly;
-      // flex-wrap: wrap;
-      // padding: 0 15px;
-      // margin-right: 30px;
-      // margin-left: 50px;
-  
-      .band-img {
-        flex-grow: 1;
-        text-align: center;
-      }
-  
-  
-      img {
-        cursor: pointer;
-        max-width: 100%;
-        width: 238px;
-        transition: filter 1000ms ease-out;
-        // filter: grayscale(100%);
-  
-        // &:hover {
-        //   // filter: grayscale(0%);
-        // }
-      }
-  
-      .brand-partner{
-        cursor: text !important;
-      }
-  
-      @media (max-width: 767px) {
+    .curated_section .col-4:last-child {
+        padding-right: 15px !important;
+    }
+    .curated_section .row:last-child {
+        margin-left: 0px;
         margin-right: 0;
-        margin-left: 0;
-  
-        .band-img {
-          flex-grow: 1;
-          max-width: 33%;
-          flex: 0 0 33%;
-          padding: 15px 5px;
-          text-align: center;
-        }
-  
-        img {
-          max-width: 100%;
-        }
-      }
     }
-  }
-  
-  .slider-on-mobile-view {
-    display: none;
-  
-    @media (max-width: 767px) {
-      justify-content: space-evenly;
-      width: 100%;
-      overflow-y: hidden;
-      white-space: nowrap;
-      padding: 0 15px;
-      overflow-x: auto;
-      flex-wrap: unset;
+    .search {
+        margin-bottom: 10px !important;
     }
-  }
-  
-  @media (max-width: 600px) {
-    .partners .remove-side-circle {
-      padding: 40px 0;
+    .banner {
+        padding: 50px 0 30px !important;
     }
-    .partners .page-title{
-      padding: 20px 0;
+    .popular-spaces {
+        border-bottom: none !important;
+        padding: 30px 0px 30px !important;
     }
-  }
-  
-  .cta_section {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.cta_section .cta_area {
-    background-color: #F8F9FA;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.16);
-    width: 96%;
-    margin: 0 auto;
-}
-.cta_section p {
-    font-size: 14px;
-    line-height: 22px;
-}
-.cta_section span {
-    font-weight: 600;
-    margin-top: 10px;
-    display: inline-block;
-}
-.cta_section .img-fluid {
-    width: 80%;
-}
-.cta_content {
-    padding: 10px 0px;
-}
-.partner-carousel::-webkit-scrollbar {
-    height: 0;
-  }
-  .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
-	padding: 0px 5px;
-}
-.categories_sec .col-12 {
-	margin-top: 10px !important;
-}
-.curated-img[_ngcontent-app-root-c6] {
-	position: relative;
-	height: 100px;
-}
-.popular-spaces[_ngcontent-app-root-c9] .item[_ngcontent-app-root-c9] {
-	padding: 0 5px;
-}
-.curated-img[_ngcontent-app-root-c6] img[_ngcontent-app-root-c6] {
-	object-fit: cover;
-	height: 100px;
+    .feature_sec .feature_slides {
+        padding-left: 0px !important;
+    }
+    .feature_sec .feature_slides img {
+        width: 300px;
+    }
+    .client_logo_sec .band-img {
+        padding: 0px 5px !important;
+    }
+    .advantages_sec {
+        padding: 30px 0px 15px;
+    }
+    .advantages_sec .icon_box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .advantages_sec .icon_box h4 {
+        padding-left: 10px;
+    }
 }
