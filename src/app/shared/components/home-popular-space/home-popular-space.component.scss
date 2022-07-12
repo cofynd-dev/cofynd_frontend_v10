@@ -1,7 +1,6 @@
 .popular-spaces {
     padding-top: 30px;
     background: #f1f1ff;
-    border-bottom: 60px solid #fff;
     &.white-layout {
         border-bottom: 0;
         background: #fff;
@@ -153,3 +152,22 @@
     content: "";
     display: inline-block;
 }
+
+@media (max-width: 480px) {
+    .popular-spaces {
+      padding: 30px 0px !important;
+    }
+    .popular-spaces .page-title {
+      text-align: left;
+      padding-left: 15px !important;
+    }
+    .popular-spaces .page-title h2::after {
+      display: none;
+    }
+    .popular-spaces .page-title h2 {
+      margin-bottom: 0px;
+    }
+    .popular-spaces .band-img {
+      padding: 0px 5px !important;
+    }
+  }
