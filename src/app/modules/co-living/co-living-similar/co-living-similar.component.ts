@@ -43,7 +43,13 @@ export class CoLivingSimilarComponent implements OnInit {
 
   loadWorkSpaces() {
     this.loading = true;
-    const queryParam = { key: this.address, limit: 9 };
+    const queryParam = {
+      key: this.address,
+      micro_location: 'enabled',
+      type: 'micro_location',
+      limit: 9
+    };
+    console.log("***");
     this.coLivingService
       .getPopularCoLivings(sanitizeParams(queryParam))
       .pipe(
