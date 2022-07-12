@@ -1636,12 +1636,6 @@ ul {
     .popular-spaces .popular-space-box:hover::before {
         background-image: linear-gradient(to bottom,rgba(255,255,255,0) 60%,#000 100%) !important;
     }
-    .curated_section .col-4:first-child {
-        padding-left: 15px !important;
-    }
-    .curated_section .col-4:last-child {
-        padding-right: 15px !important;
-    }
     .curated_section .row:last-child {
         margin-left: 0px;
         margin-right: 0;
