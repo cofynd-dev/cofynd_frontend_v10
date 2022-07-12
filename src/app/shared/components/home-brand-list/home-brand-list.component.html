@@ -20,12 +20,12 @@
     </div>
 </section>
 
-<section class="partners pb-5" *ngIf="shouldOtherBrandVisible">
+<section class="partners our_brands pb-5" *ngIf="shouldOtherBrandVisible">
     <div class="page-title">
         <h2>Our Brand Partners</h2>
     </div>
     <div class="partner-carousel slider-on-mobile-view">
-        <div class="band-img" *ngFor="let brand of [11,12,2,3,4,6]">
+        <div class="band-img" *ngFor="let brand of [3,4,2,6,11,12]">
             <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'" [alt]="brand" class="brand-partner">
         </div>
     </div>
