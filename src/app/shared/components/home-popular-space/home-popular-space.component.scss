@@ -35,9 +35,6 @@
         padding: 0 10px;
     }
     @media (max-width: 480px) {
-        .item {
-            padding: 0 15px;
-        }
         .page-title {
             padding: 20px 0 10px;
             h2::after {
@@ -167,7 +164,7 @@
     .popular-spaces .page-title h2 {
       margin-bottom: 0px;
     }
-    .popular-spaces .band-img {
-      padding: 0px 5px !important;
+    .popular-spaces .item {
+        padding: 0 5px;
     }
   }
