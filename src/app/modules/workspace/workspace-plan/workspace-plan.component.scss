@@ -11,6 +11,7 @@
     padding-right: 220px;
     padding-left: 90px;
     min-height: 135px;
+    height: 100%;
 
     .img {
       width: 60px;
@@ -115,6 +116,11 @@
 
 .hideOnMobile {
   @media (max-width: 480px) {
+    display: none !important;
+  }
+}
+.hideOnweb {
+  @media (min-width: 480px) {
     display: none !important;
   }
 }

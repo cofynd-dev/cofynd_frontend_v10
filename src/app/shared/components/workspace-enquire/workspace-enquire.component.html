@@ -50,19 +50,21 @@
             </div>
 
             <div class="row no-gutters" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                     </ng-select>
                     <app-input-validation [control]="enquiryForm.controls.interested_in">
                     </app-input-validation>
                 </div>
-                <div class="col-sm-4">
-                    <ng-select placeholder="Person" [clearable]="false" [searchable]="false" formControlName="no_of_person">
+                <div class="col-sm-5">
+                    <ng-select placeholder="No of seats" [clearable]="false" [searchable]="false" formControlName="no_of_person">
                         <ng-option value="1-10">1-10</ng-option>
                         <ng-option value="11-20">11-20</ng-option>
                         <ng-option value="21-50">21-50</ng-option>
                         <ng-option value="51-100">51-100</ng-option>
                         <ng-option value="100+">100++</ng-option>
+                        <ng-option value="Enterprise_Solutions">Enterprise Solutions</ng-option>
+                        <ng-option value="Customised_solutions">Customised solutions</ng-option>
                     </ng-select>
                     <app-input-validation [control]="enquiryForm.controls.no_of_person">
                     </app-input-validation>
