@@ -108,6 +108,26 @@
   }
 }
 
+@media (max-width: 480px) {
+  .our_brands {
+    padding: 30px 15px !important;
+  }
+  .our_brands .page-title {
+    text-align: left;
+    padding-left: 15px !important;
+  }
+  .our_brands .page-title h2::after {
+    display: none;
+  }
+  .our_brands .page-title h2 {
+    margin-bottom: 0px;
+  }
+  .our_brands .band-img {
+    padding: 0px 5px !important;
+  }
+}
+
+
 .partner-carousel::-webkit-scrollbar {
   height: 0;
 }
