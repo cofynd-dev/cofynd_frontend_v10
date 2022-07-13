@@ -397,19 +397,20 @@ $color-error-background: #fff1f1;
       border: 0;
       border-radius: 0;
       box-shadow: none;
-      min-height: 44px;
+      min-height: auto;
 
       .ng-value-container {
         padding-left: 0;
-        border-top: 8px solid transparent;
+        border-top: none;
 
         .ng-placeholder {
-          color: #919191;
-          font-size: 15px;
-          position: absolute;
+          color: #222;
+          font-size: 12px;
+          position: relative;
           transform-origin: 0 0;
-          top: 8px;
+          top: 0px;
           transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          padding-left: 8px;
         }
       }
     }
@@ -433,7 +434,7 @@ $color-error-background: #fff1f1;
     &.ng-select-opened,
     .ng-has-value {
       .ng-placeholder {
-        transform: scale(0.8) translateY(-15px);
+        transform: scale(0.8) translateY(0px);
       }
     }
 

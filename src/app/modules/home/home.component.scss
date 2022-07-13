@@ -1628,9 +1628,6 @@ ul {
         float: left;
         padding: 5px 5px;
     }
-    .sub-footer p {
-        font-size: 11px;
-    }
     .item {
         padding: 0 5px;
     }
@@ -1682,5 +1679,11 @@ ul {
         background-color: transparent;
         color: #222 !important;
         padding: 0px !important;
+    }
+    .live-spaces-button a {
+        cursor: pointer;
+    }
+    .sub-footer p {
+        font-size: 11px;
     }
 }
