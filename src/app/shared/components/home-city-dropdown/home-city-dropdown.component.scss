@@ -79,3 +79,28 @@
 //   height: 50px;
 //   margin-left: 4%;
 // }
+
+
+@media (max-width: 480px) {
+  
+  .form-layout-outline .ng-select .ng-select-container {
+    min-height: auto !important;
+  }
+  .form-layout-outline .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: #222;
+    font-size: 12px;
+    padding-left: 8px;
+  }
+  .menu-modal .form-group {
+    border-radius: 8px;
+  }
+  .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+    position: relative;
+  }
+  .form-layout-outline .ng-select .ng-select-container .ng-value-container {
+    border-top: none;
+  }
+  .ng-select.ng-select-single .ng-select-container {
+    height: 100%;
+  }
+}
