@@ -25,10 +25,12 @@
           <div class="price">
             <span class="hideOnMobile">starting from</span>
             <div *ngIf="plan.should_show && !currency_code">
-              <i class="icon-rupee"></i>{{ plan.price }}<small *ngIf="plan.category.name != 'Private Cabin'"><span class="hideOnMobile">/month</span><span class="hideOnweb">/Seat</span></small><small *ngIf="plan.category.name === 'Private Cabin'">/per seat</small>
+              <i class="icon-rupee"></i>{{ plan.price }}<small><span class="hideOnweb">/Seat</span></small>
+              <!-- <i class="icon-rupee"></i>{{ plan.price }}<small *ngIf="plan.category.name != 'Private Cabin'"><span class="hideOnMobile">/month</span><span class="hideOnweb">/Seat</span></small><small *ngIf="plan.category.name === 'Private Cabin'">/per seat</small> -->
             </div>
             <div *ngIf="plan.should_show && currency_code">
-              {{ plan.price | currency: currency_code}}<small *ngIf="plan.category.name != 'Private Cabin'"><span class="hideOnMobile">/month</span><span class="hideOnweb">/Seat</span></small><small *ngIf="plan.category.name === 'Private Cabin'">/per seat</small>
+              {{ plan.price | currency: currency_code}}<small><span>/Seat</span></small>
+              <!-- {{ plan.price | currency: currency_code}}<small *ngIf="plan.category.name != 'Private Cabin'"><span class="hideOnMobile">/month</span><span class="hideOnweb">/Seat</span></small><small *ngIf="plan.category.name === 'Private Cabin'">/per seat</small> -->
             </div>
             <div *ngIf="!plan.should_show">
               on request

@@ -73,6 +73,7 @@ export class SearchMapViewComponent implements OnInit {
         tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
       ],
       zoom: 12,
+      attributionControl: false,
       center: latLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0])
     }
     for (const workspace of workspaces) {

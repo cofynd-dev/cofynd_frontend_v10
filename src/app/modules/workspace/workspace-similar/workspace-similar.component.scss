@@ -86,13 +86,13 @@
   }
 
   .price {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.36px;
-    @media(max-width:480px){
-      font-size: 12px;
-      font-weight: 500;
-    }
+    // font-size: 18px;
+    // font-weight: 700;
+    // letter-spacing: 0.36px;
+    // @media(max-width:480px){
+    //   font-size: 12px;
+    //   font-weight: 500;
+    // }
 
     span {
       font-size: 12px;
@@ -125,6 +125,7 @@
     font-size: 14px;
     font-weight: 500;
     margin: 0;
+    color: #4343e8;
 
     small {
       font-size: 14px;
