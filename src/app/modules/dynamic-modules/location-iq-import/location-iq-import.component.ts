@@ -13,6 +13,7 @@ export class LocationIqImportComponent implements OnInit {
       tileLayer('https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}', { maxZoom: 18, attribution: '...' })
     ],
     zoom: 7,
+    attributionControl: false,
     center: latLng(28.6326204, 77.22187869999999)
   };
 
