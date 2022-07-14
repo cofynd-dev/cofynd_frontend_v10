@@ -145,6 +145,8 @@ export class HomeComponent {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.addSeoTags();
     this.setScript();
+    this.getPopularCoworkingSpace();
+
     
   }
 
