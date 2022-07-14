@@ -342,10 +342,36 @@
         </div>
     </div>
 </section>
-
+<div class="hideOnMobile">
 <app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
-<!-- 
+</div>
 
+<section class="top_coliving_cities onlyMobile" *ngIf="popularCoWorkingSpaces">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Top Coworking in India</h2>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="cities_carousel">
+                    <div class="cities_item first-slide"  (click)="openWorkSpace(city.city)" *ngFor="let city of popularCoWorkingSpaces">
+                        <img class="ng-lazyloaded" [alt]="city.city" [src]="city.image">
+                        <div class="space-detail">
+                            <h5>{{removedash(city.city) | titlecase}}</h5>
+                            <!-- <p><i class="icon-location"></i>{{city.address}}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
 <div class="pb-5">
     <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands">
     </app-home-brand-list>
@@ -451,10 +477,35 @@
         </div>
     </div>
 </section> -->
-
+<div class="hideOnMobile">
 <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
 </app-home-popular-space>
+</div>
 
+<section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces.length">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Top Coliving in India</h2>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="cities_carousel">
+                    <div class="cities_item first-slide"  (click)="openCoLivingSpace(city.slug)" *ngFor="let city of popularCoLivingSpaces">
+                        <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
+                        <div class="space-detail">
+                            <h5>{{removedash(city.name) | titlecase}}</h5>
+                            <p><i class="icon-location"></i>{{city.address}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- 
 <app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
