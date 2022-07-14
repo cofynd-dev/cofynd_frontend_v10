@@ -114,7 +114,7 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   }
 
   goToPrev() {
-    this.popularSpaceCarousel.moveTo(this.active - 1);
+    this.popularSpaceCarousel.moveTo(this.active - 5);
   }
 
   goToNext() {
