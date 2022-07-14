@@ -10,7 +10,7 @@
                     <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoWorkingSpaces" (onMove)="onSliderMove($event)">
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
                             <div (click)="openWorkSpace(space.address.split(',').pop(),space.city,space.country,space.countryId)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                                <img [lazyLoad]="space.image" [alt]="space.name">
+                                <img [src]="space.image" [alt]="space.name">
                                 <div class="space-detail">
                                     <h5>{{removedash(space?.city) | titlecase}}</h5>
                                     <!-- <p><i class="sicon-location"></i>{{ space.address }}</p> -->
@@ -40,7 +40,7 @@
                     <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoLivingSpaces" (onMove)="onSliderMove($event)">
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
                             <div (click)="openCoLivingSpace(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                                <img [lazyLoad]="space.image" [alt]="space.name">
+                                <img [src]="space.image" [alt]="space.name">
                                 <div class="space-detail">
                                     <h5>{{ removedash(space.name) | titlecase }}</h5>
                                     <p><i class="icon-location"></i>{{ space.address }}</p>
