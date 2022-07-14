@@ -74,6 +74,13 @@ export class HomeComponent {
     return name.replace(/-/, ' ')
   }
 
+  
+  openCoLivingSpace(slug: string) {
+    this.router.navigate([`/co-living/${slug}`]);
+  }
+  openWorkSpace(slug: string){
+    this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
+  }
   popularCoLivingSpaces = [
     {
       name: 'Delhi',
