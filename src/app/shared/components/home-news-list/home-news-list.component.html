@@ -1,16 +1,35 @@
-<section class="news_logo partners enquiry-section">
+<!-- <section class="news_logo partners enquiry-section">
   <div class="page-title">
     <h2>{{ pageTitle }}</h2>
   </div>
-  <div class="partner-carousel slider-on-mobile-view">
+  <div class="partner-carousel slider-on-mobile-view"> -->
     <!-- <div class="band-img"
       *ngFor="let news of newsList"
       (click)="redirect(news)">
       <img [src]="news.news_image.s3_link">
     </div> -->
-    <div class="band-img"
+    <!-- <div class="band-img"
       *ngFor="let logo of newsMedia">
       <img [src]="'../../../../assets/images/newsLogo/'+logo+'.png'">
     </div>
+  </div>
+</section> -->
+
+
+<section class="news_brands">
+  <div class="container">
+      <div class="page-title">
+          <h2>{{ pageTitle }}</h2>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <div class="logos_slider">
+                <div class="band-img"
+                *ngFor="let logo of newsMedia">
+                <img [src]="'../../../../assets/images/newsLogo/'+logo+'.png'">
+              </div>
+              </div>
+          </div>
+      </div>
   </div>
 </section>
