@@ -9,7 +9,7 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
 export class HomeNewsListComponent implements OnInit {
   newsList: any;
   pageTitle = 'CoFynd in the News';
-  newsMedia = ['daily-hunt', 'et-prime', 'inc42', 'tech-circle', 'the-statesman', 'your-story'];
+  newsMedia = ['your-story', 'the-statesman', 'et-prime', 'daily-hunt', 'inc42', 'tech-circle'];
   constructor(private readonly workSpaceService: WorkSpaceService) { }
 
   ngOnInit() {
