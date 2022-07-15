@@ -75,7 +75,7 @@
         overflow: hidden;
         cursor: pointer;
         @media(max-width: 480px) {
-            height: 260px;
+            height: 300px;
         }
         &::before {
             content: '';
@@ -160,3 +160,16 @@
         padding: 0 5px;
     }
   }
+  
+.onlyMobile {
+    display: none;
+    @media (max-width: 480px) {
+        display: block;
+    }
+}
+
+.hideOnMobile {
+    @media (max-width: 480px) {
+        display: none !important;
+    }
+}

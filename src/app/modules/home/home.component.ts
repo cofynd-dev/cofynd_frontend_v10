@@ -12,6 +12,7 @@ import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 
 
@@ -35,6 +36,7 @@ export class HomeComponent {
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
+  popularCoWorkingSpaces: PopularSpace[] = [];
   coLivingBrands: Brand[] = [];
   coworkingImages: any = [];
   colivingImages: any = [];
@@ -68,7 +70,17 @@ export class HomeComponent {
     this.popularSpaceCarousel.moveTo(this.active + 1);
   }
 
+  removedash(name: string) {
+    return name.replace(/-/, ' ')
+  }
 
+  
+  openCoLivingSpace(slug: string) {
+    this.router.navigate([`/co-living/${slug}`]);
+  }
+  openWorkSpace(slug: string){
+    this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
+  }
   popularCoLivingSpaces = [
     {
       name: 'Delhi',
@@ -128,15 +140,19 @@ export class HomeComponent {
     private seoService: SeoService,
     private bsModalService: BsModalService,
     private router: Router,
+    private workSpaceService: WorkSpaceService,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.addSeoTags();
     this.setScript();
+    this.getPopularCoworkingSpace();
 
+    
   }
 
   ngOnInit(): void {
-    this.getFeaturedImages()
+    this.getPopularCoworkingSpace();
+    this.getFeaturedImages();
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
       this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
@@ -146,14 +162,20 @@ export class HomeComponent {
         brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
       );
     });
+   
   }
-
   getFeaturedImages() {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
       this.coworkingImages = res.filter(city => city.for_coWorking === true);
       this.colivingImages = res.filter(city => city.for_coLiving === true);
       console.log(this.coworkingImages, this.colivingImages);
     })
+  }
+  getPopularCoworkingSpace(){
+    this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
+      this.popularCoWorkingSpaces = spaces;
+      console.log("popularCoWorkingSpaces",this.popularCoWorkingSpaces);
+    });
   }
   setScript() {
     let script = this._renderer2.createElement('script');
