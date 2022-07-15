@@ -133,6 +133,11 @@ export class VirtualOfficeComponent implements OnInit {
   }
 
 
+  removedash(name: string) {
+    return name.replace(/-/, ' ')
+  }
+
+
   addSeoTags() {
     let seoMeta = {
       title: "Virtual Office in India - Space for GST & Business Registration",

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <section class="banner"
+  <section class="banner hideOnMobile"
     style="margin-top: 0 !important;">
     <div class="container">
       <div class="row">
@@ -20,8 +20,33 @@
     <div class="Virtual-banner-bg"></div>
   </section>
 
+  <section class="innerpage_banner onlyMobile" style="background-image: url('../../../assets/images/virtual-office-banner-img.jpg');">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find The Best Virtual Office in India</h1>
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control" id="exampleFormControlSelect1" (change)="openWorkSpace($event.target.value)">
+                                        <option value="">Select City</option>
+                                        <option  *ngFor="let city of cities" [value]="city.name">{{removedash(city.name) | titlecase}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
   <!-- Catagory Services -->
-  <section class="facilities">
+  <section class="facilities hideOnMobile">
     <div class="container">
       <div class="option-box">
         <div class="row hide-d">
@@ -47,8 +72,9 @@
     </div>
   </section>
 
+
   <!-- booking navigation -->
-  <section class="booking-navigation bg-light">
+  <section class="booking-navigation bg-light hideOnMobile">
     <div class="container">
       <div class=" ">
         <div class="row">
@@ -81,8 +107,44 @@
     </div>
   </section>
 
+  <section class="feature_sec onlyMobile">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+                <h2>Book with Cofynd</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="../../../assets/images/price-icon.png" alt="">
+                    <h4>Exclusive Pricing</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="../../../assets/images/trusted-icon.png" alt="">
+                    <h4>Verified & Trusted Spaces</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/support-icon.png" alt="">
+                    <h4>100% Offline Support</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/brokerage-icon.png" alt="">
+                    <h4>Zero Brokerage</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
   <!-- top Spaces -->
-  <section class="virtualSpace">
+  <section class="virtualSpace hideOnMobile">
     <div class="container">
       <div class="page-title pt-3">
         <h2>Top Virtual Office Cities in India</h2>
