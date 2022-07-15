@@ -195,7 +195,16 @@ export class WorkSpaceComponent implements OnInit {
       },
       error => {
         if (error.status === 404) {
-          this.router.navigate(['/404'], { skipLocationChange: true });
+          let city = localStorage.getItem('city_name');
+          console.log("city", city)
+          if (city == 'co-living') {
+            this.router.navigate(['/co-living']);
+          } else if (city == 'coworking') {
+            this.router.navigate(['/coworking']);
+          } else {
+            this.router.navigate(['/coworking/' + city]);
+          }
+          // this.router.navigate(['/404'], { skipLocationChange: true });
         }
       },
     );

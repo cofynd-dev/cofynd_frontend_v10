@@ -1,5 +1,5 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {
   PriceFilter as PriceFilterData,
@@ -19,7 +19,7 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
-
+import { script } from '../../../core/config/script';
 @Component({
   selector: 'app-office-space-city',
   templateUrl: './office-space-city.component.html',
@@ -29,7 +29,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY;
   loading: boolean;
   offices: OfficeSpace[];
-    isMapView: boolean = false;
+  isMapView: boolean = false;
   queryParams: { [key: string]: string | number };
   count = 0;
   page = 1;
@@ -54,6 +54,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(DOCUMENT) private _document: Document,
+    private _renderer2: Renderer2,
     private location: Location,
     private officeSpaceService: OfficeSpaceService,
     private router: Router,
@@ -61,6 +63,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
+
   ) {
     // Handle header position on scroll
     // this.configService.updateConfig({ headerClass: 'search-listing' });
@@ -78,6 +81,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         );
 
         this.title = filteredCity[0].name;
+        console.log("title", this.title);
+        this.createBreadcrumb();
         const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_OFFICE_FILTER_KEY));
         this.queryParams = {
           ...AppConstant.DEFAULT_SEARCH_PARAMS,
@@ -97,9 +102,20 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.addSeoTags('rent');
       }
     });
-    this.createBreadcrumb();
-  }
+    if (this.title) {
+      for (let scrt of script.officespace[this.title]) {
+        this.setHeaderScript(scrt);
+      }
+    }
 
+  }
+  setHeaderScript(cityScript) {
+    // console.log(cityScript);
+    let script = this._renderer2.createElement('script');
+    script.type = `application/ld+json`;
+    script.text = `${cityScript} `;
+    this._renderer2.appendChild(this._document.head, script);
+  }
   createBreadcrumb() {
     this.breadcrumbs = [
       {

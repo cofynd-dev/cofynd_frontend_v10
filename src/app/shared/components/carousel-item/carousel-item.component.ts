@@ -67,6 +67,7 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   }
 
   openWorkSpace(slug: string, country: string) {
+    localStorage.setItem('city_name', 'coworking');
     if (country) {
       if (country !== 'india') {
         this.router.navigate([`${country.toLocaleLowerCase()}/coworking-details/${slug.toLowerCase().trim()}`]);
@@ -79,6 +80,7 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   }
 
   openCoLivingSpace(slug: string, country: string) {
+    localStorage.setItem('city_name', 'co-living');
     if (!country) {
       this.router.navigate([`co-living/${slug.toLowerCase().trim()}`]);
     }

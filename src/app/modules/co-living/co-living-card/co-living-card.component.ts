@@ -26,12 +26,14 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   openWorkSpace(slug: string) {
+
     const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${slug}`]));
+    console.log("clicked", url);
     // this.router.navigate([url]);
     window.open(url, '_blank');
   }
