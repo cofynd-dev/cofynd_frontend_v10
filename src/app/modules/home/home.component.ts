@@ -146,6 +146,8 @@ export class HomeComponent {
     this.addSeoTags();
     this.setScript();
     this.getPopularCoworkingSpace();
+    this.getFeaturedImages();
+
 
     
   }

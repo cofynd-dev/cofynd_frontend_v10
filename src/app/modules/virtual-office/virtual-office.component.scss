@@ -1185,3 +1185,172 @@
 
 }
 
+@media(max-width: 480px) {
+  .property-item .property-img {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .property-item h4 {
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 0px;
+    line-height: 18px;
+    margin-bottom: 4px;
+  }
+  .property-item p {
+    font-size: 10px;
+    line-height: 11px;
+    margin-bottom: 6px;
+  }
+  .properties-content .price {
+    font-weight: 600;
+    margin-bottom: 0px;
+    font-size: 10px;
+    line-height: 11px;
+  }
+  .space_carousel {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    padding: 0px;
+    margin: 0;
+    white-space: nowrap;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.space_carousel::-webkit-scrollbar {
+display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.space_carousel {
+-ms-overflow-style: none !important;  /* IE and Edge */
+scrollbar-width: none !important;  /* Firefox */
+}
+.property-item {
+	display: inline-block;
+	margin: 0 5px;
+	background-size: cover;
+	position: relative;
+	flex: 0 0 71.4285714286%;
+	width: 38.429%;
+	overflow: hidden;
+}
+
+
+
+/* top cities css */
+.cities_carousel {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+}
+// .cities_carousel::-webkit-scrollbar {
+//     display: none !important;
+//     height: 0 !important;
+//     width: 0 !important;
+// }
+// .cities_carousel {
+//     -webkit-overflow-scrolling: touch;
+//     -ms-overflow-style: none !important;
+//     scrollbar-width: none !important;
+//     }
+.cities_item {
+	display: inline-block;
+	margin: 0 5px;
+	height: 300px;
+	background: rgba(0, 0, 0, 0.05) no-repeat center center;
+	background-size: cover;
+	position: relative;
+	border-radius: 8px;
+	box-shadow: 0 0 10px #dfdfdf;
+	flex: 0 0 71.42857142857143%;
+	width: 71.42857142857143%;
+	overflow: hidden;
+}
+.cities_carousel .cities_item::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(255, 255, 255, 0)), to(black));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, black 100%);
+	-webkit-transition: background-color 2s ease-out;
+	transition: background-color 2s ease-out;
+	z-index: 1;
+}
+.cities_carousel .cities_item img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-webkit-transition: -webkit-transform 2000ms ease;
+	transition: -webkit-transform 2000ms ease;
+	transition: transform 2000ms ease;
+	transition: transform 2000ms ease, -webkit-transform 2000ms ease;
+}
+.cities_carousel .cities_item .space-detail {
+	padding: 20px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+	text-align: center;
+}
+.cities_carousel .cities_item h5 {
+	font-size: 19px;
+	line-height: 24px;
+	color: #fff;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+.cities_carousel .cities_item p {
+	font-size: 12px;
+	font-weight: 500;
+	color: #fff;
+	margin: 0;
+}
+
+
+//our clients
+.logos_slider {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+}
+.logos_slider .band-img {
+	display: inline-block;
+	margin: 0 5px;
+	width: 25.429%;
+	overflow: hidden;
+	padding: 0px !important;
+}
+.logos_slider::-webkit-scrollbar {
+display: none !important;
+height: 0 !important;
+width: 0 !important;
+}
+.logos_slider {
+-webkit-overflow-scrolling: touch;
+-ms-overflow-style: none !important;
+scrollbar-width: none !important;
+}
+}
