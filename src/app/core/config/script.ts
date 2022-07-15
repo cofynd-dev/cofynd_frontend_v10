@@ -2463,6 +2463,524 @@ export const script = {
 
     }
   },
+  // officespace Sccript
+
+
+  officespace: {
+
+    gurugram: [
+      `{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CoFynd",
+      "url": "https://cofynd.com/",
+      "logo": "https://cofynd.com/assets/images/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "9355489999",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": "en"
+      },
+      "sameAs": [
+        "https://facebook.com/cofynd",
+        "https://instagram.com/cofynd",
+        "https://linkedin.com/company/cofynd1",
+        "https://www.youtube.com/channel/UCnr7dufMlNHG5o7X7tJMVWA",
+        "https://en.wikipedia.org/wiki/CoFynd",
+        "https://cofynd.com/"
+      ]
+    }
+`,
+      `{
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home Page",
+      "item": "https://cofynd.com/"  
+    },{
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Office Space for Rent",
+      "item": "https://cofynd.com/office-space/rent"  
+    },{
+      "@type": "ListItem", 
+      "position": 3, 
+      "name": "Office Space for Rent in Gurgaon",
+      "item": "https://cofynd.com/office-space/rent/gurugram"  
+    }]
+  }`,
+
+      `{
+      "@context": "https://schema.org/", 
+      "@type": "Product", 
+      "name": "Office Space for Rent in Gurgaon",
+      "image": "https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4e97999dd96047a5ce143401e3e13b6f86ea900a.jpg",
+      "description": "Office Spaces for Rent in Gurgaon offers fully furnished and Raw office spaces with rent starting from ₹ 30k/ per month with modern amenities.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Cofynd"
+      },
+      "sku": "Office Space for Rent in Gurgaon",
+      "mpn": "Office Space for Rent in Gurgaon",
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://cofynd.com/office-space/rent/gurugram",
+        "priceCurrency": "INR",
+        "lowPrice": "30000",
+        "highPrice": "50000",
+        "offerCount": "2"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "bestRating": "5",
+        "worstRating": "3",
+        "ratingCount": "2100",
+        "reviewCount": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "name": "Sharad Mehta",
+        "reviewBody": "Got the best commercial office space with the help of Cofynd .",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.5",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "datePublished": "2022-05-25",
+        "author": {"@type": "Person", "name": "Sharad Mehta"},
+        "publisher": {"@type": "Organization", "name": "Cofynd"}
+      }
+    }`,
+
+      `{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are the popular locations of office space for rent in Gurgaon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the ideal locations are Golf Course Road, Udyog Vihar, Sohna Road, Golf Course Extension Road etc"
+        }
+      },{
+        "@type": "Question",
+        "name": "Why are office spaces popular in Gurgaon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the reasons why Gurgaon is a popular destination for office spaces are top class amenities, excellent connectivity with Delhi NCR, ease of finding office locations, networking opportunities."
+        }
+      },{
+        "@type": "Question",
+        "name": "What are the commercial projects offering the office space for rent in Gurgaon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the popular projects offering commercial office space for rent in Gurgaon are JMD Megapolis, Emaar Palm Springs Plaza, Magnum Towers, Emaar Digital Greens."
+        }
+      }]
+    }
+    `,
+    ],
+
+    delhi: [
+      `{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CoFynd",
+      "url": "https://cofynd.com/",
+      "logo": "https://cofynd.com/assets/images/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "9355489999",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": "en"
+      },
+      "sameAs": [
+        "https://facebook.com/cofynd",
+        "https://instagram.com/cofynd",
+        "https://linkedin.com/company/cofynd1",
+        "https://www.youtube.com/channel/UCnr7dufMlNHG5o7X7tJMVWA",
+        "https://en.wikipedia.org/wiki/CoFynd",
+        "https://cofynd.com/"
+      ]
+    }
+` ,
+
+      `{
+      "@context": "https://schema.org/", 
+      "@type": "Product", 
+      "name": "Office Space for Rent in Delhi",
+      "image": "https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7b275d597f7f47ce48d42871b86d17fe63909b19.jpg",
+      "description": "Book office space for rent in Delhi with the options of Raw and Fully furnished office space with modern amenities at the best prices without any brokerage.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Cofynd"
+      },
+      "sku": "Office Space for Rent in Delhi",
+      "mpn": "Office Space for Rent in Delhi",
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://cofynd.com/office-space/rent/delhi",
+        "priceCurrency": "INR",
+        "lowPrice": "50000",
+        "highPrice": "100000",
+        "offerCount": "2000"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "bestRating": "5",
+        "worstRating": "3",
+        "ratingCount": "2100",
+        "reviewCount": "1"
+       },
+      "review": {
+        "@type": "Review",
+        "reviewBody": "Office Space for Rent in Delhi",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.7",
+          "bestRating": "5",
+          "worstRating": "3"
+        },
+        "datePublished": "2021-08-06",
+        "author": {"@type": "Person", "name": "Cofynd"},
+        "publisher": {"@type": "Organization", "name": "Cofynd"}
+      }
+    }
+    ` ,
+
+      `{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are the prime locations for rental office space in Delhi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the prime locations are South Delhi, Nehru Place, Aerocity, East Delhi, Saket, and more."
+        }
+      },{
+        "@type": "Question",
+        "name": "Why are office spaces popular in Delhi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the reasons why Delhi is a popular destination for office spaces are top-class amenities, excellent connectivity with other parts of the country, ease of finding office locations, and networking opportunities."
+        }
+      },{
+        "@type": "Question",
+        "name": "What are the commercial projects offering office space for rent in Delhi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of the popular commercial projects are DLF Towers, ABW Elegance Towers, Omaxe Square, Uppal’s M6, and more."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the price range of office space for rent in Delhi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The price range for office space for rent in Delhi is from Rs.70 per sq. ft. to Rs.150 per sq. ft."
+        }
+      },{
+        "@type": "Question",
+        "name": "What all facilities are provided by office spaces for rent in Delhi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It boasts of all state-of-the-art facilities such as Ample Parking Space, High-Speed Elevators, Super Housekeeping, 24 hrs Power Backup, AC, and excellent metro connectivity."
+        }
+      }]
+    }
+    ` ,
+
+      `{
+      "@context": "https://schema.org/", 
+      "@type": "BreadcrumbList", 
+      "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 1, 
+        "name": "1421 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1"  
+      },{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "567 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/567-sqft-fully-furnished-jmd-megapolis"  
+      },{
+        "@type": "ListItem", 
+        "position": 3, 
+        "name": "1400 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/1400-sqft-fully-furnished-jmd-megapolis"  
+      },{
+        "@type": "ListItem", 
+        "position": 4, 
+        "name": "1421 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-2"  
+      },{
+        "@type": "ListItem", 
+        "position": 5, 
+        "name": "978 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-1"  
+      },{
+        "@type": "ListItem", 
+        "position": 6, 
+        "name": "935 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/935-sqft-fully-furnished-jmd-megapolis"  
+      },{
+        "@type": "ListItem", 
+        "position": 7, 
+        "name": "2800 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/2800-sqft-fully-furnished-jmd-megapolis"  
+      },{
+        "@type": "ListItem", 
+        "position": 8, 
+        "name": "947 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/947-sqft-fully-furnished-jmd-megapolis"  
+      },{
+        "@type": "ListItem", 
+        "position": 9, 
+        "name": "978 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-2"  
+      },{
+        "@type": "ListItem", 
+        "position": 10, 
+        "name": "9200 sq.ft. Fully Furnished office space for lease in JMD Megapolis",
+        "item": "https://cofynd.com/office-space/rent/9200-sqft-fully-furnished-jmd-megapolis"  
+      }]
+    }
+    `,
+    ],
+
+    microLocation: {
+
+      "golf-course-road": [
+        `{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CoFynd",
+        "url": "https://cofynd.com/",
+        "logo": "https://cofynd.com/assets/images/logo.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "9355489999",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": "en"
+        },
+        "sameAs": [
+          "https://facebook.com/cofynd",
+          "https://instagram.com/cofynd",
+          "https://linkedin.com/company/cofynd1",
+          "https://www.youtube.com/channel/UCnr7dufMlNHG5o7X7tJMVWA",
+          "https://en.wikipedia.org/wiki/CoFynd",
+          "https://cofynd.com/"
+        ]
+      }
+  `,
+
+        `{
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "Office Spaces for Rent on Golf Course Road, Gurgaon",
+        "image": "https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/797623c0465dc7b8a2bc62f6bdbfee218356f309.jpg",
+        "description": "Fully Furnished Office Space for Rent on Golf Course Road, Gurgaon with all the premium amenities like Lift, Air conditioning, Modern furniture, and much more.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Cofynd"
+        },
+        "sku": "Office Spaces for Rent on Golf Course Road, Gurgaon",
+        "mpn": "Office Spaces for Rent on Golf Course Road, Gurgaon",
+        "offers": {
+          "@type": "AggregateOffer",
+          "url": "https://cofynd.com/office-space/rent/gurugram/golf-course-road",
+          "priceCurrency": "INR",
+          "lowPrice": "30000",
+          "highPrice": "50000",
+          "offerCount": "2"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.5",
+          "bestRating": "5",
+          "worstRating": "3",
+          "ratingCount": "1800",
+          "reviewCount": "1"
+        },
+        "review": {
+          "@type": "Review",
+          "name": "Sameer Mehta",
+          "reviewBody": "Got the best office space for Rent on Golf Course Road, Gurgaon with help of cofynd.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.4",
+            "bestRating": "5",
+            "worstRating": "3"
+          },
+          "datePublished": "2022-04-25",
+          "author": {"@type": "Person", "name": "Sameer Mehta"},
+          "publisher": {"@type": "Organization", "name": "Cofynd"}
+        }
+      }
+      `,
+
+        `{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "What are the well-known regions for office space near Golf course road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "some of the popular localities are
+      Sector 42-43
+      Sector 57
+      Golf course extension road and more."
+          }
+        },{
+          "@type": "Question",
+          "name": "What are the commercial projects offering office space for rent on Golf course road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "some of the famous commercial projects offering business office space for rent on Golf course road are veritas tower, Vatika tower, Centrum Plaza, Suncity Business Tower etc."
+          }
+        },{
+          "@type": "Question",
+          "name": "How to book and visit office space for rent on the golf course road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Find commercial office space for rent on golf course road Gurgaon from our website that is 100% affirmed, trusted and reasonable. Pick and get the space where you are liable to move in, our colleagues will contact you. We grant a free visit to the office property."
+          }
+        },{
+          "@type": "Question",
+          "name": "Why are office spaces popular?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some of the reasons why a golf course road is a popular place for office space are top-class conveniences, smooth availability with Delhi NCR, extraordinary framework, staggering systems administration amazing open doors, modest rental spaces, a gigantic work pool and more."
+          }
+        }]
+      }
+      `,
+      ],
+
+      "sohna-road": [
+        `{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CoFynd",
+        "url": "https://cofynd.com/",
+        "logo": "https://cofynd.com/assets/images/logo.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "9355489999",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": "en"
+        },
+        "sameAs": [
+          "https://facebook.com/cofynd",
+          "https://instagram.com/cofynd",
+          "https://linkedin.com/company/cofynd1",
+          "https://www.youtube.com/channel/UCnr7dufMlNHG5o7X7tJMVWA",
+          "https://en.wikipedia.org/wiki/CoFynd",
+          "https://cofynd.com/"
+        ]
+      }
+  `,
+
+        `{
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "Office Spaces for Rent on Sohna Road, Gurgaon",
+        "image": "https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ce71403a78e548bb7e367165f5b34c67a97c13d.jpg",
+        "description": "Office Space for Rent on Sohna Road, Gurgaon with modern amenities and facilities, starting at 30k per month without any brokerage charges.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Cofynd"
+        },
+        "sku": "Office Spaces for Rent on Sohna Road, Gurgaon",
+        "mpn": "Office Spaces for Rent on Sohna Road, Gurgaon",
+        "offers": {
+          "@type": "AggregateOffer",
+          "url": "https://cofynd.com/office-space/rent/gurugram/sohna-road",
+          "priceCurrency": "INR",
+          "lowPrice": "25000",
+          "highPrice": "50000",
+          "offerCount": "2"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.4",
+          "bestRating": "5",
+          "worstRating": "3",
+          "ratingCount": "1600",
+          "reviewCount": "1"
+        },
+        "review": {
+          "@type": "Review",
+          "name": "Namrika Grover",
+          "reviewBody": "Best rates provided by cofynd for Office Spaces for Rent on Sohna Road, Gurgaon.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.6",
+            "bestRating": "5",
+            "worstRating": "3"
+          },
+          "datePublished": "2022-04-25",
+          "author": {"@type": "Person", "name": "Namrika Grover"},
+          "publisher": {"@type": "Organization", "name": "Cofynd"}
+        }
+      }
+      `,
+
+        `{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "What are the famous territories for office space near Sohna road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "some of the popular places are
+      Sector 39
+      Sector 38
+      Sector 47
+      Golf extension road
+      Sohna Road
+      Sector 44 and more"
+          }
+        },{
+          "@type": "Question",
+          "name": "What are the commercial projects offering office space for renting near Sohna road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "some of the commercial projects offering commercial office space are DLF Tower, Uppal Genesis, splendour forum, Vatika Inxt City centre"
+          }
+        },{
+          "@type": "Question",
+          "name": "How to book and visit office space in Sohna Road Gurgaon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Explore stunning office space properties in Sohna road, Gurgaon from our site that is 100% verified, trusted and reasonable for all business types. Select and book the space where you are most likely to move in, our team members will get in touch with you and grant your free visit to the working property."
+          }
+        },{
+          "@type": "Question",
+          "name": "Why are office spaces are so popular?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The reason why Sohna road is a famous place for office space are high-level conveniences, smooth availability with Gurgaon-Faridabad, centres of MNCs and other extraordinary organizations, dazzling foundation, superior innovation, modest rental spaces etc."
+          }
+        }]
+      }
+      `,
+      ],
+    }
+  },
+
+
 
   // Coworking Script=======================================================================
 

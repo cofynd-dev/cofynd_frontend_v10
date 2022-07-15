@@ -156,6 +156,7 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   }
 
   setHeaderScript(cityScript) {
+
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
