@@ -74,11 +74,11 @@ export class HomeComponent {
     return name.replace(/-/, ' ')
   }
 
-  
+
   openCoLivingSpace(slug: string) {
     this.router.navigate([`/co-living/${slug}`]);
   }
-  openWorkSpace(slug: string){
+  openWorkSpace(slug: string) {
     this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
   }
   popularCoLivingSpaces = [
@@ -147,7 +147,7 @@ export class HomeComponent {
     this.setScript();
     this.getPopularCoworkingSpace();
 
-    
+
   }
 
   ngOnInit(): void {
@@ -162,7 +162,7 @@ export class HomeComponent {
         brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
       );
     });
-   
+
   }
   getFeaturedImages() {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
@@ -171,10 +171,10 @@ export class HomeComponent {
       console.log(this.coworkingImages, this.colivingImages);
     })
   }
-  getPopularCoworkingSpace(){
+  getPopularCoworkingSpace() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
       this.popularCoWorkingSpaces = spaces;
-      console.log("popularCoWorkingSpaces",this.popularCoWorkingSpaces);
+      console.log("popularCoWorkingSpaces", this.popularCoWorkingSpaces);
     });
   }
   setScript() {
@@ -258,6 +258,7 @@ export class HomeComponent {
         type: 'website',
         footer_description: seoMeta.footer_description,
       };
+      console.log("seoData", this.seoData);
       this.seoService.setData(this.seoData);
     });
   }
