@@ -992,6 +992,14 @@ export class CoLivingComponent implements OnInit {
 
     LOCL: [
       {
+        name: 'THE IVY LEAGUE HOUSE (LOCL)',
+        address: 'Wakad, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+        slug: 'locl-the-ivy-league-house',
+        starting: '9,000',
+      },
+      {
         name: 'LOCL Co-live & Work',
         address: 'Bellandur Main Road, Bangalore',
         image:
