@@ -25,7 +25,7 @@ import { appAnimations } from '@shared/animations/animation';
 import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-co-living-detail',
@@ -81,11 +81,14 @@ export class CoLivingDetailComponent implements OnInit {
     private seoService: SeoService,
     private router: Router,
     private authService: AuthService,
+    private _location: Location
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
+      // console.log("param", param);
       if (param.id) {
         this.getWorkSpace(this.activeWorkSpaceId);
+
       }
     });
 
@@ -107,6 +110,7 @@ export class CoLivingDetailComponent implements OnInit {
     this.loading = true;
     this.coLivingService.getCoLiving(workspaceId).subscribe(
       workspaceDetail => {
+        // console.log("workspaceDetail", workspaceDetail);
         this.workspace = workspaceDetail;
         this.workspace.amenties = this.workspace.amenties.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
         this.loading = false;
@@ -131,7 +135,16 @@ export class CoLivingDetailComponent implements OnInit {
       },
       error => {
         if (error.status === 404) {
-          this.router.navigate(['/404'], { skipLocationChange: true });
+          let city = localStorage.getItem('city_name');
+          console.log("city", city)
+          if (city == 'co-living') {
+            this.router.navigate(['/co-living']);
+          } else if (city == 'coworking') {
+            this.router.navigate(['/coworking']);
+          } else {
+            this.router.navigate(['/co-living/' + city]);
+          }
+          // this.router.navigate(['/404'], { skipLocationChange: true });
         }
       },
     );

@@ -69,7 +69,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.featuredColiving = localStorage.getItem('featuredColiving');
-    console.log("HIIIIIIIIIIII", this.featuredColiving);
+    // console.log("HIIIIIIIIIIII", this.featuredColiving, this.activatedRoute.snapshot.url);
+    localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       (this.title = this.activatedRoute.snapshot.url[0].path),
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
@@ -123,6 +124,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         });
     });
     if (this.title) {
+      console.log("title", this.title);
       for (let scrt of script.coliving[this.title]) {
         this.setHeaderScript(scrt);
       }
@@ -218,6 +220,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   setHeaderScript(cityScript) {
+    // console.log(cityScript);
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
