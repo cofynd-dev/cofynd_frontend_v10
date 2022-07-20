@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <section class="banner"
+  <section class="banner hideOnMobile"
     style="margin-top: 0 !important;">
     <div class="container">
       <div class="row">
@@ -20,7 +20,31 @@
     <div class="Virtual-banner-bg"></div>
   </section>
 
-  <section class="near-vitual-office">
+  <section class="innerpage_banner onlyMobile" style="background-image: url('../../../assets/images/virtual-office-banner-img.jpg');">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find The Best Virtual Office in India</h1>
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control" id="exampleFormControlSelect1" (change)="openWorkSpace($event.target.value)">
+                                        <option value="">Select City</option>
+                                        <option  *ngFor="let city of cities" [value]="city.name">{{removedash(city.name) | titlecase}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="near-vitual-office onlyMobile">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -93,8 +117,9 @@
     </div>
   </section>
 
+ 
   <!-- Catagory Services -->
-  <section class="facilities">
+  <section class="facilities hideOnMobile">
     <div class="container">
       <div class="option-box">
         <div class="row hide-d">
@@ -120,8 +145,9 @@
     </div>
   </section>
 
+
   <!-- booking navigation -->
-  <section class="booking-navigation bg-light">
+  <section class="booking-navigation bg-light hideOnMobile">
     <div class="container">
       <div class=" ">
         <div class="row">
@@ -154,10 +180,175 @@
     </div>
   </section>
 
+  <section class="feature_sec onlyMobile">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+              <div class="page-title">
+                <h2>Book with Cofynd</h2>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="../../../assets/images/price-icon.png" alt="">
+                    <h4>Exclusive Pricing</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="../../../assets/images/trusted-icon.png" alt="">
+                    <h4>Verified Spaces</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/support-icon.png" alt="">
+                    <h4>100% Support</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/brokerage-icon.png" alt="">
+                    <h4>Zero Brokerage</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Cruted for You -->
+ <section class="curated_section onlyMobile">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="page-title">
+              <h2>Curated For You</h2>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-4">
+              <div class="curated-box">
+                  <div class="curated-item">
+                      <div class="curated-img">
+                          <img src="../../../assets/images/company-registration-img.jpg" alt="Bangalore" class="img-fluid">
+                      </div>
+                      <div class="curated-content">
+                          <h4>Company Registration</h4>
+                      </div>
+                      <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="curated-box">
+                  <div class="curated-item">
+                      <div class="curated-img">
+                          <img src="../../../assets/images/gst-registration-img.jpg" alt="Bangalore" class="img-fluid">
+                      </div>
+                      <div class="curated-content">
+                          <h4>GST Registration</h4>
+                      </div>
+                      <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="curated-box">
+                  <div class="curated-item">
+                      <div class="curated-img">
+                          <img src="../../../assets/images/courier-handling-img.jpg" alt="Bangalore" class="img-fluid">
+                      </div>
+                      <div class="curated-content">
+                          <h4>Courier Handling</h4>
+                      </div>
+                      <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="cta_section coworking_cta onlyMobile">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="cta_area" style="background-image: url('img/cta-pattern-img.png');">
+              <div class="col-8">
+                  <div class="cta_content">
+                      <p>Hurry in choosing your <span style="color:#1313E6;">ideal space</span>?</p>
+                      <a href="https://cofynd.com/list-your-space" class="btn site_btn">Enquire Now</a>
+                  </div>
+              </div>
+              <div class="col-4 text-center">
+                  <img src="../../../assets/images/cta-img2.png" alt="" class="img-fluid">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- service offered -->
+
+<section class="amenities_sec onlyMobile">
+  <div class="container">
+      <div class="row mb-2">
+          <div class="col-12">
+            <div class="page-title">
+              <h2>Services Offered</h2>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-4">
+              <div class="icon_box mb-4">
+                  <img src="../../../assets/images/icons/day-pass.svg" alt="">
+                  <h4>Company Registation</h4>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="icon_box mb-4">
+                  <img src="../../../assets/images/icons/meeting-room.svg" alt="">
+                  <h4>Meeting Room Access</h4>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="icon_box mb-4">
+                  <img src="../../../assets/images/icons/hot-desk.svg" alt="">
+                  <h4>GST Registration</h4>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="icon_box mb-0">
+                  <img src="../../../assets/images/icons/dedicated-desk.svg" alt="">
+                  <h4>Mailing Address</h4>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="icon_box mb-0">
+                  <img src="../../../assets/images/icons/private-cabin.svg" alt="">
+                  <h4>Business Address</h4>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="icon_box mb-0">
+                  <img src="../../../assets/images/icons/reception.svg" alt="">
+                  <h4>Reception Services</h4>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
   <!-- top Spaces -->
   <section class="virtualSpace">
-    <div class="container">
-      <div class="page-title pt-3">
+    <div class="container ">
+      <div class="page-title pt-3 ">
         <h2>Top Virtual Office Cities in India</h2>
       </div>
       <div class="row">
@@ -199,7 +390,7 @@
     </div>
   </section>
 
-  <span class="mobileViewColiving">
+  <span class="mobileViewColiving hideOnMobile">
     <app-home-popular-space [shouldOfficeVisible]="true"
       [officeSlug]="false"
       [shouldCoWorkingVisible]="false"
@@ -211,12 +402,64 @@
   <section class="pt-0">
     <app-home-brand-list *ngIf="coworkingBrands"
       [coworkingBrands]="coworkingBrands"
-      [pageTitle]="'Our Virtual Office Partners'">
+      [pageTitle]="'Top Virtual Office Brands'">
     </app-home-brand-list>
   </section>
 
+
+  <section class="top_coliving_cities onlyMobile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Top Virtual Office Cities</h2>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="cities_carousel">
+                    <div class="cities_item first-slide"  (click)="openWithFreeSlug(city.slug)" *ngFor="let city of popularVirtualOffice">
+                        <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
+                        <div class="space-detail">
+                            <h5>{{removedash(city.name) | titlecase}}</h5>
+                            <p><i class="icon-location"></i>{{city.address}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Companies we have helped-->
+<section class="client_logo_sec onlyMobile">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title">
+              <h2>Companies we have helped</h2>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <div class="logos_slider">
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo1.png'" alt="" class="img-fluid"></div>
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo2.png'" alt="" class="img-fluid"></div>
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo3.png'" alt="" class="img-fluid"></div>
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo4.png'" alt="" class="img-fluid"></div>
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo5.png'" alt="" class="img-fluid"></div>
+                  <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo6.png'" alt="" class="img-fluid"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
   <!-- Why Cofynd -->
-  <section class="why-cofynd bg-light">
+  <section class="why-cofynd bg-light hideOnMobile">
     <div class="container">
       <div class="bg-style">
         <div class="row">
@@ -266,12 +509,8 @@
     </div>
   </section>
 
-  <section class="pb-0">
-    <app-home-brand-list [shouldOtherBrandVisible]="true"
-      [shouldCoWorkingVisible]="false"></app-home-brand-list>
-  </section>
 
-  <section class="listSpaceBox">
+  <section class="listSpaceBox hideOnMobile">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -291,7 +530,7 @@
     </div>
   </section>
 
-  <section class="visiteOther pt-5 pb-5">
+  <section class="visiteOther pt-5 pb-5 hideOnMobile">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -333,6 +572,25 @@
       </div>
     </div>
   </section>
+
+  
+  <section class="cta_section onlyMobile">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="cta_area">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <p>List Your Vacant Space with Cofynd and Start Earning</p>
+                        <a href="https://cofynd.com/list-your-space" class="btn site_btn">List Your Space</a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="../../../assets/images/cta-img.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
   <!-- FAQ Coliving -->
   <section class="faq">
@@ -434,5 +692,48 @@
       </div>
     </div>
   </section>
+
+  
+  <section class="pb-0">
+    <app-home-brand-list [shouldOtherBrandVisible]="true"
+      [shouldCoWorkingVisible]="false"></app-home-brand-list>
+  </section>
+
+  <section class="cofynd_desk_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="cofynd_desk_content text-center">
+                    <img src="../../../assets/images/cofynd-desk.png" alt="" class="img-fluid">
+                    <h2>What’s the Cofynd Desk?</h2>
+                    <p>As trees act as the lungs of the world, CoFynd is also helping professionals find their
+                        perfect workplace. As we grow, we think of ourselves as creating an ecosystem, one that lets
+                        our valuable clients breathe, connect and climb to their highest.</p>
+                    <p class="title_name">- Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space_search_made_sec">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="space_search_made_content">
+                    <h2><span style="color:#1313E6;">Space</span> Search <span style="color:#1313E6;">Made</span>
+                        Simple</h2>
+                    <p>Search . <span style="color:#1313E6;">Book</span> . Work . <span
+                            style="color:#1313E6;">Live</span></p>
+                </div>
+            </div>
+            <div class="col-6">
+                <img src="../../../assets/images/cta-img3.png" alt="" class="img-fluid full-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 </div>

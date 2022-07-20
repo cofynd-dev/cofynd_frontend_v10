@@ -64,7 +64,7 @@ export class VirtualOfficeComponent implements OnInit {
     },
     {
       // address: 'Gurugram',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dfddcbb0cadf3df205d9ee3e6a47c03f27e0df16.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e38aba6f636873daba5d3562f2705583cba27839.jpg',
       name: 'Gurugram',
       price: '18,000',
       slug: "virtual-office/gurugram"
@@ -132,6 +132,17 @@ export class VirtualOfficeComponent implements OnInit {
     this.addSeoTags()
   }
 
+
+  removedash(name: string) {
+    return name.replace(/-/, ' ')
+  }
+
+  openOfficeSpace(slug: string) {
+    this.router.navigate([`/office-space/rent/${slug}`]);
+  }
+  openWithFreeSlug(slug: string) {
+    this.router.navigate([`${slug}`]);
+  }
 
   addSeoTags() {
     let seoMeta = {
