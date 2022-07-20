@@ -743,8 +743,17 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.faq_content .page-title {
+	padding-bottom: 0px;
+}
+.faq_content p {
+	text-align: center;
+}
 @media (max-width:480px) {
+    body, p {
+        font-size: 11px;
+        line-height: 18px;
+    }
     .page-title {
         text-align: left !important;
         padding: 0px 0px 0px 15px !important;
@@ -760,6 +769,34 @@ body {
         text-align: left !important;
         margin-bottom: 15px !important;
     }
+    .site_title {
+		position: relative;
+		display: inline-block;
+		z-index: 0;
+	}
+	.site_title::before {
+		background: #ffe785;
+		border-radius: 100%;
+		position: absolute;
+		content: "";
+		display: block;
+		z-index: -1;
+		width: 35px;
+		height: 35px;
+		left: -10px;
+		top: -10px;
+	}
+	.site_btn {
+		background: #f7e034;
+		border-radius: 10px;
+		padding: 8px 18px;
+		color: #000;
+		font-size: 11px;
+	}
+	.site_btn:hover {
+		background-color: #000;
+		color: #fff;
+	}
     
     h1 {
         font-size: 26px !important;
@@ -770,4 +807,16 @@ body {
         line-height: 28px !important;
         margin-bottom: 20px !important;
     }
+    .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
+        padding: 0px 5px;
+    }
+    .curated_section .row:last-child {
+        margin-left: 0px;
+        margin-right: 0;
+    }
+    .cta_section .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
 }

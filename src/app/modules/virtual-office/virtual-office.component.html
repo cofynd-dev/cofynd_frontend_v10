@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <section class="near-vitual-office onlyMobile">
+  <section class="near-vitual-office best-vitual-office onlyMobile">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -393,7 +393,7 @@
     </app-home-popular-space>
   </span>
 
-  <section class="pt-0 ">
+  <section class="pt-0 our_brands_sec">
     <app-home-brand-list *ngIf="coworkingBrands"
       [coworkingBrands]="coworkingBrands"
       [pageTitle]="'Top Virtual Office Brands'">
@@ -1237,17 +1237,19 @@
   </section>
 
   <!-- FAQ Coliving -->
-  <section class="faq">
+  <section class="faq faqs_section">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <div class="faq_content">
           <div class="page-title">
             <h2>Frequently Asked Questions</h2>
+          </div>
             <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a
               virtual office. We
               have gathered the most crucial ones and answer here to help you in making the right decision. </p>
           </div>
-          <accordion [isAnimated]="true">
+          <accordion [isAnimated]="true" class="faqs_accordion">
             <accordion-group>
               <h4 accordion-heading>
                 Q- What is a virtual office?
@@ -1338,7 +1340,7 @@
   </section>
 
 
-  <section class="pb-0">
+  <section class="pb-0 main_brand_partners">
     <app-home-brand-list [shouldOtherBrandVisible]="true" 
     [pageTitle]="'Our Brand Partners'"
       [shouldCoWorkingVisible]="false"></app-home-brand-list>
@@ -1348,15 +1350,15 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="cofynd_desk_content text-center">
+          <div class="cofynd_desk text-center">
             <img src="../../../assets/images/cofynd-desk.png"
               alt=""
-              class="img-fluid">
-            <h2>What’s the Cofynd Desk?</h2>
-            <p>As trees act as the lungs of the world, CoFynd is also helping professionals find their
+              class="img-fluid" style="max-height: 200px;">
+            <h4>What’s the Cofynd Desk?</h4>
+            <p class="about_text">As trees act as the lungs of the world, CoFynd is also helping professionals find their
               perfect workplace. As we grow, we think of ourselves as creating an ecosystem, one that lets
               our valuable clients breathe, connect and climb to their highest.</p>
-            <p class="title_name">- Atul Gupta, Founder & CEO</p>
+            <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
           </div>
         </div>
       </div>
