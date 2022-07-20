@@ -611,13 +611,20 @@
 		background-color: transparent;
 		border: none;
 	}
-	.faqs_accordion .panel-body p, .faqs_accordion .panel-body li {
-		font-size: 11px !important;
-		line-height: 15px !important;
-		margin: 0px !important;
-		color: #302f2f !important;
-		font-weight: normal !important;
-	}
+	// .faqs_accordion .panel-body p, .faqs_accordion .panel-body li {
+	// 	font-size: 11px !important;
+	// 	line-height: 15px !important;
+	// 	margin: 0px !important;
+	// 	color: #302f2f !important;
+	// 	font-weight: normal !important;
+	// }
+  .faqs_accordion p {
+    font-size: 11px !important;
+    color: #222 !important;
+    line-height: 20px !important;
+    font-weight: normal !important;
+    margin: 0px 0px 0px !important;
+}
 	.faqs_list .card-header .btn {
 		color: #000;
 		font-size: 11px;
