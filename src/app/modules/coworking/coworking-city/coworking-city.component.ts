@@ -75,6 +75,8 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
+    console.log("city", this.activatedRoute.snapshot.url[0].path)
+    localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {

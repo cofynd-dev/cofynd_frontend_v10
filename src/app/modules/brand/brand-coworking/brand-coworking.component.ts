@@ -220,26 +220,35 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
 
   urlChangeCall() {
     this.activatedRoute.url.subscribe(url => {
-      this.urlPath = url.map(x => x.path);
-      let cityName = url.length > 1 ? url[1].path : null;
-      if (url[0].path === 'co-living') {
-        this.isColiving = true;
-        cityName = url.length > 2 ? url[2].path : null;
-        const path = this.urlPath[1] || this.urlPath[0];
-        this.getBrandCityDetail(path, cityName);
+      console.log(url, url.length);
+      let data = url[url.length - 1].path;
+      console.log(data)
+      if (url.length > 1 && data == 'colive') {
+        this.router.navigate(['/co-living/bangalore']);
+        // this.router.navigate['co-living/bangalore']
       } else {
-        this.getBrandCityDetail(this.urlPath[0], cityName);
+        this.urlPath = url.map(x => x.path);
+        let cityName = url.length > 1 ? url[1].path : null;
+        if (url[0].path === 'co-living') {
+          this.isColiving = true;
+          cityName = url.length > 2 ? url[2].path : null;
+          const path = this.urlPath[1] || this.urlPath[0];
+          this.getBrandCityDetail(path, cityName);
+        } else {
+          this.getBrandCityDetail(this.urlPath[0], cityName);
+        }
+        if (cityName) {
+          this.addSeoTagsForBrandLocations();
+          this.workSpaceService
+            .getWorkspacesByBrandAndCity(this.urlPath[0], cityName, sanitizeParams(this.queryParams))
+            .subscribe(allWorkSpaces => {
+              this.setWorkspaceDetail(allWorkSpaces);
+            });
+        } else {
+          this.getQueryParam();
+        }
       }
-      if (cityName) {
-        this.addSeoTagsForBrandLocations();
-        this.workSpaceService
-          .getWorkspacesByBrandAndCity(this.urlPath[0], cityName, sanitizeParams(this.queryParams))
-          .subscribe(allWorkSpaces => {
-            this.setWorkspaceDetail(allWorkSpaces);
-          });
-      } else {
-        this.getQueryParam();
-      }
+
     });
   }
 

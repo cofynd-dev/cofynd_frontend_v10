@@ -888,6 +888,135 @@ export class CoLivingComponent implements OnInit {
         starting: '12,000',
       },
     ],
+    HostelYard: [
+      {
+        name: 'The Hostel Yard - Jasmine (girls) RA - 08',
+        address: 'Sector 125, Noida',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcfde2bf8b5ef7621f6ec578c4d36e96d530e77d.jpg',
+        slug: 'hostelyard-jasmine-girls-ra-08-sector-125',
+        starting: '18,000',
+      },
+      {
+        name: 'The Hostel Yard - Lily House (Girls)',
+        address: 'Kamla Nagar',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d4c2d1dfb777cebfedf2eba31c3997ebf8d703.jpg',
+        slug: 'the-hostelyard-lily-house-girls-kamla-nagar',
+        starting: '14,000',
+      },
+      {
+        name: 'The Hostel Yard - Orchid House (Girls)',
+        address: 'Vijay nagar, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/11f6fbb405e5084e8096deee02a8d164fc15677a.jpg',
+        slug: 'hostelyard-orchid-house-girls-vijay-nagar',
+        starting: '14,000',
+      },
+      {
+        name: 'The Hostel Yard - Rose House (Girls)',
+        address: 'Vijay nagar, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcee70e0a5da249c0000e5739987a5119f8f5c0a.jpg',
+        slug: 'the-hostelyard-rose-house-girls-vijay-nagar',
+        starting: '13,000',
+      },
+      {
+        name: 'The Hostel Yard - Snapdragon (Boys)',
+        address: 'Kamla Nagar, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8f7df1eb4a19308e6153e2d0a11572635372a93f.jpg',
+        slug: 'hostelyard-snapdragon-boys-kamla-nagar',
+        starting: '18,000',
+      },
+      {
+        name: 'The Hostel Yard - Tulip House (Girls)',
+        address: 'Kamal Nagar, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/72aa71dbdc0c980dcb0f65b7f30b95e91b9290ed.jpg',
+        slug: 'the-hostelyard-tulip-house-girls-kamla-nagar',
+        starting: '21,000',
+      },
+      {
+        name: 'The Hostel yard - Petal House',
+        address: 'Bannerghatta Road, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/51f537d1cb757776a0dc72d0588b307651a3cf8c.jpg',
+        slug: 'hostelyard-bannerghatta',
+        starting: '15,000',
+      },
+
+      {
+        name: 'The Hostelyard - Daisy House (Girls)',
+        address: 'Satya Niketan, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcd4480e75c5b09fd3bf66f7ec9827246e598acc.jpg',
+        slug: 'the-hostelyard-daisy-house-girls-satya-niketan',
+        starting: '12,000',
+      },
+
+      {
+        name: 'The Hostel Yard - Ivy Yard',
+        address: 'Sector 126, Noida',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5ea15901959693d8b6393bbe3af240f0e69d58ee.jpg',
+        slug: 'hostelyard-ivy-yard-sector-126',
+        starting: '15,000',
+      },
+
+      {
+        name: 'The Hostel Yard - Hibiscus House (Boys)',
+        address: 'Vijay Nagar, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5de2a2eab954bbbf5b2f0208ee8a7e11883a5f5e.jpg',
+        slug: 'the-hostelyard-hibiscus-house-boys-vijay-nagar',
+        starting: '18,000',
+      },
+      {
+        name: 'The Hostel Yard - Bluebell House (Boys)',
+        address: 'Kamla Nagar, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5a2c41c29fca89155fdcfa1dca6b8cf1cd97098e.jpg',
+        slug: 'hostelyard-bluebell-house-boys-kamla-nagar',
+        starting: '16,000',
+      },
+      {
+        name: 'The Hostel Yard - Aster House',
+        address: 'Sector 58, Noida',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/62a4fb1a0562864b1185b1ead036bbac022da6f6.jpg',
+        slug: 'the-hostelyard-aster-house-sector-58',
+        starting: '14,000',
+      },
+    ],
+
+    LOCL: [
+      {
+        name: 'THE IVY LEAGUE HOUSE (LOCL)',
+        address: 'Wakad, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+        slug: 'locl-the-ivy-league-house',
+        starting: '9,000',
+      },
+      {
+        name: 'LOCL Co-live & Work',
+        address: 'Bellandur Main Road, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3c18bc6d15709e1fa697586efb85ec5f4f7a458.jpg',
+        slug: 'locl-colive-work-bellandur',
+        starting: '10,000',
+      },
+      {
+        name: 'LOCL Co-live & Work',
+        address: 'Koramangala, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
+        slug: 'locl-colive-work-koramangala',
+        starting: '10,000',
+      },
+
+    ],
   };
 
   popularCoLivingSpaces = [
