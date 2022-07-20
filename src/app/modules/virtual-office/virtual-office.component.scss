@@ -611,6 +611,13 @@
 		background-color: transparent;
 		border: none;
 	}
+	.faqs_accordion .panel-body p, .faqs_accordion .panel-body li {
+		font-size: 11px !important;
+		line-height: 15px !important;
+		margin: 0px !important;
+		color: #302f2f !important;
+		font-weight: normal !important;
+	}
 	.faqs_list .card-header .btn {
 		color: #000;
 		font-size: 11px;
@@ -802,6 +809,12 @@
 	}
 	.curated-img {
 		position: relative;
+		height: 100px;
+	}
+	.curated-img img {
+		-o-object-fit: cover;
+		object-fit: cover;
+		height: 120px;
 	}
 	.curated-content {
 		position: absolute;
@@ -819,8 +832,9 @@
 	.curated-content h4 {
 		margin-bottom: 7px;
 		color: #fff;
-		font-size: 11px;
+		font-size: 10px;
 		font-weight: 500;
+		line-height: 14px;
 	}
 	.feature_sec {
 		padding-top: 50px;
@@ -973,6 +987,16 @@
 	float: left;
 	padding: 5px 5px;
 }
+.cities_carousel::-webkit-scrollbar {
+	display: none !important;
+	height: 0 !important;
+	width: 0 !important;
+}
+.cities_carousel {
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none !important;
+	scrollbar-width: none !important;
+	}
 .stretched-link::after {
 	position: absolute;
 	top: 0;
