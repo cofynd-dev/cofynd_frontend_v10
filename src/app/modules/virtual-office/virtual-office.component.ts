@@ -5,104 +5,118 @@ import { Brand } from '@app/core/models/brand.model';
 import { SeoSocialShareData } from '@app/core/models/seo.model';
 import { BrandService } from '@app/core/services/brand.service';
 import { SeoService } from '@app/core/services/seo.service';
+import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { sanitizeParams } from '@app/shared/utils';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { forkJoin } from 'rxjs';
 import { VirtualOfficeModalComponent } from './virtual-office-modal/virtual-office-modal.component';
+import { Observable, Subscriber } from 'rxjs';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
 
 @Component({
   selector: 'app-virtual-office',
   templateUrl: './virtual-office.component.html',
-  styleUrls: ['./virtual-office.component.scss']
+  styleUrls: ['./virtual-office.component.scss'],
 })
 export class VirtualOfficeComponent implements OnInit {
   menuModalRef: BsModalRef;
+  loading: boolean;
   coworkingBrands: Brand[] = [];
   coLivingBrands: Brand[] = [];
   seoData: SeoSocialShareData;
   cities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   service = [
     {
-      title: "Company Registration",
-      description: "Register your company in your desired city without having any physical address there.",
-      icon: "workspace/day-pass.svg"
+      title: 'Company Registration',
+      description: 'Register your company in your desired city without having any physical address there.',
+      icon: 'workspace/day-pass.svg',
     },
     {
-      title: "Meeting Room Access",
-      description: "Get free complimentary hours of meeting rooms every month for client meetings.",
-      icon: "amenities/meeting-room.svg"
+      title: 'Meeting Room Access',
+      description: 'Get free complimentary hours of meeting rooms every month for client meetings.',
+      icon: 'amenities/meeting-room.svg',
     },
     {
-      title: "GST Registration",
-      description: "Get a GST number for your company with all documents like NOC, Signage, Electricity Bill & more.",
-      icon: "workspace/hot-desk.svg"
+      title: 'GST Registration',
+      description: 'Get a GST number for your company with all documents like NOC, Signage, Electricity Bill & more.',
+      icon: 'workspace/hot-desk.svg',
     },
     {
-      title: "Mailing Address",
-      description: "Collect all couriers at your virtual office address and forwarded them to the address given by you.",
-      icon: "workspace/dedicated-desk.svg"
+      title: 'Mailing Address',
+      description:
+        'Collect all couriers at your virtual office address and forwarded them to the address given by you.',
+      icon: 'workspace/dedicated-desk.svg',
     },
     {
-      title: "Business Address",
-      description: "Get your business address in the prestigious location and mention it on your visiting card and website.",
-      icon: "workspace/private-cabin.svg"
+      title: 'Business Address',
+      description:
+        'Get your business address in the prestigious location and mention it on your visiting card and website.',
+      icon: 'workspace/private-cabin.svg',
     },
     {
-      title: "Reception Services",
-      description: "Get reception services for client handling, guest greeting and customer support.",
-      icon: "amenities/reception.svg"
+      title: 'Reception Services',
+      description: 'Get reception services for client handling, guest greeting and customer support.',
+      icon: 'amenities/reception.svg',
     },
-  ]
+  ];
 
   popularVirtualOffice = [
     {
       // address: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8d5c421e7cb218a73798507ddaeb27964e7e3df9.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8d5c421e7cb218a73798507ddaeb27964e7e3df9.jpg',
       name: 'Delhi',
       price: '15,500',
-      slug: "virtual-office/delhi"
+      slug: 'virtual-office/delhi',
     },
     {
       // address: 'Gurugram',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dfddcbb0cadf3df205d9ee3e6a47c03f27e0df16.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e38aba6f636873daba5d3562f2705583cba27839.jpg',
       name: 'Gurugram',
       price: '18,000',
-      slug: "virtual-office/gurugram"
+      slug: 'virtual-office/gurugram',
     },
     {
       // address: `Noida`,
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8dffaef4e7bc6d43b24af2ce95def9ac5769631.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8dffaef4e7bc6d43b24af2ce95def9ac5769631.jpg',
       name: 'Noida',
       price: '15,500',
-      slug: "virtual-office/noida"
+      slug: 'virtual-office/noida',
     },
     {
       // address: 'Bangalore',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6fc88348b18f4e1ccd4c276f339fcd34db5760ad.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6fc88348b18f4e1ccd4c276f339fcd34db5760ad.jpg',
       name: 'Bangalore',
       price: '12,000',
-      slug: "virtual-office/bangalore"
+      slug: 'virtual-office/bangalore',
     },
     {
       // address: 'Hyderabad',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3bb526e232c21916cbe79664eb0acc86ef2a83c0.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3bb526e232c21916cbe79664eb0acc86ef2a83c0.jpg',
       name: 'Hyderabad',
       price: '18,000',
-      slug: "virtual-office/hyderabad"
+      slug: 'virtual-office/hyderabad',
     },
     {
       // address: 'Mumbai',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8069d9d3d68c32e73896f3c40b62ab34c87f5a9d.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8069d9d3d68c32e73896f3c40b62ab34c87f5a9d.jpg',
       name: 'Mumbai',
       price: '11,988',
-      slug: "virtual-office/mumbai"
+      slug: 'virtual-office/mumbai',
     },
     {
       // address: 'Chennai',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59fc8cbecde3c4a14320ab01a12b1c43945a7dea.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59fc8cbecde3c4a14320ab01a12b1c43945a7dea.jpg',
       name: 'Chennai',
       price: '12,000',
-      slug: "virtual-office/chennai"
+      slug: 'virtual-office/chennai',
     },
     // {
     //   address: ' ',
@@ -111,13 +125,29 @@ export class VirtualOfficeComponent implements OnInit {
     //   price: ' ',
     // },
   ];
+  latitute: any;
+  longitute: any;
+  workSpaces: WorkSpace[];
 
   constructor(
     private bsModalService: BsModalService,
+    private workSpaceService: WorkSpaceService,
     private brandService: BrandService,
     private seoService: SeoService,
     private router: Router,
-  ) { }
+  ) {
+    this.loading = true;
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.latitute = position.latitude;
+      this.longitute = position.longitude;
+      let queryParams = {
+        limit: 20,
+        latitude: this.latitute,
+        longitude: this.longitute,
+      };
+      this.loadWorkSpacesByLatLong(queryParams);
+    });
+  }
 
   ngOnInit() {
     forkJoin([
@@ -129,15 +159,65 @@ export class VirtualOfficeComponent implements OnInit {
         brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
       );
     });
-    this.addSeoTags()
+    this.addSeoTags();
   }
 
+  getCurrentPosition(): any {
+    return new Observable((observer: Subscriber<any>) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          observer.next({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          observer.complete();
+        });
+      } else {
+        observer.error();
+      }
+    });
+  }
+
+  loadWorkSpacesByLatLong(param: {}) {
+    this.loading = true;
+    this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
+      this.workSpaces = allWorkSpaces.data.filter(
+        cat => cat.plans.filter(p => p.category === '6231bca42a52af3ddaa73ab1').length,
+      );
+      console.log(this.workSpaces);
+      this.loading = false;
+    });
+  }
+
+  removedash(name: string) {
+    return name.replace(/-/, ' ');
+  }
+
+  openOfficeSpace(slug: string) {
+    this.router.navigate([`/office-space/rent/${slug}`]);
+  }
+  openWithFreeSlug(slug: string) {
+    this.router.navigate([`${slug}`]);
+  }
+  routeTodetail(slug: string) {
+    this.router.navigate([`/coworking/${slug}`]);
+  }
+
+  openModal(price) {
+    this.bsModalService.show(CuratedCityPopupComponent, {
+      class: 'modal-dialog-centered',
+      initialState: {
+        price,
+      },
+    });
+  }
 
   addSeoTags() {
     let seoMeta = {
-      title: "Virtual Office in India - Space for GST & Business Registration",
-      description: "Virtual Office in India starting ₹1,000 per month offering in 10 Indian cities - Delhi, Noida, Gurgaon, Bangalore, Hyderabad, Pune, Mumbai, Indore, Ahmedabad, Chennai."
-    }
+      title: 'Virtual Office in India - Space for GST & Business Registration',
+      description:
+        'Virtual Office in India starting ₹1,000 per month offering in 10 Indian cities - Delhi, Noida, Gurgaon, Bangalore, Hyderabad, Pune, Mumbai, Indore, Ahmedabad, Chennai.',
+    };
     if (seoMeta) {
       this.seoData = {
         title: seoMeta.title,
@@ -151,7 +231,7 @@ export class VirtualOfficeComponent implements OnInit {
     }
   }
 
-  openModalWithComponent(spaceType: string,) {
+  openModalWithComponent(spaceType: string) {
     const initialState = {
       class: 'modal-dialog-centered',
     };

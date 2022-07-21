@@ -186,7 +186,7 @@ $color-error-background: #fff1f1;
   box-shadow: 0 0 4px inset rgba(204, 204, 204, 0.3);
   height: 45px;
   transition: border 0.3s;
-  background: transparent;
+  // background: transparent;
   border: 1px solid $color-light-gray;
   color: $input-text-color;
 
@@ -405,11 +405,15 @@ $color-error-background: #fff1f1;
 
         .ng-placeholder {
           color: #222;
-          font-size: 12px;
+          font-size: 14px;
           position: relative;
+          -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
           top: 0px;
+          -webkit-transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
           transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
           padding-left: 8px;
         }
       }
@@ -434,7 +438,7 @@ $color-error-background: #fff1f1;
     &.ng-select-opened,
     .ng-has-value {
       .ng-placeholder {
-        transform: scale(0.8) translateY(0px);
+        transform: scale(0.8) translateY(-30px);
       }
     }
 
@@ -516,5 +520,12 @@ $color-error-background: #fff1f1;
     label {
       color: $color-primary;
     }
+  }
+}
+
+
+@media (max-width:480px) {
+  .form-layout-outline .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    font-size: 12px;
   }
 }

@@ -34,9 +34,9 @@
             background: #ffe785;
             border-radius: 100%;
             position: absolute;
-            left: -30px;
-            top: -30px;
-            content: '';
+            left: -25px;
+            top: -25px;
+            content: "";
             display: block;
             z-index: -1;
         }
@@ -455,7 +455,6 @@
 .search {
     margin-bottom: 20px;
 }
-
 ::ng-deep {
     .sub-footer {
         background: #f9f9f9;
@@ -1188,13 +1187,13 @@ ul {
 .categories_sec .col-12 {
 	margin-top: 10px !important;
 }
-.curated-img[_ngcontent-app-root-c6] {
+.curated-img {
 	position: relative;
 	height: 100px;
 }
-.curated-img[_ngcontent-app-root-c6] img[_ngcontent-app-root-c6] {
+.curated-img img {
 	object-fit: cover;
-	height: 100px;
+	height: 120px;
 }
 
 
@@ -1205,30 +1204,11 @@ ul {
     .banner_content {
         padding: 40px 15px 30px 15px;
     }
-    .page-title {
-        text-align: left;
-        padding: 0px 0px 0px 15px !important;
-        position: relative;
-        z-index: 1;
-    }
-    .page-title h2::after {
-        display: none !important;
-    }
-    .page-title h2 {
-        margin-bottom: 0px;
-        display: block;
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    
-    h1 {
-        font-size: 28px;
-        line-height: 38px;
-    }
-    h2 {
-        font-size: 18px;
-        line-height: 30px;
-        margin-bottom: 20px !important;
+    .banner h1::before {
+        width: 40px;
+        height: 40px;
+        left: -13px;
+        top: -12px;
     }
     .site_title {
         position: relative;
@@ -1315,7 +1295,7 @@ ul {
         background-color: #F8F8F8;
         border-radius: 10px;
         overflow: hidden;
-        min-height: 120px;
+        min-height: 110px;
         position: relative;
     }
     .category_item h3 {
@@ -1415,7 +1395,7 @@ ul {
         margin: 0px 5px;
     }
     .client_logo_sec {
-        padding: 30px 0px !important;
+        padding: 20px 0px !important;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -1424,7 +1404,7 @@ ul {
         padding: 0px 8px;
     }
     .curated_section {
-        padding: 30px 0px 30px;
+        padding: 20px 0px 20px;
     }
     .slick-slider {
         margin-bottom: 0px !important;
@@ -1460,7 +1440,7 @@ ul {
         display: none !important;
     }
     .feature_sec {
-        padding: 30px 0px 30px !important;
+        padding: 20px 0px 20px !important;
     }
     .icon_box {
         margin-bottom: 40px;
@@ -1511,6 +1491,12 @@ ul {
     }
     .cofynd-desk h4 {
         margin: 10px 0 5px !important;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+    .cofynd-desk .about_text {
+        margin-bottom: 5px !important;
     }
     .cofynd-desk p {
         padding-right: 0;
@@ -1519,11 +1505,14 @@ ul {
         text-align: justify;
         line-height: 17px;
     }
-    .cofynd_desk_content .title_name {
+    .cofynd_desk .title_name {
         color: #1313E6;
         font-weight: 600;
         font-size: 12px;
         line-height: 15px;
+    }
+    .cofynd-desk .title_name {
+        margin-bottom: 5px !important;
     }
     .cofynd-desk .space-btn {
         margin-bottom: 30px !important;
@@ -1552,6 +1541,9 @@ ul {
         line-height: 20px;
         font-weight: 600;
         margin: 25px 0 5px;
+    }
+    .sub-footer h3:first-child {
+        margin-top: 0px !important;
     }
     .sub-footer p {
         color: #777;
@@ -1640,6 +1632,7 @@ ul {
     .categories_sec {
         padding-left: 15px;
         padding-right: 15px;
+        padding-bottom: 20px;
     }
     .curated_section .row:last-child {
         margin-left: 0px;
@@ -1670,7 +1663,7 @@ ul {
         padding: 0px 5px !important;
     }
     .advantages_sec {
-        padding: 30px 0px 15px;
+        padding: 20px 0px 10px;
     }
     .advantages_sec .icon_box {
         display: flex;
@@ -1701,16 +1694,16 @@ ul {
         margin: 0;
         white-space: nowrap;
     }
-    /* Hide scrollbar for Chrome, Safari and Opera */
 .cities_carousel::-webkit-scrollbar {
-    display: none;
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
 }
-
-/* Hide scrollbar for IE, Edge and Firefox */
 .cities_carousel {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    }
     .cities_item {
         display: inline-block;
         margin: 0 5px;
@@ -1777,6 +1770,38 @@ ul {
         margin: 0;
     }
     .top_coliving_cities {
-        padding: 30px 0px;
+        padding: 20px 0px;
+    }
+    .our_brands {
+        padding: 20px 0px 20px !important;
+      }
+      .logos_slider {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    .logos_slider .band-img {
+        display: inline-block;
+        margin: 0 5px;
+        width: 25.429%;
+        overflow: hidden;
+        padding: 0px !important;
+    }
+    .logos_slider::-webkit-scrollbar {
+      display: none !important;
+      height: 0 !important;
+      width: 0 !important;
+    }
+    .logos_slider {
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+      }
+      .cta_section .cta_area {
+        padding: 15px 0px;
     }
 }

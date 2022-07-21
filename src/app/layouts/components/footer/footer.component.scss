@@ -32,9 +32,9 @@ footer {
 
     .text {
       color: #464646;
-      float: left;
       font-weight: 600;
       cursor: pointer;
+      display: inline-block;
     }
 
     p {
@@ -68,7 +68,7 @@ footer {
 
   .logo {
     img {
-      width: 200px;
+      width: 180px;
       margin-bottom: 10px;
     }
 
@@ -204,6 +204,9 @@ footer {
   margin-top: 10px;
   letter-spacing: 1.5px;
 }
+.footer-bottom .links-item {
+	text-align: right;
+}
 
 @media(max-width: 1280px) {
   .footer-center {
@@ -248,5 +251,8 @@ footer {
   .footer-right,
   .footer-left {
     padding: 0;
+  }
+  .footer-bottom .links-item {
+    text-align: left;
   }
 }

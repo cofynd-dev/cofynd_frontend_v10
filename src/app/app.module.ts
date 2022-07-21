@@ -33,14 +33,9 @@ const googleMapsParams = {
     }),
     CoreModule,
     SharedModule,
-    LeafletModule
+    LeafletModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
-
-
-
+export class AppModule {}
