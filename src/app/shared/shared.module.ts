@@ -58,7 +58,6 @@ import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-ne
 import { CuratedCityPopupComponent } from './components/curated-city-popup/curated-city-popup.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-
 const MODULES = [
   CommonModule,
   FormsModule,
@@ -136,7 +135,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     PaginationModule.forRoot(),
     LazyLoadImageModule.forRoot(intersectionObserverPreset),
     AccordionModule.forRoot(),
-    LeafletModule
+    LeafletModule,
   ],
   exports: [
     MODULES,
@@ -157,4 +156,4 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     },
   ],
 })
-export class SharedModule { }
+export class SharedModule {}
