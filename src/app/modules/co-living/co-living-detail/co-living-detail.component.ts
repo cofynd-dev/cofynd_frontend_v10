@@ -44,12 +44,9 @@ export class CoLivingDetailComponent implements OnInit {
   isEnquireModal: boolean;
   shouldReloadEnquiryForm: boolean;
 
-
-  //locationIq Map code 
+  //locationIq Map code
   options: any;
   markers: Layer[] = [];
-
-
 
   //Google Map
   @ViewChild('workspaceMap', {
@@ -81,14 +78,13 @@ export class CoLivingDetailComponent implements OnInit {
     private seoService: SeoService,
     private router: Router,
     private authService: AuthService,
-    private _location: Location
+    private _location: Location,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
       // console.log("param", param);
       if (param.id) {
         this.getWorkSpace(this.activeWorkSpaceId);
-
       }
     });
 
@@ -104,7 +100,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -120,12 +116,16 @@ export class CoLivingDetailComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Cofynd Map' })
+              tileLayer(
+                `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
+                { maxZoom: 18, attribution: 'Open Cofynd Map' },
+              ),
             ],
             attributionControl: false,
             zoom: 10,
-            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
-          }
+            scrollWheelZoom: false,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
+          };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
@@ -136,7 +136,7 @@ export class CoLivingDetailComponent implements OnInit {
       error => {
         if (error.status === 404) {
           let city = localStorage.getItem('city_name');
-          console.log("city", city)
+          console.log('city', city);
           if (city == 'co-living') {
             this.router.navigate(['/co-living']);
           } else if (city == 'coworking') {
@@ -175,18 +175,15 @@ export class CoLivingDetailComponent implements OnInit {
   // }
 
   addMarker(latitute, longitute) {
-    const newMarker = marker(
-      [latitute, longitute],
-      {
-        icon: icon({
-          iconSize: [25, 41],
-          iconAnchor: [13, 41],
-          iconUrl: 'assets/images/marker-icon.png',
-          iconRetinaUrl: 'assets/images/marker-icon.png',
-          // shadowUrl: 'assets/images/marker-icon.png1'
-        })
-      }
-    );
+    const newMarker = marker([latitute, longitute], {
+      icon: icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/images/marker-icon.png',
+        iconRetinaUrl: 'assets/images/marker-icon.png',
+        // shadowUrl: 'assets/images/marker-icon.png1'
+      }),
+    });
     this.markers.push(newMarker);
   }
 

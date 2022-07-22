@@ -26,7 +26,6 @@ import { CoLiving } from '../../co-living/co-living.model';
 import { CoLivingService } from '../../co-living/co-living.service';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 
-
 @Component({
   selector: 'app-co-living-detail',
   templateUrl: './co-living-detail.component.html',
@@ -44,8 +43,7 @@ export class CoLivingDetailComponent implements OnInit {
   isEnquireModal: boolean;
   shouldReloadEnquiryForm: boolean;
 
-
-  //locationIq Map code 
+  //locationIq Map code
   options: any;
   markers: Layer[] = [];
 
@@ -106,8 +104,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -123,12 +120,16 @@ export class CoLivingDetailComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+              tileLayer(
+                `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
+                { maxZoom: 18, attribution: 'Open Street Map' },
+              ),
             ],
             zoom: 10,
             attributionControl: false,
-            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
-          }
+            scrollWheelZoom: false,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
+          };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
@@ -146,9 +147,9 @@ export class CoLivingDetailComponent implements OnInit {
 
   routetoCountryPage() {
     if (this.country_name === 'India' || this.country_name === 'india' || this.country_name === 'INDIA') {
-      this.router.navigate(['/coworking'])
+      this.router.navigate(['/coworking']);
     } else {
-      this.router.navigate([`${this.country_name}/co-living`])
+      this.router.navigate([`${this.country_name}/co-living`]);
     }
   }
 
@@ -176,20 +177,16 @@ export class CoLivingDetailComponent implements OnInit {
   //     .catch(error => console.log(error));
   // }
 
-
   addMarker(latitute, longitute) {
-    const newMarker = marker(
-      [latitute, longitute],
-      {
-        icon: icon({
-          iconSize: [25, 41],
-          iconAnchor: [13, 41],
-          iconUrl: 'assets/images/marker-icon.png',
-          iconRetinaUrl: 'assets/images/marker-icon.png',
-          // shadowUrl: 'assets/images/marker-icon.png1'
-        })
-      }
-    );
+    const newMarker = marker([latitute, longitute], {
+      icon: icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/images/marker-icon.png',
+        iconRetinaUrl: 'assets/images/marker-icon.png',
+        // shadowUrl: 'assets/images/marker-icon.png1'
+      }),
+    });
     this.markers.push(newMarker);
   }
 
@@ -295,7 +292,7 @@ export class CoLivingDetailComponent implements OnInit {
   scrollOnMap(scrollId: any) {
     document.getElementById(scrollId).scrollIntoView();
   }
-  haftAmenities: boolean = true
+  haftAmenities: boolean = true;
   toggleAmenitiesDiv() {
     this.haftAmenities = !this.haftAmenities;
   }
@@ -303,7 +300,6 @@ export class CoLivingDetailComponent implements OnInit {
   seeMore: boolean = true;
   toggleAboutMore() {
     this.seeMore = !this.seeMore;
-
   }
 
   ngOnDestroy() {
