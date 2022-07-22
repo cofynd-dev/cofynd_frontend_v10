@@ -17,7 +17,6 @@ import { AuthService } from '@app/core/services/auth.service';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 
-
 @Component({
   selector: 'app-office-space-detail',
   templateUrl: './office-space-detail.component.html',
@@ -35,7 +34,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
   isEnquireModal: boolean;
   supportPhone = DEFAULT_APP_DATA.contact.phone;
 
-  //locationIq Map code 
+  //locationIq Map code
   options: any;
   markers: Layer[] = [];
 
@@ -90,7 +89,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -104,12 +103,16 @@ export class OfficeSpaceDetailComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+              tileLayer(
+                `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
+                { maxZoom: 18, attribution: 'Open Street Map' },
+              ),
             ],
             zoom: 10,
             attributionControl: false,
-            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
-          }
+            scrollWheelZoom: false,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
+          };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
@@ -150,18 +153,15 @@ export class OfficeSpaceDetailComponent implements OnInit {
   // }
 
   addMarker(latitute, longitute) {
-    const newMarker = marker(
-      [latitute, longitute],
-      {
-        icon: icon({
-          iconSize: [25, 41],
-          iconAnchor: [13, 41],
-          iconUrl: 'assets/images/marker-icon.png',
-          iconRetinaUrl: 'assets/images/marker-icon.png',
-          // shadowUrl: 'assets/images/marker-icon.png1'
-        })
-      }
-    );
+    const newMarker = marker([latitute, longitute], {
+      icon: icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/images/marker-icon.png',
+        iconRetinaUrl: 'assets/images/marker-icon.png',
+        // shadowUrl: 'assets/images/marker-icon.png1'
+      }),
+    });
     this.markers.push(newMarker);
   }
   setMarker(position: google.maps.LatLng) {
@@ -250,7 +250,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
     return text.replace('-', ' ');
   }
 
-  haftAmenities: boolean = true
+  haftAmenities: boolean = true;
   toggleAmenitiesDiv() {
     this.haftAmenities = !this.haftAmenities;
   }
