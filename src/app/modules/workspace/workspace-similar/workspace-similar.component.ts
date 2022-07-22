@@ -70,6 +70,7 @@ export class WorkspaceSimilarComponent implements OnInit {
     } else {
       queryParam = { limit: 9, key: address };
     }
+    console.log("qqq", queryParam)
     this.workSpaceService
       .getWorSpacesByAddress(sanitizeParams(queryParam))
       .pipe(
@@ -79,6 +80,7 @@ export class WorkspaceSimilarComponent implements OnInit {
       )
       .subscribe(filteredWorkspaces => {
         this.workSpaces = filteredWorkspaces;
+        console.log("e", this.workSpaces)
         this.loading = false;
         this.cdr.detectChanges();
       });
