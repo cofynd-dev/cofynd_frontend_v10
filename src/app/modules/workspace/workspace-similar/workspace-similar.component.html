@@ -17,7 +17,8 @@
           <h5 class="detail">{{ workspace.name }}</h5>
           <p class="address">
             <i class="icon-location-outline fal fa-map-marker-alt"></i>
-            {{ workspace.location.address1 | microLocation }}
+            <!-- {{ workspace.location.address1 | microLocation }} -->
+            {{workspace.location.address1}}
           </p>
           <p class="capacity hideOnMobile">
             <i class="icon-seating fal fa-user-tie"></i>

@@ -22,8 +22,6 @@ import { HttpClient } from '@angular/common/http';
 import axios from 'axios';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 
-
-
 @Component({
   selector: 'app-work-space',
   templateUrl: './workspace.component.html',
@@ -40,10 +38,9 @@ export class WorkSpaceComponent implements OnInit {
   userReview: Review;
   isEnquireModal: boolean;
 
-  //locationIq Map code 
+  //locationIq Map code
   options: any;
   markers: Layer[] = [];
-
 
   //Google Map
   @ViewChild('workspaceMap', {
@@ -67,8 +64,6 @@ export class WorkSpaceComponent implements OnInit {
   supportPhone = DEFAULT_APP_DATA.contact.phone;
   unsubscribe$: Subject<boolean> = new Subject();
   country_name: string;
-
-
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -99,20 +94,20 @@ export class WorkSpaceComponent implements OnInit {
           }
           localStorage.setItem('country_name', res.data.name);
           localStorage.setItem('country_id', res.data.id);
-        })
+        });
       }
       if (param && param.id) {
-        this.workSpaceService.getCountryByName("India").subscribe((res: any) => {
+        this.workSpaceService.getCountryByName('India').subscribe((res: any) => {
           if (res && res.data == null) {
             this.router.navigate(['/404'], { skipLocationChange: true });
           }
           localStorage.setItem('country_name', res.data.name);
           localStorage.setItem('country_id', res.data.id);
-        })
+        });
         this.activeWorkSpaceId = param.id;
       }
       let country = localStorage.getItem('country_name');
-      if ((country == 'india' || country == 'India' || country == 'INDIA') && (param && param.id)) {
+      if ((country == 'india' || country == 'India' || country == 'INDIA') && param && param.id) {
         this.activeWorkSpaceId = param.id;
       }
       if (this.activeWorkSpaceId) {
@@ -134,26 +129,18 @@ export class WorkSpaceComponent implements OnInit {
     });
   }
 
-
-  ngOnInit() {
-
-  }
-  ngAfterViewInit() {
-
-  }
+  ngOnInit() {}
+  ngAfterViewInit() {}
   addMarker(latitute, longitute) {
-    const newMarker = marker(
-      [latitute, longitute],
-      {
-        icon: icon({
-          iconSize: [25, 41],
-          iconAnchor: [13, 41],
-          iconUrl: 'assets/images/marker-icon.png',
-          iconRetinaUrl: 'assets/images/marker-icon.png',
-          // shadowUrl: 'assets/images/marker-icon.png1'
-        })
-      }
-    );
+    const newMarker = marker([latitute, longitute], {
+      icon: icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/images/marker-icon.png',
+        iconRetinaUrl: 'assets/images/marker-icon.png',
+        // shadowUrl: 'assets/images/marker-icon.png1'
+      }),
+    });
     this.markers.push(newMarker);
   }
 
@@ -163,12 +150,22 @@ export class WorkSpaceComponent implements OnInit {
       workspaceDetail => {
         this.workspace = workspaceDetail;
         this.country_name = this.workspace.country_dbname;
-        if (this.workspace.country_dbname === 'india' || this.workspace.country_dbname === 'India' || this.workspace.country_dbname === 'INDIA') {
+        if (
+          this.workspace.country_dbname === 'india' ||
+          this.workspace.country_dbname === 'India' ||
+          this.workspace.country_dbname === 'INDIA'
+        ) {
           this.router.navigate([`coworking/${this.workspace.slug}`]);
           this.loading = false;
         }
-        if (this.workspace.country_dbname !== 'india' && this.workspace.country_dbname !== 'India' && this.workspace.country_dbname !== 'INDIA') {
-          this.router.navigate([`${this.workspace.country_dbname.toLocaleLowerCase().trim()}/coworking-details/${this.workspace.slug}`]);
+        if (
+          this.workspace.country_dbname !== 'india' &&
+          this.workspace.country_dbname !== 'India' &&
+          this.workspace.country_dbname !== 'INDIA'
+        ) {
+          this.router.navigate([
+            `${this.workspace.country_dbname.toLocaleLowerCase().trim()}/coworking-details/${this.workspace.slug}`,
+          ]);
           this.loading = false;
         }
         this.addSeoTags(this.workspace);
@@ -177,12 +174,16 @@ export class WorkSpaceComponent implements OnInit {
           // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
-              tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+              tileLayer(
+                `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
+                { maxZoom: 18, attribution: 'Open Street Map' },
+              ),
             ],
             zoom: 10,
             attributionControl: false,
-            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0])
-          }
+            scrollWheelZoom: false,
+            center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
+          };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
         }
 
@@ -196,7 +197,7 @@ export class WorkSpaceComponent implements OnInit {
       error => {
         if (error.status === 404) {
           let city = localStorage.getItem('city_name');
-          console.log("city", city)
+          console.log('city', city);
           if (city == 'co-living') {
             this.router.navigate(['/co-living']);
           } else if (city == 'coworking') {
@@ -209,7 +210,6 @@ export class WorkSpaceComponent implements OnInit {
       },
     );
   }
-
 
   getAverageRating(workspaceId: string) {
     this.workSpaceService.getAverageRating(workspaceId).subscribe(res => {
@@ -230,9 +230,9 @@ export class WorkSpaceComponent implements OnInit {
   }
   routetoCountryPage() {
     if (this.country_name === 'India' || this.country_name === 'india' || this.country_name === 'INDIA') {
-      this.router.navigate(['/coworking'])
+      this.router.navigate(['/coworking']);
     } else {
-      this.router.navigate([`${this.country_name}/coworking`])
+      this.router.navigate([`${this.country_name}/coworking`]);
     }
   }
   // createMap(lat, lng) {
@@ -249,13 +249,15 @@ export class WorkSpaceComponent implements OnInit {
   // }
 
   createMap1(lat, lng) {
-    axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`, {
-    })
-      .then(function (response) {
+    axios
+      .get(
+        `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
+        {},
+      )
+      .then(function(response) {
         console.log(response);
-      })
+      });
   }
-
 
   setMarker(position: google.maps.LatLng) {
     const infoWindowText = `<div id="map-title"><h4>${this.workspace.name}</h4><p>${this.workspace.location.address1}</p></div>`;
@@ -357,7 +359,7 @@ export class WorkSpaceComponent implements OnInit {
     document.getElementById('reviewSection').scrollIntoView();
   }
 
-  haftAmenities: boolean = true
+  haftAmenities: boolean = true;
   toggleAmenitiesDiv() {
     this.haftAmenities = !this.haftAmenities;
   }

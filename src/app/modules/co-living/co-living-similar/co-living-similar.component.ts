@@ -45,11 +45,10 @@ export class CoLivingSimilarComponent implements OnInit {
     this.loading = true;
     const queryParam = {
       key: this.address,
-      micro_location: 'enabled',
       type: 'micro_location',
       limit: 9
     };
-    console.log("***");
+    console.log("***", queryParam);
     this.coLivingService
       .getPopularCoLivings(sanitizeParams(queryParam))
       .pipe(
@@ -59,6 +58,7 @@ export class CoLivingSimilarComponent implements OnInit {
       )
       .subscribe(filteredWorkspaces => {
         this.workSpaces = filteredWorkspaces;
+        console.log("***#", this.workSpaces);
         this.loading = false;
         this.cdr.detectChanges();
       });
