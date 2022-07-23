@@ -60,3 +60,9 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .city-list button, .city-list a {
+    margin-top: 0px !important;
+  }  
+}

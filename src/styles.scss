@@ -751,8 +751,22 @@ body {
 }
 @media (max-width:480px) {
     body, p {
-        font-size: 11px;
-        line-height: 18px;
+        font-size: 10px !important;
+        line-height: 16px !important;
+        color: #272828 !important;
+        font-weight: 400 !important;
+    }
+    h1 {
+        font-size: 16px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+        color: #272828 !important;
+    }
+    h2 {
+        font-size: 16px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+        color: #272828 !important;
     }
     .page-title {
         text-align: left !important;
@@ -797,16 +811,6 @@ body {
 		background-color: #000;
 		color: #fff;
 	}
-    
-    h1 {
-        font-size: 26px !important;
-        line-height: 28px !important;
-    }
-    h2 {
-        font-size: 16px !important;
-        line-height: 28px !important;
-        margin-bottom: 20px !important;
-    }
     .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
         padding: 0px 5px;
     }
@@ -817,6 +821,45 @@ body {
     .cta_section .row {
         margin-left: 0px;
         margin-right: 0px;
+    }
+    .breadcrumb .breadcrumb-item {
+        font-size: 11px !important;
+      }
+      .breadcrumb .breadcrumb-item a {
+        color: #272828 !important;
+        font-weight: 600 !important;
+      }
+      .breadcrumb-wrapper .breadcrumb {
+        margin-top: 0px !important;
+    }
+    .breadcrumb-wrapper nav {
+        padding-right: 0px;
+    }
+    .breadcrumb-wrapper {
+        padding: 10px 0 !important;
+    }
+    .search-description {
+        padding: 20px 0;
+    }
+    .search-description h2 {
+        margin-bottom: 5px;
+    }
+    .search-description ul, .search-description p {
+        margin-bottom: 10px;
+    }
+    .listing-card .carousel-arrow {
+        font-size: 8px;
+        width: 22px;
+        height: 22px;
+    }
+    .listing-card .carousel-arrow.icon-back {
+        left: 2px;
+    }
+    .listing-card .carousel-arrow.icon-next {
+        right: 2px;
+    }
+    .amenity-list li i {
+        background-size: contain;
     }
     
 }

@@ -1,7 +1,7 @@
 <app-workspace-loader *ngIf="loading"></app-workspace-loader>
-<section>
+<section class="space-details">
     <!-- breadcrumb -->
-    <div class="container hideOnMobile">
+    <div class="container hideOnMobile breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -32,7 +32,7 @@
     </div>
 
     <!-- mobile breadcrumb -->
-    <div class="container onlyMobile pt-3">
+    <div class="container onlyMobile pt-3 breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -50,11 +50,11 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div *ngIf="!loading && workspace">
-                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1">
+                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <h1>{{ workspace.name }}</h1>
                         <p class="address">
                             <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
@@ -64,55 +64,90 @@
                     </div>
 
                     <!-- ----------------------- -->
-                    <div class="row onlyMobile pb-2">
+                    <div class="row onlyMobile pb-2 premium_tagline">
                         <div class="col-12">
                             <p>Premium Coliving Destination for Millennials</p>
                         </div>
                     </div>
 
                     <!-- facilities-points for mobile -->
+
                     <div class="facilities-points mt-2 onlyMobile">
                         <div class="row">
-                            <div class="col-2">
-                                <img src="../../../../assets/images/housekeeping-Icon.png" class="img-fluid mt-1 d-block">
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img alt="" src="../../../../assets/images/housekeeping-Icon.png" class="img-fluid">
+                                    <h4>Regular Cleaning</h4>
+                                </div>
                             </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Regular Cleaning</p>
-                                <p class="facilities-descrp">Regular cleaning is taken care of on priority.</p>
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img alt="" src="../../../../assets/images/wi-fi-high.png" class="img-fluid">
+                                    <h4>High Speed WiFi</h4>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../../assets/images/wi-fi-high.png" class="img-fluid mt-1 d-block">
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img alt="" src="../../../../assets/images/comfy-Bed.png" class="img-fluid">
+                                    <h4>Comfy Beds</h4>
+                                </div>
                             </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">High Speed WiFi</p>
-                                <p class="facilities-descrp">High-Speed Wifi for best living experience.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../../assets/images/comfy-Bed.png" class="img-fluid mt-1 d-block">
-                            </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Comfy Beds</p>
-                                <p class="facilities-descrp">Experience comfortable living with comfy beds.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../../assets/images/heart-Icon.png" class="img-fluid mt-1 d-block">
-                            </div>
-                            <!-- <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Amazing Community</p>
-                                <p class="facilities-descrp">Enjoy living journey with amazing community</p>
-                            </div> -->
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Food & Bevarages</p>
-                                <p class="facilities-descrp">{{ workspace.other_detail.food_and_beverage }}</p>
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img alt="" src="../../../../assets/images/heart-Icon.png" class="img-fluid">
+                                    <h4>Food & Bevarages</h4>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- <div class="facilities-points mt-2 onlyMobile">
+                        <div class="row">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="../../../../assets/images/housekeeping-Icon.png" class="img-fluid mt-1 d-block">
+                                    </div>
+                                    <div class="col-10 pl-0">
+                                        <h4 class="mb-0 facilities-heading">Regular Cleaning</h4>
+                                        <p class="facilities-descrp hideOnMobile">Regular cleaning is taken care of on priority.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="../../../../assets/images/wi-fi-high.png" class="img-fluid mt-1 d-block">
+                                    </div>
+                                    <div class="col-10 pl-0">
+                                        <h4 class="mb-0 facilities-heading">High Speed WiFi</h4>
+                                        <p class="facilities-descrp hideOnMobile">High-Speed Wifi for best living experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="../../../../assets/images/comfy-Bed.png" class="img-fluid mt-1 d-block">
+                                    </div>
+                                    <div class="col-10 pl-0">
+                                        <h4 class="mb-0 facilities-heading">Comfy Beds</h4>
+                                        <p class="facilities-descrp hideOnMobile">Experience comfortable living with comfy beds.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="../../../../assets/images/heart-Icon.png" class="img-fluid mt-1 d-block">
+                                    </div>
+                                    <div class="col-10 pl-0">
+                                        <h4 class="mb-0 facilities-heading">Food & Bevarages</h4>
+                                        <p class="facilities-descrp hideOnMobile">{{ workspace.other_detail.food_and_beverage }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <!-- hide on mobile view -->
                     <div class="covid-info hideOnMobile">
@@ -146,7 +181,7 @@
                     <!-- ------------------------------------------------------ -->
                     <div *ngIf="workspace.description" class="sections about-section pt-4">
                         <h2 class="hideOnMobile">About this property</h2>
-                        <h2 class="onlyMobile">About property</h2>
+                        <!-- <h2 class="onlyMobile">About property</h2> -->
 
                         <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
                         </p>
@@ -154,7 +189,7 @@
                             <p [innerHTML]="workspace.description"> </p>
                         </ng-template>
 
-                        <p style="color: #4343e8; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+                        <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
                         <!-- <div class="row buttonOnMobile"
               (click)="toggleAmenitiesDiv()">
               <div class="col-12">
@@ -166,12 +201,12 @@
                     </div>
 
                     <!-- Pricing Plans -->
-                    <div class="sections">
+                    <div class="sections price_area">
                         <h2>Pricing Plans</h2>
                         <div class="plan-list row">
                             <ng-container *ngIf="workspace.coliving_plans.length > 0">
                                 <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
-                                    <div class="box" (click)="openEnquireModal()">
+                                    <div class="box price_box" (click)="openEnquireModal()">
                                         <div class="img">
                                             <img [src]="plan.planId.icons.s3_link" alt="">
                                         </div>
@@ -182,7 +217,7 @@
                                                 <span class="hideOnMobile">starting*</span>
                                                 <div>
                                                     {{ plan.price | currency: workspace.currency_code }}
-                                                    <small>/month*</small>
+                                                    <small class="small_text">/month*</small>
                                                 </div>
                                             </div>
                                             <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton hideOnMobile">Enquire<small
@@ -259,7 +294,7 @@
                         <!-- only for mobile -->
                         <div class="row onlyMobile" (click)="openEnquireModal()">
                             <div class="col-12">
-                                <button class="btn btn-block bg-white" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' style="border:1px solid #000;border-radius: 5px;height: 40px;font-weight: 500;color:#000;">
+                                <button class="btn btn-block bg-white" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>
     Enquire
   </button>
                             </div>
@@ -277,19 +312,23 @@
                     </div>
 
                     <!-- working, will add slider -->
-                    <div class="section pt-5 pb-5 onlyMobile">
-                        <div>
-                            <h2>Where you'll sleep</h2>
-                        </div>
-                        <div class="col-7">
-                            <img [src]="workspace.images[1].image.s3_link" class="img-fluid d-block" style="border-radius: 10px;">
-                            <p class="mb-0 mt-2" style="color:#000;font-weight: 500;">Bedroom</p>
-                            <p class="mb-0" style="font-weight: 300;">Twin/Single Bed</p>
+                    <div class="section pt-5 pb-5 onlyMobile sleep_area">
+                        <h2>Where you'll sleep</h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="sleep_box">
+                                    <div class="sleep_bad_img"><img [src]="workspace.images[1].image.s3_link" class="img-fluid d-block"></div>
+                                    <div class="sleep_bad_content">
+                                    <h4 class="mb-0 mt-2">Bedroom</h4>
+                                    <p class="mb-0">Twin/Single Bed</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- ---------------------------->
 
-                    <div class="sections onlyMobile">
+                    <div class="sections onlyMobile offers_section">
                         <h2>What this place offers</h2>
                         <ul class="amenity-list">
                             <ng-container *ngIf="haftAmenities; else fullAmenities">
@@ -313,7 +352,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sections pt-5">
+                <div class="sections pt-5 location_area">
                     <div class="metro-detail hideOnMobile" *ngIf="!loading && workspace && workspace.location.metro_detail.is_near_metro">
                         <p>
                             <i class="metro-icon"></i>Nearest Metro <span>{{ workspace.location.metro_detail.name }}</span>
@@ -362,7 +401,7 @@
             </div>
         </div>
 
-        <div class="row pt-4">
+        <div class="row pt-4 similar_spaces_area">
             <div class="col-md-12">
                 <div class="sections no-border">
                     <h2>Similar Properties</h2>
@@ -378,8 +417,8 @@
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
             <div class="col-6 bottomPrize">
-                <p class="mb-0 mt-1"><i class="fas fa-rupee-sign"></i><span> {{workspace.starting_price}}/month*</span></p>
-                <p class="mt-0" style="font-weight:600;color:#4343e8;"><small>Single/Double Sharing</small></p>
+                <p class="mb-0 mt-0"><i class="fas fa-rupee-sign"></i><span> {{workspace.starting_price}}/month*</span></p>
+                <p class="mb-0 mt-0" style="font-weight:600;color:#4343e8;"><small>Single/Double Sharing</small></p>
             </div>
             <div class="col-6">
                 <button class="btn btn-block mt-2 text-white" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>
