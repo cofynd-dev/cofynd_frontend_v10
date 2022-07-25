@@ -104,7 +104,7 @@
   }
 
   hr {
-    width: 40%;
+    width: 100%;
     margin-left: 0;
   }
 }
@@ -162,6 +162,19 @@
   z-index: 1;
 }
 
+.listing-card .detail .capacity {
+  margin-bottom: 5px !important;
+  align-items: center;
+  display: flex;
+}
+.listing-card .detail .capacity img {
+  width: 15px;
+  margin-right: 4px;
+  opacity: 0.6;
+}
+.listing-card:hover .detail .capacity img {
+  transform: none;
+}
 
 @media (max-width:480px) {
   .listing-card {
@@ -201,6 +214,7 @@
   .listing-card .detail .capacity img {
     width: 15px;
     margin-right: 4px;
+    opacity: 0.6;
   }
   .listing-card:hover .detail .capacity img {
     transform: none;
