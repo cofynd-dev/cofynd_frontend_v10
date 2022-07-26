@@ -473,3 +473,36 @@ a+a {
         }
     }
 }
+
+@media (max-width: 480px) {
+    header .top-left .logo img {
+        max-width: 160px;
+    }
+    header {
+        height: 60px;
+    }
+    header .header-wrapper {
+        height: 60px;
+    }
+    .mobile-search {
+        font-size: 15px;
+        top: 22px;
+    }
+    .hamburger {
+        top: 19px;
+    }
+    .hamburger span {
+        width: 22px;
+    }
+    .hamburger span:nth-child(2) {
+        margin: 4px 0;
+    }
+    header .top-left .search .new-close::before {
+        top: 9px;
+      left: -5px;
+    }
+    header .top-left .search.search-modal .icon-close {
+        top: 11px;
+        right: 22px;
+    }
+}

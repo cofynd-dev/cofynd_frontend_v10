@@ -104,7 +104,7 @@
   }
 
   hr {
-    width: 40%;
+    width: 100%;
     margin-left: 0;
   }
 }
@@ -160,4 +160,98 @@
   right: 20px;
   margin-top: -14px;
   z-index: 1;
+}
+
+.listing-card .detail .capacity {
+  margin-bottom: 5px !important;
+  align-items: center;
+  display: flex;
+}
+.listing-card .detail .capacity img {
+  width: 15px;
+  margin-right: 4px;
+  opacity: 0.6;
+}
+.listing-card:hover .detail .capacity img {
+  transform: none;
+}
+
+@media (max-width:480px) {
+  .listing-card {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    // border-radius: 10px;
+    // border: 1px solid rgba(0,0,0,0.1);
+  }
+  .listing-card .image {
+    height: auto !important;
+    border-radius: 15px !important;
+    width: 45% !important;
+  }
+  .listing-card .detail {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 15px 10px 15px !important;
+    width: 55% !important;
+  }
+  .listing-card .detail h4 {
+    font-size: 13px !important;
+    color: #272828 !important;
+    white-space: normal;
+  }
+  .listing-card .detail .address {
+    padding-bottom: 5px !important;
+    margin-bottom: 10px;
+    border-bottom: none;
+  }
+  .listing-card .detail .capacity {
+    margin-bottom: 5px !important;
+    align-items: center;
+    display: flex;
+  }
+  .listing-card .detail .capacity img {
+    width: 15px;
+    margin-right: 4px;
+    opacity: 0.6;
+  }
+  .listing-card:hover .detail .capacity img {
+    transform: none;
+  }
+  .listing-card hr {
+    display: none;
+  }
+  .price-box {
+    margin-top: 15px;
+  }
+  .price-box .price span {
+    font-size: 10px !important;
+    color: #272828 !important;
+    margin-bottom: 2px !important;
+  }
+  .price-box .price {
+    font-size: 11px !important;
+    line-height: 16px !important;
+    color: #4343e8;
+  }
+  .price-box .price small {
+    font-size: 11px !important;
+    color: #272828 !important;
+  }
+  .price-box .btn-link {
+    bottom: 0px !important;
+    font-size: 10px !important;
+    line-height: 16px !important;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .listing-card .image .item {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-box .btn-link small {
+    margin-left: 5px;
+  }
 }

@@ -418,8 +418,25 @@
 
 <section class="hideInDesktop">
 
+    <section class="innerpage_banner onlyMobile"
+    style="background-image: url('../../../assets/images/coliving-landing-top.jpg');">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="banner_content">
+            <h1 class="text-light text-center">Find The Best CoLiving Spaces in India</h1>
+            <div class="search-bar">
+                <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
+                </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!--Top banner -->
-    <section class="top-search">
+    <!-- <section class="top-search">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -433,14 +450,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- cities list -->
-    <section class="cities pt-5 pb-4 bg-white" id="city">
+    <section class="cities pt-5 pb-4 bg-white coliving_cities_sec" id="city">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="facility-head pb-2"><i class="fab fa-angellist"></i> Top Coliving Cities</p>
+                    <div class="page-title"><h2 >Top Coliving Cities</h2></div>
+                    <!-- <p class="facility-head pb-2"><i class="fab fa-angellist"></i> Top Coliving Cities</p> -->
                 </div>
             </div>
             <div class="row">

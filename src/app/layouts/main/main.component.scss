@@ -39,3 +39,8 @@ main {
     display: block;
   }
 }
+@media (max-width: 480px) {
+  main {
+    padding-top: 60px;
+  }
+}

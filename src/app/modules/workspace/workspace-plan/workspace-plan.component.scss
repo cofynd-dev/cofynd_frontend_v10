@@ -17,9 +17,6 @@
       width: 60px;
       position: absolute;
       left: 15px;
-      @media(max-width:480px) {
-        width: 45px;
-      }
     }
 
     h4 {
@@ -137,4 +134,41 @@
   small{
     color: #000;
   }
+.plan-list .col-6 {
+    padding: 0px 5px;
+}
+.plan-list.row {
+    padding: 0px 15px;
+}
+.plan-list .price_box {
+	min-height: auto !important;
+	padding: 20px 15px 25px !important;
+	text-align: center;
+	margin-bottom: 10px;
+	height: auto !important;
+}
+.box.price_box .img {
+    margin: 0 auto;
+}
+.price_box .price .small_text {
+    font-size: 10px !important;
+}
+.price_box h4 {
+    font-size: 11px !important;
+    line-height: 18px !important;
+}
+.price_box .price {
+    font-size: 12px !important;
+    text-align: center !important;
+    margin-bottom: 0px !important;
+}
+.plan-list .action-box .price small span {
+  font-size: 12px !important;
+  font-weight: 400;
+  display: inline-block;
+}
+.plan-list .box .img {
+	width: 45px;
+	height: 40px;
+}
 }
