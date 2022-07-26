@@ -716,6 +716,12 @@ Amenity Icons
     }
 }
 
+.amenity-list li i {
+	background-size: contain !important;
+}
+.plan-list .box {
+	margin-bottom: 10px;
+}
 .star-rating {
     ngx-star-rating {
         label.star {
