@@ -149,36 +149,15 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.roomType = value;
   }
   apply() {
-    if (this.maxPrice != null && this.minPrice !== null && this.roomType != null) {
-      this.queryParams['minPrice'] = this.minPrice;
-      this.queryParams['maxPrice'] = this.maxPrice;
-      this.queryParams['room_type'] = this.roomType;
-      this.getOfficeList(this.queryParams);
-      this.minPrice = null;
-      this.maxPrice = null;
-      this.roomType = null;
-      $('#coliving_filter').modal('hide');
-      $('.modal-body select').val('Select Price');
-    }
-    if (this.maxPrice != null && this.minPrice !== null) {
-      this.queryParams['minPrice'] = this.minPrice;
-      this.queryParams['maxPrice'] = this.maxPrice;
-      this.getOfficeList(this.queryParams);
-      this.minPrice = null;
-      this.maxPrice = null;
-      this.roomType = null;
-      $('#coliving_filter').modal('hide');
-      $('.modal-body select').val('Select Price');
-    }
-    if (this.roomType != null) {
-      this.queryParams['room_type'] = this.roomType;
-      this.getOfficeList(this.queryParams);
-      this.minPrice = null;
-      this.maxPrice = null;
-      this.roomType = null;
-      $('#coliving_filter').modal('hide');
-      $('.modal-body select').val('Select Price');
-    }
+    this.queryParams['minPrice'] = this.minPrice;
+    this.queryParams['maxPrice'] = this.maxPrice;
+    this.queryParams['room_type'] = this.roomType;
+    this.getOfficeList(this.queryParams);
+    $('#coliving_filter').modal('hide');
+    $('.modal-body select').val('Select Price');
+    this.minPrice = null;
+    this.maxPrice = null;
+    this.roomType = null;
   }
 
   createBreadcrumb() {
