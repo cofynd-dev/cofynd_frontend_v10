@@ -17,9 +17,6 @@
       width: 60px;
       position: absolute;
       left: 15px;
-      @media(max-width:480px) {
-        width: 45px;
-      }
     }
 
     h4 {
@@ -170,5 +167,8 @@
   font-weight: 400;
   display: inline-block;
 }
-
+.plan-list .box .img {
+	width: 45px;
+	height: 40px;
+}
 }

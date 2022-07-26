@@ -498,6 +498,11 @@ body {
     .space_title_area {
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .facilities-points {
+        margin-top: 0px !important;
+        padding-top: 15px;
     }
     .space_title_area h1 {
         margin-bottom: 5px;
@@ -594,5 +599,29 @@ body {
 }
 .location_area h2 {
 	margin-bottom: 0px !important;
+}
+.sections.section-1 .bfrReview {
+	background-color: transparent;
+	font-size: 10px;
+	border: 1px solid #4343e8;
+	color: #4343e8;
+    float: right !important;
+}
+.address {
+	padding-left: 14px;
+}
+.location_tagline_bottom {
+	margin-bottom: 0px;
+}
+.similar_spaces_area .sections {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.similar_spaces_area {
+	padding: 20px 0px !important;
+	border-top: 1px solid #e5e5e5 !important;
+}
+.similar_spaces_area .item {
+	padding: 0px 5px !important;
 }
 }

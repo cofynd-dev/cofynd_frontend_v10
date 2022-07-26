@@ -81,12 +81,12 @@
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && workspace.currency_code" class="price"><span>starting from</span>{{ workspace.starting_price | currency: workspace?.currency_code}}<small>/ {{ workspace.price_type }}</small>
                         </div>
                     </div>
-
+<!-- 
                     <div class="row onlyMobile pb-2 premium_tagline">
                         <div class="col-12">
                             <p>Premium Coworking Destination</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- facilities-points for mobile -->
                     <div class="facilities-points mt-2 onlyMobile">
@@ -223,7 +223,7 @@
                     <div *ngIf="options.zoom" style="height: 200px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                     </div>
                     <div class="onlyMobile pt-3">
-                        <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
+                        <p style="font-weight: 300;" class="location_tagline_bottom">Prime location with 24*7 surveillance</p>
                     </div>
                 </div>
             </div>
