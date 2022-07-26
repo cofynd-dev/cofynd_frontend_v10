@@ -130,7 +130,7 @@
       </div>
 
       <div class="col-md-1 form-group" *ngIf="breadcumbType === 'coliving' && priceFilters.length > 0">
-          <select style="margin-top: 5px; height: 32px; width: 100%; font-size: 12px;" class="form-select form-select-sm" (change)="onChange($event.target.value)">
+          <select style="margin-top: 5px; height: 32px; width: 100%; font-size: 12px; display: none;"   class="form-select form-select-sm" (change)="onChange($event.target.value)">
             <option value="">Select Price </option>
             <option *ngFor="let price of priceFilters; index as i" [value]="price.id">{{price?.value}}</option>
             <!-- <option value="29999">15,000-30,000</option>
