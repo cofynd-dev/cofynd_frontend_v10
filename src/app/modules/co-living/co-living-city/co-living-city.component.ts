@@ -15,6 +15,8 @@ import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
 import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { ToastrService } from 'ngx-toastr';
+declare var $: any;
 
 @Component({
   selector: 'app-co-living-city',
@@ -48,6 +50,9 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   number_record: number = 20;
   country_name: string = '';
   featuredColiving: string;
+  minPrice: any;
+  maxPrice: any;
+  roomType: any;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -60,6 +65,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     private workSpaceService: WorkSpaceService,
     private seoService: SeoService,
     private el: ElementRef,
+    private toastrService: ToastrService,
   ) {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
@@ -69,7 +75,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.featuredColiving = localStorage.getItem('featuredColiving');
-    // console.log("HIIIIIIIIIIII", this.featuredColiving, this.activatedRoute.snapshot.url);
     localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       (this.title = this.activatedRoute.snapshot.url[0].path),
@@ -80,7 +85,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           const filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );
-          console.log('filteredCity', this.availableCities, filteredCity);
           this.title = filteredCity[0].name;
           this.createBreadcrumb();
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
@@ -122,10 +126,58 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         });
     });
     if (this.title) {
-      console.log('title', this.title);
       for (let scrt of script.coliving[this.title]) {
         this.setHeaderScript(scrt);
       }
+    }
+  }
+  onPriceSelect(value) {
+    if (value === '1') {
+      this.minPrice = 0;
+      this.maxPrice = 15000;
+    }
+    if (value === '2') {
+      this.minPrice = 15000;
+      this.maxPrice = 30000;
+    }
+    if (value === '3') {
+      this.minPrice = 30000;
+      this.maxPrice = 200000;
+    }
+  }
+  selectRoomType(value) {
+    this.roomType = value;
+  }
+  apply() {
+    if (this.maxPrice != null && this.minPrice !== null && this.roomType != null) {
+      this.queryParams['minPrice'] = this.minPrice;
+      this.queryParams['maxPrice'] = this.maxPrice;
+      this.queryParams['room_type'] = this.roomType;
+      this.getOfficeList(this.queryParams);
+      this.minPrice = null;
+      this.maxPrice = null;
+      this.roomType = null;
+      $('#coliving_filter').modal('hide');
+      $('.modal-body select').val('Select Price');
+    }
+    if (this.maxPrice != null && this.minPrice !== null) {
+      this.queryParams['minPrice'] = this.minPrice;
+      this.queryParams['maxPrice'] = this.maxPrice;
+      this.getOfficeList(this.queryParams);
+      this.minPrice = null;
+      this.maxPrice = null;
+      this.roomType = null;
+      $('#coliving_filter').modal('hide');
+      $('.modal-body select').val('Select Price');
+    }
+    if (this.roomType != null) {
+      this.queryParams['room_type'] = this.roomType;
+      this.getOfficeList(this.queryParams);
+      this.minPrice = null;
+      this.maxPrice = null;
+      this.roomType = null;
+      $('#coliving_filter').modal('hide');
+      $('.modal-body select').val('Select Price');
     }
   }
 
@@ -145,7 +197,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   getOfficeList(param: any = {}) {
-    console.log('param', param);
     this.price_filters.length = 0;
     this.number_record = 20;
     this.loading = true;
@@ -155,7 +206,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     // param.minPrice = 15000;
     // param.maxPrice = 30000;
     this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allOffices => {
-      console.log('allOffices', allOffices);
       this.coLivings = allOffices.data.sort((a: any, b: any) => {
         if (b.priority) {
           return a.priority.location.order > b.priority.location.order ? 1 : -1;
@@ -218,7 +268,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   setHeaderScript(cityScript) {
-    // console.log(cityScript);
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
@@ -376,4 +425,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
   }
+}
+function ViewChild(arg0: string) {
+  throw new Error('Function not implemented.');
 }
