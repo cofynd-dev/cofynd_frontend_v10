@@ -1,6 +1,7 @@
 <app-workspace-loader *ngIf="loading"></app-workspace-loader>
-<section>
-    <div class="container hideOnMobile">
+<section class="space-details">
+    <!-- breadcrumb -->
+    <div class="container hideOnMobile breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -29,7 +30,7 @@
         </app-workspace-banner-blank>
     </div>
 
-    <div class="container onlyMobile pt-3">
+    <div class="container onlyMobile pt-3 breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -52,22 +53,22 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div *ngIf="!loading && workspace">
-                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1">
+                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <div class="row">
-                            <div class="col-md-8 col-12">
+                            <div class="col-md-8 col-8">
                                 <h1>{{ workspace.name }} {{ workspace.location.name }}
                                 </h1>
                             </div>
-                            <div class="col-md-4 col-12 mt-2 mb-2">
+                            <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
                                 <ng-template [ngIf]="rating===0 && !userReview">
                                     <button class="bfrReview" (click)="openModal()">Write a review</button>
                                 </ng-template>
                                 <ng-template [ngIf]="rating>0">
                                     <span class="forRating">
-                    <app-star-rating (click)="scrollOnRating()"
-                      *ngIf="rating>0"
-                      [rating]='rating'></app-star-rating>
-                  </span>
+                            <app-star-rating (click)="scrollOnRating()"
+                            *ngIf="rating>0"
+                            [rating]='rating'></app-star-rating>
+                        </span>
                                 </ng-template>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="row onlyMobile pb-2">
+                    <div class="row onlyMobile pb-2 premium_tagline">
                         <div class="col-12">
                             <p>Premium Coworking Destination</p>
                         </div>
@@ -90,41 +91,33 @@
                     <!-- facilities-points for mobile -->
                     <div class="facilities-points mt-2 onlyMobile">
                         <div class="row">
-                            <div class="col-2">
-                                <img src="../../../assets/images/coworking/hs-wifi.png" class="img-fluid mt-1 d-block">
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img src="../../../assets/images/coworking/hs-wifi.png" class="img-fluid">
+                                    <h4>High Speed Wifi</h4>
+                                </div>
                             </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">High Speed Wifi</p>
-                                <p class="facilities-descrp">High-Speed Wifi for best working experience.</p>
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img src="../../../assets/images/coworking/printer.png" class="img-fluid">
+                                    <h4>Printer</h4>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../assets/images/coworking/printer.png" class="img-fluid mt-1 d-block">
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img src="../../../assets/images/coworking/tea-coffee.png" class="img-fluid">
+                                    <h4>Tea/Coffee</h4>
+                                </div>
                             </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Printer</p>
-                                <p class="facilities-descrp">Printing and scanning facilities.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../assets/images/coworking/tea-coffee.png" class="img-fluid mt-1 d-block">
-                            </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Tea/Coffee</p>
-                                <p class="facilities-descrp">Lounge, kitchen, breakout rooms, and more.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../../../assets/images/coworking/parking.png" class="img-fluid mt-1 d-block">
-                            </div>
-                            <div class="col-10 pl-0">
-                                <p class="mb-0 facilities-heading">Parking</p>
-                                <p class="facilities-descrp">Easy and convenient parking area availability.</p>
+                            <div class="col-6">
+                                <div class="icon_box">
+                                    <img src="../../../assets/images/coworking/parking.png" class="img-fluid">
+                                    <h4>Parking</h4>
+                                </div>
                             </div>
                         </div>
+
+                        
                     </div>
 
                     <div class="sections about-section">
@@ -132,15 +125,15 @@
                         <p class="mb-5 text-justify" [innerHTML]="workspace.description"> </p>
                         <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
                     </div>
-                    <div class="sections">
+                    <div class="sections price_area">
                         <h2>Membership Plans</h2>
                         <app-workspace-plan [workspaceId]="workspace.id" [plans]="workspace.plans" [currency_code]="workspace.currency_code" (enquireButtonClick)="openEnquireModal()">
                         </app-workspace-plan>
                     </div>
-                    <div class="sections">
+                    <div class="sections enterprise_area">
                         <h2>Enterprise Services</h2>
                         <div class="plan-list service-list row">
-                            <div class="col-md-12 col-6 pb-3" (click)="openEnquireModal()">
+                            <div class="col-md-12 col-6" (click)="openEnquireModal()">
                                 <div class="box">
                                     <h4>Office Suite</h4>
                                     <p>Office space for larger teams with own reception.
@@ -150,7 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-6 pb-3" (click)="openEnquireModal()">
+                            <div class="col-md-12 col-6" (click)="openEnquireModal()">
                                 <div class="box">
                                     <h4>CXO's Suite</h4>
                                     <p>Customised office spaces for CEO’S & CXO’s.
@@ -181,7 +174,7 @@
                             <li><i class="amn-meeting-room"></i>Meeting Rooms</li>
                             <li><i class="amn-printer"></i>Printer</li>
                             <li><i class="amn-pantry"></i>Pantry</li>
-                            <li><i class="amn-car-parking"></i>Car / Bike Parking available</li>
+                            <li><i class="amn-car-parking"></i>Car / Bike Parking</li>
                             <li><i class="amn-reception"></i>Reception</li>
                             <li><i class="amn-housekeeping"></i>Super Housekeeping</li>
                             <li><i class="amn-tea"></i>Tea/Coffee</li>
@@ -189,7 +182,7 @@
                         </ul>
                     </div>
 
-                    <div class="sections onlyMobile">
+                    <div class="sections onlyMobile offers_section">
                         <h2>Amenities</h2>
                         <ul class="amenity-list">
                             <ng-container *ngIf="haftAmenities; else fullAmenities">
@@ -198,7 +191,7 @@
                                 <li><i class="amn-meeting-room"></i>Meeting Rooms</li>
                                 <li><i class="amn-printer"></i>Printer</li>
                                 <li><i class="amn-pantry"></i>Pantry</li>
-                                <li><i class="amn-car-parking"></i>Car / Bike Parking available</li>
+                                <li><i class="amn-car-parking"></i>Car / Bike Parking</li>
                             </ng-container>
                             <ng-template #fullAmenities>
                                 <li><i class="amn-wifi"></i>WIFI/Internet</li>
@@ -206,7 +199,7 @@
                                 <li><i class="amn-meeting-room"></i>Meeting Rooms</li>
                                 <li><i class="amn-printer"></i>Printer</li>
                                 <li><i class="amn-pantry"></i>Pantry</li>
-                                <li><i class="amn-car-parking"></i>Car / Bike Parking available</li>
+                                <li><i class="amn-car-parking"></i>Car / Bike Parking</li>
                                 <li><i class="amn-reception"></i>Reception</li>
                                 <li><i class="amn-housekeeping"></i>Super Housekeeping</li>
                                 <li><i class="amn-tea"></i>Tea/Coffee</li>
@@ -222,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sections">
+                <div class="sections location_area">
                     <h2>You'll work here</h2>
                     <p *ngIf="workspace">{{workspace.location.address1}}</p>
                     <!-- <div #workspaceMap class="map-container">
@@ -240,7 +233,7 @@
             </div>
         </div>
         <app-review *ngIf="workspace" [userReview]="userReview" [averageRating]="rating" [space]="workspace"></app-review>
-        <div class="row">
+        <div class="row similar_spaces_area">
             <div class="col-md-12">
                 <div class="sections no-border" style="padding-top: 20px;">
                     <h2>Similar Properties</h2>

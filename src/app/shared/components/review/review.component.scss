@@ -100,3 +100,14 @@
   cursor: pointer;
   color: #4343e8;
 }
+
+
+@media (max-width: 480px) {
+  .review_area {
+    padding: 20px 0px;
+    border-top: 1px solid #f7f7f7;
+  }
+  .review-box .row {
+    align-items: center;
+  }
+}

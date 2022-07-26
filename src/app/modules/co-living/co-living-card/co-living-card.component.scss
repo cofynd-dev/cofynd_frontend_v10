@@ -182,19 +182,19 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.1);
+    // border-radius: 10px;
+    // border: 1px solid rgba(0,0,0,0.1);
   }
   .listing-card .image {
     height: auto !important;
-    border-radius: 0px !important;
-    width: 42% !important;
+    border-radius: 15px !important;
+    width: 45% !important;
   }
   .listing-card .detail {
     border: none !important;
     box-shadow: none !important;
     padding: 10px 15px 10px 15px !important;
-    width: 58% !important;
+    width: 55% !important;
   }
   .listing-card .detail h4 {
     font-size: 15px !important;
@@ -250,5 +250,8 @@
     height: 200px;
     position: relative;
     overflow: hidden;
+  }
+  .price-box .btn-link small {
+    margin-left: 5px;
   }
 }

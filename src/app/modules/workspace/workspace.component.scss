@@ -13,9 +13,6 @@ section {
     padding: 40px 0;
     &.section-1 {
         padding-bottom: 30px;
-        @media (max-width: 480px) {
-            padding-top: 5px !important;
-        }
         .forRating {
             float: right;
         }
@@ -475,4 +472,127 @@ body {
 .map {
     height: 100%;
     padding: 0;
+}
+
+
+
+@media (max-width: 480px) {
+    section {
+        padding: 0px;
+    }
+    h2 {
+        margin-bottom: 10px !important;
+    }
+    .breadcrumb_area .breadcrumb {
+        margin-bottom: 0px !important;
+    }
+    .breadcrumb_area {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .breadcrumb_area a {
+        color: #272828;
+        font-weight: 600;
+    }
+    .space_title_area {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    .space_title_area h1 {
+        margin-bottom: 5px;
+    }
+    .premium_tagline p {
+        margin-bottom: 0px;
+    }
+    .icon_box {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .icon_box img {
+        width: 20px;
+        margin-bottom: 0px;
+    }
+    .icon_box h4 {
+        padding-left: 10px;
+        font-size: 11px;
+        line-height: 18px;
+        margin-bottom: 0px;
+    }
+    .about-section {
+        border-top: 1px solid #e5e5e5 !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        padding: 15px 0px 15px !important;
+    }
+    .about-section h2 {
+        margin-bottom: 10px;
+    }
+    .about-section p {
+        margin-bottom: 0px !important;
+    }
+    .see_more {
+        color: #4343e8 !important;
+        font-weight: 500 !important;
+        cursor: pointer;
+        display: inline-block;
+    }
+    
+  .price_area {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.enterprise_area {
+	padding: 20px 0px !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.enterprise_area .row {
+	padding: 0px 15px;
+}
+.enterprise_area .col-6 {
+	padding: 0px 5px !important;
+}
+.offers_section {
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+	border-bottom: 1px solid #e5e5e5 !important;
+}
+.amenity-list li {
+    font-size: 12px;
+    margin-bottom: 15px !important;
+    font-weight: 500;
+}
+.offers_section {
+	padding: 20px 0px !important;
+}
+.service-list .box {
+	margin-bottom: 10px;
+}
+.offers_section .btn {
+    padding: 0px !important;
+    width: auto;
+    border: none !important;
+    color: #4343e8 !important;
+    border-radius: 0px !important;
+    font-weight: 500;
+    font-size: 10px !important;
+}
+.amenity-list {
+	margin-top: 0px;
+}
+.offers_section .buttonOnMobile button {
+	height: auto;
+}
+.plan-list .box p {
+	margin-bottom: 0px;
+}
+.location_area {
+	padding: 20px 0px !important;
+}
+.location_area h2 {
+	margin-bottom: 0px !important;
+}
 }

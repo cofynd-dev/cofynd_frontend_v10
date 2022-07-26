@@ -749,6 +749,7 @@ body {
 .faq_content p {
 	text-align: center;
 }
+
 @media (max-width:480px) {
     body, p {
         font-size: 10px !important;
@@ -773,6 +774,28 @@ body {
         padding: 0px 0px 0px 15px !important;
         position: relative !important;
         z-index: 1 !important;
+    }
+    .page-title h1::after {
+        display: none !important;
+    }
+    .page-title h1 {
+        margin-bottom: 0px !important;
+        display: block !important;
+        text-align: left !important;
+        margin-bottom: 15px !important;
+        position: relative;
+    }
+    .page-title h1::before {
+        content: "";
+        width: 35px;
+        height: 35px;
+        left: -15px;
+        top: -9px;
+        background: #ffe785;
+        border-radius: 100%;
+        position: absolute;
+        display: block;
+        z-index: -1;
     }
     .page-title h2::after {
         display: none !important;
@@ -860,6 +883,17 @@ body {
     }
     .amenity-list li i {
         background-size: contain;
+    }
+    .rating_star_col {
+        margin-top: 4px !important;
+        margin-bottom: 0px !important;
+    }
+    .rating_star_col .star {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        font-size: 11px !important;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
     }
     
 }

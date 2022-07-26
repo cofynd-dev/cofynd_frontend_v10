@@ -1,6 +1,6 @@
 <div class="plan-list row">
-  <div  (click)="onEnquire()" class="pt-3 col-md-12 col-6" *ngFor="let plan of plans">
-    <div class="box">
+  <div  (click)="onEnquire()" class="col-md-12 col-6" *ngFor="let plan of plans">
+    <div class="box price_box">
       <div class="img">
         <img [src]="plan?.category?.icons?.s3_link" alt="">
       </div>
