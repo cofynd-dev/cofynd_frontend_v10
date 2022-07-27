@@ -168,7 +168,7 @@
                                             <div class="price">
                                                 <span class="hideOnMobile">starting*</span>
                                                 <div>
-                                                    {{ plan.price | currency: workspace.currency_code }}
+                                                    {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}
                                                     <small class="small_text">/month*</small>
                                                 </div>
                                             </div>
@@ -271,8 +271,8 @@
                                 <div class="sleep_box">
                                     <div class="sleep_bad_img"><img [src]="workspace.images[1].image.s3_link" class="img-fluid d-block"></div>
                                     <div class="sleep_bad_content">
-                                    <h4 class="mb-0 mt-2">Bedroom</h4>
-                                    <p class="mb-0">Twin/Single Bed</p>
+                                        <h4 class="mb-0 mt-2">Bedroom</h4>
+                                        <p class="mb-0">Twin/Single Bed</p>
                                     </div>
                                 </div>
                             </div>
