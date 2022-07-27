@@ -60,3 +60,16 @@ $white:#fff;
 .icon-email {
   color: #f44c47;
 }
+
+
+@media (max-width: 480px) {
+  .icon-share {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+  }
+  .social-btn-group {
+    right: 52px;
+    top: 20px;
+  }
+}

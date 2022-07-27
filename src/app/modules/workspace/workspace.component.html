@@ -56,8 +56,10 @@
                     <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <div class="row">
                             <div class="col-md-8 col-8">
-                                <h1>{{ workspace.name }} {{ workspace.location.name }}
-                                </h1>
+                                <h1>{{ workspace.name }} {{ workspace.location.name }}</h1>
+                                <p class="address">
+                                    <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address1 }}
+                                </p>
                             </div>
                             <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
                                 <ng-template [ngIf]="rating===0 && !userReview">
@@ -68,14 +70,12 @@
                             <app-star-rating (click)="scrollOnRating()"
                             *ngIf="rating>0"
                             [rating]='rating'></app-star-rating>
-                        </span>
+                            </span>
                                 </ng-template>
                             </div>
                         </div>
 
-                        <p class="address">
-                            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address1 }}
-                        </p>
+                        
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && !workspace.currency_code" class="price"><span>starting from</span><small class="icon-rupee"></small>{{ workspace.starting_price }}<small>/ {{ workspace.price_type }}</small>
                         </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && workspace.currency_code" class="price"><span>starting from</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/ {{ workspace.price_type }}</small>
