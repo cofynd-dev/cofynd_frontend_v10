@@ -474,8 +474,6 @@ body {
     padding: 0;
 }
 
-
-
 @media (max-width: 480px) {
     section {
         padding: 0px;
@@ -483,12 +481,7 @@ body {
     h2 {
         margin-bottom: 10px !important;
     }
-    
-    body, p {
-        font-size: 11px !important;
-        line-height: 18px !important;
-    }
-    .breadcrumb_area .breadcrumb {
+   .breadcrumb_area .breadcrumb {
         margin-bottom: 0px !important;
     }
     .breadcrumb_area {
@@ -515,6 +508,10 @@ body {
     .facilities-points {
         margin-top: 0px !important;
         padding-top: 15px;
+        padding-bottom: 5px;
+    }
+    .facilities-points .icon_box {
+        margin-bottom: 10px;
     }
     .space_title_area h1 {
         margin-bottom: 5px;
@@ -637,7 +634,8 @@ body {
 	padding: 0px 5px !important;
 }
 .plan-list .box h4 {
-	font-size: 12px;
-	margin-bottom: 0px;
+	font-size: 13px;
+    margin-bottom: 0px;
+    line-height: 24px;
 }
 }

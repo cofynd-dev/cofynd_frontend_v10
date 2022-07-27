@@ -970,6 +970,10 @@ border: 1px solid #4343e8;
     .breadcrumb-wrapper .breadcrumb {
         margin-top: 0px !important; 
     }
+    .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        width: 5px;
+        height: 5px;
+    }
     .breadcrumb-wrapper nav {
         padding-right: 0px;
     }
