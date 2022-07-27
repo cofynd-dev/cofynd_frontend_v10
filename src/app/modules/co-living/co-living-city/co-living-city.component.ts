@@ -156,7 +156,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     }
   }
   selectRoomType(value) {
-    this.roomType = value;
+    if (value === this.roomType) {
+      this.roomType = null
+    } else {
+      this.roomType = value;
+    }
   }
   apply() {
     console.log(this.maxPrice, this.minPrice, this.roomType);
