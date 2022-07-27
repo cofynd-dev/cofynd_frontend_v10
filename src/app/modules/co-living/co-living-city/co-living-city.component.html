@@ -11,84 +11,83 @@
             <!-- <h1 class="page-heading" *ngIf="!loading">
                 {{ pageTitle ? pageTitle : 'Co Living in ' + title }}
             </h1> -->
- <!------------  Coliving Listing Page Popup  ------------->
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn site_btn filter_btn onlyMobile"  data-toggle="modal" data-target="#coliving_filter">
+            <!------------  Coliving Listing Page Popup  ------------->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn site_btn filter_btn onlyMobile" data-toggle="modal" data-target="#coliving_filter">
         <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Coliving Filters
-    </button> -->
-    <!-- Modal -->
-    <div  class="modal fade filters_popup" id="coliving_filter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2><b>Filters</b></h2>
-                    <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
+    </button>
+            <!-- Modal -->
+            <div class="modal fade filters_popup" id="coliving_filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2><b>Filters</b></h2>
+                            <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
-                <div class="modal-body">
-                    <div class="filder_area">
-                        <form>
-                            <div class="row">
-                                <div class="col-12">
-                                    <h3><b>Price Range</b></h3>
-                                    <select class="form-select" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
-                                        <option selected disabled>Select Price</option>
-                                        <option value="1">Less than ₹15,000</option>
-                                        <option value="2">₹15,000 - ₹30,000</option>
-                                        <option value="3">More than ₹30,000</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <h3><b>Room Type</b></h3>
-                                </div>
-                                <div  class="col-6 mb-2" [class.active] = "roomType === '625698d3a91948671a4c590b'"  (click)="selectRoomType('625698d3a91948671a4c590b')">
-                                    <div class="icon_box mb-0">
-                                        <img src="../../../assets/images/icons/private-room-icon.png" alt="">
-                                        <h4>Private Room</h4>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-2" [class.active] = "roomType === '625698e8a91948671a4c590c'" (click)="selectRoomType('625698e8a91948671a4c590c')">
-                                    <div class="icon_box mb-0">
-                                        <img src="../../../assets/images/icons/double-sharing-icon.png" alt="">
-                                        <h4>Twin Sharing</h4>
-                                    </div>
-                                </div>
-                                <div class="col-6" [class.active] = "roomType === '625698f4a91948671a4c590d'" (click)="selectRoomType('625698f4a91948671a4c590d')">
-                                    <div class="icon_box mb-0">
-                                        <img src="../../../assets/images/icons/triple-sharing-icon.png" alt="">
-                                        <h4>Triple Sharing</h4>
-                                    </div>
-                                </div>
-                                <div class="col-6" [class.active] = "roomType === '625698fea91948671a4c590e'" (click)="selectRoomType('625698fea91948671a4c590e')">
-                                    <div class="icon_box mb-0">
-                                        <img src="../../../assets/images/icons/studio-apartment-icon.png" alt="">
-                                        <h4>Studio Apartment</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                   
-                </div>
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col-6 text-center">
-                            <a (click)="apply()"  class="btn site_btn">Apply</a>
                         </div>
-                        <div class="col-6 text-center">
-                            <button type="button" class="btn site_btn border_btn" data-dismiss="modal">Cancel</button>
+                        <div class="modal-body">
+                            <div class="filder_area">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3><b>Price Range</b></h3>
+                                            <select class="form-select" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
+                                        <option value="Select Price">Select Price</option>
+                                        <option value="Less than ₹15,000">Less than ₹15,000</option>
+                                        <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
+                                        <option value="More than ₹30,000">More than ₹30,000</option>
+                                    </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <h3><b>Room Type</b></h3>
+                                        </div>
+                                        <div class="col-6 mb-2" [class.active]="roomType === '625698d3a91948671a4c590b'" (click)="selectRoomType('625698d3a91948671a4c590b')">
+                                            <div class="icon_box mb-0">
+                                                <img src="../../../assets/images/icons/private-room-icon.png" alt="">
+                                                <h4>Private Room</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mb-2" [class.active]="roomType === '625698e8a91948671a4c590c'" (click)="selectRoomType('625698e8a91948671a4c590c')">
+                                            <div class="icon_box mb-0">
+                                                <img src="../../../assets/images/icons/double-sharing-icon.png" alt="">
+                                                <h4>Twin Sharing</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" [class.active]="roomType === '625698f4a91948671a4c590d'" (click)="selectRoomType('625698f4a91948671a4c590d')">
+                                            <div class="icon_box mb-0">
+                                                <img src="../../../assets/images/icons/triple-sharing-icon.png" alt="">
+                                                <h4>Triple Sharing</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" [class.active]="roomType === '625698fea91948671a4c590e'" (click)="selectRoomType('625698fea91948671a4c590e')">
+                                            <div class="icon_box mb-0">
+                                                <img src="../../../assets/images/icons/studio-apartment-icon.png" alt="">
+                                                <h4>Studio Apartment</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <a (click)="apply()" class="btn site_btn">Apply</a>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <button type="button" class="btn site_btn border_btn" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!------------  End Coliving Listing Page Popup  ------------->
-    
+            <!------------  End Coliving Listing Page Popup  ------------->
+
             <app-search-no-result *ngIf="!loading && !coLivings.length" [title]="'Co-Living'" [shouldShowContactForm]="true" [url]="'/co-living'">
             </app-search-no-result>
 

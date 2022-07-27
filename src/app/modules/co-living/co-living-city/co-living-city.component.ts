@@ -53,6 +53,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   minPrice: any;
   maxPrice: any;
   roomType: any;
+  filterValue: any;
+  selectedValue: any = 'Select Price';
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
@@ -132,32 +134,48 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     }
   }
   onPriceSelect(value) {
-    if (value === '1') {
+    this.selectedValue = value;
+    if (value === 'Select Price') {
+      this.minPrice = null;
+      this.maxPrice = null;
+    }
+    if (value === 'Less than ₹15,000') {
       this.minPrice = 0;
       this.maxPrice = 15000;
+      this.filterValue = 15000;
     }
-    if (value === '2') {
+    if (value === '₹15,000 - ₹30,000') {
       this.minPrice = 15000;
       this.maxPrice = 30000;
+      this.filterValue = 29999;
     }
-    if (value === '3') {
+    if (value === 'More than ₹30,000') {
       this.minPrice = 30000;
       this.maxPrice = 200000;
+      this.filterValue = 30000;
     }
   }
   selectRoomType(value) {
     this.roomType = value;
   }
   apply() {
+    console.log(this.maxPrice, this.minPrice, this.roomType);
     this.queryParams['minPrice'] = this.minPrice;
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['room_type'] = this.roomType;
-    this.getOfficeList(this.queryParams);
-    $('#coliving_filter').modal('hide');
-    $('.modal-body select').val('Select Price');
-    this.minPrice = null;
-    this.maxPrice = null;
-    this.roomType = null;
+    if (this.maxPrice && this.roomType) {
+      this.getOfficeList(this.queryParams);
+      $('#coliving_filter').modal('hide');
+    }
+    if (this.roomType && this.maxPrice == null) {
+      this.getOfficeList(this.queryParams);
+      $('#coliving_filter').modal('hide');
+    }
+    if (this.maxPrice && this.roomType == null) {
+      this.filterMapView(this.filterValue);
+      $('#coliving_filter').modal('hide');
+    }
+
   }
 
   createBreadcrumb() {
