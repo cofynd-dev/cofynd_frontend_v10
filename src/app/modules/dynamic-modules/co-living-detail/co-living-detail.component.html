@@ -59,7 +59,7 @@
                         <p class="address">
                             <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
                         </p>
-                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span>{{ (workspace.starting_price) | currency: workspace.currency_code }}<small>/{{ workspace.price_type }}</small>
+                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span>{{ (workspace.starting_price) | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
 
@@ -126,7 +126,7 @@
                             </li>
                             <li class="col-6">
                                 Monthly Rent*
-                                <span><i class="icon-rupee"></i>{{ (workspace.other_detail.rent_per_bed) | currency: workspace.currency_code
+                                <span><i class="icon-rupee"></i>{{ (workspace.other_detail.rent_per_bed) | currency: workspace.currency_code : 'symbol' : '1.0-0'
                   }}</span>
                             </li>
                             <li class="col-6">
@@ -177,7 +177,7 @@
                                             <div class="price">
                                                 <span class="hideOnMobile">starting*</span>
                                                 <div>
-                                                    {{ plan.price | currency: workspace.currency_code }}
+                                                    {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}
                                                     <small>/month*</small>
                                                 </div>
                                             </div>
