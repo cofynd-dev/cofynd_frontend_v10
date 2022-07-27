@@ -1,53 +1,37 @@
-<div class="similar-workspaces"
-  *ngIf="!loading && workSpaces.length">
-  <ngu-carousel #similarCarousel
-    [inputs]="carouselConfig"
-    [dataSource]="workSpaces"
-    (onMove)="onSliderMove($event)">
-    <div *nguCarouselDef=" let workspace;let i = index;"
-      class="item"
-      [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
-      <div class="box"
-        (click)="openDetailsPage(workspace.slug)">
-        <div class="img">
-          <img [lazyLoad]="workspace.images[0]?.image.s3_link"
-            alt="">
-        </div>
-        <div>
-          <h5 class="detail">{{ workspace.name }}</h5>
-          <p class="address">
-            <i class="icon-location-outline fal fa-map-marker-alt"></i>
-            <!-- {{ workspace.location.address1 | microLocation }} -->
-            {{workspace.location.address1}}
-          </p>
-          <p class="capacity hideOnMobile">
-            <i class="icon-seating fal fa-user-tie"></i>
-            Seating Capacity : {{ workspace.no_of_seats }}
-          </p>
-          <div class="price-box">
-            <div class="price">
-              <span class="hideOnMobile">Starting from</span>
-              <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code}}<small>/{{ workspace.price_type }}</small></div>
-              <div *ngIf="!workspace.currency_code" style="font-size: small"><i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small></div>
-            </div>
-            <a (click)="openDetailsPage(workspace.slug)"
-              class="btn-link hideOnMobile">Explore Now<small class="icon-next fas fa-angle-right"></small>
+<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
+    <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
+        <div *nguCarouselDef=" let workspace;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
+            <div class="box" (click)="openDetailsPage(workspace.slug)">
+                <div class="img">
+                    <img [lazyLoad]="workspace.images[0]?.image.s3_link" alt="">
+                </div>
+                <div>
+                    <h5 class="detail">{{ workspace.name }}</h5>
+                    <p class="address">
+                        <i class="icon-location-outline fal fa-map-marker-alt"></i>
+                        <!-- {{ workspace.location.address1 | microLocation }} -->
+                        {{workspace.location.address1}}
+                    </p>
+                    <p class="capacity hideOnMobile">
+                        <i class="icon-seating fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }}
+                    </p>
+                    <div class="price-box">
+                        <div class="price">
+                            <span class="hideOnMobile">Starting from</span>
+                            <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/{{ workspace.price_type }}</small></div>
+                            <div *ngIf="!workspace.currency_code" style="font-size: small"><i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small></div>
+                        </div>
+                        <a (click)="openDetailsPage(workspace.slug)" class="btn-link hideOnMobile">Explore Now<small class="icon-next fas fa-angle-right"></small>
             </a>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </ngu-carousel>
+    </ngu-carousel>
 
-  <button type="button"
-    (click)="goToPrev()"
-    [disabled]="similarCarousel.isFirst"
-    class="carousel-arrow icon-back fas fa-angle-left">
+    <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left">
   </button>
-  <button type="button"
-    (click)="goToNext()"
-    [disabled]="similarCarousel.isLast"
-    class="carousel-arrow icon-next fas fa-angle-right">
+    <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right">
   </button>
 </div>

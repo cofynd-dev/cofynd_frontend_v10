@@ -78,10 +78,10 @@
                         </p>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && !workspace.currency_code" class="price"><span>starting from</span><small class="icon-rupee"></small>{{ workspace.starting_price }}<small>/ {{ workspace.price_type }}</small>
                         </div>
-                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && workspace.currency_code" class="price"><span>starting from</span>{{ workspace.starting_price | currency: workspace?.currency_code}}<small>/ {{ workspace.price_type }}</small>
+                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && workspace.currency_code" class="price"><span>starting from</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/ {{ workspace.price_type }}</small>
                         </div>
                     </div>
-<!-- 
+                    <!-- 
                     <div class="row onlyMobile pb-2 premium_tagline">
                         <div class="col-12">
                             <p>Premium Coworking Destination</p>
@@ -117,7 +117,7 @@
                             </div>
                         </div>
 
-                        
+
                     </div>
 
                     <div class="sections about-section">
