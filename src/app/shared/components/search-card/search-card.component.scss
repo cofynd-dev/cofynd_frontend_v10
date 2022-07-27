@@ -179,6 +179,7 @@
     height: auto !important;
     border-radius: 15px !important;
     width: 45% !important;
+    overflow: hidden;
   }
   .listing-card .detail {
     border: none !important;
@@ -187,7 +188,7 @@
     width: 55% !important;
   }
   .listing-card .detail h4 {
-    font-size: 15px !important;
+    font-size: 13px !important;
     color: #272828 !important;
     white-space: normal;
     margin-bottom: 5px;
@@ -196,6 +197,16 @@
     padding-bottom: 5px !important;
     margin-bottom: 10px;
     border-bottom: none;
+    white-space: normal;
+    position: relative;
+    padding-left: 19px;
+  }
+  .listing-card .detail .address i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 15px;
+    text-align: center;
   }
   .listing-card .detail .capacity {
     margin-bottom: 5px !important;
@@ -230,7 +241,7 @@
     color: #4343e8;
   }
   .price-box .price small {
-    font-size: 11px !important;
+    font-size: 9px !important;
     color: #272828 !important;
   }
   .price-box .btn-link {

@@ -483,6 +483,11 @@ body {
     h2 {
         margin-bottom: 10px !important;
     }
+    
+    body, p {
+        font-size: 11px !important;
+        line-height: 18px !important;
+    }
     .breadcrumb_area .breadcrumb {
         margin-bottom: 0px !important;
     }
@@ -499,6 +504,13 @@ body {
         padding-top: 10px !important;
         padding-bottom: 10px !important;
         border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .space_title_area .row {
+        align-items: center;
+    }
+    .space_title_area .address {
+        font-size: 10px !important;
+        line-height: 13px !important;
     }
     .facilities-points {
         margin-top: 0px !important;

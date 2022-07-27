@@ -29,3 +29,13 @@
     transform: scale(1.1);
   }
 }
+
+
+@media (max-width: 480px) {
+  
+  .icon-heart {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 11px !important;
+  }
+}
