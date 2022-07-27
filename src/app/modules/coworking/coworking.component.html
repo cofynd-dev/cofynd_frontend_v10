@@ -550,8 +550,31 @@
 
 <section class="hideInDesktop">
 
+  <section class="innerpage_banner onlyMobile"
+    style="background-image: url('../../../assets/images/coworking-landing-top.jpg');">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="banner_content">
+            <h1 class="text-light text-center">Find the Best<br />Coworking Spaces in India</h1>
+            <div class="search-bar">
+                <ng-select [items]="cities"
+                  placeholder="Select City"
+                  bindLabel="name"
+                  bindValue="id"
+                  [searchable]="false"
+                  [clearable]="false"
+                  (change)="openCityListing($event)">
+                </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--Top banner -->
-  <section class="top-search">
+  <!-- <section class="top-search">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -571,7 +594,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- cities list -->
   <section class="cities pt-5 pb-4 bg-white"

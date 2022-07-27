@@ -594,3 +594,24 @@
     }
   }
 }
+
+
+@media (max-width:480px) {
+  .innerpage_banner {
+    padding: 40px 10px !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .banner_content {
+    padding: 40px 15px 40px 15px;
+  }
+  .banner_content h1 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+  .search-bar {
+    margin: 10px 0px 0px;
+  }
+}
