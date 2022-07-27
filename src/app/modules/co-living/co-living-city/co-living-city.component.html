@@ -11,6 +11,13 @@
                         <h1 *ngIf="!loading">{{ pageTitle ? pageTitle : 'Co Living in ' + title }}</h1>
                     </div>
                 </div>
+                <div class="col-3">
+                    <div class="filter_col">
+                        <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
+                        <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Filters
+                        </button>
+                    </div>
+                </div>
             </div>
             <!-- <h1 class="page-heading" *ngIf="!loading">
                 {{ pageTitle ? pageTitle : 'Co Living in ' + title }}
@@ -19,9 +26,6 @@
 
             <!------------  Coliving Listing Page Popup  ------------->
             <!-- Button trigger modal -->
-            <button type="button" class="btn site_btn filter_btn " data-toggle="modal" data-target="#coliving_filter">
-        <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Coliving Filters
-         </button>
             <!-- Modal -->
             <div class="modal fade filters_popup" id="coliving_filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
