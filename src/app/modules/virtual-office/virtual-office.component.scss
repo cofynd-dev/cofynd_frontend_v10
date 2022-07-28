@@ -418,85 +418,7 @@
     }
   }
 
-  // FAQ
-
-  .faq {
-    background-color: #fff;
-
-    p {
-      font-size  : 17px;
-      line-height: 24px;
-      font-weight: 300;
-      margin-top : 20px;
-      color      : #222121;
-    }
-
-    @media (max-width:479px) {
-      padding: 50px 0;
-    }
-
-    ::ng-deep {
-      .card {
-        border       : none;
-        border-radius: 0;
-      }
-
-      .card-header {
-        background  : none;
-        border-width: 0 0 1px;
-        border-color: #dfdfdf;
-        border-style: solid;
-        padding     : 13px 0;
-
-        h4 {
-          font-size    : 17px;
-          color        : #302f2f;
-          padding-right: 100px;
-          position     : relative;
-
-          @media (max-width:991px) {
-            font-size: 14px;
-          }
-
-          .icon-arrow-down {
-            color     : #797979;
-            position  : absolute;
-            right     : 0;
-            top       : 8px;
-            font-size : 25px;
-            transition: transform 0.5s ease 0s;
-          }
-        }
-      }
-
-      .panel-open {
-        .card-header {
-          .icon-arrow-down {
-            transform: rotate(-180deg);
-          }
-        }
-      }
-
-      .panel:not(.card) {
-        &:last-child {
-          .card-header {
-            border: none;
-          }
-        }
-      }
-
-      .card-body {
-        padding: 15px 0;
-
-        p {
-          font-size  : 16px;
-          color      : #575757;
-          font-weight: 300;
-        }
-      }
-    }
-
-  }
+  
 
   .listSpaceBox {
     img {
@@ -585,30 +507,7 @@
 	.feature_sec .row.mb-2 {
 		margin-bottom: 0px !important;
 	}
-	.cofynd_desk_sec {
-		padding-bottom: 20px !important;
-		padding-top: 20px !important;
-	}
-	.cofynd_desk h4 {
-	margin: 10px 0 5px !important;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: 500;
-	}
-	.cofynd_desk .about_text {
-    padding-right: 0;
-    font-size: 10px !important;
-    font-weight: 400 !important;
-    text-align: justify;
-    line-height: 16px !important;
-    margin-bottom: 10px;
-  }
-	.cofynd_desk .title_name {
-		color: #1313E6 !important;
-		font-weight: 600 !important;
-		font-size: 11px !important;
-		line-height: 15px !important;
-	}
+	
 	.faqs_list .card-header {
 		padding: 0px;
 		background-color: transparent;
@@ -629,24 +528,7 @@
 		border: none !important;
 		white-space: normal;
 	}
-	.faq_content p {
-    text-align: center;
-    font-size: 10px !important;
-    line-height: 16px !important;
-    text-align: left;
-    color: #212529;
-    font-weight: 400 !important;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-  }
-	.faqs_accordion h4 {
-		font-size: 11px !important;
-		line-height: 16px;
-		padding-right: 0px !important;
-	}
-	.faqs_section {
-		padding: 20px 0px !important;
-	}
+	
 	.curated_section {
 		padding: 20px 0px !important;
 	}

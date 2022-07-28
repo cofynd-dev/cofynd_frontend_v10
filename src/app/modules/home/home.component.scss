@@ -609,62 +609,7 @@
     }
 }
 
-.cofynd-desk {
-    h4 {
-        font-size: 32px;
-        line-height: 40px;
-        font-weight: 300;
-        color: #262626;
-        margin: 10px 0;
-    }
-    p {
-        margin-bottom: 20px;
-        text-align: center;
-        font-size: 17px;
-        line-height: 24px;
-        color: #212529;
-        padding-right: 40px;
-        font-weight: 300;
-    }
-    .link-text {
-        color: #3131e6 !important;
-        font-weight: 600 !important;
-    }
-    // .live-spaces-button {
-    //   font-weight     : 500;
-    //   background-color: #4343e8;
-    //   font-size       : 12px;
-    //   border-radius   : 20px;
-    // }
-    .space-btn {
-        margin: 0 290px;
-    }
-    @media(max-width:480px) {
-        h4 {
-            font-size: 18px;
-            margin: 25px 0 15px;
-            font-weight: 500;
-        }
-        p {
-            padding-right: 0px;
-            font-size: 15px;
-            font-weight: 400;
-            text-align: justify;
-            br {
-                display: none;
-            }
-        }
-        .space-btn {
-            margin: auto;
-        }
-        .live-spaces-button {
-            font-weight: 500;
-            background-color: #4343e8;
-            font-size: 12px;
-            border-radius: 20px;
-        }
-    }
-}
+
 
 // new css for mobile UI
 body,
@@ -1498,41 +1443,7 @@ ul {
     .cta_content {
         padding: 10px 0px;
     }
-    .cofynd_desk_sec {
-        padding-bottom: 20px;
-    }
-    .cofynd_desk_content h2 {
-        text-align: center;
-    }
-    .cofynd-desk h4 {
-        margin: 10px 0 5px !important;
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: 500;
-    }
-    .cofynd-desk .about_text {
-        margin-bottom: 5px !important;
-    }
-    .cofynd-desk p {
-        padding-right: 0;
-        font-size: 11px;
-        font-weight: 400;
-        text-align: justify;
-        line-height: 17px;
-    }
-    .cofynd_desk .title_name {
-        color: #1313E6;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 15px;
-    }
-    .cofynd-desk .title_name {
-        margin-bottom: 5px !important;
-    }
-    .cofynd-desk .space-btn {
-        margin-bottom: 30px !important;
-        padding-bottom: 0px !important;
-    }
+    
     
     .space_search_made_sec {
         background: #F8F8F8;

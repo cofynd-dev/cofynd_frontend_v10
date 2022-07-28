@@ -537,63 +537,6 @@
 
 }
 
-.cofynd-desk {
-
-  h4 {
-    font-size  : 32px;
-    line-height: 40px;
-    font-weight: 300;
-    color      : #262626;
-    margin     : 10px 0;
-  }
-
-  p {
-    margin-bottom: 20px;
-    text-align   : center;
-    font-size    : 17px;
-    line-height  : 24px;
-    color        : #212529;
-    padding-right: 40px;
-    font-weight  : 300;
-  }
-
-  .link-text {
-    color      : #3131e6;
-    font-weight: 600;
-  }
-
-  .live-spaces-button {
-    background-color: #4343e8;
-    border-radius   : 20px;
-  }
-
-  .space-btn {
-    margin: 0 290px;
-  }
-
-  @media(max-width:480px) {
-    h4 {
-      font-size  : 22px;
-      margin     : 25px 0 15px;
-      font-weight: 500;
-    }
-
-    p {
-      padding-right: 0px;
-      font-size    : 15px;
-      font-weight  : 400;
-      text-align   : justify;
-
-      br {
-        display: none;
-      }
-    }
-
-    .space-btn {
-      margin: auto;
-    }
-  }
-}
 
 
 @media (max-width:480px) {
