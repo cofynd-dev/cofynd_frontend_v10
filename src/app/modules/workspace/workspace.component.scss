@@ -200,12 +200,15 @@ p {
             font-weight: 700;
             text-align: right;
             margin-bottom: 10px;
-            span,
             small {
                 font-size: 15px;
                 font-weight: 300;
+                display: inline-block;
             }
             span {
+                font-size: 15px;
+                font-weight: 300;
+                display: inline-block;
                 display: block;
             }
         }
@@ -227,6 +230,8 @@ p {
         }
     }
 }
+
+
 
 // Amenity
 .amenity-title {
@@ -401,6 +406,7 @@ p {
     }
 }
 
+
 @media (max-width: 480px) {
     .section-1 {
         h1 {
@@ -475,19 +481,15 @@ body {
 }
 
 @media (max-width: 480px) {
+    body, p {
+        font-size: 11px !important;
+        line-height: 16px !important;
+    }
     section {
         padding: 0px;
     }
     h2 {
         margin-bottom: 10px !important;
-    }
-   .breadcrumb_area .breadcrumb {
-        margin-bottom: 0px !important;
-    }
-    .breadcrumb_area {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        border-bottom: 1px solid #e5e5e5;
     }
     .breadcrumb_area a {
         color: #272828;
@@ -502,8 +504,8 @@ body {
         align-items: center;
     }
     .space_title_area .address {
-        font-size: 10px !important;
-        line-height: 13px !important;
+        font-size: 11px !important;
+        line-height: 14px !important;
     }
     .facilities-points {
         margin-top: 0px !important;
@@ -592,7 +594,7 @@ body {
     color: #4343e8 !important;
     border-radius: 0px !important;
     font-weight: 500;
-    font-size: 10px !important;
+    font-size: 11px !important;
 }
 .amenity-list {
 	margin-top: 0px;

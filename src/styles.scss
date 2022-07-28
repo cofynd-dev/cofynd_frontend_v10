@@ -960,6 +960,9 @@ border: 1px solid #4343e8;
     }
   }
 
+  .plan-list .action-box .price span, .plan-list .action-box .price small {
+	display: inline-block;
+}
 
 @media (max-width:480px) {
     body, p {
@@ -1046,8 +1049,16 @@ border: 1px solid #4343e8;
         margin-left: 0px;
         margin-right: 0px;
     }
+    .breadcrumb_area {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .breadcrumb_area .breadcrumb {
+        margin-bottom: 0px !important;
+    }
     .breadcrumb .breadcrumb-item {
-        font-size: 9px !important;
+        font-size: 10px !important;
     }
     .breadcrumb .breadcrumb-item a {
         color: #272828 !important;
