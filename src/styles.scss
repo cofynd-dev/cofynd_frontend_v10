@@ -813,7 +813,7 @@ font-weight: 500;
 }
 .filters_popup .icon_box {
     border: 1px solid rgba(0,0,0,0.3);
-    padding: 10px 15px;
+    padding: 10px 5px;
     min-height: 80px;
     align-items: center;
     display: grid;
@@ -1179,6 +1179,13 @@ border: 1px solid #4343e8;
     .footer-bottom p {
         font-size: 10px !important;
     }
+    .plan-list .action-box .price span, .plan-list .action-box .price small {
+        font-size: 12px !important;
+    }
+    .cofynd-desk .link-text {
+        margin-bottom: 2px;
+    }
+    
     
 }
 
