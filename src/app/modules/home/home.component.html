@@ -343,7 +343,7 @@
     </div>
 </section>
 <div class="hideOnMobile">
-<app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
+    <app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
 </div>
 
 <section class="top_coliving_cities onlyMobile">
@@ -352,13 +352,13 @@
             <div class="col-12">
                 <div class="page-title">
                     <h2>Top Coworking in India</h2>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="cities_carousel">
-                    <div class="cities_item first-slide"  (click)="openWorkSpace(city.city)" *ngFor="let city of popularCoWorkingSpaces">
+                    <div class="cities_item first-slide" (click)="openWorkSpace(city.city)" *ngFor="let city of popularCoWorkingSpaces">
                         <img class="ng-lazyloaded" [alt]="city.city" [src]="city.image">
                         <div class="space-detail">
                             <h5>{{removedash(city.city) | titlecase}}</h5>
@@ -428,14 +428,14 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
 
 <section class="feature_sec partners pb-5 onlyMobile" *ngIf="coworkingImages && coworkingImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                <h2>Featured Coworking</h2>
+                    <h2>Featured Coworking</h2>
                 </div>
             </div>
         </div>
@@ -444,7 +444,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of coworkingImages">
                         <!-- <img src="/assets/images/star-coworking-img.jpg" alt="" class="img-fluid"> -->
-                       <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                        <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
                 </div>
             </div>
@@ -457,13 +457,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="add-item-list">
-                    <div class="add-item">
+                    <div class="add-item" routerLink="/brand/awfis">
                         <img src="../../../assets/images/ads/awfis-ads.png" alt="Awfis" class="img-fluid">
                     </div>
-                    <div class="add-item">
+                    <div class="add-item" routerLink="/brand/wework">
                         <img src="../../../assets/images/ads/wework-ads.png" alt="WeWork" class="img-fluid">
                     </div>
-                    <div class="add-item">
+                    <div class="add-item" routerLink="/brand/91-spring-board">
                         <img src="../../../assets/images/ads/91springboard-ads.png" alt="91Springboard" class="img-fluid">
                     </div>
                 </div>
@@ -497,8 +497,8 @@
     </div>
 </section> -->
 <div class="hideOnMobile">
-<app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
-</app-home-popular-space>
+    <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
+    </app-home-popular-space>
 </div>
 
 <section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces.length">
@@ -507,13 +507,13 @@
             <div class="col-12">
                 <div class="page-title">
                     <h2>Top Coliving in India</h2>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="cities_carousel">
-                    <div class="cities_item first-slide"  (click)="openCoLivingSpace(city.slug)" *ngFor="let city of popularCoLivingSpaces">
+                    <div class="cities_item first-slide" (click)="openCoLivingSpace(city.slug)" *ngFor="let city of popularCoLivingSpaces">
                         <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
                         <div class="space-detail">
                             <h5>{{removedash(city.name) | titlecase}}</h5>
@@ -535,7 +535,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                <h2>Curated Coliving Spaces</h2>
+                    <h2>Curated Coliving Spaces</h2>
                 </div>
             </div>
         </div>
@@ -588,18 +588,18 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                <h2>Featured Coliving</h2>
+                    <h2>Featured Coliving</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
-                    <div class="item" *ngFor="let item of colivingImages" >
+                    <div class="item" *ngFor="let item of colivingImages">
                         <!-- <img src="img/pearl-premium-lux-homes.jpg" alt="" class="img-fluid"> -->
-                        <a  [routerLink]="item.description" target="_blank">  <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                        <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -612,13 +612,13 @@
             <div class="col-12">
                 <div class="add-item-list">
                     <div class="add-item">
-                        <img src="../../../assets/images/ads/flock-ads.png" alt="Awfis" class="img-fluid">
+                        <img src="../../../assets/images/ads/isthara-ads.png" alt="isthara" class="img-fluid">
                     </div>
                     <div class="add-item">
-                        <img src="../../../assets/images/ads/locl-ads.png" alt="WeWork" class="img-fluid">
+                        <img src="../../../assets/images/ads/stanza-ads.png" alt="WeWork" class="img-fluid">
                     </div>
-                    <div class="add-item">
-                        <img src="../../../assets/images/ads/yourspace-ads.png" alt="91Springboard" class="img-fluid">
+                    <div class="add-item" routerLink="/brand/co-living/yourspace">
+                        <img src="../../../assets/images/ads/yourspace-ads.png" alt="yourspace" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -631,7 +631,7 @@
         <div class="row mb-2">
             <div class="col-12">
                 <div class="page-title">
-                <h2>CoFynd Advantages</h2>
+                    <h2>CoFynd Advantages</h2>
                 </div>
             </div>
         </div>
@@ -701,7 +701,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                <h2>Our Clients</h2>
+                    <h2>Our Clients</h2>
                 </div>
             </div>
         </div>
@@ -720,7 +720,7 @@
     </div>
 </section>
 
-<app-home-brand-list [shouldOtherBrandVisible]="true" [pageTitle]="'Our Brand Partners'"  [shouldCoWorkingVisible]="false"></app-home-brand-list>
+<app-home-brand-list [shouldOtherBrandVisible]="true" [pageTitle]="'Our Brand Partners'" [shouldCoWorkingVisible]="false"></app-home-brand-list>
 
 
 <section class="enquiry-section hideOnMobile">
