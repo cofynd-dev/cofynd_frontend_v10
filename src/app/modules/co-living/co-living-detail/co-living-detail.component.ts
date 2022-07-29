@@ -121,8 +121,8 @@ export class CoLivingDetailComponent implements OnInit {
                 { maxZoom: 18, attribution: 'Open Cofynd Map' },
               ),
             ],
-            attributionControl: false,
             zoom: 10,
+            attributionControl: false,
             scrollWheelZoom: false,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
           };

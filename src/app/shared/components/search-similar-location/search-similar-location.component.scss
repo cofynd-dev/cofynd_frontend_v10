@@ -36,15 +36,7 @@
 }
 
 
-@media(max-width:480px){
-  .fixed {
-    position: fixed;
-    top: 80px;
-    z-index: 8;
-    background: #fff;
-    width: 100%;
-  }
-}
+
 @media(max-width: 991px) {
   .fixed {
     position: static;
@@ -56,4 +48,21 @@
       position: fixed;
     }
   
+}
+@media(max-width:480px){
+  .fixed {
+    position: fixed;
+    top: 80px;
+    z-index: 8;
+    background: #fff;
+    width: 100%;
+  }
+  .visible-list li a {
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .visible-list {
+    padding-bottom: 5px;
+  }
 }

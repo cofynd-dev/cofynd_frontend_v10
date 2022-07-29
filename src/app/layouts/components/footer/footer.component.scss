@@ -256,3 +256,16 @@ footer {
     text-align: left;
   }
 }
+@media (max-width:480px) {
+  footer .footer-bottom p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .footer-left .logo img {
+    width: 130px;
+    margin-bottom: 5px;
+  }
+  .footer-left .logo h5 {
+    font-size: 10px;
+  }
+}

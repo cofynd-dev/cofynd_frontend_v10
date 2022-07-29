@@ -35,6 +35,7 @@
       max-height: 150px;
       height    : 140px;
     }
+    
   }
 
   .top-coliving-spaces {
@@ -444,60 +445,36 @@
 
 }
 
-.cofynd-desk {
 
-  h4 {
-    font-size  : 32px;
-    line-height: 40px;
-    font-weight: 300;
-    color      : #262626;
-    margin     : 10px 0;
+
+@media (max-width: 480px) {
+  .innerpage_banner {
+    padding: 40px 10px !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
-
-  p {
-    margin-bottom: 20px;
-    text-align   : center;
-    font-size    : 17px;
-    line-height  : 24px;
-    color        : #212529;
-    padding-right: 40px;
-    font-weight  : 300;
+  .banner_content {
+    padding: 40px 15px 30px 15px;
   }
-
-  .link-text {
-    color      : #3131e6;
-    font-weight: 600;
+  .banner_content h1 {
+    font-size: 20px !important;
+    line-height: 30px !important;
   }
-
-  .live-spaces-button {
-    background-color: #4343e8;
-    border-radius   : 20px;
+  .search-bar {
+    margin: 10px 0px 0px;
   }
-
-  .space-btn {
-    margin: 0 290px;
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 10px !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
   }
-
-  @media(max-width:480px) {
-    h4 {
-      font-size  : 22px;
-      margin     : 25px 0 15px;
-      font-weight: 500;
-    }
-
-    p {
-      padding-right: 0px;
-      font-size    : 15px;
-      font-weight  : 400;
-      text-align   : justify;
-
-      br {
-        display: none;
-      }
-    }
-
-    .space-btn {
-      margin: auto;
-    }
-  }
+  
 }

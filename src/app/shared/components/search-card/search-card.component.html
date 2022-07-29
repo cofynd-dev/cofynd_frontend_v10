@@ -17,7 +17,11 @@
             <i class="fal fa-map-marker-alt"></i> {{ workspace.location.address1 }}
         </p>
         <p class="capacity">
-            <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }}
+            <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
+            <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+        </p>
+        <p class="capacity">
+            <img src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar
         </p>
         <hr />
         <div class="price-box">
@@ -25,7 +29,7 @@
                 <ng-template [ngIf]="forAll">
                     <span>Starting from</span>
                     <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small></div>
-                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code}}<small>/{{ workspace.price_type }}</small></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/{{ workspace.price_type }}</small></div>
                 </ng-template>
                 <ng-template [ngIf]="!forAll">
                     <span>Starting from</span>
