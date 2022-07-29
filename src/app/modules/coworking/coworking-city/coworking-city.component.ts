@@ -16,6 +16,8 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { script } from '@app/core/config/script';
+declare var $: any;
+
 
 @Component({
   selector: 'app-coworking-city',
@@ -52,8 +54,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
   country_name: string = '';
-  minPrice: string;
-  maxPrice: string;
+  minPrice: any;
+  maxPrice: any;
+  selectedValue: any = 'Select Price';
+  roomType: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -172,6 +176,47 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         isActive: true,
       },
     ];
+  }
+
+  onPriceSelect(value) {
+    this.selectedValue = value;
+    if (value === 'Select Price') {
+      this.minPrice = null;
+      this.maxPrice = null;
+    }
+    if (value === 'Less than ₹10,000') {
+      this.minPrice = 0;
+      this.maxPrice = 10000;
+    }
+    if (value === '₹10,000 - ₹20,000') {
+      this.minPrice = 10000;
+      this.maxPrice = 20000;
+    }
+    if (value === '₹20,000 - ₹30,000') {
+      this.minPrice = 20000;
+      this.maxPrice = 30000;
+    }
+    if (value === 'More than ₹30,000') {
+      this.minPrice = 30000;
+      this.maxPrice = 300000;
+    }
+  }
+
+  selectRoomType(value) {
+    if (value === this.roomType) {
+      this.roomType = null
+    } else {
+      this.roomType = value;
+    }
+  }
+
+  apply() {
+    console.log(this.maxPrice, this.minPrice, this.roomType);
+    this.queryParams['minPrice'] = this.minPrice;
+    this.queryParams['maxPrice'] = this.maxPrice;
+    this.queryParams['space_type'] = this.roomType;
+    this.loadWorkSpaces(this.queryParams);
+    $('#coworking_filters_popup').modal('hide');
   }
 
   addSeoTags(city: string) {
