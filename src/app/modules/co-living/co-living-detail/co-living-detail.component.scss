@@ -680,17 +680,21 @@ p {
 
 @media (max-width: 480px) {    
   body, p {
-    font-size: 11px !important;
-    line-height: 18px !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
   }
     h2 {
         margin-bottom: 10px !important;
     }
     
     .space_title_area {
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
         border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .space_title_area .address {
+        font-size: 12px !important;
+        line-height: 14px !important;
     }
     .space_title_area h1 {
         margin-bottom: 5px;
@@ -711,7 +715,7 @@ p {
     }
     .icon_box h4 {
         padding-left: 10px;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 18px;
         margin-bottom: 0px;
     }

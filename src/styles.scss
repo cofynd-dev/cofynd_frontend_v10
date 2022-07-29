@@ -966,8 +966,8 @@ border: 1px solid #4343e8;
 
 @media (max-width:480px) {
     body, p {
-        font-size: 10px !important;
-        line-height: 16px !important;
+        font-size: 12px !important;
+        line-height: 20px !important;
         color: #272828 !important;
         font-weight: 400 !important;
     }
@@ -1058,7 +1058,7 @@ border: 1px solid #4343e8;
         margin-bottom: 0px !important;
     }
     .breadcrumb .breadcrumb-item {
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     .breadcrumb .breadcrumb-item a {
         color: #272828 !important;
@@ -1175,6 +1175,9 @@ border: 1px solid #4343e8;
     }
     .live-spaces-button a {
         cursor: pointer;
+    }
+    .footer-bottom p {
+        font-size: 10px !important;
     }
     
 }

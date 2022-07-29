@@ -1157,6 +1157,10 @@ ul {
 /**************  Responsive  *************/
 
 @media (max-width: 480px) {
+    body, p {
+        font-size: 11px !important;
+        line-height: 17px !important;
+    }
     .banner {
         padding: 40px 0 20px !important;
     }
@@ -1740,5 +1744,8 @@ ul {
     }
     .add-item-list .add-item:last-child {
         margin-bottom: 0px !important;
+    }
+    .cofynd_desk_sec {
+        padding: 0px 0px 20px !important;
     }
 }
