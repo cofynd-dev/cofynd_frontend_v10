@@ -44,7 +44,7 @@ export class CoLivingSimilarComponent implements OnInit {
   loadWorkSpaces() {
     this.loading = true;
     const queryParam = {
-      key: this.address,
+      key: this.address.replace(/-\s+|\s+$/gm, ''),
       type: 'micro_location',
       limit: 9
     };
