@@ -205,11 +205,13 @@
   
   .listing-card .detail .address {
     padding-bottom: 5px !important;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     border-bottom: none;
     white-space: normal;
     position: relative;
     padding-left: 19px;
+    font-size: 10px !important;
+    line-height: 16px !important;
   }
   .listing-card .detail .address i {
     position: absolute;
@@ -219,12 +221,13 @@
     text-align: center;
   }
   .listing-card .detail .capacity {
-    margin-bottom: 5px !important;
+    margin-bottom: 2px !important;
     align-items: center;
     display: flex;
+    font-size: 10px !important;
   }
   .listing-card .detail .capacity img {
-    width: 15px;
+    width: 18px;
     margin-right: 4px;
     opacity: 0.6;
   }

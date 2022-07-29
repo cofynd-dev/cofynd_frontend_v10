@@ -678,26 +678,23 @@ p {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {    
+  body, p {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
     h2 {
         margin-bottom: 10px !important;
     }
-    .breadcrumb_area .breadcrumb {
-        margin-bottom: 0px !important;
-    }
-    .breadcrumb_area {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        border-bottom: 1px solid #e5e5e5;
-    }
-    .breadcrumb_area a {
-        color: #272828;
-        font-weight: 600;
-    }
+    
     .space_title_area {
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
         border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .space_title_area .address {
+        font-size: 12px !important;
+        line-height: 14px !important;
     }
     .space_title_area h1 {
         margin-bottom: 5px;
@@ -718,7 +715,7 @@ p {
     }
     .icon_box h4 {
         padding-left: 10px;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 18px;
         margin-bottom: 0px;
     }
@@ -767,7 +764,7 @@ p {
         font-size: 11px !important;
     }
     .price_box h4 {
-        font-size: 12px !important;
+        font-size: 13px !important;
         line-height: 20px !important;
     }
     .price_box .price {
@@ -858,7 +855,7 @@ p {
         color: #4343e8 !important;
         border-radius: 0px !important;
         font-weight: 500;
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     .amenity-list li {
         font-size: 12px;
