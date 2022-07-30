@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>The CoFynd Knowledge Center</h2>
+        <div class="page-title page-title-left">
+            <h2>The CoFynd Knowledge Center</h2>
+        </div>
+        <!-- <h2>The CoFynd Knowledge Center</h2> -->
         <p>Coming together is a beginning. Staying together is progress. Working together is success.</p>
         <div class="team-carousel">
           <!-- <ngu-carousel #popularSpaceCarousel
@@ -26,8 +29,10 @@
                 <img [src]="team.img"
                   class="img-fluid m-auto d-block"
                   [alt]="team.name">
+                  <div class="team_detail">
                 <h5 class="mt-2 mb-0">{{ team.name }}</h5>
                 <p class="mt-2">{{ team.designation }}</p>
+              </div>
               </div>
             </div>
           </div>

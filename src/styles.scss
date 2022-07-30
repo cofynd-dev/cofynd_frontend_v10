@@ -964,6 +964,27 @@ border: 1px solid #4343e8;
 	display: inline-block;
 }
 
+.mobilehide {
+    display: block;
+    @media (max-width:480px) {
+        display: none;
+    }
+}
+.desktophide {
+    display: none;
+    @media (max-width:480px) {
+        display: block;
+    }
+}
+
+.page-title-left {
+    text-align: left;
+  }
+  .page-title-left h2::after {
+    left: 0;
+    margin-left: 0px;
+  }
+
 @media (max-width:480px) {
     body, p {
         font-size: 12px !important;
@@ -1162,7 +1183,7 @@ border: 1px solid #4343e8;
         padding-top: 0px !important;
     }
     .cofynd_desk_sec {
-        padding: 0px 0px 0px !important;
+        padding: 0px 0px 20px !important;
     }
     .cofynd-desk .space-btn {
         margin-bottom: 0px !important;
