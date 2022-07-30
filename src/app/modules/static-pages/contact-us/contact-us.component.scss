@@ -38,7 +38,7 @@
       }
 
       small {
-        font-size: 200%;
+        font-size: 22px;
         vertical-align: middle;
       }
     }
@@ -54,7 +54,7 @@
     display: flex;
     justify-content: space-between;
     color: #4343e8;
-    padding: 20px 0;
+    padding: 15px 0px 10px;
 
     // @media (max-width: 600px) {
     //   flex-direction: column;
@@ -137,5 +137,11 @@ address {
   }
   .contact-form .contact-footer {
     padding: 10px 0;
+  }
+  .contact-form .form .form-control {
+    height: 40px;
+  }
+  .contact-form .form .form-group {
+    margin-bottom: 12px;
   }
 }
