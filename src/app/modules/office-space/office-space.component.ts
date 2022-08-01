@@ -10,6 +10,14 @@ import { sanitizeParams } from '@app/shared/utils';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { forkJoin } from 'rxjs';
 import { OfficeSpaceModalComponent } from './office-space-modal/office-space-modal.component';
+import { OfficeSpace } from '@core/models/office-space.model';
+import { Observable, Subscriber } from 'rxjs';
+import { OfficeSpaceService } from './office-space.service';
+declare var $: any;
+
+
+
+
 
 @Component({
   selector: 'app-office-space',
@@ -21,12 +29,60 @@ export class OfficeSpaceComponent implements OnInit {
   cities: City[];
   coworkingBrands: Brand[] = [];
   coLivingBrands: Brand[] = [];
+  latitute: any;
+  longitute: any;
+  offices: OfficeSpace[];
+  loading: boolean;
+
+
+
   constructor(
     private seoService: SeoService,
     private router: Router,
     private bsModalService: BsModalService,
     private brandService: BrandService,
-  ) { this.cities = AVAILABLE_CITY.filter(city => city.for_office === true); }
+    private officeSpaceService: OfficeSpaceService,
+  ) {
+    this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
+    this.loading = true;
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.latitute = position.latitude;
+      this.longitute = position.longitude;
+      let queryParams = {
+        limit: 20,
+        latitude: this.latitute,
+        longitude: this.longitute,
+      };
+      this.loadWorkSpacesByLatLong(queryParams);
+    });
+  }
+
+
+  getCurrentPosition(): any {
+    return new Observable((observer: Subscriber<any>) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          observer.next({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          observer.complete();
+        });
+      } else {
+        observer.error();
+      }
+    });
+  }
+
+
+  loadWorkSpacesByLatLong(param: {}) {
+    this.loading = true;
+    this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allWorkSpaces => {
+      this.offices = allWorkSpaces.data;
+      console.log(this.offices);
+      this.loading = false;
+    });
+  }
 
   service = [
     {
@@ -123,34 +179,34 @@ export class OfficeSpaceComponent implements OnInit {
       name: 'Noida',
       slug: 'noida',
     },
-    {
-      address: `India's Silicon Valley`,
-      id: '5fbc9ffcc2502350f250363f',
-      image: '../../../assets/images/co-living/bangalore-ofcc.jpg',
-      name: 'Bangalore',
-      slug: 'bangalore',
-    },
-    {
-      address: 'A City of Nawabs',
-      id: '5fbc9ffcc2502350f250363f',
-      image: '../../../assets/images/co-living/hyderbad.jpg',
-      name: 'Hyderabad',
-      slug: 'hyderabad',
-    },
-    {
-      address: 'A City of Dreams',
-      id: '5fbc9ffcc2502350f250363f',
-      image: '../../../assets/images/co-living/mumbai2.jpg',
-      name: 'Mumbai',
-      slug: 'mumbai',
-    },
-    {
-      address: 'Queen of the Deccan',
-      id: '5fbc9ffcc2502350f250363f',
-      image: '../../../assets/images/co-living/pune.jpg',
-      name: 'Pune',
-      slug: 'pune',
-    },
+    // {
+    //   address: `India's Silicon Valley`,
+    //   id: '5fbc9ffcc2502350f250363f',
+    //   image: '../../../assets/images/co-living/bangalore-ofcc.jpg',
+    //   name: 'Bangalore',
+    //   slug: 'bangalore',
+    // },
+    // {
+    //   address: 'A City of Nawabs',
+    //   id: '5fbc9ffcc2502350f250363f',
+    //   image: '../../../assets/images/co-living/hyderbad.jpg',
+    //   name: 'Hyderabad',
+    //   slug: 'hyderabad',
+    // },
+    // {
+    //   address: 'A City of Dreams',
+    //   id: '5fbc9ffcc2502350f250363f',
+    //   image: '../../../assets/images/co-living/mumbai2.jpg',
+    //   name: 'Mumbai',
+    //   slug: 'mumbai',
+    // },
+    // {
+    //   address: 'Queen of the Deccan',
+    //   id: '5fbc9ffcc2502350f250363f',
+    //   image: '../../../assets/images/co-living/pune.jpg',
+    //   name: 'Pune',
+    //   slug: 'pune',
+    // },
     // {
     //   address: 'Paradise of South Asia',
     //   id: '5fbc9ffcc2502350f250363f',
@@ -295,6 +351,11 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
+
+  removedash(name: string) {
+    return name.replace(/-/, ' ');
+  }
+
   addSeoTags(seoMeta) {
     if (seoMeta) {
       // this.pageTitle = seoMeta.page_title;
@@ -323,12 +384,16 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
-  openCityListing(city: City) {
-    this.router.navigate([`/office-space/rent/${city.name.toLowerCase().trim()}`]);
+  openCityListing(city: string) {
+    this.router.navigate([`/office-space/rent/${city.toLowerCase().trim()}`]);
+    localStorage.removeItem('officeType');
   }
-
+  onClick(spaceType: string) {
+    localStorage.setItem('officeType', spaceType)
+  }
   openWorkSpace(slug: string) {
     this.router.navigate([`/office-space/rent/${slug.toLowerCase().trim()}`]);
+    $('#curated_coliving').modal('hide');
   }
 
   openAdd() {
