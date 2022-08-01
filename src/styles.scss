@@ -1206,7 +1206,111 @@ border: 1px solid #4343e8;
     .cofynd-desk .link-text {
         margin-bottom: 2px;
     }
-    
+
+// ------------ Listing Style  -----------
+
+.listing-card {
+    margin-bottom: 30px !important;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .listing-card .image {
+    height: auto !important;
+    border-radius: 15px !important;
+    width: 45% !important;
+    overflow: hidden !important;
+  }
+  .listing-card .detail {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 15px 10px 15px !important;
+    width: 55% !important;
+  }
+  .listing-card .detail h4 {
+    font-size: 13px !important;
+    color: #272828 !important;
+    white-space: normal;
+    margin-bottom: 5px !important;
+  }
+  .listing-card .detail .address {
+    padding-bottom: 5px !important;
+    margin-bottom: 8px !important;
+    border-bottom: none;
+    white-space: normal !important;
+    position: relative;
+    padding-left: 19px;
+    font-size: 10px !important;
+    line-height: 16px !important;
+  }
+  .listing-card .detail .address i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 15px;
+    text-align: center;
+  }
+  .listing-card .detail .capacity {
+    margin-bottom: 2px !important;
+    align-items: center;
+    display: flex;
+    font-size: 10px !important;
+  }
+  .listing-card .detail .capacity img {
+    width: 18px;
+    margin-right: 4px;
+    opacity: 0.6;
+  }
+  .listing-card:hover .detail .capacity img {
+    transform: none;
+  }
+  .listing-card .detail .capacity i {
+    margin-right: 5px;
+  }
+  .listing-card hr {
+    display: none;
+  }
+  .price-box {
+    margin-top: 15px;
+  }
+  .price-box .price span {
+    font-size: 10px !important;
+    color: #272828 !important;
+    margin-bottom: 2px !important;
+  }
+  .price-box .price {
+    font-size: 11px !important;
+    line-height: 16px !important;
+    color: #4343e8;
+  }
+  .price-box .price i {
+	font-size: 10px !important;
+}
+  .price-box .price small {
+    font-size: 9px !important;
+    color: #272828 !important;
+  }
+  .price-box .btn-link {
+    bottom: 0px !important;
+    font-size: 10px !important;
+    line-height: 16px !important;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4343e8;
+  }
+  .listing-card .image .item {
+    height: 170px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .listing-card:hover .detail .capacity img {
+	transform: none !important;
+}
+  .price-box .btn-link small {
+    margin-left: 5px;
+  }
+
+// ------------ Listing Style  -----------
     
 }
 
