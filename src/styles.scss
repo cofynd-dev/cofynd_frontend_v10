@@ -813,7 +813,7 @@ font-weight: 500;
 }
 .filters_popup .icon_box {
     border: 1px solid rgba(0,0,0,0.3);
-    padding: 10px 15px;
+    padding: 10px 5px;
     min-height: 80px;
     align-items: center;
     display: grid;
@@ -960,11 +960,14 @@ border: 1px solid #4343e8;
     }
   }
 
+  .plan-list .action-box .price span, .plan-list .action-box .price small {
+	display: inline-block;
+}
 
 @media (max-width:480px) {
     body, p {
-        font-size: 10px !important;
-        line-height: 16px !important;
+        font-size: 12px !important;
+        line-height: 20px !important;
         color: #272828 !important;
         font-weight: 400 !important;
     }
@@ -1046,8 +1049,16 @@ border: 1px solid #4343e8;
         margin-left: 0px;
         margin-right: 0px;
     }
+    .breadcrumb_area {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .breadcrumb_area .breadcrumb {
+        margin-bottom: 0px !important;
+    }
     .breadcrumb .breadcrumb-item {
-        font-size: 9px !important;
+        font-size: 11px !important;
     }
     .breadcrumb .breadcrumb-item a {
         color: #272828 !important;
@@ -1123,7 +1134,7 @@ border: 1px solid #4343e8;
 	font-size: 10px !important;
 }
 .filter_btn img {
-	width: 9px;
+	width: 10px;
 	margin-right: 2px;
 }
 
@@ -1165,6 +1176,16 @@ border: 1px solid #4343e8;
     .live-spaces-button a {
         cursor: pointer;
     }
+    .footer-bottom p {
+        font-size: 10px !important;
+    }
+    .plan-list .action-box .price span, .plan-list .action-box .price small {
+        font-size: 12px !important;
+    }
+    .cofynd-desk .link-text {
+        margin-bottom: 2px;
+    }
+    
     
 }
 

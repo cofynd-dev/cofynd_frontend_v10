@@ -14,7 +14,7 @@
                 <div class="col-3">
                     <div class="filter_col">
                         <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
-                        <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Filters
+                        <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters
                         </button>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <h3><b>Price Range</b></h3>
-                                            <select class="form-select" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
+                                            <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
                                         <option value="Select Price">Select Price</option>
                                         <option value="Less than ₹15,000">Less than ₹15,000</option>
                                         <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
