@@ -126,6 +126,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
     localStorage.removeItem('minPrice');
     localStorage.removeItem('maxPrice');
     localStorage.removeItem('featuredColiving');
+    localStorage.removeItem('officeType');
   }
 
   getPriceFilter(): PriceFilter[] {

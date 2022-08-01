@@ -346,7 +346,7 @@
     <app-home-popular-space [isCountryLandingPage]=false></app-home-popular-space>
 </div>
 
-<section class="top_coliving_cities onlyMobile">
+<section class="top_coliving_cities onlyMobile" *ngIf="popularCoWorkingSpaces && popularCoWorkingSpaces.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -501,7 +501,7 @@
     </app-home-popular-space>
 </div>
 
-<section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces.length">
+<section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces && popularCoLivingSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-12">
