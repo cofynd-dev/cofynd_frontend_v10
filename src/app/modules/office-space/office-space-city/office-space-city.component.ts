@@ -51,6 +51,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   priceFilter = PriceFilterData;
   sizeFilter = SizeFilterData;
   typeFilter = TypeFilter;
+  officeType: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -74,6 +75,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.officeType = localStorage.getItem('officeType');
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       if (this.activatedRoute.snapshot.url && this.activatedRoute.snapshot.url.length) {
         const filteredCity = this.availableCities.filter(
@@ -90,6 +92,15 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
           ...prevParam,
           city: filteredCity[0].id,
         };
+        if (this.officeType) {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            ...params,
+            ...prevParam,
+            city: filteredCity[0].id,
+            officeType: this.officeType
+          };
+        }
         this.getOfficeList(this.queryParams);
         this.page = params['page'] ? +params['page'] : 1;
         this.addSeoTags(this.title.toLowerCase());
@@ -97,6 +108,12 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         // For Office Landing Page
         this.title = 'Office Space for rent';
         this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...params };
+        if (this.officeType) {
+          this.queryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS, ...params,
+            officeType: this.officeType
+          };
+        }
         this.getOfficeList(this.queryParams);
         this.page = params['page'] ? +params['page'] : 1;
         this.addSeoTags('rent');
