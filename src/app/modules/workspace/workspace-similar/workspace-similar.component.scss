@@ -167,10 +167,15 @@ line-height: 17px;
   .similar-workspaces p {
     font-size: 10px !important;
     margin-bottom: 0px !important;
+    white-space: normal;
+    line-height: 15px !important;
   }
   .price-box .price {
     font-size: 11px !important;
     font-weight: 500;
+  }
+  .price-box {
+    margin-top: 2px;
   }
   .similar-workspaces .item {
     padding: 0px 5px !important;
