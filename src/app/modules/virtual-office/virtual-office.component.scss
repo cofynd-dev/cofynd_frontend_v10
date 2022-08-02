@@ -726,47 +726,6 @@
 .property_slides .slick-list {
 	padding: 0 20% 0 0 !important;
 }
-// .property-item .property-img {
-// 	border-radius: 10px;
-// 	overflow: hidden;
-// }
-// .property-item h4 {
-// 	font-size: 12px;
-// 	padding-top: 8px;
-// 	padding-bottom: 0px;
-// 	line-height: 18px;
-// 	margin-bottom: 0px;
-// }
-// .property-item p {
-// 	font-size: 10px;
-// 	line-height: 11px;
-// 	margin-bottom: 0px;
-// }
-.property-item .property-img {
-  border-radius: 10px;
-  overflow: hidden;
-}
-.property-item h4 {
-	font-size: 11px;
-	padding-top: 6px;
-	padding-bottom: 0px;
-	line-height: 16px;
-	margin-bottom: 0px;
-}
-.property-item p {
-  margin-bottom: 0px;
-}
-.properties-content .price {
-	font-weight: 600 !important;
-	margin-bottom: 0px;
-}
-// .properties-content .price {
-// 	font-weight: 600;
-// 	margin-bottom: 0px;
-// }
-.property_slides {
-	margin-bottom: 0px;
-}
 .coworking_cta p {
 	line-height: 17px;
 }
@@ -827,34 +786,16 @@
 	padding-top: 0px !important;
 }
   
-  .space_carousel {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow-x: scroll;
-    padding: 0px;
-    margin: 0;
-    white-space: nowrap;
-}
-/* Hide scrollbar for Chrome, Safari and Opera */
-.space_carousel::-webkit-scrollbar {
-display: none !important;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.space_carousel {
--ms-overflow-style: none !important;  /* IE and Edge */
-scrollbar-width: none !important;  /* Firefox */
-}
-.property-item {
-	display: inline-block;
-	margin: 0 5px;
-	background-size: cover;
-	position: relative;
-	flex: 0 0 71.4285714286%;
-	width: 38.429%;
-	overflow: hidden;
-}
+  
+// .property-item {
+// 	display: inline-block;
+// 	margin: 0 5px;
+// 	background-size: cover;
+// 	position: relative;
+// 	flex: 0 0 71.4285714286%;
+// 	width: 38.429%;
+// 	overflow: hidden;
+// }
 
 
 

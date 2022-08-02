@@ -15,14 +15,23 @@
 </app-search-breadcrumb>
 
 <section class="search-container clearfix">
-  <div class="search-grid-container"
-    [class.search-grid-full]="!isMapView">
+  <div class="search-grid-container" [class.search-grid-full]="!isMapView">
     <div class="search-grid-wrapper">
-
-      <h1 class="page-heading"
-        *ngIf="!loading">
-        {{ pageTitle ? pageTitle : title }}
-      </h1>
+      <div class="row align-items-center filter_title">
+        <div class="col-9">
+            <div class="page-title city_page_title">
+                <h1 class="page-heading" *ngIf="!loading">{{ pageTitle ? pageTitle : title }}</h1>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="filter_col">
+                <!-- <button type="button" class="btn site_btn filter_btn"  data-toggle="modal" data-target="#coliving_filter">
+                <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Filters
+                </button> -->
+            </div>
+        </div>
+    </div>
+      <!-- <h1 class="page-heading" *ngIf="!loading">{{ pageTitle ? pageTitle : title }}</h1> -->
 
       <app-search-similar-location *ngIf="!loading"
         [relativeUrl]="'office-space/rent'"
