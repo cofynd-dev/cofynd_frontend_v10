@@ -52,4 +52,7 @@ export class BrandService {
   getFeaturedImages() {
     return this.http.get<ApiResponse<City[]>>(`/user/getfeaturedImages`).pipe(map(response => response.data));
   }
+  getBrandAdsImages() {
+    return this.http.get<ApiResponse<City[]>>(`/user/getbrandAdsImages`).pipe(map(response => response.data));
+  }
 }

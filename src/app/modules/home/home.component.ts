@@ -40,6 +40,8 @@ export class HomeComponent {
   coLivingBrands: Brand[] = [];
   coworkingImages: any = [];
   colivingImages: any = [];
+  coworkingBrandAdsImages: any = [];
+  colivingBrandAdsImages: any = [];
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
 
@@ -147,9 +149,7 @@ export class HomeComponent {
     this.setScript();
     this.getPopularCoworkingSpace();
     this.getFeaturedImages();
-
-
-
+    this.getBrandAdsImages();
   }
 
   ngOnInit(): void {
@@ -170,13 +170,18 @@ export class HomeComponent {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
       this.coworkingImages = res.filter(city => city.for_coWorking === true);
       this.colivingImages = res.filter(city => city.for_coLiving === true);
-      console.log(this.coworkingImages, this.colivingImages);
+    })
+  }
+  getBrandAdsImages() {
+    this.brandService.getBrandAdsImages().subscribe((res: any) => {
+      this.coworkingBrandAdsImages = res.filter(city => city.for_coWorking === true);
+      this.colivingBrandAdsImages = res.filter(city => city.for_coLiving === true);
+      console.log(this.coworkingBrandAdsImages, this.colivingBrandAdsImages);
     })
   }
   getPopularCoworkingSpace() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
       this.popularCoWorkingSpaces = spaces;
-      console.log("popularCoWorkingSpaces", this.popularCoWorkingSpaces);
     });
   }
   setScript() {
