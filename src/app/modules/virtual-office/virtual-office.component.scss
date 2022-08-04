@@ -575,8 +575,11 @@
 	}
 	.icon_box img {
 		width: 25px;
-		margin-bottom: 0px;
+		margin-bottom: 4px;
 	}
+  .icon_box.mb-0 {
+    margin-bottom: 0px !important;
+  }
 	.icon_box h4 {
 		font-size: 12px;
 		line-height: 14px;
@@ -769,15 +772,15 @@
 .our_brands_sec {
 	padding-bottom: 0px !important;
 }
-.icon_box.mb-0 {
-	margin-bottom: 0px !important;
-}
 .feature_sec .icon_box {
 	display: -webkit-box;
 	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
 	margin-bottom: 8px !important;
+}
+.feature_sec .icon_box.mb-0 {
+	margin-bottom: 0px !important;
 }
 .feature_sec .icon_box h4 {
 	padding-left: 10px;

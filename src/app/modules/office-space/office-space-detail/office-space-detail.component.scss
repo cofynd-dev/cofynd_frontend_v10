@@ -576,9 +576,11 @@ p {
   .space_title_area h1 {
       margin-bottom: 5px;
   }
+  
   .other-office-info {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     padding-top: 15px;
+    border-bottom: 1px solid #e5e5e5 !important;
   }
   .other-office-info p {
     font-size: 12px !important;
@@ -587,6 +589,11 @@ p {
   }
   .other-office-info p img {
     top: 0px !important;
+    width: 23px;
+  }
+  .facility-list {
+    padding-top: 20px;
+    padding-bottom: 0px;
   }
   .facility-list div span.small-text {
     font-size: 10px !important;
@@ -595,5 +602,9 @@ p {
   .facility-list div span {
     color: #272828 !important;
     font-size: 13px !important;
+  }
+  .other-office-info p {
+    margin-right: 30px;
+    width: 50%;
   }
 }
