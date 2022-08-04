@@ -723,23 +723,7 @@ p {
         margin-top: 0px !important;
         padding-top: 15px;
     }
-    .about-section {
-        border-top: 1px solid #e5e5e5 !important;
-        border-bottom: 1px solid #e5e5e5 !important;
-        padding: 15px 0px 15px !important;
-    }
-    .about-section h2 {
-        margin-bottom: 10px;
-    }
-    .about-section p {
-        margin-bottom: 0px;
-    }
-    .see_more {
-        color: #4343e8 !important;
-        font-weight: 500 !important;
-        cursor: pointer;
-        display: inline-block;
-    }
+    
     .price_area {
         padding-top: 20px !important;
         padding-bottom: 20px !important;
@@ -795,59 +779,11 @@ p {
         line-height: 21px;
         margin-top: 0px !important;
     }
-    .offers_section {
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid #e5e5e5 !important;
-    }
-    .offers_section .amenity-list {
-        margin-top: 4px !important;
-    }
-    .buttonOnMobile button {
-        height: auto !important;
-        font-size: 11px !important;
-    }
-    .location_area {
-        padding-top: 20px !important;
-        padding-bottom: 10px !important;
-    }
-    .location_area h2 {
-        margin-bottom: 0px !important;
-    }
-    .similar_spaces_area {
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-        border-top: 1px solid #e5e5e5 !important;
-    }
-    .similar_spaces_area .sections.no-border {
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-    }
+    
     .space-details {
         padding-bottom: 0px !important;
     }
-    .mobile-ftr-contact .bottomPrize p span {
-      font-weight: 600;
-      color: #000;
-      font-size: 12px;
-    }
-    .mobile-ftr-contact button {
-        padding: 4px 13px !important;
-        width: auto !important;
-        float: right;
-        font-size: 11px;
-        margin-top: 0px !important;
-    }
-    .mobile-ftr-contact .row {
-        align-items: center;
-    }
-    .mobile-ftr-contact .bottomPrize {
-        top: 0;
-    }
-    .mobile-ftr-contact {
-        padding: 8px 0px !important;
-        border: 1px solid #e5e5e5 !important;
-    }
+    
     .offers_section .btn {
         padding: 0px !important;
         width: auto;
@@ -857,11 +793,7 @@ p {
         font-weight: 500;
         font-size: 11px !important;
     }
-    .amenity-list li {
-        font-size: 12px;
-        margin-bottom: 15px !important;
-        font-weight: 500;
-    }
+    
     .price_area .btn {
         box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         border-radius: 10px;

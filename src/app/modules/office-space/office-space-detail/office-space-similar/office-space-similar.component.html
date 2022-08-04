@@ -9,8 +9,7 @@
       [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
       <div class="box"
         [routerLink]="['/office-space/rent/', office.slug]">
-        <div *ngIf="office.images[0]?.image.s3_link"
-          class="img">
+        <div *ngIf="office.images[0]?.image.s3_link" class="img">
           <img [lazyLoad]="office.images[0]?.image.s3_link"
             alt="">
         </div>
