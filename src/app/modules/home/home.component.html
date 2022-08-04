@@ -452,19 +452,13 @@
     </div>
 </section>
 
-<section class="advertisement_sec onlyMobile">
+<section class="advertisement_sec onlyMobile" *ngIf="coworkingBrandAdsImages && coworkingBrandAdsImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="add-item-list">
-                    <div class="add-item" routerLink="/brand/awfis">
-                        <img src="../../../assets/images/ads/awfis-ads.png" alt="Awfis" class="img-fluid">
-                    </div>
-                    <div class="add-item" routerLink="/brand/wework">
-                        <img src="../../../assets/images/ads/wework-ads.png" alt="WeWork" class="img-fluid">
-                    </div>
-                    <div class="add-item" routerLink="/brand/91-spring-board">
-                        <img src="../../../assets/images/ads/91springboard-ads.png" alt="91Springboard" class="img-fluid">
+                    <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of coworkingBrandAdsImages">
+                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -606,19 +600,13 @@
     </div>
 </section>
 
-<section class="advertisement_sec onlyMobile">
+<section class="advertisement_sec onlyMobile" *ngIf="colivingBrandAdsImages && colivingBrandAdsImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="add-item-list">
+                <div class="add-item-list" [routerLink]="item?.slug" *ngFor="let item of colivingBrandAdsImages">
                     <div class="add-item">
-                        <img src="../../../assets/images/ads/isthara-ads.png" alt="isthara" class="img-fluid">
-                    </div>
-                    <div class="add-item">
-                        <img src="../../../assets/images/ads/stanza-ads.png" alt="WeWork" class="img-fluid">
-                    </div>
-                    <div class="add-item" routerLink="/brand/co-living/yourspace">
-                        <img src="../../../assets/images/ads/yourspace-ads.png" alt="yourspace" class="img-fluid">
+                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
                     </div>
                 </div>
             </div>
