@@ -35,7 +35,7 @@ export class OfficeSpaceSimilarComponent implements OnInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private cdr: ChangeDetectorRef, private officeSpaceService: OfficeSpaceService) {}
+  constructor(private cdr: ChangeDetectorRef, private officeSpaceService: OfficeSpaceService) { }
 
   ngOnInit() {
     this.loadWorkSpaces();
