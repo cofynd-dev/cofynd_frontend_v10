@@ -157,3 +157,11 @@
   margin-top: -14px;
   z-index: 1;
 }
+
+
+.listing-card .detail .capacity img {
+	width: 14px;
+}
+.listing-card:hover .detail .capacity img {
+	transform: none;
+}

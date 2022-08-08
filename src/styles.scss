@@ -1299,16 +1299,20 @@ border: 1px solid #4343e8;
     color: #4343e8;
   }
   .listing-card .image .item {
-    height: 170px !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
+	height: 170px !important;
+	position: relative !important;
+	overflow: hidden !important;
+	border-radius: 15px !important;
+}
   .listing-card:hover .detail .capacity img {
 	transform: none !important;
 }
   .price-box .btn-link small {
     margin-left: 5px;
   }
+  .listing-card .image img {
+	border-radius: 15px !important;
+}
 
 // ------------ Listing Style  -----------
 
@@ -1465,6 +1469,8 @@ scrollbar-width: none !important;  /* Firefox */
 .mobile-ftr-contact .bottomPrize {
 	top: 0px !important;
 }
+
+  
     
 }
 
