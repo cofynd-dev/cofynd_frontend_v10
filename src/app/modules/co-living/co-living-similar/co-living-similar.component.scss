@@ -1,149 +1,126 @@
 .similar-workspaces {
-  .ngucarousel-items {
-    margin: 0 -10px;
-  }
-
-  .carousel-arrow {
-    position   : absolute;
-    top        : 210px;
-    color      : #4343e8;
-    font-size  : 26px;
-    font-weight: bold;
-
-    &.icon-next {
-      right: -20px;
+    .ngucarousel-items {
+        margin: 0 -10px;
     }
-
-    &.icon-back {
-      left: -20px;
+    .carousel-arrow {
+        position: absolute;
+        top: 210px;
+        color: #4343e8;
+        font-size: 26px;
+        font-weight: bold;
+        &.icon-next {
+            right: -20px;
+        }
+        &.icon-back {
+            left: -20px;
+        }
+        &[disabled] {
+            opacity: 0.4;
+        }
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
-
-    &[disabled] {
-      opacity: 0.4;
+    .item {
+        padding: 0 10px;
     }
-
-    @media (max-width: 767px) {
-      display: none;
+    .box {
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
     }
-  }
-
-  .item {
-    padding: 0 10px;
-  }
-
-  .box {
-    cursor: pointer;
-
-    &:focus {
-      outline: none;
+    .img {
+        margin-bottom: 15px;
+        // height       : 190px;
+        position: relative;
+        overflow: hidden;
+        background: #e0dfdf url('/assets/images/no-img.svg') no-repeat center center;
+        border-radius: 4px 4px 0 0;
+        @media(max-width: 480px) {
+            margin-bottom: 0px;
+        }
     }
-  }
-
-  .img {
-    margin-bottom   : 15px;
-    // height       : 190px;
-    position        : relative;
-    overflow        : hidden;
-    background      : #e0dfdf url('/assets/images/no-img.svg') no-repeat center center;
-    border-radius   : 4px 4px 0 0;
-
-    @media(max-width:480px) {
-      margin-bottom: 0px;
+    img {
+        border-radius: 4px;
     }
-  }
-
-  img {
-    border-radius: 4px;
-  }
-
-  h5 {
-    font-size  : 16px;
-    font-weight: 600;
-    color      : #000;
-    margin     : 15px 0;
-
-    @media(max-width:480px) {
-      font-size  : 12px;
-      font-weight: 500;
-      margin     : 5px 0;
+    h5 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        margin: 15px 0;
+        @media(max-width: 480px) {
+            font-size: 12px;
+            font-weight: 500;
+            margin: 5px 0;
+        }
     }
-  }
-
-  p {
-    font-size     : 12px;
-    font-weight   : 400;
-    line-height   : normal;
-    letter-spacing: 0.24px;
-    color         : #908f8f;
-    margin-bottom : 7px;
-    overflow      : hidden;
-    white-space   : nowrap;
-    text-overflow : ellipsis;
-  }
+    p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.24px;
+        color: #908f8f;
+        margin-bottom: 7px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }
 
 .price-box {
-  position   : relative;
-  padding-top: 10px;
-
-  .price-bed {
-    display  : inline !important;
-    font-size: 17px !important;
-  }
-
-  .price {
-    // font-size     : 18px;
-    // font-weight   : 700;
-    letter-spacing: 0.36px;
-
-    span {
-      font-size     : 12px;
-      font-weight   : 300;
-      font-stretch  : normal;
-      font-style    : normal;
-      line-height   : normal;
-      letter-spacing: 0.12px;
-      color         : #000000;
-      display       : block;
-    }
-
-    small {
-      font-size     : 17px;
-      letter-spacing: 0.34px;
-      font-weight   : 300;
-      font-stretch  : normal;
-      font-style    : normal;
-      line-height   : normal;
-    }
-  }
-
-  .btn-link {
-    position   : absolute;
-    right      : 0;
-    bottom     : -5px;
-    font-size  : 15px;
-    font-weight: 500;
-    margin     : 0;
-
-    small {
-      font-size  : 10px;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-  }
-
-  @media(max-width:480px) {
-    padding-top: 0px;
-
+    position: relative;
+    padding-top: 10px;
     .price-bed {
-      font-size: 12px !important;
+        display: inline !important;
+        font-size: 17px !important;
     }
-
     .price {
-      font-size  : 12px;
-      font-weight: 500;
+        // font-size     : 18px;
+        // font-weight   : 700;
+        letter-spacing: 0.36px;
+        span {
+            font-size: 12px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.12px;
+            color: #000000;
+            display: block;
+        }
+        small {
+            font-size: 17px;
+            letter-spacing: 0.34px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+        }
     }
-  }
+    .btn-link {
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0;
+        small {
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    }
+    @media(max-width:480px) {
+        padding-top: 0px;
+        .price-bed {
+            font-size: 12px !important;
+        }
+        .price {
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
 }
 
 // .last-slide {
@@ -152,43 +129,54 @@
 //     padding    : 0 !important;
 //   }
 // }
-
 ::ng-deep .ngucarousel-items {
-  @media (max-width:767px) {
-    width: 100%;
-  }
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 }
 
 @media(max-width:480px) {
-  .forMobileOnly {
-    display: none;
-  }
+    .forMobileOnly {
+        display: none;
+    }
+    .detail {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .similar-workspaces .item {
+        padding: 0px 5px !important;
+    }
+    .similar-workspaces h5 {
+        font-size: 11px !important;
+        margin: 5px 0 0px !important;
+        white-space: normal;
+        line-height: 17px;
+    }
+    .similar-workspaces p {
+        font-size: 10px !important;
+        margin-bottom: 0px !important;
+    }
+    .price-box .price {
+        font-size: 11px !important;
+    }
+    .similar-workspaces .price-box {
+        margin-top: 0px !important;
+    }
+    .price-box .price-bed {
+        font-size: 10px !important;
+    }
+}
 
-  .detail {
-    overflow     : hidden;
-    white-space  : nowrap;
-    text-overflow: ellipsis;
-  }
-  .similar-workspaces .item {
-    padding: 0px 5px !important;
+.onlyMobile {
+    display: none;
+    @media (max-width: 480px) {
+        display: block;
+    }
 }
-.similar-workspaces h5 {
-	font-size: 11px !important;
-  margin: 5px 0 0px !important;
-  white-space: normal;
-line-height: 17px;
-}
-.similar-workspaces p {
-	font-size: 10px !important;
-  margin-bottom: 0px !important;
-}
-.price-box .price {
-	font-size: 11px !important;
-}
-.similar-workspaces .price-box {
-	margin-top: 0px !important;
-}
-.price-box .price-bed {
-	font-size: 10px !important;
-}
+
+.hideOnMobile {
+    @media (max-width: 480px) {
+        display: none !important;
+    }
 }

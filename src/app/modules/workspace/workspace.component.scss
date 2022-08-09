@@ -231,8 +231,6 @@ p {
     }
 }
 
-
-
 // Amenity
 .amenity-title {
     font-size: 24px;
@@ -406,7 +404,6 @@ p {
     }
 }
 
-
 @media (max-width: 480px) {
     .section-1 {
         h1 {
@@ -481,7 +478,8 @@ body {
 }
 
 @media (max-width: 480px) {
-    body, p {
+    body,
+    p {
         font-size: 11px !important;
         line-height: 16px !important;
     }
@@ -555,89 +553,101 @@ body {
         cursor: pointer;
         display: inline-block;
     }
-    
-  .price_area {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-    border-bottom: 1px solid #e5e5e5 !important;
+    .price_area {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .enterprise_area {
+        padding: 20px 0px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .enterprise_area .row {
+        padding: 0px 15px;
+    }
+    .enterprise_area .col-6 {
+        padding: 0px 5px !important;
+    }
+    .offers_section {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+    }
+    .amenity-list li {
+        font-size: 12px;
+        margin-bottom: 15px !important;
+        font-weight: 500;
+    }
+    .offers_section {
+        padding: 20px 0px !important;
+    }
+    .service-list .box {
+        margin-bottom: 10px;
+    }
+    .offers_section .btn {
+        padding: 0px !important;
+        width: auto;
+        border: none !important;
+        color: #4343e8 !important;
+        border-radius: 0px !important;
+        font-weight: 500;
+        font-size: 11px !important;
+    }
+    .amenity-list {
+        margin-top: 0px;
+    }
+    .offers_section .buttonOnMobile button {
+        height: auto;
+    }
+    .plan-list .box p {
+        margin-bottom: 0px;
+    }
+    .location_area {
+        padding: 20px 0px !important;
+    }
+    .location_area h2 {
+        margin-bottom: 0px !important;
+    }
+    .sections.section-1 .bfrReview {
+        background-color: transparent;
+        font-size: 10px;
+        border: 1px solid #4343e8;
+        color: #4343e8;
+        float: right !important;
+    }
+    .address {
+        padding-left: 14px;
+    }
+    .location_tagline_bottom {
+        margin-bottom: 0px;
+    }
+    .similar_spaces_area .sections {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .similar_spaces_area {
+        padding: 20px 0px !important;
+        border-top: 1px solid #e5e5e5 !important;
+    }
+    .similar_spaces_area .item {
+        padding: 0px 5px !important;
+    }
+    .plan-list .box h4 {
+        font-size: 13px;
+        margin-bottom: 0px;
+        line-height: 24px;
+    }
 }
-.enterprise_area {
-	padding: 20px 0px !important;
-    border-bottom: 1px solid #e5e5e5 !important;
+
+.onlyMobile {
+    display: none;
+    @media (max-width: 480px) {
+        display: block;
+    }
 }
-.enterprise_area .row {
-	padding: 0px 15px;
-}
-.enterprise_area .col-6 {
-	padding: 0px 5px !important;
-}
-.offers_section {
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
-	border-bottom: 1px solid #e5e5e5 !important;
-}
-.amenity-list li {
-    font-size: 12px;
-    margin-bottom: 15px !important;
-    font-weight: 500;
-}
-.offers_section {
-	padding: 20px 0px !important;
-}
-.service-list .box {
-	margin-bottom: 10px;
-}
-.offers_section .btn {
-    padding: 0px !important;
-    width: auto;
-    border: none !important;
-    color: #4343e8 !important;
-    border-radius: 0px !important;
-    font-weight: 500;
-    font-size: 11px !important;
-}
-.amenity-list {
-	margin-top: 0px;
-}
-.offers_section .buttonOnMobile button {
-	height: auto;
-}
-.plan-list .box p {
-	margin-bottom: 0px;
-}
-.location_area {
-	padding: 20px 0px !important;
-}
-.location_area h2 {
-	margin-bottom: 0px !important;
-}
-.sections.section-1 .bfrReview {
-	background-color: transparent;
-	font-size: 10px;
-	border: 1px solid #4343e8;
-	color: #4343e8;
-    float: right !important;
-}
-.address {
-	padding-left: 14px;
-}
-.location_tagline_bottom {
-	margin-bottom: 0px;
-}
-.similar_spaces_area .sections {
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-}
-.similar_spaces_area {
-	padding: 20px 0px !important;
-	border-top: 1px solid #e5e5e5 !important;
-}
-.similar_spaces_area .item {
-	padding: 0px 5px !important;
-}
-.plan-list .box h4 {
-	font-size: 13px;
-    margin-bottom: 0px;
-    line-height: 24px;
-}
+
+.hideOnMobile {
+    @media (max-width: 480px) {
+        display: none !important;
+    }
 }

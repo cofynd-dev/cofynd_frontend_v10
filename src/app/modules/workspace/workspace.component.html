@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && !workspace.currency_code" class="price"><span>starting from</span><small class="icon-rupee"></small>{{ workspace.starting_price }}<small>/ {{ workspace.price_type }}</small>
                         </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible && workspace.currency_code" class="price"><span>starting from</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/ {{ workspace.price_type }}</small>
@@ -236,7 +236,7 @@
         <div class="row similar_spaces_area">
             <div class="col-md-12">
                 <div class="sections no-border" style="padding-top: 20px;">
-                    <h2>Similar Properties</h2>
+                    <h2 class="hideOnMobile" *ngIf="!loading && workspace">Similar Properties</h2>
                     <app-workspace-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address1">
                     </app-workspace-similar>
                 </div>
