@@ -1,4 +1,4 @@
-<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
+<div class="similar-workspaces hideOnMobile" *ngIf="!loading && workSpaces.length">
     <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
         <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
             <div class="box" [routerLink]="['/co-living/', office.slug]">
@@ -35,3 +35,42 @@
     <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right">
   </button>
 </div>
+
+
+
+
+
+
+<section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Similar Coliving Spaces</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="space_carousel">
+                    <div class="property-item" [routerLink]="['/co-living/', _centerCity.slug]" *ngFor=" let _centerCity of workSpaces">
+                        <div class="property-img">
+                            <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
+                        </div>
+                        <div class="properties-content">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p><i class="icon-location-outline fal fa-map-marker-alt"></i> {{_centerCity.location.address}}</p>
+                            <!-- <p class="capacity">
+                                <i class="building-icon"></i> {{ getFloorSuffix(_centerCity.location.floor) }} Floor
+                            </p> -->
+                            <ng-container>
+                                <p class="price"><span style="color: blue !important;">₹{{_centerCity.starting_price}}</span>/- Month</p>
+                            </ng-container>
+                        </div>
+                        <a [routerLink]="['/co-living/', _centerCity.slug]"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

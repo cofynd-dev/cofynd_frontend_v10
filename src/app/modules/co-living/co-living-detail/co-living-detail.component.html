@@ -356,7 +356,7 @@
         <div class="row pt-4 similar_spaces_area">
             <div class="col-md-12">
                 <div class="sections no-border">
-                    <h2>Similar Properties</h2>
+                    <h2 class="hideOnMobile">Similar Properties</h2>
                     <app-co-living-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address">
                     </app-co-living-similar>
                 </div>
