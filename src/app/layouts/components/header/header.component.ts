@@ -66,7 +66,6 @@ export class HeaderComponent implements AfterViewInit {
   isAuthenticated() {
     return this.authService.getToken() ? true : false;
   }
-
   onLogOut() {
     this.authService.logOut();
     this.closeMobileMenu();
