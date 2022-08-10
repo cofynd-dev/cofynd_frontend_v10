@@ -22,6 +22,7 @@ import { environment } from '@env/environment';
 export class HeaderComponent implements AfterViewInit {
   userNameInitial: string;
   contactInfo = DEFAULT_APP_DATA.contact;
+  phoneflag: boolean = true;
   clearSearchAddressText: string;
   showSearch: boolean;
   country: any;
@@ -45,6 +46,9 @@ export class HeaderComponent implements AfterViewInit {
     private configService: ConfigService,
     private cdr: ChangeDetectorRef,
   ) {
+    if (router.url.search(/co-living/i) != -1) {
+      this.phoneflag = false;
+    }
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.menuPopularCoWorkings = AVAILABLE_CITY.filter(city => city.for_coWorking === true && city.id !== '5f8d3541c2502350f24feeb6');
     this.menuPopularOffices = AVAILABLE_CITY.filter(city => city.for_office === true);
