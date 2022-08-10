@@ -3,7 +3,7 @@
   <router-outlet #outlet="outlet"></router-outlet>
 </main>
 <app-footer *ngIf="appConfig.footer"></app-footer>
-<a [href]="'tel:' + phone"
+<a *ngIf="phoneflag" [href]="'tel:' + phone"
   type="button"
   class="call-button icon-phone fas fa-phone-alt">
 </a>
