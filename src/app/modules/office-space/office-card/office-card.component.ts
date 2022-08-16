@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OfficeSpace } from '@core/models/office-space.model';
 import { NguCarouselConfig } from '@ngu/carousel';
@@ -12,7 +12,6 @@ import { intToOrdinalNumberString } from '@app/shared/utils';
 export class OfficeCardComponent implements OnInit, AfterViewInit {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
-  isMobileResolution: boolean;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
@@ -29,27 +28,11 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 
-  ngOnInit() {
-    if (window.innerWidth < 768) {
-      this.isMobileResolution = true;
-    } else {
-      this.isMobileResolution = false;
-    }
-  }
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
-  }
+  ngOnInit() { }
+
   openWorkSpace(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/office-space/rent/${slug}`]));
-    // window.open(url, '_blank');
-    if (this.isMobileResolution) {
-      this.router.navigate([url]);
-    } else {
-      window.open(url, '_blank');
-    }
+    window.open(url, '_blank');
   }
 
   getFloorSuffix(floor: number) {

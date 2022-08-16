@@ -3,7 +3,7 @@ import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { AppConfig } from '@core/interface/config.interface';
 import { Subscription } from 'rxjs';
 import { ConfigService } from '@core/services/config.service';
-import { Router } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

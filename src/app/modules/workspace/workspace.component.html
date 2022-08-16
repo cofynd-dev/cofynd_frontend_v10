@@ -122,14 +122,7 @@
 
                     <div class="sections about-section">
                         <h2>About this Space</h2>
-                        <div *ngIf="!isMobileResolution">
-                            <p class="mb-5 text-justify" [innerHTML]="workspace.description"> </p>
-                            </div>
-                        <div *ngIf="isMobileResolution">
-                        <p class="mb-5 text-justify" [innerHTML]="content"> </p>
-                        <a  *ngIf="!isContentToggled" (click)="toggleContent()" style="color: #4343e8;">Read More</a>
-                        <a  *ngIf="isContentToggled" (click)="toggleContent()" style="color: #4343e8;">Read Less</a>
-                        </div>
+                        <p class="mb-5 text-justify" [innerHTML]="workspace.description"> </p>
                         <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
                     </div>
                     <div class="sections price_area">
