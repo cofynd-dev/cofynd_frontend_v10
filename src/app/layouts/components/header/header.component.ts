@@ -12,6 +12,8 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AppConfig } from '@core/interface/config.interface';
 import { ConfigService } from '@core/services/config.service';
 import { environment } from '@env/environment';
+declare var $: any;
+
 
 @Component({
   selector: 'app-header',
@@ -35,6 +37,10 @@ export class HeaderComponent implements AfterViewInit {
   menuPopularCoWorkings: City[];
   menuPopularOffices: City[];
   menuPopularCoLiving: City[];
+  countries: any[] = [];
+  colivingCountries: any[] = [];
+  cities: any[] = [];
+  colivingCities: any[] = [];
 
   isMobileMenuOpen: boolean;
 
@@ -60,8 +66,31 @@ export class HeaderComponent implements AfterViewInit {
         this.showSearch = true;
       }
     });
-
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      for (const key in res.data) {
+        if (res.data[key].name == 'India' || res.data[key].name == 'india' || res.data[key].name == 'INDIA') {
+          res.data[key].flag_image = '/assets/images/country/india-flag.png'
+        }
+        if (res.data[key].name == 'singapore' || res.data[key].name == 'Singapore' || res.data[key].name == 'SINGAPORE') {
+          res.data[key].flag_image = '/assets/images/country/singapore-flag1.jpg'
+        }
+        if (res.data[key].name == 'Dubai' || res.data[key].name == 'dubai' || res.data[key].name == 'DUBAI') {
+          res.data[key].flag_image = '/assets/images/country/dubai-flag.png'
+        }
+      }
+      this.countries = res.data.filter(city => city.for_coWorking === true);
+      this.colivingCountries = res.data.filter(city => city.for_coLiving === true);
+      this.OnCountryClick('6231ae062a52af3ddaa73a39')
+    })
   }
+
+  OnCountryClick(countryId) {
+    this.workSpaceService.getCity(countryId).subscribe((res: any) => {
+      this.cities = res.data.filter(city => city.for_coWorking === true);
+      this.colivingCities = res.data.filter(city => city.for_coLiving === true);
+    })
+  }
+
 
   isAuthenticated() {
     return this.authService.getToken() ? true : false;
@@ -137,4 +166,26 @@ export class HeaderComponent implements AfterViewInit {
       }
     })
   }
+
+  function() {
+    // ------------------------------------------------------- //
+    // Multi Level dropdowns
+    // ------------------------------------------------------ //
+    $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      $(this).siblings().toggleClass("show");
+
+
+      if (!$(this).next().hasClass('show')) {
+        $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+      }
+      $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+        $('.dropdown-submenu .show').removeClass("show");
+      });
+
+    });
+  }
+
 }
