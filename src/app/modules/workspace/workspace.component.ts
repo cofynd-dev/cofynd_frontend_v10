@@ -68,7 +68,7 @@ export class WorkSpaceComponent implements OnInit {
   supportPhone = DEFAULT_APP_DATA.contact.phone;
   unsubscribe$: Subject<boolean> = new Subject();
   country_name: string;
-  private isMobileResolution: boolean;
+  isMobileResolution: boolean;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
