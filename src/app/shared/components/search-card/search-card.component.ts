@@ -1,7 +1,7 @@
 import { NguCarouselConfig } from '@ngu/carousel';
 import { environment } from '@env/environment';
 import { AuthService } from '@core/services/auth.service';
-import { Component, Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, OnChanges, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { WorkSpace } from '@app/core/models/workspace.model';
 import { UserService } from '@core/services/user.service';
@@ -21,7 +21,7 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() locality: string;
   @Input() forAll: boolean = true;
   loading: boolean;
-
+  private isMobileResolution: boolean;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
@@ -43,7 +43,19 @@ export class SearchCardComponent implements AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
   ) { }
-
+  ngOnInit() {
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.ngOnInit();
+    // this.getScreenWidth = window.innerWidth;
+    // this.getScreenHeight = window.innerHeight;
+  }
   openWorkSpace(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
@@ -54,7 +66,12 @@ export class SearchCardComponent implements AfterViewInit {
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     }
     if (
       (workspace.country_dbname !== 'india' &&
@@ -71,7 +88,12 @@ export class SearchCardComponent implements AfterViewInit {
         .toLowerCase()
         .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     }
 
     if (
@@ -81,7 +103,12 @@ export class SearchCardComponent implements AfterViewInit {
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     }
 
     if (
@@ -99,7 +126,12 @@ export class SearchCardComponent implements AfterViewInit {
         .toLowerCase()
         .trim()}/co-living-details/${workspace.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     }
 
   }
