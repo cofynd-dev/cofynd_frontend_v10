@@ -129,8 +129,8 @@ export class WorkSpaceComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
-  ngAfterViewInit() {}
+  ngOnInit() { }
+  ngAfterViewInit() { }
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
       icon: icon({
@@ -254,7 +254,7 @@ export class WorkSpaceComponent implements OnInit {
         `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
         {},
       )
-      .then(function(response) {
+      .then(function (response) {
         console.log(response);
       });
   }
