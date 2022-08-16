@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { intToOrdinalNumberString } from '@app/shared/utils';
 import { NguCarouselConfig } from '@ngu/carousel';
@@ -12,6 +12,7 @@ import { CoLiving } from '../../co-living/co-living.model';
 export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @Input() coLiving: CoLiving;
   @Input() loading: boolean;
+  isMobileResolution: boolean;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
@@ -26,9 +27,21 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize($event: Event): void {
+    this.ngOnInit();
+    // this.getScreenWidth = window.innerWidth;
+    // this.getScreenHeight = window.innerHeight;
+  }
 
   openWorkSpace(coLiving) {
     console.log(coLiving);
@@ -41,11 +54,21 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
         .toLowerCase()
         .trim()}/co-living-details/${coLiving.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     } else {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${coLiving.slug}`]));
-      this.router.navigate([url]);
-      window.open(url, '_blank');
+      // this.router.navigate([url]);
+      // window.open(url, '_blank');
+      if (this.isMobileResolution) {
+        this.router.navigate([url]);
+      } else {
+        window.open(url, '_blank');
+      }
     }
   }
 
