@@ -506,17 +506,3 @@ a+a {
         right: 22px;
     }
 }
-
-//css for new mobile menu
-.onlyMobile {
-    display: none;
-    @media (max-width: 480px) {
-        display: block;
-    }
-}
-
-.hideOnMobile {
-    @media (max-width: 480px) {
-        display: none !important;
-    }
-}
