@@ -2,18 +2,18 @@
     <div class="header-wrapper">
         <div class="top-left">
             <button type="button" (click)="openMobileSearch()" class="far fa-search mobile-search">
-            </button>
+      </button>
             <a (click)="logoClick()" class="logo" routerLink="/">
                 <img src="/assets/images/logo.svg" alt="">
             </a>
             <button (click)="openMobileMenu()" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
             <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
                 <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
-                </button>
+        </button>
                 <app-search-autocomplete [placeholder]="'Start typing location'" (locationSelected)="closeMobileSearch()">
                 </app-search-autocomplete>
             </div>
@@ -33,11 +33,17 @@
                     </app-dropdown-item>
                 </li>
                 <li class="no-tablet">
+                    <!-- <app-dropdown-item [relativeUrl]="'/office-space/rent/'" [title]="'Flats'" [cities]="menuPopularFlats" [isSingle]="true">
+                    </app-dropdown-item> -->
+                    <app-dropdown-item [relativeUrl]="'/flatspace/'" [title]="'FlatSpace'" [cities]="menuPopularFlats">
+                    </app-dropdown-item>
+                </li>
+                <li class="no-tablet">
                     <div class="btn-group dropdown-list-menu" dropdown>
                         <button dropdownToggle type="button">
-                            <span>Knowledge <i class="icon-down-arrow fal fa-angle-down"></i></span>
-                            <i class="icon-down-arrow"></i>
-                        </button>
+              <span>Knowledge <i class="icon-down-arrow fal fa-angle-down"></i></span>
+              <i class="icon-down-arrow"></i>
+            </button>
                         <ul *dropdownMenu class="dropdown-menu">
                             <li><a routerLink="/list-your-space">List your Space</a></li>
                             <li><a routerLink="/about-us">About CoFynd</a></li>
@@ -48,24 +54,22 @@
                 </li>
                 <li class="divider-line mobile-phone-menu no-tablet">
                     <a [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}
-                        </a>
-                    <a class="onlyMobile" *ngIf="phoneflag" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a>
-                    <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + contactInfo.email " [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email}}</a>
+          </a>
                 </li>
                 <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
-                            Signup</button>
+              Signup</button>
                     </div>
                 </li>
                 <li *ngIf="isAuthenticated()" class="no-tablet">
                     <div class="btn-group user-header-menu" dropdown>
                         <button dropdownToggle type="button">
-                            <span class="user-name">
-                                {{ getUserName() }}
-                            </span>
-                            <i class="icon-down-arrow"></i>
-                        </button>
+              <span class="user-name">
+                {{ getUserName() }}
+              </span>
+              <i class="icon-down-arrow"></i>
+            </button>
                         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
                             <li>
                                 <a routerLink="/user/account">My Account</a>
@@ -91,7 +95,7 @@
             </ul>
         </div>
     </div>
-    <div class="mobile-menu-wrapper hideOnMobile" [class.show-offcanvas]="isMobileMenuOpen">
+    <div class="mobile-menu-wrapper" [class.show-offcanvas]="isMobileMenuOpen">
         <ul class="mobile-menu">
             <li class="mobile-close-menu">
                 <button type="button" *ngIf="isMobileMenuOpen" (click)="isMobileMenuOpen = false;" class="icon-close fas fa-times"></button>
@@ -99,8 +103,8 @@
             <li class="spacer-item" *ngIf="!isAuthenticated()">
                 <div class="btn btn-primary login-btn">
                     <button type="button" (click)="openLoginModal()">
-                        <h5>Log In/Sign Up</h5>
-                    </button>
+            <h5>Log In/Sign Up</h5>
+          </button>
                 </div>
             </li>
             <li class="logged-user-item" *ngIf="isAuthenticated()">
@@ -173,99 +177,11 @@
                 <h5>GET IN TOUCH</h5>
             </li>
             <li>
-                <a (click)="closeMobileMenu()" style="color: blue;" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{
-                    contactInfo.phone }}
-                </a>
+                <a (click)="closeMobileMenu()" style="color: blue;" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}
+        </a>
                 <a style="text-transform: none; color: blue;">hello@cofynd.com
-                </a>
+        </a>
             </li>
         </ul>
     </div>
-
-
-    <!-- new mobile menu -->
-    <header class="main_header fixed-top bg-light onlyMobile">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand mobile_space" href="/"><img src="../../../../assets/images/logo.svg" alt="Cofynd" class="img-fluid"></a>
-                <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav justify-content-end">
-                        <!-- Level one dropdown -->
-                        <li class="nav-item dropdown">
-                            <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coworking</a>
-                            <!-- <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
-                                <li class="dropdown-submenu" *ngFor="let country of countries">
-                                    <ng-container *ngIf="country.id === '6231ae062a52af3ddaa73a39'">
-                                        <a id="dropdownMenu2" role="button" (click)="OnCountryClick(country.id)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle"><img [src]="country.flag_image" [alt]="country.name" class="img-fluid"> {{country.name}}</a>
-                                    </ng-container> -->
-                            <ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
-                                <li *ngFor="let city of cities" class="cities-list">
-                                    <a tabindex="-1" class="dropdown-item" [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city.image.s3_link">{{city.name}}</a>
-                                </li>
-                                <!-- <li><a class="dropdown-item" [routerLink]="'/coworking/'">View All</a></li> -->
-                            </ul>
-                            <!-- </li>
-                            </ul> -->
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coliving</a>
-                            <!-- <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
-                                <li class="dropdown-submenu" *ngFor="let country of colivingCountries">
-                                    <ng-container *ngIf="country.id === '6231ae062a52af3ddaa73a39'">
-                                        <a id="dropdownMenu2" role="button" data-toggle="dropdown" (click)="OnCountryClick(country.id)" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle"><img [src]="country.flag_image" [alt]="country.name" class="img-fluid">{{country.name}}</a>
-                                    </ng-container> -->
-                            <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-                                <li *ngFor="let city of colivingCities" class="cities-list">
-                                    <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city.image.s3_link">{{city.name}}</a>
-                                </li>
-                                <!-- <li><a class="dropdown-item" [routerLink]="'/co-living/'">View All</a></li> -->
-                            </ul>
-                            <!-- </li>
-                            </ul> -->
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Offices</a>
-                            <!-- <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow"> -->
-                            <!-- Level two dropdown-->
-                            <!-- <li class="dropdown-submenu"> -->
-                            <!-- <a id="dropdownMenu2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">India</a> -->
-                            <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-                                <li *ngFor="let office of menuPopularOffices" class="cities-list">
-                                    <a tabindex="-1" class="dropdown-item" [routerLink]="'/office-space/rent/' + office.name.toLowerCase()"><img [src]="'/assets/images/city/' + office.icon">{{office.name}}</a>
-                                </li>
-                                <!-- <li><a class="dropdown-item" [routerLink]="'/office-space/rent/'">View All</a></li> -->
-                            </ul>
-                            <!-- </li> -->
-                            <!-- </ul> -->
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Knowledge</a>
-                            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
-                                <!-- Level two dropdown-->
-                                <li><a class="dropdown-item" routerLink="/list-your-space">List your Space</a></li>
-                                <li><a class="dropdown-item" routerLink="/about-us">About CoFynd</a></li>
-                                <li><a class="dropdown-item" routerLink="/contact-us">Contact CoFynd</a></li>
-                                <li><a class="dropdown-item" (click)="redirectToblog()">Cofynd Blog</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Level one -->
-                        <li class="divider-line mobile-phone-menu ">
-                            <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>
-                        </li>
-                        <li class="login_btn">
-                            <div class="btn-group">
-                                <button class="btn btn-primary login-btn" type="button" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
-                                    Signup</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
 </header>
