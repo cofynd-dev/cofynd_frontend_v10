@@ -52,11 +52,7 @@ export class WorkSpaceComponent implements OnInit {
   marker: google.maps.Marker;
   infoWindow: google.maps.InfoWindow;
   mapMarkerImage = '/assets/images/marker.png';
-  content: any;
-  limit: any = 250;
-  isContentToggled: boolean;
-  nonEditedContent: string;
-  // Sticky Header
+
   // Sticky Header
   isStickyHeaderVisible = VisibilityState.Hidden;
   visibilityState = VisibilityState;
@@ -68,7 +64,7 @@ export class WorkSpaceComponent implements OnInit {
   supportPhone = DEFAULT_APP_DATA.contact.phone;
   unsubscribe$: Subject<boolean> = new Subject();
   country_name: string;
-  isMobileResolution: boolean;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
@@ -133,20 +129,8 @@ export class WorkSpaceComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    if (window.innerWidth < 768) {
-      this.isMobileResolution = true;
-    } else {
-      this.isMobileResolution = false;
-    }
-  }
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
-  }
-  ngAfterViewInit() { }
+  ngOnInit() {}
+  ngAfterViewInit() {}
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
       icon: icon({
@@ -159,32 +143,12 @@ export class WorkSpaceComponent implements OnInit {
     });
     this.markers.push(newMarker);
   }
-  formatContent(content: string) {
-    if (true) {
-      this.limit = content.substr(0, this.limit).lastIndexOf(' ');
-    }
-    return `${content.substr(0, this.limit)}...`;
-  }
-  toggleContent() {
-    console.log("***", this.workspace.description)
 
-    this.isContentToggled = !this.isContentToggled;
-    if (this.isContentToggled) {
-      console.log("true");
-      this.content = this.workspace.description;
-    } else {
-      console.log("false");
-      this.content = this.formatContent(this.workspace.description)
-    }
-    // this.content = this.isContentToggled ? this.nonEditedContent : this.formatContent(this.content);
-  }
   getWorkSpace(workspaceId: string) {
     this.loading = true;
     this.workSpaceService.getWorkspace(workspaceId).subscribe(
       workspaceDetail => {
         this.workspace = workspaceDetail;
-        this.content = this.workspace.description;
-        this.content = this.formatContent(this.content);
         this.country_name = this.workspace.country_dbname;
         if (
           this.workspace.country_dbname === 'india' ||
@@ -290,7 +254,7 @@ export class WorkSpaceComponent implements OnInit {
         `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
         {},
       )
-      .then(function (response) {
+      .then(function(response) {
         console.log(response);
       });
   }
