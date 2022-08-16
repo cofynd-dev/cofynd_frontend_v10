@@ -20,6 +20,7 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() city: string;
   @Input() locality: string;
   @Input() forAll: boolean = true;
+  @HostListener('window:resize', ['$event'])
   loading: boolean;
   isMobileResolution: boolean;
   carouselTile: NguCarouselConfig = {
@@ -42,19 +43,23 @@ export class SearchCardComponent implements AfterViewInit {
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-  ) { }
-  ngOnInit() {
+  ) {
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
       this.isMobileResolution = false;
     }
   }
-  @HostListener('window:resize', ['$event'])
+  ngOnInit() {
+
+  }
+
   onWindowResize() {
-    this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
   }
   openWorkSpace(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
