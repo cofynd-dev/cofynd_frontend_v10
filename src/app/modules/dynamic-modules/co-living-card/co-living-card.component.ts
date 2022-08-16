@@ -11,7 +11,7 @@ import { CoLiving } from '../../co-living/co-living.model';
 })
 export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @Input() coLiving: CoLiving;
-  private isMobileResolution: boolean;
+  isMobileResolution: boolean;
   @Input() loading: boolean;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },

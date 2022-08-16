@@ -12,7 +12,7 @@ import { intToOrdinalNumberString } from '@app/shared/utils';
 export class OfficeCardComponent implements OnInit, AfterViewInit {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
-  private isMobileResolution: boolean;
+  isMobileResolution: boolean;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
