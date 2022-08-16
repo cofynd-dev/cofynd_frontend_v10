@@ -38,7 +38,7 @@ declare let ga: any;
   ],
 })
 export class WorkspaceEnquireComponent implements OnInit, OnChanges {
-  supportPhone = DEFAULT_APP_DATA.contact.phone;
+  supportPhone = DEFAULT_APP_DATA.contact;
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
   @Input() isOfficeEnquiry: boolean;
@@ -49,7 +49,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   enquiryForm: FormGroup;
   loading: boolean;
   user: User;
-
+  phoneflag: boolean = true;
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
@@ -88,6 +88,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     private helperService: HelperService,
     private router: Router,
   ) {
+    if (router.url.search(/co-living/i) != -1) {
+      this.phoneflag = false;
+    }
     this.buildForm();
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
