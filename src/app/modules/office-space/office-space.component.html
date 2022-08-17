@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-md-4" (click)="openModalWithComponent('Raw Office')">
                     <div class="benifits p-5">
-                        <img src="https://alexandro.in/img/icon/icons8-term-100.png" class="img-fluid d-block img50 mb-3" alt="Raw Office Space">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7eff3b3914ae9e63bade3d5eef14f0c7dba9a26e.png" class="img-fluid d-block img50 mb-3" alt="Raw Office Space">
                         <p><span class="pb-2 yellow-border">Looking for</span></p>
                         <p class="font-20 mb-1 mt-4"><strong>Raw Office Space</strong></p>
                         <p>Starting from <span class="blue-text"><strong>&#8377; 40/- sqft</strong></span></p>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-md-4" (click)="openModalWithComponent('Furnished Office')">
                     <div class="benifits p-5">
-                        <img src="../../../assets/images/office-space/briefcase.png" class="img-fluid d-block img50 mb-3" alt="Furnished Office Space">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/015afe4ca305dbf84454df2f357eb1733db2bb77.png" class="img-fluid d-block img50 mb-3" alt="Furnished Office Space">
                         <p><span class="pb-2 yellow-border">Looking for</span></p>
                         <p class="font-20 mb-1 mt-4"><strong>Furnished Office Space</strong></p>
                         <p>Starting from <span class="blue-text"><strong>&#8377; 70/- sqft</strong></span></p>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-md-4" (click)="openModalWithComponent('Customized Office')">
                     <div class="benifits p-5">
-                        <img src="../../../assets/images/office-space/office-365.png" class="img-fluid d-block img50 mb-3" alt="Customized Furnished Office Space">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/31f9edb034fb48b2e2c03e6e3467e4d0dac48f7e.png" class="img-fluid d-block img50 mb-3" alt="Customized Furnished Office Space">
                         <p><span class="pb-2 yellow-border">Looking for</span></p>
                         <p class="font-20 mb-1 mt-4"><strong>Customized Office Space</strong></p>
                         <p>Starting from <span class="blue-text"><strong>&#8377; 100/- sqft</strong></span></p>
@@ -274,7 +274,7 @@
         </app-home-brand-list>
     </section>
 
-    <section class="listSpaceBox">
+    <!-- <section class="listSpaceBox">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -282,6 +282,25 @@
                         <img src="../../../assets/images/listYourSpace.jpg" style="cursor: pointer;" class="enquiry-box forLapT" alt="Co Working Spaces" />
                         <img src="../../../assets/images/listYourSpaceMobile.jpg" style="cursor: pointer;" class="enquiry-box forMob" alt="Co Working Spaces" />
                     </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="cta_section hideOnMobile">
+        <div class="container">
+            <div class="cta_area">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <div class="cta_content">
+                            <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                            <p>List for free, set your price and rest all things leave on our expert. Stay organized, manage leads, and track your earnings - all in one place.</p>
+                            <a routerLink="/list-your-space" class="btn site_btn">List Your Space</a>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6adb6d29795833ce274d687efce84be6e124ef9f.png" alt="" class="img-fluid">
+                    </div>
                 </div>
             </div>
         </div>
@@ -328,40 +347,43 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
+    <section class="faq faqs_section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-title">
-                        <h2>Frequently Asked Questions (FAQs)</h2>
-                        <p>Here are the frequently asked questions that people enquired online before choosing an office space. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
-                    </div>
-                    <accordion [isAnimated]="true">
+                    <div class="faq_content">
+                        <div class="page-title">
+                          <h2>Frequently Asked Questions</h2>
+                        </div>
+                        <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a
+                            virtual office. We have gathered the most crucial ones and answer here to help you in making the right decision. </p>
+                      </div>
+                    <accordion [isAnimated]="true" class="faqs_accordion">
                         <accordion-group>
                             <h4 accordion-heading>
                                 Q- What are the benefits of an office space?
-                                <i class="icon-arrow-down"></i>
+                                <i class="icon-arrow-down fal fa-angle-down"></i>
                             </h4>
                             <p>Ans. An office space offers benefits like a great amount of privacy, high concentration, healthy atmosphere, regular cleaning, full of amenities, prestige and more.</p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
                                 Q- What are the types of office space?
-                                <i class="icon-arrow-down"></i>
+                                <i class="icon-arrow-down fal fa-angle-down"></i>
                             </h4>
                             <p>Ans. The types of an office space are serviced, managed, leased and subleased.</p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
                                 Q- Who should choose an office?
-                                <i class="icon-arrow-down"></i>
+                                <i class="icon-arrow-down fal fa-angle-down"></i>
                             </h4>
                             <p>Ans. An office space is suitable for both large and small enterprises.</p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
                                 Q- Where are office spaces most popular in India?
-                                <i class="icon-arrow-down"></i>
+                                <i class="icon-arrow-down fal fa-angle-down"></i>
                             </h4>
                             <p>Ans. office spaces are most popular in <a href="https://cofynd.com/office-space/rent/delhi">Delhi</a>,
                                 <a href="https://cofynd.com/office-space/rent/gurugram">Gurgaon</a>, <a href="https://cofynd.com/office-space/rent/mumbai">Mumbai</a>, <a href="https://cofynd.com/office-space/rent/pune">Pune</a>, <a href="https://cofynd.com/office-space/rent/bangalore">Bangalore</a>                                and <a href="https://cofynd.com/office-space/rent/noida">Noida</a>.
@@ -370,7 +392,7 @@
                         <accordion-group>
                             <h4 accordion-heading>
                                 Q- Are visitors allowed in an office space?
-                                <i class="icon-arrow-down"></i>
+                                <i class="icon-arrow-down fal fa-angle-down"></i>
                             </h4>
                             <p>Ans. Yes, visitors can be taken to your cabin. </p>
                         </accordion-group>
@@ -396,7 +418,7 @@
 <!-- mobile view seprated html -->
 
 <div class="wrapper onlyMobile">
-    <section class="innerpage_banner" style="background-image: url('../../../assets/images/virtual-office-banner-img.jpg');">
+    <section class="innerpage_banner" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg');">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-12">
@@ -461,28 +483,32 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="icon_box mb-3">
-                        <img src="../../../assets/images/price-icon.png" alt="">
-                        <h4>Exclusive Pricing</h4>
-                    </div>
+                  <div class="icon_box mb-3">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png"
+                      alt="">
+                    <h4>Exclusive Pricing</h4>
+                  </div>
                 </div>
                 <div class="col-6">
-                    <div class="icon_box mb-3">
-                        <img src="../../../assets/images/trusted-icon.png" alt="">
-                        <h4>Verified Spaces</h4>
-                    </div>
+                  <div class="icon_box mb-3">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png"
+                      alt="">
+                    <h4>Verified Spaces</h4>
+                  </div>
                 </div>
                 <div class="col-6">
-                    <div class="icon_box mb-0">
-                        <img src="../../../assets/images/support-icon.png" alt="">
-                        <h4>100% Support</h4>
-                    </div>
+                  <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png"
+                      alt="">
+                    <h4>100% Support</h4>
+                  </div>
                 </div>
                 <div class="col-6">
-                    <div class="icon_box mb-0">
-                        <img src="../../../assets/images/brokerage-icon.png" alt="">
-                        <h4>Zero Brokerage</h4>
-                    </div>
+                  <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png"
+                      alt="">
+                    <h4>Zero Brokerage</h4>
+                  </div>
                 </div>
             </div>
         </div>
@@ -502,7 +528,7 @@
                     <div class="curated-box">
                         <div class="curated-item" (click)="onClick('raw')">
                             <div class="curated-img">
-                                <img src="../../../assets/images/raw-office-img.jpg" alt="Raw Office" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfd31a363339982b0669301c5214fc454ec5529e.jpg" alt="Raw Office" class="img-fluid">
                             </div>
                             <div class="curated-content">
                                 <h4>Raw Office</h4>
@@ -515,7 +541,7 @@
                     <div class="curated-box">
                         <div class="curated-item" (click)="onClick('fully-furnished')">
                             <div class="curated-img">
-                                <img src="../../../assets/images/furnished-office-img.jpg" alt="Furnished Office" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e3dbfd1e6e359cc6ca02cbbbc072feac17ef5e2.jpg" alt="Furnished Office" class="img-fluid">
                             </div>
                             <div class="curated-content">
                                 <h4>Furnished Office</h4>
@@ -528,7 +554,7 @@
                     <div class="curated-box">
                         <div class="curated-item" (click)="onClick('build-to-suite')">
                             <div class="curated-img">
-                                <img src="../../../assets/images/built-to-suit-office-img.jpg" alt="Built to Suit Office" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/158e89700617ca5cc7e3399b81e5989855c45103.jpg" alt="Built to Suit Office" class="img-fluid">
                             </div>
                             <div class="curated-content">
                                 <h4>Built to Suit Office</h4>
@@ -570,7 +596,26 @@
         </div>
     </div>
 
-    <section class="cta_section coworking_cta">
+    <section class="cta_section coworking_cta onlyMobile">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="cta_area"
+              style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png');">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <p>Hurry in choosing your <span style="color:#1313E6;">ideal space</span>?</p>
+                        <a (click)="openModalWithComponent('virtual office')" class="btn site_btn">Enquire Now</a>
+                    </div>
+                </div>
+              <div class="col-4 text-center">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5467e3692d83f3981265b79a160c9c18208f65d1.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- <section class="cta_section coworking_cta">
         <div class="container">
             <div class="row align-items-center">
                 <div class="cta_area" style="background-image: url('../../../assets/images/cta-pattern-img.png');">
@@ -586,7 +631,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <section class="amenities_sec">
@@ -677,18 +722,29 @@
             <div class="row">
                 <div class="col-12">
                     <div class="logos_slider">
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo1.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo2.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo3.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo4.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo5.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'../../../assets/images/client-logo6.png'" alt="" class="img-fluid"></div>
-                    </div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                      </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <section class="properties_section">
         <div class="container">
@@ -704,7 +760,7 @@
                     <div class="space_carousel">
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/1421-sq-ft-in-jmd-megapolis-image.jpg" alt="1421 sq.ft. in JMD Megapolis" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f241e63ec1ade4b859752bbe5324f94a5b525c03.jpg" alt="1421 sq.ft. in JMD Megapolis" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>1421 sq.ft. in JMD Megapolis</h4>
@@ -715,7 +771,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/2900-sqft-fully-furnished-welldone-tech-park-img.jpg" alt="Altf MG Road" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/920a54620d8a31f0086c71c9932a1ceb5d1612a2.jpg" alt="2900 sq.ft. in Welldone Tech Park" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>2900 sq.ft. in Welldone Tech Park</h4>
@@ -726,7 +782,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/3048-sqft-fully-furnished-suncity-business-tower-img.jpg" alt="AltF MG Road" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/41a26d7d699caa932932b69a7d46aee6d2ab06c8.jpg" alt="AltF MG Road" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>3048 sq.ft. in Suncity Business Tower</h4>
@@ -737,7 +793,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/3400-sqft-corporate-park-img.jpg" alt="Fume" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/711bf08eb20b2a58db9402ca28f5daa7edf4eff0.jpg" alt="3400 sq.ft. in Sewa Corporate Park" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>3400 sq.ft. in Sewa Corporate Park</h4>
@@ -748,7 +804,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/2900-sqft-magnum-towers-img.jpg" alt="Plus Offices Sector 67" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e5b5109009eb3d56b8aa47d01e5942b626f3bdfc.jpg" alt="2900 sq.ft. in Magnum Towers" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>2900 sq.ft. in Magnum Towers</h4>
@@ -777,7 +833,7 @@
                     <div class="space_carousel">
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/1821-sqft-dlf-towers-img.jpg" alt="1,821 sq.ft. in DLF Towers" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd1d0e31239d63cab09c1660bbb52af362b4acf3.jpg" alt="1,821 sq.ft. in DLF Towers" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>1,821 sq.ft. in DLF Towers</h4>
@@ -788,7 +844,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/2944-sqft-abw-elegance-tower-img.jpg" alt="2,944 sq.ft. in ABW Elegance Tower" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b273ca2939923b3f25f4e964397274bb94007e7c.jpg" alt="2,944 sq.ft. in ABW Elegance Tower" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>2,944 sq.ft. in ABW Elegance Tower</h4>
@@ -799,7 +855,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/1220-sqft-omaxe-square-img.jpg" alt="1,220 sq.ft. in Omaxe Square" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7fefd619dcf5f49bccc85c95fe3e4508ac4d7bee.jpg" alt="1,220 sq.ft. in Omaxe Square" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>1,220 sq.ft. in Omaxe Square</h4>
@@ -810,7 +866,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/1880-sqft-uppals-m6-img.jpg" alt="1,880 sq.ft. in Uppal's M6" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f24bf0ad7098d213b43ad07b69d7201c19f1bc1a.jpg" alt="1,880 sq.ft. in Uppal's M6" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>1,880 sq.ft. in Uppal's M6</h4>
@@ -850,7 +906,7 @@
                     <div class="space_carousel">
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/6619-sqft-advant-navis-business-park-img.jpg" alt="6,619 sq.ft. in Advant Navis Business Park" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2de07376fe17336d28ce950ae3114165d9af79c9.jpg" alt="6,619 sq.ft. in Advant Navis Business Park" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>6,619 sq.ft. in Advant Navis Business Park</h4>
@@ -861,7 +917,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/15000-sqft-the-search-house-img.jpg" alt="15,000 sq.ft. in The Search House" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/63c4ae71332db0ec20dbc069bfb9eda0e16d0147.jpg" alt="15,000 sq.ft. in The Search House" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>15,000 sq.ft. in The Search House</h4>
@@ -872,7 +928,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/4700-sqft-sector-67-noida-img.jpg" alt="4700 sq.ft. in Sector 67 Noida" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e84ae611622c9b63c7ae2283b79a65a046761bb5.jpg" alt="4700 sq.ft. in Sector 67 Noida" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>4700 sq.ft. in Sector 67 Noida</h4>
@@ -883,7 +939,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/4000-sqft-sector-132-noida-img.jpg" alt="4,000 sq.ft. in Sector 132 Noida" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cca71e5370c5924503266cc5768840868657441a.jpg" alt="4,000 sq.ft. in Sector 132 Noida" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>4,000 sq.ft. in Sector 132 Noida</h4>
@@ -894,7 +950,7 @@
                         </div>
                         <div class="property-item">
                             <div class="property-img">
-                                <img src="../../../assets/images/properties-img/1000-sqft-sector-135-noida-img.jpg" alt="1,000 sq.ft. in Sector 135, Noida" class="img-fluid">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1f5a04fe2ea86662ed358a686fd418f17687e641.jpg" alt="1,000 sq.ft. in Sector 135, Noida" class="img-fluid">
                             </div>
                             <div class="properties-content">
                                 <h4>1,000 sq.ft. in Sector 135, Noida</h4>
@@ -951,7 +1007,7 @@
                         </div>
                     </div>
                     <div class="col-4 text-center">
-                        <img src="../../../assets/images/cta-img.png" alt="" class="img-fluid">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6adb6d29795833ce274d687efce84be6e124ef9f.png" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -1023,7 +1079,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="cofynd-desk text-center">
-                        <img style="max-height: 200px;" src="/assets/images/about-us/work-desk.png" alt="">
+                        <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
                         <h4>What's the CoFynd Desk?</h4>
                         <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
                             Climb to their highest in life.</p>
