@@ -5,7 +5,7 @@
         padding: 50px 0;
     }
     .banner-bg {
-        background: url('/assets/images/home/banner-1.webp') no-repeat top right;
+        background: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7a43d15d2a9cd0f772a52bede9ab214e01c66c06.jpg') no-repeat top right;
         width: 50%;
         position: absolute;
         right: 0;
@@ -310,7 +310,7 @@
             left: 0;
             top: 0;
             bottom: 0;
-            background: #4243e8 url('/assets/images/home/pattern-eye.png') no-repeat center left;
+            background: #4243e8 url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87cfbfcb25f50514da9d59458eb4f77934b4e2b3.png') no-repeat center left;
             height: 100%;
             border-radius: 0 0 100px 0;
         }
@@ -379,7 +379,7 @@
                     background: url('/assets/images/home/fee.svg') no-repeat center center;
                 }
                 &.wt-icon-Coupon {
-                    background: url('/assets/images/home/day-pass.svg') no-repeat center center;
+                    background: url('/assets/images/home/exclusive-brand-coupons.svg') no-repeat center center;
                 }
                 @media (max-width: 480px) {
                     top: 0;
@@ -1000,7 +1000,7 @@ ul {
 .partners {
     // padding: 0 9%;
     overflow: hidden;
-    background: #fff url(../../../assets/images/pattern-bg.png) no-repeat center center;
+    background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
   
     &.grey-layout {
       background: #f8f9fa;
@@ -1104,7 +1104,6 @@ ul {
       padding: 20px 0;
     }
   }
-  
 //   .cta_section {
 //     padding-top: 10px;
 //     padding-bottom: 10px;
@@ -1151,8 +1150,6 @@ ul {
 	object-fit: cover;
 	height: 120px;
 }
-
-
 
 /**************  Responsive  *************/
 
@@ -1358,7 +1355,7 @@ ul {
         margin: 0px 5px;
     }
     .client_logo_sec {
-        padding: 20px 0px !important;
+        padding: 20px 0px 5px !important;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -1447,7 +1444,6 @@ ul {
     .cta_content {
         padding: 10px 0px;
     }
-    
     
     .space_search_made_sec {
         background: #F8F8F8;

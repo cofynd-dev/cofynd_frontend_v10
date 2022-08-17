@@ -1,5 +1,5 @@
 .wrapper .banner .office-banner-bg {
-    background: url('../../../assets/images/home/office-space_banner.jpg') no-repeat top right;
+    background: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg') no-repeat top right;
     width: 50%;
     position: absolute;
     right: 0;
@@ -108,6 +108,9 @@
 /**************  Responsive  *************/
 
 @media (max-width: 480px) {
+    .innerpage_banner::before {
+	background-color: rgba(0, 0, 0, 0.6);
+}
     .innerpage_banner {
         padding: 40px 10px;
         background-repeat: no-repeat;
@@ -464,8 +467,8 @@
     //     margin-bottom: 0px;
     // }
     .looking_sec {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
     }
     .looking_box h3 {
         margin-bottom: 10px;

@@ -98,7 +98,7 @@
 }
 
 .wrapper .banner .banner-bg {
-  background     : url('../../../assets/images/home/coworkingBanner.jpg') no-repeat top right;
+  background     : url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg') no-repeat top right;
   width          : 50%;
   position       : absolute;
   right          : 0;
@@ -177,7 +177,7 @@
   /*first section start*/
   .top-search {
     // background-image: url(images/coliving-landing-top.jpg);
-    background-image: url('../../../assets/images/coworking/coworking-landing-top.jpg');
+    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d76dbae3fc984d286d56580f607710430cfea5a.jpg');
     background-size : cover;
     height          : 60vh;
   }
@@ -425,7 +425,7 @@
 
   .partners {
     overflow  : hidden;
-    background: #fff url(../../../assets/images/pattern-bg.png) no-repeat center center;
+    background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
 
     .page-title {
       padding: 16px 0 !important;
@@ -556,6 +556,10 @@
   }
   .search-bar {
     margin: 10px 0px 0px;
+  }
+  .near-coworking-spaces {
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
   }
   .top-coliving-spaces a .mb-4 {
     margin-bottom: 0px !important;
