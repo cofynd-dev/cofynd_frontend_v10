@@ -14,6 +14,7 @@ export class LocationIqImportComponent implements OnInit {
     ],
     zoom: 7,
     attributionControl: false,
+    dragging: false,
     center: latLng(28.6326204, 77.22187869999999)
   };
 

@@ -74,6 +74,7 @@ export class SearchMapViewComponent implements OnInit {
       ],
       zoom: 12,
       attributionControl: false,
+      dragging: false,
       center: latLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0])
     }
     for (const workspace of workspaces) {
