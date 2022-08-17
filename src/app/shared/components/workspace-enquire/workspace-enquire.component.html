@@ -1,0 +1,105 @@
+<div #enquireBox class="enquire-box" [class.fixed]="isSticky" [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
+    <div class="enquire-box-content" [@shake]="shakeTheForm" (@shake.done)="animationChanged($event)">
+        <div class="title">
+            <h4>
+                <button type="button" class="icon-left fas fa-arrow-left" (click)="onClose()">
+        </button> Enquire Now
+            </h4>
+        </div>
+
+        <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS" class="success-box">
+            <app-check-mark-circle></app-check-mark-circle>
+            <h6>Hi! {{ user.name }}</h6>
+            <h3>Thank You for Your Query</h3>
+            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
+            <a href="/coworking">Search More Spaces</a>
+        </div>
+
+        <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form-layout-outline" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+
+            <div [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+
+                <div class="form-group floating-label">
+                    <input class="form-control" type="text" formControlName="name" appMaterialInput />
+                    <label>Full Name</label>
+                    <app-input-validation [control]="enquiryForm.controls.name">
+                    </app-input-validation>
+                </div>
+
+                <div class="form-group floating-label">
+                    <input class="form-control" type="text" formControlName="email" appMaterialInput />
+                    <label>Email Id</label>
+                    <app-input-validation [control]="enquiryForm.controls.email">
+                    </app-input-validation>
+                </div>
+
+                <div class="form-group floating-label">
+                    <input class="form-control" type="text" formControlName="phone_number" appMaterialInput />
+                    <label>Mobile Number</label>
+                    <app-input-validation [control]="enquiryForm.controls.phone_number">
+                    </app-input-validation>
+                </div>
+            </div>
+
+
+            <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                <input class="form-control" type="password" formControlName="otp" appMaterialInput autofocus />
+                <label>OTP</label>
+                <app-input-validation [control]="enquiryForm.controls.otp">
+                </app-input-validation>
+            </div>
+
+            <div class="row no-gutters" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
+                <div class="col-sm-7">
+                    <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
+                </div>
+                <div class="col-sm-5">
+                    <ng-select placeholder="No of seats" [clearable]="false" [searchable]="false" formControlName="no_of_person">
+                        <ng-option value="1-10">1-10</ng-option>
+                        <ng-option value="11-20">11-20</ng-option>
+                        <ng-option value="21-50">21-50</ng-option>
+                        <ng-option value="51-100">51-100</ng-option>
+                        <ng-option value="100+">100++</ng-option>
+                        <ng-option value="Enterprise_Solutions">Enterprise Solutions</ng-option>
+                        <ng-option value="Customised_solutions">Customised solutions</ng-option>
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.no_of_person">
+                    </app-input-validation>
+                </div>
+            </div>
+
+            <div class="row no-gutters" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
+                <div class="col-sm-12">
+                    <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" [appLoadingButton]="loading">
+        {{ btnLabel }}
+      </button>
+
+        </form>
+    </div>
+    <div *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS" class="enquiry-footer">
+        <div class="get-in-content">
+            <img src="/assets/images/dipika-img.png" alt="">
+            <div class="get-in-text">
+                <h5>Get in touch</h5>
+                <p>
+                    <a *ngIf="phoneflag" [href]="'tel:' + supportPhone.phone">{{ supportPhone.phone }}</a>
+                    <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + supportPhone.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ supportPhone.email }}</a>
+                   
+                </p>
+            </div>
+        </div>
+        <p class="term-text">By clicking the above button you agree to our Terms of Service and have read and understood our
+            <a routerLink="/privacy-policy">Privacy Policy</a></p>
+    </div>
+</div>

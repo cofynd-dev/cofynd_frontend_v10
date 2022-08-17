@@ -1,0 +1,11 @@
+<app-home-city-dropdown [isModalView]="true"
+  [cityLabel]="'Where do you need space?'"
+  [typeLabel]="'I am looking for'"
+  [isCoworking]="isCoworking"
+  [isCoLiving]="isCoLiving"
+  [isOffice]="isOffice"
+  [enabledForm]="enabledForm"
+  [spaces]='space'
+  [interested_in]='Interested_in'
+  (modalClose)="closeModal()">
+</app-home-city-dropdown>

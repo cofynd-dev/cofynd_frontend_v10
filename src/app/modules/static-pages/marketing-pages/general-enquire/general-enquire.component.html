@@ -1,0 +1,106 @@
+<div #enquireBox
+  class="enquire-box"
+  [class.fixed]="isSticky"
+  [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
+  <div class="enquire-box-content p-2">
+
+    <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS"
+      class="success-box">
+      <app-check-mark-circle></app-check-mark-circle>
+      <h3>Thank You for Your Query</h3>
+      <p>Your request has been initiated and
+        a Cofynd executive will contact you
+        shortly for further details.</p>
+      <a href="/coworking">Search More Spaces</a>
+    </div>
+
+    <div *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS"
+      id="enqBtn">
+      <img src="../../../../assets/images/marketing/coworking/gurugram/cofynd_logo_color.png"
+        class="header-side">
+      <br />
+      <p class="mb-0 font-medium">Office seat starting at</p>
+      <p class="mb-0 font-wt600 font-30">&#8377; 5000/* month</p>
+    </div>
+
+    <form *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS"
+      class="form-layout-outline"
+      [formGroup]="enquiryForm"
+      (ngSubmit)="onSubmit()">
+
+      <div class="form-group floating-label">
+        <input class="form-control height-input"
+          type="text"
+          formControlName="name"
+          appMaterialInput />
+        <label>Full Name</label>
+        <app-input-validation [control]="enquiryForm.controls.name">
+        </app-input-validation>
+      </div>
+
+      <div class="form-group floating-label">
+        <input class="form-control"
+          type="text"
+          formControlName="email"
+          appMaterialInput />
+        <label>Email Id</label>
+        <app-input-validation [control]="enquiryForm.controls.email">
+        </app-input-validation>
+      </div>
+
+      <div class="form-group floating-label">
+        <input class="form-control"
+          type="text"
+          formControlName="phone_number"
+          appMaterialInput />
+        <label>Mobile Number</label>
+        <app-input-validation [control]="enquiryForm.controls.phone_number">
+        </app-input-validation>
+      </div>
+
+      <div class="form-group floating-label otp-form"
+        *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+        <input class="form-control"
+          type="password"
+          formControlName="otp"
+          appMaterialInput
+          autofocus />
+        <label>OTP</label>
+        <app-input-validation [control]="enquiryForm.controls.otp">
+        </app-input-validation>
+      </div>
+
+      <div class="form-group floating-label">
+        <ng-select placeholder="I am interested in*"
+          [clearable]="false"
+          [searchable]="false"
+          formControlName="interested_in">
+          <ng-option value="day-pass">Day Pass</ng-option>
+          <ng-option value="hot-desk">Hot Desk</ng-option>
+          <ng-option value="dedicated-desk">Dedicated Desk</ng-option>
+          <ng-option value="private-cabin">Private Cabin</ng-option>
+          <ng-option value="meeting-room">Meeting Room</ng-option>
+          <ng-option value="virtual-office">Virtual Office</ng-option>
+        </ng-select>
+      </div>
+
+      <button type="submit"
+        class="btn btn-primary"
+        [appLoadingButton]="loading">
+        {{ btnLabel }}
+      </button>
+    </form>
+    <div *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS"
+      class="enquiry-footer mt-3">
+      <img style="margin-left: 30%;"
+        src="../../../../assets/images/marketing/coworking/gurugram/team-cofynd.png"
+        class="contact-person"
+        alt="Alexandro Group">
+      <p class="contact-text">Got questions or want to talk to our team ?<br>Call now and
+        get answers and support.</p>
+      <p class="text-center font-18-d mb-0"><span class="num-border"><i class="fa fa-phone"
+            aria-hidden="true"></i> {{ supportPhone }}</span></p>
+    </div>
+  </div>
+
+</div>

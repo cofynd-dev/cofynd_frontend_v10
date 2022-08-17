@@ -1,0 +1,151 @@
+.partners {
+  padding: 0 9%;
+  overflow: hidden;
+
+  &.grey-layout {
+    background: #f8f9fa;
+    padding: 30px 0 60px;
+
+    @media (max-width: 767px) {
+      .partner-carousel {
+        white-space: nowrap;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .partner-carousel {
+    // display: flex;
+    display: -webkit-box;
+    justify-content: space-evenly;
+    // flex-wrap: wrap;
+    // padding: 0 15px;
+    // margin-right: 30px;
+    // margin-left: 50px;
+
+    .band-img {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+
+    img {
+      // cursor: pointer;
+      max-width: 100%;
+      width: 140px;
+      transition: filter 1000ms ease-out;
+      // filter: grayscale(100%);
+
+      // &:hover {
+      //   // filter: grayscale(0%);
+      // }
+    }
+
+    @media (max-width: 767px) {
+      margin-right: 0;
+      margin-left: 0;
+
+      .band-img {
+        flex-grow: 1;
+        max-width: 33%;
+        flex: 0 0 33%;
+        padding: 15px 5px;
+        text-align: center;
+      }
+
+      img {
+        max-width: 80%;
+      }
+    }
+  }
+}
+
+.slider-on-mobile-view {
+  display: none;
+
+  @media (max-width: 767px) {
+    justify-content: space-evenly;
+    width: 100%;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 0 15px;
+    overflow-x: auto;
+    flex-wrap: unset;
+  }
+}
+
+.enquiry-section {
+  background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
+  padding-bottom: 90px;
+
+  @media (max-width:480px) {
+    padding: 40px 0px;
+  }
+
+  .page-title {
+    padding: 40px 0 70px 0;
+
+    @media (max-width:480px) {
+      padding: 40px 0px;
+    }
+  }
+
+}
+.logos_slider {
+	display: flex;
+}
+.logos_slider .band-img {
+	margin: 0px 35px;
+}
+
+.news_brands {
+	padding-bottom: 40px;
+}
+
+@media (max-width: 480px) {
+  .news_brands {
+    padding: 20px 0px 20px !important;
+  }
+  .logos_slider {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    padding: 0px;
+    margin: 0;
+    white-space: nowrap;
+}
+.logos_slider .band-img {
+	display: inline-block;
+margin: 3px 5px 0px;
+width: 32.429%;
+overflow: hidden;
+}
+.logos_slider::-webkit-scrollbar {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+.logos_slider {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  }
+  .news_brands .logos_slider .band-img {
+    display: inline-block;
+    margin: 8px 5px 2px;
+    width: 30.4%;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 6px 8px 6px;
+    border-radius: 5px;
+    transform: skewY(-6deg);
+}
+.news_brands .logos_slider .band-img  img {
+    transform: skewY(6deg);
+}
+}
+

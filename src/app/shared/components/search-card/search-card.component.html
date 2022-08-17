@@ -1,0 +1,71 @@
+<div class="listing-card">
+    <div class="image" *ngIf="workspace.images.length">
+        <ngu-carousel [inputs]="carouselTile" [dataSource]="workspace.images">
+            <div *nguCarouselDef="let images; let i = index;" class="item">
+                <img rel="preload" as="image" (click)="openWorkSpace(workspace)" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
+            </div>
+            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right'></button>
+        </ngu-carousel>
+    </div>
+    <div class="image" *ngIf="!workspace.images.length"></div>
+    <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
+    </app-favorite-button>
+    <div class="detail" (click)="openWorkSpace(workspace)" *ngIf="workspace.plans">
+        <h4 class="text-capitalize">{{ workspace.name }} {{ workspace.location.name }}</h4>
+        <p class="address">
+            <i class="fal fa-map-marker-alt"></i> {{ workspace.location.address1 }}
+        </p>
+        <p class="capacity">
+            <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
+            <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+        </p>
+        <p class="capacity">
+            <img src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar
+        </p>
+        <hr />
+        <div class="price-box">
+            <div *ngIf="workspace.show_price" class="price">
+                <ng-template [ngIf]="forAll">
+                    <span>Starting from</span>
+                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/{{ workspace.price_type }}</small></div>
+                </ng-template>
+                <ng-template [ngIf]="!forAll">
+                    <span>Starting from</span>
+                    <i style="font-size: 15px;" class="fas fa-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}<small>/{{workspace.plans[workspace.plans.length - 1].duration }}</small>
+                </ng-template>
+            </div>
+            <div *ngIf="!workspace.show_price" class="price">
+                <span>Starting from</span> on request
+            </div>
+            <a (click)="openDetailsPage(workspace)" class="btn-link">Explore Now<small class="icon-next fas fa-angle-right"></small>
+      </a>
+        </div>
+    </div>
+
+
+    <div class="detail" (click)="openWorkSpace(workspace)" *ngIf="workspace.coliving_plans">
+        <h4 class="text-capitalize">{{ workspace.name }}</h4>
+        <p class="address">
+            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+        </p>
+        <div class="card-aminities">
+            <p class="capacity">
+                <i class="building-icon"></i> Best Price Guarantee
+            </p>
+            <p class="capacity">
+                <i class="building-icon"></i> Regular Cleaning
+            </p>
+        </div>
+        <hr />
+        <div class="price-box">
+            <div class="price">
+                <span>Starting From</span>
+                <i class="icon-rupee fas fa-rupee-sign"></i>{{ workspace.starting_price.toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
+            </div>
+            <a target="_blank" class="btn-link">Explore Now<small class="icon-next fas fa-angle-right"></small>
+      </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+@import "components/auth";
+
+.btn-block {
+  margin-top: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 25px;
+}
+
+.error-message {
+  position: absolute;
+  bottom: -15px;
+}
+
+.otp-sent {
+  .mobile-text-preview {
+    font-size: 13px;
+    font-weight: 300;
+    animation: 8s colorChange;
+  }
+
+  .phone-filed {
+    display: none;
+  }
+
+  .mobile-preview {
+    font-size: 23px;
+    font-weight: 300;
+    color: #777;
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+.otp-timer {
+  position: absolute;
+  right: 0;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #4caf50;
+  }
+
+  100% {
+    color: #000;
+  }
+}

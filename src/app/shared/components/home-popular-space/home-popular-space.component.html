@@ -1,0 +1,179 @@
+<section class="popular-spaces" *ngIf="popularCoWorkingSpaces.length && shouldCoWorkingVisible" [class.white-layout]="layout=== 'white'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>{{ pageTitle | titlecase }}</h2>
+                </div>
+
+                <div class="popular-space-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoWorkingSpaces" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
+                            <div (click)="openWorkSpace(space.address.split(',').pop(),space.city,space.country,space.countryId)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <img [src]="space.image" [alt]="space.name">
+                                <div class="space-detail">
+                                    <h5>{{removedash(space?.city) | titlecase}}</h5>
+                                    <!-- <p><i class="sicon-location"></i>{{ space.address }}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+        </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+        </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="popular-spaces" *ngIf="popularCoLivingSpaces.length && shouldCoLivingVisible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+                <div class="popular-space-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoLivingSpaces" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
+                            <div (click)="openCoLivingSpace(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <img [src]="space.image" [alt]="space.name">
+                                <div class="space-detail">
+                                    <h5>{{ removedash(space.name) | titlecase }}</h5>
+                                    <p><i class="icon-location"></i>{{ space.address }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+        </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+        </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- office space  -->
+<section class="popular-spaces" *ngIf="popularOfficeSpaces.length && shouldOfficeVisible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+                <div class="popular-space-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularOfficeSpaces" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
+                            <div *ngIf="officeSlug; else freeSlug" (click)="openOfficeSpace(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <img [src]="space.image" [alt]="space.name">
+                                <div class="space-detail">
+                                    <h5>{{ removedash(space.name) }}</h5>
+                                    <p><i class="icon-location"></i>{{ space.address }}</p>
+                                </div>
+                            </div>
+
+                            <ng-template #freeSlug>
+                                <div (click)="openWithFreeSlug(space.slug)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                    <img [src]="space.image" [alt]="space.name">
+                                    <div class="space-detail">
+                                        <h5>{{ space.name }}</h5>
+                                        <p><i class="icon-location"></i>{{ space.address }}</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+        </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+        </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- new design -->
+<!-- <section class="popular-spaces"
+  *ngIf="true">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title">
+          <h2>{{ pageTitle }}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="popular-space-carousel">
+          <ngu-carousel #popularSpaceCarousel
+            [inputs]="carouselConfig"
+            [dataSource]="popularCoLivingSpaces"
+            (onMove)="onSliderMove($event)">
+            <div *nguCarouselDef="let space; let i = index;"
+              class="item"
+              [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
+              <div (click)="openCoLivingSpace(space.slug)"
+                class="popular-space-box"
+                [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                <img [lazyLoad]="space.image"
+                  [alt]="space.name">
+                <div class="space-detail">
+                  <h5>{{ space.name }}</h5>
+                  <p><i class="icon-location"></i>{{ space.address }}</p>
+                </div>
+              </div>
+            </div>
+          </ngu-carousel>
+        </div>
+        <button type="button"
+          (click)="goToPrev()"
+          [disabled]="popularSpaceCarousel.isFirst"
+          class="carousel-arrow icon-back">
+        </button>
+        <button type="button"
+          (click)="goToNext()"
+          [disabled]="popularSpaceCarousel.isLast"
+          class="carousel-arrow icon-next">
+        </button>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!--  -->
+
+<section class="popular-spaces" *ngIf="popularOtherSpaces.length && shouldOtherBrandVisible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>Top Brand Spaces</h2>
+                </div>
+
+                <div class="popular-space-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularOtherSpaces" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item">
+                            <div (click)="openWorkSpace(space.slug,space.city,space.country,space.countryId)" class="popular-space-box" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <img [lazyLoad]="space.image" [alt]="space.name">
+                                <div class="space-detail">
+                                    <h5>{{ removedash(space.name) }}</h5>
+                                    <p><i class="icon-location"></i>{{ space.address }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+        </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+        </button>
+
+            </div>
+        </div>
+    </div>
+</section>

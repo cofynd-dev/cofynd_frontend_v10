@@ -1,0 +1,49 @@
+<!-- breadcrumb Start -->
+<section class="breadcrumb-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/']">home</a></li>
+            <li class="breadcrumb-item"
+              [class.active]="item.isActive"
+              *ngFor="let item of breadcrumbs">
+              <a *ngIf="!item.isActive"
+                [routerLink]="['/' + item.url + '/']">{{ item.title }}</a>
+              <span *ngIf="item.isActive">{{ item.title }}</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  -->
+<section class="search-container clearfix">
+  <div class="search-grid-container"
+    [class.search-grid-full]="!isMapView">
+    <div class="search-grid-wrapper">
+      <!-- title -->
+      <div class="brand-info">
+        <h1>goSTOPS Workation</h1>
+      </div>
+
+      <div class="row">
+        <ng-container *ngFor="let space of workSpaces; let i = index">
+          <div class="col-sm-4">
+            <app-gosteps-card [goStops]="space"></app-gosteps-card>
+          </div>
+          <div class="enquire-box col-sm-12"
+            *ngIf="(i + 1) % 3 === 0">
+            <div class="box">
+              <h3>Not able to find your space ?</h3>
+              <a routerLink="/contact-us"
+                class="btn btn-primary">Enquire</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

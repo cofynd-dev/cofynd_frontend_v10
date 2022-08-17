@@ -1,0 +1,38 @@
+<div class="slider-modal"
+  [class.mobile-slider]="isMobileMode">
+  <button *ngIf="!isMobileMode"
+    class="icon-close fas fa-times"
+    type="button"
+    (click)="onCloseImageGallery()">
+  </button>
+  <div *ngIf="!isMobileMode"
+    class="heading">
+    {{ title }}
+  </div>
+  <div class="slider-outer">
+    <ngu-carousel #imageGalleryCarousel
+      [inputs]="carouselConfig"
+      (onMove)="onSliderMove($event)"
+      [dataSource]="sliderItems"
+      class="ngu-carousel-wrapper">
+      <div *nguCarouselDef="let sliderItems; let i = index;"
+        class="item"
+        [class.active]="i===activeSliderItem"
+        [class.prev-item]="i < activeSliderItem"
+        [class.next-item]="i > activeSliderItem">
+        <div class="slider-item">
+          <img class="img-fluid"
+            [src]="sliderItems.img"
+            [alt]="sliderItems.title">
+        </div>
+      </div>
+
+      <button NguCarouselPrev
+        class="left-crl-arrow"></button>
+      <button NguCarouselNext
+        class="right-crl-arrow"></button>
+
+    </ngu-carousel>
+  </div>
+
+</div>

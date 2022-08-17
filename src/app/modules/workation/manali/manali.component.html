@@ -1,0 +1,243 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/brand/gostops']">
+                Workation
+              </a>
+            </li>
+            <li class="breadcrumb-item text-overflow active"
+              aria-current="page">{{centerData.name}}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative">
+    <!-- banner img -->
+    <section class="slider-section">
+      <div class="workspace-banner-container">
+        <div class="workspace-banner-half">
+          <div class="workspace-banner">
+            <img [src]="centerData.images.img1">
+          </div>
+        </div>
+        <div class="workspace-banner-one-third">
+          <div class="workspace-banner">
+            <img [src]="centerData.images.img2">
+          </div>
+          <div class="workspace-banner">
+            <img [src]="centerData.images.img3">
+          </div>
+        </div>
+        <div class="workspace-banner-one-third">
+          <div class="workspace-banner">
+            <img [src]="centerData.images.img4">
+          </div>
+          <div class="workspace-banner">
+            <img [src]="centerData.images.img5">
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Image Carousel -->
+      <!-- <app-image-gallery *ngIf="showImageGallery"
+        [images]="images"
+        [title]="title"
+        [isMobileMode]="isMobileMode"
+        [isSliderMode]="isSliderMode"
+        (closeImageGallery)="closeImageGallery()">
+      </app-image-gallery> -->
+    </section>
+    <!-- banner img end -->
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div>
+          <div class="sections section-1">
+            <h1>{{centerData.name}}</h1>
+            <p class="address">
+              <i class="icon-location-outline fal fa-map-marker-alt"></i>
+              {{centerData.location.address}}
+            </p>
+            <!-- <div *ngIf="false"
+              class="price"><span>Monthly Rent*</span><small class="icon-rupee"></small>{{
+              (workspace?.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace?.price_type }}</small>
+            </div> -->
+          </div>
+          <div class="covid-info">
+            <p><img alt="Sanitized Spaces"
+                src="/assets/images/amenities/sanitizer.svg"
+                width="35"> Fully sanitized</p>
+            <p><img alt="CoFynd Zero Brokerage"
+                src="/assets/images/amenities/cash.svg"
+                width="30"> zero brokerage </p>
+            <p><img alt="CoFynd Trusted Partner"
+                src="/assets/images/amenities/trusted.svg"
+                width="30"> Trusted space</p>
+          </div>
+          <div class="facility-list">
+            <ul class="row">
+              <li class="col-6">
+                Type
+                <span>Single/Double Dormant Room</span>
+              </li>
+              <li class="col-6">
+                Weekly Rent*
+                <span><i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.single.starting_price}} / {{centerData.plan.single.price_type}}</span>
+              </li>
+              <li class="col-6">
+                Deposit
+                <span>No</span>
+              </li>
+              <li class="col-6">
+                Food & Bevarages
+                <span>Optional</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sections about-section">
+            <h2>About this Workation</h2>
+            <p class="text-justify">
+              {{centerData.description}}
+            </p>
+          </div>
+
+          <div class="sections">
+            <h2>Pricing Plans</h2>
+            <ul class="plan-list">
+              <li>
+                <div class="box">
+                  <div class="img">
+                    <img [src]="'/assets/images/amenities/single-sharing.svg'"
+                      alt="">
+                  </div>
+                  <h4 class="text-capitalize">Bed Mix Drom Ensuite</h4>
+                  <p>Spacious and comfortable room with a cosy bed.</p>
+                  <div class="action-box">
+                    <div class="price">
+                      <span>starting from</span>
+                      <div>
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.single.starting_price}}<small>/ {{centerData.plan.single.price_type}}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-light customPrice pl-3 pr-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.single.day_15}}<small> / 15 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.single.day_22}}<small> / 22 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.single.day_30}}<small> / 30 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3 text-center ">
+                      <button type="button"
+                        class="btn-link" (click)="contactRedirect()">Enquire Now<small class="icon-next"></small></button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <br />
+              <li>
+                <div class="box">
+                  <div class="img">
+                    <img [src]="'/assets/images/amenities/double-sharing.svg'"
+                      alt="">
+                  </div>
+                  <h4 class="text-capitalize">Deluxe Double Ensuite Room</h4>
+                  <p>Comfortable and elegant room with twin beds.</p>
+                  <div class="action-box">
+                    <div class="price">
+                      <span>starting from</span>
+                      <div>
+                        <i class="icon-rupee fas fa-rupee-sign"></i>{{centerData.plan.double.starting_price}}<small>/ {{centerData.plan.single.price_type}}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-light customPrice pl-3 pr-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.double.day_15}}<small> / 15 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.double.day_22}}<small> / 22 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="price text-left"
+                        style="border-left: 3px solid #4343e8 ;">
+                        <i class="icon-rupee fas fa-rupee-sign"></i> {{centerData.plan.double.day_30}}<small> / 30 days</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3 text-center ">
+                      <button type="button"
+                        class="btn-link" (click)="contactRedirect()">Enquire Now<small class="icon-next"></small></button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sections">
+            <h2>Building Amenities</h2>
+            <ul class="amenity-list">
+              <li><i class="amn-tv"></i> TV </li>
+              <li><i class="amn-housekeeping"></i> Housekeeping </li>
+              <li><i class="amn-security"></i> Security </li>
+              <li><i class="amn-wi-fi"></i> WiFi </li>
+              <li><i class="amn-ac"></i> AC </li>
+              <li><i class="amn-geyser"></i> Geyser </li>
+              <li><i class="amn-meeting-room"></i> Chillout Area </li>
+              <li><i class="amn-tea"></i> 24 Hours Cafe </li>
+              <li><i class="amn-fully-furnished"></i> Working Space </li>
+              <li><i class="amn-bathroom"></i> Bathroom </li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="sections">
+          <h2>Location</h2>
+          <div #workspaceMap
+            class="map-container">
+          </div>
+        </div> -->
+      </div>
+      <!-- <div
+        class="col-lg-4 col-md-12 enquiry-box-wrapper"
+        [class.enquiry-modal]="isEnquireModal">
+        <app-workspace-enquire [isSticky]="isSticky"
+          [enquiryType]="enquiryType"
+          [shouldReload]="shouldReloadEnquiryForm"
+          [workSpaceId]="workspace.id"
+          [isOfficeEnquiry]="true"
+          (backButtonClick)="closeEnquireModal()">
+        </app-workspace-enquire>
+      </div> -->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,103 @@
+<div class="enquire-slide-box">
+  <div *ngIf="!showSuccessMessage"
+    class="contact-text-box">
+    <h3>Not able to find your perfect space?</h3>
+    <button *ngIf="!showEnquireForm"
+      type="button"
+      class="btn btn-primary"
+      (click)="showEnquireForm = !showEnquireForm">Enquire</button>
+    <button *ngIf="showEnquireForm"
+      type="button"
+      class="icon-close"
+      (click)="showEnquireForm = !showEnquireForm"><i class="close-icon"></i></button>
+  </div>
+  <div *ngIf="showEnquireForm"
+    class="contact-form">
+
+    <div *ngIf="showSuccessMessage"
+      class="success-box">
+      <app-check-mark-circle></app-check-mark-circle>
+      <h6>Hi! {{ contactUserName }}</h6>
+      <h3>Thank You for Your Query</h3>
+      <p>Your request has been initiated and
+        a Cofynd executive will contact you
+        shortly for further details.</p>
+      <a routerLink="/coworking">Search More Spaces</a>
+    </div>
+
+    <form *ngIf="!showSuccessMessage"
+      class="form"
+      [formGroup]="contactForm"
+      appScrollToInvalidField
+      (ngSubmit)="onSubmit()">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text"
+              class="form-control"
+              placeholder="Your Name"
+              formControlName="name">
+            <app-input-validation [control]="contactForm.controls.name"></app-input-validation>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text"
+              class="form-control"
+              placeholder="Your Email Id"
+              formControlName="email">
+            <app-input-validation [control]="contactForm.controls.email"></app-input-validation>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text"
+              class="form-control"
+              placeholder="Your Mobile Number"
+              formControlName="phone_number">
+            <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group grey-form-control">
+            <ng-select [searchable]="false"
+              [clearable]="false"
+              placeholder="Select City"
+              (change)="onCityChange($event)"
+              formControlName="city">
+              <ng-container *ngFor="let city of cities">
+                <ng-option *ngIf="city[type] === true"
+                  [value]="city.name">
+                  {{ city.name }}
+                </ng-option>
+              </ng-container>
+            </ng-select>
+            <app-input-validation [control]="contactForm.controls.city"></app-input-validation>
+          </div>
+        </div>
+        <div class="col-md-6"
+          *ngIf="showOtpField">
+          <div class="form-group">
+            <input type="text"
+              class="form-control"
+              placeholder="Enter OTP"
+              formControlName="otp">
+            <div class="error-message"
+              *ngIf="isOtpError">
+              {{ otpErrorMessage }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit"
+        [appLoadingButton]="loading"
+        class="btn btn-primary btn-block">
+        Submit
+      </button>
+
+    </form>
+
+  </div>
+</div>

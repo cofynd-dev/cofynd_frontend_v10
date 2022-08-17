@@ -1,0 +1,81 @@
+@import "base/variable";
+
+$background:#B2B1CF;
+$white:#fff;
+
+.social-btn-group {
+  position: absolute;
+  right: 65px;
+  top: 20px;
+  z-index: 2;
+
+  .dropdown-menu {
+    width: 150px;
+    padding: 0;
+    margin: 0 0 0 -120px;
+
+    button,
+    a {
+      color: #777;
+      font-size: 13px;
+      display: block;
+      width: 100%;
+      padding: 10px 15px;
+      border-bottom: 1px solid #e5e5e5;
+      text-align: left;
+    }
+
+    i {
+      margin-right: 10px;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.icon-share {
+  width: 34px;
+  height: 34px;
+  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-radius: 50px;
+  color: #555;
+  z-index: 1;
+  font-size: 17px;
+  transform: perspective(1px) translateZ(0);
+}
+
+.icon-facebook {
+  color: #475993;
+}
+
+.icon-twitter {
+  color: #32bae4;
+}
+
+.icon-whatsapp {
+  color: #25d366;
+}
+
+.icon-email {
+  color: #f44c47;
+}
+
+
+@media (max-width: 480px) {
+  .icon-share {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+  }
+  .social-btn-group {
+    right: 52px;
+    top: 20px;
+  }
+  .social-btn-group .dropdown-menu button, .social-btn-group .dropdown-menu a {
+    color: #272828 !important;
+    font-size: 11px;
+    padding: 4px 3px;
+    font-weight: 500;
+  }
+}

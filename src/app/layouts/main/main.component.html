@@ -1,0 +1,9 @@
+<app-header></app-header>
+<main>
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+<app-footer *ngIf="appConfig.footer"></app-footer>
+<a *ngIf="phoneflag" [href]="'tel:' + phone"
+  type="button"
+  class="call-button icon-phone fas fa-phone-alt">
+</a>

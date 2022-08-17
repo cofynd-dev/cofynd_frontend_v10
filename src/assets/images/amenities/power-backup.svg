@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 18.94 18.94">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffda66;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #494949;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 0.75px;
+      }
+
+    </style>
+  </defs>
+  <title>Asset 39</title>
+  <g id="Layer_2"
+    data-name="Layer 2">
+    <g id="Layer_1-2"
+      data-name="Layer 1">
+      <path class="cls-1"
+        d="M3,10.74a7.64,7.64,0,0,0,15.27,0V10.1H3Z" />
+      <path class="cls-2"
+        d="M18.57,9.47A9.1,9.1,0,0,1,1,12.87" />
+      <path class="cls-2"
+        d="M.38,9.47A9.09,9.09,0,0,1,17.85,5.93" />
+      <polyline class="cls-2"
+        points="0.53 14.97 1.03 12.87 3.1 13.68" />
+      <polyline class="cls-2"
+        points="18.41 3.87 17.91 5.97 15.84 5.17" />
+      <polygon class="cls-2"
+        points="8.64 4.92 5.54 9.47 8.63 9.47 7.32 14.24 12.46 7.86 9.57 7.86 11.61 4.92 8.64 4.92" />
+    </g>
+  </g>
+</svg>

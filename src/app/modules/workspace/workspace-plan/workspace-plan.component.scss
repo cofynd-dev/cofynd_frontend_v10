@@ -1,0 +1,174 @@
+.plan-list {
+  li {
+    margin-bottom: 20px;
+  }
+
+  .box {
+    background: #f7f7f7;
+    border-radius: 5px;
+    padding: 25px;
+    position: relative;
+    padding-right: 220px;
+    padding-left: 90px;
+    min-height: 135px;
+    height: 100%;
+
+    .img {
+      width: 60px;
+      position: absolute;
+      left: 15px;
+    }
+
+    h4 {
+      color: #010101;
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 10px;
+      @media(max-width:767px) {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      font-size: 15px;
+      margin: 0;
+      font-weight: 400;
+      color: #676767;
+    }
+
+    @media(max-width:767px) {
+      padding: 20px;
+
+      h4 { 
+        font-size: 14px;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .img {
+        position: static;
+      }
+    }
+  }
+
+  .row {
+    .box {
+      padding-right: 25px;
+    }
+  }
+
+  .action-box {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 25px;
+    text-align: right;
+
+    .price {
+      font-size: 18px;
+      color: #000;
+      font-weight: 700;
+      text-align: right;
+      margin-bottom: 10px;
+
+      span,
+      small {
+        font-size: 15px;
+        font-weight: 300;
+      }
+
+      span {
+        display: block;
+      }
+      @media(max-width:767px) {
+        font-size: 15px;
+        color: #4343f8;
+      }
+
+    }
+
+    .btn-link {
+      line-height: normal;
+
+      .icon-next {
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+    }
+
+    @media(max-width:767px) {
+     position: static;
+     padding: 0;
+     text-align: left;
+
+     .price {
+       text-align: left;
+     }
+    }
+  }
+}
+
+.hideOnMobile {
+  @media (max-width: 480px) {
+    display: none !important;
+  }
+}
+.hideOnweb {
+  @media (min-width: 480px) {
+    display: none !important;
+  }
+}
+
+.onlyMobile {
+  display: none;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
+}
+
+@media(max-width:480px){
+  small{
+    color: #000;
+  }
+.plan-list .col-6 {
+    padding: 0px 5px;
+}
+.plan-list.row {
+    padding: 0px 15px;
+}
+.plan-list .price_box {
+	min-height: auto !important;
+	padding: 20px 15px 25px !important;
+	text-align: center;
+	margin-bottom: 10px;
+	height: auto !important;
+}
+.box.price_box .img {
+    margin: 0 auto;
+}
+.price_box .price .small_text {
+    font-size: 10px !important;
+}
+.price_box h4 {
+	font-size: 13px !important;
+	line-height: 22px !important;
+}
+.price_box .price {
+    font-size: 12px !important;
+    text-align: center !important;
+    margin-bottom: 0px !important;
+}
+.plan-list .action-box .price small span {
+  font-size: 12px !important;
+  font-weight: 400;
+  display: inline-block;
+}
+.plan-list .box .img {
+	width: 45px;
+	height: 40px;
+}
+}

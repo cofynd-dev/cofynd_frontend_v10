@@ -1,0 +1,483 @@
+.coliving-banner-bg {
+  background     : url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg') no-repeat top right;
+  width          : 50%;
+  position       : absolute;
+  right          : 0;
+  top            : 0;
+  height         : 100%;
+  border-radius  : 0 0 0 30%;
+  background-size: cover;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.hideInDesktop {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .hideInMobile {
+    display: none !important;
+  }
+
+  .hideInDesktop {
+    display: block;
+  }
+
+  .coupleLiving {
+    max-height: 230px;
+    height    : 220px !important;
+
+    img {
+      max-width : 140px;
+      max-height: 150px;
+      height    : 140px;
+    }
+    
+  }
+
+  .top-coliving-spaces {
+    max-width         : 100%;
+    white-space       : nowrap;
+    overflow-y        : hidden;
+    overflow-x        : auto;
+    scrollbar-width   : none;
+    -ms-overflow-style: none;
+
+    a {
+      width                : 140px;
+      height               : 160px;
+      /* border-radius     : 100%;*/
+      text-align           : left;
+      /* background        : #f8f8f8;*/
+      font-size            : 10px;
+      font-weight          : 600;
+      color                : #000;
+      margin-right         : 10px;
+      text-transform       : capitalize;
+      -webkit-transition   : .5s ease-in;
+      transition           : all ease-in .5s;
+      padding              : 0;
+      outline              : 0;
+      vertical-align       : middle;
+      margin-top           : 10px;
+      display              : -webkit-inline-box;
+      display              : inline-flex;
+      -webkit-box-align    : center;
+      align-items          : center;
+      -webkit-box-pack     : center;
+      justify-content      : center;
+      -webkit-box-orient   : vertical;
+      -webkit-box-direction: normal;
+      flex-direction       : column;
+
+      img {
+        max-width    : 150px;
+        width        : 140px;
+        margin-bottom: 2px;
+        object-fit   : cover;
+      }
+
+      .font-13 {
+        position: relative;
+        left    : -10px;
+      }
+
+      .font-10 {
+        font-size: 10px;
+      }
+    }
+  }
+
+
+  /*first section start*/
+  .top-search {
+    // background-image: url(images/coliving-landing-top.jpg);
+    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');
+    background-size : cover;
+    height          : 60vh;
+  }
+
+  .top-search h1 {
+    font-size  : 28px;
+    font-weight: 600;
+    line-height: 40px;
+    color      : #fff;
+  }
+
+  .has-search .form-control {
+    padding-left : 2.375rem;
+    height       : 50px;
+    text-align   : center;
+    padding      : 0.375rem 2.5rem;
+    border-radius: 50px;
+    border       : 1px solid #ccc;
+    width        : 85%;
+  }
+
+  .has-search .form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color      : #6a6a6a;
+    font-weight: 500;
+    opacity    : 1;
+    /* Firefox */
+  }
+
+  .has-search .form-control-feedback {
+    position      : absolute;
+    z-index       : 2;
+    display       : block;
+    top           : 8px;
+    left          : 2%;
+    width         : 2.375rem;
+    height        : 2.375rem;
+    text-align    : center;
+    line-height   : 2.375rem;
+    text-align    : center;
+    pointer-events: none;
+    color         : #aaa;
+  }
+
+  .search-bar {
+    margin: 0 10%;
+  }
+
+  /*First section end*/
+  /*second section start */
+  .cities a {
+    text-decoration: none;
+  }
+
+  .facility-head i {
+    color    : #4343e8;
+    font-size: 14px;
+  }
+
+  .citi-img {
+    border-radius: 5px;
+    height       : 50px;
+    width        : 50px;
+  }
+
+  .bangalore {
+    font-weight  : 500;
+    padding-top  : 0px;
+    margin-bottom: 0px;
+    margin-top   : 5px;
+  }
+
+  .famous-name {
+    font-size    : 10px;
+    margin-bottom: 34px;
+  }
+
+  .live-spaces-button {
+    font-weight     : 500;
+    background-color: #4343e8;
+    font-size       : 12px;
+    border-radius   : 20px;
+  }
+
+  .facility-head {
+    font-size  : 20px;
+    line-height: 26px;
+    font-weight: 600;
+  }
+
+  /*second section end*/
+  /*third section*/
+  .offer-img {
+    border-radius: 20px;
+  }
+
+  /*third end*/
+  /*fourth section*/
+  .city-circle {
+    height       : 60px;
+    width        : 60px;
+    border-radius: 50%;
+    box-shadow   : 0px 4px 9px rgba(0, 0, 0, 0.12);
+  }
+
+  .city-circle img {
+    height  : 50px;
+    width   : 50px;
+    position: relative;
+    left    : 2px;
+    top     : 2px;
+  }
+
+  .font-14-mid {
+    font-size  : 14px;
+    font-weight: 500;
+  }
+
+  /*fourth section end*/
+  /*fifth section */
+  .covid-safety img {
+    border-radius: 10px;
+    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /*fifth section end*/
+  /*six section*/
+  .fw-600 {
+    font-weight: 500;
+  }
+
+  .fw-300 {
+    font-weight: 300;
+  }
+
+  .fw-400 {
+    font-weight: 400;
+  }
+
+  .owl-dots {
+    display: none;
+  }
+
+  .owl-carousel .item {
+    margin-right: 10px;
+  }
+
+  .font-13 {
+    font-size: 12.5px;
+  }
+
+  .top-picks-img {
+    object-fit   : cover;
+    border-radius: 10px;
+  }
+
+  /*six section end*/
+  /*seven start*/
+  .steps-opt {
+    border-radius: 10px;
+    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .step-number {
+    font-weight: 500;
+    font-size  : 18px;
+    color      : #4343e8;
+  }
+
+  .font-14-lite {
+    font-size  : 13px;
+    font-weight: 300;
+  }
+
+  /*seven end*/
+  /*eight start*/
+  .line_height {
+    line-height: 18px;
+  }
+
+  /*eight end*/
+  /*nine start*/
+  .brand-img {
+    padding   : 3px;
+    width     : auto;
+    object-fit: cover;
+  }
+
+  /*nine end*/
+  /*tenth start*/
+  .list-space-img {
+    border-radius: 10px;
+    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /*tenth end*/
+  /*eleventh start*/
+  .exp-button {
+    border       : 1px solid #fff;
+    border-radius: 20px;
+    height       : 30px;
+    font-size    : 14px;
+    font-weight  : 600;
+    color        : #fff;
+  }
+
+  .font-18 {
+    font-size  : 18px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+
+  /*eleventh end*/
+  /*twelth start*/
+  .card {
+    border: none;
+  }
+
+  .card-header {
+    background-color: transparent;
+  }
+
+  .card-header h5 button {
+    font-weight    : 600;
+    color          : #222;
+    text-decoration: none;
+    padding        : 0px;
+  }
+
+  .card-header h5 button:focus {
+    color          : #222;
+    text-decoration: none;
+  }
+
+  /*twelth end*/
+
+  .item-info p:nth-child(1) {
+    font-size  : 18px;
+    font-weight: 500;
+  }
+
+  .item-info p:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .partners {
+    overflow  : hidden;
+    background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
+
+    .page-title {
+      padding: 16px 0 !important;
+    }
+
+    .partner-carousel {
+      display        : -webkit-box;
+      justify-content: space-evenly;
+      margin-right   : 0;
+      margin-left    : 0;
+
+      .band-img {
+        flex-grow : 1;
+        text-align: center;
+      }
+
+      img {
+        cursor    : pointer;
+        max-width : 100%;
+        width     : 140px;
+        transition: filter 1000ms ease-out;
+      }
+
+      .brand-partner {
+        cursor: text !important;
+      }
+
+      .band-img {
+        flex-grow : 1;
+        max-width : 33%;
+        flex      : 0 0 33%;
+        padding   : 15px 5px;
+        text-align: center;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .slider-on-mobile-view {
+      justify-content: space-evenly;
+      width          : 100%;
+      overflow-y     : hidden;
+      white-space    : nowrap;
+      padding        : 0 15px;
+      overflow-x     : auto;
+      flex-wrap      : unset;
+    }
+  }
+
+  .inspiration {
+    max-width         : 100%;
+    white-space       : nowrap;
+    overflow-y        : hidden;
+    overflow-x        : none;
+    scrollbar-width   : none;
+    -ms-overflow-style: none;
+
+    .cityDiv {
+      width                   : 70%;
+      height                  : auto;
+      text-align              : left;
+      font-size               : 10px;
+      font-weight             : 600;
+      color                   : #000;
+      // margin-right         : 10px;
+      margin-top              : 10px;
+      text-transform          : capitalize;
+      -webkit-transition      : .5s ease-in;
+      transition              : all ease-in .5s;
+      padding                 : 0;
+      outline                 : 0;
+      vertical-align          : middle;
+      display                 : -webkit-inline-box;
+      display                 : inline-flex;
+      -webkit-box-align       : center;
+      align-items             : center;
+      -webkit-box-pack        : center;
+      justify-content         : center;
+      -webkit-box-orient      : vertical;
+      -webkit-box-direction   : normal;
+      flex-direction          : column;
+
+      img {
+        width        : 90%;
+        margin-bottom: 2px;
+        object-fit   : cover;
+      }
+
+      .detail {
+        font-size: 14px;
+        position : relative;
+        left     : -60px;
+
+      }
+    }
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+  .innerpage_banner {
+    padding: 40px 10px !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .banner_content {
+    padding: 40px 15px 30px 15px;
+  }
+  .banner_content h1 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+  .search-bar {
+    margin: 10px 0px 0px;
+  }
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 10px !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+  }
+  .colving-bg .featured {
+    background-position: 0px;
+  }
+  
+}

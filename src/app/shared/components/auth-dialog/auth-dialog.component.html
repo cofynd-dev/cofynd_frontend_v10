@@ -1,0 +1,25 @@
+<div class="auth-dialog"
+  *ngIf="authType !== AUTH_TYPES.REVIEW">
+  <div [@slideInOut]="authType === AUTH_TYPES.LOGIN">
+    <app-login-form *ngIf="authType === AUTH_TYPES.LOGIN"
+      [shouldOpenReviewModal]="shouldOpenReviewModal"
+      (reviewDialogOpenEmitter)="openReviewForm()"
+      (signUpClickEmitter)="openSignUpForm()">
+    </app-login-form>
+  </div>
+  <div [@slideInOut]="authType === AUTH_TYPES.SIGN_UP">
+    <app-register-form *ngIf="authType === AUTH_TYPES.SIGN_UP"
+      [shouldOpenReviewModal]="shouldOpenReviewModal"
+      (reviewDialogOpenEmitter)="openReviewForm()"
+      (loginClickEmitter)="openLoginForm()">
+    </app-register-form>
+  </div>
+</div>
+
+
+<app-review-submission-form *ngIf="authType === AUTH_TYPES.REVIEW"
+  (loginClickEmitter)="openLoginForm()"
+  [space]="space"
+  [review]="review"
+  (onClose)="decline()">
+</app-review-submission-form>

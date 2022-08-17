@@ -1,0 +1,12 @@
+<div class="blank-screen">
+    <div class="img">
+        <img src="/assets/images/blank/no-listing.svg" alt="">
+    </div>
+    <h2 *ngIf="!shouldShowContactForm">
+        No {{ title }} Found!
+    </h2>
+    <app-search-contact-us-text *ngIf="shouldShowContactForm" [type]="type" [cities]="availableCities">
+    </app-search-contact-us-text>
+    <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
+    <a [routerLink]="url">Explore More {{ title }} Spaces</a>
+</div>

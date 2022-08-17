@@ -1,0 +1,31 @@
+<div class="user-title">
+  <h2>Payments</h2>
+</div>
+<app-user-list-loader *ngIf="loading"></app-user-list-loader>
+
+<app-user-blank-screen *ngIf="!loading && !payments.length"
+  [type]="'payment'"
+  [title]="'You haven’t booked anything yet!'">
+</app-user-blank-screen>
+
+<ul class="payment-box"
+  *ngIf="!loading && payments.length">
+  <li *ngFor="let payment of payments">
+    <div class="box">
+      <h5>{{ planCategory[payment.category] }}</h5>
+      ID: #{{ payment.order }}
+      <div class="divider"></div>
+      <div class="visit-info">
+        <div>
+          <span>Date</span>
+          <small>{{ payment.from | date : 'mediumDate' }} - </small>
+          <small>{{ payment.to | date : 'mediumDate' }}</small>
+        </div>
+        <div class="visitors-count">
+          <span>Amount</span>
+          <small>{{ payment.amount }}</small>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

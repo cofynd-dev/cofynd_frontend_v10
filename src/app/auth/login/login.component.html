@@ -1,0 +1,22 @@
+<div id="login-page-space"
+  style="height: 100vh; display: flex; align-items: center; text-align: center; justify-content: center; width: 100%;">
+  <img width="60"
+    src="/assets/images/spinner.svg"
+    alt="loader" />
+</div>
+<section id="login-page-block"
+  class="login-section">
+  <div class="bg"></div>
+  <div class="form-section">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <img src="/assets/images/logo.svg"
+          alt="">
+      </a>
+    </div>
+    <app-login-form *ngIf="authType === AUTH_TYPES.LOGIN"
+      (signUpClickEmitter)="openSignUpForm()"></app-login-form>
+    <app-register-form *ngIf="authType === AUTH_TYPES.SIGN_UP">
+    </app-register-form>
+  </div>
+</section>

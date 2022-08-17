@@ -1,0 +1,32 @@
+@media only screen and (max-width: 600px) {
+  .page-heading{
+    text-align: center;
+  }
+}
+
+.city_page_title {
+	padding: 0px ;
+	text-align: left;
+}
+.city_page_title h1 {
+	font-size: 20px;
+	font-weight: 500;
+	color: #000;
+	line-height: 26px;
+	margin: 0 0 10px;
+}
+.onlyMobile {
+  display: none;
+  @media (max-width: 480px) {
+      display: block;
+  }
+}
+
+.hideOnMobile {
+  @media (max-width: 480px) {
+      display: none !important;
+  }
+}
+@media (max-width: 480px) {
+	
+}

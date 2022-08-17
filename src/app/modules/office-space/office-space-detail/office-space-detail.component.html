@@ -1,0 +1,224 @@
+<app-workspace-loader *ngIf="loading"></app-workspace-loader>
+<section class="space-details">
+    <div class="container hideOnMobile">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/']">Office Space</a>
+                        </li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative" *ngIf="!loading">
+
+        <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+        </app-social-share>
+
+        <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+        </app-workspace-banner>
+
+        <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+        </app-workspace-banner-blank>
+    </div>
+
+    <div class="container onlyMobile pt-3 breadcrumb_area">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/']">
+                Office Space
+              </a>
+                        </li>
+                        <!-- <li class="breadcrumb-item text-overflow active"
+              aria-current="page">{{ workspace.name }}</li> -->
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div *ngIf="!loading && workspace">
+                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
+                        <h1>{{ workspace.name }}</h1>
+                        <p class="address">
+                            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+                        </p>
+                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><small class="icon-rupee fas fa-rupee-sign"></small>{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}
+                        </div>
+                    </div>
+                    <div class="other-office-info">
+                        <p>
+                            <img width="26" src="/assets/images/amenities/verified.svg" alt="CoFynd Verified Spaces"> Verified Spaces
+                        </p>
+                        <p class="hideOnMobile">
+                            <img width="30" src="/assets/images/amenities/trusted.svg" alt="CoFynd Trusted Partner"> Trusted Partner
+                        </p>
+                        <p>
+                            <img width="30" src="/assets/images/amenities/cash.svg" alt="CoFynd Zero Brokerage"> Zero Brokerage
+                        </p>
+                    </div>
+                    <div class="facility-list">
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <span class="small-text">Area</span>
+                                <span>{{ workspace.other_detail.area_for_lease_in_sq_ft }} Sq. Ft.</span>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <span class="small-text">Monthly Rent*</span>
+                                <span><i class="icon-rupee fas fa-rupee-sign"></i>{{ (workspace.other_detail.area_for_lease_in_sq_ft *
+                  workspace.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</span>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <span class="small-text">Status</span>
+                                <span>{{workspace.other_detail.office_type}}</span>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <span class="small-text">Deposit</span>
+                                <span>{{ checkAmenityIsAvailable('Deposit') ? 'Yes' : 'No' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="workspace.description" class="sections about-section">
+                        <h2 class="hideOnMobile">About this Office Space</h2>
+                        <p *ngIf="seeMore; else hide">
+                            {{ workspace.description |slice:0:270 }}
+                        </p>
+                        <ng-template #hide>
+                            <p>
+                                {{ workspace.description }}
+                            </p>
+                        </ng-template>
+
+                        <p class="see_more mt-1" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+
+                        <!-- <div class="metro-detail"
+              *ngIf="workspace.location.metro_detail.is_near_metro">
+              <p>
+                <i class="metro-icon"></i>Nearest Metro Station <span>{{ workspace.location.metro_detail.name }}</span>
+              </p>
+            </div> -->
+                    </div>
+
+                    <div class="sections hideOnMobile">
+                        <h2>Building Amenities</h2>
+                        <ul class="amenity-list">
+                            <li *ngFor="let amenity of workspace.amenties">
+                                <i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sections onlyMobile offers_section">
+                        <h2>Building Amenities</h2>
+                        <ul class="amenity-list">
+                            <ng-container *ngIf="haftAmenities; else fullAmenities">
+                                <li *ngFor="let amenity of workspace.amenties.slice(0,6)">
+                                    <i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}
+                                </li>
+                            </ng-container>
+
+                            <ng-template #fullAmenities>
+                                <li *ngFor="let amenity of workspace.amenties">
+                                    <i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}
+                                </li>
+                            </ng-template>
+                        </ul>
+                        <div class="row buttonOnMobile" (click)="toggleAmenitiesDiv()">
+                            <div class="col-12">
+                                <button class="btn btn-block bg-white">
+                  show {{haftAmenities? "all": "less" }} amenities
+                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sections location location_area">
+                    <h2>You'll work here</h2>
+                    <p *ngIf="workspace">
+                        {{ workspace.location.address }}
+                    </p>
+                    <!-- <div #workspaceMap
+            class="map-container">
+          </div> -->
+                    <div *ngIf="options.zoom" style="height: 200px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
+                    </div>
+                </div>
+                <div class="onlyMobile">
+                    <p style="font-weight: 300;">Located at the most prime location with 24*7 surveillance</p>
+                </div>
+
+                <div class="metro-detail mb-2 hideOnMobile" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
+                    <p class="P-heading">Nearest Metro &amp; Shuttl</p>
+                    <div class="row">
+                        <div class="col-12 pr-0">
+                            <p>
+                                <i class="metro-icon"></i>Nearest Metro <span>{{ workspace.location.metro_detail.name }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!loading && workspace" class="col-lg-4 col-md-12 enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
+                <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" [isOfficeEnquiry]="true" (backButtonClick)="closeEnquireModal()">
+                </app-workspace-enquire>
+            </div>
+        </div>
+
+        <div class="row similar_spaces_area">
+            <div class="col-md-12">
+                <div class="sections no-border">
+                    <h2 class="similarSpace hideOnMobile">Similar Office Spaces</h2>
+                    <app-office-space-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address">
+                    </app-office-space-similar>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile">
+    <div class="container" *ngIf="!loading && workspace">
+        <div class="row">
+            <div class="col-6 bottomPrize">
+                <p class="mb-0 mt-0"><i class="fas fa-rupee-sign"></i><span>{{
+            (workspace.other_detail.rent_in_sq_ft *
+            workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}/month</span></p>
+                <p class="mb-0 mt-0" style="font-weight:600;color:#4343e8;"><small>{{workspace.other_detail.office_type}}</small></p>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-block mt-2 text-white" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>
+          Enquire Now
+        </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="affix-action-btn">
+  <a [href]="'tel:' + supportPhone"
+    [appCustomEventAnalytics]='{"category":"CALL_ON_SUPPORT","action":"click", "label": "SUPPORT_PHONE_NUMBER"}'
+    class="btn btn-primary">
+    <i class="icon-phone"></i>
+    {{supportPhone}}
+  </a>
+  <button type="button"
+    class="btn btn-primary"
+    [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'
+    (click)="openEnquireModal()">
+    Enquire Now
+  </button>
+</div> -->

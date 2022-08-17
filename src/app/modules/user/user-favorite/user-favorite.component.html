@@ -1,0 +1,37 @@
+<div class="user-title">
+  <h2>Favourites</h2>
+</div>
+<app-user-list-loader *ngIf="loading"></app-user-list-loader>
+
+<app-user-blank-screen *ngIf="!loading && !userWorkspaces.length"
+  [type]="'favorite'"
+  [title]="'You don\'t have any favourites yet!'">
+</app-user-blank-screen>
+
+<ul class="workspaces"
+  *ngIf="!loading && userWorkspaces.length">
+  <li *ngFor="let workspace of userWorkspaces">
+    <div class="box">
+      <div class="workspace-img">
+        <img [src]="workspace.images[0]?.image?.s3_link"
+          alt="">
+      </div>
+      <div class="workspace-detail">
+        <h5>{{ workspace.name }}</h5>
+        <p>
+          <i class="icon-location"></i>
+          {{ workspace.location.address1 }}
+        </p>
+        <div class="divider"></div>
+        <div class="workspace-price">
+          <span>Starting from</span>
+          <i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small>
+        </div>
+        <button type="button"
+          [appLoadingButton]="isLoading"
+          (click)="removeFromFavorite(workspace)"
+          class="remove-from-fav">Remove</button>
+      </div>
+    </div>
+  </li>
+</ul>

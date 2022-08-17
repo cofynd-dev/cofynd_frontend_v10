@@ -1,0 +1,53 @@
+<div *ngIf="isHomeSearch" class="form-layout-outline row home-search">
+    <div class="form-group col-md-4 first-ng-select">
+        <ng-select placeholder="Looking for" [clearable]="false" [searchable]="false" (change)="onTypeChange($event)">
+            <ng-option [value]="'coworking'">Co-working</ng-option>
+            <ng-option [value]="'coliving'">Co-Living</ng-option>
+        </ng-select>
+    </div>
+    <div class="form-group col-md-6">
+        <ng-select [searchable]="false" [clearable]="false" placeholder="Select City" [notFoundText]="'Select Type First'" (change)="onCityChange($event)">
+            <ng-option *ngFor="let city of cities" [value]="city.name">
+                <img src="/assets/images/city/{{city.icon}}" width="20px" height="20px" /> {{ city.name }}
+            </ng-option>
+        </ng-select>
+    </div>
+</div>
+
+
+<div *ngIf="!isHomeSearch" class="search-box" [class.flat-search]="isHomeSearch">
+    <i class="icon-location-outline fas fa-search"></i>
+    <input type="text" [placeholder]="placeholder ? placeholder : 'Search...'" class="form-control" [class.loading]="isLoading$ | async" (focus)="showTopSearches = true" (keyup)="updateSearch($event.target.value)" #search />
+
+    <ng-container *ngIf="!isResultSelected && (searchResult$ | async) as searchResults;">
+        <div class="search-suggestion">
+            <div class="search-suggestion-item">
+                <button *ngFor="let workspace of searchResults.data | keyvalue" type="button" (click)="openWorkspace(workspace.value)">
+          {{ workspace.value.name }}
+          <span>{{ workspace.value.location.name }}</span>
+        </button>
+            </div>
+            <div class="search-suggestion-item">
+                <button *ngFor="let location of searchResults.locations| keyvalue" type="button" (click)="openListing(location.value.name)">
+          {{ location.value.address }}
+        </button>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- <ng-container *ngIf="!search.value.length && showTopSearches">
+        <div class="search-suggestion">
+            <div class="search-suggestion-title">
+                Top Searches
+            </div>
+            <div class="search-suggestion-item">
+                <a *ngFor="let link of topLinks" [routerLink]="'/coworking/' + link.city + '/' + link.slug" (click)="clearResult()">
+          {{ link.name }}
+        </a>
+            </div>
+        </div>
+    </ng-container> -->
+
+</div>
+
+<div class="hidden-map" #hiddenMap></div>

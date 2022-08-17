@@ -1,0 +1,55 @@
+.modal-content {
+    border-radius: 12px;
+    background-image: url(http://officegenics.com/cofynd/new-cofynd/new-bg-5.jpg);
+    background-size: cover;
+    .modal-header {
+        justify-content: center;
+        .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+            font-size: 1.25rem;
+            span {
+                font-size: 14px;
+                color: #4343e8;
+            }
+        }
+    }
+    .modal-body {
+        .coworking-space-box {
+            height: 150px;
+            width: 150px;
+            border-radius: 100%;
+            box-shadow: 0px 6px 10px rgba(67, 67, 232, 0.4);
+            background-color: rgba(255, 204, 5, 0.08)
+        }
+        .img-box {
+            position: relative;
+            top: 35px;
+            img {
+                height: 50px;
+                // 60px on mobile
+                widows: auto;
+            }
+            p {
+                margin-top: 14px;
+                font-weight: 500;
+                font-size: 15px;
+                // 13px on mob
+                line-height: 16px;
+                // 14px line-height: ;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .img-box {
+        img {
+            height: 50px;
+        }
+        p {
+            font-size: 13px;
+            line-height: 14px;
+        }
+    }
+}

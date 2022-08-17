@@ -1,0 +1,92 @@
+.workspaces {
+  .box {
+    background: #fff;
+    height: 180px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .02);
+    border-radius: 4px;
+    display: flex;
+
+    @media (max-width: 640px) {
+      height: auto;
+      flex-direction: column;
+    }
+  }
+
+  .workspace-img {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 640px) {
+      width: 100%;
+      height: 190px;
+    }
+
+  }
+
+  .workspace-detail {
+    padding: 15px 25px;
+    position: relative;
+    width: 75%;
+
+    @media (max-width: 640px) {
+      padding: 20px;
+      width: 100%;
+    }
+
+    h5 {
+      font-size: 19px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: #908f8f;
+      font-size: 12px;
+    }
+
+    .divider {
+      width: 160px;
+      height: 1px;
+      margin: 20px 0 0;
+      border-bottom: 1px dotted #f1f1f1;
+    }
+  }
+
+  .workspace-price {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 700;
+
+    span {
+      display: block;
+      color: #888;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+    }
+
+    small {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+
+  .remove-from-fav {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    color: #4343e8;
+  }
+}

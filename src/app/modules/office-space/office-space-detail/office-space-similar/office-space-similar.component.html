@@ -1,0 +1,73 @@
+<div class="similar-workspaces hideOnMobile" *ngIf="!loading && workSpaces.length">
+    <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
+        <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
+            <div class="box" [routerLink]="['/office-space/rent/', office.slug]">
+                <div *ngIf="office.images[0]?.image.s3_link" class="img">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="">
+                </div>
+                <div *ngIf="!office.images[0]?.image.s3_link" class="img"></div>
+                <div class="detail">
+                    <h5>{{ office.name }}</h5>
+                    <p class="address">
+                        <i class="icon-location-outline"></i> {{ office.location.address }}
+                    </p>
+                    <p class="capacity">
+                        <i class="building-icon"></i> {{ getFloorSuffix(office.location.floor) }} Floor
+                    </p>
+                    <div class="price-box">
+                        <div class="price">
+                            <span>Monthly Rent*</span>
+                            <i class="icon-rupee"></i>{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}
+                        </div>
+                        <a [routerLink]="['/office-space/rent/', office.slug]" class="btn-link">Explore Now<small class="icon-next"></small>
+            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ngu-carousel>
+
+    <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left">
+  </button>
+    <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right">
+  </button>
+</div>
+
+
+
+
+
+<section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Similar Office Spaces</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="space_carousel">
+                    <div class="property-item" [routerLink]="['/office-space/rent/', _centerCity.slug]" *ngFor=" let _centerCity of workSpaces">
+                        <div class="property-img">
+                            <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
+                        </div>
+                        <div class="properties-content">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p><i class="icon-location-outline fal fa-map-marker-alt"></i> {{_centerCity.location.address}}</p>
+                            <p class="capacity">
+                                <i class="building-icon"></i> {{ getFloorSuffix(_centerCity.location.floor) }} Floor
+                            </p>
+                            <ng-container>
+                                <p class="price"><span style="color: blue !important;">₹{{(_centerCity.other_detail.area_for_lease_in_sq_ft * _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN')}}</span>/- Month</p>
+                            </ng-container>
+                        </div>
+                        <a></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

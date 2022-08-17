@@ -1,0 +1,24 @@
+<div class="loading-box"
+  *ngFor="let box of loadingItems">
+  <div class="row">
+    <div class="col-md-4">
+      <app-loading-placeholder [width]="'100%'"
+        [height]="'180px'">
+      </app-loading-placeholder>
+    </div>
+    <div class="col-md-8">
+      <app-loading-placeholder [width]="'75%'"
+        [height]="'30px'"
+        [marginBottom]="'10px'"
+        [marginTop]="'15px'">
+      </app-loading-placeholder>
+      <app-loading-placeholder [width]="'55%'"
+        [height]="'20px'">
+      </app-loading-placeholder>
+      <app-loading-placeholder [width]="'150px'"
+        [height]="'50px'"
+        [marginTop]="'40px'">
+      </app-loading-placeholder>
+    </div>
+  </div>
+</div>

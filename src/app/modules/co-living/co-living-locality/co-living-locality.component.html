@@ -1,0 +1,103 @@
+
+<app-search-breadcrumb [breadcrumbs]="breadcrumbs"
+  [isPriceFilter]="true"
+  [isSortFilter]="true"
+  [priceFilters]="price_filters"
+  breadcumbType='coliving'
+  (onResetFilter)="resetFilter()"
+  (priceFilterChanged)="onFilterPriceChange($event)"
+  (sortTypeChanged)="onSortTypeChange($event)"
+  [isPageScrolled]="isScrolled"
+  [breadcrumbs]="breadcrumbs"
+  (filterChanged)="filterMapView($event)"
+  (mapViewChanged)="toggleMapView($event)">
+</app-search-breadcrumb>
+<section class="search-container clearfix">
+  <div class="search-grid-container"
+    [class.search-grid-full]="!isMapView">
+    <div class="search-grid-wrapper">
+
+      <h1 class="page-heading"
+        *ngIf="!loading">
+        {{ pageTitle ? pageTitle : 'Coliving space in ' + subTitle + ' ' + title }}
+      </h1>
+
+      <app-search-no-result *ngIf="!loading && !coLivings.length"
+        [title]="'Co-Living'"
+        [url]="'/co-living'">
+      </app-search-no-result>
+
+      <app-search-card-loader *ngIf="loading">
+      </app-search-card-loader>
+
+      <app-search-similar-location *ngIf="!loading"
+        [relativeUrl]="'co-living'"
+        [cityName]="title"
+        [popularLocationList]="popularLocation">
+      </app-search-similar-location>
+
+      <div class="row"
+        *ngIf="!loading">
+        <ng-container *ngFor="let coLiving of coLivings; let i = index">
+          <div class="col-sm-6"
+            [class.col-md-4]="!isMapView"
+            [class.col-md-6]="isMapView">
+            <app-co-living-card [coLiving]="coLiving"></app-co-living-card>
+          </div>
+          
+
+  <ng-template [ngIf]="isMapView">
+          <div class="col-sm-12"
+            *ngIf="(i + 1) % 4 === 0">
+            <app-search-contact-us-text [cities]="availableCities"
+              [type]="'for_coLiving'">
+            </app-search-contact-us-text>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="!isMapView">
+          <div class="col-sm-12"
+            *ngIf="(i + 1) % 6 === 0">
+            <app-search-contact-us-text [cities]="availableCities"
+              [type]="'for_coLiving'">
+            </app-search-contact-us-text>
+          </div>
+        </ng-template>
+
+        </ng-container>
+      </div>
+
+      <div *ngIf="!loading"
+        class="pagination-container">
+        <pagination [totalItems]="totalRecords"
+          [itemsPerPage]="number_record"
+          [(ngModel)]="page"
+          [maxSize]="maxSize"
+          (pageChanged)="loadMore($event)">
+        </pagination>
+</div>
+    </div>
+  </div>
+  <div *ngIf="loading"
+    class="search-map-container">
+  </div>
+  <div *ngIf="!loading && isMapView"
+    class="search-map-container"
+    [class.absolute-map]="isSearchFooterVisible"
+    [class.hide-map]="!isMapView">
+    <app-search-map-view (pageScrollEvent)="onPageScroll($event)"
+      [spaceType]="'co-living'"
+      [workspaces]="coLivings">
+    </app-search-map-view>
+  </div>
+</section>
+<section class="search-description"
+  *ngIf="!loading && seoData">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ seoData?.footer_title }}</h2>
+        <div [innerHTML]="seoData?.footer_description"></div>
+      </div>
+    </div>
+  </div>
+</section>

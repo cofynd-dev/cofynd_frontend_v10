@@ -1,0 +1,95 @@
+<div appClickOutside (clickOutside)="open = false">
+    <button class="dropdown-link" type="button" (click)="open_menu('','')">
+    {{ title }} <i class="icon-down-arrow fal fa-angle-down"></i>
+  </button>
+    <div *ngIf="open" class="mega-menu" [class.mega-menu-col-1]="isSingle">
+        <div class="mega-menu-dropdown">
+            <div class="mega-menu-column">
+                <ng-container *ngFor="let city of cities; let i = index">
+                    <h5 *ngIf="i < 6">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworking/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
+                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                        </a>
+                    </h5>
+                </ng-container>
+            </div>
+            <div class="mega-menu-column">
+                <ng-container *ngFor="let city of cities; let i = index">
+                    <h5 *ngIf="i >= 6 && i < 12">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworkingNew/" || relativeUrl == "/coworking/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
+                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                        </a>
+                    </h5>
+                </ng-container>
+            </div>
+            <div class="mega-menu-column">
+                <ng-container *ngFor="let city of cities; let i = index">
+                    <h5 *ngIf="i >= 12">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworkingNew/" || relativeUrl == "/coworking/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
+                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                        </a>
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
+                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                        </a>
+                    </h5>
+                </ng-container>
+                <a class="view-link" *ngIf='relativeUrl == "/office-space/rent/"' (click)="open = false" [routerLink]="relativeUrl">
+          View All
+        </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="open1 == true" class="mega-menu" [class.mega-menu-col-1]="isSingle">
+    <div class="mega-menu-dropdown">
+        <div class="mega-menu-column">
+            <ng-container *ngFor="let city of cities1; let i = index">
+                <h5 *ngIf="i < 6">
+                    <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
+                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                    </a>
+                </h5>
+            </ng-container>
+        </div>
+        <div class="mega-menu-column">
+            <ng-container *ngFor="let city of cities1; let i = index">
+                <h5 *ngIf="i >= 6 && i < 12">
+                    <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
+                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                    </a>
+                </h5>
+            </ng-container>
+        </div>
+        <div class="mega-menu-column">
+            <ng-container *ngFor="let city of cities1; let i = index">
+                <h5 *ngIf="i >= 12">
+                    <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
+                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                    </a>
+                </h5>
+            </ng-container>
+            <a class="view-link" *ngIf="countryNameGloble === 'INDIA' || countryNameGloble === 'india' || countryNameGloble === 'India'" (click)="viewAllStaticCountry()" style="cursor: pointer;">
+      View All
+    </a>
+            <a class="view-link" *ngIf="countryNameGloble != 'India' && countryNameGloble != 'INDIA' && countryNameGloble != 'india'" (click)="viewAllDynamicCountry()" style="cursor: pointer;">
+    View All
+  </a>
+        </div>
+    </div>
+</div>
