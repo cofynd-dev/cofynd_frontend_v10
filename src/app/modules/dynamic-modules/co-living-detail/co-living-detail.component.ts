@@ -104,7 +104,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -128,6 +128,7 @@ export class CoLivingDetailComponent implements OnInit {
             zoom: 10,
             attributionControl: false,
             scrollWheelZoom: false,
+            dragging: false,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
           };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);

@@ -215,9 +215,11 @@ export class WorkSpaceComponent implements OnInit {
                 { maxZoom: 18, attribution: 'Open Street Map' },
               ),
             ],
+
             zoom: 10,
             attributionControl: false,
             scrollWheelZoom: false,
+            dragging: false,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
           };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
