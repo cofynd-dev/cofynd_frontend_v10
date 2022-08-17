@@ -54,8 +54,7 @@
                 </li>
                 <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
-                            Signup</button>
+                        <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/Signup</button>
                     </div>
                 </li>
                 <li *ngIf="isAuthenticated()" class="no-tablet">
@@ -277,4 +276,13 @@
             </div>
         </nav>
     </div>
+<!-- =======
+                <a (click)="closeMobileMenu()" style="color: blue;" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}
+        </a>
+                <a style="text-transform: none; color: blue;">hello@cofynd.com
+        </a>
+            </li>
+        </ul>
+    </div>
+>>>>>>> 3817b0dee68338b7270608a12b0bf52c6d695887 -->
 </header>

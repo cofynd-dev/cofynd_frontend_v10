@@ -1104,8 +1104,35 @@ ul {
       padding: 20px 0;
     }
   }
-  
-  
+//   .cta_section {
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+// }
+// .cta_section .cta_area {
+//     background-color: #F8F9FA;
+//     padding: 15px;
+//     border-radius: 10px;
+//     display: flex;
+//     align-items: center;
+//     box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.16);
+//     width: 96%;
+//     margin: 0 auto;
+// }
+// .cta_section p {
+//     font-size: 14px;
+//     line-height: 22px;
+// }
+// .cta_section span {
+//     font-weight: 600;
+//     margin-top: 10px;
+//     display: inline-block;
+// }
+// .cta_section .img-fluid {
+//     width: 80%;
+// }
+// .cta_content {
+//     padding: 10px 0px;
+// }
 .partner-carousel::-webkit-scrollbar {
     height: 0;
   }
@@ -1123,7 +1150,6 @@ ul {
 	object-fit: cover;
 	height: 120px;
 }
-
 
 /**************  Responsive  *************/
 
@@ -1388,7 +1414,36 @@ ul {
         line-height: 14px;
         margin-bottom: 0px;
     }
- 
+    .cta_section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .cta_section .cta_area {
+        background-color: #F8F9FA;
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.1);
+        // width: 96%;
+        margin: 0 auto;
+    }
+    .cta_section p {
+        font-size: 12px !important;
+        line-height: 16px !important;
+        margin-bottom: 10px !important;
+    }
+    .cta_section span {
+        font-weight: 600;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    .cta_section .img-fluid {
+        width: 80%;
+    }
+    .cta_content {
+        padding: 10px 0px;
+    }
     
     .space_search_made_sec {
         background: #F8F8F8;
@@ -1671,9 +1726,9 @@ ul {
       -ms-overflow-style: none !important;
       scrollbar-width: none !important;
       }
-    //   .cta_section .cta_area {
-    //     padding: 15px 0px;
-    // }
+      .cta_section .cta_area {
+        padding: 15px 0px;
+    }
     .advertisement_sec {
         padding: 20px 0px;
     }

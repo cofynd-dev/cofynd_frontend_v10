@@ -14,7 +14,6 @@ import { ConfigService } from '@core/services/config.service';
 import { environment } from '@env/environment';
 declare var $: any;
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -95,6 +94,7 @@ export class HeaderComponent implements AfterViewInit {
   isAuthenticated() {
     return this.authService.getToken() ? true : false;
   }
+
   onLogOut() {
     this.authService.logOut();
     this.closeMobileMenu();

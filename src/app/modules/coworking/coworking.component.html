@@ -1,6 +1,5 @@
 <div class="wrapper">
-  <section class="banner hideInMobile"
-    style="margin-top: 0 !important;">
+  <section class="banner hideInMobile" style="margin-top: 0 !important;">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -579,6 +578,25 @@
               </div>
               <a routerLink="bhubaneswar"
                 class="stretched-link"></a>
+
+  <!-- Catagory Services -->
+  <section class="facilities">
+    <div class="container">
+      <div class="option-box">
+        <div class="row hide-d">
+          <div class="col-12 blueLine text-center">
+            <p>Coworking Amenities</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-6"
+            *ngFor="let data of service">
+            <div class="mt-3 mb-3">
+              <img [src]="'../../../assets/images/'+data.icon"
+                class="img-fluid d-block"
+                [alt]="data.title">
+              <p class="mt-2 mb-2 h-font18">{{data.title}}</p>
+              <p class="text-dark mb-0 hide-m">{{data.description}}</p>
             </div>
           </div>
         </div>
@@ -749,6 +767,12 @@
     [shouldCoWorkingVisible]="true"
     [shouldCoLivingVisible]="false"
     [coWorkingSpaces]="spaceForMobile.noida">
+  </app-carousel-item>
+
+  <app-carousel-item [pageTitle]="'Top Spaces in Delhi'"
+    [shouldCoWorkingVisible]="true"
+    [shouldCoLivingVisible]="false"
+    [coWorkingSpaces]="spaceForMobile.delhi">
   </app-carousel-item>
 
   <app-carousel-item [pageTitle]="'Top Spaces in Ahmedabad'"
@@ -925,10 +949,10 @@
 
   <!-- Brand Partner -->
   <section class="hideInMobile">
-  <app-home-brand-list [shouldOtherBrandVisible]="true"
-    [shouldCoWorkingVisible]="false">
-  </app-home-brand-list>
-</section>
+    <app-home-brand-list [shouldOtherBrandVisible]="true"
+      [shouldCoWorkingVisible]="false">
+    </app-home-brand-list>
+  </section>
 
   <!-- exclusive cofynd -->
   <section class="hideInMobile">
@@ -1037,14 +1061,14 @@
     </div>
   </section>
 
+
   <section class="cofynd_desk_sec">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="cofynd-desk text-center">
             <img style="max-height: 200px;"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
-              alt="">
+              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
             <h4>What's the CoFynd Desk ?</h4>
             <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br />
               As we
@@ -1056,6 +1080,11 @@
                 <span class="pl-2 pr-2" routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
               </p>
             </div> -->
+            <div class="space-btn">
+              <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2">India </span>|
+                <span class="pl-2 pr-2" routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1155,8 +1184,6 @@
 <!-- ===== Mobile View ========================= -->
 
 <section class="hideInDesktop">
-
-
 
   <!--Top banner -->
   <!-- <section class="top-search">
@@ -1350,8 +1377,7 @@
         </div>
         <div class="col-12">
           <img
-            src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png"
-            class="img-fluid m-auto d-block border pt-2 pl-2 pr-2"
+            src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2"
             alt="">
         </div>
       </div>
@@ -1859,6 +1885,7 @@
   </section>
 
   <!-- Top Colving Brands -->
+
   <section class="partners_sec">
     <div class="container">
       <div class="row">
@@ -1966,11 +1993,6 @@
               grow, we think of ourselves as creating a shared Ecosystem, one that lets the
               Cofynd community Breathe, Connect and Climb to their highest in life.</p>
             <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
-            <!-- <div class="space-btn pb-5">
-              <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2">India </span>|
-                <span class="pl-2 pr-2" routerLink="/singapore/coworking">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
-              </p>
-            </div> -->
           </div>
         </div>
       </div>
