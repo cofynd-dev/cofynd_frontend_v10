@@ -63,6 +63,8 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     load: 1,
     velocity: 0,
     touch: true,
+    interval: { timing: 4000, initialDelay: 1000 },
+
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
