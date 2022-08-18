@@ -30,7 +30,7 @@
         </app-workspace-banner-blank>
     </div>
 
-    <div class="container onlyMobile pt-3 breadcrumb_area">
+    <div class="container onlyMobile breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -121,15 +121,23 @@
                     </div>
 
                     <div class="sections about-section">
-                        <h2 class="hideOnMobile">About this property</h2>
-                        <p class="mb-5 text-justify" [innerHTML]="workspace.description"> </p>
-                        <div *ngIf="!isMobileResolution">
-                            <p class="mb-5 text-justify" [innerHTML]="workspace.description"> </p>
+                       
+                        <div *ngIf="workspace.description">
+                            <div class="hideOnMobile">
+                            <h2 >About this property</h2>
+                            <p [innerHTML]="workspace.description">
+                            </p>
                             </div>
-                        <div *ngIf="isMobileResolution">
-                        <p class="mb-5 text-justify" [innerHTML]="content"> </p>
-                        <a  *ngIf="!isContentToggled" (click)="toggleContent()" style="color: #4343e8;">Read More</a>
-                        <a  *ngIf="isContentToggled" (click)="toggleContent()" style="color: #4343e8;">Read Less</a>
+                            <div class="onlyMobile">
+                            <h2 >About property</h2>
+                            <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
+                            </p>
+                            <ng-template #hide>
+                                <p [innerHTML]="workspace.description"> </p>
+                            </ng-template>
+    
+                            <p style="color: #4343e8 !important; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+                            </div>
                         </div>
                         <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
                     </div>

@@ -132,9 +132,12 @@
                     </div>
                     <!-- ------------------------------------------------------ -->
                     <div *ngIf="workspace.description" class="sections about-section pt-4">
-                        <h2 class="hideOnMobile">About this property</h2>
+                        <!-- <h2 class="hideOnMobile">About this property</h2> -->
+                        <h2 >About this property</h2>
                         <!-- <h2 class="onlyMobile">About property</h2> -->
-
+                        <p class="hideOnMobile" [innerHTML]="workspace.description">
+                        </p>
+                        <div class="hideOnweb">
                         <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
                         </p>
                         <ng-template #hide>
@@ -142,6 +145,7 @@
                         </ng-template>
 
                         <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
+                        </div>
                         <!-- <div class="row buttonOnMobile"
               (click)="toggleAmenitiesDiv()">
               <div class="col-12">

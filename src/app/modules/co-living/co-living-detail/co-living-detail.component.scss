@@ -580,6 +580,11 @@ h2 {
         display: none !important;
     }
 }
+.hideOnweb {
+    @media (min-width: 480px) {
+        display: none !important;
+    }
+}
 
 .headingForMobile {
     padding-bottom: 15px;
