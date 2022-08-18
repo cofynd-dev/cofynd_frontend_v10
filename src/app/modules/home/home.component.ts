@@ -151,7 +151,6 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    this.getPopularCoworkingSpace();
     this.getFeaturedImages();
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
@@ -162,7 +161,22 @@ export class HomeComponent {
         brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
       );
     });
+    this.loopColivingSliders();
+  }
 
+  loopColivingSliders() {
+    let combinedArray = [];
+    for (let index = 0; index < this.popularCoLivingSpaces.length * 4; index++) {
+      combinedArray.push(this.popularCoLivingSpaces)
+    }
+    this.popularCoLivingSpaces = [].concat.apply([], combinedArray);
+  }
+  loopCoworkingSliders() {
+    let combinedArray = [];
+    for (let index = 0; index < this.popularCoWorkingSpaces.length * 4; index++) {
+      combinedArray.push(this.popularCoWorkingSpaces)
+    }
+    this.popularCoWorkingSpaces = [].concat.apply([], combinedArray);
   }
   getFeaturedImages() {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
@@ -174,12 +188,12 @@ export class HomeComponent {
     this.brandService.getBrandAdsImages().subscribe((res: any) => {
       this.coworkingBrandAdsImages = res.filter(city => city.for_coWorking === true);
       this.colivingBrandAdsImages = res.filter(city => city.for_coLiving === true);
-      console.log(this.coworkingBrandAdsImages, this.colivingBrandAdsImages);
     })
   }
   getPopularCoworkingSpace() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
       this.popularCoWorkingSpaces = spaces;
+      this.loopCoworkingSliders();
     });
   }
   setScript() {
@@ -263,7 +277,6 @@ export class HomeComponent {
         type: 'website',
         footer_description: seoMeta.footer_description,
       };
-      console.log("seoData", this.seoData);
       this.seoService.setData(this.seoData);
     });
   }
