@@ -474,6 +474,19 @@ a+a {
     }
 }
 
+@media (max-width: 767px) {
+    .main_header .navbar .search {
+        display: none;
+    }
+    .main_header .navbar .search.search-modal {
+        display: block;
+    }
+    .navbar-nav .btn {
+        border-radius: 10px;
+        border: none;
+    }
+}
+
 @media (max-width: 480px) {
     header .top-left .logo img {
         max-width: 160px;
@@ -612,6 +625,7 @@ a+a {
 .navbar-toggler {
 	padding: 3px 10px !important;
 	font-size: 13px !important;
+    color: #272828 !important;
 }
 .navbar-nav li.divider-line {
     padding-left: 15px;
@@ -645,9 +659,14 @@ a+a {
 }
 
 @media (max-width: 480px) {
+    header {
+        height: auto;
+        padding: 4px 0px;
+    }
     .navbar .row {
         width: 100%;
         margin: 0 auto;
+        align-items: center;
     }
     .main_header .nav-item .dropdown-menu .dropdown-item {
         font-size: 11px;
@@ -656,11 +675,11 @@ a+a {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .navbar-brand .img-fluid {
-        width: 140px;
+        width: 160px;
     }
     .main_header .navbar-collapse {
         position: absolute;
-        top: 58px;
+        top: 52px;
         background-color: #fff;
         width: 100%;
         border-bottom-left-radius: 10px;
@@ -733,5 +752,37 @@ border-bottom: 1px solid rgba(0,0,0,0.1) !important;
         width: 48%;
         float: left;
         margin: 0px 1%;
+    }
+    .main_header .mobile-search {
+        top: -7px;
+        left: 0;
+    }
+    .main_header .toggle_col {
+        padding-right: 0px;
+        text-align: right;
+    }
+    .main_header .logo_col {
+        text-align: center;
+    }
+    .main_header .logo_col .navbar-brand {
+        margin-right: 0px;
+        padding: 0px;
+    }
+    .navbar-toggler {
+        font-size: 17px !important;
+        border: none;
+    }
+    .main_header .search.search-modal {
+        position: absolute;
+        width: 100%;
+    }
+    .main_header .search-modal .icon-close {
+        position: absolute;
+        z-index: 9;
+        right: 10px;
+        top: 15px;
+    }
+    .main_header .navbar-nav .nav-item .dropdown-menu {
+        margin-left: 0px !important;
     }
 }
