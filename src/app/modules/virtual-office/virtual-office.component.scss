@@ -52,7 +52,7 @@
     }
 
     .Virtual-banner-bg {
-      background     : url('../../../assets/images/virtual-office.jpg') no-repeat top right;
+      background     : url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d25f96a92db35416d6d2d443e38befe18e9a7a05.jpg') no-repeat top right;
       width          : 50%;
       position       : absolute;
       right          : 0;
@@ -730,7 +730,7 @@
 	padding: 0 20% 0 0 !important;
 }
 .coworking_cta p {
-	line-height: 17px;
+	line-height: 9px !important;
 }
 .coworking_cta .cta_area {
 	background-color: #E8E8FF;
@@ -799,8 +799,6 @@
 // 	width: 38.429%;
 // 	overflow: hidden;
 // }
-
-
 
 /* top cities css */
 .cities_carousel {
@@ -877,7 +875,6 @@
 	color: #fff;
 	margin: 0;
 }
-
 
 //our clients
 .logos_slider {

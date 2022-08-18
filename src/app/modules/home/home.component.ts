@@ -85,25 +85,6 @@ export class HomeComponent {
   }
   popularCoLivingSpaces = [
     {
-      name: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30c9886ab2f435389383acff8e74d1feb508e2f9.jpg',
-      slug: 'delhi',
-      address: 'The Nation Capital',
-
-    },
-    {
-      name: 'Gurugram',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
-      slug: 'gurugram',
-      address: 'A Millennium City',
-    },
-    {
-      name: 'Noida',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae54cf7e062c1b1730f9232a89082f703c343fc5.jpg',
-      slug: 'noida',
-      address: 'The Hitech City',
-    },
-    {
       name: 'Bangalore',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74a8090ee807625aa2b4aba29c4d35de02cbf5d8.jpg',
       slug: 'bangalore',
@@ -116,10 +97,10 @@ export class HomeComponent {
       address: "A City of Nawabs",
     },
     {
-      name: 'Mumbai',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
-      slug: 'mumbai',
-      address: "A City of Dreams",
+      name: 'Gurugram',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
+      slug: 'gurugram',
+      address: 'A Millennium City',
     },
     {
       name: 'Pune',
@@ -127,12 +108,29 @@ export class HomeComponent {
       slug: 'pune',
       address: "Queen of the Deccan",
     },
-    // {
-    //   name: 'Goa',
-    //   image: ' ',
-    //   slug: 'goa',
-    //   address: "Paradise of South Asia",
-    // },
+
+    {
+      name: 'Mumbai',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
+      slug: 'mumbai',
+      address: "A City of Dreams",
+    },
+
+    {
+      name: 'Delhi',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30c9886ab2f435389383acff8e74d1feb508e2f9.jpg',
+      slug: 'delhi',
+      address: 'The Nation Capital',
+
+    },
+
+    {
+      name: 'Noida',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae54cf7e062c1b1730f9232a89082f703c343fc5.jpg',
+      slug: 'noida',
+      address: 'The Hitech City',
+    },
+
   ]
 
   constructor(
