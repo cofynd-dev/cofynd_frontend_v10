@@ -25,10 +25,11 @@
             [src]="sliderItems.img"
             [alt]="sliderItems.title">
         </div>
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+        </ul>
       </div>
-      <ul class="myPoint" NguCarouselPoint>
-        <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
-      </ul>
+      
       <!-- <button NguCarouselPrev
         class="left-crl-arrow"></button>
       <button NguCarouselNext
