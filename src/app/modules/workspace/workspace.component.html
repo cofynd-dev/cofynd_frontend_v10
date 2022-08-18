@@ -122,7 +122,7 @@
 
                     <div class="sections about-section">
                        
-                        <div *ngIf="workspace.description" class="sections about-section pt-4">
+                        <div *ngIf="workspace.description">
                             <div class="hideOnMobile">
                             <h2 >About this property</h2>
                             <p [innerHTML]="workspace.description">
@@ -138,14 +138,6 @@
     
                             <p style="color: #4343e8 !important; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
                             </div>
-                            <!-- <div class="row buttonOnMobile"
-                  (click)="toggleAmenitiesDiv()">
-                  <div class="col-12">
-                    <button class="btn btn-block bg-white">
-                      show {{haftAmenities? "all": "less" }} amenities
-                    </button>
-                  </div>
-                </div> -->
                         </div>
                         <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
                     </div>
