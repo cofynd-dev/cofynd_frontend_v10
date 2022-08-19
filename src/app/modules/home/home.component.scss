@@ -1615,7 +1615,7 @@ ul {
         width: 100%;
         height: auto;
         overflow-x: scroll;
-        padding: 0px;
+        padding: 8px 0px;
         margin: 0;
         white-space: nowrap;
     }
@@ -1624,10 +1624,10 @@ ul {
     height: 0 !important;
     width: 0 !important;
 }
-.cities_carousel {
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
+    .cities_carousel {
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
     }
     .cities_item {
         display: inline-block;
