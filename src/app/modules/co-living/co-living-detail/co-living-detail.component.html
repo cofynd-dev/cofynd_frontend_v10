@@ -138,7 +138,7 @@
                         <p class="hideOnMobile" [innerHTML]="workspace.description">
                         </p>
                         <div class="hideOnweb">
-                        <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
+                        <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide">
                         </p>
                         <ng-template #hide>
                             <p [innerHTML]="workspace.description"> </p>
