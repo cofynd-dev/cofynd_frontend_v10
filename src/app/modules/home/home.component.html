@@ -490,10 +490,6 @@
         </div>
     </div>
 </section> -->
-<div class="hideOnMobile">
-    <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
-    </app-home-popular-space>
-</div>
 
 <section class="video_sec onlyMobile">
     <div class="container">
@@ -513,6 +509,11 @@
     </div>
 </section>
 
+<div class="">
+    <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
+    </app-home-popular-space>
+</div>
+
 <!-- <section class="video_sec onlyMobile">
     <div class="container">
         <div class="row">
@@ -523,7 +524,7 @@
     </div>
 </section> -->
 
-<section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces && popularCoLivingSpaces.length">
+<!-- <section class="top_coliving_cities onlyMobile" *ngIf="popularCoLivingSpaces && popularCoLivingSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -546,7 +547,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- 
 <app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
