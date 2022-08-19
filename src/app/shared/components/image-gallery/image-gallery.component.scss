@@ -19,10 +19,13 @@
   list-style-type: none;
   text-align: center;
   // padding: 12px;
-  margin: 0;
   white-space: nowrap;
   overflow: auto;
   box-sizing: border-box;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 42%;
  
 }
 .myPoint  li {

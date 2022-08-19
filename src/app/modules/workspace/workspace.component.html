@@ -130,7 +130,7 @@
                             </div>
                             <div class="onlyMobile">
                             <h2 >About property</h2>
-                            <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
+                            <p [innerHTML]="(workspace.description |slice:0:250)+'...' " *ngIf="seeMore; else hide">
                             </p>
                             <ng-template #hide>
                                 <p [innerHTML]="workspace.description"> </p>
