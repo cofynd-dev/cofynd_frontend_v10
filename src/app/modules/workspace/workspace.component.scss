@@ -478,17 +478,17 @@ body {
 }
 
 @media (max-width: 480px) {
-    body,
-    p {
-        font-size: 11px !important;
-        line-height: 16px !important;
-    }
+    // body,
+    // p {
+    //     font-size: 11px !important;
+    //     line-height: 16px !important;
+    // }
     section {
         padding: 0px;
     }
-    h2 {
-        margin-bottom: 10px !important;
-    }
+    // h2 {
+    //     margin-bottom: 10px !important;
+    // }
     .breadcrumb_area a {
         color: #272828;
         font-weight: 600;
@@ -508,7 +508,7 @@ body {
     .facilities-points {
         margin-top: 0px !important;
         padding-top: 15px;
-        padding-bottom: 5px;
+        padding-bottom: 0px;
     }
     .facilities-points .icon_box {
         margin-bottom: 10px;
@@ -527,7 +527,7 @@ body {
         margin-bottom: 15px;
     }
     .icon_box img {
-        width: 24px;
+        width: 20px;
         margin-bottom: 0px;
     }
     .icon_box h4 {
@@ -602,9 +602,9 @@ body {
     .plan-list .box p {
         margin-bottom: 0px;
     }
-    .location_area {
-        padding: 20px 0px !important;
-    }
+    // .location_area {
+    //     padding: 20px 0px !important;
+    // }
     .location_area h2 {
         margin-bottom: 0px !important;
     }
