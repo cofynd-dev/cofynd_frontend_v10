@@ -2760,4 +2760,53 @@ Amenity Icons
                     font-size: 11px !important;
                     line-height: 14px !important;
                 }
+                .similar_spaces_area .col-md-12 {
+                    padding: 0px;
+                }
+                .logos_background_img {
+                    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8aedf6a13715c3aec2f3b02476b9e8787143cda0.png');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                .popular-space-carousel .ngucarousel .ngucarousel-items {
+                    display: block !important;
+                    width: 100%;
+                    height: auto !important;
+                    overflow-x: scroll;
+                    padding: 0px;
+                    margin: 0;
+                    white-space: nowrap;
+                    scrollbar-width: none !important;
+                    -webkit-transform: none !important;
+                    transform: none !important;
+                    -webkit-transition: none !important;
+                    transition: none !important;
+                }
+                .popular-spaces .popular-space-carousel .item {
+                    padding: 0px !important;
+                    display: inline-block;
+                    margin: 0 5px;
+                    height: 300px;
+                    background: rgba(0, 0, 0, 0.05) no-repeat center center;
+                    background-size: auto;
+                    background-size: cover;
+                    position: relative;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px #dfdfdf;
+                    -webkit-box-flex: 0;
+                    flex: 0 0 71.4285714286%;
+                    width: 71.4285714286%;
+                    overflow: hidden;
+                }
+                .popular-spaces .popular-space-box h5 {
+                    font-size: 14px !important;
+                    line-height: 20px !important;
+                    color: #fff !important;
+                    margin-bottom: 5px !important;
+                    font-weight: 700 !important;
+                }
+                .popular-spaces .popular-space-box p {
+                    color: #fff !important;
+                    margin: 0;
+                }
             }
