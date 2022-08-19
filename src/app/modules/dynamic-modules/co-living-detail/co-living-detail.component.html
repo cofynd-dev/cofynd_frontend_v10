@@ -32,7 +32,7 @@
     </div>
 
     <!-- mobile breadcrumb -->
-    <div class="container onlyMobile pt-3">
+    <div class="container onlyMobile">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -141,16 +141,21 @@
                     </div>
                     <!-- ------------------------------------------------------ -->
                     <div *ngIf="workspace.description" class="sections about-section pt-4">
-                        <h2 class="hideOnMobile">About this property</h2>
-                        <h2 class="onlyMobile">About property</h2>
-
-                        <p [innerHTML]="workspace.description |slice:0:250" *ngIf="seeMore; else hide">
+                        <div class="hideOnMobile">
+                        <h2 >About this property</h2>
+                        <p [innerHTML]="workspace.description">
+                        </p>
+                        </div>
+                        <div class="onlyMobile">
+                        <h2 >About property</h2>
+                        <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide">
                         </p>
                         <ng-template #hide>
                             <p [innerHTML]="workspace.description"> </p>
                         </ng-template>
 
-                        <p style="color: #4343e8; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+                        <p style="color: #4343e8 !important; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+                        </div>
                         <!-- <div class="row buttonOnMobile"
               (click)="toggleAmenitiesDiv()">
               <div class="col-12">

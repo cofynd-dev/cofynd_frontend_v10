@@ -9,6 +9,15 @@
 @import 'base/icons';
 @import 'base/button';
 
+body, p {
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 21px;
+	letter-spacing: 0;
+    color: #272828;
+}
+
 // Auth Dialog
 .auth-modal {
     max-width: 420px;
@@ -1285,16 +1294,12 @@ Amenity Icons
         }
 
         .desktophide {
-            display: none;
-
-            .desktophide {
                 display: none;
 
                 @media (max-width:480px) {
                     display: block;
                 }
             }
-        }
 
             .page-title-left {
                 text-align: left;
@@ -1431,6 +1436,9 @@ Amenity Icons
                 }
             }
 
+            .amenity-list li i {
+                background-size: contain;
+            }
 
             @media (max-width:480px) {
 
@@ -2090,9 +2098,9 @@ Amenity Icons
                     margin-bottom: 10px;
                 }
 
-                .about-section p {
-                    margin-bottom: 0px;
-                }
+                // .about-section p {
+                //     margin-bottom: 0px;
+                // }
 
                 .see_more {
                     color: #4343e8 !important;
@@ -2740,5 +2748,65 @@ Amenity Icons
 
                 .mobile-ftr-contact .bottomPrize {
                     top: 0px !important;
+                }
+                .location_area .leaflet-container {
+                    border: 1px solid #e5e5e5 !important;
+                    border-radius: 10px;
+                }
+                .location_area h2 {
+                    margin-bottom: 0px !important;
+                }
+                .space_title_area .address {
+                    font-size: 11px !important;
+                    line-height: 14px !important;
+                }
+                .similar_spaces_area .col-md-12 {
+                    padding: 0px;
+                }
+                .logos_background_img {
+                    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8aedf6a13715c3aec2f3b02476b9e8787143cda0.png');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                .popular-space-carousel .ngucarousel .ngucarousel-items {
+                    display: block !important;
+                    width: 100%;
+                    height: auto !important;
+                    overflow-x: scroll;
+                    padding: 0px;
+                    margin: 0;
+                    white-space: nowrap;
+                    scrollbar-width: none !important;
+                    -webkit-transform: none !important;
+                    transform: none !important;
+                    -webkit-transition: none !important;
+                    transition: none !important;
+                }
+                .popular-spaces .popular-space-carousel .item {
+                    padding: 0px !important;
+                    display: inline-block;
+                    margin: 0 5px;
+                    height: 300px;
+                    background: rgba(0, 0, 0, 0.05) no-repeat center center;
+                    background-size: auto;
+                    background-size: cover;
+                    position: relative;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px #dfdfdf;
+                    -webkit-box-flex: 0;
+                    flex: 0 0 71.4285714286%;
+                    width: 71.4285714286%;
+                    overflow: hidden;
+                }
+                .popular-spaces .popular-space-box h5 {
+                    font-size: 14px !important;
+                    line-height: 20px !important;
+                    color: #fff !important;
+                    margin-bottom: 5px !important;
+                    font-weight: 700 !important;
+                }
+                .popular-spaces .popular-space-box p {
+                    color: #fff !important;
+                    margin: 0;
                 }
             }

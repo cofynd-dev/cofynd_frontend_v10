@@ -159,32 +159,16 @@ export class WorkSpaceComponent implements OnInit {
     });
     this.markers.push(newMarker);
   }
-  formatContent(content: string) {
-    if (true) {
-      this.limit = content.substr(0, this.limit).lastIndexOf(' ');
-    }
-    return `${content.substr(0, this.limit)}...`;
-  }
-  toggleContent() {
-    console.log("***", this.workspace.description)
 
-    this.isContentToggled = !this.isContentToggled;
-    if (this.isContentToggled) {
-      console.log("true");
-      this.content = this.workspace.description;
-    } else {
-      console.log("false");
-      this.content = this.formatContent(this.workspace.description)
-    }
-    // this.content = this.isContentToggled ? this.nonEditedContent : this.formatContent(this.content);
+  seeMore: boolean = true;
+  toggleAboutMore() {
+    this.seeMore = !this.seeMore;
   }
   getWorkSpace(workspaceId: string) {
     this.loading = true;
     this.workSpaceService.getWorkspace(workspaceId).subscribe(
       workspaceDetail => {
         this.workspace = workspaceDetail;
-        this.content = this.workspace.description;
-        this.content = this.formatContent(this.content);
         this.country_name = this.workspace.country_dbname;
         if (
           this.workspace.country_dbname === 'india' ||

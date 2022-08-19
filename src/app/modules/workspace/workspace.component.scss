@@ -137,11 +137,11 @@ h2 {
     }
 }
 
-p {
-    font-size: 15px;
-    line-height: 24px;
-    color: #272828;
-}
+// p {
+//     font-size: 15px;
+//     line-height: 24px;
+//     color: #272828;
+// }
 
 .plan-list {
     li {
@@ -501,10 +501,10 @@ body {
     .space_title_area .row {
         align-items: center;
     }
-    .space_title_area .address {
-        font-size: 11px !important;
-        line-height: 14px !important;
-    }
+    // .space_title_area .address {
+    //     font-size: 11px !important;
+    //     line-height: 14px !important;
+    // }
     .facilities-points {
         margin-top: 0px !important;
         padding-top: 15px;
@@ -645,7 +645,12 @@ body {
         display: block;
     }
 }
-
+@media screen and (max-width: 480px) {
+    .mobileabout{
+      max-height:100px;
+      overflow: hidden;
+    }
+  }
 .hideOnMobile {
     @media (max-width: 480px) {
         display: none !important;

@@ -55,15 +55,18 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
   carouselConfig: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 250,
+    speed: 350,
     point: {
       visible: true,
     },
     loop: true,
-    load: 1,
+    animation: 'lazy',
+    load: 2,
     velocity: 0,
     touch: true,
-    easing: 'cubic-bezier(0, 0, 0.2, 1)',
+    interval: { timing: 4000, initialDelay: 1000 },
+
+    easing: 'ease'
   };
 
   constructor(
