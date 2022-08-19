@@ -645,7 +645,12 @@ body {
         display: block;
     }
 }
-
+@media screen and (max-width: 480px) {
+    .mobileabout{
+      max-height:100px;
+      overflow: hidden;
+    }
+  }
 .hideOnMobile {
     @media (max-width: 480px) {
         display: none !important;

@@ -585,7 +585,12 @@ h2 {
         display: none !important;
     }
 }
-
+@media screen and (max-width: 480px) {
+    .mobileabout{
+      max-height:100px;
+      overflow: hidden;
+    }
+  }
 .headingForMobile {
     padding-bottom: 15px;
     h1 {
