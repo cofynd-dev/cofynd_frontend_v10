@@ -15,7 +15,7 @@
       (onMove)="onSliderMove($event)"
       [dataSource]="sliderItems"
       class="ngu-carousel-wrapper">
-      <div *nguCarouselDef="let sliderItems; let i = index;"
+      <div  *nguCarouselDef="let sliderItems; let i = index;"
         class="item"
         [class.active]="i===activeSliderItem"
         [class.prev-item]="i < activeSliderItem"
