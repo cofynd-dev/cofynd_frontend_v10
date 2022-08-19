@@ -86,13 +86,13 @@ export class HomeComponent {
   popularCoLivingSpaces = [
     {
       name: 'Bangalore',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74a8090ee807625aa2b4aba29c4d35de02cbf5d8.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f81fe9b1a46d8fd9658cd5b0dcb3bd0939a2d280.jpg',
       slug: 'bangalore',
       address: "India's Silicon Valley",
     },
     {
       name: 'Hyderabad',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/45755519ffdf69dc1b1178cf777ee6df98ced7b1.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/982cbdfd30aa937b17c1c2e78d004f762e2eba3b.jpg',
       slug: 'hyderabad',
       address: "A City of Nawabs",
     },
@@ -104,7 +104,7 @@ export class HomeComponent {
     },
     {
       name: 'Pune',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a95ef141b67882a1a8f5e7bd5e23590b54595d0.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
       slug: 'pune',
       address: "Queen of the Deccan",
     },
@@ -118,7 +118,7 @@ export class HomeComponent {
 
     {
       name: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30c9886ab2f435389383acff8e74d1feb508e2f9.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
       slug: 'delhi',
       address: 'The Nation Capital',
 
@@ -126,7 +126,7 @@ export class HomeComponent {
 
     {
       name: 'Noida',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae54cf7e062c1b1730f9232a89082f703c343fc5.jpg',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5d5bccbd166e278cdc3200d4ec12a8af9fa4b5ec.jpg',
       slug: 'noida',
       address: 'The Hitech City',
     },
