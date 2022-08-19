@@ -2646,8 +2646,8 @@ Amenity Icons
                     padding: 15px 0px 15px !important;
                 }
 
-                .about-section h2 {
-                    margin-bottom: 10px;
+                .space-details h2 {
+                    margin-bottom: 10px !important;
                 }
 
                 .about-section p {
@@ -2808,5 +2808,21 @@ Amenity Icons
                 .popular-spaces .popular-space-box p {
                     color: #fff !important;
                     margin: 0;
+                }
+                .price_area .btn {
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                    border: none !important;
+                }
+                .price_area .onlyMobile.pt-3 {
+                    padding-top: 0px !important;
+                }
+                .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
+                    font-size: 14px !important;
+                }
+                .leaflet-touch .leaflet-bar a {
+                    width: 25px !important;
+                    height: 25px !important;
+                    line-height: 25px !important;
                 }
             }
