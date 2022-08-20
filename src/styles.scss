@@ -1355,13 +1355,13 @@ Amenity Icons
                 font-size: 15px;
             }
 
-            .logos_slider {
-                display: flex;
-            }
+            // .logos_slider {
+            //     display: flex;
+            // }
 
-            .logos_slider .band-img {
-                margin: 0px 12px;
-            }
+            // .logos_slider .band-img {
+            //     margin: 0px 12px;
+            // }
 
             .enquiry-section img {
                 margin-bottom: 0px !important;
@@ -1390,6 +1390,33 @@ Amenity Icons
                 color: #4343e8;
                 line-height: 18px;
             }
+            .client_logo_slider {
+                    -webkit-overflow-scrolling: touch !important;
+                    -ms-overflow-style: none !important;
+                    scrollbar-width: none !important;
+                }
+
+                .client_logo_slider::-webkit-scrollbar  {
+                    display: none !important;
+                    height: 0 !important;
+                    width: 0 !important;
+                }
+                .client_logo_slider {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    overflow-x: scroll;
+                    padding: 0px;
+                    margin: 0;
+                    white-space: nowrap;
+                }
+                .client_logo_slider .band-img {
+                    display: inline-block;
+                    margin: 0 5px;
+                    width: 13.429%;
+                    overflow: hidden;
+                    padding: 0px !important;
+                }
 
             @media (max-width: 1366px) {
                 .menu li .dropdown-list-menu span {
