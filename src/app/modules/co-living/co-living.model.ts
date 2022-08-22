@@ -8,5 +8,5 @@ export class CoLiving extends OfficeSpace {
     studio_apartment: number;
     triple_sharing: number;
   };
-
+  sleepimg: any
 }
