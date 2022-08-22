@@ -48,7 +48,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
   subTitle: string;
 
   // Pagination
-  maxSize = 10;
+  maxSize = 5;
   totalRecords: number;
   pageTitle: string;
 

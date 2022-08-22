@@ -16,31 +16,36 @@
   }
 }
 .myPoint {
-  list-style-type: none;
-  text-align: center;
-  // padding: 12px;
-  white-space: nowrap;
-  overflow: auto;
-  box-sizing: border-box;
-  position: absolute;
-  margin: auto;
-  bottom: 0;
-  left: 42%;
- 
+	list-style-type: none;
+	text-align: center;
+	white-space: nowrap;
+	overflow: auto;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 8px;
+	left: 0;
+	right: 0px;
+	-webkit-box-align: center;
+	align-items: center;
+	display: flex;
+	width: 100%;
+	justify-content: center;
 }
-.myPoint  li {
-    display: inline-block;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.55);
-    padding: 3px;
-    margin: 0 3px;
-    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    transition: 0.4s;
-    background: white;
+.myPoint li {
+	display: inline-block;
+	border-radius: 50%;
+	border: none;
+	margin: 0 2px;
+	transition: none;
+	background: #fff;
+	width: 6px;
+	height: 6px;
 }
 .myPoint  li.active {
-      background: gray;
-      transform: scale(1.2);
+      background: #fff;
+      // transform: scale(1.2);
+      width: 9px;
+      height: 9px;
     }
 .icon-close {
   color: #000;

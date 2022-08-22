@@ -18,13 +18,8 @@
   }
 
   .partner-carousel {
-    // display: flex;
     display: -webkit-box;
     justify-content: space-evenly;
-    // flex-wrap: wrap;
-    // padding: 0 15px;
-    // margin-right: 30px;
-    // margin-left: 50px;
 
     .band-img {
       flex-grow: 1;
@@ -33,15 +28,9 @@
 
 
     img {
-      // cursor: pointer;
       max-width: 100%;
       width: 140px;
       transition: filter 1000ms ease-out;
-      // filter: grayscale(100%);
-
-      // &:hover {
-      //   // filter: grayscale(0%);
-      // }
     }
 
     @media (max-width: 767px) {
@@ -122,7 +111,7 @@
 .logos_slider .band-img {
 	display: inline-block;
 margin: 3px 5px 0px;
-width: 32.429%;
+width: 25.429%;
 overflow: hidden;
 }
 .logos_slider::-webkit-scrollbar {
@@ -138,7 +127,7 @@ overflow: hidden;
   .news_brands .logos_slider .band-img {
     display: inline-block;
     margin: 8px 5px 2px;
-    width: 30.4%;
+    width: 25.429%;
     overflow: hidden;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     padding: 6px 8px 6px;

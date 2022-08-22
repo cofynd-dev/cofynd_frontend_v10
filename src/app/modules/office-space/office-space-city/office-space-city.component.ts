@@ -42,7 +42,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   seoData: SeoSocialShareData;
 
   // Pagination
-  maxSize = 6;
+  maxSize = 5;
   totalRecords: number;
   pageTitle: string;
 
