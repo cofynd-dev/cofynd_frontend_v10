@@ -1355,13 +1355,13 @@ Amenity Icons
                 font-size: 15px;
             }
 
-            .logos_slider {
-                display: flex;
-            }
+            // .logos_slider {
+            //     display: flex;
+            // }
 
-            .logos_slider .band-img {
-                margin: 0px 12px;
-            }
+            // .logos_slider .band-img {
+            //     margin: 0px 12px;
+            // }
 
             .enquiry-section img {
                 margin-bottom: 0px !important;
@@ -1390,27 +1390,33 @@ Amenity Icons
                 color: #4343e8;
                 line-height: 18px;
             }
+            .client_logo_slider {
+                    -webkit-overflow-scrolling: touch !important;
+                    -ms-overflow-style: none !important;
+                    scrollbar-width: none !important;
+                }
 
-            // .popular-spaces .page-title h2::after {
-            //     display: none !important;
-            // }
-
-            // .popular-spaces .page-title h2::before {
-            //     display: none !important;
-            // }
-
-            // .popular-spaces .page-title {
-            //     text-align: left !important;
-            //     padding: 0px !important;
-            // }
-
-            // .popular-spaces .page-title h2 {
-            //     margin-bottom: 15px !important;
-            //     margin-left: 0 !important;
-            //     font-size: 28px !important;
-            //     line-height: 36px !important;
-            //     font-weight: 500 !important;
-            // }
+                .client_logo_slider::-webkit-scrollbar  {
+                    display: none !important;
+                    height: 0 !important;
+                    width: 0 !important;
+                }
+                .client_logo_slider {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    overflow-x: scroll;
+                    padding: 0px;
+                    margin: 0;
+                    white-space: nowrap;
+                }
+                .client_logo_slider .band-img {
+                    display: inline-block;
+                    margin: 0 5px;
+                    width: 13.429%;
+                    overflow: hidden;
+                    padding: 0px !important;
+                }
 
             @media (max-width: 1366px) {
                 .menu li .dropdown-list-menu span {
@@ -2020,20 +2026,7 @@ Amenity Icons
                     padding: 0px;
                     margin: 0;
                     white-space: nowrap;
-                }
-
-                /* Hide scrollbar for Chrome, Safari and Opera */
-                .space_carousel::-webkit-scrollbar {
-                    display: none !important;
-                }
-
-                /* Hide scrollbar for IE, Edge and Firefox */
-                .space_carousel {
-                    -ms-overflow-style: none !important;
-                    /* IE and Edge */
-                    scrollbar-width: none !important;
-                    /* Firefox */
-                }
+                }                
 
                 .property-item {
                     display: inline-block;
@@ -2073,10 +2066,6 @@ Amenity Icons
                     margin-bottom: 0px;
                 }
 
-                // .properties-content .price {
-                // 	font-weight: 600;
-                // 	margin-bottom: 0px;
-                // }
                 .property_slides {
                     margin-bottom: 0px;
                 }
@@ -2097,10 +2086,6 @@ Amenity Icons
                 .about-section h2 {
                     margin-bottom: 10px;
                 }
-
-                // .about-section p {
-                //     margin-bottom: 0px;
-                // }
 
                 .see_more {
                     color: #4343e8 !important;
@@ -2251,20 +2236,31 @@ Amenity Icons
                     border: none;
                 }
 
-                .cities_carousel::-webkit-scrollbar,
-                .feature_slides::-webkit-scrollbar {
-                    display: none !important;
-                    height: 0 !important;
-                    width: 0 !important;
-                }
-
                 .cities_carousel,
-                .feature_slides {
-                    -webkit-overflow-scrolling: touch;
+                .feature_slides,
+                .space_carousel,
+                .ngucarousel-items,
+                .top-coliving-spaces,
+                .inspiration,
+                .partners .slider-on-mobile-view,
+                .logos_slider {
+                    -webkit-overflow-scrolling: touch !important;
                     -ms-overflow-style: none !important;
                     scrollbar-width: none !important;
                 }
 
+                .cities_carousel::-webkit-scrollbar,
+                .feature_slides::-webkit-scrollbar,
+                .space_carousel::-webkit-scrollbar,
+                .ngucarousel-items::-webkit-scrollbar,
+                .top-coliving-spaces::-webkit-scrollbar,
+                .inspiration::-webkit-scrollbar,
+                .partners .slider-on-mobile-view::-webkit-scrollbar,
+                .logos_slider::-webkit-scrollbar  {
+                    display: none !important;
+                    height: 0 !important;
+                    width: 0 !important;
+                }
                 .cofynd-desk {
                     padding-bottom: 0px;
                 }
@@ -2302,6 +2298,23 @@ Amenity Icons
                     text-align: left !important;
                     font-weight: 500 !important;
                 }
+                .feature_sec {
+                    padding-top: 20px !important;
+                    padding-bottom: 20px !important;
+                }
+                .feature_sec .icon_box {
+                    display: -webkit-box;
+                    display: flex;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    margin-bottom: 10px !important;
+                }
+                .feature_sec .icon_box h4 {
+                    padding-left: 10px;
+                    font-size: 12px;
+                    line-height: 14px;
+                    margin-bottom: 0px;
+                }
 
                 .icon_box {
                     margin-bottom: 15px !important;
@@ -2309,7 +2322,7 @@ Amenity Icons
 
                 .icon_box img {
                     width: 25px;
-                    margin-bottom: 4px;
+                    margin-bottom: 0px;
                 }
 
                 .icon_box.mb-0 {
@@ -2433,322 +2446,6 @@ Amenity Icons
                     line-height: 24px !important;
                     font-weight: 600 !important;
                 }
-
-
-                // ------------ Listing Style  -----------
-
-                .listing-card {
-                    margin-bottom: 30px !important;
-                    display: flex;
-                    align-items: center;
-                    overflow: hidden;
-                }
-
-                .listing-card .image {
-                    height: auto !important;
-                    border-radius: 15px !important;
-                    width: 45% !important;
-                    overflow: hidden !important;
-                }
-
-                .listing-card .detail {
-                    border: none !important;
-                    box-shadow: none !important;
-                    padding: 10px 15px 10px 15px !important;
-                    width: 55% !important;
-                }
-
-                .listing-card .detail h4 {
-                    font-size: 13px !important;
-                    color: #272828 !important;
-                    white-space: normal;
-                    margin-bottom: 5px !important;
-                }
-
-                .listing-card .detail .address {
-                    padding-bottom: 5px !important;
-                    margin-bottom: 8px !important;
-                    border-bottom: none;
-                    white-space: normal !important;
-                    position: relative;
-                    padding-left: 19px;
-                    font-size: 10px !important;
-                    line-height: 16px !important;
-                }
-
-                .listing-card .detail .address i {
-                    position: absolute;
-                    left: 0;
-                    top: 4px;
-                    width: 15px;
-                    text-align: center;
-                }
-
-                .listing-card .detail .capacity {
-                    margin-bottom: 2px !important;
-                    align-items: center;
-                    display: flex;
-                    font-size: 10px !important;
-                }
-
-                .listing-card .detail .capacity img {
-                    width: 18px;
-                    margin-right: 4px;
-                    opacity: 0.6;
-                }
-
-                .listing-card:hover .detail .capacity img {
-                    transform: none;
-                }
-
-                .listing-card .detail .capacity i {
-                    margin-right: 5px;
-                }
-
-                .listing-card hr {
-                    display: none;
-                }
-
-                .price-box {
-                    margin-top: 15px;
-                }
-
-                .price-box .price span {
-                    font-size: 10px !important;
-                    color: #272828 !important;
-                    margin-bottom: 2px !important;
-                }
-
-                .price-box .price {
-                    font-size: 11px !important;
-                    line-height: 16px !important;
-                    color: #4343e8;
-                }
-
-                .price-box .price i {
-                    font-size: 10px !important;
-                }
-
-                .price-box .price small {
-                    font-size: 9px !important;
-                    color: #272828 !important;
-                }
-
-                .price-box .btn-link {
-                    bottom: 0px !important;
-                    font-size: 10px !important;
-                    line-height: 16px !important;
-                    font-weight: 600;
-                    text-decoration: none;
-                    color: #4343e8;
-                }
-
-                .listing-card .image .item {
-                    height: 170px !important;
-                    position: relative !important;
-                    overflow: hidden !important;
-                    border-radius: 15px !important;
-                }
-
-                .listing-card:hover .detail .capacity img {
-                    transform: none !important;
-                }
-
-                .price-box .btn-link small {
-                    margin-left: 5px;
-                }
-
-                .listing-card .image img {
-                    border-radius: 15px !important;
-                }
-
-                // ------------ Listing Style  -----------
-
-                .space_carousel {
-                    display: block;
-                    width: 100%;
-                    height: auto;
-                    overflow-x: scroll;
-                    padding: 0px;
-                    margin: 0;
-                    white-space: nowrap;
-                }
-
-                /* Hide scrollbar for Chrome, Safari and Opera */
-                .space_carousel::-webkit-scrollbar {
-                    display: none !important;
-                }
-
-                /* Hide scrollbar for IE, Edge and Firefox */
-                .space_carousel {
-                    -ms-overflow-style: none !important;
-                    /* IE and Edge */
-                    scrollbar-width: none !important;
-                    /* Firefox */
-                }
-
-                .property-item {
-                    display: inline-block;
-                    margin: 0 5px;
-                    background-size: cover;
-                    position: relative;
-                    -webkit-box-flex: 0;
-                    flex: 0 0 71.4285714286%;
-                    width: 38.429%;
-                    overflow: hidden;
-                    vertical-align: top;
-                }
-
-                .property-item .property-img {
-                    border-radius: 10px;
-                    overflow: hidden;
-                }
-
-                .property-item h4 {
-                    font-size: 11px;
-                    padding-top: 6px;
-                    padding-bottom: 0px;
-                    line-height: 16px;
-                    margin-bottom: 0px;
-                    white-space: normal;
-                }
-
-                .property-item p {
-                    margin-bottom: 0px;
-                    font-size: 10px !important;
-                    line-height: 16px !important;
-                    white-space: normal;
-                }
-
-                .properties-content .price {
-                    font-weight: 600 !important;
-                    margin-bottom: 0px;
-                }
-
-                // .properties-content .price {
-                // 	font-weight: 600;
-                // 	margin-bottom: 0px;
-                // }
-                .property_slides {
-                    margin-bottom: 0px;
-                }
-
-                .similar-workspaces .img {
-                    margin-bottom: 0 !important;
-                    overflow: hidden !important;
-                    border-radius: 10px !important;
-                    height: auto !important;
-                }
-
-                .about-section {
-                    border-top: 1px solid #e5e5e5 !important;
-                    border-bottom: 1px solid #e5e5e5 !important;
-                    padding: 15px 0px 15px !important;
-                }
-
-                .space-details h2 {
-                    margin-bottom: 10px !important;
-                }
-
-                .about-section p {
-                    margin-bottom: 0px;
-                }
-
-                .see_more {
-                    color: #4343e8 !important;
-                    font-weight: 500 !important;
-                    cursor: pointer;
-                    display: inline-block;
-                }
-
-                .offers_section {
-                    padding-top: 20px !important;
-                    padding-bottom: 20px !important;
-                    border-bottom: 1px solid #e5e5e5 !important;
-                }
-
-                .offers_section .amenity-list {
-                    margin-top: 4px !important;
-                }
-
-                .buttonOnMobile button {
-                    height: auto !important;
-                    font-size: 11px !important;
-                }
-
-                .amenity-list li {
-                    font-size: 12px !important;
-                    margin-bottom: 15px !important;
-                    font-weight: 500 !important;
-                }
-
-                .location_area {
-                    padding-top: 20px !important;
-                    padding-bottom: 10px !important;
-                }
-
-                .location_area h2 {
-                    margin-bottom: 0px !important;
-                }
-
-                .similar_spaces_area {
-                    padding-top: 20px !important;
-                    padding-bottom: 20px !important;
-                    border-top: 1px solid #e5e5e5 !important;
-                }
-
-                .similar_spaces_area .sections.no-border {
-                    padding-top: 0px !important;
-                    padding-bottom: 0px !important;
-                }
-
-                .space-details {
-                    padding-bottom: 0 !important;
-                }
-
-                .mobile-ftr-contact .bottomPrize p span {
-                    font-weight: 600;
-                    color: #000;
-                    font-size: 12px;
-                }
-
-                .mobile-ftr-contact button {
-                    padding: 4px 13px !important;
-                    width: auto !important;
-                    float: right;
-                    font-size: 11px;
-                    margin-top: 0px !important;
-                }
-
-                .mobile-ftr-contact .row {
-                    align-items: center;
-                }
-
-                .mobile-ftr-contact .bottomPrize {
-                    top: 0;
-                }
-
-                .mobile-ftr-contact {
-                    padding: 8px 0px !important;
-                    border: 1px solid #e5e5e5 !important;
-                }
-
-                .mobile-ftr-contact .bottomPrize p span {
-                    font-size: 12px !important;
-                }
-
-                .mobile-ftr-contact {
-                    padding: 8px 0 !important;
-                    border: 1px solid #e5e5e5 !important;
-                }
-
-                .mobile-ftr-contact .row {
-                    align-items: center;
-                }
-
-                .mobile-ftr-contact .bottomPrize {
-                    top: 0px !important;
-                }
                 .location_area .leaflet-container {
                     border: 1px solid #e5e5e5 !important;
                     border-radius: 10px;
@@ -2773,7 +2470,7 @@ Amenity Icons
                     width: 100%;
                     height: auto !important;
                     overflow-x: scroll;
-                    padding: 8px 0px 8px;
+                    padding: 8px 0px 2px;
                     margin: 0;
                     white-space: nowrap;
                     scrollbar-width: none !important;

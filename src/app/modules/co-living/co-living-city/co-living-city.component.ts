@@ -40,7 +40,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   seoData: SeoSocialShareData;
 
   // Pagination
-  maxSize = 10;
+  maxSize = 5;
   totalRecords: number;
   pageTitle: string;
 

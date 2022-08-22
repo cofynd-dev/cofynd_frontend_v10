@@ -165,27 +165,6 @@
         display: block;
         z-index: -1;
     }
-    .feature_sec {
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-    }
-    .feature_sec .icon_box {
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-align: center;
-        align-items: center;
-        margin-bottom: 8px !important;
-    }
-    .icon_box img {
-        width: 25px;
-        margin-bottom: 0px;
-    }
-    .feature_sec .icon_box h4 {
-        padding-left: 10px;
-        font-size: 12px;
-        line-height: 14px;
-        margin-bottom: 0px;
-    }
     .curated_section {
         padding: 20px 0 !important;
     }
@@ -308,14 +287,6 @@
     .amenities_sec {
         padding: 20px 0 !important;
     }
-    .icon_box {
-        margin-bottom: 15px !important;
-    }
-    .icon_box img {
-        width: 30px;
-        margin-bottom: 0;
-        height: 30px;
-    }
     .amenities_sec h4 {
         font-size: 11px;
         line-height: 14px;
@@ -423,49 +394,6 @@
         padding-top: 20px !important;
         padding-bottom: 20px !important;
     }
-    // .space_carousel {
-    //     -ms-overflow-style: none !important;
-    //     scrollbar-width: none !important;
-    // }
-    // .space_carousel {
-    //     display: block;
-    //     width: 100%;
-    //     height: auto;
-    //     overflow-x: scroll;
-    //     padding: 0px;
-    //     margin: 0;
-    //     white-space: nowrap;
-    // }
-    // .property-item {
-    //     display: inline-block;
-    //     margin: 0 5px;
-    //     background-size: cover;
-    //     position: relative;
-    //     -webkit-box-flex: 0;
-    //     flex: 0 0 71.4285714286%;
-    //     width: 38.429%;
-    //     overflow: hidden;
-    //     vertical-align: top;
-    // }
-    // .property-item .property-img {
-    //     border-radius: 10px;
-    //     overflow: hidden;
-    // }
-    // .property-item h4 {
-    //     font-size: 11px;
-    //     padding-top: 6px;
-    //     padding-bottom: 0px;
-    //     line-height: 16px;
-    //     margin-bottom: 0px;
-    //     white-space: normal;
-    // }
-    // .property-item p {
-    //     margin-bottom: 0px;
-    // }
-    // .properties-content .price {
-    //     font-weight: 600 !important;
-    //     margin-bottom: 0px;
-    // }
     .looking_sec {
         padding-top: 20px !important;
         padding-bottom: 20px !important;

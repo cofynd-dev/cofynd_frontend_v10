@@ -429,10 +429,6 @@
 }
 
 .enquiry-box {
-    // padding: 80px 100px 80px 150px;
-    // background: #fed03e url('/assets/images/co-living/coliving-spaces.jpg') no-repeat center center;
-    // width: 100%;
-    // background-size: cover;
     margin-bottom: 50px;
     border-radius: 20px;
     outline: none;
@@ -1033,13 +1029,8 @@ ul {
     }
   
     .partner-carousel {
-      // display: flex;
       display: -webkit-box;
       justify-content: space-evenly;
-      // flex-wrap: wrap;
-      // padding: 0 15px;
-      // margin-right: 30px;
-      // margin-left: 50px;
   
       .band-img {
         flex-grow: 1;
@@ -1052,11 +1043,6 @@ ul {
         max-width: 100%;
         width: 238px;
         transition: filter 1000ms ease-out;
-        // filter: grayscale(100%);
-  
-        // &:hover {
-        //   // filter: grayscale(0%);
-        // }
       }
   
       .brand-partner{
@@ -1104,35 +1090,6 @@ ul {
       padding: 20px 0;
     }
   }
-//   .cta_section {
-//     padding-top: 10px;
-//     padding-bottom: 10px;
-// }
-// .cta_section .cta_area {
-//     background-color: #F8F9FA;
-//     padding: 15px;
-//     border-radius: 10px;
-//     display: flex;
-//     align-items: center;
-//     box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.16);
-//     width: 96%;
-//     margin: 0 auto;
-// }
-// .cta_section p {
-//     font-size: 14px;
-//     line-height: 22px;
-// }
-// .cta_section span {
-//     font-weight: 600;
-//     margin-top: 10px;
-//     display: inline-block;
-// }
-// .cta_section .img-fluid {
-//     width: 80%;
-// }
-// .cta_content {
-//     padding: 10px 0px;
-// }
 .partner-carousel::-webkit-scrollbar {
     height: 0;
   }

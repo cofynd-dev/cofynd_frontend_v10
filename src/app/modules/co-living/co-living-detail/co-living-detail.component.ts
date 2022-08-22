@@ -121,7 +121,7 @@ export class CoLivingDetailComponent implements OnInit {
                 { maxZoom: 18, attribution: 'Open Cofynd Map' },
               ),
             ],
-            zoom: 10,
+            zoom: 13,
             attributionControl: false,
             scrollWheelZoom: false,
             dragging: false,
