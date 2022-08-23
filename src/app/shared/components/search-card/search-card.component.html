@@ -33,7 +33,7 @@
                 </ng-template>
                 <ng-template [ngIf]="!forAll">
                     <span>Starting from</span>
-                    <i style="font-size: 15px;" class="fas fa-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}<small>/{{workspace.plans[workspace.plans.length - 1].duration }}</small>
+                    <i class="fa-solid fa-indian-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}<small>/{{workspace.plans[workspace.plans.length - 1].duration }}</small>
                 </ng-template>
             </div>
             <div *ngIf="!workspace.show_price" class="price">
