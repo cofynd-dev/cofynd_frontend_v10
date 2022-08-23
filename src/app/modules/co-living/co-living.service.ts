@@ -90,4 +90,10 @@ export class CoLivingService {
     coLiving.price_type = 'bed';
     return updatedWorkspace;
   }
+  getAverageRating(spaceId): Observable<{ average: number }> {
+    console.log("*****")
+    return this.http
+      .get<{ data: { average: number } }>(`/user/ColivingspaceAverageReview/${spaceId}`)
+      .pipe(map(searchResult => searchResult.data));
+  }
 }

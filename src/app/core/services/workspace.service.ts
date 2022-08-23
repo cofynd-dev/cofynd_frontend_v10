@@ -188,7 +188,7 @@ export class WorkSpaceService {
         review.on_model = 'WorkSpace';
         break;
       case 'co-living':
-        review.on_model = 'ColivingSpace';
+        review.on_model = 'CoLivingSpace';
         break;
       case 'office-space':
         review.on_model = 'OfficeSpace';
@@ -220,6 +220,7 @@ export class WorkSpaceService {
   }
 
   saveReview(review: Review): Observable<Review> {
+    console.log("review", review);
     if (review.id) {
       return this.http
         .put<{ data: Review }>(`/user/review/${review.id}`, review)

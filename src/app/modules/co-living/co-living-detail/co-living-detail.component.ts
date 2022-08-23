@@ -26,7 +26,9 @@ import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 import { Location } from '@angular/common';
-
+import { Review } from '@app/core/models/review.model';
+import { AuthType } from '@app/core/enum/auth-type.enum';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 @Component({
   selector: 'app-co-living-detail',
   templateUrl: './co-living-detail.component.html',
@@ -47,6 +49,9 @@ export class CoLivingDetailComponent implements OnInit {
   //locationIq Map code
   options: any;
   markers: Layer[] = [];
+
+  rating: number = 0;
+  userReview: Review;
 
   //Google Map
   @ViewChild('workspaceMap', {
@@ -79,12 +84,14 @@ export class CoLivingDetailComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private _location: Location,
+    private workSpaceService: WorkSpaceService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
       // console.log("param", param);
       if (param.id) {
         this.getWorkSpace(this.activeWorkSpaceId);
+        this.getAverageRating(this.activeWorkSpaceId);
       }
     });
 
@@ -150,7 +157,31 @@ export class CoLivingDetailComponent implements OnInit {
       },
     );
   }
-
+  isAuthenticated() {
+    return this.authService.getToken() ? true : false;
+  }
+  openModal(dialogType = AuthType.LOGIN, openAuthDialog = false) {
+    if (this.isAuthenticated()) {
+      dialogType = AuthType.REVIEW;
+    }
+    const param = Object.assign({
+      space: this.workspace,
+      review: new Review(),
+      authType: dialogType,
+      shouldOpenReviewModal: dialogType == AuthType.LOGIN,
+    });
+    console.log("param", param);
+    this.authService.openReviewDialog(param);
+  }
+  getAverageRating(workspaceId: string) {
+    this.coLivingService.getAverageRating(workspaceId).subscribe(res => {
+      this.rating = Math.round(res.average);
+      console.log("rating", this.rating);
+    });
+  }
+  scrollOnRating() {
+    document.getElementById('reviewSection').scrollIntoView();
+  }
   addSeoTags(workspace: WorkSpace) {
     const seoData: SeoSocialShareData = {
       title: workspace.seo.title ? workspace.seo.title : 'CoFynd - ' + workspace.name,

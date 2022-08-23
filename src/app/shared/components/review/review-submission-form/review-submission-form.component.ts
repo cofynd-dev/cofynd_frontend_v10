@@ -25,7 +25,7 @@ export class ReviewSubmissionFormComponent implements OnInit {
     public toasterService: ToastrService,
     private readonly authService: AuthService,
     private readonly workSpaceService: WorkSpaceService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getLoggedInUser();
@@ -45,7 +45,9 @@ export class ReviewSubmissionFormComponent implements OnInit {
 
   authAddReview() {
     const request = this.workSpaceService.checkReviewSpace(this.router.url, this.review, this.space.id);
+    console.log("authAddReview", request);
     this.workSpaceService.saveReview(request).subscribe(res => {
+      console.log("res", res)
       this.workSpaceService.setProfileReviewByUser(res);
       this.toasterService.success('Thanks! Review will be posted after Admin Approval');
       this.closeReviewPopup();
