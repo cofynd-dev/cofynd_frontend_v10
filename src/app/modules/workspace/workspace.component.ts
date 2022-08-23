@@ -236,6 +236,7 @@ export class WorkSpaceComponent implements OnInit {
   getAverageRating(workspaceId: string) {
     this.workSpaceService.getAverageRating(workspaceId).subscribe(res => {
       this.rating = Math.round(res.average);
+      console.log("rating", this.rating)
     });
   }
 
@@ -374,6 +375,7 @@ export class WorkSpaceComponent implements OnInit {
       authType: dialogType,
       shouldOpenReviewModal: dialogType === AuthType.LOGIN,
     });
+    console.log("param", param);
     this.authService.openReviewDialog(param);
   }
 
