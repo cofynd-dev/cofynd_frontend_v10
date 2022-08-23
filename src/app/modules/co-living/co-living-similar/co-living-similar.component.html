@@ -8,7 +8,7 @@
                 <div>
                     <h5 class="detail">{{ office.name }}</h5>
                     <p class="address">
-                        <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ office.location.address }}
+                        <i class="fa-solid fa-location-dot"></i> {{ office.location.address }}
                     </p>
                     <!-- <p class="capacity">
             <i class="building-icon"></i>
@@ -17,7 +17,7 @@
                     <div class="price-box">
                         <div class="price">
                             <!-- <span>Monthly Rent*</span> -->
-                            <i class="icon-rupee fas fa-rupee-sign"></i>
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
                             <!-- {{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }} -->
                             {{office.starting_price}}<span class="price-bed">/-Month</span>
                         </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="properties-content">
                             <h4>{{_centerCity.name}}</h4>
-                            <p><i class="icon-location-outline fal fa-map-marker-alt"></i> {{_centerCity.location.address}}</p>
+                            <p><i class="fa-solid fa-location-dot"></i> {{_centerCity.location.address}}</p>
                             <!-- <p class="capacity">
                                 <i class="building-icon"></i> {{ getFloorSuffix(_centerCity.location.floor) }} Floor
                             </p> -->

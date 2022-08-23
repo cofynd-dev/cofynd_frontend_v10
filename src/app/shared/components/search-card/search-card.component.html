@@ -14,7 +14,7 @@
     <div class="detail" (click)="openWorkSpace(workspace)" *ngIf="workspace.plans">
         <h4 class="text-capitalize">{{ workspace.name }} {{ workspace.location.name }}</h4>
         <p class="address">
-            <i class="fal fa-map-marker-alt"></i> {{ workspace.location.address1 }}
+            <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address1 }}
         </p>
         <p class="capacity">
             <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
@@ -48,7 +48,7 @@
     <div class="detail" (click)="openWorkSpace(workspace)" *ngIf="workspace.coliving_plans">
         <h4 class="text-capitalize">{{ workspace.name }}</h4>
         <p class="address">
-            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+            <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address }}
         </p>
         <div class="card-aminities">
             <p class="capacity">
@@ -62,7 +62,7 @@
         <div class="price-box">
             <div class="price">
                 <span>Starting From</span>
-                <i class="icon-rupee fas fa-rupee-sign"></i>{{ workspace.starting_price.toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
+                <i class="fa-solid fa-indian-rupee-sign"></i>{{ workspace.starting_price.toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
             </div>
             <a target="_blank" class="btn-link">Explore Now<small class="icon-next fas fa-angle-right"></small>
       </a>
