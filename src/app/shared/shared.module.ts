@@ -156,4 +156,4 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     },
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
