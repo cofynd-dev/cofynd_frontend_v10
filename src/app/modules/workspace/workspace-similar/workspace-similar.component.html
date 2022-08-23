@@ -8,12 +8,12 @@
                 <div>
                     <h5 class="detail">{{ workspace.name }}</h5>
                     <p class="address">
-                        <i class="icon-location-outline fal fa-map-marker-alt"></i>
+                        <i class="fa-solid fa-location-dot"></i>
                         <!-- {{ workspace.location.address1 | microLocation }} -->
                         {{workspace.location.address1}}
                     </p>
                     <p class="capacity hideOnMobile">
-                        <i class="icon-seating fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }}
+                        <i class="fa-solid fa-user"></i> Seating Capacity : {{ workspace.no_of_seats }}
                     </p>
                     <div class="price-box">
                         <div class="price">
@@ -57,7 +57,7 @@
                         <div class="properties-content">
                             <h4>{{_centerCity.name}}</h4>
                             <p>
-                                <i class="icon-location-outline fal fa-map-marker-alt"></i> {{_centerCity.location.address1}}
+                                <i class="fa-solid fa-location-dot"></i> {{_centerCity.location.address1}}
                             </p>
                             <ng-container>
                                 <p class="price" *ngIf="_centerCity.currency_code">
@@ -65,7 +65,7 @@
                                     <small>/{{ _centerCity.price_type }}</small>
                                 </p>
                                 <p class="price" *ngIf="!_centerCity.currency_code" style="font-size: small">
-                                    <i class="icon-rupee"></i><span style="color: blue !important;">{{ _centerCity.starting_price }}</span>
+                                    <i class="fa-solid fa-indian-rupee-sign"></i><span style="color: blue !important;">{{ _centerCity.starting_price }}</span>
                                     <small>/{{ _centerCity.price_type }}</small>
                                 </p>
                             </ng-container>

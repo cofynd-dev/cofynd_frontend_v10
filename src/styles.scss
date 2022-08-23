@@ -193,7 +193,7 @@ body, p {
     padding: 13px 0;
 }
 
-.faqs_section .card-header h4 .icon-arrow-down {
+.faqs_section .card-header h4 i {
     color: #797979;
     position: absolute;
     right: 0;
@@ -205,17 +205,17 @@ body, p {
     transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
 }
 
-.faqs_section .card-header h4 .icon-arrow-down {
-    color: #797979;
-    position: absolute;
-    right: 0;
-    top: 8px;
-    font-size: 25px;
-    -webkit-transition: -webkit-transform 0.5s ease 0s;
-    transition: -webkit-transform 0.5s ease 0s;
-    transition: transform 0.5s ease 0s;
-    transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
-}
+// .faqs_section .card-header h4 .icon-arrow-down {
+//     color: #797979;
+//     position: absolute;
+//     right: 0;
+//     top: 8px;
+//     font-size: 25px;
+//     -webkit-transition: -webkit-transform 0.5s ease 0s;
+//     transition: -webkit-transform 0.5s ease 0s;
+//     transition: transform 0.5s ease 0s;
+//     transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+// }
 
 /*
   Google Map Search Drop down
@@ -1830,9 +1830,9 @@ Amenity Icons
                     padding: 15px 0;
                 }
 
-                .faqs_section .card-header h4 .icon-arrow-down {
-                    top: 12px;
-                    font-size: 17px;
+                .faqs_section .card-header h4 i {
+                    top: 17px;
+                    font-size: 13px;
                 }
 
                 .faq_content p {
@@ -1936,6 +1936,7 @@ Amenity Icons
                     top: 4px;
                     width: 15px;
                     text-align: center;
+                    color: rgba(0,0,0,0.8);
                 }
 
                 .listing-card .detail .capacity {
@@ -2086,12 +2087,29 @@ Amenity Icons
                 .about-section h2 {
                     margin-bottom: 10px;
                 }
+                
+                .about-section .mobileabout {
+                    margin-bottom: 0px !important;
+                }
 
                 .see_more {
                     color: #4343e8 !important;
                     font-weight: 500 !important;
                     cursor: pointer;
                     display: inline-block;
+                    margin-bottom: 0px;
+                }
+                .price_area h2 {
+                    margin-bottom: 10px !important;
+                }
+                .enterprise_area h2 {
+                    margin-bottom: 10px !important;
+                }
+                .offers_section h2 {
+                    margin-bottom: 10px !important;
+                }
+                .sleep_area h2 {
+                    margin-bottom: 10px !important;
                 }
 
                 .offers_section {
@@ -2449,6 +2467,7 @@ Amenity Icons
                 .location_area .leaflet-container {
                     border: 1px solid #e5e5e5 !important;
                     border-radius: 10px;
+                    z-index: 0;
                 }
                 .location_area h2 {
                     margin-bottom: 0px !important;
@@ -2521,5 +2540,15 @@ Amenity Icons
                     width: 25px !important;
                     height: 25px !important;
                     line-height: 25px !important;
+                }
+                .price-box .btn-link small {
+                    font-size: 9px !important;
+                    margin-left: 5px !important;
+                }
+                .star-rating ngx-star-rating label.star {
+                    font-size: 12px !important;
+                    padding-top: 10px !important;
+                    padding-right: 1px !important;
+                    padding-left: 1px !important;
                 }
             }

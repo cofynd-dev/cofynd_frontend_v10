@@ -59,7 +59,7 @@
                         <div class="col-md-8 col-8">
                         <h1>{{ workspace.name }}</h1>
                         <p class="address">
-                            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+                            <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address }}
                         </p>
                         </div>
                         <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
@@ -75,7 +75,7 @@
                             </ng-template>
                             </div>
                             </div>
-                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><small class="icon-rupee fas fa-rupee-sign"></small>{{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
+                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><i class="fa-solid fa-indian-rupee-sign"></i> {{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                             </li>
                             <li class="col-6">
                                 Monthly Rent*
-                                <span><i class="icon-rupee"></i>{{ (workspace.other_detail.rent_per_bed).toLocaleString('en-IN')
+                                <span><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace.other_detail.rent_per_bed).toLocaleString('en-IN')
                   }}</span>
                             </li>
                             <li class="col-6">
@@ -309,7 +309,7 @@
                                     <div class="sleep_bad_img"><img [src]="workspace.sleepimg.s3_link" class="img-fluid d-block"></div>
                                     <div class="sleep_bad_content">
                                         <h4 class="mb-0 mt-2">Bedroom</h4>
-                                        <p class="mb-0">Twin/Single Bed</p>
+                                        <!-- <p class="mb-0">Twin/Single Bed</p> -->
                                     </div>
                                 </div>
                             </div>
@@ -406,8 +406,8 @@
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
             <div class="col-6 bottomPrize">
-                <p class="mb-0 mt-0"><i class="fas fa-rupee-sign"></i><span> {{workspace.starting_price}}/month*</span></p>
-                <p class="mb-0 mt-0" style="font-weight:600;color:#4343e8;"><small>Single/Double Sharing</small></p>
+                <p class="mb-0 mt-0"><i class="fa-solid fa-indian-rupee-sign"></i><span> {{workspace.starting_price}}/month*</span></p>
+                <!-- <p class="mb-0 mt-0" style="font-weight:600;color:#4343e8;"><small>Single/Double Sharing</small></p> -->
             </div>
             <div class="col-6">
                 <button class="btn btn-block mt-2 text-white" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>
