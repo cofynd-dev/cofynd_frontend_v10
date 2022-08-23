@@ -45,7 +45,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   isSearchFooterVisible: boolean;
 
   // Pagination
-  maxSize = 10;
+  maxSize = 5;
   totalRecords: number;
 
   popularLocation: City[];

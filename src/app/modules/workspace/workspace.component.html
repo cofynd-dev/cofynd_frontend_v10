@@ -238,9 +238,9 @@
                     </div> -->
                     <div *ngIf="options.zoom" style="height: 200px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                     </div>
-                    <div class="onlyMobile pt-3">
-                        <p style="font-weight: 300;" class="location_tagline_bottom">Prime location with 24*7 surveillance</p>
-                    </div>
+                </div>
+                <div class="onlyMobile">
+                    <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
                 </div>
             </div>
             <div *ngIf="!loading && workspace" class="col-lg-4 col-md-12 enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">

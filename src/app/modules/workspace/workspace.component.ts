@@ -200,7 +200,7 @@ export class WorkSpaceComponent implements OnInit {
               ),
             ],
 
-            zoom: 10,
+            zoom: 13,
             attributionControl: false,
             scrollWheelZoom: false,
             dragging: false,

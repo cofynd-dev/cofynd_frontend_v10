@@ -1,5 +1,6 @@
 .popular-spaces {
     padding-top: 30px;
+    padding-bottom: 30px;
     background: #f1f1ff;
     &.white-layout {
         border-bottom: 0;
@@ -144,7 +145,7 @@
 
 @media (max-width: 480px) {
     .popular-spaces {
-      padding: 30px 0px !important;
+      padding: 20px 0px !important;
     }
     .popular-spaces .page-title {
       text-align: left;
@@ -158,6 +159,9 @@
     }
     .popular-spaces .item {
         padding: 0 5px;
+    }
+    .popular-spaces .popular-space-box .space-detail {
+        padding: 10px 20px !important;
     }
   }
   

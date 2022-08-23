@@ -259,10 +259,6 @@
     }
 
     @media screen and (max-width: 480px) {
-      // .option-box {
-      //   box-shadow: 0 6px 16px rgb(0 0 0 / 20%);
-      //   border    : 1px solid rgba(0, 0, 0, .02);
-      // }
 
       .h-font18 {
         text-align : center;
@@ -566,25 +562,6 @@
 		font-weight: 500;
 		line-height: 14px;
 	}
-	.feature_sec {
-		padding-top: 50px;
-		padding-bottom: 20px;
-	}
-	.icon_box {
-		margin-bottom: 15px !important;
-	}
-	.icon_box img {
-		width: 25px;
-		margin-bottom: 4px;
-	}
-  .icon_box.mb-0 {
-    margin-bottom: 0px !important;
-  }
-	.icon_box h4 {
-		font-size: 12px;
-		line-height: 14px;
-		margin-bottom: 0px;
-	}
 	.cta_section {
 		padding-top: 20px !important;
 		padding-bottom: 20px !important;
@@ -630,10 +607,6 @@
 		line-height: 16px;
 		margin-bottom: 0;
 	}
-	// .space_search_made_sec img {
-	// 	width: 50%;
-	// 	float: right;
-	// }
 	.sub-footer {
 		padding: 30px 0px;
 		background-color: #f8f8f8;
@@ -772,33 +745,9 @@
 .our_brands_sec {
 	padding-bottom: 0px !important;
 }
-.feature_sec .icon_box {
-	display: -webkit-box;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	margin-bottom: 8px !important;
-}
-.feature_sec .icon_box.mb-0 {
-	margin-bottom: 0px !important;
-}
-.feature_sec .icon_box h4 {
-	padding-left: 10px;
-}
 .main_brand_partners {
 	padding-top: 0px !important;
 }
-  
-  
-// .property-item {
-// 	display: inline-block;
-// 	margin: 0 5px;
-// 	background-size: cover;
-// 	position: relative;
-// 	flex: 0 0 71.4285714286%;
-// 	width: 38.429%;
-// 	overflow: hidden;
-// }
 
 /* top cities css */
 .cities_carousel {
