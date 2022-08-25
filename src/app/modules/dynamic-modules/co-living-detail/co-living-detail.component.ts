@@ -25,7 +25,9 @@ import { appAnimations } from '@shared/animations/animation';
 import { CoLiving } from '../../co-living/co-living.model';
 import { CoLivingService } from '../../co-living/co-living.service';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-
+import { Review } from '@app/core/models/review.model';
+import { AuthType } from '@app/core/enum/auth-type.enum';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 @Component({
   selector: 'app-co-living-detail',
   templateUrl: './co-living-detail.component.html',
@@ -42,7 +44,8 @@ export class CoLivingDetailComponent implements OnInit {
 
   isEnquireModal: boolean;
   shouldReloadEnquiryForm: boolean;
-
+  rating: number = 0;
+  userReview: Review;
   //locationIq Map code
   options: any;
   markers: Layer[] = [];
@@ -89,6 +92,7 @@ export class CoLivingDetailComponent implements OnInit {
       }
       if (this.activeWorkSpaceId) {
         this.getWorkSpace(this.activeWorkSpaceId);
+        this.getAverageRating(this.activeWorkSpaceId);
       }
     });
 
@@ -153,7 +157,31 @@ export class CoLivingDetailComponent implements OnInit {
       this.router.navigate([`${this.country_name}/co-living`]);
     }
   }
-
+  isAuthenticated() {
+    return this.authService.getToken() ? true : false;
+  }
+  openModal(dialogType = AuthType.LOGIN, openAuthDialog = false) {
+    console.log("clicked", dialogType)
+    if (this.isAuthenticated()) {
+      dialogType = AuthType.REVIEW;
+    }
+    const param = Object.assign({
+      space: this.workspace,
+      review: new Review(),
+      authType: dialogType,
+      shouldOpenReviewModal: dialogType === AuthType.LOGIN,
+    });
+    console.log("param", param);
+    this.authService.openReviewDialog(param);
+  }
+  getAverageRating(workspaceId: string) {
+    this.coLivingService.getAverageRating(workspaceId).subscribe(res => {
+      this.rating = Math.round(res.average);
+    });
+  }
+  scrollOnRating() {
+    document.getElementById('reviewSection').scrollIntoView();
+  }
   addSeoTags(workspace: WorkSpace) {
     const seoData: SeoSocialShareData = {
       title: workspace.seo.title ? workspace.seo.title : 'CoFynd - ' + workspace.name,

@@ -54,15 +54,31 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div *ngIf="!loading && workspace">
-                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1">
+                    <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
+                        <div class="row">
+                            <div class="col-md-8 col-8">
                         <h1>{{ workspace.name }}</h1>
                         <p class="address">
                             <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
                         </p>
+                        </div>
+                        
+                    <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
+                        <ng-template [ngIf]="rating===0 && !userReview">
+                            <button class="bfrReview" (click)="openModal()">Write a review</button>
+                        </ng-template>
+                        <ng-template [ngIf]="rating>0">
+                            <span class="forRating">
+                    <app-star-rating (click)="scrollOnRating()"
+                    *ngIf="rating>0"
+                    [rating]='rating'></app-star-rating>
+                    </span>
+                        </ng-template>
+                        </div>
+                    </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span>{{ (workspace.starting_price) | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
-
                     <!-- ----------------------- -->
                     <div class="row onlyMobile pb-2">
                         <div class="col-12">

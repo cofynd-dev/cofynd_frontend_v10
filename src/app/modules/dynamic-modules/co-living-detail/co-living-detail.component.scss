@@ -19,6 +19,25 @@ section {
         padding-bottom: 30px;
         border: 0;
     }
+    &.section-1 {
+        .forRating {
+            float: right;
+        }
+        .bfrReview {
+            background-color: #4343e8;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            float: right;
+            border-radius: 20px;
+            padding: 4px 10px;
+        }
+        @media(max-width: 767px) {
+            .bfrReview {
+                float: left;
+            }
+        }
+    }
     &.no-border {
         border-bottom: 0;
     }
@@ -67,6 +86,12 @@ section {
             .price {
                 display: none;
             }
+        }
+        .forRating {
+            display: none;
+        }
+        .bfrReview {
+            display: none;
         }
     }
     .map-container {
@@ -584,6 +609,13 @@ p {
     .mobileabout{
       max-height:100px;
       overflow: hidden;
+    }
+    .sections.section-1 .bfrReview {
+        background-color: transparent;
+        font-size: 10px;
+        border: 1px solid #4343e8;
+        color: #4343e8;
+        float: right !important;
     }
   }
 .headingForMobile {
