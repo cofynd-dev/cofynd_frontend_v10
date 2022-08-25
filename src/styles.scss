@@ -1331,7 +1331,7 @@ Amenity Icons
 
             .cta_section span {
                 font-weight: 600;
-                margin-top: 10px;
+                // margin-top: 10px;
                 display: inline-block;
             }
 
@@ -1416,6 +1416,16 @@ Amenity Icons
                     width: 13.429%;
                     overflow: hidden;
                     padding: 0px !important;
+                }
+                .border_btn {
+                    background-color: transparent;
+                    border: 1px solid #4343E8;
+                    color: #4343E8 !important;
+                    font-weight: 500;
+                }
+                .border_btn:hover {
+                    background-color: #4343E8;
+                    color: #fff !important;
                 }
 
             @media (max-width: 1366px) {
@@ -1538,6 +1548,10 @@ Amenity Icons
                     height: 35px;
                     left: -10px;
                     top: -10px;
+                }
+                .site_btn {
+                    padding: 6px 13px;
+                    font-size: 10px;
                 }
 
                 .categories_sec .col-4,
@@ -2230,7 +2244,7 @@ Amenity Icons
 
                 .cta_section span {
                     font-weight: 600;
-                    margin-top: 10px;
+                    // margin-top: 10px;
                     display: inline-block;
                 }
 
@@ -2261,7 +2275,8 @@ Amenity Icons
                 .top-coliving-spaces,
                 .inspiration,
                 .partners .slider-on-mobile-view,
-                .logos_slider {
+                .logos_slider,
+                .step_scroller {
                     -webkit-overflow-scrolling: touch !important;
                     -ms-overflow-style: none !important;
                     scrollbar-width: none !important;
@@ -2274,7 +2289,8 @@ Amenity Icons
                 .top-coliving-spaces::-webkit-scrollbar,
                 .inspiration::-webkit-scrollbar,
                 .partners .slider-on-mobile-view::-webkit-scrollbar,
-                .logos_slider::-webkit-scrollbar  {
+                .logos_slider::-webkit-scrollbar,
+                .step_scroller::-webkit-scrollbar  {
                     display: none !important;
                     height: 0 !important;
                     width: 0 !important;
@@ -2299,7 +2315,12 @@ Amenity Icons
                 .amenities_sec .row.mb-2 {
                     margin-bottom: 0px !important;
                 }
-
+                .amenities_sec .amenities_row {
+                    margin: 0;
+                }
+                .amenities_sec .col-4 {
+                    padding: 0px 5px;
+                }
                 .amenities_sec .icon_box {
                     margin-top: 0px !important;
                 }
@@ -2315,6 +2336,7 @@ Amenity Icons
                     line-height: 14px !important;
                     text-align: left !important;
                     font-weight: 500 !important;
+                    margin-top: 4px !important;
                 }
                 .feature_sec {
                     padding-top: 20px !important;
@@ -2484,6 +2506,9 @@ Amenity Icons
                     background-size: cover;
                     background-repeat: no-repeat;
                 }
+                .popular-spaces {
+                    padding: 20px 0 !important;
+                }
                 .popular-space-carousel .ngucarousel .ngucarousel-items {
                     display: block !important;
                     width: 100%;
@@ -2502,28 +2527,44 @@ Amenity Icons
                     padding: 0px !important;
                     display: inline-block;
                     margin: 0 5px;
-                    height: 300px;
-                    background: rgba(0, 0, 0, 0.05) no-repeat center center;
-                    background-size: auto;
                     background-size: cover;
                     position: relative;
-                    border-radius: 8px;
-                    box-shadow: 0 0 10px #dfdfdf;
-                    -webkit-box-flex: 0;
-                    flex: 0 0 71.4285714286%;
-                    width: 71.4285714286%;
+                    width: 38.429% !important;
+                    overflow: hidden;
+                    vertical-align: top;
+                }
+                .popular-spaces .popular-space-box {
+                    height: auto !important;
+                    border-radius: 10px;
                     overflow: hidden;
                 }
-                .popular-spaces .popular-space-box h5 {
-                    font-size: 14px !important;
-                    line-height: 20px !important;
-                    color: #fff !important;
-                    margin-bottom: 5px !important;
-                    font-weight: 700 !important;
+                .popular-spaces .popular-space-content {
+                    margin-top: 0px !important;
+                    margin-bottom: 0px !important;
                 }
-                .popular-spaces .popular-space-box p {
-                    color: #fff !important;
-                    margin: 0;
+                .popular-spaces .popular-space-box img {
+                    position: relative !important;
+                }
+                .popular-spaces .popular-space-box:hover::before {
+                    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, black 100%) !important;
+                }
+                .popular-spaces .popular-space-content h4 {
+                    font-size: 11px !important;
+                    padding-top: 6px;
+                    padding-bottom: 0px;
+                    line-height: 16px;
+                    margin-bottom: 0px !important;
+                    white-space: normal;
+                }
+                .popular-spaces .popular-space-content p {
+                    margin-bottom: 0px;
+                    font-size: 10px !important;
+                    line-height: 16px !important;
+                    white-space: normal;
+                }
+                .popular-spaces .popular-space-content .price {
+                    font-weight: 600 !important;
+                    margin-bottom: 0px;
                 }
                 .price_area .btn {
                     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -2551,4 +2592,218 @@ Amenity Icons
                     padding-right: 1px !important;
                     padding-left: 1px !important;
                 }
+                .city-icon-box {
+                    border: 1px solid rgba(0,0,0,0.03);
+                    margin-bottom: 14px;
+                    padding: 5px;
+                    border-radius: 5px;
+                }
+                .city-icon-box .row {
+                    margin: 0px !important;
+                }
+                .city-icon-box .col-4, .city-icon-box .col-8 {
+                    padding: 0px !important;
+                }
+                .city-icon-box a {
+                    display: block;
+                    width: 100%;
+                }
+                .city-icon-box .cities_box_content {
+                    padding-left: 5px;
+                }
+                .city-icon-box h4 {
+                    font-size: 12px;
+                    line-height: 18px;
+                    margin-top: 0px !important;
+                }
+                .city-icon-box p {
+                    font-size: 11px !important;
+                    line-height: 16px !important;
+                    margin-bottom: 0px !important;
+                }
+                .cities_list_row {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                .cities_list_row .col-6 {
+                    padding: 0px 5px;
+                }
+                
+  .coworking_cta .cta_content p {
+    line-height: 22px !important;
+  }
+  .calltoaction_sec {
+	padding: 10px 0px !important;
+}
+.calltoaction_sec .row {
+	margin: 0px;
+	border-radius: 10px;
+	padding: 10px 0px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+	border: 1px solid rgba(33, 37, 41, 0.03);
+}
+.calltoaction_content h4 {
+	font-size: 12px;
+	line-height: 16px;
+	margin-bottom: 6px;
+}
+.booking-navigation {
+	padding: 20px 0px 20px !important;
+	background-color: transparent !important;
+}
+.step_scroller {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+    margin-top: 0px !important;
+}
+.step_scroller .step_box {
+	display: inline-block;
+	margin: 12px 5px 0px 5px;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 75%;
+	vertical-align: top;
+	background-color: #F8F7F7;
+	padding: 20px 15px;
+	border-radius: 10px;
+}
+.step_scroller .step_box .stepNumber {
+	display: none;
+}
+.step_scroller .step_box .steps {
+	top: -11px !important;
+	background-color: #E3E3E3;
+	padding: 6px 10px;
+	font-size: 11px !important;
+	line-height: 12px !important;
+	border-radius: 5px;
+}
+.step_scroller .step_box .step-text {
+	white-space: normal;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+.full_strach_img .row {
+	padding: 0px;
+}
+.full_strach_img .row .col-8 {
+	padding-right: 0px !important;
+	max-width: 50% !important;
+}
+.full_strach_img .row .col-4 {
+	max-width: 60% !important;
+	flex: min-content;
+}
+.calltoaction_content {
+	padding: 10px 0px;
+}
+.calltoaction_content p {
+	font-size: 10px !important;
+	line-height: 14px !important;
+	margin-bottom: 2px;
+}
+.text_btn {
+	border: none;
+	padding: 0px;
+}
+.text_btn:hover {
+	background-color: transparent;
+}
+.logo_list_section {
+	padding-bottom: 0px !important;
+}
+.advantages_sec {
+	background-color: transparent !important;
+	padding: 20px 0px !important;
+}
+.advantages_sec .pt-4 {
+	padding-top: 0px !important;
+}
+.advantages_sec .circle_icon_box {
+	display: -webkit-box;
+	display: flex;
+	margin: 0px !important;
+}  
+.advantages_row {
+	margin: 0px;
+}
+.advantages_row .col-4 {
+	padding: 0px 5px;
+}
+.advantages_sec .circle_icon_box {
+	display: flex;
+	margin: 0px !important;
+	float: left;
+	width: 100%;
+	align-items: center;
+}
+.advantages_sec .circle_icon_box .img_box {
+	background-color: #E9E9E9;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+}
+.advantages_sec .circle_icon_box .img_box img {
+	width: 100% !important;
+	height: 100% !important;
+	margin: 0 auto;
+	line-height: 40px !important;
+}
+.advantages_sec .circle_icon_box .content_box {
+	padding-left: 36px;
+	margin-top: 4px;
+}
+.advantages_sec .circle_icon_box .content_box p {
+	margin: 0px !important;
+	font-weight: 600 !important;
+	font-size: 11px !important;
+	line-height: 11px !important;
+}
+.advantages_sec .circle_icon_box .content_box p span {
+	display: inline-block;
+	width: 100%;
+	font-size: 9px;
+	line-height: 12px;
+	font-weight: 400 !important;
+}
+.ad_box {
+	padding: 15px 14px;
+	margin-bottom: 10px;
+}
+.ad_box:last-child {
+	margin-bottom: 0px;
+}
+.ad_box h4 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	line-height: 20px;
+	margin-bottom: 3px;
+}
+.ad_box p {
+	color: #fff !important;
+	margin-bottom: 8px;
+}
+.ad_box .exp-button {
+	border: 1px solid #fff;
+	border-radius: 20px;
+	font-size: 10px;
+	font-weight: 500;
+	color: #fff;
+	padding: 2px 14px;
+}
             }
