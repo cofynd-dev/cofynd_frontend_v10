@@ -23,7 +23,9 @@
         <hr />
         <div class="price-box">
             <div class="price">
-                <span>Starting From</span> {{ coLiving.starting_price | currency: coLiving.currency_code : 'symbol' : '1.0-0' }}<small>/{{ coLiving.price_type }}</small>
+                <span>Starting From</span> {{ coLiving.starting_price | currency: coLiving.currency_code : 'symbol' : '1.0-0' }}
+                <small *ngIf="!coLiving.duration">/{{ coLiving.price_type }}</small>
+                <small *ngIf="coLiving.duration">/{{ coLiving.duration }}</small>
             </div>
             <a (click)="openWorkSpace(coLiving)" class="btn-link">Explore Now<small class="icon-next fas fa-angle-right"></small>
       </a>
