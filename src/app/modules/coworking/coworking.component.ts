@@ -15,6 +15,10 @@ import { HomeMenuModalComponent } from '../home/home-menu-modal/home-menu-modal.
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 // import { MapsAPILoader } from '@app/core/map-api-loader/maps-api-loader';
 import { ToastrService } from 'ngx-toastr';
+import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
+import { Observable, Subscriber } from 'rxjs';
+import { WorkSpace } from '@core/models/workspace.model';
+
 
 interface PopularSpace {
   name: string;
@@ -54,6 +58,9 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   maxSize = 10;
   totalRecords: number;
   seoData: SeoSocialShareData;
+  latitute: any;
+  longitute: any;
+  workSpaces: WorkSpace[];
 
   pageTitle: string = 'Top CoWorking Spaces in India';
 
@@ -836,6 +843,16 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     // Init With Map View
     this.isMapView = true;
     this.cities = AVAILABLE_CITY.filter(city => city.for_coWorking === true);
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.latitute = position.latitude;
+      this.longitute = position.longitude;
+      let queryParams = {
+        limit: 20,
+        latitude: this.latitute,
+        longitude: this.longitute,
+      };
+      this.loadWorkSpacesByLatLong(queryParams);
+    });
   }
 
   ngOnInit() {
@@ -847,6 +864,30 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
     // this.getPopularWorSpaces();
     this.getPopularWorSpacesAsCountry();
+  }
+
+  getCurrentPosition(): any {
+    return new Observable((observer: Subscriber<any>) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          observer.next({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          observer.complete();
+        });
+      } else {
+        observer.error();
+      }
+    });
+  }
+
+  loadWorkSpacesByLatLong(param: {}) {
+    this.loading = true;
+    this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
+      this.workSpaces = allWorkSpaces.data;
+      this.loading = false;
+    });
   }
 
   getBrands() {
@@ -877,25 +918,14 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
   }
 
-  // openModalWithComponent(openForDayPass = false, openForCustomizeOffice = false) {
-  //   const initialState = {
-  //     class: 'modal-dialog-centered',
-  //   };
-
-  //   if (openForDayPass) {
-  //     initialState['enabledForm'] = true;
-  //   } else if (openForCustomizeOffice) {
-  //     initialState['enabledForm'] = true;
-  //     initialState['enabledForCustomizeOffice'] = true;
-  //   } else {
-  //     initialState['isCoLiving'] = false;
-  //     initialState['isOffice'] = false;
-  //   }
-
-  //   this.menuModalRef = this.bsModalService.show(HomeMenuModalComponent, {
-  //     initialState,
-  //   });
-  // }
+  openModal(price) {
+    this.bsModalService.show(CuratedCityPopupComponent, {
+      class: 'modal-dialog-centered',
+      initialState: {
+        price,
+      },
+    });
+  }
 
   openModalWithComponent(spaceType: string,) {
     const initialState = {
