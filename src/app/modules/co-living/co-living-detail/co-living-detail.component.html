@@ -132,7 +132,7 @@
                                 <span>{{ workspace.other_detail.type_of_co_living }}</span>
                             </li>
                             <li class="col-6">
-                                <span *ngIf="!workspace.duration == 'year'">Monthly Rent*</span>
+                                <span *ngIf="workspace.duration == 'month'">Monthly Rent*</span>
                                 <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
                                 <span><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace.other_detail.rent_per_bed).toLocaleString('en-IN')
                   }}</span>
