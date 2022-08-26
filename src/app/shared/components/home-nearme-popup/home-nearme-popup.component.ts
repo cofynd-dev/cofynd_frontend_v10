@@ -42,10 +42,8 @@ export class HomeNearmePopupComponent implements OnInit {
   }
 
   searchCoworking() {
-    console.log("HIIIII");
     this.getCurrentPosition()
       .subscribe((position: any) => {
-        console.log(position);
         this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
         this.bsModalRef.hide();
       })
@@ -69,10 +67,8 @@ export class HomeNearmePopupComponent implements OnInit {
     // this.bsModalRef.hide();
   }
   searchColiving() {
-    console.log("HELLO");
     this.getCurrentPosition()
       .subscribe((position: any) => {
-        console.log(position);
         this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
         this.bsModalRef.hide();
 

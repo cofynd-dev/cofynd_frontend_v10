@@ -46,7 +46,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   openWorkSpace(slug: string) {
 
     const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${slug}`]));
-    console.log("clicked", url);
     // this.router.navigate([url]);
     // window.open(url, '_blank');
     if (this.isMobileResolution) {

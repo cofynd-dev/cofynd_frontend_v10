@@ -133,8 +133,6 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
-
     if (event.key === KEY_CODE.RIGHT_ARROW) {
       this.goToNext();
     }

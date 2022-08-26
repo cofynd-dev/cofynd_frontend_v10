@@ -138,7 +138,6 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
     if (this.isColiving) {
       this.coLivingService.getColivingByBrand(slug, sanitizeParams(param)).subscribe(allWorkSpaces => {
         this.setWorkspaceDetail(allWorkSpaces);
-        console.log("allWorkSpaces", allWorkSpaces)
       });
     } else {
       this.workSpaceService.getWorkspacesByBrand(slug, sanitizeParams(param)).subscribe(allWorkSpaces => {
@@ -220,9 +219,7 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
 
   urlChangeCall() {
     this.activatedRoute.url.subscribe(url => {
-      console.log(url, url.length);
       let data = url[url.length - 1].path;
-      console.log(data)
       if (url.length > 1 && data == 'colive') {
         this.router.navigate(['/co-living/bangalore']);
         // this.router.navigate['co-living/bangalore']
@@ -310,7 +307,6 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
 
   setWorkspaceDetail(allWorkSpaces) {
     this.workSpaces = allWorkSpaces.data;
-    console.log("workSpaces", this.workSpaces);
     this.totalRecords = allWorkSpaces.totalRecords;
     if (allWorkSpaces.data.length) {
       this.brand = this.workSpaces[0].brand;

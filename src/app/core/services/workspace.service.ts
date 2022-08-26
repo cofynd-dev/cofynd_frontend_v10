@@ -108,7 +108,6 @@ export class WorkSpaceService {
 
 
   setStartingPrice(workspace: WorkSpace) {
-    // console.log(workspace);
     if (workspace.plans.length) {
       let planPrice = []
       planPrice = workspace.plans.map(plan => {
@@ -220,7 +219,6 @@ export class WorkSpaceService {
   }
 
   saveReview(review: Review): Observable<Review> {
-    console.log("review", review);
     if (review.id) {
       return this.http
         .put<{ data: Review }>(`/user/review/${review.id}`, review)

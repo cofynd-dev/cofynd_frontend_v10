@@ -138,7 +138,6 @@ export class HomeCityDropdownComponent {
 
   onCityChange(city) {
     let city_name = city['name'];
-    console.log(city)
     if (city.Country) {
       let dbcountry_name = city['Country']['name'];
       let country_id = city['Country']['id'];

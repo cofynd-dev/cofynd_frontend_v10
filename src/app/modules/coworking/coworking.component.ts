@@ -941,13 +941,11 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   getPopularWorSpacesAsCountry() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') }).subscribe(spaces => {
       this.popularCoWorkingSpaces = spaces;
-      console.log(this.popularCoWorkingSpaces);
       this.cdr.detectChanges();
     });
   }
 
   openCityListing(slug: any) {
-    console.log(slug);
     this.router.navigate(['coworking/' + slug.name])
   }
 

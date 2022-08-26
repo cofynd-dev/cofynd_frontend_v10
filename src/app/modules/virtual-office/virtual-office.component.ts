@@ -184,7 +184,6 @@ export class VirtualOfficeComponent implements OnInit {
       this.workSpaces = allWorkSpaces.data.filter(
         cat => cat.plans.filter(p => p.category === '6231bca42a52af3ddaa73ab1').length,
       );
-      console.log(this.workSpaces);
       this.loading = false;
     });
   }

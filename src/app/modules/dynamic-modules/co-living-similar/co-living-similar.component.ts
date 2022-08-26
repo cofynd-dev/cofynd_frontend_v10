@@ -53,8 +53,6 @@ export class CoLivingSimilarComponent implements OnInit {
       )
       .subscribe(filteredWorkspaces => {
         this.workSpaces = filteredWorkspaces;
-        console.log(this.workSpaces);
-
         this.loading = false;
         this.cdr.detectChanges();
       });

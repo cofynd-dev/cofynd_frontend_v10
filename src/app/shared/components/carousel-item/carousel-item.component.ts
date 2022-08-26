@@ -98,8 +98,6 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
-    console.log(this.coLivingSpaces);
-
   }
 
   // getPopularWorSpaces() {

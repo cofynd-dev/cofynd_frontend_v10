@@ -174,7 +174,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       // this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
       this.coLivings = allOffices.data;
-      console.log("coLivings", this.coLivings);
 
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
