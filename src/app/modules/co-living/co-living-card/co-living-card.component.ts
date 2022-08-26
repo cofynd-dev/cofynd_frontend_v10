@@ -39,15 +39,11 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
   }
 
   openWorkSpace(slug: string) {
 
     const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${slug}`]));
-    // this.router.navigate([url]);
-    // window.open(url, '_blank');
     if (this.isMobileResolution) {
       this.router.navigate([url]);
     } else {
