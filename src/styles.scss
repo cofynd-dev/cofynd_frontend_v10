@@ -1798,24 +1798,6 @@ body {
         line-height: 30px !important;
     }
 
-    // .faqs_accordion h4 {
-    //     font-size: 11px !important;
-    //     line-height: 16px;
-    //     padding-right: 15px !important;
-    // }
-
-    // .faqs_accordion p {
-    //     font-size: 10px !important;
-    //     color: #222 !important;
-    //     line-height: 16px !important;
-    //     font-weight: normal !important;
-    //     margin: 0px 0px 0px !important;
-    // }
-
-    // .faqs_section .card-body {
-    //     padding: 15px 0;
-    // }
-
     .city_page_title h1 {
         margin-bottom: 0px !important;
     }
@@ -2499,24 +2481,24 @@ body {
         padding: 20px 0px !important;
     }
 
-    .popular-spaces .page-title {
-        text-align: left !important;
-        padding: 0px 0px 0px 15px !important;
-    }
+    // .popular-spaces .page-title {
+    //     text-align: left !important;
+    //     padding: 0px 0px 0px 15px !important;
+    // }
 
-    .popular-spaces .page-title h2::before {
-        display: block !important;
-    }
+    // .popular-spaces .page-title h2::before {
+    //     display: block !important;
+    // }
 
-    .popular-spaces .page-title h2 {
-        margin-bottom: 0px !important;
-        display: block !important;
-        text-align: left !important;
-        margin-bottom: 15px !important;
-        font-size: 16px !important;
-        line-height: 24px !important;
-        font-weight: 600 !important;
-    }
+    // .popular-spaces .page-title h2 {
+    //     margin-bottom: 0px !important;
+    //     display: block !important;
+    //     text-align: left !important;
+    //     margin-bottom: 15px !important;
+    //     font-size: 16px !important;
+    //     line-height: 24px !important;
+    //     font-weight: 600 !important;
+    // }
 
     .location_area .leaflet-container {
         border: 1px solid #e5e5e5 !important;
@@ -2543,16 +2525,16 @@ body {
         background-repeat: no-repeat;
     }
 
-    .popular-spaces {
+    .properties_space_sec {
         padding: 20px 0 !important;
     }
 
-    .popular-space-carousel .ngucarousel .ngucarousel-items {
+    .properties_space_sec .popular-space-carousel .ngucarousel .ngucarousel-items {
         display: block !important;
         width: 100%;
         height: auto !important;
         overflow-x: scroll;
-        padding: 8px 0px 2px;
+        padding: 0px 0px 0px;
         margin: 0;
         white-space: nowrap;
         scrollbar-width: none !important;
@@ -2562,7 +2544,7 @@ body {
         transition: none !important;
     }
 
-    .popular-spaces .popular-space-carousel .item {
+    .properties_space_sec .popular-space-carousel .item {
         padding: 0px !important;
         display: inline-block;
         margin: 0 5px;
@@ -2573,26 +2555,26 @@ body {
         vertical-align: top;
     }
 
-    .popular-spaces .popular-space-box {
+    .properties_space_sec .popular-space-box {
         height: auto !important;
         border-radius: 10px;
         overflow: hidden;
     }
 
-    .popular-spaces .popular-space-content {
+    .properties_space_sec .popular-space-content {
         margin-top: 0px !important;
         margin-bottom: 0px !important;
     }
 
-    .popular-spaces .popular-space-box img {
+    .properties_space_sec .popular-space-box img {
         position: relative !important;
     }
 
-    .popular-spaces .popular-space-box:hover::before {
+    .properties_space_sec .popular-space-box:hover::before {
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, black 100%) !important;
     }
 
-    .popular-spaces .popular-space-content h4 {
+    .properties_space_sec .popular-space-content h4 {
         font-size: 11px !important;
         padding-top: 6px;
         padding-bottom: 0px;
@@ -2601,14 +2583,14 @@ body {
         white-space: normal;
     }
 
-    .popular-spaces .popular-space-content p {
+    .properties_space_sec .popular-space-content p {
         margin-bottom: 0px;
         font-size: 10px !important;
         line-height: 16px !important;
         white-space: normal;
     }
 
-    .popular-spaces .popular-space-content .price {
+    .properties_space_sec .popular-space-content .price {
         font-weight: 600 !important;
         margin-bottom: 0px;
     }
@@ -2678,8 +2660,8 @@ body {
     }
 
     .city-icon-box p {
-        font-size: 11px !important;
-        line-height: 16px !important;
+        font-size: 10px !important;
+        line-height: 14px !important;
         margin-bottom: 0px !important;
     }
 
@@ -2905,4 +2887,81 @@ body {
     .featured_by {
         padding: 20px 0px !important;
     }
+    .top_cities_slider  {
+        padding: 20px 0px !important;
+      }
+    .top_cities_slider .page-title {
+    text-align: left;
+    padding-left: 15px !important;
+    }
+    .top_cities_slider .page-title h2::after {
+    display: none;
+    }
+    .top_cities_slider .page-title h2 {
+    margin-bottom: 0px;
+    }
+    .top_cities_slider .popular-space-carousel .ngucarousel .ngucarousel-items {
+        display: block !important;
+        width: 100%;
+        height: auto !important;
+        overflow-x: scroll;
+        padding: 0px;
+        margin: 0;
+        white-space: nowrap;
+        scrollbar-width: none !important;
+        -webkit-transform: none !important;
+        transform: none !important;
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+    .top_cities_slider .popular-space-carousel .item {
+        padding: 0 !important;
+        display: inline-block;
+        margin: 0 5px;
+        height: 300px;
+        background: center center no-repeat rgba(0,0,0,.05);
+        background-size: cover;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #dfdfdf;
+        -webkit-box-flex: 0;
+        flex: 0 0 71.42857142857143%;
+        width: 71.42857142857143%;
+        overflow: hidden;
+        padding: 0 5px;
+    }
+    .top_cities_slider .popular-space-box {
+        height: 300px !important;
+    }
+    // .top_cities_slider .popular-space-box img {
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     bottom: 0;
+    //     right: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     -o-object-fit: cover;
+    //     object-fit: cover;
+    //     border-radius: 8px;
+    //     -webkit-transition: -webkit-transform 2s;
+    //     transition: -webkit-transform 2s ease;
+    //     transition: transform 2s ease;
+    //     transition: transform 2s ease,-webkit-transform 2s ease;
+    // }
+    .top_cities_slider .popular-space-box .space-detail {
+        padding: 10px 20px !important;
+    }
+    .top_cities_slider .popular-space-box h5 {
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: #fff !important;
+        margin-bottom: 5px !important;
+        font-weight: 700 !important;
+    }
+    .top_cities_slider .popular-space-box p {
+        color: #fff !important;
+        margin: 0;
+    }
+    
 }
