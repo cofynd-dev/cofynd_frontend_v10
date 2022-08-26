@@ -85,7 +85,6 @@ export class SearchBreadcrumbComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
-    console.log(this.priceFilters);
     this.mobileView = window.screen.width < 500;
     if (!this.priceFilter || !this.priceFilter.length) {
       this.priceFilter = this.getPriceFilter();

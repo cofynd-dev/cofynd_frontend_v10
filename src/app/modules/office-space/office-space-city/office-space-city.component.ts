@@ -83,7 +83,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         );
 
         this.title = filteredCity[0].name;
-        console.log("title", this.title);
         this.createBreadcrumb();
         const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_OFFICE_FILTER_KEY));
         this.queryParams = {
@@ -127,7 +126,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
 
   }
   setHeaderScript(cityScript) {
-    // console.log(cityScript);
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;

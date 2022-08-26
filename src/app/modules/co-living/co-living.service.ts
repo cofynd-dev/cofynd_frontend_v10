@@ -31,20 +31,16 @@ export class CoLivingService {
   }
 
   getPopularCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
-    console.log("params", params);
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/popularCoLivingSpaces?${params}`).pipe(
       map(coLivings => {
-        console.log("**", coLivings);
         coLivings.data.map(coLiving => this.setStartingPrice(coLiving));
         return coLivings;
       }),
     );
   }
   getPriorityWorkSpaces(params): Observable<ObjectResponseModel<any>> {
-    console.log("params", params);
     return this.http.get<ObjectResponseModel<CoLiving>>(`/user/coLivingSpaces/priority/type`, { params: params }).pipe(
       map((coLivings: any) => {
-        console.log("**", coLivings);
         coLivings.data.prioritySpaces.map(coLiving => this.setStartingPrice(coLiving));
         return coLivings;
       }),
@@ -72,6 +68,7 @@ export class CoLivingService {
 
   setStartingPrice(coLiving) {
     let prices = [];
+    let miniPriceDuration = []
     const updatedWorkspace = coLiving;
     if (coLiving.coliving_plans) {
       let data = coLiving.coliving_plans;
@@ -85,13 +82,23 @@ export class CoLivingService {
     } else {
       prices = Object.values(coLiving.price);
     }
-
     coLiving.starting_price = Math.min(...prices.filter(Boolean));
+    let miniPrice = Math.min(...prices.filter(Boolean));
+    if (coLiving.coliving_plans) {
+      let data = coLiving.coliving_plans;
+      if (data.length > 0) {
+        data.map((v) => {
+          if (v.price === miniPrice) {
+            miniPriceDuration.push(v)
+          }
+        })
+      }
+    }
     coLiving.price_type = 'bed';
+    coLiving.duration = miniPriceDuration[0]['duration'];
     return updatedWorkspace;
   }
   getAverageRating(spaceId): Observable<{ average: number }> {
-    console.log("*****")
     return this.http
       .get<{ data: { average: number } }>(`/user/ColivingspaceAverageReview/${spaceId}`)
       .pipe(map(searchResult => searchResult.data));

@@ -79,7 +79,6 @@ export class OfficeSpaceComponent implements OnInit {
     this.loading = true;
     this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allWorkSpaces => {
       this.offices = allWorkSpaces.data;
-      console.log(this.offices);
       this.loading = false;
     });
   }

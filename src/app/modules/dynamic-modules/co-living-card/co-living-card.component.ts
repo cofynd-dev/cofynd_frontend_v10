@@ -44,7 +44,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   }
 
   openWorkSpace(coLiving) {
-    console.log(coLiving);
     if (
       coLiving.country_dbname !== 'India' &&
       coLiving.country_dbname !== 'INDIA' &&

@@ -219,7 +219,6 @@ export class WorkSpaceComponent implements OnInit {
       error => {
         if (error.status === 404) {
           let city = localStorage.getItem('city_name');
-          console.log('city', city);
           if (city == 'co-living') {
             this.router.navigate(['/co-living']);
           } else if (city == 'coworking') {
@@ -236,7 +235,6 @@ export class WorkSpaceComponent implements OnInit {
   getAverageRating(workspaceId: string) {
     this.workSpaceService.getAverageRating(workspaceId).subscribe(res => {
       this.rating = Math.round(res.average);
-      console.log("rating", this.rating)
     });
   }
 
@@ -278,7 +276,6 @@ export class WorkSpaceComponent implements OnInit {
         {},
       )
       .then(function (response) {
-        console.log(response);
       });
   }
 
@@ -375,7 +372,6 @@ export class WorkSpaceComponent implements OnInit {
       authType: dialogType,
       shouldOpenReviewModal: dialogType === AuthType.LOGIN,
     });
-    console.log("param", param);
     this.authService.openReviewDialog(param);
   }
 

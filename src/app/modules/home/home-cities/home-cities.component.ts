@@ -31,7 +31,6 @@ export class HomeCitiesComponent {
   }
 
   openModal(cityData, city) {
-    console.log(cityData);
     if (cityData.for_coLiving == true && cityData.for_coWorking == true) {
       this.bsModalService.show(HomeCityPopupComponent, {
         class: 'modal-dialog-centered',

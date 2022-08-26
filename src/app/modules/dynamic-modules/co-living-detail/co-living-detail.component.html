@@ -57,25 +57,25 @@
                     <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <div class="row">
                             <div class="col-md-8 col-8">
-                        <h1>{{ workspace.name }}</h1>
-                        <p class="address">
-                            <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
-                        </p>
-                        </div>
-                        
-                    <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
-                        <ng-template [ngIf]="rating===0 && !userReview">
-                            <button class="bfrReview" (click)="openModal()">Write a review</button>
-                        </ng-template>
-                        <ng-template [ngIf]="rating>0">
-                            <span class="forRating">
+                                <h1>{{ workspace.name }}</h1>
+                                <p class="address">
+                                    <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
+                                <ng-template [ngIf]="rating===0 && !userReview">
+                                    <button class="bfrReview" (click)="openModal()">Write a review</button>
+                                </ng-template>
+                                <ng-template [ngIf]="rating>0">
+                                    <span class="forRating">
                     <app-star-rating (click)="scrollOnRating()"
                     *ngIf="rating>0"
                     [rating]='rating'></app-star-rating>
                     </span>
-                        </ng-template>
+                                </ng-template>
+                            </div>
                         </div>
-                    </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span>{{ (workspace.starting_price) | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
@@ -141,7 +141,8 @@
                                 <span>{{ workspace.other_detail.type_of_co_living }}</span>
                             </li>
                             <li class="col-6">
-                                Monthly Rent*
+                                <span *ngIf="!workspace.duration == 'year'">Monthly Rent*</span>
+                                <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
                                 <span><i class="icon-rupee"></i>{{ (workspace.other_detail.rent_per_bed) | currency: workspace.currency_code : 'symbol' : '1.0-0'
                   }}</span>
                             </li>
@@ -158,19 +159,19 @@
                     <!-- ------------------------------------------------------ -->
                     <div *ngIf="workspace.description" class="sections about-section pt-4">
                         <div class="hideOnMobile">
-                        <h2 >About this property</h2>
-                        <p [innerHTML]="workspace.description">
-                        </p>
+                            <h2>About this property</h2>
+                            <p [innerHTML]="workspace.description">
+                            </p>
                         </div>
                         <div class="onlyMobile">
-                        <h2 >About property</h2>
-                        <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide">
-                        </p>
-                        <ng-template #hide>
-                            <p [innerHTML]="workspace.description"> </p>
-                        </ng-template>
+                            <h2>About property</h2>
+                            <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide">
+                            </p>
+                            <ng-template #hide>
+                                <p [innerHTML]="workspace.description"> </p>
+                            </ng-template>
 
-                        <p style="color: #4343e8 !important; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
+                            <p style="color: #4343e8 !important; cursor: pointer;" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
                         </div>
                         <!-- <div class="row buttonOnMobile"
               (click)="toggleAmenitiesDiv()">
@@ -199,7 +200,8 @@
                                                 <span class="hideOnMobile">starting*</span>
                                                 <div>
                                                     {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}
-                                                    <small>/month*</small>
+                                                    <small *ngIf="!plan.duration" class="small_text">/month*</small>
+                                                    <small *ngIf="plan?.duration" class="small_text">/{{plan.duration}}*</small>
                                                 </div>
                                             </div>
                                             <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton hideOnMobile">Enquire<small
