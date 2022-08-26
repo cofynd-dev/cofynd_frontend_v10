@@ -375,14 +375,6 @@
 
   /*tenth end*/
   /*eleventh start*/
-  .exp-button {
-    border       : 1px solid #fff;
-    border-radius: 20px;
-    height       : 30px;
-    font-size    : 14px;
-    font-weight  : 600;
-    color        : #fff;
-  }
 
   .font-18 {
     font-size  : 18px;
@@ -554,6 +546,10 @@
     font-size: 20px !important;
     line-height: 30px !important;
   }
+  .coworking_cities_list {
+    padding-top: 30px !important;
+    padding-bottom: 0px !important;
+  }
   .search-bar {
     margin: 10px 0px 0px;
   }
@@ -561,21 +557,24 @@
     padding-top: 30px !important;
     padding-bottom: 20px !important;
   }
-  .top-coliving-spaces a .mb-4 {
-    margin-bottom: 0px !important;
+  .near-coworking-space {
+    padding: 10px 0px 20px !important;
   }
-  .top-coliving-spaces .pb-2 {
-    padding-bottom: 0px !important;
-  }
-  .top-coliving-spaces a {
-    margin-top: 0px !important;
-  }
-  .top-coliving-spaces img {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-  }
-  .live-spaces-button {
-    margin-bottom: 0px !important;
-  }
+  // .top-coliving-spaces a .mb-4 {
+  //   margin-bottom: 0px !important;
+  // }
+  // .top-coliving-spaces .pb-2 {
+  //   padding-bottom: 0px !important;
+  // }
+  // .top-coliving-spaces a {
+  //   margin-top: 0px !important;
+  // }
+  // .top-coliving-spaces img {
+  //   margin-top: 0px !important;
+  //   margin-bottom: 0px !important;
+  // }
+  // .live-spaces-button {
+  //   margin-bottom: 0px !important;
+  // }
   
 }

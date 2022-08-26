@@ -12,13 +12,13 @@ export class HomeBrandListComponent {
   @Input() coworkingBrands: Brand[] = [];
   @Input() coLivingBrands: Brand[] = [];
   loading: boolean;
-  @Input() pageTitle: string = 'Our Coworking Partners';
+  @Input() pageTitle: string = 'Our Brand Partners';
   @Input() layout: 'grey';
   @Input() shouldCoWorkingVisible: boolean = true;
   @Input() shouldCoLivingVisible: boolean;
   @Input() shouldOtherBrandVisible: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.loading = true;
