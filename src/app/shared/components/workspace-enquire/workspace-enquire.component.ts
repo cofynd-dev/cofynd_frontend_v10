@@ -132,7 +132,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     this.workSpaceService.getWorkspace(id).subscribe(workspaceData => {
       let plans = workspaceData.plans.map(x => x.category);
       plans = [...new Set(plans)];
-      console.log("plans", plans);
       plans.forEach(plan => {
         this.coworkingPlans.push({ label: this.toTitleCase(plan), value: plan['name'] });
       });

@@ -77,7 +77,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
-        console.log(results.routeParams);
         let url = `${results.routeParams[0]}/${results.routeParams[1]}`
         if (url === 'gurugram/mg-road') {
           this.router.navigateByUrl('coworking/gurugram/mg-road-gurugram')

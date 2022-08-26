@@ -26,7 +26,6 @@ export class MainComponent implements OnDestroy {
     this.onConfigChanged = this.configService.onAppConfigChanged.subscribe(
       (config: AppConfig) => (this.appConfig = config),
     );
-    console.log("main called1", router.url.search(/co-living/i));
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
     }

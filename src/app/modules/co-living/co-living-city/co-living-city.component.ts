@@ -163,7 +163,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     }
   }
   apply() {
-    console.log(this.maxPrice, this.minPrice, this.roomType);
     this.queryParams['minPrice'] = this.minPrice;
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['room_type'] = this.roomType;

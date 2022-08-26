@@ -63,7 +63,6 @@ export class SearchMapViewComponent implements OnInit {
     if (this.workspaces && this.workspaces.length) {
       this.addLocationIqMap(this.workspaces, this.spaceType);
     }
-    console.log(this.spaceType);
     this.type = this.spaceType;
   }
 
@@ -98,8 +97,6 @@ export class SearchMapViewComponent implements OnInit {
       },
     );
     this.newMarker.on('click', function () {
-      console.log(spaceType);
-      console.log(workspace);
       if (workspace.country_dbname && workspace.country_dbname !== 'india' && workspace.country_dbname !== 'India' && workspace.country_dbname !== 'INDIA') {
         window.open(`/${workspace.country_dbname}/${spaceType}-details/${workspace.slug}`);
       } else {

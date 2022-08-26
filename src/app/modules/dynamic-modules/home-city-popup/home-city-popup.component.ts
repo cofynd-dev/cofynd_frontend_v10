@@ -18,7 +18,6 @@ export class HomeCityPopupComponent implements OnInit {
   country: string
 
   ngOnInit() {
-    console.log(this.city + this.country);
   }
 
   closeModal() {

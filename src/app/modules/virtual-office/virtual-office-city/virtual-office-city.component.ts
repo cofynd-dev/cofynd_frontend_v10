@@ -177,7 +177,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         cat.plans.filter((p) => p.category === '6231bca42a52af3ddaa73ab1').length
       );
       if (allWorkSpaces.data.length) {
-        console.log(allWorkSpaces)
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
 
         if (filteredLocations && filteredLocations.length) {
@@ -186,7 +185,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-        console.log(this.workSpaces)
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
         });

@@ -1135,7 +1135,6 @@ export class CoLivingComponent implements OnInit {
 
   constructor(private brandService: BrandService, private seoService: SeoService, private router: Router) {
     this.cities = AVAILABLE_CITY_CO_LIVING.filter(city => city.for_coLiving === true);
-    console.log("cities", this.cities);
   }
 
   ngOnInit() {
@@ -1145,7 +1144,6 @@ export class CoLivingComponent implements OnInit {
 
   getBrands() {
     this.brandService.getBrands(sanitizeParams({ type: 'coliving' })).subscribe(res => {
-      console.log("coLivingBrands", res)
       this.coLivingBrands = res;
     });
   }

@@ -88,7 +88,6 @@ export class CoLivingDetailComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
-      // console.log("param", param);
       if (param.id) {
         this.getWorkSpace(this.activeWorkSpaceId);
         this.getAverageRating(this.activeWorkSpaceId);
@@ -113,7 +112,6 @@ export class CoLivingDetailComponent implements OnInit {
     this.loading = true;
     this.coLivingService.getCoLiving(workspaceId).subscribe(
       workspaceDetail => {
-        // console.log("workspaceDetail", workspaceDetail);
         this.workspace = workspaceDetail;
         this.workspace.amenties = this.workspace.amenties.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
         this.loading = false;
@@ -144,7 +142,6 @@ export class CoLivingDetailComponent implements OnInit {
       error => {
         if (error.status === 404) {
           let city = localStorage.getItem('city_name');
-          console.log('city', city);
           if (city == 'co-living') {
             this.router.navigate(['/co-living']);
           } else if (city == 'coworking') {
@@ -170,13 +167,11 @@ export class CoLivingDetailComponent implements OnInit {
       authType: dialogType,
       shouldOpenReviewModal: dialogType == AuthType.LOGIN,
     });
-    console.log("param", param);
     this.authService.openReviewDialog(param);
   }
   getAverageRating(workspaceId: string) {
     this.coLivingService.getAverageRating(workspaceId).subscribe(res => {
       this.rating = Math.round(res.average);
-      console.log("rating", this.rating);
     });
   }
   scrollOnRating() {

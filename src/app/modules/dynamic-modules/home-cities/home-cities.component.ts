@@ -43,7 +43,6 @@ export class HomeCitiesComponent implements OnInit {
       localStorage.setItem('country_id', res.data.id);
       this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
         this.countryCities = res.data.filter(city => city.for_coWorking === true);
-        console.log("Chnadan ", this.countryCities);
       })
     })
   }

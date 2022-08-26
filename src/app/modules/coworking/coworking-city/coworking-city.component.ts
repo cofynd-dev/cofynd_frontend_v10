@@ -79,7 +79,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
-    console.log("city", this.activatedRoute.snapshot.url[0].path)
     localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
@@ -94,8 +93,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           );
           this.title = results.routeParams[0].path;
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COWORKING_FILTER_KEY));
-          console.log(this.minPrice);
-          console.log(this.maxPrice);
           if (this.minPrice && this.maxPrice) {
             this.queryParams = {
               ...AppConstant.DEFAULT_SEARCH_PARAMS,
@@ -147,7 +144,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           }
           this.createBreadcrumb();
           this.loadWorkSpaces(this.queryParams);
-          // console.log(this.workSpaces);
         });
       });
 
@@ -211,7 +207,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
 
   apply() {
-    console.log(this.maxPrice, this.minPrice, this.roomType);
     this.queryParams['minPrice'] = this.minPrice;
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['space_type'] = this.roomType;
@@ -247,7 +242,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
 
   loadWorkSpaces(param: {}) {
-    // console.log(param);
     this.loading = true;
     this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
       this.workSpaces = allWorkSpaces.data.sort((a: any, b: any) => {
@@ -259,7 +253,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.cityWisePopularLocation = filteredLocations[0].locations;
-          // console.log(this.availableCities)
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;

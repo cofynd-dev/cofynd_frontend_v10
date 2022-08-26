@@ -40,14 +40,11 @@ export class ReviewSubmissionFormComponent implements OnInit {
   }
 
   update(event) {
-    console.log(event);
   }
 
   authAddReview() {
     const request = this.workSpaceService.checkReviewSpace(this.router.url, this.review, this.space.id);
-    console.log("authAddReview", request);
     this.workSpaceService.saveReview(request).subscribe(res => {
-      console.log("res", res)
       this.workSpaceService.setProfileReviewByUser(res);
       this.toasterService.success('Thanks! Review will be posted after Admin Approval');
       this.closeReviewPopup();

@@ -30,7 +30,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
   }
 
   getSlug(location: string) {
-    console.log(generateSlug(location));
     return generateSlug(location);
   }
   private getCurrentPosition(): any {
@@ -49,7 +48,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
     });
   }
   reRoute(location) {
-    console.log(generateSlug(location.toLowerCase().trim()));
     // debugger
     let country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
     if (this.relativeUrl === 'co-living' && country != 'india' && country != 'India' && country != 'INDIA') {
@@ -101,7 +99,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
         this.cityName.toLowerCase().trim() +
         '/' +
         generateSlug(location.toLowerCase().trim());
-      console.log(script.officespace.microLocation[generateSlug(location.toLowerCase().trim())])
       if (location && script.officespace.microLocation[generateSlug(location.toLowerCase().trim())] != undefined) {
 
         for (let scrt of script.officespace.microLocation[generateSlug(location.toLowerCase().trim())]) {
@@ -115,7 +112,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
       if (location === 'Near Me') {
         this.getCurrentPosition()
           .subscribe((position: any) => {
-            console.log(position);
             this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
           })
         // this.mapsAPILoader
@@ -154,13 +150,11 @@ export class SearchSimilarLocationComponent implements OnChanges {
 
   setHeaderScript(cityScript) {
 
-    // console.log(cityScript);
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
     this._renderer2.appendChild(this._document.head, script);
   }
   ngOnChanges(): void {
-    console.log(this.country_names, this.popularLocationList);
   }
 }

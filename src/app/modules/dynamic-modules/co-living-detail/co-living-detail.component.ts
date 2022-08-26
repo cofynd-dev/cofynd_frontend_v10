@@ -83,7 +83,6 @@ export class CoLivingDetailComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
-      console.log(param);
       if (param && param.workspacename) {
         this.activeWorkSpaceId = param.workspacename;
       }
@@ -161,7 +160,6 @@ export class CoLivingDetailComponent implements OnInit {
     return this.authService.getToken() ? true : false;
   }
   openModal(dialogType = AuthType.LOGIN, openAuthDialog = false) {
-    console.log("clicked", dialogType)
     if (this.isAuthenticated()) {
       dialogType = AuthType.REVIEW;
     }
@@ -171,7 +169,6 @@ export class CoLivingDetailComponent implements OnInit {
       authType: dialogType,
       shouldOpenReviewModal: dialogType === AuthType.LOGIN,
     });
-    console.log("param", param);
     this.authService.openReviewDialog(param);
   }
   getAverageRating(workspaceId: string) {

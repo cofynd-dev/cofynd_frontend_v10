@@ -30,7 +30,6 @@ export class DropdownItemComponent {
   }
 
   open_menu(data: any, type: any) {
-    console.log(this.relativeUrl)
     if (this.relativeUrl == '/coworking/') {
       this.workSpaceService.getCountry({ "for_coWorking": true }).subscribe((res: any) => {
         for (const key in res.data) {
@@ -90,7 +89,6 @@ export class DropdownItemComponent {
           }
         }
         this.cities = res.data.filter(city => city.for_coLiving === true);
-        console.log(this.cities)
         if (this.cities.length > 6) {
           this.isSingle = false
         } else {
@@ -104,7 +102,6 @@ export class DropdownItemComponent {
           this.open1 = !this.open1;
           this.workSpaceService.getCity(data._id).subscribe((res: any) => {
             this.cities1 = res.data.filter(city => city.for_coLiving === true);
-            console.log(this.cities1);
             if (this.cities1.length > 6) {
               this.isSingle = false
             } else {
@@ -123,7 +120,6 @@ export class DropdownItemComponent {
     this.open = !this.open;
     this.open1 = !this.open1;
     this.Router.navigate([this.relativeUrl]);
-    console.log(this.relativeUrl)
   }
 
   viewAllDynamicCountry() {

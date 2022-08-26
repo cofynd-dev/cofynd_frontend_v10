@@ -55,26 +55,26 @@
             <div class="col-lg-8 col-md-12">
                 <div *ngIf="!loading && workspace">
                     <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
-                       <div class="row">
-                        <div class="col-md-8 col-8">
-                        <h1>{{ workspace.name }}</h1>
-                        <p class="address">
-                            <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address }}
-                        </p>
-                        </div>
-                        <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
-                            <ng-template [ngIf]="rating===0 && !userReview">
-                                <button class="bfrReview" (click)="openModal()">Write a review</button>
-                            </ng-template>
-                            <ng-template [ngIf]="rating>0">
-                                <span class="forRating">
+                        <div class="row">
+                            <div class="col-md-8 col-8">
+                                <h1>{{ workspace.name }}</h1>
+                                <p class="address">
+                                    <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address }}
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
+                                <ng-template [ngIf]="rating===0 && !userReview">
+                                    <button class="bfrReview" (click)="openModal()">Write a review</button>
+                                </ng-template>
+                                <ng-template [ngIf]="rating>0">
+                                    <span class="forRating">
                         <app-star-rating (click)="scrollOnRating()"
                         *ngIf="rating>0"
                         [rating]='rating'></app-star-rating>
                         </span>
-                            </ng-template>
+                                </ng-template>
                             </div>
-                            </div>
+                        </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><i class="fa-solid fa-indian-rupee-sign"></i> {{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
@@ -132,7 +132,8 @@
                                 <span>{{ workspace.other_detail.type_of_co_living }}</span>
                             </li>
                             <li class="col-6">
-                                Monthly Rent*
+                                <span *ngIf="!workspace.duration == 'year'">Monthly Rent*</span>
+                                <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
                                 <span><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace.other_detail.rent_per_bed).toLocaleString('en-IN')
                   }}</span>
                             </li>
@@ -189,7 +190,8 @@
                                                 <span class="hideOnMobile">starting*</span>
                                                 <div>
                                                     {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}
-                                                    <small class="small_text">/month*</small>
+                                                    <small *ngIf="!plan.duration" class="small_text">/month*</small>
+                                                    <small *ngIf="plan?.duration" class="small_text">/{{plan.duration}}*</small>
                                                 </div>
                                             </div>
                                             <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton hideOnMobile">Enquire<small

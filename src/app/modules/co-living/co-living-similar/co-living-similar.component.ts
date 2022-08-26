@@ -48,7 +48,6 @@ export class CoLivingSimilarComponent implements OnInit {
       type: 'micro_location',
       limit: 9
     };
-    console.log("***", queryParam);
     this.coLivingService
       .getPopularCoLivings(sanitizeParams(queryParam))
       .pipe(
@@ -58,7 +57,6 @@ export class CoLivingSimilarComponent implements OnInit {
       )
       .subscribe(filteredWorkspaces => {
         this.workSpaces = filteredWorkspaces;
-        console.log("***#", this.workSpaces);
         this.loading = false;
         this.cdr.detectChanges();
       });
