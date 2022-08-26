@@ -890,6 +890,10 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
   }
 
+  routeTodetail(slug: string) {
+    this.router.navigate([`/coworking/${slug}`]);
+  }
+
   getBrands() {
     this.brandService.getBrands(sanitizeParams({ type: 'coworking' })).subscribe(res => {
       this.coworkingBrands = res.filter(
