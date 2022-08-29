@@ -1094,16 +1094,6 @@ body {
     margin-bottom: 10px;
 }
 
-.filter_btn {
-    background-color: transparent !important;
-    color: #4343e8 !important;
-    border: 1px solid #4343e8;
-    padding: 8px 19px !important;
-    border-radius: 7px;
-    font-size: 13px !important;
-    font-weight: 500;
-}
-
 .filter_col {
     text-align: right;
 }
@@ -1143,25 +1133,19 @@ body {
     margin-bottom: 10px;
 }
 
-.filter_btn {
-    background-color: transparent !important;
-    color: #4343e8 !important;
-    border: 1px solid #4343e8;
-    padding: 8px 19px !important;
-    border-radius: 7px;
-    font-size: 13px !important;
-    font-weight: 500;
-}
+// .filter_btn {
+//     background-color: transparent !important;
+//     color: #4343e8 !important;
+//     border: 1px solid #4343e8;
+//     padding: 8px 19px !important;
+//     border-radius: 7px;
+//     font-size: 13px !important;
+//     font-weight: 500;
+// }
 
 .filter_col {
     text-align: right;
 }
-
-.filter_btn img {
-    width: 13px;
-    margin-right: 8px;
-}
-
 .site_btn {
 	background: #f7e034;
 	border-radius: 10px;
@@ -1180,6 +1164,30 @@ body {
 	border: 1px solid #4343e8;
 	background-color: transparent;
 	color: #4343e8 !important;
+}
+.filter_btn {
+    background-color: transparent !important;
+    color: #4343e8 !important;
+    border: 1px solid #4343e8;
+    padding: 8px 19px !important;
+    border-radius: 7px;
+    font-size: 13px !important;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+.filter_btn:hover {
+	background-color: #4343e8 !important;
+	border-color: #4343e8 !important;
+}
+
+.filter_btn img {
+    width: 13px;
+    margin-right: 8px;
+    transition: all 0.5s;
+}
+
+.filter_btn:hover img {
+	filter: brightness(0) invert(1);
 }
 .thank-you-content .border-btn {
 	margin-left: 10px;
