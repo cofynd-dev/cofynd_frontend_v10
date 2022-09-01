@@ -138,21 +138,39 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   }
 
   footerData: any;
+  // addSeoTags(city: string) {
+  //   let seoMeta = virtual_Office_SeoData[city];
+  //   this.footerData = seoMeta.footerSeo
+  //   if (seoMeta) {
+  //     // this.pageTitle = seoMeta.page_title;
+  //     this.seoData = {
+  //       title: seoMeta.title,
+  //       image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+  //       description: seoMeta.description,
+  //       type: 'website',
+  //     };
+  //     this.seoService.setData(this.seoData);
+  //   } else {
+  //     this.seoData = null;
+  //   }
+  // }
+
   addSeoTags(city: string) {
-    let seoMeta = virtual_Office_SeoData[city];
-    this.footerData = seoMeta.footerSeo
-    if (seoMeta) {
-      // this.pageTitle = seoMeta.page_title;
-      this.seoData = {
-        title: seoMeta.title,
-        image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
-        description: seoMeta.description,
-        type: 'website',
-      };
-      this.seoService.setData(this.seoData);
-    } else {
-      this.seoData = null;
-    }
+    this.seoService.getMeta(city + '-virtual-office').subscribe(seoMeta => {
+      if (seoMeta) {
+        this.pageTitle = seoMeta.page_title;
+        this.seoData = {
+          title: seoMeta.title,
+          image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+          description: seoMeta.description,
+          url: environment.appUrl + this.router.url,
+          type: 'website',
+          footer_title: seoMeta.footer_title,
+          footer_description: seoMeta.footer_description,
+        };
+        this.seoService.setData(this.seoData);
+      }
+    });
   }
 
   setHeaderScript(cityScript) {

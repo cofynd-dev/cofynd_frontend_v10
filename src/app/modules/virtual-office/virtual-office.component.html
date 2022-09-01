@@ -1157,7 +1157,7 @@
                                 <i class="fa-solid fa-angle-down"></i>
                             </h4>
                             <p>From a real estate business, boutique, courier company to legal firm, and creative agencies etc. Several types of businesses use a virtual office space including freelancers, business owners, young entrepreneurs, SMEs etc.
-                                </p>
+                            </p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
@@ -1221,6 +1221,15 @@
         </div>
     </section>
 
-
-
+    <!-- Footer -->
+    <section class="search-description" *ngIf="!loading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ seoData?.footer_title }}</h2>
+                    <div [innerHTML]="seoData?.footer_description"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

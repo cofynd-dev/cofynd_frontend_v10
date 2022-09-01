@@ -69,12 +69,24 @@
     </div>
 </section>
 
+<!-- 
 <section class="search-description">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>{{footerData?.title }}</h2>
                 <div [innerHTML]="footerData?.description"></div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="search-description" *ngIf="!loading && seoData">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
             </div>
         </div>
     </div>

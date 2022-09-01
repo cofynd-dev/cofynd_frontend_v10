@@ -13,6 +13,8 @@ import { VirtualOfficeModalComponent } from './virtual-office-modal/virtual-offi
 import { Observable, Subscriber } from 'rxjs';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
+import { environment } from '@env/environment';
+
 
 @Component({
   selector: 'app-virtual-office',
@@ -211,23 +213,42 @@ export class VirtualOfficeComponent implements OnInit {
     });
   }
 
+  // addSeoTags() {
+  //   let seoMeta = {
+  //     title: 'Virtual Office in India - Space for GST & Business Registration',
+  //     description:
+  //       'Virtual Office in India starting ₹1,000 per month offering in 10 Indian cities - Delhi, Noida, Gurgaon, Bangalore, Hyderabad, Pune, Mumbai, Indore, Ahmedabad, Chennai.',
+  //   };
+  //   if (seoMeta) {
+  //     this.seoData = {
+  //       title: seoMeta.title,
+  //       image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+  //       description: seoMeta.description,
+  //       type: 'website',
+  //     };
+  //     this.seoService.setData(this.seoData);
+  //   } else {
+  //     this.seoData = null;
+  //   }
+  // }
+
   addSeoTags() {
-    let seoMeta = {
-      title: 'Virtual Office in India - Space for GST & Business Registration',
-      description:
-        'Virtual Office in India starting ₹1,000 per month offering in 10 Indian cities - Delhi, Noida, Gurgaon, Bangalore, Hyderabad, Pune, Mumbai, Indore, Ahmedabad, Chennai.',
-    };
-    if (seoMeta) {
-      this.seoData = {
-        title: seoMeta.title,
-        image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
-        description: seoMeta.description,
-        type: 'website',
-      };
-      this.seoService.setData(this.seoData);
-    } else {
-      this.seoData = null;
-    }
+    this.loading = true;
+    this.seoService.getMeta('virtual-office').subscribe(seoMeta => {
+      if (seoMeta) {
+        this.seoData = {
+          title: seoMeta.title,
+          image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+          description: seoMeta.description,
+          url: environment.appUrl + this.router.url,
+          type: 'website',
+          footer_title: seoMeta.footer_title,
+          footer_description: seoMeta.footer_description,
+        };
+        this.seoService.setData(this.seoData);
+      }
+      this.loading = false;
+    });
   }
 
   openModalWithComponent(spaceType: string) {
