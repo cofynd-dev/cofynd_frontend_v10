@@ -245,7 +245,7 @@ export class HomeCityDropdownComponent {
     this.userService.createLead(object).subscribe(res => {
       this.toastrService.success(`Response Captured! We'll contact you in a short`);
       this.closeModal();
-      this.router.navigate(['/thank-you'])
+      window.open('/thank-you', '_blank')
     });
   }
 

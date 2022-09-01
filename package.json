@@ -98,8 +98,7 @@
         "rules": {
             "subject-case": [
                 2,
-                "never",
-                [
+                "never", [
                     "start-case",
                     "pascal-case"
                 ]
