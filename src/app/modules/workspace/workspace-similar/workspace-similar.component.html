@@ -51,7 +51,7 @@
             <div class="col-12">
                 <div class="space_carousel">
                     <div class="property-item" (click)="openDetailsPage(_centerCity.slug)" *ngFor=" let _centerCity of workSpaces">
-                        <div class="property-img">
+                        <div class="property-img" *ngIf="_centerCity.images.length">
                             <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
