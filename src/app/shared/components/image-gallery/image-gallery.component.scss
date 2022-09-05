@@ -1,191 +1,191 @@
 .slider-modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background: rgba($color: #000000, $alpha: 0.90);
-
-  &.mobile-slider {
-    position: relative;
-    background: #fff;
-    z-index: 1;
-  }
-}
-.myPoint {
-	list-style-type: none;
-	text-align: center;
-	white-space: nowrap;
-	overflow: auto;
-	box-sizing: border-box;
-	position: absolute;
-	bottom: 8px;
-	left: 0;
-	right: 0px;
-	-webkit-box-align: center;
-	align-items: center;
-	display: flex;
-	width: 100%;
-	justify-content: center;
-}
-.myPoint li {
-	display: inline-block;
-	border-radius: 50%;
-	border: none;
-	margin: 0 2px;
-	transition: none;
-	background: #fff;
-	width: 6px;
-	height: 6px;
-}
-.myPoint  li.active {
-      background: #fff;
-      // transform: scale(1.2);
-      width: 9px;
-      height: 9px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba($color: #000000, $alpha: 0.90);
+    &.mobile-slider {
+        position: relative;
+        background: #fff;
+        z-index: 1;
     }
+}
+
+.myPoint {
+    list-style-type: none;
+    text-align: center;
+    white-space: nowrap;
+    overflow: auto;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.myPoint li {
+    display: inline-block;
+    border-radius: 50%;
+    border: none;
+    margin: 0 2px;
+    transition: none;
+    background: #fff;
+    width: 6px;
+    height: 6px;
+}
+
+.myPoint li.active {
+    background: #fff;
+    // transform: scale(1.2);
+    width: 9px;
+    height: 9px;
+}
+
 .icon-close {
-  color: #000;
-  font-size: 13px;
-  font-weight: 600;
-  background: #fff;
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  border: 0;
-  z-index: 1;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: 0;
+    z-index: 1;
 }
 
 .left-crl-arrow,
 .right-crl-arrow {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
-  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
-  border-radius: 999px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
 }
 
 .left-crl-arrow {
-  background: url('/assets/images/left-arrow.png') center center no-repeat;
+    background: url('/assets/images/left-arrow.png') center center no-repeat;
 }
 
 .right-crl-arrow {
-  background: url('/assets/images/right-arrow.png') center center no-repeat;
-  left: initial;
-  right: 0;
+    background: url('/assets/images/right-arrow.png') center center no-repeat;
+    left: initial;
+    right: 0;
 }
 
 .heading {
-  width: 80%;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+    width: 80%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-
 .slider-item {
-  text-align: center;
-
-  img {
-    max-width: 100%;
-    max-height: 80%;
-    width: auto;
-  }
+    text-align: center;
+    img {
+        max-width: 100%;
+        max-height: 80%;
+        width: auto;
+    }
 }
 
 .slider-outer {
-  max-width: 70%;
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-
-  .ngucarousel {
-    overflow: hidden !important;
-  }
-
-  @media(min-width: 1820px) {
-
-    max-width: 1200px;
-
-    .slider-item {
-      padding: 0 10px;
-
-      img {
-        max-height: auto;
-      }
-
+    max-width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    .ngucarousel {
+        overflow: hidden !important;
     }
-  }
+    @media(min-width: 1820px) {
+        max-width: 1200px;
+        .slider-item {
+            padding: 0 10px;
+            img {
+                max-height: auto;
+            }
+        }
+    }
 }
 
 @media(max-width: 1080px) {
-  .slider-outer {
-    max-width: 80%;
-  }
-
-  .left-crl-arrow,
-  .right-crl-arrow {
-    width: 35px;
-    height: 35px;
-    background-size: 35px auto;
-  }
+    .slider-outer {
+        max-width: 80%;
+    }
+    .left-crl-arrow,
+    .right-crl-arrow {
+        width: 35px;
+        height: 35px;
+        background-size: 35px auto;
+    }
 }
 
 @media(max-width: 767px) {
-  .slider-outer {
-    max-width: 94%;
-
-    .slider-item {
-      padding: 0 10px;
-    }
-  }
-
-  .slider-modal {
-    background: #fff;
-  }
-
-  .mobile-slider {
     .slider-outer {
-      max-width: 100%;
-      position: relative;
-
-      .slider-item {
-        padding: 0;
-
-        img {
-          border-radius: 0;
-          max-height: auto;
+        max-width: 94%;
+        .slider-item {
+            padding: 0 10px;
         }
-      }
     }
-  }
+    .slider-modal {
+        background: #fff;
+    }
+    .mobile-slider {
+        .slider-outer {
+            max-width: 100%;
+            position: relative;
+            .slider-item {
+                padding: 0;
+                img {
+                    border-radius: 0;
+                    max-height: auto;
+                }
+            }
+        }
+    }
+    .icon-close {
+        right: 10px;
+    }
+    .heading {
+        color: #000;
+    }
+}
 
-  .icon-close {
-    right: 10px;
-  }
+.onlyMobile {
+    display: none !important;
+    @media (max-width: 480px) {
+        display: block !important;
+    }
+}
 
-  .heading {
-    color: #000;
-  }
+.hideOnMobile {
+    @media (max-width: 480px) {
+        display: none !important;
+    }
 }

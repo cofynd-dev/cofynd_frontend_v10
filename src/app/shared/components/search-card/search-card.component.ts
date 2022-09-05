@@ -1,12 +1,21 @@
-import { NguCarouselConfig } from '@ngu/carousel';
+import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { environment } from '@env/environment';
 import { AuthService } from '@core/services/auth.service';
-import { Component, Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, OnChanges, HostListener } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, ViewChild, OnChanges, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { WorkSpace } from '@app/core/models/workspace.model';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthType } from '@app/core/enum/auth-type.enum';
+
+interface ImageGallery {
+  id: number;
+  name?: string;
+  extension?: string;
+  label?: string;
+  category?: string;
+  title?: string;
+}
 
 @Component({
   selector: 'app-search-card',
@@ -22,10 +31,15 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() forAll: boolean = true;
   loading: boolean;
   isMobileResolution: boolean;
+  activeSliderItem: number;
+
+  @ViewChild('imageGalleryCarousel', { static: true })
+  imageGalleryCarousel: NguCarousel<ImageGallery>;
+
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 250,
+    speed: 400,
     point: {
       visible: true,
     },
@@ -42,7 +56,10 @@ export class SearchCardComponent implements AfterViewInit {
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-  ) { }
+  ) {
+    // initial set activeSliderItem to 0 otherwise not work because of undefined value
+    this.activeSliderItem = 0;
+  }
   ngOnInit() {
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
@@ -172,6 +189,22 @@ export class SearchCardComponent implements AfterViewInit {
         this.loading = false;
       },
     );
+  }
+
+  onSliderMove(slideData: NguCarouselStore) {
+    this.activeSliderItem = slideData.currentSlide;
+  }
+
+  goToPrev() {
+    this.imageGalleryCarousel.moveTo(this.activeSliderItem - 1);
+  }
+
+  goToNext() {
+    this.imageGalleryCarousel.moveTo(this.activeSliderItem + 1);
+  }
+
+  onChangeSliderCategory(id: number) {
+    this.imageGalleryCarousel.moveTo(id);
   }
 
   ngAfterViewInit() {
