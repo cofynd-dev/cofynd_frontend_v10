@@ -1,11 +1,14 @@
 <div class="listing-card">
     <div class="image" *ngIf="office.images.length">
-        <ngu-carousel [inputs]="carouselTile" [dataSource]="office.images">
+        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="office.images">
             <div *nguCarouselDef="let images; let i = index;" class="item">
                 <img (click)="openWorkSpace(office.slug)" [lazyLoad]="images?.image?.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
             </div>
-            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left'></button>
-            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right'></button>
+            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
+            <ul class="myPoint onlyMobile" NguCarouselPoint>
+                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+            </ul>
         </ngu-carousel>
     </div>
     <div class="image" *ngIf="!office.images.length"></div>

@@ -1,8 +1,17 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { OfficeSpace } from '@core/models/office-space.model';
-import { NguCarouselConfig } from '@ngu/carousel';
+import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { intToOrdinalNumberString } from '@app/shared/utils';
+
+interface ImageGallery {
+  id: number;
+  name?: string;
+  extension?: string;
+  label?: string;
+  category?: string;
+  title?: string;
+}
 
 @Component({
   selector: 'app-office-card',
@@ -13,10 +22,14 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
   isMobileResolution: boolean;
+  activeSliderItem: number;
+
+  @ViewChild('imageGalleryCarousel', { static: true })
+  imageGalleryCarousel: NguCarousel<ImageGallery>;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 250,
+    speed: 350,
     point: {
       visible: true,
     },
@@ -27,7 +40,10 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {
+    // initial set activeSliderItem to 0 otherwise not work because of undefined value
+    this.activeSliderItem = 0;
+  }
 
   ngOnInit() {
     if (window.innerWidth < 768) {
@@ -60,6 +76,22 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
     let stringToReplace = type;
     var desired = stringToReplace.replace(/[^\w\s]/gi, ' ');
     return desired;
+  }
+
+  onSliderMove(slideData: NguCarouselStore) {
+    this.activeSliderItem = slideData.currentSlide;
+  }
+
+  goToPrev() {
+    this.imageGalleryCarousel.moveTo(this.activeSliderItem - 1);
+  }
+
+  goToNext() {
+    this.imageGalleryCarousel.moveTo(this.activeSliderItem + 1);
+  }
+
+  onChangeSliderCategory(id: number) {
+    this.imageGalleryCarousel.moveTo(id);
   }
 
   ngAfterViewInit() {
