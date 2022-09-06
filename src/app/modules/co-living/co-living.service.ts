@@ -95,7 +95,10 @@ export class CoLivingService {
       }
     }
     coLiving.price_type = 'bed';
-    coLiving.duration = miniPriceDuration[0]['duration'];
+    coLiving.duration = 'month'
+    if (miniPriceDuration.length) {
+      coLiving.duration = miniPriceDuration[0]['duration'];
+    }
     return updatedWorkspace;
   }
   getAverageRating(spaceId): Observable<{ average: number }> {
