@@ -200,7 +200,7 @@
                     </button>
                 </div>
                 <div class="col-7 logo_col">
-                    <a class="navbar-brand mobile_space" href="/"><img src="../../../../assets/images/logo.svg" alt="Cofynd" class="img-fluid"></a>
+                    <a class="navbar-brand mobile_space" routerLink="/"><img src="../../../../assets/images/logo.svg" alt="Cofynd" class="img-fluid"></a>
                 </div>
                 <div class="col-3 toggle_col">
                     <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
@@ -267,14 +267,13 @@
                         <!-- </ul> -->
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Knowledge</a>
-                        <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
-                            <!-- Level two dropdown-->
+                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List your Space</a>
+                        <!-- <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
                             <li><a class="dropdown-item" routerLink="/list-your-space">List your Space</a></li>
                             <li><a class="dropdown-item" routerLink="/about-us">About CoFynd</a></li>
                             <li><a class="dropdown-item" routerLink="/contact-us">Contact CoFynd</a></li>
                             <li><a class="dropdown-item" (click)="redirectToblog()">Cofynd Blog</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <!-- End Level one -->
                     <li class="divider-line mobile-phone-menu ">
