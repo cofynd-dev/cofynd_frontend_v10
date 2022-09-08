@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   blogUrl: 'http://blog.cofynd.com',
-  apiEndPoint: 'https://api.cofynd.com/api',
-  //apiEndPoint: 'http://localhost:7000/api',
+  // apiEndPoint: 'https://api.cofynd.com/api',
+  apiEndPoint: 'http://localhost:7000/api',
   appUrl: 'https://cofynd.com',
   keys: {
     // GOOGLE_MAP: 'AIzaSyDrIBoEI-pQOvA87Q6UGXvKsyv1XBT5KEg',

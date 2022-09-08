@@ -1,106 +1,90 @@
 .menu-modal {
-  padding: 40px;
-
-  &.column-view {
-    padding: 0;
-
-    .row {
-      margin-right: -5px;
-      margin-left: -5px;
+    padding: 40px;
+    &.column-view {
+        padding: 0;
+        .row {
+            margin-right: -5px;
+            margin-left: -5px;
+        }
+        .col-md-4,
+        .col-md-6 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
-
-    .col-md-4,
-    .col-md-6 {
-      padding-left: 5px;
-      padding-right: 5px;
+    .icon-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
-  }
-
-  .icon-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  .form-group {
-    border: 1px solid #ededed;
-    padding: 5px 5px;
-    margin-bottom: 10px;
-  }
-
-  h4 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #232323;
-    line-height: 24px;
-    margin: 0 0 10px;
-  }
-
-  p {
-    font-size: 14px;
-    line-height: 20px;
-    color: #4e4a4a;
-    margin: 0 0 30px;
-  }
-
-  .btn-primary {
-    width: 100%;
-    height: 54px;
-    font-size: 16px;
-  }
-
-  .col-md-12 {
-    margin-bottom: 10px;
-  }
+    .form-group {
+        border: 1px solid #ededed;
+        padding: 5px 5px;
+        margin-bottom: 10px;
+    }
+    h4 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #232323;
+        line-height: 24px;
+        margin: 0 0 10px;
+    }
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        color: #4e4a4a;
+        margin: 0 0 30px;
+    }
+    .btn-primary {
+        width: 100%;
+        height: 54px;
+        font-size: 16px;
+    }
+    .col-md-12 {
+        margin-bottom: 10px;
+    }
 }
 
-
 // for testing
-
-
 // .name {
 //   width: 48%;
 //   height: 50px;
 // }
-
 // .num {
 //   width: 48%;
 //   margin-left: 4%;
 //   height: 50px;
 // }
-
 // .dayPass_email {
 //   width: 48%;
 //   height: 50px;
 // }
-
 // .dayPassOtp {
 //   width: 48%;
 //   height: 50px;
 //   margin-left: 4%;
 // }
-
-
 @media (max-width: 480px) {
-  
-  .form-layout-outline .ng-select .ng-select-container {
-    min-height: auto !important;
-  }
-  .form-layout-outline .ng-select .ng-select-container .ng-value-container .ng-placeholder {
-    color: #222;
-    font-size: 12px;
-    padding-left: 8px;
-  }
-  .menu-modal .form-group {
-    border-radius: 8px;
-  }
-  .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
-    position: relative;
-  }
-  .form-layout-outline .ng-select .ng-select-container .ng-value-container {
-    border-top: none;
-  }
-  .ng-select.ng-select-single .ng-select-container {
-    height: 100%;
-  }
+    .form-layout-outline .ng-select .ng-select-container {
+        min-height: auto !important;
+    }
+    .form-layout-outline .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+        color: #222;
+        font-size: 12px;
+        padding-left: 8px;
+        position: absolute !important;
+        top: 7px !important;
+    }
+    .menu-modal .form-group {
+        border-radius: 8px;
+    }
+    .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+        position: relative;
+    }
+    .form-layout-outline .ng-select .ng-select-container .ng-value-container {
+        border-top: none;
+    }
+    .ng-select.ng-select-single .ng-select-container {
+        height: 100%;
+    }
 }

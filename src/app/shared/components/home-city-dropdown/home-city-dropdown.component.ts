@@ -240,6 +240,7 @@ export class HomeCityDropdownComponent {
       },
       interested_in: this.interested_in,
       city: this.cityName,
+
     };
 
     this.userService.createLead(object).subscribe(res => {
