@@ -233,7 +233,7 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Near Me', 'Guindy', 'Anna Nagar', 'Adyar', 'T Nagar', 'OMR', 'Velachery', 'Nungambakkam'],
+    locations: ['Near Me', 'Guindy', 'Anna Nagar', 'Adyar', 'T Nagar', 'OMR', 'Velachery', 'Nungambakkam', 'Perumbakkam'],
   },
   {
     name: 'ahmedabad',
