@@ -116,7 +116,6 @@ export class WorkSpaceComponent implements OnInit {
       }
       if (this.activeWorkSpaceId) {
         this.getWorkSpace(this.activeWorkSpaceId);
-
         this.getAverageRating(this.activeWorkSpaceId);
       }
     });
@@ -224,7 +223,8 @@ export class WorkSpaceComponent implements OnInit {
           } else if (city == 'coworking') {
             this.router.navigate(['/coworking']);
           } else {
-            this.router.navigate(['/coworking/' + city]);
+            // this.router.navigate(['/coworking/' + city]);
+            this.router.navigateByUrl('/')
           }
           // this.router.navigate(['/404'], { skipLocationChange: true });
         }

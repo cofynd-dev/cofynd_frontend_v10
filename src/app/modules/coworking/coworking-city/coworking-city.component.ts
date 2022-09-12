@@ -88,9 +88,12 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           this.country_name = res.data.country.name;
           localStorage.setItem('country_name', res.data.country.name);
           localStorage.setItem('country_id', res.data.country.id);
-          const filteredCity = this.availableCities.filter(
+          let filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );
+          if (!filteredCity.length) {
+            filteredCity.push(res.data)
+          }
           this.title = results.routeParams[0].path;
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COWORKING_FILTER_KEY));
           if (this.minPrice && this.maxPrice) {
