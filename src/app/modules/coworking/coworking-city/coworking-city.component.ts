@@ -186,18 +186,26 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     if (value === 'Less than ₹10,000') {
       this.minPrice = 0;
       this.maxPrice = 10000;
+      localStorage.setItem("minPrice", '0')
+      localStorage.setItem("maxPrice", '10000')
     }
     if (value === '₹10,000 - ₹20,000') {
       this.minPrice = 10000;
       this.maxPrice = 20000;
+      localStorage.setItem("minPrice", '10000')
+      localStorage.setItem("maxPrice", '20000')
     }
     if (value === '₹20,000 - ₹30,000') {
       this.minPrice = 20000;
       this.maxPrice = 30000;
+      localStorage.setItem("minPrice", '20000')
+      localStorage.setItem("maxPrice", '30000')
     }
     if (value === 'More than ₹30,000') {
       this.minPrice = 30000;
       this.maxPrice = 300000;
+      localStorage.setItem("minPrice", '30000')
+      localStorage.setItem("maxPrice", '300000')
     }
   }
 
