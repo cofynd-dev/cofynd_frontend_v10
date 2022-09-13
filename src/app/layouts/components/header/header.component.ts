@@ -22,7 +22,7 @@ declare var $: any;
 })
 export class HeaderComponent implements AfterViewInit {
   userNameInitial: string;
-  contactInfo = DEFAULT_APP_DATA.contact;
+  contactInfo = DEFAULT_APP_DATA.header_contact;
   phoneflag: boolean = true;
   clearSearchAddressText: string;
   showSearch: boolean;

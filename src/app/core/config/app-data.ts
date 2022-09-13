@@ -3,11 +3,14 @@ import { environment } from '@env/environment';
 export const DEFAULT_APP_DATA = {
   contact: {
     phone: '+91 9999 10 8078',
-    // email: 'hello@cofynd.com',
+    email: 'hello@cofynd.com',
+    address: '1st Floor, Landmark Cyber Park, Sector 67, Gurugram, Haryana 122018',
+  },
+  header_contact: {
+    phone: '+91 9999 10 8078',
     email: 'live@cofynd.com',
     address: '1st Floor, Landmark Cyber Park, Sector 67, Gurugram, Haryana 122018',
   },
-
   socialLinks: [
     {
       url: 'https://www.facebook.com/cofynd/',
