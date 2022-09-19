@@ -15,9 +15,9 @@ export class FooterComponent implements OnInit {
   colivingLinks = DEFAULT_APP_DATA.footerColivingLinks;
   officeLinks = DEFAULT_APP_DATA.footerOfficeLinks;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   routeOnPage(page) {
     this.router.navigate([`/${page}`]);

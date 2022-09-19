@@ -18,7 +18,6 @@ import { City } from '@app/core/models/city.model';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 interface PopularSpace {
   name: string;
   address: string;
@@ -30,10 +29,9 @@ interface PopularSpace {
 @Component({
   selector: 'app-country-coliving-vertical-page',
   templateUrl: './country-coliving-vertical-page.component.html',
-  styleUrls: ['./country-coliving-vertical-page.component.scss']
+  styleUrls: ['./country-coliving-vertical-page.component.scss'],
 })
 export class CountryColivingVerticalPageComponent implements OnInit {
-
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -42,49 +40,49 @@ export class CountryColivingVerticalPageComponent implements OnInit {
   cities: City[];
   title: string;
 
-
   popularCoLivingSpaces = [
     {
       name: 'Hei Homes The Penthouse',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
       slug: 'river-valley',
       address: '7 Temasek Boulevard, river-valley',
     },
-  ]
+  ];
 
   service = [
     {
-      title: "High Speed WiFi",
-      description: "High-Speed Wifi, HDTVs everything you need to do your best work.",
-      icon: "amenities/wifi.svg"
+      title: 'High Speed WiFi',
+      description: 'High-Speed Wifi, HDTVs everything you need to do your best work.',
+      icon: 'amenities/wifi.svg',
     },
     {
-      title: "Comfy Workstation",
-      description: "Connect with other people and share your skills for better and quick growth.",
-      icon: "amenities/workstation.svg"
+      title: 'Comfy Workstation',
+      description: 'Connect with other people and share your skills for better and quick growth.',
+      icon: 'amenities/workstation.svg',
     },
     {
-      title: "Meeting Rooms",
-      description: "Come up with great ideas and engage in valuable discussions in meeting rooms.",
-      icon: "amenities/meeting-room.svg"
+      title: 'Meeting Rooms',
+      description: 'Come up with great ideas and engage in valuable discussions in meeting rooms.',
+      icon: 'amenities/meeting-room.svg',
     },
     {
-      title: "Printer",
-      description: "Printing and scanning facilities available without any extra cost.",
-      icon: "amenities/printer.svg"
+      title: 'Printer',
+      description: 'Printing and scanning facilities available without any extra cost.',
+      icon: 'amenities/printer.svg',
     },
 
     {
-      title: "Pantry",
-      description: "Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.",
-      icon: "amenities/kitchen.svg"
+      title: 'Pantry',
+      description: 'Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.',
+      icon: 'amenities/kitchen.svg',
     },
     {
-      title: "Parking",
-      description: "Avoid morning hassle with easy and convenient parking area availability.",
-      icon: "amenities/bike-parking.svg"
+      title: 'Parking',
+      description: 'Avoid morning hassle with easy and convenient parking area availability.',
+      icon: 'amenities/bike-parking.svg',
     },
-  ]
+  ];
   country_name: string;
   constructor(
     private _renderer2: Renderer2,
@@ -108,15 +106,14 @@ export class CountryColivingVerticalPageComponent implements OnInit {
           localStorage.setItem('country_id', res.data.id);
           this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
             this.cities = res.data.filter(city => city.for_coLiving === true);
-          })
-        })
-      })
+          });
+        });
+      });
     this.addSeoTags();
     this.setScript();
   }
 
   ngOnInit(): void {
-
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
       this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
@@ -128,26 +125,26 @@ export class CountryColivingVerticalPageComponent implements OnInit {
     });
     this.getPopularWorSpacesAsCountry();
   }
-  spaceForMobile =
-    {
-      singapore: [
-        {
-          name: 'Hei Homes The Penthouse',
-          address: '7 Temasek Boulevard, river-valley',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
-          slug: 'hei-homes-the-penthouse-river-valley',
-          starting: 'SGD700.00',
-          country: 'singapore'
-        },
-      ],
-    }
+  spaceForMobile = {
+    singapore: [
+      {
+        name: 'Hei Homes The Penthouse',
+        address: '7 Temasek Boulevard, river-valley',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
+        slug: 'hei-homes-the-penthouse-river-valley',
+        starting: 'SGD700.00',
+        country: 'singapore',
+      },
+    ],
+  };
   routeToCity(city, country_name, country_id) {
     localStorage.setItem('country_name', country_name);
     localStorage.setItem('country_id', country_id);
-    this.router.navigate([`${country_name.toLowerCase().trim()}/co-living/${city.toLowerCase().trim()}`])
+    this.router.navigate([`${country_name.toLowerCase().trim()}/co-living/${city.toLowerCase().trim()}`]);
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
   setScript() {
     let script = this._renderer2.createElement('script');
@@ -204,7 +201,7 @@ export class CountryColivingVerticalPageComponent implements OnInit {
     // will disable
     initialState['enabledForCustomizeOffice'] = false;
     initialState['virArtShoot'] = false;
-    // 
+    //
 
     initialState['enabledForm'] = true;
     initialState['space'] = spaceType;
@@ -214,7 +211,7 @@ export class CountryColivingVerticalPageComponent implements OnInit {
       initialState,
     });
   }
-  openModalWithComponent(spaceType: string,) {
+  openModalWithComponent(spaceType: string) {
     const initialState = {
       class: 'modal-dialog-centered',
     };
@@ -225,7 +222,6 @@ export class CountryColivingVerticalPageComponent implements OnInit {
       initialState,
     });
   }
-
 
   addSeoTags() {
     this.seoService.getMeta(`${this.country_name}-co-living`).subscribe(seoMeta => {
@@ -247,14 +243,15 @@ export class CountryColivingVerticalPageComponent implements OnInit {
   }
 
   getPopularWorSpacesAsCountry() {
-    this.workSpaceService.popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') }).subscribe(spaces => {
-      this.popularCoWorkingSpaces = spaces;
-      this.cdr.detectChanges();
-    });
+    this.workSpaceService
+      .popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') })
+      .subscribe(spaces => {
+        this.popularCoWorkingSpaces = spaces;
+        this.cdr.detectChanges();
+      });
   }
 
   openWorkSpace(_centerCity) {
     this.router.navigate([`${this.country_name.toLowerCase().trim()}/co-living/${_centerCity.toLowerCase().trim()}`]);
   }
-
 }

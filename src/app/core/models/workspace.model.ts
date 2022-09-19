@@ -35,9 +35,8 @@ export class WorkSpace {
   seo: SeoMeta;
   space_type?: string;
   options: {
-    zoom: number,
-  }
-
+    zoom: number;
+  };
 }
 
 export class WorkingHours {
@@ -140,7 +139,7 @@ export enum WorkSpacePlan {
   DEDICATED_DESK = 'dedicated-desk',
   DAY_PASS = 'day',
   PRIVATE_CABIN = 'private-cabin',
-  VIRTUAL_OFFICE = "virtual-office"
+  VIRTUAL_OFFICE = 'virtual-office',
 }
 
 export enum WorkSpacePlanType {
@@ -149,5 +148,5 @@ export enum WorkSpacePlanType {
   'private-cabin' = 'private cabin',
   'dedicated-desk' = 'dedicated desk',
   'dedicated-pass' = 'dedicated pass',
-  'virtual-office' = 'virtual office'
+  'virtual-office' = 'virtual office',
 }

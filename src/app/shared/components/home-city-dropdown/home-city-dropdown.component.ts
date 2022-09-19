@@ -36,7 +36,6 @@ export class HomeCityDropdownComponent {
   @Input() virArtShoot: boolean = true;
   @Input() other: boolean = true;
 
-
   // new deco
   @Input() spaces: string = 'Spaces';
   @Input() isCityVisible: boolean = true;
@@ -61,7 +60,7 @@ export class HomeCityDropdownComponent {
     'Goa',
     'Dehradun',
     'Bhubaneswar',
-  ]
+  ];
 
   cities: City[];
   navigationUrl: string;
@@ -80,8 +79,7 @@ export class HomeCityDropdownComponent {
     private toastrService: ToastrService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
-
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     if (this.enabledForm) {
@@ -128,7 +126,7 @@ export class HomeCityDropdownComponent {
           this.cities = res.data.filter(city => city.for_coLiving === true);
           this.navigationUrl = '/co-living/';
         });
-      };
+      }
       if (this.isCountryLandingPage == false) {
         this.cities = AVAILABLE_CITY.filter(city => city.for_coLiving === true);
         this.navigationUrl = '/co-living/';
@@ -143,10 +141,20 @@ export class HomeCityDropdownComponent {
       let country_id = city['Country']['id'];
       localStorage.setItem('country_name', dbcountry_name);
       localStorage.setItem('country_id', country_id);
-      if (dbcountry_name != 'india' && dbcountry_name != 'India' && dbcountry_name != 'INDIA' && this.interested_in === 'coworking') {
+      if (
+        dbcountry_name != 'india' &&
+        dbcountry_name != 'India' &&
+        dbcountry_name != 'INDIA' &&
+        this.interested_in === 'coworking'
+      ) {
         this.router.navigate([`/${dbcountry_name.toLowerCase().trim()}/coworking/${city_name.toLowerCase().trim()}`]);
       }
-      if (dbcountry_name != 'india' && dbcountry_name != 'India' && dbcountry_name != 'INDIA' && this.interested_in === 'coliving') {
+      if (
+        dbcountry_name != 'india' &&
+        dbcountry_name != 'India' &&
+        dbcountry_name != 'INDIA' &&
+        this.interested_in === 'coliving'
+      ) {
         this.router.navigate([`/${dbcountry_name.toLowerCase().trim()}/co-living/${city_name.toLowerCase().trim()}`]);
       }
       if (dbcountry_name === 'india' || dbcountry_name === 'India' || dbcountry_name === 'INDIA') {
@@ -163,7 +171,7 @@ export class HomeCityDropdownComponent {
     }
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
 
   onSearch() {
@@ -240,13 +248,12 @@ export class HomeCityDropdownComponent {
       },
       interested_in: this.interested_in,
       city: this.cityName,
-
     };
 
     this.userService.createLead(object).subscribe(res => {
       this.toastrService.success(`Response Captured! We'll contact you in a short`);
       this.closeModal();
-      window.open('/thank-you', '_blank')
+      window.open('/thank-you', '_blank');
     });
   }
 

@@ -64,7 +64,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
-
   ) {
     // Handle header position on scroll
     // this.configService.updateConfig({ headerClass: 'search-listing' });
@@ -97,7 +96,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
             ...params,
             ...prevParam,
             city: filteredCity[0].id,
-            officeType: this.officeType
+            officeType: this.officeType,
           };
         }
         this.getOfficeList(this.queryParams);
@@ -109,8 +108,9 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...params };
         if (this.officeType) {
           this.queryParams = {
-            ...AppConstant.DEFAULT_SEARCH_PARAMS, ...params,
-            officeType: this.officeType
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            ...params,
+            officeType: this.officeType,
           };
         }
         this.getOfficeList(this.queryParams);
@@ -123,7 +123,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.setHeaderScript(scrt);
       }
     }
-
   }
   setHeaderScript(cityScript) {
     let script = this._renderer2.createElement('script');

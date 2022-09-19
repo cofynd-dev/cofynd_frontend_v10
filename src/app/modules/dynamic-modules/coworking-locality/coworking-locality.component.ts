@@ -107,10 +107,10 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
           this.loadWorkSpaces(this.queryParams);
           this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
           this.addSeoTags(results.routeParams[2].path.toLowerCase() + '-' + this.title.toLowerCase());
-        })
+        });
         // })
       });
-    if (this.subTitle == "goregaon") {
+    if (this.subTitle == 'goregaon') {
       this.setHeaderScript();
     }
   }
@@ -152,7 +152,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     }`;
     this._renderer2.appendChild(this._document.head, script);
   }
-
 
   createBreadcrumb() {
     this.breadcrumbs = [

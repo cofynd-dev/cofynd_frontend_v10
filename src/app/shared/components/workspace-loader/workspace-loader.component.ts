@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-workspace-loader',
   templateUrl: './workspace-loader.component.html',
-  styleUrls: ['./workspace-loader.component.scss']
+  styleUrls: ['./workspace-loader.component.scss'],
 })
 export class WorkspaceLoaderComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -32,9 +32,6 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   @Input() officeSlug: boolean = true;
   @Input() isCountryLandingPage: boolean;
 
-
-
-
   @ViewChild('popularSpaceCarousel', { static: false })
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
@@ -59,11 +56,13 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     if (this.isCountryLandingPage == false) {
       this.pageTitle = `Top Coworking in India`;
-      this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
-        this.popularCoWorkingSpaces = spaces;
-        this.loopCoworkingSliders();
-        this.cdr.detectChanges();
-      });
+      this.workSpaceService
+        .popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' })
+        .subscribe(spaces => {
+          this.popularCoWorkingSpaces = spaces;
+          this.loopCoworkingSliders();
+          this.cdr.detectChanges();
+        });
     }
     if (this.isCountryLandingPage == true) {
       this.pageTitle = `Top Coworking in ${localStorage.getItem('country_name')}`;
@@ -74,7 +73,7 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   loopCoworkingSliders() {
     let combinedArray = [];
     for (let index = 0; index < this.popularCoWorkingSpaces.length * 4; index++) {
-      combinedArray.push(this.popularCoWorkingSpaces)
+      combinedArray.push(this.popularCoWorkingSpaces);
     }
     this.popularCoWorkingSpaces = [].concat.apply([], combinedArray);
   }
@@ -140,7 +139,7 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
     }
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
 
   openCoLivingSpace(slug: string) {
@@ -166,11 +165,13 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   }
 
   getPopularWorSpacesAsCountry() {
-    this.workSpaceService.popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') }).subscribe(spaces => {
-      this.popularCoWorkingSpaces = spaces;
-      this.loopCoworkingSliders();
-      this.cdr.detectChanges();
-    });
+    this.workSpaceService
+      .popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') })
+      .subscribe(spaces => {
+        this.popularCoWorkingSpaces = spaces;
+        this.loopCoworkingSliders();
+        this.cdr.detectChanges();
+      });
   }
 
   transform(value: string): string {

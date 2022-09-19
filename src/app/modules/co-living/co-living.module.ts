@@ -10,7 +10,6 @@ import { CoLivingSimilarComponent } from './co-living-similar/co-living-similar.
 import { CoLivingLocalityComponent } from './co-living-locality/co-living-locality.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-
 @NgModule({
   declarations: [
     CoLivingComponent,
@@ -23,4 +22,4 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   imports: [CommonModule, CoLivingRoutingModule, SharedModule, LeafletModule],
   exports: [CoLivingCardComponent],
 })
-export class CoLivingModule { }
+export class CoLivingModule {}

@@ -14,8 +14,6 @@ import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel'
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 
-
-
 interface PopularSpace {
   name: string;
   address: string;
@@ -31,8 +29,6 @@ interface PopularSpace {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-
-
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -59,7 +55,6 @@ export class HomeComponent {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
   }
@@ -73,9 +68,8 @@ export class HomeComponent {
   }
 
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
-
 
   openCoLivingSpace(slug: string) {
     this.router.navigate([`/co-living/${slug}`]);
@@ -86,52 +80,57 @@ export class HomeComponent {
   popularCoLivingSpaces = [
     {
       name: 'Bangalore',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f81fe9b1a46d8fd9658cd5b0dcb3bd0939a2d280.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f81fe9b1a46d8fd9658cd5b0dcb3bd0939a2d280.jpg',
       slug: 'bangalore',
       address: "India's Silicon Valley",
     },
     {
       name: 'Hyderabad',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/982cbdfd30aa937b17c1c2e78d004f762e2eba3b.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/982cbdfd30aa937b17c1c2e78d004f762e2eba3b.jpg',
       slug: 'hyderabad',
-      address: "A City of Nawabs",
+      address: 'A City of Nawabs',
     },
     {
       name: 'Gurugram',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
       slug: 'gurugram',
       address: 'A Millennium City',
     },
     {
       name: 'Pune',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
       slug: 'pune',
-      address: "Queen of the Deccan",
+      address: 'Queen of the Deccan',
     },
 
     {
       name: 'Mumbai',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
       slug: 'mumbai',
-      address: "A City of Dreams",
+      address: 'A City of Dreams',
     },
 
     {
       name: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
       slug: 'delhi',
       address: 'The Nation Capital',
-
     },
 
     {
       name: 'Noida',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5d5bccbd166e278cdc3200d4ec12a8af9fa4b5ec.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5d5bccbd166e278cdc3200d4ec12a8af9fa4b5ec.jpg',
       slug: 'noida',
       address: 'The Hitech City',
     },
-
-  ]
+  ];
 
   constructor(
     private _renderer2: Renderer2,
@@ -167,14 +166,14 @@ export class HomeComponent {
   loopColivingSliders() {
     let combinedArray = [];
     for (let index = 0; index < this.popularCoLivingSpaces.length * 4; index++) {
-      combinedArray.push(this.popularCoLivingSpaces)
+      combinedArray.push(this.popularCoLivingSpaces);
     }
     this.popularCoLivingSpaces = [].concat.apply([], combinedArray);
   }
   loopCoworkingSliders() {
     let combinedArray = [];
     for (let index = 0; index < this.popularCoWorkingSpaces.length * 4; index++) {
-      combinedArray.push(this.popularCoWorkingSpaces)
+      combinedArray.push(this.popularCoWorkingSpaces);
     }
     this.popularCoWorkingSpaces = [].concat.apply([], combinedArray);
   }
@@ -182,13 +181,13 @@ export class HomeComponent {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
       this.coworkingImages = res.filter(city => city.for_coWorking === true);
       this.colivingImages = res.filter(city => city.for_coLiving === true);
-    })
+    });
   }
   getBrandAdsImages() {
     this.brandService.getBrandAdsImages().subscribe((res: any) => {
       this.coworkingBrandAdsImages = res.filter(city => city.for_coWorking === true);
       this.colivingBrandAdsImages = res.filter(city => city.for_coLiving === true);
-    })
+    });
   }
   getPopularCoworkingSpace() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
@@ -256,7 +255,7 @@ export class HomeComponent {
     // will disable
     initialState['enabledForCustomizeOffice'] = false;
     initialState['virArtShoot'] = false;
-    // 
+    //
 
     initialState['enabledForm'] = true;
     initialState['space'] = spaceType;

@@ -17,7 +17,6 @@ import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { City } from '@app/core/models/city.model';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 
-
 interface PopularSpace {
   name: string;
   address: string;
@@ -26,18 +25,13 @@ interface PopularSpace {
   slug?: string;
 }
 
-
-
-
 @Component({
   selector: 'app-coworking',
   templateUrl: './coworking.component.html',
   styleUrls: ['./coworking.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class CoworkingComponent implements OnInit {
-
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -65,11 +59,12 @@ export class CoworkingComponent implements OnInit {
   popularCoLivingSpaces = [
     {
       name: 'Hei Homes The Penthouse',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1fb1dd1015a02d6fbaea654ec1babbd0e8fcbf7.jpg',
       slug: 'river-valley',
       address: '7 Temasek Boulevard, river-valley',
     },
-  ]
+  ];
 
   title: string;
 
@@ -83,28 +78,30 @@ export class CoworkingComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
       return false;
     };
     // window.location.reload()
     var someString = this.router.url;
     someString = someString.replace(/\//g, '');
-    this.title = someString
-    this.workSpaceService.getCountryByName(someString).subscribe((res: any) => {
-      if (res && res.data == null) {
-        this.router.navigate(['/404'], { skipLocationChange: true });
-      }
-      localStorage.setItem('country_name', res.data.name);
-      localStorage.setItem('country_id', res.data.id);
-      this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
-        this.cities = res.data.filter(city => city.for_coWorking === true);
-      })
-    },
+    this.title = someString;
+    this.workSpaceService.getCountryByName(someString).subscribe(
+      (res: any) => {
+        if (res && res.data == null) {
+          this.router.navigate(['/404'], { skipLocationChange: true });
+        }
+        localStorage.setItem('country_name', res.data.name);
+        localStorage.setItem('country_id', res.data.id);
+        this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
+          this.cities = res.data.filter(city => city.for_coWorking === true);
+        });
+      },
       error => {
         if (error.status === 404) {
           this.router.navigate(['/404'], { skipLocationChange: true });
         }
-      })
+      },
+    );
     this.addSeoTags();
     this.setScript();
   }
@@ -123,16 +120,16 @@ export class CoworkingComponent implements OnInit {
   routeToCity(city, country_name, country_id) {
     localStorage.setItem('country_name', country_name);
     localStorage.setItem('country_id', country_id);
-    this.router.navigate([`${country_name.toLowerCase().trim()}/coworking/${city.toLowerCase().trim()}`])
+    this.router.navigate([`${country_name.toLowerCase().trim()}/coworking/${city.toLowerCase().trim()}`]);
   }
   routeToVerticalPage() {
-    this.router.navigate([`${this.title.toLowerCase().trim()}/coworking`])
+    this.router.navigate([`${this.title.toLowerCase().trim()}/coworking`]);
   }
   routeToColivingVerticalPage() {
-    this.router.navigate([`${this.title.toLowerCase().trim()}/co-living`])
+    this.router.navigate([`${this.title.toLowerCase().trim()}/co-living`]);
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
 
   goToPrev() {
@@ -203,7 +200,7 @@ export class CoworkingComponent implements OnInit {
     // will disable
     initialState['enabledForCustomizeOffice'] = false;
     initialState['virArtShoot'] = false;
-    // 
+    //
 
     initialState['enabledForm'] = true;
     initialState['space'] = spaceType;

@@ -5,26 +5,21 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
-
-
-
 @Component({
   selector: 'app-home-nearme-popup',
   templateUrl: './home-nearme-popup.component.html',
-  styleUrls: ['./home-nearme-popup.component.scss']
+  styleUrls: ['./home-nearme-popup.component.scss'],
 })
 export class HomeNearmePopupComponent implements OnInit {
-
   constructor(
     // private mapsAPILoader: MapsAPILoader,
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
-    private bsModalRef: BsModalRef) { }
+    private bsModalRef: BsModalRef,
+  ) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
   getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {
       if (navigator.geolocation) {
@@ -42,55 +37,15 @@ export class HomeNearmePopupComponent implements OnInit {
   }
 
   searchCoworking() {
-    this.getCurrentPosition()
-      .subscribe((position: any) => {
-        this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
-        this.bsModalRef.hide();
-      })
-
-    // this.mapsAPILoader
-    //   .load()
-    //   .then(() => {
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(position => {
-    //         const pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude,
-    //         };
-    // this.router.navigateByUrl(`/search?coworking-latitude=${pos.lat}&longitude=${pos.lng}`);
-    //       });
-    //     } else {
-    //       this.toastrService.error('Your browser does not support this feature');
-    //     }
-    //   })
-    //   .catch(error => console.log(error));
-    // this.bsModalRef.hide();
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
+      this.bsModalRef.hide();
+    });
   }
   searchColiving() {
-    this.getCurrentPosition()
-      .subscribe((position: any) => {
-        this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
-        this.bsModalRef.hide();
-
-      })
-    // this.mapsAPILoader
-    //   .load()
-    //   .then(() => {
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(position => {
-    //         const pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude,
-    //         };
-    //         this.router.navigateByUrl(`/search?coliving-latitude=${pos.lat}&longitude=${pos.lng}`);
-    //       });
-    //     } else {
-    //       this.toastrService.error('Your browser does not support this feature');
-    //     }
-    //   })
-    //   .catch(error => console.log(error));
-    // this.bsModalRef.hide();
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
+      this.bsModalRef.hide();
+    });
   }
-
-
 }

@@ -15,10 +15,6 @@ import { Observable, Subscriber } from 'rxjs';
 import { OfficeSpaceService } from './office-space.service';
 declare var $: any;
 
-
-
-
-
 @Component({
   selector: 'app-office-space',
   templateUrl: './office-space.component.html',
@@ -33,8 +29,6 @@ export class OfficeSpaceComponent implements OnInit {
   longitute: any;
   offices: OfficeSpace[];
   loading: boolean;
-
-
 
   constructor(
     private seoService: SeoService,
@@ -57,7 +51,6 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
-
   getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {
       if (navigator.geolocation) {
@@ -74,7 +67,6 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
-
   loadWorkSpacesByLatLong(param: {}) {
     this.loading = true;
     this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allWorkSpaces => {
@@ -85,74 +77,76 @@ export class OfficeSpaceComponent implements OnInit {
 
   service = [
     {
-      title: "Long Lease",
-      description: "We want to support your business for a long run and that’s why we offer long lease office spaces.",
-      icon: "office-space/icons8-term-100.png"
+      title: 'Long Lease',
+      description: 'We want to support your business for a long run and that’s why we offer long lease office spaces.',
+      icon: 'office-space/icons8-term-100.png',
     },
     {
-      title: "Fixed Rental",
-      description: "We ensure the most reasonable price offered after a good negotiation done by our space experts.",
-      icon: "office-space/no-booking-fee.svg"
+      title: 'Fixed Rental',
+      description: 'We ensure the most reasonable price offered after a good negotiation done by our space experts.',
+      icon: 'office-space/no-booking-fee.svg',
     },
     {
-      title: "Approved space",
-      description: "Our dedicated team visits each and every space and inspect thoroughly to provide you with the best.",
-      icon: "office-space/security.svg"
+      title: 'Approved space',
+      description:
+        'Our dedicated team visits each and every space and inspect thoroughly to provide you with the best.',
+      icon: 'office-space/security.svg',
     },
     {
-      title: "Flexible Terms",
-      description: "We have all flexible terms to grow your business in every possible way.",
-      icon: "office-space/icons8-terms-and-conditions-100 copy.png"
+      title: 'Flexible Terms',
+      description: 'We have all flexible terms to grow your business in every possible way.',
+      icon: 'office-space/icons8-terms-and-conditions-100 copy.png',
     },
     {
-      title: "Fully Furnished",
-      description: "Working in a fully-furnished office space is a privilege which can save you a lot of bucks.",
-      icon: "office-space/icons8-armchair-100 copy.png"
+      title: 'Fully Furnished',
+      description: 'Working in a fully-furnished office space is a privilege which can save you a lot of bucks.',
+      icon: 'office-space/icons8-armchair-100 copy.png',
     },
     {
-      title: "24/7 Support",
+      title: '24/7 Support',
       description: "CoFynd's Expert team is available 24*7 for your any doubts or queries.",
-      icon: "office-space/icons8-online-support-100.png"
+      icon: 'office-space/icons8-online-support-100.png',
     },
-  ]
+  ];
 
   seoData: SeoSocialShareData = {
-    title: "Office Space for Rent in India | Office Space in India",
-    description: "Find the perfect commercial office space for rent in 7 Indian cities with all office space options, ZERO BROKERAGE and high-end amenities.",
-    image: "https://cofynd.com/assets/images/meta/cofynd-facebook.jpg",
-    type: "website",
-  }
+    title: 'Office Space for Rent in India | Office Space in India',
+    description:
+      'Find the perfect commercial office space for rent in 7 Indian cities with all office space options, ZERO BROKERAGE and high-end amenities.',
+    image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+    type: 'website',
+  };
 
   centerCity = [
     {
-      name: "delhi",
-      title: "The National Capital",
-      img: "delhi.jpg"
+      name: 'delhi',
+      title: 'The National Capital',
+      img: 'delhi.jpg',
     },
     {
-      name: "noida",
-      title: "The Hitech City",
-      img: "wtc.jpg"
+      name: 'noida',
+      title: 'The Hitech City',
+      img: 'wtc.jpg',
     },
     {
-      name: "bangalore",
+      name: 'bangalore',
       title: "India's Silicon Valley",
-      img: "bangalore-ofcc.jpg"
+      img: 'bangalore-ofcc.jpg',
     },
     {
-      name: "pune",
-      title: "Queen of the Deccan",
-      img: "pune.jpg"
+      name: 'pune',
+      title: 'Queen of the Deccan',
+      img: 'pune.jpg',
     },
     {
-      name: "hyderabad",
-      title: "A City of Nawabs",
-      img: "hyderabad.jpg"
+      name: 'hyderabad',
+      title: 'A City of Nawabs',
+      img: 'hyderabad.jpg',
     },
     {
-      name: "mumbai",
-      title: "A City of Dreams",
-      img: "mumbai.jpg"
+      name: 'mumbai',
+      title: 'A City of Dreams',
+      img: 'mumbai.jpg',
     },
   ];
 
@@ -246,13 +240,15 @@ export class OfficeSpaceComponent implements OnInit {
     },
     {
       name: 'Blue Dawn',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f2ea4e6750559b61186628611435aaa41385182.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f2ea4e6750559b61186628611435aaa41385182.jpg',
       address: 'Gachibowli, Hyderabad',
       slug: '12000-sqft-raw-blue-dawn',
     },
     {
       name: ' ',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fd3a8f2496cb5c4089e5ad62b9b36d8b968d34d.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fd3a8f2496cb5c4089e5ad62b9b36d8b968d34d.jpg',
       address: 'Mumbai',
       slug: ' ',
     },
@@ -271,7 +267,7 @@ export class OfficeSpaceComponent implements OnInit {
     // },
   ];
 
-  footer_title = "Office Spaces for Rent in India";
+  footer_title = 'Office Spaces for Rent in India';
   footer_description = `<p>For commercial office spaces, India is a ready to go destination for startups, SMEs and Fortune 500 companies. Office space is a space that is completely split apart from other companies. In comparison to other spaces, these offer more control, solitude to its members and peaceful working surroundings.</p>
 
   <p>Commercial Office spaces in India provides abundant advantages to its members like-&nbsp;</p>
@@ -336,8 +332,8 @@ export class OfficeSpaceComponent implements OnInit {
 
   ngOnInit() {
     if (this.seoData) {
-      this.addSeoTags(this.seoData)
-    };
+      this.addSeoTags(this.seoData);
+    }
 
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
@@ -349,7 +345,6 @@ export class OfficeSpaceComponent implements OnInit {
       );
     });
   }
-
 
   removedash(name: string) {
     return name.replace(/-/, ' ');
@@ -388,7 +383,7 @@ export class OfficeSpaceComponent implements OnInit {
     localStorage.removeItem('officeType');
   }
   onClick(spaceType: string) {
-    localStorage.setItem('officeType', spaceType)
+    localStorage.setItem('officeType', spaceType);
   }
   openWorkSpace(slug: string) {
     this.router.navigate([`/office-space/rent/${slug.toLowerCase().trim()}`]);

@@ -6,20 +6,18 @@ import { SeoService } from '@app/core/services/seo.service';
 @Component({
   selector: 'app-jaipur',
   templateUrl: './jaipur.component.html',
-  styleUrls: ['./jaipur.component.scss']
+  styleUrls: ['./jaipur.component.scss'],
 })
 export class JaipurComponent implements OnInit {
-  constructor(private seoService: SeoService,
-    private router: Router) { }
+  constructor(private seoService: SeoService, private router: Router) {}
 
   ngOnInit() {
-    this.seoService.setData(this.seoData)
+    this.seoService.setData(this.seoData);
   }
   centerData = GoSteps_Center_Details[6];
-  seoData = this.centerData.seo
+  seoData = this.centerData.seo;
 
   contactRedirect() {
-    this.router.navigate(["/contact-us"])
+    this.router.navigate(['/contact-us']);
   }
-
 }

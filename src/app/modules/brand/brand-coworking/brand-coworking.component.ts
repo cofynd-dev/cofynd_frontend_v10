@@ -65,7 +65,7 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
     this.urlChangeCall();
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   createBreadcrumb() {
     if (this.urlPath.length > 1 && !this.isColiving) {
@@ -245,7 +245,6 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
           this.getQueryParam();
         }
       }
-
     });
   }
 

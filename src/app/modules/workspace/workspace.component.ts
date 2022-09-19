@@ -145,7 +145,7 @@ export class WorkSpaceComponent implements OnInit {
     // this.getScreenWidth = window.innerWidth;
     // this.getScreenHeight = window.innerHeight;
   }
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
       icon: icon({
@@ -224,7 +224,7 @@ export class WorkSpaceComponent implements OnInit {
             this.router.navigate(['/coworking']);
           } else {
             // this.router.navigate(['/coworking/' + city]);
-            this.router.navigateByUrl('/')
+            this.router.navigateByUrl('/');
           }
           // this.router.navigate(['/404'], { skipLocationChange: true });
         }
@@ -256,18 +256,6 @@ export class WorkSpaceComponent implements OnInit {
       this.router.navigate([`${this.country_name}/coworking`]);
     }
   }
-  // createMap(lat, lng) {
-  //   this.mapsAPILoader
-  //     .load()
-  //     .then(() => {
-  //       const mapOrigin = new google.maps.LatLng(lat, lng);
-  //       console.log(mapOrigin);
-  //       const mapOptions = this.getGoogleMapOptions(mapOrigin);
-  //       this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
-  //       this.setMarker(mapOrigin);
-  //     })
-  //     .catch(error => console.log(error));
-  // }
 
   createMap1(lat, lng) {
     axios
@@ -275,8 +263,7 @@ export class WorkSpaceComponent implements OnInit {
         `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
         {},
       )
-      .then(function (response) {
-      });
+      .then(function(response) {});
   }
 
   setMarker(position: google.maps.LatLng) {

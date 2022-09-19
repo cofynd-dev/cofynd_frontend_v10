@@ -11,21 +11,23 @@ export class HomeCityPopupComponent implements OnInit {
     // this.router.routeReuseStrategy.shouldReuseRoute = function () {
     //   return false;
     // };
-
   }
 
   city: string;
-  country: string
+  country: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
-    this.router.navigate([`${this.country.toLocaleLowerCase().trim()}/coworking/${this.city.toLocaleLowerCase().trim()}`])
+    this.router.navigate([
+      `${this.country.toLocaleLowerCase().trim()}/coworking/${this.city.toLocaleLowerCase().trim()}`,
+    ]);
     this.bsModalRef.hide();
   }
   closeModal1() {
-    this.router.navigate([`${this.country.toLocaleLowerCase().trim()}/co-living/${this.city.toLocaleLowerCase().trim()}`])
+    this.router.navigate([
+      `${this.country.toLocaleLowerCase().trim()}/co-living/${this.city.toLocaleLowerCase().trim()}`,
+    ]);
     this.bsModalRef.hide();
   }
 }

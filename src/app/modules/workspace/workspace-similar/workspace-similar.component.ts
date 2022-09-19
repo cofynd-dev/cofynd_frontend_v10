@@ -38,9 +38,7 @@ export class WorkspaceSimilarComponent implements OnInit {
   minPrice: string;
   maxPrice: string;
 
-  constructor(private workSpaceService: WorkSpaceService, private cdr: ChangeDetectorRef,
-    private router: Router,
-  ) { }
+  constructor(private workSpaceService: WorkSpaceService, private cdr: ChangeDetectorRef, private router: Router) {}
 
   ngOnInit() {
     this.minPrice = localStorage.getItem('minPrice');
@@ -63,10 +61,11 @@ export class WorkspaceSimilarComponent implements OnInit {
     var queryParam = {};
     if (this.minPrice && this.maxPrice) {
       queryParam = {
-        limit: 9, key: address, minPrice: +this.minPrice,
+        limit: 9,
+        key: address,
+        minPrice: +this.minPrice,
         maxPrice: +this.maxPrice,
       };
-
     } else {
       queryParam = { limit: 9, key: address };
     }
@@ -97,12 +96,11 @@ export class WorkspaceSimilarComponent implements OnInit {
   }
 }
 
-
 // custom Pipe for eliminate city name from address
 @Pipe({ name: 'microLocation' })
 export class MicroLocationPipe implements PipeTransform {
   transform(value): string {
-    let splitData = value.split(",")
+    let splitData = value.split(',');
     splitData.splice(-1);
     return splitData;
   }

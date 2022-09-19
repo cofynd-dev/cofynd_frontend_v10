@@ -1,7 +1,7 @@
 import { OfficeSpace } from '@core/models/office-space.model';
 
 export class CoLiving extends OfficeSpace {
-  coliving_plans: []
+  coliving_plans: [];
   price: {
     double_sharing: number;
     single_sharing: number;

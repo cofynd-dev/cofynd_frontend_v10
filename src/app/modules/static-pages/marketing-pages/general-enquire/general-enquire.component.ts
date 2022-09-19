@@ -47,7 +47,7 @@ export class GeneralEnquireComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.enquiryForm.markAllAsTouched();

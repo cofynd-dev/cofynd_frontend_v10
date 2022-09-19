@@ -26,8 +26,6 @@ import { HomeCityPopupComponent } from './home-city-popup/home-city-popup.compon
 import { LocationIqImportComponent } from './location-iq-import/location-iq-import.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-
-
 @NgModule({
   declarations: [
     CoworkingComponent,
@@ -50,9 +48,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     HomeCitiesComponent,
     HomeMenuModalComponent,
     HomeCityPopupComponent,
-    LocationIqImportComponent
+    LocationIqImportComponent,
   ],
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
 })
-export class CoworkingModule { }
+export class CoworkingModule {}

@@ -204,14 +204,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.seoService.setData(this.seoData);
       }
     });
-
-    // if (this.activatedRoute.snapshot.url[1].path) {
-    //   console.log("fn run");
-    //   let micro_Location = this.activatedRoute.snapshot.url[1].path
-    //   for (let scrt of script.coliving.microLocation[micro_Location]) {
-    //     this.setHeaderScript(scrt);
-    //   }
-    // }
   }
 
   setHeaderScript(_script) {

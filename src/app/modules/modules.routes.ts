@@ -66,5 +66,4 @@ export const routes: Routes = [
   //   path: 'hostel',
   //   loadChildren: () => import('./hostel/hostel.module').then(m => m.HostelModule),
   // },
-
 ];

@@ -140,7 +140,6 @@ export const AVAILABLE_CITY = [
       'Kalyani Nagar',
       'Hadapsar',
       'Koregaon Park',
-
     ],
   },
   {
@@ -224,7 +223,15 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Near Me', 'AB Road', 'LIC Colony', 'Ratna Lok Colony', 'Ravindra Nagar', 'South Tukoganj', 'Vijay Nagar'],
+    locations: [
+      'Near Me',
+      'AB Road',
+      'LIC Colony',
+      'Ratna Lok Colony',
+      'Ravindra Nagar',
+      'South Tukoganj',
+      'Vijay Nagar',
+    ],
   },
   {
     name: 'chennai',
@@ -233,7 +240,17 @@ export const AVAILABLE_CITY = [
     for_coWorking: true,
     for_office: false,
     for_coLiving: false,
-    locations: ['Near Me', 'Guindy', 'Anna Nagar', 'Adyar', 'T Nagar', 'OMR', 'Velachery', 'Nungambakkam', 'Perumbakkam'],
+    locations: [
+      'Near Me',
+      'Guindy',
+      'Anna Nagar',
+      'Adyar',
+      'T Nagar',
+      'OMR',
+      'Velachery',
+      'Nungambakkam',
+      'Perumbakkam',
+    ],
   },
   {
     name: 'ahmedabad',
@@ -354,7 +371,6 @@ export const AVAILABLE_CITY = [
   //   for_coLiving: false,
   //   locations: [],
   // },
-
 ];
 
 export const AVAILABLE_CITY_CO_LIVING = [
@@ -941,7 +957,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'gurugram',
     id: '5e3eb83c18c88277e81427d9',
     icon: 'gurugram.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7f11c58e38c7fe343f6dfb301f36c8a428fb954b.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7f11c58e38c7fe343f6dfb301f36c8a428fb954b.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -952,7 +969,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5e3e77c6936bc06de1f9a2d9',
     name: 'delhi',
     icon: 'delhi.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b6d83bfaedd8d50af65d5e4c6289e0000d9d7fc7.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b6d83bfaedd8d50af65d5e4c6289e0000d9d7fc7.jpg',
     for_coWorking: true,
     for_office: true,
     for_coLiving: true,
@@ -963,7 +981,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5e3e77de936bc06de1f9a5e2',
     name: 'noida',
     icon: 'noida.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c5d0e008c819dcbcae8319835f7e57bdd5de8ea9.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c5d0e008c819dcbcae8319835f7e57bdd5de8ea9.jpg',
     for_coWorking: true,
     for_office: true,
     for_coLiving: true,
@@ -974,7 +993,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5f2a4210ecdb5a5d67f0bbbc',
     name: 'bangalore',
     icon: 'bangalore.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/117ec383b617f0622db6c54679da80c0105487f7.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/117ec383b617f0622db6c54679da80c0105487f7.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -985,7 +1005,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5f338a5f59d5584617676837',
     name: 'hyderabad',
     icon: 'hyderabad.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb4aa50652a34bb24ba16368fff7f37ead469994.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb4aa50652a34bb24ba16368fff7f37ead469994.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -996,7 +1017,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5e3eb83c18c88277e8142795',
     name: 'pune',
     icon: 'pune.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1c8435872fdbb6376c7005be8a01983980c1d709.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1c8435872fdbb6376c7005be8a01983980c1d709.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -1007,7 +1029,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     id: '5f5b1f728bbbb85328976417',
     name: 'mumbai',
     icon: 'mumbai.svg',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e515577a1d506a17c07be4299105476c88a7287.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e515577a1d506a17c07be4299105476c88a7287.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -1018,7 +1041,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'indore',
     id: '5f60926926e9e64d7b61b41b',
     icon: 'indore.png',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc5ce0f99f9d9f60dbd918cb8fcbbbf55c751802.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc5ce0f99f9d9f60dbd918cb8fcbbbf55c751802.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -1029,7 +1053,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'ahmedabad',
     id: '5f7af1c48c4e6961990e620e',
     icon: 'ahmedabad.png',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/770e4040ababe9283a46421cc6b7a127872b9a6b.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/770e4040ababe9283a46421cc6b7a127872b9a6b.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -1040,7 +1065,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'kochi',
     id: '5f8d31a7c2502350f24fee9b',
     icon: 'kochi.png',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/823b4ae8fa08975d961138f1a86a3232034b3a27.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/823b4ae8fa08975d961138f1a86a3232034b3a27.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
@@ -1051,7 +1077,8 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     name: 'chennai',
     id: '5f7410348c4e6961990e5a21',
     icon: 'chennai.png',
-    image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18f6b59cb5f91d0ae4eb3598de16f9ecdc44b996.jpg',
+    image:
+      'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18f6b59cb5f91d0ae4eb3598de16f9ecdc44b996.jpg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,

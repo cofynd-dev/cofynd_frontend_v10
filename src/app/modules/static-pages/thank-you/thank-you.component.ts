@@ -7,13 +7,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./thank-you.component.scss'],
 })
 export class ThankYouComponent implements OnDestroy {
-  constructor(private _location: Location) {
-
-  }
+  constructor(private _location: Location) {}
   backClicked() {
     this._location.back();
   }
-  ngOnDestroy() {
-
-  }
+  ngOnDestroy() {}
 }

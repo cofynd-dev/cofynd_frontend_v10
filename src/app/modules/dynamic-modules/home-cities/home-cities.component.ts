@@ -30,7 +30,7 @@ export class HomeCitiesComponent implements OnInit {
     // };
     var someString = this.router.url;
     someString = someString.replace(/\//g, '');
-    this.title = someString
+    this.title = someString;
   }
 
   ngOnInit(): void {
@@ -43,37 +43,19 @@ export class HomeCitiesComponent implements OnInit {
       localStorage.setItem('country_id', res.data.id);
       this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
         this.countryCities = res.data.filter(city => city.for_coWorking === true);
-      })
-    })
+      });
+    });
   }
 
-  locateMyLocation() {
-    // this.mapsAPILoader
-    //   .load()
-    //   .then(() => {
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(position => {
-    //         const pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude,
-    //         };
-    //         this.router.navigateByUrl(`/search?latitude=${pos.lat}&longitude=${pos.lng}`);
-    //       });
-    //     } else {
-    //       this.toastrService.error('Your browser does not support this feature');
-    //     }
-    //   })
-    //   .catch(error => console.log(error));
-  }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
   openModal(city, country) {
     this.bsModalService.show(HomeCityPopupComponent, {
       class: 'modal-dialog-centered',
       initialState: {
         city,
-        country
+        country,
       },
     });
   }

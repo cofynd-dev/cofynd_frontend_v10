@@ -70,11 +70,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private el: ElementRef,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
-    // this.countryNameGloble = this.router.getCurrentNavigation().extras.state.countryName;
-    // this.countryId = this.router.getCurrentNavigation().extras.state.countryId;
-    // console.log(this.countryId, this.countryNameGloble)
-    // Init With Map View
-    //this.isMapView = true;
   }
 
   ngOnInit() {
@@ -113,7 +108,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
             );
             if (results.routeParams[1] && filteredCity.length > 0) {
               this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
-              this.addSeoTags(results.routeParams[1].path.toLowerCase() + '-' + results.routeParams[0].path.toLowerCase() + '-' + this.country_name.toLowerCase());
+              this.addSeoTags(
+                results.routeParams[1].path.toLowerCase() +
+                  '-' +
+                  results.routeParams[0].path.toLowerCase() +
+                  '-' +
+                  this.country_name.toLowerCase(),
+              );
               this.queryParams = {
                 ...AppConstant.DEFAULT_SEARCH_PARAMS,
                 key: results.routeParams[1].path + '-' + this.title,
@@ -132,7 +133,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     if (this.title) {
       if (this.title.length > 0) {
         for (let scrt of script.coworking[this.title]) {
-          this.setHeaderScript(scrt)
+          this.setHeaderScript(scrt);
         }
       }
     }
@@ -184,7 +185,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
   removedash(name: string) {
     if (name) {
-      return name.replace(/-/, ' ')
+      return name.replace(/-/, ' ');
     }
   }
   setHeaderScript(cityScript) {
@@ -203,7 +204,9 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         }
       });
       if (allWorkSpaces.data.length) {
-        const filteredLocations = this.availableCities.filter(city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim());
+        const filteredLocations = this.availableCities.filter(
+          city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim(),
+        );
         if (filteredLocations && filteredLocations.length) {
           this.cityWisePopularLocation = filteredLocations[0].locations;
         }

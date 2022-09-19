@@ -1,7 +1,16 @@
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { environment } from '@env/environment';
 import { AuthService } from '@core/services/auth.service';
-import { Component, Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, ViewChild, OnChanges, HostListener } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectorRef,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ViewChild,
+  OnChanges,
+  HostListener,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { WorkSpace } from '@app/core/models/workspace.model';
 import { UserService } from '@core/services/user.service';
@@ -79,7 +88,9 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname == 'india' ||
         workspace.country_dbname == 'India' ||
-        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.plans)
+        workspace.country_dbname == 'INDIA' ||
+        workspace.location.country.name == 'India') &&
+      workspace.plans
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
@@ -91,19 +102,19 @@ export class SearchCardComponent implements AfterViewInit {
       }
     }
     if (
-      (workspace.country_dbname !== 'india' &&
-        workspace.country_dbname !== 'India' &&
-        workspace.country_dbname !== 'INDIA' && workspace.location.country.name !== 'India') && (workspace.plans)
+      workspace.country_dbname !== 'india' &&
+      workspace.country_dbname !== 'India' &&
+      workspace.country_dbname !== 'INDIA' &&
+      workspace.location.country.name !== 'India' &&
+      workspace.plans
     ) {
       let country_name;
       if (workspace.country_dbname) {
-        country_name = workspace.country_dbname
+        country_name = workspace.country_dbname;
       } else {
-        country_name = workspace.location.country.name
+        country_name = workspace.location.country.name;
       }
-      var url = `/${country_name
-        .toLowerCase()
-        .trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
+      var url = `/${country_name.toLowerCase().trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
       // window.open(url, '_blank');
       if (this.isMobileResolution) {
@@ -116,7 +127,9 @@ export class SearchCardComponent implements AfterViewInit {
     if (
       (workspace.country_dbname == 'india' ||
         workspace.country_dbname == 'India' ||
-        workspace.country_dbname == 'INDIA' || workspace.location.country.name == 'India') && (workspace.coliving_plans)
+        workspace.country_dbname == 'INDIA' ||
+        workspace.location.country.name == 'India') &&
+      workspace.coliving_plans
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${workspace.slug}`]));
       // this.router.navigateByUrl(url);
@@ -129,19 +142,19 @@ export class SearchCardComponent implements AfterViewInit {
     }
 
     if (
-      (workspace.country_dbname !== 'india' &&
-        workspace.country_dbname !== 'India' &&
-        workspace.country_dbname !== 'INDIA' && workspace.location.country.name !== 'India') && (workspace.coliving_plans)
+      workspace.country_dbname !== 'india' &&
+      workspace.country_dbname !== 'India' &&
+      workspace.country_dbname !== 'INDIA' &&
+      workspace.location.country.name !== 'India' &&
+      workspace.coliving_plans
     ) {
       let country_name;
       if (workspace.country_dbname) {
-        country_name = workspace.country_dbname
+        country_name = workspace.country_dbname;
       } else {
-        country_name = workspace.location.country.name
+        country_name = workspace.location.country.name;
       }
-      var url = `/${country_name
-        .toLowerCase()
-        .trim()}/co-living-details/${workspace.slug.toLowerCase().trim()}`;
+      var url = `/${country_name.toLowerCase().trim()}/co-living-details/${workspace.slug.toLowerCase().trim()}`;
       // this.router.navigate([url]);
       // window.open(url, '_blank');
       if (this.isMobileResolution) {
@@ -150,7 +163,6 @@ export class SearchCardComponent implements AfterViewInit {
         window.open(url, '_blank');
       }
     }
-
   }
   openDetailsPage(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);

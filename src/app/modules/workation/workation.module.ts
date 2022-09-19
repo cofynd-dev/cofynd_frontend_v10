@@ -41,11 +41,8 @@ import { DelhiComponent } from './delhi/delhi.component';
     LehComponent,
     MussoorieComponent,
     NaggarComponent,
-    DelhiComponent,],
-  imports: [
-    CommonModule,
-    WorkationRoutingModule,
-    SharedModule
-  ]
+    DelhiComponent,
+  ],
+  imports: [CommonModule, WorkationRoutingModule, SharedModule],
 })
-export class WorkationModule { }
+export class WorkationModule {}

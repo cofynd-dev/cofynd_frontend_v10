@@ -5,10 +5,9 @@ import { NguCarouselConfig } from '@ngu/carousel';
 @Component({
   selector: 'app-gosteps-card',
   templateUrl: './gosteps-card.component.html',
-  styleUrls: ['./gosteps-card.component.scss']
+  styleUrls: ['./gosteps-card.component.scss'],
 })
 export class GostepsCardComponent implements OnInit {
-
   @Input() goStops;
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
@@ -23,10 +22,9 @@ export class GostepsCardComponent implements OnInit {
     loop: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
-  constructor(private router: Router,) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openWorkSpace(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/workation/${slug}`]));

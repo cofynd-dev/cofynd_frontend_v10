@@ -24,8 +24,8 @@ export class OfficeSpaceOtherDetail {
   rent_per_bed: number;
   type_of_co_living: string;
   options: {
-    zoom: number,
-  }
+    zoom: number;
+  };
 }
 
 export class FoodOption {

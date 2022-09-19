@@ -16,7 +16,6 @@ export const DEFAULT_APP_DATA = {
       url: 'https://www.facebook.com/cofynd/',
       name: 'Facebook',
       icon: 'fab fa-facebook-f',
-
     },
     {
       url: 'https://www.instagram.com/cofynd/',

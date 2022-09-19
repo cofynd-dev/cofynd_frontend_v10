@@ -16,9 +16,7 @@ import { Router } from '@angular/router';
 import { WorkSpace } from '@core/models/workspace.model';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
 import { environment } from '@env/environment';
-import * as L from "leaflet";
-
-
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-search-map-view',
@@ -45,19 +43,18 @@ export class SearchMapViewComponent implements OnInit {
 
   // boxScroll: string;
   // isSticky: boolean;
-  //locationIq Map code 
+  //locationIq Map code
   options: any;
   markers: Layer[] = [];
   map: L.Map;
   newMarker: any;
   type: string;
 
-
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     // private mapsAPILoader: MapsAPILoader,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.workspaces && this.workspaces.length) {
@@ -69,160 +66,46 @@ export class SearchMapViewComponent implements OnInit {
   addLocationIqMap(workspaces: WorkSpace[], spaceType) {
     this.options = {
       layers: [
-        tileLayer(`https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`, { maxZoom: 18, attribution: 'Open Street Map' })
+        tileLayer(
+          `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
+          { maxZoom: 18, attribution: 'Open Street Map' },
+        ),
       ],
       zoom: 12,
       attributionControl: false,
       dragging: false,
-      center: latLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0])
-    }
+      center: latLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0]),
+    };
     for (const workspace of workspaces) {
       this.createLocationMarkersLocationIQ(workspace, spaceType);
     }
   }
 
   createLocationMarkersLocationIQ(workspace: WorkSpace, spaceType) {
-    this.newMarker = marker(
-      [workspace.geometry.coordinates[1], workspace.geometry.coordinates[0],],
-      {
-        title: workspace.slug,
-        icon: icon({
-          iconSize: [25, 41],
-          iconAnchor: [13, 41],
-          iconUrl: 'assets/images/marker-icon.png',
-          iconRetinaUrl: 'assets/images/marker-icon.png',
-          // shadowUrl: 'assets/images/marker-icon.png'
-        }),
-
-      },
-    );
-    this.newMarker.on('click', function () {
-      if (workspace.country_dbname && workspace.country_dbname !== 'india' && workspace.country_dbname !== 'India' && workspace.country_dbname !== 'INDIA') {
+    this.newMarker = marker([workspace.geometry.coordinates[1], workspace.geometry.coordinates[0]], {
+      title: workspace.slug,
+      icon: icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/images/marker-icon.png',
+        iconRetinaUrl: 'assets/images/marker-icon.png',
+        // shadowUrl: 'assets/images/marker-icon.png'
+      }),
+    });
+    this.newMarker.on('click', function() {
+      if (
+        workspace.country_dbname &&
+        workspace.country_dbname !== 'india' &&
+        workspace.country_dbname !== 'India' &&
+        workspace.country_dbname !== 'INDIA'
+      ) {
         window.open(`/${workspace.country_dbname}/${spaceType}-details/${workspace.slug}`);
       } else {
         window.open(`/${spaceType}/${workspace.slug}`);
       }
     });
     this.markers.push(this.newMarker);
-  };
-
-  // addMap(workspaces: WorkSpace[]) {
-  //   this.mapsAPILoader
-  //     .load()
-  //     .then(() => {
-  //       const mapOrigin = new google.maps.LatLng(
-  //         workspaces[0].geometry.coordinates[1],
-  //         workspaces[0].geometry.coordinates[0],
-  //       );
-  //       const mapOptions = this.getGoogleMapOptions(mapOrigin);
-  //       this.map = new google.maps.Map(this.nearbyMap.nativeElement, mapOptions);
-  //       this.bounds = new google.maps.LatLngBounds();
-  //       this.infoWindow = new google.maps.InfoWindow();
-
-  //       for (const workspace of workspaces) {
-  //         this.createLocationMarkers(workspace);
-  //       }
-
-  //       // this.getCircleRadius(workspaces);
-
-  //       this.map.fitBounds(this.bounds);
-  //     })
-  //     .catch(error => console.log(error));
-  // }
-
-  // createLocationMarkers(workspace: WorkSpace) {
-  //   const price = workspace.starting_price ? workspace.starting_price.toString() : '0';
-  //   const markerPosition = new google.maps.LatLng(workspace.geometry.coordinates[1], workspace.geometry.coordinates[0]);
-
-  //   const markerIcon = {
-  //     url: '/assets/images/map-marker.svg',
-  //     size: new google.maps.Size(40, 40),
-  //     origin: new google.maps.Point(0, 0),
-  //     anchor: new google.maps.Point(0, 40),
-  //     scaledSize: new google.maps.Size(40, 40),
-  //   };
-  //   const placeMarker = new google.maps.Marker({
-  //     position: markerPosition,
-  //     map: this.map,
-  //     icon: markerIcon,
-  //   });
-
-  //   placeMarker.addListener('click', event => {
-  //     this.router.navigate([`/${this.spaceType}/${workspace.slug}`]);
-  //   });
-
-  //   // Add Markers
-  //   // this.markers.push(placeMarker);
-
-  //   // Fit To Bounds
-  //   this.bounds.extend(markerPosition);
-
-  //   // Display Info
-  //   const workspaceName = '<h4>' + workspace.name + '</h4>';
-  //   const workspacePrice = '<span class="price-on-map"><i class="icon-rupee"></i>' + price + '</span>';
-  //   const workspaceImage = workspace.images[0] ? workspace.images[0].image.s3_link : '/assets/images/no-img.svg';
-  //   const workspaceImageDiv =
-  //     '<a href="/coworking/' +
-  //     workspace.slug +
-  //     '" target="_blank"><div class="map-img">' +
-  //     workspacePrice +
-  //     '<img src="' +
-  //     workspaceImage +
-  //     '" /></div>' +
-  //     workspaceName +
-  //     '</a>';
-  //   const workspaceAddress =
-  //     ('<p>' + workspace.location.address1 && workspace.location.address1) || workspace.location.address + '</p>';
-  //   const contentString = '<div class="map-infoWindow">' + workspaceImageDiv + workspaceAddress + '</div>';
-  //   google.maps.event.addListener(placeMarker, 'mouseover', () => {
-  //     this.infoWindow.setContent(contentString);
-  //     this.infoWindow.open(this.map, placeMarker);
-  //   });
-  //   google.maps.event.addListener(placeMarker, 'mouseout', () => {
-  //     this.infoWindow.close();
-  //   });
-  // }
-
-  // getGoogleMapOptions(center: google.maps.LatLng) {
-  //   return {
-  //     mapTypeId: google.maps.MapTypeId.ROADMAP,
-  //     center,
-  //     zoom: 15,
-  //     mapTypeControlOptions: {
-  //       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-  //       position: google.maps.ControlPosition.TOP_RIGHT,
-  //     },
-  //     streetViewControl: false,
-  //     scrollWheel: false,
-  //   };
-  // }
-
-  // getCircleRadius(workspaces) {
-  //   const searchArea = new google.maps.Circle({
-  //     strokeColor: '#FF0000',
-  //     strokeOpacity: 0.5,
-  //     strokeWeight: 0.4,
-  //     fillColor: '#4343e8',
-  //     fillOpacity: 0.4,
-  //     map: this.map,
-  //     center: new google.maps.LatLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0]),
-  //     radius: 20000,
-  //   });
-
-  //   const searchAreaMarker = new google.maps.Marker({
-  //     position: new google.maps.LatLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0]),
-  //     map: this.map,
-  //     draggable: true,
-  //     animation: google.maps.Animation.DROP,
-  //     title: 'searchAreaMarker',
-  //   });
-
-  //   google.maps.event.addListener(searchAreaMarker, 'dragend', function (e) {
-  //     searchArea.setOptions({
-  //       center: e.latLng,
-  //     });
-  //   });
-  // }
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScrollPage($event): void {
@@ -235,26 +118,6 @@ export class SearchMapViewComponent implements OnInit {
       } else {
         this.pageScrollEvent.emit({ scroll: false, count: currPos });
       }
-      // const endBlockHeight = document.getElementById('endBlock').clientHeight;
-      // const endBlockId = document.getElementById('endBlock');
-      // const contentHeight = document.getElementById('vehicleInformationBox').clientHeight;
-      // if (endBlockId) {
-      //   const endBlock = endBlockId.offsetTop + endBlockHeight - contentHeight - 105;
-      //   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      //   const topOffset = 40;
-      //   if (scrollPosition > endBlock) {
-      //     this.boxScroll = -(scrollPosition - endBlock) + 'px';
-      //     this.isSticky = false;
-      //   } else {
-      //     this.boxScroll = 0 + 'px';
-      //     this.isSticky = true;
-      //   }
-      //   if (scrollPosition > topOffset) {
-      //     this.isSticky = true;
-      //   } else {
-      //     this.isSticky = false;
-      //   }
-      // }
     }
   }
 }

@@ -18,7 +18,7 @@ export class WorkSpaceService {
   readonly searchAddress$ = this.searchAddress.asObservable();
   private profileReviewByUser$: BehaviorSubject<Review> = new BehaviorSubject(null);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getWorkspaces(params: {}): Observable<ApiResponse<WorkSpace[]>> {
     return this.http.get<ApiResponse<WorkSpace[]>>(`/user/workSpaces?${params}`).pipe(
@@ -103,13 +103,14 @@ export class WorkSpaceService {
     );
   }
   searchWorkspaces_country(keyword: string, data: any): Observable<SearchResult> {
-    return this.http.post<SearchResult>(`/user/workSpaces_country_wise?name=${keyword}`, data).pipe(map(searchResult => searchResult));
+    return this.http
+      .post<SearchResult>(`/user/workSpaces_country_wise?name=${keyword}`, data)
+      .pipe(map(searchResult => searchResult));
   }
-
 
   setStartingPrice(workspace: WorkSpace) {
     if (workspace.plans.length) {
-      let planPrice = []
+      let planPrice = [];
       planPrice = workspace.plans.map(plan => {
         workspace.show_price = plan.should_show;
         return plan.duration !== WorkSpacePlan.DAY_PASS ? plan.price : null;

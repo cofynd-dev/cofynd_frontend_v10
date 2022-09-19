@@ -1,9 +1,10 @@
 export const virtual_Office_SeoData = {
   delhi: {
-    title: "Virtual Office in Delhi for GST Registration, Mail Handling",
-    description: "Searching for a Virtual Office in Delhi? Find the best virtual addresses in the capital city for the company, GST registration & mail handling @ ₹999/month.",
+    title: 'Virtual Office in Delhi for GST Registration, Mail Handling',
+    description:
+      'Searching for a Virtual Office in Delhi? Find the best virtual addresses in the capital city for the company, GST registration & mail handling @ ₹999/month.',
     footerSeo: {
-      title: "FAQs about Virtual Office in Delhi",
+      title: 'FAQs about Virtual Office in Delhi',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> A virtual office is the latest concept where you can book a physical office space address for your business and avail several services and benefits without having to pay for a physical office space. </p>
       
@@ -45,14 +46,15 @@ export const virtual_Office_SeoData = {
       
       <h2>Get a premium business address in Delhi</h2>
       <p>Delhi is India's capital territory and a major commercial city in northern India. It houses various IT, Media, Tourism, Telecommunication and Banking companies making it one of the most preferred business cities. There are several business locations in Delhi such as Connaught Place, Nehru Place, Hauz Khas, Netaji Subhash Palace etc. The creative and entrepreneurial spirit of Delhiites is always high. Booking a virtual office space here will be the best decision of your life. Your business will witness unimaginable growth and success. All the best!</p>
-      `
-    }
+      `,
+    },
   },
   gurugram: {
-    title: "Virtual Office in Gurgaon at just ₹999/Month - CoFynd.",
-    description: "Find the best virtual office in Gurgaon for GST, company registration, mail handling by easily differentiating the prices, amenities of our 100+ centres.",
+    title: 'Virtual Office in Gurgaon at just ₹999/Month - CoFynd.',
+    description:
+      'Find the best virtual office in Gurgaon for GST, company registration, mail handling by easily differentiating the prices, amenities of our 100+ centres.',
     footerSeo: {
-      title: "FAQs about Virtual Office in Gurgaon",
+      title: 'FAQs about Virtual Office in Gurgaon',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> Virtual Office is the modern way of getting a professional physical business address at a prime business location. You don’t have to pay for an actual office space. You get all the business-related services such as mailing address, phone answering services, meeting rooms and video conferencing facilities and you can use that address for your business visiting cards, company registration, GST registration, mail handling etc. You can work from anywhere and still avail of the aforesaid services and facilities of a virtual office.</p>
       
@@ -90,15 +92,15 @@ export const virtual_Office_SeoData = {
       Ans-</b> If your company is already incorporated, then you need to submit an Organization Incorporation Certificate, PAN Card, Director’s or Trustees ID Proof and GST Number (if any). And if your company is not incorporated, then you need to submit Director’s or Trustees ID Proof and Planned Organization’s Name for agreement.</p><br />
       <h2>Get a premium business address in Gurgaon</h2>
       <p>Gurgaon is a significant financial and industrial city near New Delhi having excellent infrastructure. It is witnessing rapid urbanization and economic growth. There are various corporate offices making this city a major employment hub. Getting a premium business address for your startup/business/company/organisation in Gurgaon is a very wise decision for the growth of your venture. Gurgaon has various prime locations such as Udyog Vihar, DLF CyberCity, Sohna Road, MG Road, Golf Course Road etc. Whether you own a tourism company, consulting company, real estate business, event planning business, it is a perfect location to accelerate your business growth. Get your virtual office address with us right now!</p>
-      `
-
-    }
+      `,
+    },
   },
   noida: {
-    title: "Virtual Office in Noida for Company, GST Registration & Mail Handling",
-    description: "Find the best Virtual Office in Noida for company, GST registration and mail handling services from CoFynd starting ₹999/month. Book your virtual address today!",
+    title: 'Virtual Office in Noida for Company, GST Registration & Mail Handling',
+    description:
+      'Find the best Virtual Office in Noida for company, GST registration and mail handling services from CoFynd starting ₹999/month. Book your virtual address today!',
     footerSeo: {
-      title: "FAQs about Virtual Office in Noida",
+      title: 'FAQs about Virtual Office in Noida',
       description: `<p><b>Q- What is a virtual office?<br />
 Ans-</b> A virtual office space is a part of the flexible workspace industry where you get a combination of business and technology services. A virtual office is a modern type of office where you can take advantage of a business address for your business without actually leasing an entire physical office space.</p>
 
@@ -136,14 +138,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
 
 <h2>Get a premium business address in Noida</h2>
 <p>Noida is a well-developed city having a myriad of opportunities in almost every industry. It is a great place due to several reasons such as its close proximity to the capital city Delhi and smooth connectivity through metros etc. Being the Green City of India, Noida has a good reputation among international investors and clients. It is a safe, well-connected and delightful city to start a business. It has several prestigious educational institutions, famous malls, quirky cafes, fine dining restaurants, luxury hotels, well-known hospitals etc. Hence, it would be a wise decision for your business to get a premium business address in Noida. Hurry up and book your virtual office space now!</p>
-`
-    }
+`,
+    },
   },
   bangalore: {
-    title: "Virtual Office in Bangalore for Company & GST Registration",
-    description: "Find the best virtual office in Bangalore for Company, GST registration and mail handling services from CoFynd starting ₹999/month* Book your virtual address today!",
+    title: 'Virtual Office in Bangalore for Company & GST Registration',
+    description:
+      'Find the best virtual office in Bangalore for Company, GST registration and mail handling services from CoFynd starting ₹999/month* Book your virtual address today!',
     footerSeo: {
-      title: "FAQs about Virtual Office in Bangalore",
+      title: 'FAQs about Virtual Office in Bangalore',
       description: `<p><b>Q- What is a virtual office?<br />
     Ans-</b> A Virtual Office is a flexible workspace where you get a business address for your business-related activities at a very reasonable price. You are also provided with several office-related services. A virtual office space lets you conduct business smoothly from the comfort of your home without paying for a traditional office space. You can work from anywhere and still enjoy the benefits of a professional office such as mail handling services, phone answering services, administrative staff etc.</p>
     
@@ -179,14 +182,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
     Ans-</b> For the companies which are already incorporated- a PAN Card, Organization Incorporation Certificate, Director’s or Trustees ID Proof and GST Number (if any) are needed to be submitted. And for the companies which are not incorporated- Director’s or Trustees ID Proof and Planned Organization’s Name (for agreement) are needed to be submitted.</p><br />
     <h2>Get a premium business address in Bangalore</h2>
     <p>Bangalore is a major economic centre in India offering great business opportunities and economic stability to startups and SMEs. It is a well-developed and well-connected city through all modes of transport. It is one of the best business locations in India. It houses various giant tech companies. The weather in Bangalore is very pleasant. There are so many tourist attractions making it a great place for business travellers, international investors and clients. So, what are you waiting for? Hurry up and book your virtual business address in the best business location in Bangalore.</p>
-    `
-    }
+    `,
+    },
   },
   hyderabad: {
-    title: "Virtual Office in Hyderabad - GST Registration, Business Address",
-    description: "Searching for a virtual office in Hyderabad? Build your company presence in a premium address with GST registration, Business registration, Courier handling & more.",
+    title: 'Virtual Office in Hyderabad - GST Registration, Business Address',
+    description:
+      'Searching for a virtual office in Hyderabad? Build your company presence in a premium address with GST registration, Business registration, Courier handling & more.',
     footerSeo: {
-      title: "FAQs about Virtual Office in Hyderabad",
+      title: 'FAQs about Virtual Office in Hyderabad',
       description: `<p><b>Q- What is a virtual office and how does it work?<br />
       Ans-</b> Virtual Office Space is a type of flexible workspace that provides a professional business address and office-related services. Here you don’t have to pay for a physical office space. It enables you to work from anywhere across the globe and still enjoy the benefits of professional office space.
       </p>
@@ -234,14 +238,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       <br />
      <h2>Get a premium business address in Hyderabad</h2>
       <p>Hyderabad is one of the best Indian cities for setting up a new business especially for young startups. There are several thriving startups, glitzy malls, fine dining restaurants, quirky cafes, bars, prestigious educational institutions, prominent hospitals, banks etc. Hyderabad is a very well-developed and well-connected city with superb infrastructure. It has a major technology market and various employment hubs attracting people from all across the country. There are so many tourist destinations successfully attracting international clients and investors. Grab your chance to make your business stand out in the Hyderabad market. Book your premium business address in the best virtual space in the city with us right now.</p>
-    `
-    }
+    `,
+    },
   },
   ahmedabad: {
-    title: "Virtual Office in Ahmedabad for Company, GST Address",
-    description: "Book the best virtual office in Ahmedabad for GST registration, business registration, mailing address, office address and a lot more amenities starting ₹999/month*.",
+    title: 'Virtual Office in Ahmedabad for Company, GST Address',
+    description:
+      'Book the best virtual office in Ahmedabad for GST registration, business registration, mailing address, office address and a lot more amenities starting ₹999/month*.',
     footerSeo: {
-      title: "FAQs about Virtual Office in Ahmedabad",
+      title: 'FAQs about Virtual Office in Ahmedabad',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> Many top companies have a scattered workforce in various locations. To collaborate with all the team members and for smooth functioning, virtual offices come into existence. A virtual office is different from a traditional office space. It allows you to work from the comfort of your home and still enjoy the perks of a physical office space such as mail handling services, phone answering services and reception facilities etc. A virtual office basically provides a professional address for business-related activities such as meetings, couriers and conferences etc.</p>
       
@@ -303,14 +308,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       Director’s or Trustees ID Proof
       </p><br />
       <h2>Get premium business address in Ahmedabad</h2>
-      <p>Get a premium business address in Ahmedabad’s topmost locations including Manel Chowk, S.G. Road, Ashram Road and Chimanlal Girdharlal Road. Ahmedabad is one of the safe and well-developed cities in Gujarat, India. Whether you own a home cleaning service business, event planning company or food business, Ahmedabad is a perfect location to grow your business reach. It is known for the delicious food and colorful culture attracting tourists from all over the world. Several MNCs are booming in this city, increasing employment opportunities for young graduates.</p>`
-    }
+      <p>Get a premium business address in Ahmedabad’s topmost locations including Manel Chowk, S.G. Road, Ashram Road and Chimanlal Girdharlal Road. Ahmedabad is one of the safe and well-developed cities in Gujarat, India. Whether you own a home cleaning service business, event planning company or food business, Ahmedabad is a perfect location to grow your business reach. It is known for the delicious food and colorful culture attracting tourists from all over the world. Several MNCs are booming in this city, increasing employment opportunities for young graduates.</p>`,
+    },
   },
   chennai: {
-    title: "Virtual Office in Chennai | Virtual Office Address @CoFynd",
-    description: "Looking for a Virtual Office in Chennai? Build your company presence at CoFynd’s virtual offices with GST, Company registration, Mailing & Business address @ ₹999/month* ",
+    title: 'Virtual Office in Chennai | Virtual Office Address @CoFynd',
+    description:
+      'Looking for a Virtual Office in Chennai? Build your company presence at CoFynd’s virtual offices with GST, Company registration, Mailing & Business address @ ₹999/month* ',
     footerSeo: {
-      title: "FAQs about Virtual Office in Chennai",
+      title: 'FAQs about Virtual Office in Chennai',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> Virtual Office Space is a modern type of workspace which allows the entire team to stay connected through teleconferencing, team apps, video-conferencing, etc. With virtual offices, there is no need to be physically present in the office. As the name suggests, virtual offices are different from traditional office spaces. It allows people to work from any location of their choice and still enjoy the perks of a physical office setup.</p>
       
@@ -359,14 +365,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       
       <h2>Get a premium business address in Chennai</h2>
       <p>Chennai is the land of opportunities for entrepreneurs and young startups. It houses several prestigious companies, educational institutions, hospitals, banks, restaurants, luxury hotels, malls, cafes and various tourist attractions etc. It is a well-developed city with an excellent literacy rate and superb social infrastructure. Get your premium business address in Chennai by booking the world-class virtual office space with us. All the best!</p>
-      `
-    }
+      `,
+    },
   },
   mumbai: {
-    title: "Virtual Office in Mumbai for Company & GST Registration",
-    description: "Book the best virtual office in Mumbai for GST registration, company registration, mailing and office address @ ₹999/month* with state of the art amenities.",
+    title: 'Virtual Office in Mumbai for Company & GST Registration',
+    description:
+      'Book the best virtual office in Mumbai for GST registration, company registration, mailing and office address @ ₹999/month* with state of the art amenities.',
     footerSeo: {
-      title: "Virtual Office in Mumbai FAQs",
+      title: 'Virtual Office in Mumbai FAQs',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> A virtual office is a part of the flexible workspaces where you get all the office-related services without actually having to pay for a physical office space. </p>
       
@@ -414,14 +421,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
      <h2>Get a premium business address in Mumbai</h2>
       
      <p> Mumbai is India’s major financial centre and a major attraction for young entrepreneurs. The high-end nightlife of this city attracts millennials from all across the country. It is a well-developed city with various business and government establishments. There are various business locations such as Navi Mumbai, Andheri, Nariman Point, Worli etc. You should not delay booking a world-class virtual office space for your business. People from all across the globe visit the dream city to try their luck in various art careers. The city of the largest film industry, Mumbai has got a lot of opportunities and hidden talents which need to be discovered. If not you, then someone else will. So, what are you waiting for? Book your virtual space with us right now!</p>
-      `
-    }
+      `,
+    },
   },
   pune: {
-    title: "Virtual Office in Pune | Book @CoFynd Virtual Offices",
-    description: "Build your company presence at the best virtual office in Pune with state of the art amenities such as Company, GST registration and mailing address @ ₹999/month.",
+    title: 'Virtual Office in Pune | Book @CoFynd Virtual Offices',
+    description:
+      'Build your company presence at the best virtual office in Pune with state of the art amenities such as Company, GST registration and mailing address @ ₹999/month.',
     footerSeo: {
-      title: "FAQs about Virtual Office in Pune",
+      title: 'FAQs about Virtual Office in Pune',
       description: `<p><b>Q- What is a virtual office and how does it work?<br />
       Ans-</b> A Virtual Office is a popular trend in the flexible workspace industry that provides a business all the services and benefits of a commercial office without actually giving access to the physical office space. It is a preferred choice for entrepreneurs and small home businesses. It is also a popular choice among freelancers because a business address adds credibility to a business and attracts more clients.</p>
       
@@ -466,14 +474,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       
       <h2>Get a premium business address in Pune</h2>
       <p>Book your virtual office space in the premium business locations in Pune such as Hinjewadi, Kharadi, Magarpatta, Yerwada and Baner etc. Build your business presence in the Pune markets with professional virtual offices offering various office-related services. Pune is an ideal location for your business address due to its close proximity to several famous tourist destinations. It attracts various international investors and clients. Pune is one of the busiest metropolitan cities connected smoothly through an excellent road and rail network. Accelerate your business productivity, efficiency and growth by booking a premium business address in Pune today only. Thank us later!</p>
-      `
-    }
+      `,
+    },
   },
   kochi: {
-    title: "  Virtual Office in Kochi for GST, Business Registration @CoFynd",
-    description: "Build your company presence at Virtual Office in Kochi for GST registration, company registration, mailing address and office address starting @₹999/month*.",
+    title: '  Virtual Office in Kochi for GST, Business Registration @CoFynd',
+    description:
+      'Build your company presence at Virtual Office in Kochi for GST registration, company registration, mailing address and office address starting @₹999/month*.',
     footerSeo: {
-      title: "Virtual Office in Kochi FAQs",
+      title: 'Virtual Office in Kochi FAQs',
       description: `<p><b>Q- What is a virtual office?<br />
       Ans-</b> A virtual office is a popular remote workspace model which offers a professional business address. It comes with various office-related facilities and services. From mail handling to reception facilities and access to meeting rooms, various office facilities are provided without having a physical office setup. 
       </p>
@@ -537,14 +546,15 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       Planned Organization’s Name (for agreement) </p>
       <br />
       <h2>Get a premium business address in Kochi</h2>
-      <p>Kochi or Cochin is the commercial capital of Kerala with excellent infrastructure and smooth connectivity to the other parts of the city. It is a perfect business location for young startups due to lower rentals, power, water and transport costs. It is a well-developed area with prominent establishments such as glitzy malls, fine dining restaurants, prestigious hospitals, banks and so much more. You must totally get a premium business address in this location and nowhere else. If you want your business to reach new heights, book your virtual office space with us right now.</p>`
-    }
+      <p>Kochi or Cochin is the commercial capital of Kerala with excellent infrastructure and smooth connectivity to the other parts of the city. It is a perfect business location for young startups due to lower rentals, power, water and transport costs. It is a well-developed area with prominent establishments such as glitzy malls, fine dining restaurants, prestigious hospitals, banks and so much more. You must totally get a premium business address in this location and nowhere else. If you want your business to reach new heights, book your virtual office space with us right now.</p>`,
+    },
   },
   indore: {
-    title: "Virtual Office in Indore for Company, GST Registration & More",
-    description: "Looking for a Virtual Office in Indore? Build your company presence at CoFynd’s Virtual Offices for Company, GST registration, mailing & office address @ ₹999/month*",
+    title: 'Virtual Office in Indore for Company, GST Registration & More',
+    description:
+      'Looking for a Virtual Office in Indore? Build your company presence at CoFynd’s Virtual Offices for Company, GST registration, mailing & office address @ ₹999/month*',
     footerSeo: {
-      title: "Virtual Office in Indore FAQs",
+      title: 'Virtual Office in Indore FAQs',
       description: `<p><b>Q- What is a virtual office?<br>
       Ans-</b> Virtual offices are a part of a remote working model where there is no need for a physical office space for business operations and team communication. When we say a virtual office, it means a virtual business address for your business mails and other office-related activities. You get various facilities such as personalized reception services, virtual fax and mail handling services etc.
       
@@ -606,7 +616,7 @@ Ans-</b> If a company is already incorporated, then a PAN Card, Organization Inc
       
       <p>Indore is a smart city known for its technological advancements creating lots of opportunities for business growth in various fields. It is also known as the food capital of the country attracting a lot of people from all across the country. The IT industry in Indore is generating a lot of job opportunities for young and talented graduates. It is the home to some of the most prestigious educational institutions of the country such as 
       IIT and IIM. Besides, there are several hospitals, banks, malls, supermarkets, cinema halls etc. All the aforesaid qualities and establishments of Indore make it a perfect business location. Grab your virtual business address in this well-developed city with us right now!
-      </p>`
-    }
-  }
-}
+      </p>`,
+    },
+  },
+};

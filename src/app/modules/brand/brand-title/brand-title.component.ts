@@ -15,7 +15,7 @@ export class BrandTitleComponent {
   @Output() onCityEvent = new EventEmitter<string>();
   @Input() isColiving: boolean;
   workspaceName: string = 'Coworking';
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     if (this.isColiving) {

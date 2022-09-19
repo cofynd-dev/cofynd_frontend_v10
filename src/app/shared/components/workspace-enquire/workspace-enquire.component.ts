@@ -152,16 +152,12 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   loadColiving(id: string) {
     this.coLivingService.getCoLiving(id).subscribe(coliving => {
-      for (const property in coliving.price) {
-        if (coliving.price[property]) {
-          this.coLivingPlans.push({
-            label: this.toTitleCaseForColiving(property),
-            value: this.toValueCaseForColiving(property),
-          });
-        }
-      }
+      let plans = coliving.coliving_plans.map(x => x.planId);
+      plans = [...new Set(plans)];
+      plans.forEach(plan => {
+        this.coLivingPlans.push({ label: this.toTitleCase(plan), value: plan['name'] });
+      });
       var item_order = ['single-sharing', 'double-sharing', 'triple-sharing', 'studio-apartment', 'any-other'];
-
       this.coLivingPlans.sort((a, b) => item_order.indexOf(a.value) - item_order.indexOf(b.value));
       this.coLivingPlans = [...this.coLivingPlans];
     });
@@ -222,7 +218,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       );
     } else {
       this.validateOtp();
-
     }
   }
 
@@ -274,7 +269,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
           }
         */
         this.resetForm();
-        window.open('/thank-you', '_blank')
+        window.open('/thank-you', '_blank');
       },
       error => {
         this.loading = false;

@@ -13,7 +13,7 @@ export class HomeMenuModalComponent {
   isOffice: boolean = true;
   space: string = 'Spaces';
   Interested_in: string;
-  constructor(private bsRef: BsModalRef) { }
+  constructor(private bsRef: BsModalRef) {}
 
   closeModal() {
     this.bsRef.hide();

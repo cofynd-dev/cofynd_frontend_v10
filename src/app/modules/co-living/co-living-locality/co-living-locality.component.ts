@@ -88,8 +88,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             type: 'micro_location',
             ...results.queryParams,
           };
-        }
-        else if (this.featuredColiving && this.featuredColiving == '625698d3a91948671a4c590b') {
+        } else if (this.featuredColiving && this.featuredColiving == '625698d3a91948671a4c590b') {
           this.queryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             key: results.routeParams[1].path + '-' + this.title,
@@ -99,8 +98,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             type: 'micro_location',
             ...results.queryParams,
           };
-        }
-        else if (this.featuredColiving && this.featuredColiving == '625698e8a91948671a4c590c') {
+        } else if (this.featuredColiving && this.featuredColiving == '625698e8a91948671a4c590c') {
           this.queryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             key: results.routeParams[1].path + '-' + this.title,
@@ -162,10 +160,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   getOfficeList(param: {}) {
-    // debugger
-    // this.coLivingService.getPriorityWorkSpaces(param).subscribe(d => {
-    //   console.log("uu", d);
-    // })
     this.price_filters.length = 0;
     this.loading = true;
     this.queryParams.limit = 20;
@@ -231,14 +225,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.seoService.setData(this.seoData);
       }
     });
-
-    // if (this.activatedRoute.snapshot.url[1].path) {
-    //   console.log("fn run");
-    //   let micro_Location = this.activatedRoute.snapshot.url[1].path
-    //   for (let scrt of script.coliving.microLocation[micro_Location]) {
-    //     this.setHeaderScript(scrt);
-    //   }
-    // }
   }
 
   setHeaderScript(_script) {
