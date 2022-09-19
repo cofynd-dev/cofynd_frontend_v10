@@ -1028,6 +1028,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
   }
 
+  locateMyLocation() {}
+
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
