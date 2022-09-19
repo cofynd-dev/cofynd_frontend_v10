@@ -4,7 +4,6 @@ import { intToOrdinalNumberString } from '@app/shared/utils';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { CoLiving } from './../co-living.model';
 
-
 interface ImageGallery {
   id: number;
   name?: string;
@@ -60,7 +59,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   }
 
   openWorkSpace(slug: string) {
-
     const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${slug}`]));
     if (this.isMobileResolution) {
       this.router.navigate([url]);

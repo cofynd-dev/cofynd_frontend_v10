@@ -22,7 +22,7 @@ export class HomeCitiesComponent {
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
-  ) { }
+  ) {}
 
   locateMyLocation() {
     this.bsModalService.show(HomeNearmePopupComponent, {
@@ -40,12 +40,10 @@ export class HomeCitiesComponent {
       });
     }
     if (cityData.for_coWorking == true && cityData.for_coLiving == false) {
-      this.router.navigate([`/coworking/${cityData.name}`])
+      this.router.navigate([`/coworking/${cityData.name}`]);
     }
     if (cityData.for_coWorking == false && cityData.for_coLiving == true) {
-      this.router.navigate([`/co-living/${cityData.name}`])
+      this.router.navigate([`/co-living/${cityData.name}`]);
     }
   }
-
-
 }

@@ -16,4 +16,4 @@ const routes: Routes = [
   declarations: [OfficeSpaceDetailComponent, OfficeSpaceSimilarComponent],
   imports: [CommonModule, SharedModule, LeafletModule, RouterModule.forChild(routes)],
 })
-export class OfficeSpaceDetailModule { }
+export class OfficeSpaceDetailModule {}

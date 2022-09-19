@@ -29,4 +29,4 @@ import { HomeModule } from '../home/home.module';
   entryComponents: [CitySelectorModalComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, HomeModule],
 })
-export class CoworkingModule { }
+export class CoworkingModule {}

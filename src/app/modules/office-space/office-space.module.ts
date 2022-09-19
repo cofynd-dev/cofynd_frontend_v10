@@ -18,6 +18,6 @@ import { OfficeSpaceModalComponent } from './office-space-modal/office-space-mod
   ],
   imports: [CommonModule, SharedModule, OfficeSpaceRoutingModule],
   entryComponents: [OfficeSpaceModalComponent],
-  exports: [OfficeSpaceModalComponent]
+  exports: [OfficeSpaceModalComponent],
 })
-export class OfficeSpaceModule { }
+export class OfficeSpaceModule {}

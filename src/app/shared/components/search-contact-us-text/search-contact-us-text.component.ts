@@ -84,7 +84,6 @@ export class SearchContactUsTextComponent {
       },
       error => {
         this.isOtpError = true;
-        console.log(error);
         this.otpErrorMessage = error.error.message;
         this.loading = false;
       },

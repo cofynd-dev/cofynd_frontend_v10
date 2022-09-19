@@ -15,7 +15,6 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
 import { environment } from '@env/environment';
 
-
 @Component({
   selector: 'app-virtual-office',
   templateUrl: './virtual-office.component.html',

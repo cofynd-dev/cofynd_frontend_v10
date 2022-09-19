@@ -89,7 +89,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
@@ -140,18 +140,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
     };
     this.seoService.setData(seoData);
   }
-
-  // createMap(lat, lng) {
-  //   this.mapsAPILoader
-  //     .load()
-  //     .then(() => {
-  //       const mapOrigin = new google.maps.LatLng(lat, lng);
-  //       const mapOptions = this.getGoogleMapOptions(mapOrigin);
-  //       this.map = new google.maps.Map(this.workspaceMap.nativeElement, mapOptions);
-  //       this.setMarker(mapOrigin);
-  //     })
-  //     .catch(error => console.log(error));
-  // }
 
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {

@@ -27,7 +27,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     if (window.innerWidth < 768) {

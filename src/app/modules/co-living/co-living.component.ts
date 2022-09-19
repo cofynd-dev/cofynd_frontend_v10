@@ -1015,7 +1015,6 @@ export class CoLivingComponent implements OnInit {
         slug: 'locl-colive-work-koramangala',
         starting: '10,000',
       },
-
     ],
   };
 

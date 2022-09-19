@@ -10,7 +10,7 @@ import { CoLiving } from './co-living.model';
   providedIn: 'root',
 })
 export class CoLivingService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/coLivingSpaces?${params}`).pipe(
@@ -39,20 +39,16 @@ export class CoLivingService {
     );
   }
   getPriorityWorkSpaces(params): Observable<ObjectResponseModel<any>> {
-    return this.http.get<ObjectResponseModel<CoLiving>>(`/user/coLivingSpaces/priority/type`, { params: params }).pipe(
-      map((coLivings: any) => {
-        coLivings.data.prioritySpaces.map(coLiving => this.setStartingPrice(coLiving));
-        return coLivings;
-      }),
-    );
+    return this.http
+      .get<ObjectResponseModel<CoLiving>>(`/user/coLivingSpaces/priority/type`, { params: params })
+      .pipe(
+        map((coLivings: any) => {
+          coLivings.data.prioritySpaces.map(coLiving => this.setStartingPrice(coLiving));
+          return coLivings;
+        }),
+      );
   }
-  // getPriorityWorkSpaces1(params): Observable<ObjectResponseModel<any>> {
-  //   console.log("TTTT",params);
-  //   return this.http.get<ObjectResponseModel<CoLiving>>(
-  //     `${environment.baseUrl}admin/coLivingSpaces/priority/type`,
-  //     { params: params }
-  //   );
-  // }
+
   getColivingByBrand(slug: string, params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/colivingByBrand/${slug}?${params}`).pipe(
       map(coLivings => {
@@ -68,7 +64,7 @@ export class CoLivingService {
 
   setStartingPrice(coLiving) {
     let prices = [];
-    let miniPriceDuration = []
+    let miniPriceDuration = [];
     const updatedWorkspace = coLiving;
     if (coLiving.coliving_plans) {
       let data = coLiving.coliving_plans;
@@ -87,15 +83,15 @@ export class CoLivingService {
     if (coLiving.coliving_plans) {
       let data = coLiving.coliving_plans;
       if (data.length > 0) {
-        data.map((v) => {
+        data.map(v => {
           if (v.price === miniPrice) {
-            miniPriceDuration.push(v)
+            miniPriceDuration.push(v);
           }
-        })
+        });
       }
     }
     coLiving.price_type = 'bed';
-    coLiving.duration = 'month'
+    coLiving.duration = 'month';
     if (miniPriceDuration.length) {
       coLiving.duration = miniPriceDuration[0]['duration'];
     }

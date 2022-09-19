@@ -6,22 +6,18 @@ import { SeoService } from '@app/core/services/seo.service';
 @Component({
   selector: 'app-naggar',
   templateUrl: './naggar.component.html',
-  styleUrls: ['./naggar.component.scss']
+  styleUrls: ['./naggar.component.scss'],
 })
 export class NaggarComponent implements OnInit {
-
-  constructor(private seoService: SeoService,
-    private router: Router) { }
+  constructor(private seoService: SeoService, private router: Router) {}
 
   ngOnInit() {
-    this.seoService.setData(this.seoData)
+    this.seoService.setData(this.seoData);
   }
   centerData = GoSteps_Center_Details[16];
-  seoData = this.centerData.seo
+  seoData = this.centerData.seo;
 
   contactRedirect() {
-    this.router.navigate(["/contact-us"])
+    this.router.navigate(['/contact-us']);
   }
-
-
 }

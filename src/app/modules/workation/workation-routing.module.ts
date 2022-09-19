@@ -20,7 +20,6 @@ import { UdaipurComponent } from './udaipur/udaipur.component';
 import { VaranasiComponent } from './varanasi/varanasi.component';
 // import { WorkationComponent } from './workation.component';
 
-
 const routes: Routes = [
   {
     path: 'gostops-bir',
@@ -28,76 +27,76 @@ const routes: Routes = [
   },
   {
     path: 'gostops-rishikesh',
-    component: RishikeshComponent
+    component: RishikeshComponent,
   },
   {
     path: 'gostops-udaipur',
-    component: UdaipurComponent
+    component: UdaipurComponent,
   },
   {
     path: 'gostops-mcleodganj',
-    component: McloadganjComponent
+    component: McloadganjComponent,
   },
   {
     path: 'gostops-kochi',
-    component: KochiComponent
+    component: KochiComponent,
   },
   {
-    path: "gostops-manali",
-    component: ManaliComponent
+    path: 'gostops-manali',
+    component: ManaliComponent,
   },
   {
-    path: "gostops-jaipur",
-    component: JaipurComponent
+    path: 'gostops-jaipur',
+    component: JaipurComponent,
   },
   {
-    path: "gostops-mumbai",
-    component: MumbaiComponent
+    path: 'gostops-mumbai',
+    component: MumbaiComponent,
   },
   {
-    path: "gostops-varanasi",
-    component: VaranasiComponent
+    path: 'gostops-varanasi',
+    component: VaranasiComponent,
   },
   {
-    path: "gostops-amritsar",
-    component: AmritsarComponent
+    path: 'gostops-amritsar',
+    component: AmritsarComponent,
   },
   {
-    path: "gostops-alleppey",
-    component: AlleppeyComponent
+    path: 'gostops-alleppey',
+    component: AlleppeyComponent,
   },
   {
-    path: "gostops-munnar",
-    component: MunnarComponent
+    path: 'gostops-munnar',
+    component: MunnarComponent,
   },
   {
-    path: "gostops-palampur",
-    component: PalampurComponent
+    path: 'gostops-palampur',
+    component: PalampurComponent,
   },
   {
-    path: "gostops-dalhousie",
-    component: DalhousieComponent
+    path: 'gostops-dalhousie',
+    component: DalhousieComponent,
   },
   {
-    path: "gostops-leh",
-    component: LehComponent
+    path: 'gostops-leh',
+    component: LehComponent,
   },
   {
-    path: "gostops-mussoorie",
-    component: MussoorieComponent
+    path: 'gostops-mussoorie',
+    component: MussoorieComponent,
   },
   {
-    path: "gostops-naggar",
-    component: NaggarComponent
+    path: 'gostops-naggar',
+    component: NaggarComponent,
   },
   {
-    path: "gostops-delhi",
-    component: DelhiComponent
+    path: 'gostops-delhi',
+    component: DelhiComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WorkationRoutingModule { }
+export class WorkationRoutingModule {}

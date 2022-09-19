@@ -10,9 +10,9 @@ export class StarRatingComponent implements OnInit, OnChanges {
   @Input() shouldDisabled: boolean = true;
   @Input() id: number = new Date().getUTCMilliseconds();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.editing) {

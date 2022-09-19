@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'gostops',
-        component: BrandGostepsComponent
+        component: BrandGostepsComponent,
       },
       {
         path: ':slug',
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BrandRoutingModule { }
+export class BrandRoutingModule {}

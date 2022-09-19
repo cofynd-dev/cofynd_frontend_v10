@@ -23,6 +23,6 @@ export const staticPageRoutes: Routes = [
   },
   {
     path: 'terms-and-conditions',
-    loadChildren: () => import('./terms-condition/terms-condition.module').then(m => m.TermsConditionModule)
-  }
+    loadChildren: () => import('./terms-condition/terms-condition.module').then(m => m.TermsConditionModule),
+  },
 ];

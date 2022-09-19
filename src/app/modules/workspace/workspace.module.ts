@@ -10,9 +10,14 @@ import { WorkspaceTimingComponent } from './workspace-timing/workspace-timing.co
 import { MicroLocationPipe, WorkspaceSimilarComponent } from './workspace-similar/workspace-similar.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-
 @NgModule({
-  declarations: [WorkSpaceComponent, WorkspacePlanComponent, WorkspaceTimingComponent, WorkspaceSimilarComponent, MicroLocationPipe],
+  declarations: [
+    WorkSpaceComponent,
+    WorkspacePlanComponent,
+    WorkspaceTimingComponent,
+    WorkspaceSimilarComponent,
+    MicroLocationPipe,
+  ],
   imports: [CommonModule, SharedModule, WorkSpaceRoutingModule, LeafletModule],
 })
-export class WorkSpaceModule { }
+export class WorkSpaceModule {}

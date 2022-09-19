@@ -4,14 +4,13 @@ import { Router } from '@angular/router';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 
-
 interface PopularSpace {
-  name: string,
-  address: string,
-  image: string,
-  slug: string,
-  starting?: string,
-  country: string
+  name: string;
+  address: string;
+  image: string;
+  slug: string;
+  starting?: string;
+  country: string;
 }
 
 @Component({
@@ -27,7 +26,6 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   @Input() coLivingSpaces: PopularSpace[] = [];
   @Input() shouldCoWorkingVisible: boolean = true;
   @Input() shouldCoLivingVisible: boolean;
-
 
   @ViewChild('popularSpaceCarousel', { static: false })
   popularSpaceCarousel: NguCarousel<PopularSpace>;
@@ -46,13 +44,13 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
-  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) { }
+  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) {}
 
   ngOnInit(): void {
     // this.getPopularWorSpaces()
   }
 
-  ngOnChanges(): void { }
+  ngOnChanges(): void {}
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
@@ -107,4 +105,3 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   //   });
   // }
 }
-

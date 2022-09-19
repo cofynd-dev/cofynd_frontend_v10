@@ -66,7 +66,7 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     touch: true,
     interval: { timing: 4000, initialDelay: 1000 },
 
-    easing: 'ease'
+    easing: 'ease',
   };
 
   constructor(

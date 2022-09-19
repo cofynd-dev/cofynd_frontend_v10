@@ -35,7 +35,7 @@ export class CoLivingSimilarComponent implements OnInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private cdr: ChangeDetectorRef, private coLivingService: CoLivingService) { }
+  constructor(private cdr: ChangeDetectorRef, private coLivingService: CoLivingService) {}
 
   ngOnInit() {
     this.loadWorkSpaces();

@@ -6,21 +6,18 @@ import { SeoService } from '@app/core/services/seo.service';
 @Component({
   selector: 'app-manali',
   templateUrl: './manali.component.html',
-  styleUrls: ['./manali.component.scss']
+  styleUrls: ['./manali.component.scss'],
 })
 export class ManaliComponent implements OnInit {
-
-  constructor(private seoService: SeoService,
-    private router: Router) { }
+  constructor(private seoService: SeoService, private router: Router) {}
 
   ngOnInit() {
-    this.seoService.setData(this.seoData)
+    this.seoService.setData(this.seoData);
   }
   centerData = GoSteps_Center_Details[5];
-  seoData = this.centerData.seo
+  seoData = this.centerData.seo;
 
   contactRedirect() {
-    this.router.navigate(["/contact-us"])
+    this.router.navigate(['/contact-us']);
   }
-
 }

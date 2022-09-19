@@ -6,21 +6,18 @@ import { SeoService } from '@app/core/services/seo.service';
 @Component({
   selector: 'app-alleppey',
   templateUrl: './alleppey.component.html',
-  styleUrls: ['./alleppey.component.scss']
+  styleUrls: ['./alleppey.component.scss'],
 })
 export class AlleppeyComponent implements OnInit {
-
-  constructor(private seoService: SeoService,
-    private router: Router) { }
+  constructor(private seoService: SeoService, private router: Router) {}
 
   ngOnInit() {
-    this.seoService.setData(this.seoData)
+    this.seoService.setData(this.seoData);
   }
   centerData = GoSteps_Center_Details[10];
-  seoData = this.centerData.seo
+  seoData = this.centerData.seo;
 
   contactRedirect() {
-    this.router.navigate(["/contact-us"])
+    this.router.navigate(['/contact-us']);
   }
-
 }

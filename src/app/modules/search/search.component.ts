@@ -9,7 +9,7 @@ import { ConfigService } from '@core/services/config.service';
 export class SearchComponent implements OnInit, OnDestroy {
   isMapView: boolean;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService) {}
 
   ngOnInit(): void {
     // this.configService.updateConfig({ headerClass: 'search-listing' });

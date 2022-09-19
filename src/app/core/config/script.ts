@@ -99,7 +99,7 @@ export const script = {
             "text": "The best coliving spaces in this city are Settl. Norcia, The Hub, Grexter Avalon, Edmund StayAbode, Covie Bannerghatta Road, Your Space Bannerghatta Road and lot more."
           }
         }]
-      }`
+      }`,
     ],
     gurugram: [
       `{
@@ -272,7 +272,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -333,7 +333,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -356,7 +356,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -376,7 +376,7 @@ export const script = {
             "text": "The best coliving spaces in Delhi are Eden by Hive, Jade by Hive, Mulive Dwarka, HelloWorld Boeing, HelloWorld Kalkaji and a lot more."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -434,7 +434,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -460,7 +460,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -480,7 +480,7 @@ export const script = {
             "text": "The best coliving spaces in Hyderabad are HelloWorld Fitoor, HelloWorld Rutba, Colive 501 Elara, Colive 506 Ruby and a lot more."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -513,8 +513,7 @@ export const script = {
           "author": { "@type": "Person", "name": "CoFynd" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
-
+      }`,
     ],
 
     pune: [
@@ -539,7 +538,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -565,7 +564,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -667,7 +666,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -693,7 +692,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -713,7 +712,7 @@ export const script = {
             "text": "The best coliving spaces in Mumbai are HelloWorld Staylann, Your Space Khargar, Tribe Vile Parle, HelloWorld Harmony and a lot more."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -746,7 +745,7 @@ export const script = {
           "author": { "@type": "Person", "name": "CoFynd" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     indore: [
@@ -771,7 +770,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -797,7 +796,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -830,17 +829,16 @@ export const script = {
           "author": { "@type": "Person", "name": "Ashish" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the top locations for Coliving PG in Indore?", "acceptedAnswer": { "@type": "Answer", "text": "The Top locations are AB Road, LIC Colony, Ratna Lok Colony, South Tukoganj etc." } }, { "@type": "Question", "name": "2. What are the best Coliving Spaces in Indore?", "acceptedAnswer": { "@type": "Answer", "text": "The best Coliving Spaces in Indore are HelloWorld Falcon, HelloWorld Dove, Your Space South Sukoganj etc." } }, { "@type": "Question", "name": "3. What are the most affordable or cheapest Coliving PG in Indore?", "acceptedAnswer": { "@type": "Answer", "text": "The most affordable or cheapest PG in Indore are HelloWorld Nightingale, HelloWorld Dove etc. " } }, { "@type": "Question", "name": "4. What are the top branded or luxury Coliving PGs in Indore?", "acceptedAnswer": { "@type": "Answer", "text": "The Luxury PGs are HelloWorld Falcon, Your Space Scheme South Tukoganj, Your Space Scheme 78, Your Space SCheme 114 etc. " } }, { "@type": "Question", "name": "5. What are the documents required for PG Accommodation in Indore?", "acceptedAnswer": { "@type": "Answer", "text": "Documents required are Aadhar Card, Pan Card and one passport size photo." } }]
-      }` ,
+      }`,
     ],
 
     microLocation: {
-
       gachibowli: [
         `{
           "@context": "https://schema.org",
@@ -941,7 +939,7 @@ export const script = {
         }`,
       ],
 
-      "banjara-hills": [
+      'banjara-hills': [
         `{
           "@context": "https://schema.org",
           "@type": "Article",
@@ -1041,7 +1039,7 @@ export const script = {
         }`,
       ],
 
-      "jubilee-hills": [
+      'jubilee-hills': [
         `{
           "@context": "https://schema.org",
           "@type": "Article",
@@ -1141,7 +1139,7 @@ export const script = {
         }`,
       ],
 
-      "hitech-city": [
+      'hitech-city': [
         `{
           "@context": "https://schema.org",
           "@type": "Article",
@@ -1355,7 +1353,6 @@ export const script = {
             }
           }]
         }`,
-
       ],
 
       kukatpally: [
@@ -1556,7 +1553,7 @@ export const script = {
               "text": "Affordable PGs are Colive 504 Garnet, Colive 509 Fuji, etc."
             }
           }]
-        }`
+        }`,
       ],
 
       begumpet: [
@@ -1757,7 +1754,6 @@ export const script = {
             }
           }]
         }`,
-
       ],
 
       kothaguda: [
@@ -2460,14 +2456,11 @@ export const script = {
           }]
         }`,
       ],
-
-    }
+    },
   },
   // officespace Sccript
 
-
   officespace: {
-
     gurugram: [
       `{
       "@context": "https://schema.org",
@@ -2609,7 +2602,7 @@ export const script = {
         "https://cofynd.com/"
       ]
     }
-` ,
+`,
 
       `{
       "@context": "https://schema.org/", 
@@ -2653,7 +2646,7 @@ export const script = {
         "publisher": {"@type": "Organization", "name": "Cofynd"}
       }
     }
-    ` ,
+    `,
 
       `{
       "@context": "https://schema.org",
@@ -2695,7 +2688,7 @@ export const script = {
         }
       }]
     }
-    ` ,
+    `,
 
       `{
       "@context": "https://schema.org/", 
@@ -2756,8 +2749,7 @@ export const script = {
     ],
 
     microLocation: {
-
-      "golf-course-road": [
+      'golf-course-road': [
         `{
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -2866,7 +2858,7 @@ export const script = {
       `,
       ],
 
-      "sohna-road": [
+      'sohna-road': [
         `{
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -2977,15 +2969,12 @@ export const script = {
       }
       `,
       ],
-    }
+    },
   },
-
-
 
   // Coworking Script=======================================================================
 
   coworking: {
-
     gurugram: [
       `{
         "@context": "https://schema.org",
@@ -3008,7 +2997,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3034,7 +3023,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3054,7 +3043,7 @@ export const script = {
             "text": "The price range of hot desks start from ₹3,500/seat to ₹18,000/seat, dedicated desks start from ₹4000/seat to ₹25,000/seat and 3-seater Private Cabins start from ₹5,500/seat to ₹25,000/seat."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3088,7 +3077,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Aakash" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     delhi: [
@@ -3116,7 +3105,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3139,7 +3128,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3159,7 +3148,7 @@ export const script = {
             "text": "The price range of hot desks start from ₹3,999/seat to ₹18,000/seat, dedicated desks start from ₹4000/seat to ₹39,000/seat and 3-seater Private Cabins start from ₹5,500/seat to ₹74,999/seat."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3193,7 +3182,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Aman" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     noida: [
@@ -3218,7 +3207,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3244,7 +3233,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3278,7 +3267,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Gaurav" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     bangalore: [
@@ -3303,7 +3292,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3329,7 +3318,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3383,7 +3372,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Gaurav" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     hyderabad: [
@@ -3408,7 +3397,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3434,7 +3423,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3454,7 +3443,7 @@ export const script = {
             "text": "The price range of flexible desks start from ₹3,500/seat to ₹16,000/seat, fixed desks start from ₹4500/seat to ₹18,000/seat and 3-seater Private Cabins start from ₹5,500/seat to ₹22,000/seat."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3487,7 +3476,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Ashish" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     pune: [
@@ -3512,7 +3501,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3538,7 +3527,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3558,7 +3547,7 @@ export const script = {
             "text": "The price range of flexible desks start from ₹4,500/seat to ₹12,000/seat, fixed desks start from ₹4,500/seat to ₹15,000/seat and 3-seater Private Cabins start from ₹5,500/seat to ₹25,000/seat."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3591,7 +3580,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Ayush" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     mumbai: [
@@ -3616,7 +3605,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3642,7 +3631,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3695,7 +3684,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Aakash" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     indore: [
@@ -3720,7 +3709,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3746,7 +3735,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3766,7 +3755,7 @@ export const script = {
             "text": "The price range of flexible desks starts from ₹3,800/seat to ₹15,000/seat, fixed desks start from ₹4,500/seat to ₹30,000/seat and 3-seater Private Cabins start from ₹5,500/seat to ₹25,000/seat."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3826,7 +3815,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3849,13 +3838,13 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the premium Coworking Spaces in Chennai?", "acceptedAnswer": { "@type": "Answer", "text": "The premium coworking in Chennai are RJP Workspace, The Workzone Kilpauk, Cowrks One Paramount etc." } }, { "@type": "Question", "name": "2. What are the affordable Coworking Spaces in Chennai?", "acceptedAnswer": { "@type": "Answer", "text": "The affordable coworking in Chennai are Backyard Adyar, Crizone Business Centre, Karya Space Nungambakkam etc." } }, { "@type": "Question", "name": "3. What is the price range of Hot Desks and Dedicated Desks in Coworking Chennai?", "acceptedAnswer": { "@type": "Answer", "text": "The price range of hot desks start from ₹3,500/seat to ₹15,000/seat and dedicated desks start from ₹4,500/seat to ₹20,000/seat." } }, { "@type": "Question", "name": "4. What is the price range of Private Cabins in Coworking Chennai?", "acceptedAnswer": { "@type": "Answer", "text": "The price range of private cabins start from ₹5,500/seat to ₹25,000/seat." } }, { "@type": "Question", "name": "5. What are the best locations for coworking spaces in Chennai?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Chennai are Guindy, Anna Nagar, OMR and Nungambakkam among others." } }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -3887,7 +3876,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Abhishek" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     ahmedabad: [
@@ -3912,7 +3901,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -3938,7 +3927,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -3973,7 +3962,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Ranbir"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4013,7 +4002,7 @@ export const script = {
             "@type": "Answer",
             "text":"The best locations for coworking space in Ahmedabad are S.G. Highway, Navrangpura, Vastrapur and Prahlad Nagar among others. "}
           }]
-      }` ,
+      }`,
     ],
 
     kochi: [
@@ -4038,7 +4027,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4064,7 +4053,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4097,7 +4086,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Sahej" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4128,7 +4117,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4154,13 +4143,13 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the best locations for coworking spaces in Chandigarh?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Chandigarh are Mohali, Zirakpur, Madhya Marg, Shahibzada Ajit Singh Nagar among others." } }, { "@type": "Question", "name": "2. Why are Shared Office Spaces so much popular in Chandigarh?", "acceptedAnswer": { "@type": "Answer", "text": "Some of the major reasons for its popularity are strong infrastructure, provision of modern amenities, efficient transportation system, millennial culture, networking opportunities among others." } }, { "@type": "Question", "name": "3. What If I hire more people in Chandigarh’s Coworking Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Coworking Spaces in Chandigarh are fully flexible according to your needs. Whether you want to scale your workforce up or down, you can easily change your membership plans without any hassle." } }, { "@type": "Question", "name": "4. What amenities are included in Chandigarh’s Shared Office Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Here, you get access to all the state of the art amenities- Comfortable and colourful Workstations, budget-friendly meeting and training rooms, High-Speed Wifi, Tea/Coffee, Pantry area, server room, reception, Lounge Area, super housekeeping, sanitised corners, Collaborating Staff, Printer and Parking Space. " } }, { "@type": "Question", "name": "5. What documentation do I need?", "acceptedAnswer": { "@type": "Answer", "text": " If you are a freelancer, you just need an ID and address proof. For companies, you need the PAN Card as well as the copy of MOA." } }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4193,7 +4182,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Karan" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     jaipur: [
@@ -4218,7 +4207,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4244,7 +4233,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4277,7 +4266,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Garvit" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4308,7 +4297,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4334,7 +4323,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4367,13 +4356,13 @@ export const script = {
           "author": { "@type": "Person", "name": "Garvit" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the best locations for coworking spaces in Lucknow?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Lucknow are Gomti Nagar, Indira Nagar and Vibhuti Khand among others. " } }, { "@type": "Question", "name": "2. Why are Shared Office Spaces so much popular in Lucknow?", "acceptedAnswer": { "@type": "Answer", "text": " Some of the major reasons for its popularity are strong infrastructure, provision of modern amenities, efficient transportation system, millennial culture, networking opportunities among others. " } }, { "@type": "Question", "name": "3. What If I hire more people in Lucknow’s Coworking Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Coworking Spaces in Lucknow are fully flexible according to your needs. Whether you want to scale your workforce up or down, you can easily change your membership plans without any hassle. " } }, { "@type": "Question", "name": "4. What amenities are included in Lucknow’s Shared Office Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Here, you get access to all the state of the art amenities- Comfortable and colourful Workstations, budget-friendly meeting and training rooms, High-Speed Wifi, Tea/Coffee, Pantry area, server room, reception, Lounge Area, super housekeeping, sanitised corners, Collaborating Staff, Printer and Parking Space." } }, { "@type": "Question", "name": "5. What documentation do I need?", "acceptedAnswer": { "@type": "Answer", "text": "If you are a freelancer, you just need an ID and address proof. For companies, you need the PAN Card as well as the copy of MOA." } }]
-      }` ,
+      }`,
     ],
 
     kolkata: [
@@ -4398,7 +4387,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4424,13 +4413,13 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the best locations for coworking office space in Kolkata?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Kolkata are Salt Lake City, Rajarhat, Dalhousie, Howrah and Bidhannagar among others. " } }, { "@type": "Question", "name": "2. What are the best coworking space in Kolkata?", "acceptedAnswer": { "@type": "Answer", "text": "The best coworking spaces in Kolkata are Corner Desk, Wit, Specialty Offices, East India Works, Workstreet etc." } }, { "@type": "Question", "name": "3. What are the prices for fixed desks in Kolkata?", "acceptedAnswer": { "@type": "Answer", "text": "The prices for fixed desks in Kolkata starts from ₹5,500 per seat per month." } }, { "@type": "Question", "name": "4. What are the prices for private cabins in Kolkata?", "acceptedAnswer": { "@type": "Answer", "text": "The prices for private cabins in Kolkata starts from ₹7,500 per seat per month. Private cabins usually start from 2-3 seater to 8 seaters." } }, { "@type": "Question", "name": "5. What If I hire more people in Kolkata’s Coworking Spaces?", "acceptedAnswer": { "@type": "Answer", "text": " Coworking Spaces in Kolkata are fully flexible according to your needs. Whether you want to scale your workforce up or down, you can easily change your membership plans without any hassle. " } }]
-      }` ,
+      }`,
     ],
 
     coimbatore: [
@@ -4455,7 +4444,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4481,7 +4470,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4514,13 +4503,13 @@ export const script = {
           "author": { "@type": "Person", "name": "Garvit" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{ "@type": "Question", "name": "1. What are the best locations for coworking spaces in Coimbatore?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Coimbatore are Ramanathapuram, RS Puram, Eachanari, Cross-Cut Road among others." } }, { "@type": "Question", "name": "2. Why are Shared Office Spaces so much popular in Coimbatore?", "acceptedAnswer": { "@type": "Answer", "text": "Some of the major reasons for its popularity are strong infrastructure, provision of modern amenities, efficient transportation system, millennial culture, networking opportunities among others. " } }, { "@type": "Question", "name": "3. What If I hire more people in Coimbatore’s Coworking Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Coworking Spaces in Coimbatore are fully flexible according to your needs. Whether you want to scale your workforce up or down, you can easily change your membership plans without any hassle. " } }, { "@type": "Question", "name": "4. What amenities are included in Coimbatore’s Shared Office Spaces?", "acceptedAnswer": { "@type": "Answer", "text": "Here, you get access to all the state of the art amenities- Comfortable and colourful Workstations, budget-friendly meeting and training rooms, High-Speed Wifi, Tea/Coffee, Pantry area, server room, reception, Lounge Area, super housekeeping, sanitised corners, Collaborating Staff, Printer and Parking Space." } }, { "@type": "Question", "name": "5. What documentation do I need?", "acceptedAnswer": { "@type": "Answer", "text": " If you are a freelancer, you just need an ID and address proof. For companies, you need the PAN Card as well as a copy of the MOA. " } }]
-      }` ,
+      }`,
     ],
 
     goa: [
@@ -4545,7 +4534,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4571,7 +4560,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4604,7 +4593,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Garvit" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4635,7 +4624,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4661,7 +4650,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4694,7 +4683,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Rupesh" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4725,7 +4714,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4751,7 +4740,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -4784,7 +4773,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Rupesh" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4792,7 +4781,6 @@ export const script = {
         "mainEntity": [{ "@type": "Question", "name": "1. What are the top locations for coworking spaces in Bhubaneswar?", "acceptedAnswer": { "@type": "Answer", "text": "The best locations in Bhubaneswar are Saheed Nagar, Jayadev Nagar and Patia." } }, { "@type": "Question", "name": "2. What are the best coworking spaces in Bhubaneswar?", "acceptedAnswer": { "@type": "Answer", "text": "The best coworking spaces are Cohopers Workstudio etc." } }, { "@type": "Question", "name": "3. Why are Coworking Spaces so much in-demand in Bhubaneswar?", "acceptedAnswer": { "@type": "Answer", "text": " Some of the major reasons for its widespread popularity are efficient architecture, provision of contemporary amenities, smooth transportation system, millennial vibes and networking opportunities among others." } }, { "@type": "Question", "name": "4. What If I hire more people in coworking office spaces in Bhubaneswar?", "acceptedAnswer": { "@type": "Answer", "text": "Coworking Spaces are completely flexible according to your specific requirements. Whether you want to increase your workforce up or down, you can easily change your membership plans without any troubles. " } }, { "@type": "Question", "name": "5. What amenities are included in the coworking spaces in Bhubaneswar?", "acceptedAnswer": { "@type": "Answer", "text": "Here, you get access to all the modern-day amenities- Comfortable Workstations, Tea/Coffee, Pantry, Lounge Area, High-Speed Wifi, Collaborating Staff, Printer and Parking Space." } }]
       }`,
     ],
-
   },
 
   virtualOffice: {
@@ -4818,7 +4806,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4845,7 +4833,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-06"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4865,7 +4853,7 @@ export const script = {
             "text": "The best virtual office for the company and GST registration in this city are 91springboard Sector 44, 91springboard Udyog Vihar, AltF MG Road, WeWork Udyog Vihar etc."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -4898,7 +4886,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Sourabh"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
 
     delhi: [
@@ -4923,7 +4911,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4950,7 +4938,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-06"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -4970,7 +4958,7 @@ export const script = {
             "text": "The virtual office space under Rs.1000/month are Start CoWorks Connaught Place, Covork Paschim Vihar etc."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -5003,7 +4991,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Amita"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
 
     noida: [
@@ -5028,7 +5016,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5055,7 +5043,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5075,7 +5063,7 @@ export const script = {
             "text": "The best virtual office for the company and GST registration is 91springboard Sector 2, ALTF Sector 132, InstaOffice Sector 16, KoCreate Sector 126 Noida."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -5108,7 +5096,7 @@ export const script = {
           "author": {"@type": "Person", "name": "CoFynd"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
 
     bangalore: [
@@ -5133,7 +5121,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5160,7 +5148,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5180,7 +5168,7 @@ export const script = {
             "text": "The topmost virtual office for company registration and GST registration are Rainmakers Workspace, BHIVE HSR, Common Desk, Excel Coworks etc."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -5213,7 +5201,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Karan"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
 
     hyderabad: [
@@ -5238,7 +5226,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5265,7 +5253,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5285,7 +5273,7 @@ export const script = {
             "text": "The premium virtual offices in this city for company and GST registration are Cokarma Himayat Nagar, Cowrks Skyview, iKeva Banjara Hills etc"
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -5318,7 +5306,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Sehaj"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
 
     pune: [
@@ -5343,7 +5331,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5370,7 +5358,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5390,7 +5378,7 @@ export const script = {
             "text": "The premium virtual offices for Company and GST registration are Kontor Space, Level 212 Coworks etc."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -5423,7 +5411,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Aman" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     mumbai: [
@@ -5448,8 +5436,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
-
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5476,7 +5463,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5496,7 +5483,7 @@ export const script = {
             "text": "The best virtual office for Company and GST Registration are iKeva BKC, Workbay Santacruz West, Cowrks Powai etc"
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -5529,7 +5516,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Gourav" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     ahmedabad: [
@@ -5557,7 +5544,7 @@ export const script = {
           }
         },
         "datePublished": ""
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5584,7 +5571,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5604,7 +5591,7 @@ export const script = {
             "text": "For Company, GST registration and Business addresses, the best virtual offices is Incuspaze Vijay Cross Road."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -5638,7 +5625,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Kiran" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     kochi: [
@@ -5663,7 +5650,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5690,7 +5677,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5710,7 +5697,7 @@ export const script = {
             "text": "For company registration, GST registration and business addresses, there are some of the best virtual offices such as Innerspace Ernakulam, Spacelance Kakkanad."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -5744,7 +5731,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Kiran" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     chennai: [
@@ -5769,7 +5756,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5796,7 +5783,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5816,7 +5803,7 @@ export const script = {
             "text": "The best virtual office in this city for company registration, GST registration and business addresses are The Work Villa Anna Salai,iKeva Perungudi, LM Tech Park Perungudi etc."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/",
@@ -5849,7 +5836,7 @@ export const script = {
           "author": { "@type": "Person", "name": "Akanksha" },
           "publisher": { "@type": "Organization", "name": "CoFynd" }
         }
-      }` ,
+      }`,
     ],
 
     indore: [
@@ -5874,7 +5861,7 @@ export const script = {
           "https://en.wikipedia.org/wiki/CoFynd",
           "https://cofynd.com/"
         ]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5901,7 +5888,7 @@ export const script = {
         },
         "datePublished": "2021-08-27",
         "dateModified": "2021-09-07"
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org",
@@ -5921,7 +5908,7 @@ export const script = {
             "text": "In Indore, the best virtual office space is Adited Coworking 1.0."
           }
         }]
-      }` ,
+      }`,
 
       `{
         "@context": "https://schema.org/", 
@@ -5955,7 +5942,7 @@ export const script = {
           "author": {"@type": "Person", "name": "Sourabh"},
           "publisher": {"@type": "Organization", "name": "CoFynd"}
         }
-      }` ,
+      }`,
     ],
-  }
-}
+  },
+};

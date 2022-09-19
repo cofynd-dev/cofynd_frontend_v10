@@ -21,7 +21,7 @@ import { script } from '@app/core/config/script';
 @Component({
   selector: 'app-virtual-office-city',
   templateUrl: './virtual-office-city.component.html',
-  styleUrls: ['./virtual-office-city.component.scss']
+  styleUrls: ['./virtual-office-city.component.scss'],
 })
 export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   S3_URL = environment.images.S3_URL;
@@ -117,7 +117,7 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
 
     if (this.title) {
       for (let scrt of script.virtualOffice[this.title]) {
-        this.setHeaderScript(scrt)
+        this.setHeaderScript(scrt);
       }
     }
   }
@@ -174,7 +174,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   }
 
   setHeaderScript(cityScript) {
-
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
@@ -190,16 +189,14 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
       //   }
       // });
 
-      this.workSpaces = allWorkSpaces.data.filter((cat) =>
-
-        cat.plans.filter((p) => p.category === '6231bca42a52af3ddaa73ab1').length
+      this.workSpaces = allWorkSpaces.data.filter(
+        cat => cat.plans.filter(p => p.category === '6231bca42a52af3ddaa73ab1').length,
       );
       if (allWorkSpaces.data.length) {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
 
         if (filteredLocations && filteredLocations.length) {
           this.cityWisePopularLocation = filteredLocations[0].locations;
-
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
@@ -310,8 +307,8 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
 
   setSubName() {
     let name = 'Virtual Office in ';
-    if (this.title === "gurugram") {
-      name += ' ' + this.capitalize("gurgaon");
+    if (this.title === 'gurugram') {
+      name += ' ' + this.capitalize('gurgaon');
     } else {
       name += ' ' + this.capitalize(this.title);
     }

@@ -9,7 +9,13 @@ import { BrandComponent } from './brand.component';
 import { BrandGostepsComponent } from './brand-gosteps/brand-gosteps.component';
 import { GostepsCardComponent } from './brand-gosteps/gosteps-card/gosteps-card.component';
 @NgModule({
-  declarations: [BrandComponent, BrandTitleComponent, BrandCoworkingComponent, BrandGostepsComponent, GostepsCardComponent],
+  declarations: [
+    BrandComponent,
+    BrandTitleComponent,
+    BrandCoworkingComponent,
+    BrandGostepsComponent,
+    GostepsCardComponent,
+  ],
   imports: [CommonModule, SharedModule, BrandRoutingModule, CoLivingModule],
 })
 export class BrandModule {}

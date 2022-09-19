@@ -25,7 +25,7 @@ export class ReviewSubmissionFormComponent implements OnInit {
     public toasterService: ToastrService,
     private readonly authService: AuthService,
     private readonly workSpaceService: WorkSpaceService,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getLoggedInUser();
@@ -39,8 +39,7 @@ export class ReviewSubmissionFormComponent implements OnInit {
     this.onClose.emit(true);
   }
 
-  update(event) {
-  }
+  update(event) {}
 
   authAddReview() {
     const request = this.workSpaceService.checkReviewSpace(this.router.url, this.review, this.space.id);

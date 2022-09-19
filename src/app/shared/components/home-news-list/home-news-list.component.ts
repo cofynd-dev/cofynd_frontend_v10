@@ -10,7 +10,7 @@ export class HomeNewsListComponent implements OnInit {
   newsList: any;
   pageTitle = 'CoFynd in the News';
   newsMedia = ['your-story', 'the-statesman', 'et-prime', 'daily-hunt', 'inc42', 'tech-circle'];
-  constructor(private readonly workSpaceService: WorkSpaceService) { }
+  constructor(private readonly workSpaceService: WorkSpaceService) {}
 
   ngOnInit() {
     this.getBlogs();

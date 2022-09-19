@@ -157,7 +157,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
   selectRoomType(value) {
     if (value === this.roomType) {
-      this.roomType = null
+      this.roomType = null;
     } else {
       this.roomType = value;
     }
@@ -178,7 +178,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.filterMapView(this.filterValue);
       $('#coliving_filter').modal('hide');
     }
-
   }
 
   createBreadcrumb() {

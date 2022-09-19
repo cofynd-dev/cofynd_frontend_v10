@@ -5,35 +5,35 @@ import { SeoService } from '@app/core/services/seo.service';
 @Component({
   selector: 'app-brand-gosteps',
   templateUrl: './brand-gosteps.component.html',
-  styleUrls: ['./brand-gosteps.component.scss']
+  styleUrls: ['./brand-gosteps.component.scss'],
 })
 export class BrandGostepsComponent implements OnInit {
-  isMapView: boolean = false
-  title: string = "goStops";
+  isMapView: boolean = false;
+  title: string = 'goStops';
 
-  constructor(private seoService: SeoService,) { }
+  constructor(private seoService: SeoService) {}
 
   ngOnInit() {
-    this.seoService.setData(this.seoData)
+    this.seoService.setData(this.seoData);
   }
 
   seoData = {
-    description: "goStops",
-    title: "goSTOPS",
-  }
+    description: 'goStops',
+    title: 'goSTOPS',
+  };
 
   breadcrumbs = [
     {
-      title: "Brand",
+      title: 'Brand',
       isActive: false,
-      url: "/"
+      url: '/',
     },
     {
-      title: "goStops",
+      title: 'goStops',
       isActive: true,
-      url: "barnd"
-    }
-  ]
+      url: 'barnd',
+    },
+  ];
 
-  workSpaces = GoStops_Centers
+  workSpaces = GoStops_Centers;
 }

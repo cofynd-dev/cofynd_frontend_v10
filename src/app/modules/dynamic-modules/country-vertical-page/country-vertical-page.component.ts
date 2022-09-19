@@ -29,10 +29,9 @@ interface PopularSpace {
 @Component({
   selector: 'app-country-vertical-page',
   templateUrl: './country-vertical-page.component.html',
-  styleUrls: ['./country-vertical-page.component.scss',]
+  styleUrls: ['./country-vertical-page.component.scss'],
 })
 export class CountryVerticalPageComponent implements OnInit {
-
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -41,50 +40,55 @@ export class CountryVerticalPageComponent implements OnInit {
   cities: City[];
   title: string;
 
-
   popularCoLivingSpaces = [
     {
       name: 'Delhi',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/19a85ebc62e685a77d8185fd041191baaa1354c1.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/19a85ebc62e685a77d8185fd041191baaa1354c1.jpg',
       slug: 'delhi',
       address: 'The Nation Capital',
-
     },
     {
       name: 'Gurugram',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
       slug: 'gurugram',
       address: 'A Millennium City',
     },
     {
       name: 'Noida',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3cf39ce402e67c8fad130db6b0dae64915e20cd2.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3cf39ce402e67c8fad130db6b0dae64915e20cd2.jpg',
       slug: 'noida',
       address: 'The Hitech City',
     },
     {
       name: 'Bangalore',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da4a46369387bbd79f2c178e07944090e50d58a7.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da4a46369387bbd79f2c178e07944090e50d58a7.jpg',
       slug: 'bangalore',
       address: "India's Silicon Valley",
     },
     {
       name: 'Hyderabad',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ba01fdedce7ac6846cc542b84ee146cededc36c.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ba01fdedce7ac6846cc542b84ee146cededc36c.jpg',
       slug: 'hyderabad',
-      address: "A City of Nawabs",
+      address: 'A City of Nawabs',
     },
     {
       name: 'Mumbai',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
       slug: 'mumbai',
-      address: "A City of Dreams",
+      address: 'A City of Dreams',
     },
     {
       name: 'Pune',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a95ef141b67882a1a8f5e7bd5e23590b54595d0.jpg',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a95ef141b67882a1a8f5e7bd5e23590b54595d0.jpg',
       slug: 'pune',
-      address: "Queen of the Deccan",
+      address: 'Queen of the Deccan',
     },
     // {
     //   name: 'Goa',
@@ -92,41 +96,41 @@ export class CountryVerticalPageComponent implements OnInit {
     //   slug: 'goa',
     //   address: "Paradise of South Asia",
     // },
-  ]
+  ];
 
   service = [
     {
-      title: "High Speed WiFi",
-      description: "High-Speed Wifi, HDTVs everything you need to do your best work.",
-      icon: "amenities/wifi.svg"
+      title: 'High Speed WiFi',
+      description: 'High-Speed Wifi, HDTVs everything you need to do your best work.',
+      icon: 'amenities/wifi.svg',
     },
     {
-      title: "Comfy Workstation",
-      description: "Connect with other people and share your skills for better and quick growth.",
-      icon: "amenities/workstation.svg"
+      title: 'Comfy Workstation',
+      description: 'Connect with other people and share your skills for better and quick growth.',
+      icon: 'amenities/workstation.svg',
     },
     {
-      title: "Meeting Rooms",
-      description: "Come up with great ideas and engage in valuable discussions in meeting rooms.",
-      icon: "amenities/meeting-room.svg"
+      title: 'Meeting Rooms',
+      description: 'Come up with great ideas and engage in valuable discussions in meeting rooms.',
+      icon: 'amenities/meeting-room.svg',
     },
     {
-      title: "Printer",
-      description: "Printing and scanning facilities available without any extra cost.",
-      icon: "amenities/printer.svg"
+      title: 'Printer',
+      description: 'Printing and scanning facilities available without any extra cost.',
+      icon: 'amenities/printer.svg',
     },
 
     {
-      title: "Pantry",
-      description: "Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.",
-      icon: "amenities/kitchen.svg"
+      title: 'Pantry',
+      description: 'Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.',
+      icon: 'amenities/kitchen.svg',
     },
     {
-      title: "Parking",
-      description: "Avoid morning hassle with easy and convenient parking area availability.",
-      icon: "amenities/bike-parking.svg"
+      title: 'Parking',
+      description: 'Avoid morning hassle with easy and convenient parking area availability.',
+      icon: 'amenities/bike-parking.svg',
     },
-  ]
+  ];
   country_name: string;
   constructor(
     private _renderer2: Renderer2,
@@ -150,15 +154,14 @@ export class CountryVerticalPageComponent implements OnInit {
           localStorage.setItem('country_id', res.data.id);
           this.workSpaceService.getCity(res.data.id).subscribe((res: any) => {
             this.cities = res.data.filter(city => city.for_coWorking === true);
-          })
-        })
-      })
+          });
+        });
+      });
     this.addSeoTags();
     this.setScript();
   }
 
   ngOnInit(): void {
-
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
       this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
@@ -170,67 +173,72 @@ export class CountryVerticalPageComponent implements OnInit {
     });
     this.getPopularWorSpacesAsCountry();
   }
-  spaceForMobile =
-    {
-      singapore: [
-        {
-          name: 'JustCo Asia Green',
-          address: '9 Tampines Grande',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9091dc4dae4376437c71ea7c145159dc6c3f6d96.jpg',
-          slug: 'justco-asia-green',
-          starting: 'SGD398.00',
-          country: 'singapore'
-        },
-        {
-          name: 'WeWork Tanjong Pagar',
-          address: '60 Anson Road',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1ba55e3a0ecd8b8bd4b60af541397270d41824b1.jpg',
-          slug: 'wework-tanjong-pagar',
-          starting: 'SGD250.00',
-          country: 'singapore'
-        },
-        {
-          name: 'JustCo The Centrepoint',
-          address: '176 Orchard Rd',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b68964508847d2c04b565aa318f0b3b0bf579079.jpg',
-          slug: 'justco-the-centrepoint',
-          starting: 'SGD398.00',
-          country: 'singapore'
-        },
-        {
-          name: 'The Great Room Raffles',
-          address: '328 North Bridge Rd',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d76cf8783a905b3c915581b2fe90ab9ce6a7a582.jpg',
-          slug: 'the-great-room-raffles-arcade',
-          starting: 'SGD750.00',
-          country: 'singapore'
-        },
+  spaceForMobile = {
+    singapore: [
+      {
+        name: 'JustCo Asia Green',
+        address: '9 Tampines Grande',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9091dc4dae4376437c71ea7c145159dc6c3f6d96.jpg',
+        slug: 'justco-asia-green',
+        starting: 'SGD398.00',
+        country: 'singapore',
+      },
+      {
+        name: 'WeWork Tanjong Pagar',
+        address: '60 Anson Road',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1ba55e3a0ecd8b8bd4b60af541397270d41824b1.jpg',
+        slug: 'wework-tanjong-pagar',
+        starting: 'SGD250.00',
+        country: 'singapore',
+      },
+      {
+        name: 'JustCo The Centrepoint',
+        address: '176 Orchard Rd',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b68964508847d2c04b565aa318f0b3b0bf579079.jpg',
+        slug: 'justco-the-centrepoint',
+        starting: 'SGD398.00',
+        country: 'singapore',
+      },
+      {
+        name: 'The Great Room Raffles',
+        address: '328 North Bridge Rd',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d76cf8783a905b3c915581b2fe90ab9ce6a7a582.jpg',
+        slug: 'the-great-room-raffles-arcade',
+        starting: 'SGD750.00',
+        country: 'singapore',
+      },
 
-        {
-          name: 'The Great Room',
-          address: 'The Great Room Centennial Tower',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/271cbcd3d2d9cf2df6b806a7d5f47ecb3763e33b.jpg',
-          slug: 'the-great-room-centennial-tower',
-          starting: 'SGD750.00',
-          country: 'singapore'
-        },
-        {
-          name: 'JustCo The Metropolis',
-          address: '9 North Buona Vista Drive',
-          image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6760ed9db92bfdb04932eed0ed8bbee2799ef755.jpg',
-          slug: 'justco-the-metropolis',
-          starting: 'SGD398.00',
-          country: 'singapore'
-        },
-      ],
-    }
+      {
+        name: 'The Great Room',
+        address: 'The Great Room Centennial Tower',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/271cbcd3d2d9cf2df6b806a7d5f47ecb3763e33b.jpg',
+        slug: 'the-great-room-centennial-tower',
+        starting: 'SGD750.00',
+        country: 'singapore',
+      },
+      {
+        name: 'JustCo The Metropolis',
+        address: '9 North Buona Vista Drive',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6760ed9db92bfdb04932eed0ed8bbee2799ef755.jpg',
+        slug: 'justco-the-metropolis',
+        starting: 'SGD398.00',
+        country: 'singapore',
+      },
+    ],
+  };
   routeToCity(city, country_name, country_id) {
     localStorage.setItem('country_name', country_name);
     localStorage.setItem('country_id', country_id);
-    this.router.navigate([`${country_name.toLowerCase().trim()}/coworking/${city.toLowerCase().trim()}`])
+    this.router.navigate([`${country_name.toLowerCase().trim()}/coworking/${city.toLowerCase().trim()}`]);
   }
   removedash(name: string) {
-    return name.replace(/-/, ' ')
+    return name.replace(/-/, ' ');
   }
   setScript() {
     let script = this._renderer2.createElement('script');
@@ -287,7 +295,7 @@ export class CountryVerticalPageComponent implements OnInit {
     // will disable
     initialState['enabledForCustomizeOffice'] = false;
     initialState['virArtShoot'] = false;
-    // 
+    //
 
     initialState['enabledForm'] = true;
     initialState['space'] = spaceType;
@@ -297,7 +305,7 @@ export class CountryVerticalPageComponent implements OnInit {
       initialState,
     });
   }
-  openModalWithComponent(spaceType: string,) {
+  openModalWithComponent(spaceType: string) {
     const initialState = {
       class: 'modal-dialog-centered',
     };
@@ -308,7 +316,6 @@ export class CountryVerticalPageComponent implements OnInit {
       initialState,
     });
   }
-
 
   addSeoTags() {
     this.seoService.getMeta(`${this.country_name}-coworking`).subscribe(seoMeta => {
@@ -330,14 +337,17 @@ export class CountryVerticalPageComponent implements OnInit {
   }
 
   getPopularWorSpacesAsCountry() {
-    this.workSpaceService.popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') }).subscribe(spaces => {
-      this.popularCoWorkingSpaces = spaces;
-      this.cdr.detectChanges();
-    });
+    this.workSpaceService
+      .popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') })
+      .subscribe(spaces => {
+        this.popularCoWorkingSpaces = spaces;
+        this.cdr.detectChanges();
+      });
   }
 
   openWorkSpace(_centerCity) {
-    this.router.navigate([`${_centerCity.country.toLowerCase().trim()}/coworking/${_centerCity.city.toLowerCase().trim()}`]);
+    this.router.navigate([
+      `${_centerCity.country.toLowerCase().trim()}/coworking/${_centerCity.city.toLowerCase().trim()}`,
+    ]);
   }
-
 }

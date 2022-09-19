@@ -8,4 +8,4 @@ import { ThankYouComponent } from './thank-you.component';
   declarations: [ThankYouComponent],
   imports: [CommonModule, ThankYouRoutingModule, SharedModule],
 })
-export class ThankYouModule { }
+export class ThankYouModule {}

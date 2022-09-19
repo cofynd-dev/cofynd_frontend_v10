@@ -44,7 +44,7 @@ export class TeamCarouselComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 }

@@ -6,11 +6,11 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./home-city-popup.component.scss'],
 })
 export class HomeCityPopupComponent implements OnInit {
-  constructor(private bsModalRef: BsModalRef) { }
+  constructor(private bsModalRef: BsModalRef) {}
 
   city: string;
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   closeModal() {
     this.bsModalRef.hide();

@@ -102,7 +102,6 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
           };
         }
 
-
         this.IMAGE_STATIC_ALT.push(
           'Office Space in ' + this.subTitle,
           'Office Space ' + this.subTitle + ' ' + this.title,
