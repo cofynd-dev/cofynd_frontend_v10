@@ -1433,12 +1433,10 @@ body {
 .similar-workspaces {
     margin-top: 15px;
 }
-
-.ng-select.ng-select-single .ng-select-container .ng-value-container,
-.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
-    position: absolute;
-    left: 0;
-    width: 100%;
+.ng-select.ng-select-single .ng-select-container .ng-value-container, .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+	position: absolute;
+	left: 0;
+	width: 100%;
     height: 100%;
 }
 
@@ -1450,6 +1448,15 @@ body {
 .ng-select .ng-arrow-wrapper {
     position: absolute !important;
     right: 0;
+}
+
+.ng-select span.ng-value-label {
+	top: 7px !important;
+	position: relative;
+}
+
+.footer-right .contact-info i {
+	font-size: 24px !important;
 }
 
 @media (max-width: 1366px) {
