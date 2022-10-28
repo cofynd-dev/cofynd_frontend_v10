@@ -52,7 +52,7 @@
                 <div class="contact-info">
                   <a [href]="'tel:' + contactInfo.phone"
                     [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>
-                    <i class="icon-phone"></i>
+                    <i class="fa fa-mobile"></i>
                     <span>Call us on:</span>
                     {{ contactInfo.phone }}
                   </a>
@@ -60,7 +60,7 @@
                 <div class="contact-info">
                   <a [href]="'mailto:' + contactInfo.email"
                     [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>
-                    <i class="icon-email"></i>
+                    <i class="fa fa-envelope-o"></i>
                     <span>Email:</span>
                     {{ contactInfo.email }}
                   </a>

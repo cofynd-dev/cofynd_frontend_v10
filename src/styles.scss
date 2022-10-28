@@ -1450,6 +1450,15 @@ body {
     right: 0;
 }
 
+.ng-select span.ng-value-label {
+	top: 7px !important;
+	position: relative;
+}
+
+.footer-right .contact-info i {
+	font-size: 24px !important;
+}
+
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {
         font-size: 13px !important;
