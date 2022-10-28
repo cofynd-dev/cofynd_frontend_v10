@@ -10,6 +10,10 @@ export const staticPageRoutes: Routes = [
     loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule),
   },
   {
+    path: 'enterprise',
+    loadChildren: () => import('./enterprise/enterprise.module').then(m => m.EnterpriseModule),
+  },
+  {
     path: 'thank-you',
     loadChildren: () => import('./thank-you/thank-you.module').then(m => m.ThankYouModule),
   },
