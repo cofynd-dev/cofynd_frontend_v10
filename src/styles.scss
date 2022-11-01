@@ -1656,6 +1656,10 @@ h3.site_title {
 	padding-bottom: 50px;
 	background-color: #F8F9FA;
 }
+.img_content_sec h4, .img_content_sec2 h4, .img_content_sec3 h4 {
+	margin-bottom: 10px;
+	font-weight: 600;
+}
 .round_img_box {
 	border-radius: 10px;
 	overflow: hidden;
@@ -1680,6 +1684,11 @@ h3.site_title {
 .why_chooes_area {
 	padding-top: 60px;
 	padding-bottom: 40px;
+}
+.why_chooes_area .top_icon_box h4 {
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 4px;
 }
 .form_area {
 	padding-top: 50px;
