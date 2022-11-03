@@ -21,6 +21,7 @@ export class EnterpriseComponent implements OnInit {
   submitted = false;
   loading: boolean;
   showSuccessMessage: boolean;
+  contactUserName: string;
 
   ngOnInit() {}
 
@@ -50,6 +51,7 @@ export class EnterpriseComponent implements OnInit {
       return;
     } else {
       this.loading = true;
+      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
       const object = {
         user: {
           phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
