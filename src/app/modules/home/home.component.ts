@@ -281,6 +281,6 @@ export class HomeComponent {
   }
 
   openAdd() {
-    this.router.navigate([`coworking/awfis-ambience-mall`]);
+    this.router.navigate([`enterprise`]);
   }
 }
