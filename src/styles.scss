@@ -1755,6 +1755,140 @@ h3.site_title {
 .faqs_accordion .panel-body p:last-child {
 	margin-bottom: 0px;
 }
+.innerpage_banner {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	position: relative;
+}
+.innerpage_banner .innerbanner_img {
+	width: 50%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	// height: 100%;
+	border-radius: 0 0 0 120px;
+	background-size: cover;
+	overflow: hidden;
+}
+.main_heading h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin: 0 0 25px;
+	color: #000;
+	position: relative;
+}
+.main_heading h1::before {
+	width: 75px;
+	height: 75px;
+	background: #ffe785;
+	border-radius: 100%;
+	position: absolute;
+	left: -30px;
+	top: -30px;
+	content: "";
+	display: block;
+	z-index: -1;
+}
+.main_heading h1 span {
+	color: #4343e8;
+}
+.innerpage_content {
+	margin-bottom: 30px;
+}
+.icon_item img {
+	width: 35px;
+	margin-bottom: 5px;
+}
+.icon_item h4 {
+	font-size: 13px;
+	line-height: 20px;
+	font-weight: 500;
+}
+.cities_list_area {
+	margin-top: 110px;
+}
+.cities_item_list {
+	background-color: #F9F9F9;
+	padding: 10px 30px;
+	border-radius: 20px;
+}
+.cities_item_list .city_item {
+	text-align: center;
+}
+.cities_item_list ul {
+	display: flex;
+}
+.cities_item_list ul li {
+	width: 100%;
+	padding: 0px 15px;
+}
+.city_image {
+	background-color: #F1F0F0;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 50%;
+}
+.city_image img {
+	width: 33px;
+}
+.cities_item_list .city_item h4 {
+	font-size: 11px;
+	line-height: 15px;
+	margin-bottom: 0;
+	margin-top: 5px;
+}
+.top-right .btn {
+	padding: 10px 15px;
+	border-radius: 10px;
+}
+.choose_virtual_office_sec {
+	padding-top: 60px;
+	padding-bottom: 50px;
+	background-color: #f9f9f9;
+}
+.left_icon_box2 {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.04);
+	box-shadow: 4px 4px 10px rgba(33, 37, 41, 0.05);
+	border-radius: 20px;
+	padding: 20px 20px;
+}
+.left_icon_box2 .icon {
+	width: 90px;
+	margin-right: 10px;
+}
+.left_icon_box2 img {
+	background-color: #f8f8f8;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+}
+.left_icon_box2 h4 {
+	font-size: 14px;
+	margin-left: 0;
+	line-height: 26px;
+	margin-bottom: 0px;
+}
+.left_icon_box2 p {
+	margin-bottom: 0px;
+	font-size: 13px;
+	line-height: 18px;
+}
+.left_icon_box2 .content {
+	width: 100%;
+}
+
+
+
 
 
 @media (max-width: 1366px) {
