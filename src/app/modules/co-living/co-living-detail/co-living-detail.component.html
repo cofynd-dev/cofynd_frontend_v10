@@ -134,8 +134,7 @@
                             <li class="col-6">
                                 <span *ngIf="workspace.duration == 'month'">Monthly Rent*</span>
                                 <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
-                                <span><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace.other_detail.rent_per_bed).toLocaleString('en-IN')
-                  }}</span>
+                                <span *ngIf="workspace.other_detail && workspace.other_detail.rent_per_bed"><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace?.other_detail?.rent_per_bed).toLocaleString('en-IN') }}</span>
                             </li>
                             <li class="col-6">
                                 Deposit
@@ -181,7 +180,7 @@
                                 <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
                                     <div class="box price_box" (click)="openEnquireModal()">
                                         <div class="img">
-                                            <img [src]="plan.planId.icons.s3_link" alt="">
+                                            <img [src]="plan?.planId?.icons?.s3_link" alt="">
                                         </div>
                                         <h4 class="text-capitalize">{{plan.planId.name}}</h4>
                                         <p class="hideOnMobile">{{plan.planId.description}}</p>
