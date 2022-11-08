@@ -1,4 +1,4 @@
-<section class="innerpage_banner">
+<!-- <section class="innerpage_banner">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -66,84 +66,12 @@
             <div class="col-md-12">
                 <div class="cities_item_list">
                     <ul>
-                        <li>
+                        <li *ngFor="let city of cities" [routerLink]="city.name">
                             <div class="city_item">
                                 <div class="city_image">
-                                    <img src="../../../assets/images/city/gurugram.svg" alt="">
+                                    <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="'Office Space for Rent in ' + city.name" />
+                                    <h4>{{ city.name }}</h4>
                                 </div>
-                                <h4>Gurugram</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/delhi.svg" alt="">
-                                </div>
-                                <h4>Delhi</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/noida.svg" alt="">
-                                </div>
-                                <h4>Noida</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/bangalore.svg" alt="">
-                                </div>
-                                <h4>Bangalore</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/hyderabad.svg" alt="">
-                                </div>
-                                <h4>Hyderabad</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/pune.svg" alt="">
-                                </div>
-                                <h4>Pune</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/mumbai.svg" alt="">
-                                </div>
-                                <h4>Mumbai</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/indore.png" alt="">
-                                </div>
-                                <h4>Indor</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/ahmedabad.png" alt="">
-                                </div>
-                                <h4>Ahmedabad</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_item">
-                                <div class="city_image">
-                                    <img src="../../../assets/images/city/kochi.png" alt="">
-                                </div>
-                                <h4>Kochi</h4>
                             </div>
                         </li>
                     </ul>
@@ -157,13 +85,13 @@
 <section class="choose_virtual_office_sec">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="text-center mb-4">
-                    <h3 class="site_title title_divider">Choose a Virtual Office With CoFynd</h3>
+            <div class="col-md-12 text-center">
+                <div class="main_heading">
+                    <h2>Choose a Virtual Office With CoFynd</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-md-4">
                 <div class="left_icon_box2">
                     <div class="icon">
@@ -199,7 +127,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <div class="wrapper">
     <section class="banner hideOnMobile"

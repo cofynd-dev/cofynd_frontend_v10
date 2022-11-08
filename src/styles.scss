@@ -1770,6 +1770,10 @@ h3.site_title {
 	background-size: cover;
 	overflow: hidden;
 }
+.main_heading {
+	position: relative;
+    display: inline-block;
+}
 .main_heading h1 {
 	font-size: 36px;
 	font-weight: 600;
@@ -1777,20 +1781,39 @@ h3.site_title {
 	color: #000;
 	position: relative;
 }
-.main_heading h1::before {
-	width: 75px;
-	height: 75px;
+.main_heading::before {
+	width: 70px;
+	height: 70px;
 	background: #ffe785;
 	border-radius: 100%;
 	position: absolute;
-	left: -30px;
-	top: -30px;
+	left: -24px;
+	top: -26px;
 	content: "";
 	display: block;
-	z-index: -1;
 }
 .main_heading h1 span {
 	color: #4343e8;
+}
+// .main_heading::before {
+// 	width: 75px;
+// 	height: 75px;
+// 	background: #ffe785;
+// 	border-radius: 100%;
+// 	position: absolute;
+// 	left: -30px;
+// 	top: -30px;
+// 	content: "";
+// 	display: block;
+// 	z-index: -1;
+// }
+.main_heading h2 {
+	font-size: 28px;
+	font-weight: 600;
+	margin: 0 0 25px;
+	color: #000;
+	position: relative;
+	line-height: 38px;
 }
 .innerpage_content {
 	margin-bottom: 30px;
@@ -1820,7 +1843,8 @@ h3.site_title {
 }
 .cities_item_list ul li {
 	width: 100%;
-	padding: 0px 15px;
+	margin: 0px 1.7%;
+	cursor: pointer;
 }
 .city_image {
 	background-color: #F1F0F0;
@@ -1839,6 +1863,7 @@ h3.site_title {
 	line-height: 15px;
 	margin-bottom: 0;
 	margin-top: 5px;
+	text-transform: capitalize;
 }
 .top-right .btn {
 	padding: 10px 15px;
