@@ -6,7 +6,7 @@
                     <img [lazyLoad]="workspace.images[0]?.image.s3_link" alt="">
                 </div>
                 <div>
-                    <h5 class="detail">{{ workspace.name }}</h5>
+                    <h5 class="detail">{{ workspace.name }} {{ workspace.location.name }}</h5>
                     <p class="address">
                         <i class="fa-solid fa-location-dot"></i>
                         <!-- {{ workspace.location.address1 | microLocation }} -->
