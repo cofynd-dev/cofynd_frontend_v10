@@ -1,4 +1,4 @@
-<!-- <section class="innerpage_banner">
+<section class="innerpage_banner hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -62,7 +62,71 @@
     
 </section>
 
-<section class="choose_virtual_office_sec">
+<section class="innerpage_banner onlyMobile"
+        style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d25f96a92db35416d6d2d443e38befe18e9a7a05.jpg');">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find The Best Virtual Office in India</h1>
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control"
+                                        id="exampleFormControlSelect1"
+                                        (change)="openWorkSpace($event.target.value)">
+                                        <option value="">Select City</option>
+                                        <option *ngFor="let city of cities"
+                                            [value]="city.name">{{removedash(city.name) | titlecase}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="workSpaces">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Best Virtual Office Near You</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="space_carousel">
+                    <div class="property-item"
+                        (click)="routeTodetail(_centerCity.slug)"
+                        *ngFor=" let _centerCity of workSpaces">
+                        <div class="property-img">
+                            <img [src]="_centerCity.images[0].image.s3_link"
+                                alt="Plus Offices Sector 67"
+                                class="img-fluid">
+                        </div>
+                        <div class="properties-content">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p>{{_centerCity.location.address1}}</p>
+                            <ng-container *ngFor="let price of _centerCity.plans">
+                                <p class="price"
+                                    *ngIf="price.duration === 'year'">₹{{price.price}}/- {{price.duration}}</p>
+                            </ng-container>
+                        </div>
+                        <a></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="choose_virtual_office_sec hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -109,7 +173,7 @@
     </div>
 </section>
 
-<section class="network_area white-bg">
+<section class="network_area white-bg hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-6">
@@ -149,7 +213,202 @@
     </div>
 </section>
 
-<section class="top_virtualoffice_city grey-bg">
+<section class="feature_sec onlyMobile">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Book with Cofynd</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png"
+                        alt="">
+                    <h4>Exclusive Pricing</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-3">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png"
+                        alt="">
+                    <h4>Verified Spaces</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png"
+                        alt="">
+                    <h4>100% Support</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png"
+                        alt="">
+                    <h4>Zero Brokerage</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Cruted for You -->
+<section class="curated_section onlyMobile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Curated Virtual Office For You</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="curated-box"
+                    (click)="openModal('virtualOffice')">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef8e8be011b9d4ee403ae0442acbd0463fd28e4f.jpg"
+                                alt="Bangalore"
+                                class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <a type="button"
+                            data-toggle="modal"
+                            data-target="#curated_coliving"
+                            class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box"
+                    (click)="openModal('virtualOffice')">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd380f78173a8d346c958c49bce47374d922b3d6.jpg"
+                                alt="Bangalore"
+                                class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>GST Registration</h4>
+                        </div>
+                        <a type="button"
+                            data-toggle="modal"
+                            data-target="#curated_coliving"
+                            class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box"
+                    (click)="openModal('virtualOffice')">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fec560c38b6611ac17f156bcbf3aac0834774ae.jpg"
+                                alt="Bangalore"
+                                class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>Courier Handling</h4>
+                        </div>
+                        <a type="button"
+                            data-toggle="modal"
+                            data-target="#curated_coliving"
+                            class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="cta_section coworking_cta onlyMobile">
+    <div class="container">
+        <div class="row align-items-center cta_area"
+            style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png');">
+            <div class="col-8">
+                <div class="cta_content">
+                    <p>Hurry in choosing your <span style="color:#1313E6;">ideal space</span>?</p>
+                    <a (click)="openModalWithComponent('virtual office')"
+                        class="btn site_btn">Enquire Now</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5467e3692d83f3981265b79a160c9c18208f65d1.png"
+                    alt=""
+                    class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- service offered -->
+
+<section class="amenities_sec onlyMobile">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Services Offered</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row amenities_row">
+            <div class="col-4">
+                <div class="icon_box mb-4">
+                    <img src="../../../assets/images/icons/day-pass.svg"
+                        alt="">
+                    <h4>Company Registation</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon_box mb-4">
+                    <img src="../../../assets/images/icons/meeting-room.svg"
+                        alt="">
+                    <h4>Meeting Room Access</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon_box mb-4">
+                    <img src="../../../assets/images/icons/hot-desk.svg"
+                        alt="">
+                    <h4>GST Registration</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/icons/dedicated-desk.svg"
+                        alt="">
+                    <h4>Mailing Address</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/icons/private-cabin.svg"
+                        alt="">
+                    <h4>Business Address</h4>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon_box mb-0">
+                    <img src="../../../assets/images/icons/reception.svg"
+                        alt="">
+                    <h4>Reception Services</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="top_virtualoffice_city grey-bg hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -188,6 +447,15 @@
         </div>
     </div>
 </section>
+
+<span class="mobileViewColiving onlyMobile">
+    <app-home-popular-space [shouldOfficeVisible]="true"
+        [officeSlug]="false"
+        [shouldCoWorkingVisible]="false"
+        [popularOfficeSpaces]="popularVirtualOffice"
+        [pageTitle]="'Top Virtual Office Cities in India'">
+    </app-home-popular-space>
+</span>
 
 <section class="virtual_office_query">
     <div class="container">
@@ -369,7 +637,7 @@
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 
 
