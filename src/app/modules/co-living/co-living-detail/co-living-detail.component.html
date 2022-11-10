@@ -75,7 +75,7 @@
                                 </ng-template>
                             </div>
                         </div>
-                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><i class="fa-solid fa-indian-rupee-sign"></i> {{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
+                        <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent</span><i class="fa-solid fa-indian-rupee-sign"></i> {{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
                         </div>
                     </div>
 
@@ -132,8 +132,8 @@
                                 <span>{{ workspace.other_detail.type_of_co_living }}</span>
                             </li>
                             <li class="col-6">
-                                <span *ngIf="workspace.duration == 'month'">Monthly Rent*</span>
-                                <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
+                                <span *ngIf="workspace.duration == 'month'">Monthly Rent</span>
+                                <span *ngIf="workspace.duration == 'year'">Yearly Rent</span>
                                 <span *ngIf="workspace.other_detail && workspace.other_detail.rent_per_bed"><i class="fa-solid fa-indian-rupee-sign"></i>{{ (workspace?.other_detail?.rent_per_bed).toLocaleString('en-IN') }}</span>
                             </li>
                             <li class="col-6">
@@ -186,11 +186,11 @@
                                         <p class="hideOnMobile">{{plan.planId.description}}</p>
                                         <div class="action-box">
                                             <div class="price">
-                                                <span class="hideOnMobile">starting*</span>
+                                                <span class="hideOnMobile">starting</span>
                                                 <div>
                                                     {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}
-                                                    <small *ngIf="!plan.duration" class="small_text">/month*</small>
-                                                    <small *ngIf="plan?.duration" class="small_text">/{{plan.duration}}*</small>
+                                                    <small *ngIf="!plan.duration" class="small_text">/month</small>
+                                                    <small *ngIf="plan?.duration" class="small_text">/{{plan.duration}}</small>
                                                 </div>
                                             </div>
                                             <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton hideOnMobile">Enquire<small
@@ -407,7 +407,7 @@
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
             <div class="col-6 bottomPrize">
-                <p class="mb-0 mt-0"><i class="fa-solid fa-indian-rupee-sign"></i><span> {{workspace.starting_price}}/month*</span></p>
+                <p class="mb-0 mt-0"><i class="fa-solid fa-indian-rupee-sign"></i><span> {{workspace.starting_price}}/month</span></p>
                 <!-- <p class="mb-0 mt-0" style="font-weight:600;color:#4343e8;"><small>Single/Double Sharing</small></p> -->
             </div>
             <div class="col-6">
