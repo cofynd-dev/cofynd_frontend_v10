@@ -1020,11 +1020,11 @@ export class CoLivingComponent implements OnInit {
 
   popularCoLivingSpaces = [
     {
-      name: 'CHILLAR PG',
+      name: 'Hyphen Ombre',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
-      address: 'Extension near Tata Telco, Delhi',
-      slug: 'chillar',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c5e631024ca5353b29131e8b729c85ce7ce7b36.jpg',
+      address: 'HSR Layout, Bangalore',
+      slug: 'hyphen-ombre',
     },
     {
       name: 'Housr Tulip Purple',
@@ -1041,11 +1041,11 @@ export class CoLivingComponent implements OnInit {
       slug: 'helloworld-siri',
     },
     {
-      name: 'The Hub Safina plaza',
+      name: 'CHILLAR PG',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e1b2f556cf598bf903b7949b28ed90e585dee41b.jpg',
-      address: 'Infantry Road, Bangalore',
-      slug: 'the-hub-infantry-road',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
+      address: 'Extension near Tata Telco, Delhi',
+      slug: 'chillar',
     },
     {
       name: 'HelloWorld Fitoor',
@@ -1055,11 +1055,11 @@ export class CoLivingComponent implements OnInit {
       slug: 'helloworld-fitoor',
     },
     {
-      name: `Tribe Student Housing Vile Parle`,
+      name: `HelloWorld Harmony`,
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
-      address: 'S Pond Rd, Mumbai',
-      slug: 'tribe-stays-vile-parle',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b5dc544341221b96035907ff7c60710f0c2ba13.jpg',
+      address: 'Santacruz East, Mumbai',
+      slug: 'helloworld-harmony',
     },
     {
       name: 'Housr Phoenix',
