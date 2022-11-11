@@ -49,22 +49,22 @@ const routes: Routes = [
     path: 'co-living/:city/:microlocation',
     component: CoLivingLocalityComponent,
   },
-  // {
-  //   path: 'flat-space',
-  //   component: FlatSpaceComponent,
-  // },
-  // {
-  //   path: 'flat-space/:city',
-  //   component: FlatSpaceCityComponent,
-  // },
-  // {
-  //   path: 'flat-space/:city/:microlocation',
-  //   component: FlatSpaceLocalityComponent,
-  // },
-  // {
-  //   path: 'flat-space-details/:workspacename',
-  //   component: FlatSpaceDetailComponent,
-  // },
+  {
+    path: 'flat-space',
+    component: FlatSpaceComponent,
+  },
+  {
+    path: 'flat-space/:city',
+    component: FlatSpaceCityComponent,
+  },
+  {
+    path: 'flat-space/:city/:microlocation',
+    component: FlatSpaceLocalityComponent,
+  },
+  {
+    path: 'flat-space-details/:workspacename',
+    component: FlatSpaceDetailComponent,
+  },
   {
     path: 'details/:workspacename',
     loadChildren: () => import('./../workspace/workspace.module').then(m => m.WorkSpaceModule),
