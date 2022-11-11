@@ -25,6 +25,12 @@ import { HomeMenuModalComponent } from './home-menu-modal/home-menu-modal.compon
 import { HomeCityPopupComponent } from './home-city-popup/home-city-popup.component';
 import { LocationIqImportComponent } from './location-iq-import/location-iq-import.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FlatSpaceCardComponent } from './flat-space/flat-space-card/flat-space-card.component';
+import { FlatSpaceCityComponent } from './flat-space/flat-space-city/flat-space-city.component';
+import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-space-detail.component';
+import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
+import { FlatSpaceSimilarComponent } from './flat-space/flat-space-similar/flat-space-similar.component';
+import { FlatSpaceComponent } from './flat-space/flat-space.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +55,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     HomeMenuModalComponent,
     HomeCityPopupComponent,
     LocationIqImportComponent,
+    FlatSpaceCardComponent,
+    FlatSpaceCityComponent,
+    FlatSpaceDetailComponent,
+    FlatSpaceLocalityComponent,
+    FlatSpaceSimilarComponent,
+    FlatSpaceComponent,
   ],
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
