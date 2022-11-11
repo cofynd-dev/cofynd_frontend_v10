@@ -1027,11 +1027,11 @@ export class CoLivingComponent implements OnInit {
       slug: 'hyphen-ombre',
     },
     {
-      name: 'Housr Tulip Purple',
+      name: 'Cofynd CoLo Oasis',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
-      address: 'Sector 69, Gurugram',
-      slug: 'housr-tulip-purple-gurgaon',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae636374fbff5e01efcb978b101a884b39e8ff8f.jpg',
+      address: 'Sector 40, Gurgaon',
+      slug: 'flock-oasis',
     },
     {
       name: 'HelloWorld Siri',
