@@ -203,8 +203,8 @@ h1 {
 // }
 
 .address {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 14px;
+line-height: 16px;
     color: #656565;
     margin: 0;
     position: relative;
@@ -214,6 +214,7 @@ h1 {
         position: absolute;
         left: 0;
         top: 2px;
+        font-size: 12px;
     }
     @media(max-width: 767px) {
         max-width: 100%;
@@ -377,6 +378,12 @@ h1 {
     font-weight: 500;
     color: #4343e8;
 }
+.facility-list li .monthy_weight {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #898989;
+}
 
 .facility-list {
     border-bottom: 1px solid #e5e5e5;
@@ -390,8 +397,8 @@ h1 {
         span {
             display: block;
             color: #333;
-            font-size: 16px;
-            line-height: 20px;
+            font-size: 14px;
+            line-height: 18px;
             font-weight: 700;
             text-transform: capitalize;
         }
