@@ -1,17 +1,620 @@
 <app-workspace-loader *ngIf="loading"></app-workspace-loader>
+
+<div style="display: none;">
+<section class="breadcrumbs_sec">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Flat</a></li>
+                        <li class="breadcrumb-item"><a href="#">M3M</a></li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_page_gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="banner-image-item first-img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d8790810496727c8578f7f5c5d910f0cc48539.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-3 image_space">
+                <div class="banner-image-item">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d8790810496727c8578f7f5c5d910f0cc48539.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="banner-image-item mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d8790810496727c8578f7f5c5d910f0cc48539.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="banner-image-item last-img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d8790810496727c8578f7f5c5d910f0cc48539.jpg" alt="" class="img-fluid">
+                </div>
+                <button class="all_photon_btn"><i class="fa-solid fa-layer-group"></i> View All Photos</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_area content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="row">
+
+                    <div class=" col-md-12">
+
+                        <div class="head_top">
+                            <div class="rent-btn ">
+                                <button type="button" class="btn rounded-pill">Rent</button>
+                            </div>
+
+                            <div class="rent-share">
+                                <button class="btn btn-link" type="button" data-toggle="modal"
+                                    data-target="#exampleModal"><img src="../../../../assets/images/icons/share-icon.svg" />Share</button>
+                                <button type="button" class="btn btn-link"><img
+                                        src="../../../../assets/images/icons/save-icon.svg" />Save</button>
+                            </div>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Share this Properties with friends and family</h5>
+                                            <button type="button" class="btn-close" data-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row social-media-icons">
+                                                <div class="col-md-6">
+                                                    <div class="icon">
+                                                        <a href="javascript:void(0)" data-social="whatsapp"
+                                                            data-text="From Page Bottom Share Section">
+                                                            <img src="../../../../assets/images/icons/building-icon.svg" /> WhatsApp
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="icon">
+                                                        <a href="javascript:void(0)" data-social="facebook"
+                                                            data-text="From Page Bottom Share Section">
+                                                            <img src="../../../../assets/images/icons/building-icon.svg" /> Facebook
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="icon">
+                                                        <a href="javascript:void(0)" data-social="twitter"
+                                                            data-text="From Page Bottom Share Section">
+                                                            <img src="../../../../assets/images/icons/building-icon.svg" />Twitter
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="copy-link">
+                                                        <button class="btn clipboard">
+                                                            <p>Copy Link</p>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space_head">
+                            <div class="heading-info">
+                                <h2>3 BHK Apartment in M3M Merlin</h2>
+                                <p><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 67 , Golf Course Road Extension</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="flat-properties">
+                            <div class="flat-like-icon">
+                                <img class="bhk" src="../../../../assets/images/icons/verify-thumb-icon.svg" />
+                            </div>
+                            <div class="flat-icons-box">
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk" src="../../../../assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Zero Brokerage</span>
+                                    </div>
+                                </div>
+
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk" src="../../../../assets/images/icons/furnished-status-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Fully Furnished</span>
+                                    </div>
+                                </div>
+
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk" src="../../../../assets/images/icons/verify-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Verified Flats</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row overview_area">
+                    <div class="col-md-12">
+                        <h3>Overview</h3>
+                        <div class="row">
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/bhk-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>BHK</h5>
+                                        <p>3 BHK</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/area-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Built-up Area</h5>
+                                        <p>2,850 sq.ft.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/area-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Carpet Area</h5>
+                                        <p>2,850 sq.ft.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/security-deposit-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Security Deposit</h5>
+                                        <p>6000/-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/mainteance-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Maintenance Charges</h5>
+                                        <p>2000/-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/tenant-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Tenant Type</h5>
+                                        <p>Family</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/space-status-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Status</h5>
+                                        <p>Furnished</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/building-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Floor</h5>
+                                        <p>3rd/10</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/facing-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Facing</h5>
+                                        <p>East</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/bedroom-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Bedrooms</h5>
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/bathroom-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Bathrooms</h5>
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="../../../../assets/images/icons/balcony-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Balconies</h5>
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+
+                <div class="row about-area">
+                    <div class="col-md-12">
+                        <h3>Description</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            M3M Golf Estate is the High-End Residential Project by M3M Group. This Lavish
+                            Residential Project is on the Sector-65 Golf Course Extension Road Gurgaon. It is a
+                            Combination of Low-Rise, Mid-Rise and High-Rise Towers. Here, M3M presenting the
+                            Spacious 3BHK, 4BHK and 5BHK Apartments, Duplex and Penthouses with the range of
+                            sizes from 3005 Sq. Ft. to 5760 Sq. Ft. M3M Golf Estate Gurgaon is spread on a
+                            Built-up Area of 56 Acres with over 25 Towers and 870 Units.
+                        </p>
+                        <p class="moretext">
+                            This Project is easy to access from many Schools, Hospitals, Shopping Malls and
+                            the count goes on. The Amenities of this Amazing Residential Project is totally
+                            Top-Notch
+                            which includes High-Speed Elevators, Gyms, Exclusive Clubhouse, Abundant Parking
+                            Space,
+                            Swimming Pool and lot more.
+
+                            This Lavish Project is designed by World’s Top Architectural Firm Le Group Arcop
+                            whose
+                            Headquarter is in Canada. The Interior Designing of this Project is done by the
+                            Leading
+                            International Firm Bilkey Linas Design which is a USA Based Company and the
+                            Structural
+                            Designing is done by the (LERA) Leslie E Robots and Associates which is also a USA
+                            Based
+                            Company. The Apartments in M3M Golf Estate Gurgaon is designed in such a way to give
+                            a
+                            Luxury Lifestyle with all the conveniences and their Features. M3M Golf Estate is
+                            the
+                            Luxury
+                            Project which everyone dreamt of and Now you are One Step close to fulfilling your
+                            Dreams.
+                            So, What are you waiting for?? Get your Dream Property in M3M Golf Estate Sector-65
+                            Gurgaon.
+                        </p>
+                        <button class="moreless-button btn btn-link p-0">See More</button>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row amenities_section">
+                    <div class="col-md-12">
+                        <h3>Building Amenities</h3>
+                    </div>
+                    <div class="col-md-12" id="amenities-icons">
+                        <div class="row basic">
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/snooker-icon.svg" />Snooker</p>
+                                <p><img src="img/theatre-icon.svg" />Mini Theatre</p>
+                                <p><img src="img/swimming-pool-icon.svg" />Swimming Pool</p>
+                            </div>
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/children-park-icon.svg" />Children Park</p>
+                                <p><img src="img/club-house-icon.svg" />Club House</p>
+                                <p><img src="img/gym-icon.svg" />Gymnasium</p>
+
+                            </div>
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/car-parking-icon.svg" />Car Parking</p>
+                                <p><img src="img/24x7-security-icon.svg" />24x7 Security</p>
+                                <p><img src="img/bar-icon.svg" />Bar/Lounge</p>
+
+                            </div>
+                        </div>
+                        <div class="row more-icon" style="display: none;">
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/football-icon.svg" />Football Court</p>
+                                <p><img src="img/basketball-court.svg" />Basketball Court</p>
+                                <p><img src="img/lift-icon.svg" />Lift System</p>
+                            </div>
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/cycle-icon.svg" />Cycle Track</p>
+                                <p><img src="img/cricket-pitch-icon.svg" />Cricket Pitch </p>
+                                <p><img src="img/fire-safety-icon.svg" />Fire Safety</p>
+                            </div>
+                            <div class="col-4 basic-icons">
+                                <p><img src="img/golf-court-icon.svg" />Golf Course</p>
+                                <p><img src="img/intercom-icon.svg" />Intercom</p>
+                                <p><img src="img/tennis-court-icon.svg" />Outdoor Tennis Courts</p>
+                            </div>
+                        </div>
+                        <button class="more-icon-button btn btn-link p-0">See More</button>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+
+                <div class="row floor-plan">
+                    <div class="col-md-12">
+                        <h3>Floor Plans</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="properties_item_slider">
+                            <div class="slider slider-nav plans_slider popup-gallery">
+
+                                <div class="plan_item">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-1.png"
+                                            alt="9.jpg" />
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="square-ft">
+                                            <h5>Built-up Area</h5>
+                                            <p>2,882 sq.ft.</p>
+                                        </div>
+                                        <div class="price">
+                                            <h5>Price</h5>
+                                            <p>₹ 4.04 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="plan_item magnific-img">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-2.png"
+                                            alt="10.jpg" />
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="square-ft">
+                                            <h5>Built-up Area</h5>
+                                            <p>2,850 sq.ft.</p>
+                                        </div>
+                                        <div class="price">
+                                            <h5>Price</h5>
+                                            <p>₹ 4.20 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="plan_item magnific-img">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-3.png"
+                                            alt="3.jpg" />
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="square-ft">
+                                            <h5>Built-up Area</h5>
+                                            <p>2,992 sq.ft.</p>
+                                        </div>
+                                        <div class="price">
+                                            <h5>Price</h5>
+                                            <p>₹ 4.5 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="plan_item magnific-img">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-4.jpg"
+                                            alt="9.jpg" />
+                                    </div>
+
+                                    <div class="floor-plan-details">
+                                        <div class="square-ft">
+                                            <h5>Built-up Area</h5>
+                                            <p>2,882 sq.ft.</p>
+                                        </div>
+                                        <div class="price">
+                                            <h5>Price</h5>
+                                            <p>₹ 4.04 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row map-location">
+                    <div class="col-md-12">
+                        <h3>Properties Location</h3>
+                        <p class="location-icon">Sector-65, Gurgaon</p>
+                    </div>
+                    <div class="col-md-12">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4384.02468179727!2d77.06513306638949!3d28.400970259413807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d226f6c6b9b99%3A0x959ab1d7af7ad1c5!2sM3M%20Golf%20Estate!5e0!3m2!1sen!2sin!4v1664284150955!5m2!1sen!2sin"
+                            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row near_places">
+                    <div class="col-md-12 places-nearby">
+                        <h3 class="heading">Places Nearby</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="slider slider-nav places-tag-slider">
+
+                            <div class="places-tag-box">
+                                <div class="tag-icon">
+                                    <img class="img-fluid" src="img/metro-icon.svg" />
+                                </div>
+                                <div class="tag-text">
+                                    <h5>Sector 55-56 Metro Station</h5>
+                                    <p>2.6 Km</p>
+                                </div>
+                            </div>
+
+                            <div class="places-tag-box">
+                                <div class="tag-icon">
+                                    <img class="img-fluid" src="img/airport-icon.svg">
+                                </div>
+                                <div class="tag-text">
+                                    <h5>IGI Airport</h5>
+                                    <p>4.6 Km</p>
+                                </div>
+                            </div>
+
+                            <div class="places-tag-box">
+                                <div class="tag-icon">
+                                    <img class="img-fluid" src="img/school-icon.svg">
+                                </div>
+                                <div class="tag-text">
+                                    <h5>DPS International School</h5>
+                                    <p>4.9 Km</p>
+                                </div>
+                            </div>
+
+                            <div class="places-tag-box">
+                                <div class="tag-icon">
+                                    <img class="img-fluid" src="img/mall-icon.svg">
+                                </div>
+                                <div class="tag-text">
+                                    <h5>Raheja Mall</h5>
+                                    <p>4.9 Km</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="enquiry-section">
+                    <div class="form-section">
+                        <h2 class="heading">Enquiry Now</h2>
+                        <form class="form">
+                            <div class="form-input">
+                                <input type="text" class="form-control border-light" id="name" placeholder="Name"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-input">
+                                <input type="email" class="form-control border-light" id="exampleInputEmail1"
+                                    placeholder="Email" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-input">
+                                <input type="text" class="form-control border-light" id="mobilenumber"
+                                    placeholder="Mobile Number" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">I agree to be contacted by
+                                    Cofynd and other agents via <i class="fa-brands fa-whatsapp me-1"></i>WhatsApp,
+                                    SMS, phone, email etc.</label>
+                            </div>
+                            <button type="button" class="btn w-100 site_btn">Send</button>
+                        </form>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-image">
+                            <img class="img-fluid" src="img/profile-img.png" />
+                        </div>
+                        <div class="contact-info">
+                            <p class="heading">Get in Touch</p>
+                            <p>+91 9999 10 8078</p>
+                        </div>
+                    </div>
+                    <div class="policy">
+                        <p>By clicking the above button you agree to our Terms of service and have read and
+                            understood our <span><a class="text-decoration-none" href="#">Privacy Policy</a></span>
+                        </p>
+                    </div>
+                    <div class="write-review">
+                        <div class="image">
+                            <img class="img-fluid" src="img/review_img.png" />
+                        </div>
+                        <div class="button-section">
+                            <h5>Write about your experiences</h5>
+                            <a type="button" href="#write_review" class="btn">Write Review</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
 <section class="space-details">
-    <!-- breadcrumb -->
     <div class="container hideOnMobile breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item">
-                            <a [routerLink]="['/co-living/']">
-                Co Living
-              </a>
-                        </li>
+                        <li class="breadcrumb-item"><a [routerLink]="['/co-living/']">Co Living</a></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
@@ -50,7 +653,7 @@
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container space_details_page">
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div *ngIf="!loading && workspace">
