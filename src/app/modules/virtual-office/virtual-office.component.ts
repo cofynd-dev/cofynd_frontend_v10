@@ -14,6 +14,9 @@ import { Observable, Subscriber } from 'rxjs';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
 import { environment } from '@env/environment';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UserService } from '@app/core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-virtual-office',
@@ -129,6 +132,7 @@ export class VirtualOfficeComponent implements OnInit {
   latitute: any;
   longitute: any;
   workSpaces: WorkSpace[];
+  submitted = false;
 
   constructor(
     private bsModalService: BsModalService,
@@ -136,6 +140,9 @@ export class VirtualOfficeComponent implements OnInit {
     private brandService: BrandService,
     private seoService: SeoService,
     private router: Router,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
+    private toastrService: ToastrService,
   ) {
     this.loading = true;
     this.getCurrentPosition().subscribe((position: any) => {
@@ -148,6 +155,25 @@ export class VirtualOfficeComponent implements OnInit {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
+  }
+
+  queryFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    interested_in: ['', Validators.required],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.queryFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.queryFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.queryFormGroup.controls;
   }
 
   ngOnInit() {
@@ -187,6 +213,33 @@ export class VirtualOfficeComponent implements OnInit {
       );
       this.loading = false;
     });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.queryFormGroup.invalid) {
+      return;
+    } else {
+      const object = {
+        user: {
+          phone_number: this.queryFormGroup.controls['phone_number'].value,
+          email: this.queryFormGroup.controls['email'].value,
+          name: this.queryFormGroup.controls['name'].value,
+        },
+        interested_in: this.queryFormGroup.controls['interested_in'].value,
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.queryFormGroup.reset();
+          this.submitted = false;
+          this.toastrService.success('Your query submitted successfully, we connect with you soon..');
+        },
+        error => {
+          this.loading = false;
+        },
+      );
+    }
   }
 
   removedash(name: string) {

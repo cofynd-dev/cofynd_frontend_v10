@@ -6,48 +6,42 @@
                     <div class="main_heading">
                         <h1>Find the Best<br /><span>Virtual Office</span> in India</h1>
                     </div>
-                    <p>Cofynd provides Virtual Office solutions across India. Virtual Office help you for GST Registration & expansion of your business across India at minimal cost  with no fuss.</p>
+                    <p>Cofynd provides Virtual Office solutions across India. Virtual Office help you for GST Registration & expansion of your business across India at minimal cost with no fuss.</p>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/workspace/day-pass.svg"
-                                alt="">
+                            <img src="../../../assets/images/workspace/day-pass.svg" alt="">
                             <h4>Company Registration</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/workspace/hot-desk.svg"
-                                alt="">
+                            <img src="../../../assets/images/workspace/hot-desk.svg" alt="">
                             <h4>GST Registration</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/workspace/private-cabin.svg"
-                                alt="">
+                            <img src="../../../assets/images/workspace/private-cabin.svg" alt="">
                             <h4>Business Address</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/workspace/dedicated-desk.svg"
-                                alt="">
+                            <img src="../../../assets/images/workspace/dedicated-desk.svg" alt="">
                             <h4>Mailing Address</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/amenities/reception.svg"
-                                alt="">
+                            <img src="../../../assets/images/amenities/reception.svg" alt="">
                             <h4>Reception Services</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="icon_item">
-                            <img src="../../../assets/images/amenities/meeting-room.svg"
-                                alt="">
+                            <img src="../../../assets/images/amenities/meeting-room.svg" alt="">
                             <h4>Meeting Room Access</h4>
                         </div>
                     </div>
@@ -56,14 +50,12 @@
         </div>
     </div>
     <div class="innerbanner_img">
-        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg"
-            alt="">
+        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg" alt="">
     </div>
-    
+
 </section>
 
-<section class="innerpage_banner onlyMobile"
-        style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d25f96a92db35416d6d2d443e38befe18e9a7a05.jpg');">
+<section class="innerpage_banner onlyMobile" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d25f96a92db35416d6d2d443e38befe18e9a7a05.jpg');">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-12">
@@ -73,9 +65,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <select class="form-control"
-                                        id="exampleFormControlSelect1"
-                                        (change)="openWorkSpace($event.target.value)">
+                                    <select class="form-control" id="exampleFormControlSelect1" (change)="openWorkSpace($event.target.value)">
                                         <option value="">Select City</option>
                                         <option *ngFor="let city of cities"
                                             [value]="city.name">{{removedash(city.name) | titlecase}}</option>
@@ -102,20 +92,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="space_carousel">
-                    <div class="property-item"
-                        (click)="routeTodetail(_centerCity.slug)"
-                        *ngFor=" let _centerCity of workSpaces">
+                    <div class="property-item" (click)="routeTodetail(_centerCity.slug)" *ngFor=" let _centerCity of workSpaces">
                         <div class="property-img">
-                            <img [src]="_centerCity.images[0].image.s3_link"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>{{_centerCity.name}}</h4>
                             <p>{{_centerCity.location.address1}}</p>
                             <ng-container *ngFor="let price of _centerCity.plans">
-                                <p class="price"
-                                    *ngIf="price.duration === 'year'">₹{{price.price}}/- {{price.duration}}</p>
+                                <p class="price" *ngIf="price.duration === 'year'">₹{{price.price}}/- {{price.duration}}</p>
                             </ng-container>
                         </div>
                         <a></a>
@@ -181,7 +166,9 @@
                     <div class="main_heading title_divider left_divider">
                         <h2>Virtual Offices Across India</h2>
                     </div>
-                    <p>With a PAN India network Cofynd has a wide range of virtual office locations across all major cities in India. Expand your business presence by opting for a virtual office, anywhere in India. Own a Virtual Office anywhere in India and give your business the growth it was looking for. Virtual office helps you to register your business in any city apart from your base city location and enables you to get GST number and business address of particular state for your taxation purpose.</p>
+                    <p>With a PAN India network Cofynd has a wide range of virtual office locations across all major cities in India. Expand your business presence by opting for a virtual office, anywhere in India. Own a Virtual Office anywhere in India
+                        and give your business the growth it was looking for. Virtual office helps you to register your business in any city apart from your base city location and enables you to get GST number and business address of particular state
+                        for your taxation purpose.</p>
                 </div>
                 <div class="counter_area">
                     <div class="row">
@@ -225,29 +212,25 @@
         <div class="row">
             <div class="col-6">
                 <div class="icon_box mb-3">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png"
-                        alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="">
                     <h4>Exclusive Pricing</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-3">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png"
-                        alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="">
                     <h4>Verified Spaces</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png"
-                        alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="">
                     <h4>100% Support</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png"
-                        alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="">
                     <h4>Zero Brokerage</h4>
                 </div>
             </div>
@@ -268,59 +251,41 @@
         </div>
         <div class="row">
             <div class="col-4">
-                <div class="curated-box"
-                    (click)="openModal('virtualOffice')">
+                <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef8e8be011b9d4ee403ae0442acbd0463fd28e4f.jpg"
-                                alt="Bangalore"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef8e8be011b9d4ee403ae0442acbd0463fd28e4f.jpg" alt="Bangalore" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Company Registration</h4>
                         </div>
-                        <a type="button"
-                            data-toggle="modal"
-                            data-target="#curated_coliving"
-                            class="stretched-link"></a>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
-                <div class="curated-box"
-                    (click)="openModal('virtualOffice')">
+                <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd380f78173a8d346c958c49bce47374d922b3d6.jpg"
-                                alt="Bangalore"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd380f78173a8d346c958c49bce47374d922b3d6.jpg" alt="Bangalore" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>GST Registration</h4>
                         </div>
-                        <a type="button"
-                            data-toggle="modal"
-                            data-target="#curated_coliving"
-                            class="stretched-link"></a>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
-                <div class="curated-box"
-                    (click)="openModal('virtualOffice')">
+                <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fec560c38b6611ac17f156bcbf3aac0834774ae.jpg"
-                                alt="Bangalore"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fec560c38b6611ac17f156bcbf3aac0834774ae.jpg" alt="Bangalore" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Courier Handling</h4>
                         </div>
-                        <a type="button"
-                            data-toggle="modal"
-                            data-target="#curated_coliving"
-                            class="stretched-link"></a>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -331,19 +296,15 @@
 
 <section class="cta_section coworking_cta onlyMobile">
     <div class="container">
-        <div class="row align-items-center cta_area"
-            style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png');">
+        <div class="row align-items-center cta_area" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png');">
             <div class="col-8">
                 <div class="cta_content">
                     <p>Hurry in choosing your <span style="color:#1313E6;">ideal space</span>?</p>
-                    <a (click)="openModalWithComponent('virtual office')"
-                        class="btn site_btn">Enquire Now</a>
+                    <a (click)="openModalWithComponent('virtual office')" class="btn site_btn">Enquire Now</a>
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5467e3692d83f3981265b79a160c9c18208f65d1.png"
-                    alt=""
-                    class="img-fluid">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5467e3692d83f3981265b79a160c9c18208f65d1.png" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -364,43 +325,37 @@
         <div class="row amenities_row">
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img src="../../../assets/images/icons/day-pass.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/day-pass.svg" alt="">
                     <h4>Company Registation</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img src="../../../assets/images/icons/meeting-room.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/meeting-room.svg" alt="">
                     <h4>Meeting Room Access</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img src="../../../assets/images/icons/hot-desk.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/hot-desk.svg" alt="">
                     <h4>GST Registration</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img src="../../../assets/images/icons/dedicated-desk.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/dedicated-desk.svg" alt="">
                     <h4>Mailing Address</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img src="../../../assets/images/icons/private-cabin.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/private-cabin.svg" alt="">
                     <h4>Business Address</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img src="../../../assets/images/icons/reception.svg"
-                        alt="">
+                    <img src="../../../assets/images/icons/reception.svg" alt="">
                     <h4>Reception Services</h4>
                 </div>
             </div>
@@ -460,12 +415,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="cities_carousel">
-                    <div class="cities_item first-slide"
-                        (click)="openWithFreeSlug(city.slug)"
-                        *ngFor="let city of popularVirtualOffice">
-                        <img class="ng-lazyloaded"
-                            [alt]="city.name"
-                            [src]="city.image">
+                    <div class="cities_item first-slide" (click)="openWithFreeSlug(city.slug)" *ngFor="let city of popularVirtualOffice">
+                        <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
                         <div class="space-detail">
                             <h5>{{removedash(city.name) | titlecase}}</h5>
                             <p><i class="icon-location"></i>{{city.address}}</p>
@@ -491,75 +442,59 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dd0f839b6f90d22dec15f191e55c02f4d14a0739.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dd0f839b6f90d22dec15f191e55c02f4d14a0739.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Rainmakers Workspace</h4>
                             <p>MG Road, Bengaluru</p>
                             <p class="price">₹28,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/rainmakers-workspace"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/rainmakers-workspace" class="stretched-link"></a>
                     </div>
 
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0d86b9f83155ff14729872f1fdd1b706738e3b75.jpg"
-                                alt="Incubex HSR1"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0d86b9f83155ff14729872f1fdd1b706738e3b75.jpg" alt="Incubex HSR1" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Incubex HSR1</h4>
                             <p>HSR Layout, Bengaluru</p>
                             <p class="price">₹30,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/insta-office-nirvana-courtyard-a370-gurugram"
-                            class="stretched-link"
-                            tabindex="-1"></a>
+                        <a routerLink="/coworking/insta-office-nirvana-courtyard-a370-gurugram" class="stretched-link" tabindex="-1"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1b73e30e76d557894cc525221c3b5a2e66941e3b.jpg"
-                                alt="BHIVE HSR"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1b73e30e76d557894cc525221c3b5a2e66941e3b.jpg" alt="BHIVE HSR" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>BHIVE HSR</h4>
                             <p>2nd sector, Bangalore</p>
                             <p class="price">₹60,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/bhive-hsr-sector-2"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/bhive-hsr-sector-2" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b27ab27e2cefeaab7eb5164447c77b46a507e75f.jpg"
-                                alt="365 Pinnacle HSR Layout"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b27ab27e2cefeaab7eb5164447c77b46a507e75f.jpg" alt="365 Pinnacle HSR Layout" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>365 Pinnacle HSR Layout</h4>
                             <p>Koramangala, Bengaluru</p>
                             <p class="price">₹30,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/365-sharedspace-hsr-layout"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/365-sharedspace-hsr-layout" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c66b082b9d300c6ee0baef0c9f1180aa4197dbc2.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c66b082b9d300c6ee0baef0c9f1180aa4197dbc2.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Workshaala HSR NR Towers</h4>
                             <p>HSR Layout, Bengaluru</p>
                             <p class="price">₹30,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/workshaala-hsr-nr-towers"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/workshaala-hsr-nr-towers" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -581,73 +516,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3986447a176cf22f0e4bb80bc79e12ee4901456c.jpg"
-                                alt="CoworkInsta"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3986447a176cf22f0e4bb80bc79e12ee4901456c.jpg" alt="CoworkInsta" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>CoworkInsta</h4>
                             <p>DLF Phase - 4</p>
                             <p class="price">₹20,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/coworkinsta-dlf-phase-4"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/coworkinsta-dlf-phase-4" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4ec40e045efc783c9e6de575c5cee95920fe3a99.jpg"
-                                alt="Altf MG Road"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4ec40e045efc783c9e6de575c5cee95920fe3a99.jpg" alt="Altf MG Road" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Altf MG Road</h4>
                             <p>JMD Empire Square</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/altf-mg-road-5cb0-gurugram"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/altf-mg-road-5cb0-gurugram" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fe615f6cb8d1b631a7f8798af659da747dc3a22b.jpg"
-                                alt="AltF MG Road"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fe615f6cb8d1b631a7f8798af659da747dc3a22b.jpg" alt="AltF MG Road" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>AltF MG Road</h4>
                             <p>Plaza Mall</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/altf-mg-road-gurugram"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/altf-mg-road-gurugram" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d572d0c1a525696b8bb4e9f50e7e515cdfc39df.jpg"
-                                alt="Fume"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d572d0c1a525696b8bb4e9f50e7e515cdfc39df.jpg" alt="Fume" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Fume</h4>
                             <p>Udyog Vihar - Phase IV</p>
                             <p class="price">₹18,500/- year</p>
                         </div>
-                        <a routerLink="/coworking/fume-udyog-vihar-4-gurugram"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/fume-udyog-vihar-4-gurugram" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ee91b518748aa04bc96f000947f2da2194d8ef58.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ee91b518748aa04bc96f000947f2da2194d8ef58.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>ReOffice</h4>
                             <p>Nirvana Courtyard</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/insta-office-nirvana-courtyard-a370-gurugram"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/insta-office-nirvana-courtyard-a370-gurugram" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -669,73 +589,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/531fb781984f73528237c26d0ea47ff5942b6ec7.jpg"
-                                alt="Kontor Space Thane"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/531fb781984f73528237c26d0ea47ff5942b6ec7.jpg" alt="Kontor Space Thane" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Kontor Space Thane</h4>
                             <p>Wagle Industrial Estate, Mumbai</p>
                             <p class="price">₹66,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/kontor-space-thane"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/kontor-space-thane" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e5af998e134e77f13a5ab79e66646eb2b30fa00.jpg"
-                                alt="Cowrks Powai"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e5af998e134e77f13a5ab79e66646eb2b30fa00.jpg" alt="Cowrks Powai" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Cowrks Powai</h4>
                             <p>Hiranandani Gardens, Mumbai</p>
                             <p class="price">₹66,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/cowrks-powai"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/cowrks-powai" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fefd2a3c55f5dfa618a7a61da431fbe09a01d0b1.jpg"
-                                alt="My Desk Borivali West"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fefd2a3c55f5dfa618a7a61da431fbe09a01d0b1.jpg" alt="My Desk Borivali West" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>My Desk Borivali West</h4>
                             <p>Borivali West, Mumbai</p>
                             <p class="price">₹15,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/my-desk-borivali-west"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/my-desk-borivali-west" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c6cfaf1eaacb39e0738ac2209c419c786f60687d.jpg"
-                                alt="Yessswork Andheri"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c6cfaf1eaacb39e0738ac2209c419c786f60687d.jpg" alt="Yessswork Andheri" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Yessswork Andheri</h4>
                             <p>Kurla West, Mumbai</p>
                             <p class="price">₹28,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/yesssworks-andheri"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/yesssworks-andheri" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/414abdc291295c00f2636484354273f547af7182.jpg"
-                                alt="IKeva BKC"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/414abdc291295c00f2636484354273f547af7182.jpg" alt="IKeva BKC" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>IKeva BKC</h4>
                             <p>BKC, Mumbai</p>
                             <p class="price">₹48,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/ikeva-bkc-annexe"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/ikeva-bkc-annexe" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -757,73 +662,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e2f0a548f8a7d9210982169c336857d089051b9b.jpg"
-                                alt="CoWrks Skyview"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e2f0a548f8a7d9210982169c336857d089051b9b.jpg" alt="CoWrks Skyview" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>CoWrks Skyview</h4>
                             <p>Hitech City, Hyderabad</p>
                             <p class="price">₹65,988/- year</p>
                         </div>
-                        <a routerLink="/coworking/cowrks-skyview"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/cowrks-skyview" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd91fd8dfaa7cb96b81f8e414e88a6759e2a04df.jpg"
-                                alt="Cokarma Hitech City"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd91fd8dfaa7cb96b81f8e414e88a6759e2a04df.jpg" alt="Cokarma Hitech City" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Cokarma Hitech City</h4>
                             <p>Kondapur, Hyderabad</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/cokarma-kondapur"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/cokarma-kondapur" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1e0cdd444154295c4c302ef6ddee38d0326efae4.jpg"
-                                alt="Cokarma Himayat Nagar"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1e0cdd444154295c4c302ef6ddee38d0326efae4.jpg" alt="Cokarma Himayat Nagar" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Cokarma Himayat Nagar</h4>
                             <p>Himayatnagar, Hyderabad</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/cokarma-himayat-nagar"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/cokarma-himayat-nagar" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/82da00d3f383b6632b681b675889420f49405abd.jpg"
-                                alt="SBC Coworking KPHB"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/82da00d3f383b6632b681b675889420f49405abd.jpg" alt="SBC Coworking KPHB" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>SBC Coworking KPHB</h4>
                             <p>Kukatpally, Hyderabad</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/sbc-coworking-space"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/sbc-coworking-space" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/128e4e2d82f29883623121ce356892eb10699a6d.jpg"
-                                alt="iKeva Banjara Hills"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/128e4e2d82f29883623121ce356892eb10699a6d.jpg" alt="iKeva Banjara Hills" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>iKeva Banjara Hills</h4>
                             <p>Banjara Hills, Hyderabad</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/ikeva-banjara-hills"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/ikeva-banjara-hills" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -845,73 +735,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6aedcc4a570b7f0dedd2e8bfdeee813c1a3ea905.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6aedcc4a570b7f0dedd2e8bfdeee813c1a3ea905.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Level 212 coworks</h4>
                             <p>Camp, Pune</p>
                             <p class="price">₹36,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/level-212-coworks"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/level-212-coworks" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f57ca1c5e4db68836621c8c8a2997caeefdc391d.jpg"
-                                alt="Trios Viman Nagar"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f57ca1c5e4db68836621c8c8a2997caeefdc391d.jpg" alt="Trios Viman Nagar" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Trios Viman Nagar</h4>
                             <p>Viman Nagar, Pune</p>
                             <p class="price">₹20,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/trios-viman-nagar"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/trios-viman-nagar" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/042ee7d66af9a3b51dfe02269d259d2542406bf4.jpg"
-                                alt="Trios Baner"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/042ee7d66af9a3b51dfe02269d259d2542406bf4.jpg" alt="Trios Baner" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Trios Baner</h4>
                             <p>Baner Rd, Pune</p>
                             <p class="price">₹20,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/trio-baner"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/trio-baner" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c83c73c2f83f63b561be939d1ac13b202ded1b77.jpg"
-                                alt="Synergy Office space"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c83c73c2f83f63b561be939d1ac13b202ded1b77.jpg" alt="Synergy Office space" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Synergy Office space</h4>
                             <p>Viman Nagar, Pune</p>
                             <p class="price">₹20,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/synergy-office-space"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/synergy-office-space" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8307a5bd75ae0e58725f22e5239119bb0f49c4b2.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8307a5bd75ae0e58725f22e5239119bb0f49c4b2.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Collab Workspaces</h4>
                             <p>Kharadi, Pune</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/collab-workspaces-kharadi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/collab-workspaces-kharadi" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -933,73 +808,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87a193f6b08f3c3d59cbd83a110356f4acb6cebc.jpg"
-                                alt="KraStay Saidullahjab"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87a193f6b08f3c3d59cbd83a110356f4acb6cebc.jpg" alt="KraStay Saidullahjab" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>KraStay Saidullahjab</h4>
                             <p>Westend Marg</p>
                             <p class="price">₹23,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/krastay-saidullahjab-delhi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/krastay-saidullahjab-delhi" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/12b8368627aeef98b793319dfdcb1b2efe85153a.jpg"
-                                alt="Covork"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/12b8368627aeef98b793319dfdcb1b2efe85153a.jpg" alt="Covork" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Covork</h4>
                             <p>Paschim Vihar</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/covork-pashim-vihar-delhi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/covork-pashim-vihar-delhi" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c039e4bd9d93843a20cd86936eddfa0e299eb8c9.jpg"
-                                alt="InstaOffice"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c039e4bd9d93843a20cd86936eddfa0e299eb8c9.jpg" alt="InstaOffice" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>InstaOffice</h4>
                             <p>Okhla Phase - II</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/instaoffice-okhla-phase-ii-delhi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/instaoffice-okhla-phase-ii-delhi" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ed53bed208d563db937992858c65d0247a86ee5c.jpg"
-                                alt="One Co.Work"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ed53bed208d563db937992858c65d0247a86ee5c.jpg" alt="One Co.Work" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>One Co.Work</h4>
                             <p>Connaught Place</p>
                             <p class="price">₹40,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/one-cowork-connaught-place-delhi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/one-cowork-connaught-place-delhi" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1f0e919005a00545aa6485eff7739905fdafecc3.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1f0e919005a00545aa6485eff7739905fdafecc3.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Coworkin</h4>
                             <p>Nehru Place</p>
                             <p class="price">₹30,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/coworkin-nehru-place-delhi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/coworkin-nehru-place-delhi" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -1021,73 +881,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09e3bfb06cf7fb891e66740b0f6e93ae18816f8b.jpg"
-                                alt="Your Space"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09e3bfb06cf7fb891e66740b0f6e93ae18816f8b.jpg" alt="Your Space" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Nukleus</h4>
                             <p>Sector 142</p>
                             <p class="price">₹20,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/nukleus-cowork-coplay-sector-142-noida"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/nukleus-cowork-coplay-sector-142-noida" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/39d244c08e0309a1a4e239001e8ce824692f0f8e.jpg"
-                                alt="Your Space"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/39d244c08e0309a1a4e239001e8ce824692f0f8e.jpg" alt="Your Space" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Reoffice</h4>
                             <p>Sector 16 Noida</p>
                             <p class="price">₹30,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/reoffice-noida"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/reoffice-noida" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/620a7c63bdc50999c6310ff5f48410972e24e8fd.jpg"
-                                alt="91springboard NH8"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/620a7c63bdc50999c6310ff5f48410972e24e8fd.jpg" alt="91springboard NH8" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>AltF Expressway</h4>
                             <p>Sector 132</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/alt-f-expressway-sector-132-e5fa-noida"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/alt-f-expressway-sector-132-e5fa-noida" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ad5161ad6f4d0ff53b97dfbfc9a2407b0602f828.jpg"
-                                alt="Orchid by Hive"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ad5161ad6f4d0ff53b97dfbfc9a2407b0602f828.jpg" alt="Orchid by Hive" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Amigo CoWorking Space</h4>
                             <p>Sector 8</p>
                             <p class="price">₹18,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/amigo-coworking-space-sector-8-a2cd-noida"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/amigo-coworking-space-sector-8-a2cd-noida" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f29b2ed4c4834fd97ddfad12ade2c038e6b9483b.jpg"
-                                alt="Plus Offices Sector 67"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f29b2ed4c4834fd97ddfad12ade2c038e6b9483b.jpg" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Worxways Sector 63</h4>
                             <p>Sector 63, Noida</p>
                             <p class="price">₹22,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/worxways-sector-63-noida"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/worxways-sector-63-noida" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -1109,73 +954,58 @@
                 <div class="space_carousel">
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/79f635e547dc15d1e0e438725c3528c972efd29b.jpg"
-                                alt="Spacelance Anna Salai"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/79f635e547dc15d1e0e438725c3528c972efd29b.jpg" alt="Spacelance Anna Salai" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Spacelance Anna Salai</h4>
                             <p>Anna Salai, Chennai</p>
                             <p class="price">₹17,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/spacelance-chennai"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/spacelance-chennai" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9972a4cf6818f8b94c8bb0caae395ab5e4380bd5.jpg"
-                                alt="The Work Villa"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9972a4cf6818f8b94c8bb0caae395ab5e4380bd5.jpg" alt="The Work Villa" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>The Work Villa</h4>
                             <p>Anna Salai, Chennai</p>
                             <p class="price">₹36,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/the-workvilla"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/the-workvilla" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d262a614ae61f75b94ee4eeefc2dafe7feed3e6b.jpg"
-                                alt="Trend India Workspaces Guindy"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d262a614ae61f75b94ee4eeefc2dafe7feed3e6b.jpg" alt="Trend India Workspaces Guindy" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Trend India Workspaces Guindy</h4>
                             <p>Trend India Business Centre</p>
                             <p class="price">₹36,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/trend-india-workspaces"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/trend-india-workspaces" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/64e8b99f18b67cb0c8fce6453f67d49c4aeca1fc.jpg"
-                                alt="LM Tech Park"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/64e8b99f18b67cb0c8fce6453f67d49c4aeca1fc.jpg" alt="LM Tech Park" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>LM Tech Park</h4>
                             <p>Perungudi, Chennai</p>
                             <p class="price">₹60,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/lm-tech-park"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/lm-tech-park" class="stretched-link"></a>
                     </div>
                     <div class="property-item">
                         <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e57802d6c568495bd0c72cfda5ee955418449198.jpg"
-                                alt="Ikeva Perungudi"
-                                class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e57802d6c568495bd0c72cfda5ee955418449198.jpg" alt="Ikeva Perungudi" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>Ikeva Perungudi</h4>
                             <p>Old Mahabalipuram Rd, Chennai</p>
                             <p class="price">₹42,000/- year</p>
                         </div>
-                        <a routerLink="/coworking/ikeva-chennai-perungudi"
-                            class="stretched-link"></a>
+                        <a routerLink="/coworking/ikeva-chennai-perungudi" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -1192,7 +1022,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row align-items-center">
             <div class="col-md-6">
                 <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/55341250f6bdbb49a2425d48ae422e5ebe75ae69.png" class="img-fluid" alt="">
@@ -1202,35 +1032,49 @@
                 <div class="virtual_query_form">
                     <h3>Answers to your Virtual Office query</h3>
                     <p>Our team is ready to answer your questions.</p>
-                    <form action="">
+                    <form action="" [formGroup]="queryFormGroup" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="input-group align-items-center">
                                     <img src="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                    <input type="text" class="form-control" placeholder="Your Name*" required>
+                                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Enter your Name*" required>
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="input-group align-items-center">
                                     <img src="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                    <input type="email" class="form-control" placeholder="Email Address*" required>
+                                    <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                        <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="input-group align-items-center">
                                     <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                    <input type="tel" class="form-control" placeholder="Mobile No.*" required>
+                                    <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
+                                    <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                        <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="input-group align-items-center">
-                                    <img src="../../../assets/images/icons/intrestin-icon.svg" class="img-fluid" alt=""> 
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected disabled>Intersted In.</option>
-                                        <option value="1">Company Registration</option>
-                                        <option value="3">GST Registration</option>
-                                        <option value="2">Business Address</option>
+                                    <img src="../../../assets/images/icons/intrestin-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" class="form-control" aria-label="Default select example" required>
+                                        <option value="" disabled>Intersted In.</option>
+                                        <option value="Company Registration">Company Registration</option>
+                                        <option value="GST Registration">GST Registration</option>
+                                        <option value="Business Address">Business Address</option>
                                     </select>
+                                    <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['interested_in'].errors['required']">Intersted In ?.</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12">
@@ -1295,67 +1139,54 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <accordion [isAnimated]="true"
-                    class="faqs_accordion">
+                <accordion [isAnimated]="true" class="faqs_accordion">
                     <accordion-group>
                         <h4 accordion-heading>
                             What is a virtual office?
                         </h4>
-                        <p>A virtual office is a popular remote workspace model which offers a professional business
-                            address. It comes with various office-related facilities and services. From mail
-                            handling to reception facilities and access to meeting
-                            rooms, various office facilities are provided without having a physical office setup.
+                        <p>A virtual office is a popular remote workspace model which offers a professional business address. It comes with various office-related facilities and services. From mail handling to reception facilities and access to meeting rooms,
+                            various office facilities are provided without having a physical office setup.
                         </p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>
                             What are the types of virtual offices?
                         </h4>
-                        <p>There are mainly three types of Virtual Offices-<br><br> Virtual Office for Company
-                            Registration<br> Virtual Office for Mail Handling<br> Virtual Office for GST
-                            Registration
+                        <p>There are mainly three types of Virtual Offices-<br><br> Virtual Office for Company Registration
+                            <br> Virtual Office for Mail Handling<br> Virtual Office for GST Registration
                         </p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>
                             What are the advantages of having a virtual office address?
                         </h4>
-                        <p>There are so many advantages of having a virtual office in this city, some of them are
-                            listed below-
-                            <br><br> Zero furniture required<br> Access to Global Talent<br> Increased
-                            Productivity<br> No daily commuting to an office for work<br> Zero Utility Payments<br>
-                            Zero hardware cost<br> No hefty office leases<br> Liberty
-                            and Flexibility in work style etc.<br>
+                        <p>There are so many advantages of having a virtual office in this city, some of them are listed below-
+                            <br><br> Zero furniture required<br> Access to Global Talent<br> Increased Productivity
+                            <br> No daily commuting to an office for work<br> Zero Utility Payments<br> Zero hardware cost<br> No hefty office leases<br> Liberty and Flexibility in work style etc.<br>
                         </p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>
                             What type of businesses opt for virtual offices?
                         </h4>
-                        <p>From a real estate business, boutique, courier company to legal firm, and creative
-                            agencies etc. Several types of businesses use a virtual office space including
-                            freelancers, business owners, young entrepreneurs, SMEs etc.
+                        <p>From a real estate business, boutique, courier company to legal firm, and creative agencies etc. Several types of businesses use a virtual office space including freelancers, business owners, young entrepreneurs, SMEs etc.
                         </p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>
                             What facilities do you get when you book a virtual office?
                         </h4>
-                        <p>Following are the state-of-the-art facilities offered by a virtual office in this
-                            city-<br><br> Envelope Opening Service<br> Mailing Address<br> Video Conferencing
-                            Facilities<br> Meeting Space <br> Business Telephone Number<br> Scanning Service<br>
-                            Administrative Staff<br> Phone Answering Services<br> Professional Business Address etc.
+                        <p>Following are the state-of-the-art facilities offered by a virtual office in this city-
+                            <br><br> Envelope Opening Service<br> Mailing Address<br> Video Conferencing Facilities
+                            <br> Meeting Space <br> Business Telephone Number<br> Scanning Service<br> Administrative Staff<br> Phone Answering Services<br> Professional Business Address etc.
                         </p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>
                             What documents are required while booking a virtual office space?
                         </h4>
-                        <p>Following are the required documents to be submitted by the companies which are
-                            incorporated-
-                            <br><br> Director’s or Trustees ID Proof<br> Organization Incorporation Certificate<br>
-                            PAN Card<br> GST Number (if any) <br><br> Following are the required documents to be
-                            submitted by the companies which are not incorporated-
+                        <p>Following are the required documents to be submitted by the companies which are incorporated-
+                            <br><br> Director’s or Trustees ID Proof<br> Organization Incorporation Certificate<br> PAN Card<br> GST Number (if any) <br><br> Following are the required documents to be submitted by the companies which are not incorporated-
                             <br><br> Director’s or Trustees ID Proof<br> Planned Organization’s Name (for agreement)
                         </p>
                     </accordion-group>
