@@ -1235,30 +1235,73 @@ export class CoLivingComponent implements OnInit {
       },
     ],
 
-    LOCL: [
+    // LOCL: [
+    //   {
+    //     name: 'THE IVY LEAGUE HOUSE (LOCL)',
+    //     address: 'Wakad, Pune',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+    //     slug: 'locl-the-ivy-league-house',
+    //     starting: '9,000',
+    //   },
+    //   {
+    //     name: 'LOCL Co-live & Work',
+    //     address: 'Bellandur Main Road, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3c18bc6d15709e1fa697586efb85ec5f4f7a458.jpg',
+    //     slug: 'locl-colive-work-bellandur',
+    //     starting: '10,000',
+    //   },
+    //   {
+    //     name: 'LOCL Co-live & Work',
+    //     address: 'Koramangala, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
+    //     slug: 'locl-colive-work-koramangala',
+    //     starting: '10,000',
+    //   },
+    // ],
+
+    Orion: [
       {
-        name: 'THE IVY LEAGUE HOUSE (LOCL)',
-        address: 'Wakad, Pune',
+        name: 'Orion Ursa(Girls)',
+        address: 'Kamla Nagar, Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
-        slug: 'locl-the-ivy-league-house',
-        starting: '9,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e7dea56604675f8543e73d6fc43df6036c6dde2c.jpg',
+        slug: 'orion-ursa-kamla-nagar',
+        starting: '19,500',
       },
       {
-        name: 'LOCL Co-live & Work',
-        address: 'Bellandur Main Road, Bangalore',
+        name: 'Orion Pheonix(Girls)',
+        address: 'Roop Nagar, Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3c18bc6d15709e1fa697586efb85ec5f4f7a458.jpg',
-        slug: 'locl-colive-work-bellandur',
-        starting: '10,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/df540c124966697d23b285a9f7dd7072ffb773b5.jpg',
+        slug: 'orion-pheonix-roop-nagar',
+        starting: '21,000',
       },
       {
-        name: 'LOCL Co-live & Work',
-        address: 'Koramangala, Bangalore',
+        name: 'Orion Pegasus(Girls)',
+        address: 'North Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
-        slug: 'locl-colive-work-koramangala',
-        starting: '10,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/19c35634978281917dd2263fa11f82e958af60d4.jpg',
+        slug: 'orion-pegasus-hudson-lane',
+        starting: '17,500',
+      },
+      {
+        name: 'Orion Scorpius (Boys)',
+        address: 'Vijay Nagar, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d17f3cd86f62c34f8581fcc5ba8172219875fdbb.jpg',
+        slug: 'orion-scorpius-vijay-nagar',
+        starting: '22,000',
+      },
+      {
+        name: 'Orio Living - Liberty House Premium Boys Pg',
+        address: 'S.G. Palya, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dbc3181eb622e38b771984f5441297ca38aab2d2.jpg',
+        slug: 'orio-living-liberty-house-boys',
+        starting: '7,500',
       },
     ],
   };
