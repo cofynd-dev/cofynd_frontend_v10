@@ -128,7 +128,7 @@
 
     <app-carousel-item [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.bangalore">
     </app-carousel-item>
-    
+
     <app-carousel-item [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.hyderabad">
     </app-carousel-item>
 
@@ -397,8 +397,8 @@
                             <h4 accordion-heading>
                                 What is a coliving space?
                             </h4>
-                            <p>Coliving Spaces relate to shared-housing to inhabit, work and have a good time. This experience includes fully furnished, bringing individuals together and creating a conducive environment for their interaction. A growing
-                                number of population across the globe are preferring coliving to unfasten benefits such as community, comfort and cost-saving. </p>
+                            <p>Coliving Spaces relate to shared-housing to inhabit, work and have a good time. This experience includes fully furnished, bringing individuals together and creating a conducive environment for their interaction. A growing number
+                                of population across the globe are preferring coliving to unfasten benefits such as community, comfort and cost-saving. </p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
@@ -1054,7 +1054,7 @@
                     <div class="col-md-12 pl-0 pr-0">
                         <div class="top-coliving-spaces">
                             <div class="pb-2">
-                                <a [routerLink]="_space.slug" *ngFor="let _space of spaceForMobile.housr">
+                                <a [routerLink]="_space.slug" *ngFor="let _space of spaceForMobile.stanza">
                                     <img [src]="_space.image" class="img-fluid d-block m-auto top-picks-img" [alt]="_space.name">
                                     <div class="mt-2 mb-4 text-dark font-13">
                                         <p class="mb-0 fw-600">{{_space.name}}</p>

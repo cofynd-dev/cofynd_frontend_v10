@@ -195,6 +195,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
   }
 
   checkAmenityIsAvailable(facility: string) {
+    this.workspace.amenties = this.workspace.amenties.filter((amenty: any) => amenty.for_office === true);
     const availableFacility = this.workspace.amenties.map(amenity => amenity.name);
     return availableFacility.includes(facility);
   }
