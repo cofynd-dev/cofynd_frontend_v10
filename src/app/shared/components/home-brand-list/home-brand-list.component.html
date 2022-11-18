@@ -1,41 +1,50 @@
-<section class="our_brands" *ngIf="coworkingBrands.length && shouldCoWorkingVisible" [class.grey-layout]="layout === 'grey'">
+<section class="our_brands"
+    *ngIf="coworkingBrands.length && shouldCoWorkingVisible"
+    [class.grey-layout]="layout === 'grey'">
     <div class="container">
-    <div class="row">
-        <div class="col-12">
-    <div class="page-title">
-        <h2>{{ pageTitle }}</h2>
-    </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-    <div class="logos_slider">
-        <div class="band-img" *ngFor="let brand of coworkingBrands">
-            <img (click)="goToBrandPage(brand)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="logos_slider">
+                    <div class="band-img"
+                        *ngFor="let brand of coworkingBrands">
+                        <img (click)="goToBrandPage(brand)"
+                            [lazyLoad]="brand.image?.s3_link"
+                            [alt]="brand.name">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-</div>
-</div>
 </section>
 
-<section class="partners" *ngIf="coLivingBrands.length && shouldCoLivingVisible">
+<section class="partners"
+    *ngIf="coLivingBrands.length && shouldCoLivingVisible">
     <div class="row">
         <div class="col-12">
-    <div class="page-title remove-side-circle">
-        <h2>{{pageTitle}}</h2>
-    </div>
-</div>
-</div>
-<div class="row">
-    <div class="col-12">
-    <div class="partner-carousel slider-on-mobile-view">
-        <div class="band-img" *ngFor="let brand of coLivingBrands">
-            <img (click)="goToBrandPage(brand, true)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
+            <div class="page-title remove-side-circle">
+                <h2>{{pageTitle}}</h2>
+            </div>
         </div>
     </div>
-</div>
-</div>
+    <div class="row">
+        <div class="col-12">
+            <div class="partner-carousel slider-on-mobile-view">
+                <div class="band-img"
+                    *ngFor="let brand of coLivingBrands">
+                    <img (click)="goToBrandPage(brand, true)"
+                        [lazyLoad]="brand.image?.s3_link"
+                        [alt]="brand.name">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- <section class="partners our_brands pb-5" *ngIf="shouldOtherBrandVisible">
@@ -50,7 +59,8 @@
 </section> -->
 
 
-<section class="our_brands" *ngIf="shouldOtherBrandVisible">
+<section class="our_brands"
+    *ngIf="shouldOtherBrandVisible">
     <div class="container">
         <div class="page-title">
             <h2>{{pageTitle}}</h2>
@@ -58,8 +68,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="logos_slider">
-                    <div class="band-img" *ngFor="let brand of [3,4,2,6,11,12]">
-                        <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'" [alt]="brand" class="brand-partner">
+                    <div class="band-img"
+                        *ngFor="let brand of [3,4,2,6,11,12]">
+                        <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'"
+                            [alt]="brand"
+                            class="brand-partner">
                     </div>
                 </div>
             </div>

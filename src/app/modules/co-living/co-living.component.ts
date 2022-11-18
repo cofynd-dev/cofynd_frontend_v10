@@ -61,35 +61,52 @@ export class CoLivingComponent implements OnInit {
   spaceForMobile = {
     coupleLiving: [
       {
+        name: 'Cofynd CoLo Sector 15',
+        address: 'Sector 15, Gurgaon',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8bca176f399f5a9323ba86cd37a0466e81e74b49.jpg',
+        slug: 'flock-sector-15',
+        starting: '35,000',
+      },
+      {
+        name: 'Tribe Luxury Hostel Wakad',
+        address: 'ACE Almighty, Wakad, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/45918405275ee64628bfd50fc2b2301a8aa8b00e.jpg',
+        slug: 'tribe-stays-wakad',
+        starting: '18,900',
+      },
+      {
+        name: 'HelloWorld Indiranagar',
+        address: 'Rustam Bagh Layout, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09ce628bf82a057f736dc279c5de15adc6b2d62e.jpg',
+        slug: 'helloworld-indiranagar12-indiranagar',
+        starting: '11,000',
+      },
+      {
+        name: 'HelloWorld Arzoo',
+        address: 'Silicon Valley, Hyderabad',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d144878cb616003b57b3a39977a758138bfc815.jpg',
+        slug: 'helloworld-arzoo',
+        starting: '30,000',
+      },
+      {
+        name: 'Stanza living Bagan house (Boys)',
+        address: 'Kukatpally, Hyderabad',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e1bd3eaa58ff9ce063558a7847f30c80de48f480.jpg',
+        slug: 'stanza-bagan-house',
+        starting: '8,500',
+      },
+      {
         name: 'LOCL Colive',
         address: 'Bangalore',
         image:
           'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2825fcc97e1fe0b7acbcebca91d15f00e18ed462.jpg',
         slug: 'locl-colive-work-bellandur',
         starting: '10,000',
-      },
-      // {
-      //   name: 'Colive 018',
-      //   address: 'Bangalore',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5507e0d441daf04fc8499224bcb89bbbfb5c47ef.jpg',
-      //   slug: 'colive-018-the-address',
-      //   starting: '8,800'
-      // },
-      {
-        name: 'Settl. Smogen',
-        address: 'HSR Layout Bengaluru',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d99ce5549c6e22b08e8f7db8bd25fe725b82c953.jpg',
-        slug: 'settl-smogen',
-        starting: '12,000',
-      },
-      {
-        name: 'Niles StayAbode',
-        address: 'Krishna Reddy Layout',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4574f81d390a8ab7b53873df3c51dd2235924527.jpg',
-        slug: 'niles-stayabode',
-        starting: '22,000',
       },
       {
         name: 'Flock Oasis',
@@ -119,7 +136,7 @@ export class CoLivingComponent implements OnInit {
         name: '89 XQUISIT',
         address: 'New BEL Road Bangalore',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e888e278f28ddaf82a865632b969f0b312c5091.jpg',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1045178796f04649997581cddec72f22246b544.jpg',
         slug: '89-xquisit',
         starting: '11,000',
       },
@@ -131,22 +148,38 @@ export class CoLivingComponent implements OnInit {
         slug: 'zuhause-living',
         starting: '18,000',
       },
-      {
-        name: 'Grexter Avalon',
-        address: 'HSR Layout , Bangalore',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/35b3349f126fdba6f87c38662cacb5088104b956.jpg',
-        slug: 'grexter-avalon',
-        starting: '8,900',
-      },
     ],
     bangalore: [
       {
-        name: 'LOCL Colive',
-        address: 'Bellandur Main Road',
+        name: 'Hyphen Ombre',
+        address: 'HSR Layout, Bangalore',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2825fcc97e1fe0b7acbcebca91d15f00e18ed462.jpg',
-        slug: 'locl-colive-work-bellandur',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1e2c5dcb345d741cc9f3257f254cad29953b14a6.jpg',
+        slug: 'hyphen-ombre',
+        starting: '18,000',
+      },
+      {
+        name: 'Stanza Living Frankfurt House',
+        address: 'Koramangala, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5ed87248ca6e5fd8b0f580efd9ce5a2e8aa05dca.jpg',
+        slug: 'stanza-living-frankfurt-house-koramangala',
+        starting: '19,000',
+      },
+      {
+        name: 'HelloWorld Daffodil',
+        address: 'HSR Layout, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0803c3a64e46b1bc08a5c11db53cf6455f886f44.jpg',
+        slug: 'helloworld-daffodil',
+        starting: '13,000',
+      },
+      {
+        name: 'LOCL Co-live & Work',
+        address: 'Koramangala, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
+        slug: 'locl-colive-work-koramangala',
         starting: '10,000',
       },
       {
@@ -158,46 +191,6 @@ export class CoLivingComponent implements OnInit {
         starting: '11,000',
       },
       {
-        name: 'Grexter Inaaya',
-        address: 'Nagavara',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5d62c850c6aefb59c263bc238d2f38e5b3cfce0a.jpg',
-        slug: 'grexter-inaaya',
-        starting: '6,800',
-      },
-      {
-        name: 'Settl. Reine',
-        address: 'HSR Layout',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2593968c490ef7cd8b2f9dfd01c5b03a820a1aa0.png',
-        slug: 'settl-reine',
-        starting: '25,000',
-      },
-      {
-        name: 'Matilda StayAbode',
-        address: 'Kundalahalli',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c960c4eaea605699b785ccb95bd677fc97a11c09.jpg',
-        slug: 'matilda-stayabode',
-        starting: '11,000',
-      },
-      // {
-      //   name: 'Colive 179',
-      //   address: 'Doddanekundi',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4e1da7e3114ecf240add949002b907d5faeb1bd8.jpg',
-      //   slug: 'colive-179-signature-towers',
-      //   starting: '10,500'
-
-      // },
-      // {
-      //   name: 'Colive 484 Atlanta',
-      //   address: 'Chinnapanahalli',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/68409e49b30d5232488a2c1f5badc77229569ad7.jpg',
-      //   slug: 'colive-484-atlanta',
-      //   starting: '23,000'
-
-      // },
-      {
         name: 'Hood Coliving Daffodils',
         address: 'Electronic city phase 1',
         image:
@@ -206,22 +199,23 @@ export class CoLivingComponent implements OnInit {
         starting: '8,500',
       },
       {
-        name: 'Settl.Samara',
-        address: 'Indiranagar',
+        name: 'HelloWorld BrookeField',
+        address: 'Marathahalli, Bangalore',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ad2af7487fe7eebdf60048bd737946116cd72603.jpg',
-        slug: 'settl-samara',
-        starting: '11,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/087cdec73044c1451ec8137e29a947ddcd45b6d9.jpg',
+        slug: 'helloworld-brookefield',
+        starting: '12,000',
       },
       {
-        name: 'Kohabs Amber',
-        address: 'HAL 3rd stage',
+        name: 'Stanza Living | Regina House',
+        address: 'Regina House, Taluk, Bengaluru',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e580ba919c93888b14edfadca17d0a96f36764a1.jpg',
-        slug: 'kohabs-amber',
-        starting: '12,500',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/de3d9117e326e1b0077f06647edce998bd152d30.jpg',
+        slug: 'stanza-living-regina-house',
+        starting: '8,300',
       },
     ],
+
     gurugram: [
       {
         name: 'Flock Oasis',
@@ -240,12 +234,12 @@ export class CoLivingComponent implements OnInit {
         starting: '18,000',
       },
       {
-        name: 'Housr Tulip Purple',
-        address: 'Sector 69, Gurugram',
+        name: 'HelloWorld Ross',
+        address: 'Sector 25, Gurugram',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
-        slug: 'housr-tulip-purple-gurgaon',
-        starting: '12,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3044fae9f1c844bbda0e9cfd27be7622496b0aa3.jpg',
+        slug: 'helloworld-ross',
+        starting: '11,000',
       },
       {
         name: 'Coho Sector 55',
@@ -264,20 +258,12 @@ export class CoLivingComponent implements OnInit {
         starting: '8,500',
       },
       {
-        name: 'Housr Phase 1',
-        address: 'Sector 28, Gurugram',
+        name: 'Livstations (Male)',
+        address: 'Sector 33, Gurugram',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ce0fcdbb45ece152710d7b41891975961fe4a97d.jpg',
-        slug: 'housr-phase-1',
-        starting: '16,000',
-      },
-      {
-        name: 'Manav PG',
-        address: 'Sector 33, Sohna Road',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ece0d8302a47bf34681abaab23f90a2806392139.jpg',
-        slug: 'manav-pg',
-        starting: '6,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/24f6159970416f9b42f54aa8a4a9e87f78178754.jpg',
+        slug: 'station1402',
+        starting: '13,000',
       },
       {
         name: 'iLive CoLiving',
@@ -296,14 +282,47 @@ export class CoLivingComponent implements OnInit {
         starting: '9,000',
       },
     ],
+
     delhi: [
       {
-        name: 'Urban Storey',
-        address: 'Gautam Nagar',
+        name: 'Uniliv OAK',
+        address: 'Saket, Delhi ',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/95d73e38087367e49718252a20136af73bbd8990.jpg',
+        slug: 'uniliv-oak-saket',
+        starting: '20,000',
+      },
+      {
+        name: 'Orion Scorpius (Boys)',
+        address: 'Vijay Nagar, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d17f3cd86f62c34f8581fcc5ba8172219875fdbb.jpg',
+        slug: 'orion-scorpius-vijay-nagar',
+        starting: '22,000',
+      },
+      {
+        name: 'HelloWorld Beckham',
+        address: 'New Friends Colony, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/deaf7dd61f66cf016d9556c708394dc743bb3483.jpg',
+        slug: 'helloworld-beckham',
+        starting: '11,000',
+      },
+      {
+        name: 'Urban Storey Lighthouse (Girls)',
+        address: 'Gautam Nagar, Delhi',
         image:
           'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c834d216d1b441fa6227c87118801d7b6450599d.jpg',
         slug: 'urban-storey-lighthouse',
         starting: '8,000',
+      },
+      {
+        name: 'Your Space Pearl NFC',
+        address: 'New Friends Colony, New Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b821ecf183263b44e6a4f8fdff714bd70a18e3e.jpg',
+        slug: 'your-space-pearl-nfc',
+        starting: '18,000',
       },
       {
         name: 'RSB Homes',
@@ -312,14 +331,6 @@ export class CoLivingComponent implements OnInit {
           'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f30956988c88de79ce69b3af0c6db9388e4bec19.jpg',
         slug: 'rsb-homes',
         starting: '13,000',
-      },
-      {
-        name: 'Blossom Stayz',
-        address: 'Saket',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/be7ad0814cd8035ce8a8ecb293b456e3c3ff6cfd.jpg',
-        slug: 'blossom-stayz-saket',
-        starting: '12,000',
       },
       {
         name: 'MuLive mayfair',
@@ -346,14 +357,6 @@ export class CoLivingComponent implements OnInit {
         starting: '13,000',
       },
       {
-        name: 'Coho',
-        address: 'North Campus',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3de301b08b784d17c853df6c257b3dad77118ebe.jpg',
-        slug: 'coho-shakti-nagar',
-        starting: '16,500',
-      },
-      {
         name: 'Pearl Premium Luxury',
         address: 'Shakti Nagar',
         image:
@@ -369,15 +372,8 @@ export class CoLivingComponent implements OnInit {
         slug: 'ashray-living',
         starting: '22,000',
       },
-      {
-        name: 'Blossom Stayz',
-        address: 'Kamla Nagar',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c7ba9efe91d6c27c2953f1b5fb34ce95477619a4.jpg',
-        slug: 'blossom-stayz-kamla-nagar',
-        starting: '11,000',
-      },
     ],
+
     noida: [
       {
         name: 'Fortune by Hive',
@@ -460,23 +456,64 @@ export class CoLivingComponent implements OnInit {
         starting: '9,000',
       },
     ],
+
     pune: [
       {
-        name: 'Housr Phoenix',
-        address: 'Balewadi, Pune',
+        name: 'Tribe Luxury Hostel Viman Nagar',
+        address: 'Mascot Centre, Pune',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2e428fd924ec3be030cf108b2fd0f3300b93335a.jpg',
-        slug: 'housr-phoenix-balewadi',
-        starting: '12,999',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c350244eaf04f8203eade19eb047d5066827ca83.jpg',
+        slug: 'tribe-stays-viman-nagar',
+        starting: '30,000',
       },
       {
-        name: 'Housr Vision',
+        name: 'THE IVY LEAGUE HOUSE',
         address: 'Wakad, Pune',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6c50b55e67eedb1c556f5b30987d18ef9bc77b90.jpg',
-        slug: 'housr-vision',
-        starting: '11,999',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+        slug: 'locl-the-ivy-league-house',
+        starting: '11,000',
       },
+      {
+        name: 'Stanza Living Kingston House',
+        address: 'Wagholi, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/444f50057bfcbb950f760d3b8d5f03e9eec1c93c.jpg',
+        slug: 'stanza-living-kingston-house-wagholi',
+        starting: '7,500',
+      },
+      {
+        name: 'ReForbs Nirvana',
+        address: 'Viman Nagar, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f120b28f052b14f04b226ad048052aa92dcc14d6.jpg',
+        slug: 'reforbs-nirvana-viman-nagar',
+        starting: '17,500',
+      },
+      {
+        name: 'HelloWorld Elegant',
+        address: 'Manjri Bk, Pune',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fece7383bd2bae2fb28b50bdf529aaa62e813287.jpg',
+        slug: 'helloworld-elegant',
+        starting: '8,500',
+      },
+      // {
+      //   name: 'Housr Phoenix',
+      //   address: 'Balewadi, Pune',
+      //   image:
+      //     'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2e428fd924ec3be030cf108b2fd0f3300b93335a.jpg',
+      //   slug: 'housr-phoenix-balewadi',
+      //   starting: '12,999',
+      // },
+      // {
+      //   name: 'Housr Vision',
+      //   address: 'Wakad, Pune',
+      //   image:
+      //     'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6c50b55e67eedb1c556f5b30987d18ef9bc77b90.jpg',
+      //   slug: 'housr-vision',
+      //   starting: '11,999',
+      // },
       {
         name: 'COLIWO',
         address: 'Mathura Nagar',
@@ -485,14 +522,14 @@ export class CoLivingComponent implements OnInit {
         slug: 'coliwo',
         starting: '15,000',
       },
-      {
-        name: 'THE IVY LEAGUE HOUSE',
-        address: 'Wakad, Pune',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/327f9fc3a1ff4f88d3ce3fe7bdb7d2e7935e467a.jpg',
-        slug: 'locl-the-ivy-league-house',
-        starting: '9,000',
-      },
+      // {
+      //   name: 'THE IVY LEAGUE HOUSE',
+      //   address: 'Wakad, Pune',
+      //   image:
+      //     'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/327f9fc3a1ff4f88d3ce3fe7bdb7d2e7935e467a.jpg',
+      //   slug: 'locl-the-ivy-league-house',
+      //   starting: '9,000',
+      // },
       {
         name: 'Cleo House Coliving',
         address: 'Narayan Nagar',
@@ -509,29 +546,14 @@ export class CoLivingComponent implements OnInit {
         slug: 'the-orchid-pune',
         starting: '15,000',
       },
-      // {
-      //   name: 'Colive 645 Harrisburg',
-      //   address: 'Hinjewadi',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ee2307bc03ae389b6eb2283c41538bf5cc59a60d.jpg',
-      //   slug: 'colive-645-harrisburg',
-      //   starting: '11,000'
-
-      // },
-      // {
-      //   name: 'Colive 641 Newark',
-      //   address: 'Narhe, Pune',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b21655c13d86e541ae2c789e0b0f2ecfc1e6fd0.jpg',
-      //   slug: 'colive-641-newark',
-      //   starting: '6,500'
-
-      // },
     ],
+
     mumbai: [
       {
         name: 'Tribe Student',
         address: 'S Pond Rd',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c5e9b46ad7812a6bccc0df5fad4918823292d629.jpg',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f64773d0812d864f0d2b7412ea43033d103c8d2e.jpg',
         slug: 'tribe-stays-vile-parle',
         starting: '50,000',
       },
@@ -579,36 +601,37 @@ export class CoLivingComponent implements OnInit {
 
     hyderabad: [
       {
-        name: 'Housr Qcity',
+        name: 'Stanza living - Memphis House',
+        address: 'Gachibowli, Hyderabad',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fa6a8b11131df5d765e68b6f690e136315e3025b.jpg',
+        slug: 'stanza-living-memphis-house-q-city',
+        starting: '9,500',
+      },
+      {
+        name: 'Isthara Dsr Nilayam',
         address: 'Gowlidoddi, Hyderabad',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d36a4cdf2d43f463082f6f5910d6350f9be8cc94.jpg',
-        slug: 'housr-qcity',
-        starting: '9,999',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/982cbdfd30aa937b17c1c2e78d004f762e2eba3b.jpg',
+        slug: 'dsr-nilayam-isthara',
+        starting: '8,000',
       },
       {
-        name: 'Settl. Amalfi',
-        address: 'Madhapur, Hyderabad',
+        name: 'HelloWorld Justajoo',
+        address: 'Hafeezpet, Hyderabad',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fb1f22c8ffa3e9723db13fd601f86e8c6e87d115.jpg',
-        slug: 'settl-amalfi',
-        starting: '11,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6fb572d2482147185e7971c74c419913701f9a4a.jpg',
+        slug: 'helloworld-justajoo-coliving',
+        starting: '20,000',
       },
       {
-        name: 'Housr 84 Kondapur',
-        address: 'Kondapur, Hyderabad',
+        name: 'Stanza Living | Exeter House',
+        address: 'Gowlidoddy, Hyderabad',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9a7eddc2593599aaa1f87f2dbd284a118136d776.jpg',
-        slug: 'housr-84-kondapur',
-        starting: '13,999',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/851fdee327d3c6c8e49380b3a0b86c7b8d8bfe8b.jpg',
+        slug: 'stanza-living-exeter-house',
+        starting: '7,850',
       },
-      // {
-      //   name: 'Colive 504 Garnet',
-      //   address: 'Gachibowli, Hyderabad',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8cc69133ce25d290878aa2d9c9b1edb56226ea32.jpg',
-      //   slug: 'colive-504-garnet',
-      //   starting: '7,200'
-      // },
       {
         name: 'Isthara Lasya',
         address: 'Gowlidoddy, Hyderabad',
@@ -625,13 +648,6 @@ export class CoLivingComponent implements OnInit {
         slug: 'isthara-aa-homes',
         starting: '8,000',
       },
-      // {
-      //   name: 'Colive 501 Elara',
-      //   address: 'Gowlidoddi, Hyderabad',
-      //   image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8b101604c59c5537d61dcdb176cfcca450002c90.jpg',
-      //   slug: 'colive-501-elara',
-      //   starting: '5,500'
-      // },
       {
         name: 'HelloWorld Kohinoor',
         address: 'Ranga Reddy, Hyderabad',
@@ -772,248 +788,520 @@ export class CoLivingComponent implements OnInit {
         starting: '13,000',
       },
     ],
-    yourspace: [
+    // yourspace: [
+    //   {
+    //     name: 'Your Space Bannerghatta Boys',
+    //     address: 'Between 1st Cross & 2nd Cross, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/21faa6daf9c799d90fa9f074b969613306444bd4.jpg',
+    //     slug: 'yourspace-bennarghatta-road-boys',
+    //     starting: '16,000',
+    //   },
+    //   {
+    //     name: 'Your Space Bannerghatta Girls ',
+    //     address: 'Hulimavu, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4239dbad25d049ca533e2bf6f9ef9c90eeb9feb3.jpg',
+    //     slug: 'yourspace-bennarghatta-road-girls',
+    //     starting: '12,000',
+    //   },
+    //   {
+    //     name: 'Your Space koramangala - Girls',
+    //     address: 'Hosur Road, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/178008243f5804f80d6dca9031567cc4e64e80ba.jpg',
+    //     slug: 'yourspace-kormangala-girls',
+    //     starting: '16,000',
+    //   },
+    //   {
+    //     name: 'Your Space Viman Nagar (Boys)',
+    //     address: 'Sakore Nagar, Pune',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0cd3c49b1e13c6abb12331ccfaabbe6d44924ba8.jpg',
+    //     slug: 'your-space-viman-nagar',
+    //     starting: '15,000',
+    //   },
+    //   {
+    //     name: 'Your Space Bungalow Road ',
+    //     address: 'Bungalow road, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/31cb06225e639ff48aea74882c6eac6da467c53c.jpg',
+    //     slug: 'your-space-bungalow-road39',
+    //     starting: '21,000',
+    //   },
+    //   {
+    //     name: 'Your Space Pearl Nest NFC',
+    //     address: 'New Friends Colony, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b821ecf183263b44e6a4f8fdff714bd70a18e3e.jpg',
+    //     slug: 'your-space-pearl-nfc',
+    //     starting: '21,000',
+    //   },
+    //   {
+    //     name: 'Your Space Vile Parle (Girls)',
+    //     address: 'Vile Parle West, Mumbai',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c2d037a25ca3938bfe69472a718591b18e14d8a.jpg',
+    //     slug: 'your-space-vile-parle-girls',
+    //     starting: '34,000',
+    //   },
+    // ],
+
+    flock: [
       {
-        name: 'Your Space Bannerghatta Boys',
-        address: 'Between 1st Cross & 2nd Cross, Bangalore',
+        name: 'Cofynd CoLo Sector 15',
+        address: 'Sector 15, Gurgaon',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/21faa6daf9c799d90fa9f074b969613306444bd4.jpg',
-        slug: 'yourspace-bennarghatta-road-boys',
-        starting: '16,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8bca176f399f5a9323ba86cd37a0466e81e74b49.jpg',
+        slug: 'flock-sector-15',
+        starting: '35,000',
       },
       {
-        name: 'Your Space Bannerghatta Girls ',
-        address: 'Hulimavu, Bangalore',
+        name: 'Cofynd CoLo Golf Course Road',
+        address: 'Saraswati Kunj,Gurugram',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4239dbad25d049ca533e2bf6f9ef9c90eeb9feb3.jpg',
-        slug: 'yourspace-bennarghatta-road-girls',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/45ec6210d34ffa436031498c7cb12f851add3bd0.jpg',
+        slug: 'coho-golf-course-road',
         starting: '12,000',
       },
       {
-        name: 'Your Space koramangala - Girls',
-        address: 'Hosur Road, Bangalore',
+        name: 'Cofynd CoLo Athena',
+        address: 'Ardee City, Gurgaon',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/178008243f5804f80d6dca9031567cc4e64e80ba.jpg',
-        slug: 'yourspace-kormangala-girls',
-        starting: '16,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/afbb6a7f4981513bc884e7103ebe0c7d5c12b4e7.jpg',
+        slug: 'flock-athena',
+        starting: '8,000',
       },
       {
-        name: 'Your Space Viman Nagar (Boys)',
-        address: 'Sakore Nagar, Pune',
+        name: 'Cofynd CoLo Artemis',
+        address: 'Sector-52, Gurgaon',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0cd3c49b1e13c6abb12331ccfaabbe6d44924ba8.jpg',
-        slug: 'your-space-viman-nagar',
-        starting: '15,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b2e83b4af73867e0cf7be46b0c7e6ea074674640.jpg',
+        slug: 'flock-artimes',
+        starting: '8,000',
       },
       {
-        name: 'Your Space Bungalow Road ',
-        address: 'Bungalow road, New Delhi',
+        name: 'Cofynd CoLo Oasis',
+        address: 'Sector 40, Gurgaon',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/31cb06225e639ff48aea74882c6eac6da467c53c.jpg',
-        slug: 'your-space-bungalow-road39',
-        starting: '21,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae636374fbff5e01efcb978b101a884b39e8ff8f.jpg',
+        slug: 'flock-oasis',
+        starting: '12,000',
       },
       {
-        name: 'Your Space Pearl Nest NFC',
-        address: 'New Friends Colony, New Delhi',
+        name: 'Cofynd CoLo Sector 45',
+        address: 'Sector 45, Gurgaon',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b821ecf183263b44e6a4f8fdff714bd70a18e3e.jpg',
-        slug: 'your-space-pearl-nfc',
-        starting: '21,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b173b29aff94d8f8acc7b13b629e5551418e4be6.jpg',
+        slug: 'flock-sector-45',
+        starting: '12,000',
       },
       {
-        name: 'Your Space Vile Parle (Girls)',
-        address: 'Vile Parle West, Mumbai',
+        name: 'Cofynd CoLo DLF Phase-1',
+        address: 'DLF Phase 1, Gurugram',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c2d037a25ca3938bfe69472a718591b18e14d8a.jpg',
-        slug: 'your-space-vile-parle-girls',
-        starting: '34,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfa26aaf160d38fcb3cb2b39cd2bae6dcf18659c.jpg',
+        slug: 'flock-dlf-phase-1',
+        starting: '40,000',
+      },
+      {
+        name: 'Cofynd CoLo Sector 17',
+        address: 'Sector - 17 Gurgaon',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/10e877d9651ee1b2c6207be9d6541fa2355f939c.jpg',
+        slug: 'flock-sector-17',
+        starting: '14,000',
       },
     ],
-    housr: [
+    // housr: [
+    //   {
+    //     name: 'Housr 38-II',
+    //     address: 'Sector 38, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/44b3c2d40458762d15afde920acbd3fe441e18a8.jpg',
+    //     slug: 'housr-38-ii',
+    //     starting: '11,000',
+    //   },
+    //   {
+    //     name: 'Housr Malibu Town',
+    //     address: 'Sector 47, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d06e5847ec5534593bf51b80af2761115bded046.jpg',
+    //     slug: 'housr-malibu-town',
+    //     starting: '11,499',
+    //   },
+    //   {
+    //     name: 'Housr Phoenix',
+    //     address: 'Balewadi, Pune',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2e428fd924ec3be030cf108b2fd0f3300b93335a.jpg',
+    //     slug: 'housr-phoenix-balewadi',
+    //     starting: '12,999',
+    //   },
+    //   {
+    //     name: 'Housr Sector 43',
+    //     address: 'Sector 43, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/72d6c9e347517db0d028ed9cd3f4a35ce999a6d9.jpg',
+    //     slug: 'housr-sector-43',
+    //     starting: '12,499',
+    //   },
+    //   {
+    //     name: 'Housr Sector 46',
+    //     address: 'Sector 46, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/408a12c8b6dc926aee3df0bb446ec099f9f3e772.jpg',
+    //     slug: 'housr-sector-46',
+    //     starting: '11,499',
+    //   },
+    //   {
+    //     name: 'Housr Sector-49',
+    //     address: 'Sector 49, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cdf7376c53846fbf65d1a3a438c32070fba6ff8e.jpg',
+    //     slug: 'housr-sector-49',
+    //     starting: '11,499',
+    //   },
+    //   {
+    //     name: 'Housr Tulip Purple',
+    //     address: 'Sector 69, Gurugram',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
+    //     slug: 'housr-tulip-purple-gurgaon',
+    //     starting: '12,000',
+    //   },
+    // ],
+
+    stanza: [
       {
-        name: 'Housr 38-II',
-        address: 'Sector 38, Gurugram',
+        name: 'Stanza Living Frankfurt House',
+        address: 'Koramangala, Bengaluru',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/44b3c2d40458762d15afde920acbd3fe441e18a8.jpg',
-        slug: 'housr-38-ii',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59468deea7257aa4ad63055bc5d4642d9f21f45a.jpg',
+        slug: 'stanza-living-frankfurt-house-koramangala',
+        starting: '19,000',
+      },
+      {
+        name: 'Stanza Living | Lisbon House',
+        address: 'Electronics City Phase 1, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e2b8105ab7b932da2bb26145c2bb4548066b647.jpg',
+        slug: 'stanza-living-lisbon-house',
+        starting: '9,650',
+      },
+      {
+        name: 'Stanza Living Swansea House',
+        address: 'Electronic City Phase II, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3c09eeab1011786f9d97829d296b563ed3ac2719.jpg',
+        slug: 'stanza-living-swansea-house',
+        starting: '7,899',
+      },
+      {
+        name: 'Stanza Living | Regina House',
+        address: 'Regina House, Taluk, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/de3d9117e326e1b0077f06647edce998bd152d30.jpg',
+        slug: 'stanza-living-regina-house',
+        starting: '8,300',
+      },
+      {
+        name: 'Stanza Living | Sao Paulo House',
+        address: 'Whitefield, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9743e2fd9be657c2cf5d0799eaffc072992155b.jpg',
+        slug: 'stanza-living-sao-paulo-house',
+        starting: '11,499',
+      },
+      {
+        name: 'Stanza Living Amsterdam House',
+        address: 'Electronics City Phase 1, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ba6ee5eb41da7cf321e488b60deade08918964e7.jpg',
+        slug: 'stanza-living-amsterdam-house',
+        starting: '10,337',
+      },
+      {
+        name: 'Stanza Living | Lucena House',
+        address: 'Electronic City, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/92aaf66833050a94b35be88e9e865fc946d6d322.jpg',
+        slug: 'stanza-living-lucena-house',
+        starting: '8,500',
+      },
+    ],
+
+    // HostelYard: [
+    //   {
+    //     name: 'The Hostel Yard - Jasmine (girls) RA - 08',
+    //     address: 'Sector 125, Noida',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcfde2bf8b5ef7621f6ec578c4d36e96d530e77d.jpg',
+    //     slug: 'hostelyard-jasmine-girls-ra-08-sector-125',
+    //     starting: '18,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Lily House (Girls)',
+    //     address: 'Kamla Nagar',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d4c2d1dfb777cebfedf2eba31c3997ebf8d703.jpg',
+    //     slug: 'the-hostelyard-lily-house-girls-kamla-nagar',
+    //     starting: '14,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Orchid House (Girls)',
+    //     address: 'Vijay nagar, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/11f6fbb405e5084e8096deee02a8d164fc15677a.jpg',
+    //     slug: 'hostelyard-orchid-house-girls-vijay-nagar',
+    //     starting: '14,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Rose House (Girls)',
+    //     address: 'Vijay nagar, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcee70e0a5da249c0000e5739987a5119f8f5c0a.jpg',
+    //     slug: 'the-hostelyard-rose-house-girls-vijay-nagar',
+    //     starting: '13,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Snapdragon (Boys)',
+    //     address: 'Kamla Nagar, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8f7df1eb4a19308e6153e2d0a11572635372a93f.jpg',
+    //     slug: 'hostelyard-snapdragon-boys-kamla-nagar',
+    //     starting: '18,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Tulip House (Girls)',
+    //     address: 'Kamal Nagar, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/72aa71dbdc0c980dcb0f65b7f30b95e91b9290ed.jpg',
+    //     slug: 'the-hostelyard-tulip-house-girls-kamla-nagar',
+    //     starting: '21,000',
+    //   },
+    //   {
+    //     name: 'The Hostel yard - Petal House',
+    //     address: 'Bannerghatta Road, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/51f537d1cb757776a0dc72d0588b307651a3cf8c.jpg',
+    //     slug: 'hostelyard-bannerghatta',
+    //     starting: '15,000',
+    //   },
+
+    //   {
+    //     name: 'The Hostelyard - Daisy House (Girls)',
+    //     address: 'Satya Niketan, Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcd4480e75c5b09fd3bf66f7ec9827246e598acc.jpg',
+    //     slug: 'the-hostelyard-daisy-house-girls-satya-niketan',
+    //     starting: '12,000',
+    //   },
+
+    //   {
+    //     name: 'The Hostel Yard - Ivy Yard',
+    //     address: 'Sector 126, Noida',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5ea15901959693d8b6393bbe3af240f0e69d58ee.jpg',
+    //     slug: 'hostelyard-ivy-yard-sector-126',
+    //     starting: '15,000',
+    //   },
+
+    //   {
+    //     name: 'The Hostel Yard - Hibiscus House (Boys)',
+    //     address: 'Vijay Nagar, Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5de2a2eab954bbbf5b2f0208ee8a7e11883a5f5e.jpg',
+    //     slug: 'the-hostelyard-hibiscus-house-boys-vijay-nagar',
+    //     starting: '18,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Bluebell House (Boys)',
+    //     address: 'Kamla Nagar, New Delhi',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5a2c41c29fca89155fdcfa1dca6b8cf1cd97098e.jpg',
+    //     slug: 'hostelyard-bluebell-house-boys-kamla-nagar',
+    //     starting: '16,000',
+    //   },
+    //   {
+    //     name: 'The Hostel Yard - Aster House',
+    //     address: 'Sector 58, Noida',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/62a4fb1a0562864b1185b1ead036bbac022da6f6.jpg',
+    //     slug: 'the-hostelyard-aster-house-sector-58',
+    //     starting: '14,000',
+    //   },
+    // ],
+
+    HelloWorld: [
+      {
+        name: 'HelloWorld AECS',
+        address: 'Marathahalli, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e81a0858bf4f4b5f8ccfaf0f72bc3e30d9410d6d.jpg',
+        slug: 'helloworld-aecs',
+        starting: '14,500',
+      },
+      {
+        name: 'HelloWorld HappySuites',
+        address: 'Arekere, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/24b6bd735faeeb615b4e8e216bb5166e1ec720fe.jpg',
+        slug: 'helloworld-happysuites',
+        starting: '12,000',
+      },
+      {
+        name: 'HelloWorld CornerHouse',
+        address: 'Sector 2, HSR Layout, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74254296180ad812a0952dfe42dfb8074bdf2a3a.jpg',
+        slug: 'helloworld-cornerhouse',
+        starting: '30,000',
+      },
+      {
+        name: 'HelloWorld HopeValley',
+        address: 'BTM Layout, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4803dfd6de48e9f7b492bdc5183a5bacd4401f9f.jpg',
+        slug: 'helloworld-hopevalley',
         starting: '11,000',
       },
       {
-        name: 'Housr Malibu Town',
-        address: 'Sector 47, Gurugram',
+        name: 'HelloWorld Infinity',
+        address: 'Electronic City, Bengaluru',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d06e5847ec5534593bf51b80af2761115bded046.jpg',
-        slug: 'housr-malibu-town',
-        starting: '11,499',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/00fd0c0df74c9294496b4ea1287ebc1a2386e6d3.jpg',
+        slug: 'helloworld-infinity',
+        starting: '6,000',
       },
       {
-        name: 'Housr Phoenix',
-        address: 'Balewadi, Pune',
+        name: 'HelloWorld Daffodil',
+        address: 'HSR Layout, Bengaluru',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2e428fd924ec3be030cf108b2fd0f3300b93335a.jpg',
-        slug: 'housr-phoenix-balewadi',
-        starting: '12,999',
-      },
-      {
-        name: 'Housr Sector 43',
-        address: 'Sector 43, Gurugram',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/72d6c9e347517db0d028ed9cd3f4a35ce999a6d9.jpg',
-        slug: 'housr-sector-43',
-        starting: '12,499',
-      },
-      {
-        name: 'Housr Sector 46',
-        address: 'Sector 46, Gurugram',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/408a12c8b6dc926aee3df0bb446ec099f9f3e772.jpg',
-        slug: 'housr-sector-46',
-        starting: '11,499',
-      },
-      {
-        name: 'Housr Sector-49',
-        address: 'Sector 49, Gurugram',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cdf7376c53846fbf65d1a3a438c32070fba6ff8e.jpg',
-        slug: 'housr-sector-49',
-        starting: '11,499',
-      },
-      {
-        name: 'Housr Tulip Purple',
-        address: 'Sector 69, Gurugram',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
-        slug: 'housr-tulip-purple-gurgaon',
-        starting: '12,000',
-      },
-    ],
-    HostelYard: [
-      {
-        name: 'The Hostel Yard - Jasmine (girls) RA - 08',
-        address: 'Sector 125, Noida',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcfde2bf8b5ef7621f6ec578c4d36e96d530e77d.jpg',
-        slug: 'hostelyard-jasmine-girls-ra-08-sector-125',
-        starting: '18,000',
-      },
-      {
-        name: 'The Hostel Yard - Lily House (Girls)',
-        address: 'Kamla Nagar',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58d4c2d1dfb777cebfedf2eba31c3997ebf8d703.jpg',
-        slug: 'the-hostelyard-lily-house-girls-kamla-nagar',
-        starting: '14,000',
-      },
-      {
-        name: 'The Hostel Yard - Orchid House (Girls)',
-        address: 'Vijay nagar, New Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/11f6fbb405e5084e8096deee02a8d164fc15677a.jpg',
-        slug: 'hostelyard-orchid-house-girls-vijay-nagar',
-        starting: '14,000',
-      },
-      {
-        name: 'The Hostel Yard - Rose House (Girls)',
-        address: 'Vijay nagar, New Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcee70e0a5da249c0000e5739987a5119f8f5c0a.jpg',
-        slug: 'the-hostelyard-rose-house-girls-vijay-nagar',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/62f0bf77cdefa1c80b544fd319fe8d184c2c8d86.jpg',
+        slug: 'helloworld-daffodil',
         starting: '13,000',
       },
       {
-        name: 'The Hostel Yard - Snapdragon (Boys)',
-        address: 'Kamla Nagar, New Delhi',
+        name: 'HelloWorld 19thMain',
+        address: 'HSR Layout, Bengaluru',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8f7df1eb4a19308e6153e2d0a11572635372a93f.jpg',
-        slug: 'hostelyard-snapdragon-boys-kamla-nagar',
-        starting: '18,000',
-      },
-      {
-        name: 'The Hostel Yard - Tulip House (Girls)',
-        address: 'Kamal Nagar, New Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/72aa71dbdc0c980dcb0f65b7f30b95e91b9290ed.jpg',
-        slug: 'the-hostelyard-tulip-house-girls-kamla-nagar',
-        starting: '21,000',
-      },
-      {
-        name: 'The Hostel yard - Petal House',
-        address: 'Bannerghatta Road, Bangalore',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/51f537d1cb757776a0dc72d0588b307651a3cf8c.jpg',
-        slug: 'hostelyard-bannerghatta',
-        starting: '15,000',
-      },
-
-      {
-        name: 'The Hostelyard - Daisy House (Girls)',
-        address: 'Satya Niketan, Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fcd4480e75c5b09fd3bf66f7ec9827246e598acc.jpg',
-        slug: 'the-hostelyard-daisy-house-girls-satya-niketan',
-        starting: '12,000',
-      },
-
-      {
-        name: 'The Hostel Yard - Ivy Yard',
-        address: 'Sector 126, Noida',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5ea15901959693d8b6393bbe3af240f0e69d58ee.jpg',
-        slug: 'hostelyard-ivy-yard-sector-126',
-        starting: '15,000',
-      },
-
-      {
-        name: 'The Hostel Yard - Hibiscus House (Boys)',
-        address: 'Vijay Nagar, Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5de2a2eab954bbbf5b2f0208ee8a7e11883a5f5e.jpg',
-        slug: 'the-hostelyard-hibiscus-house-boys-vijay-nagar',
-        starting: '18,000',
-      },
-      {
-        name: 'The Hostel Yard - Bluebell House (Boys)',
-        address: 'Kamla Nagar, New Delhi',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5a2c41c29fca89155fdcfa1dca6b8cf1cd97098e.jpg',
-        slug: 'hostelyard-bluebell-house-boys-kamla-nagar',
-        starting: '16,000',
-      },
-      {
-        name: 'The Hostel Yard - Aster House',
-        address: 'Sector 58, Noida',
-        image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/62a4fb1a0562864b1185b1ead036bbac022da6f6.jpg',
-        slug: 'the-hostelyard-aster-house-sector-58',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/17b90224d730fe252a75b4e466dc8a96b98f9780.jpg',
+        slug: 'helloworld-19thmain',
         starting: '14,000',
+      },
+
+      {
+        name: 'HelloWorld Nagavara',
+        address: 'Nagavara, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/73e56740834cb533efe8bcb830c9d056f211cd4d.jpg',
+        slug: 'helloworld-nagavara',
+        starting: '20,000',
+      },
+
+      {
+        name: 'HelloWorld HRBR',
+        address: 'HBR layout, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/48aa12b82d638769433b03085e2f274c3a36aa70.jpg',
+        slug: 'helloworld-hrbr',
+        starting: '11,000',
+      },
+
+      {
+        name: 'HelloWorld Forum',
+        address: 'Tavarekere, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/05e6e0b60b5bab32fa2e832f832bef183123a3c3.jpg',
+        slug: 'helloworld-forum',
+        starting: '8,000',
+      },
+      {
+        name: 'HelloWorld Sarjapur',
+        address: 'Sarjapur Road, Bangalore',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/98c03a77d19ec72e6730009fe8cd76ec41671795.jpg',
+        slug: 'helloworld-sarjapur',
+        starting: '8,000',
+      },
+      {
+        name: 'HelloWorld ECC',
+        address: 'Whitefield, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef68d91cc30f5c4ec2da0ea9538549fdaf3a63d1.jpg',
+        slug: 'helloworld-ecc',
+        starting: '6,000',
       },
     ],
 
-    LOCL: [
+    // LOCL: [
+    //   {
+    //     name: 'THE IVY LEAGUE HOUSE (LOCL)',
+    //     address: 'Wakad, Pune',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
+    //     slug: 'locl-the-ivy-league-house',
+    //     starting: '9,000',
+    //   },
+    //   {
+    //     name: 'LOCL Co-live & Work',
+    //     address: 'Bellandur Main Road, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3c18bc6d15709e1fa697586efb85ec5f4f7a458.jpg',
+    //     slug: 'locl-colive-work-bellandur',
+    //     starting: '10,000',
+    //   },
+    //   {
+    //     name: 'LOCL Co-live & Work',
+    //     address: 'Koramangala, Bangalore',
+    //     image:
+    //       'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
+    //     slug: 'locl-colive-work-koramangala',
+    //     starting: '10,000',
+    //   },
+    // ],
+
+    Orion: [
       {
-        name: 'THE IVY LEAGUE HOUSE (LOCL)',
-        address: 'Wakad, Pune',
+        name: 'Orion Ursa(Girls)',
+        address: 'Kamla Nagar, Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a1898ea4ba525ab2083d5a65fc029c30b4f9b16d.jpg',
-        slug: 'locl-the-ivy-league-house',
-        starting: '9,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e7dea56604675f8543e73d6fc43df6036c6dde2c.jpg',
+        slug: 'orion-ursa-kamla-nagar',
+        starting: '19,500',
       },
       {
-        name: 'LOCL Co-live & Work',
-        address: 'Bellandur Main Road, Bangalore',
+        name: 'Orion Pheonix(Girls)',
+        address: 'Roop Nagar, Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3c18bc6d15709e1fa697586efb85ec5f4f7a458.jpg',
-        slug: 'locl-colive-work-bellandur',
-        starting: '10,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/df540c124966697d23b285a9f7dd7072ffb773b5.jpg',
+        slug: 'orion-pheonix-roop-nagar',
+        starting: '21,000',
       },
       {
-        name: 'LOCL Co-live & Work',
-        address: 'Koramangala, Bangalore',
+        name: 'Orion Pegasus(Girls)',
+        address: 'North Delhi',
         image:
-          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/db6e3e73ba5e048f6294048a59cee862e3630fcb.jpg',
-        slug: 'locl-colive-work-koramangala',
-        starting: '10,000',
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/19c35634978281917dd2263fa11f82e958af60d4.jpg',
+        slug: 'orion-pegasus-hudson-lane',
+        starting: '17,500',
+      },
+      {
+        name: 'Orion Scorpius (Boys)',
+        address: 'Vijay Nagar, Delhi',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d17f3cd86f62c34f8581fcc5ba8172219875fdbb.jpg',
+        slug: 'orion-scorpius-vijay-nagar',
+        starting: '22,000',
+      },
+      {
+        name: 'Orio Living - Liberty House Premium Boys Pg',
+        address: 'S.G. Palya, Bengaluru',
+        image:
+          'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dbc3181eb622e38b771984f5441297ca38aab2d2.jpg',
+        slug: 'orio-living-liberty-house-boys',
+        starting: '7,500',
       },
     ],
   };
@@ -1041,18 +1329,18 @@ export class CoLivingComponent implements OnInit {
       slug: 'helloworld-siri',
     },
     {
-      name: 'CHILLAR PG',
+      name: 'Orion Ursa(Girls)',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6e985d7ed0a199d4c7d6f08e3562c2329365c403.jpg',
-      address: 'Extension near Tata Telco, Delhi',
-      slug: 'chillar',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3743430afbdc8daa04378e132689272483e9e539.jpg',
+      address: 'Kamla Nagar, Delhi',
+      slug: 'orion-ursa-kamla-nagar',
     },
     {
-      name: 'HelloWorld Fitoor',
+      name: 'Tribe Luxury Hostel Wakad',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d73119104d471bba36644fbe8c79f7777b647315.jpg',
-      address: 'Indira Nagar, Gachibowli, Hyderabad',
-      slug: 'helloworld-fitoor',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4a4ec43ef01491c47a9f3a9c2089605e60413746.jpg',
+      address: 'ACE Almighty, Wakad, Pune',
+      slug: 'tribe-stays-wakad',
     },
     {
       name: `HelloWorld Harmony`,
@@ -1062,11 +1350,11 @@ export class CoLivingComponent implements OnInit {
       slug: 'helloworld-harmony',
     },
     {
-      name: 'Housr Phoenix',
+      name: 'HelloWorld Fitoor',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2e428fd924ec3be030cf108b2fd0f3300b93335a.jpg',
-      address: 'Balewadi, Pune',
-      slug: 'housr-phoenix-balewadi',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d73119104d471bba36644fbe8c79f7777b647315.jpg',
+      address: 'Indira Nagar, Gachibowli, Hyderabad',
+      slug: 'helloworld-fitoor',
     },
   ];
   city = [

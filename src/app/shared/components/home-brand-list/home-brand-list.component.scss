@@ -1,7 +1,9 @@
 .partners {
-  padding: 0 9%;
-  overflow: hidden;
-  background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
+    padding: 0 9%;
+    overflow: hidden;
+    background: #fff url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/88820a9139e584a119f6e423ae0f0a98b42294ba.png") no-repeat center center;
+    background-size: cover;
+    padding: 60px 0px 60px;
 
   @media (max-width: 580px) {
     padding: 50px 9%;
@@ -27,7 +29,7 @@
   }
 
   .remove-side-circle {
-    padding: 70px 0;
+    padding: 0px 0 50px;
 
     h2 {
       &::before {
