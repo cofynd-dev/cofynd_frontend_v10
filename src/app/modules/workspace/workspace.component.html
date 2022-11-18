@@ -121,22 +121,22 @@
                     </div>
 
                     <div class="sections about-section">
-                       
+
                         <div *ngIf="workspace.description">
                             <div class="hideOnMobile">
-                            <h2 >About this property</h2>
-                            <p [innerHTML]="workspace.description">
-                            </p>
+                                <h2>About this property</h2>
+                                <p [innerHTML]="workspace.description">
+                                </p>
                             </div>
                             <div class="onlyMobile">
-                            <h2 >About property</h2>
-                            <p class="mobileabout" [innerHTML]="(workspace.description)" *ngIf="seeMore; else hide">
-                            </p>
-                            <ng-template #hide>
-                                <p [innerHTML]="workspace.description"> </p>
-                            </ng-template>
-    
-                            <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
+                                <h2>About property</h2>
+                                <p class="mobileabout" [innerHTML]="(workspace.description)" *ngIf="seeMore; else hide">
+                                </p>
+                                <ng-template #hide>
+                                    <p [innerHTML]="workspace.description"> </p>
+                                </ng-template>
+
+                                <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
                             </div>
                         </div>
                         <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>

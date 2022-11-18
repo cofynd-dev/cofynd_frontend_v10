@@ -113,6 +113,7 @@ export class CoLivingDetailComponent implements OnInit {
     this.coLivingService.getCoLiving(workspaceId).subscribe(
       workspaceDetail => {
         this.workspace = workspaceDetail;
+        this.workspace.amenties = this.workspace.amenties.filter((amenty: any) => amenty.for_coLiving === true);
         this.workspace.amenties = this.workspace.amenties.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
         this.loading = false;
         this.addSeoTags(this.workspace);
