@@ -1757,7 +1757,7 @@ h3.site_title {
 }
 .innerpage_banner {
 	padding-top: 70px;
-	padding-bottom: 160px;
+	padding-bottom: 70px;
 	position: relative;
 }
 .innerpage_banner .innerbanner_img {
@@ -1830,9 +1830,11 @@ h3.site_title {
 	margin-top: 110px;
 }
 .cities_item_list {
-	background-color: #F9F9F9;
+	background-color: #fff;
 	padding: 10px 30px;
 	border-radius: 20px;
+	// border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0px 0px 4px rgba(33, 37, 41, 0.07);
 }
 .cities_item_list .city_item {
 	text-align: center;
@@ -2179,7 +2181,8 @@ h3.site_title {
 }
 .head_top {
 	display: flex;
-	margin-bottom: 10px;
+	margin-bottom: 2px;
+	align-items: center;
 }
 .head_top .tag-btn {
 	width: 50%;
@@ -2207,6 +2210,15 @@ h3.site_title {
 	color: #4343E8 !important;
 	border: 1px solid #4343E8 !important;
 }
+.head_top .property_id {
+	width: 50%;
+}
+.property_id p {
+	color: rgba(0,0,0,0.6);
+	margin-bottom: 0px;
+	font-weight: 600;
+	font-size: 12px;
+}
 .head_top .rent-share {
 	width: 50%;
 	text-align: right;
@@ -2226,6 +2238,55 @@ h3.site_title {
 .rent-share img {
 	width: 16px;
 	margin-right: 6px;
+}
+.social-share-icons .icon a {
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+	border-radius: 20px;
+	padding: 15px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	text-align: center;
+}
+.social-share-icons .icon img {
+	width: 30px;
+	margin-right: 10px;
+}
+.social-share-icons .icon i {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 50%;
+	text-align: center;
+	margin-right: 7px;
+	color: #000;
+	font-size: 20px;
+}
+.social-share-icons .icon span {
+	color: #000;
+	font-weight: 500;
+}
+.share_social_popup .site_btn {
+	border: 1px solid #4343e8 !important;
+	color: #4343e8 !important;
+	font-weight: 500;
+}
+.share_social_popup .modal-body {
+	padding: 30px 40px;
+}
+.share_social_popup .btn-close {
+	position: absolute;
+	right: -12px;
+	top: -11px;
+	border: 1px solid rgba(0,0,0,0.1);
+	background-color: #fff;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+	text-align: center;
+	line-height: 20px;
 }
 .divider_line {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
