@@ -1439,7 +1439,7 @@ export class CoLivingComponent implements OnInit {
     this.router.navigate([`/co-living/${slug.toLowerCase().trim()}`]);
   }
   goToBrand() {
-    this.router.navigate([`/brand/co-living/yourspace`]);
+    this.router.navigate([`/brand/co-living/flock`]);
   }
   addSeoTags() {
     this.loading = true;

@@ -2742,7 +2742,7 @@ h3.site_title {
 	background: #FFFFFF;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 	border-radius: 20px;
-	padding: 10px 15px;
+	padding: 10px 10px;
 }
 .property_item .property-img {
 	height: 200px;
@@ -2768,11 +2768,17 @@ h3.site_title {
 	font-size: 15px;
 	line-height: 20px;
 	font-weight: 600;
-	margin-bottom: 4px;
+	margin-bottom: 0px;
+}
+.flat_property_card .property-dis h4 .builder_name {
+	color: rgba(33, 37, 41, 0.7);
+	font-size: 12px;
 }
 .property_item .property-dis .address {
-	margin-bottom: 4px;
-}
+	margin-bottom: 0px;
+	color: rgba(33, 37, 41, 0.5);
+	font-size: 12px;
+}   
 .property_item .property-dis .amenities {
 	font-size: 12px;
 	line-height: 17px;
@@ -2953,6 +2959,102 @@ h3.site_title {
 .searching_tenant_cta .cta_box ul li i {
 	color: #4343e8;
 	margin-right: 5px;
+}
+.four_properties_list .property_item {
+	width: 23%;
+}
+.christmas_area {
+	display: flex;
+	padding: 20px 50px;
+	border-radius: 20px;
+	-webkit-box-align: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.christmas_area .content {
+	flex: 0 0 60%;
+	padding-left: 120px;
+}
+.christmas_area .content p {
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 4px;
+	font-weight: 600;
+}
+.christmas_area .content h3 {
+	font-size: 28px;
+	line-height: 38px;
+	font-weight: 700;
+	color: #2A7D57;
+	margin-bottom: 5px;
+}
+.christmas_area .content h4 {
+	font-size: 24px;
+	line-height: 34px;
+	font-weight: 600;
+	color: #F25252;
+	margin-bottom: 0px;
+}
+.cta_form {
+	display: flex;
+	padding: 20px 50px;
+	border-radius: 20px;
+	-webkit-box-align: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.cta_form .form_col {
+	flex: 0 0 70%;
+	margin-right: 60px;
+}
+.cta_form .form_col h3 {
+	font-size: 26px;
+	line-height: 36px;
+	margin-bottom: 8px;
+}
+.form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
+	box-shadow: 0px 0px 5px rgba(33, 37, 41, 0.03);
+	border-radius: 10px !important;
+	font-size: 13px !important;
+	padding: 12px 15px !important;
+	height: auto;
+	background-color: #fff !important;
+	border: none !important;
+	width: 100%;
+	font-weight: 400 !important;
+}
+.form_dream_ptoperty .site_btn {
+	background-color: #EAE6FF;
+	border-color: #EAE6FF;
+}
+.form_dream_ptoperty .site_btn:hover {
+	background-color: #cdc3ff;
+	border-color: #EAE6FF;
+    color: #000 !important;
+}
+.form_dream_ptoperty .form-input ::placeholder {
+    color: #000;
+    opacity: 1; /* Firefox */
+  }
+  
+.form_dream_ptoperty .form-input :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #000;
+  }
+  
+.form_dream_ptoperty .form-input  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #000;
+  }
+  .lifestyle_with_cofynd {
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
+}
+.flock_banner {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
 }
 
 
