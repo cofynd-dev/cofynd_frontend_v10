@@ -1757,7 +1757,7 @@ h3.site_title {
 }
 .innerpage_banner {
 	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-bottom: 100px;
 	position: relative;
 }
 .innerpage_banner .innerbanner_img {
@@ -1942,6 +1942,9 @@ h3.site_title {
 	top: 0;
 	width: 100%;
 	height: 100%;
+}
+.flat_top_cities .top-city-img::before {
+	opacity: 0.6;
 }
 .top-city-text {
 	position: absolute;
@@ -2925,6 +2928,31 @@ h3.site_title {
 }
 .review_form img {
 	width: 90%;
+}
+.searching_tenant_cta {
+	display: flex;
+	padding: 20px 50px;
+	border-radius: 20px;
+	background-color: #FFFCF0;
+    align-items: center;
+}
+.searching_tenant_cta .cta_box {
+	flex: 0 0 60%;
+}
+.searching_tenant_cta .cta_box h3 {
+	font-size: 30px;
+	line-height: 40px;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+.searching_tenant_cta .cta_box ul li {
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 4px;
+}
+.searching_tenant_cta .cta_box ul li i {
+	color: #4343e8;
+	margin-right: 5px;
 }
 
 
