@@ -13,10 +13,10 @@ import { CoLivingLocalityComponent } from './co-living-locality/co-living-locali
 import { CoLivingDetailComponent } from './co-living-detail/co-living-detail.component';
 import { CountryColivingVerticalPageComponent } from './country-coliving-vertical-page/country-coliving-vertical-page.component';
 import { LocationIqImportComponent } from './location-iq-import/location-iq-import.component';
-import { FlatSpaceComponent } from './flat-space/flat-space.component';
-import { FlatSpaceCityComponent } from './flat-space/flat-space-city/flat-space-city.component';
-import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
-import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-space-detail.component';
+// import { FlatSpaceComponent } from './flat-space/flat-space.component';
+// import { FlatSpaceCityComponent } from './flat-space/flat-space-city/flat-space-city.component';
+// import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
+// import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-space-detail.component';
 
 const routes: Routes = [
   { path: '', component: CoworkingComponent },
@@ -95,4 +95,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CoworkingRoutingModule {}
+export class CoworkingRoutingModule { }
