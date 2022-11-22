@@ -6,7 +6,11 @@
                 <h1>Choose from <span>25,000+</span><br> Spaces on Rent
                 </h1>
                 <div class="search">
-                    <app-home-city-dropdown [typeLabel]="'Looking For'" [cityLabel]="'Select City'" [isCountryLandingPage]=false [isCoworking]="true" [isCoLiving]="true">
+                    <app-home-city-dropdown [typeLabel]="'Looking For'"
+                        [cityLabel]="'Select City'"
+                        [isCountryLandingPage]=false
+                        [isCoworking]="true"
+                        [isCoLiving]="true">
                     </app-home-city-dropdown>
                 </div>
                 <app-home-cities></app-home-cities>
@@ -19,17 +23,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div routerLink="/coworking/" class="space-facility" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e8972c82074edfb95f0d0f97855a441afbf143c2.jpg');">
+                <div routerLink="/coworking/"
+                    class="space-facility"
+                    style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e8972c82074edfb95f0d0f97855a441afbf143c2.jpg');">
                     <h4>Coworking <span>Spaces</span></h4>
                 </div>
             </div>
             <div class="col-md-4">
-                <div routerLink="/co-living/" class="space-facility" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/afc5114585bce0b4686cb6972453d0ca32bec655.jpg');">
+                <div routerLink="/co-living/"
+                    class="space-facility"
+                    style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/afc5114585bce0b4686cb6972453d0ca32bec655.jpg');">
                     <h4>Coliving <span>Spaces</span></h4>
                 </div>
             </div>
             <div class="col-md-4">
-                <div routerLink="/office-space/rent/" class="space-facility" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7236c67a94b325208148a1bc19639feab51c68b1.jpg');">
+                <div routerLink="/office-space/rent/"
+                    class="space-facility"
+                    style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7236c67a94b325208148a1bc19639feab51c68b1.jpg');">
                     <h4>Office <span>Spaces</span></h4>
                 </div>
             </div>
@@ -44,13 +54,15 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <div class="space-types space-type-3" (click)="openModalWithComponent2('Art Gallery')">
+                <div class="space-types space-type-3"
+                    (click)="openModalWithComponent2('Art Gallery')">
                     <span>Looking For</span>
                     <h3>Art Gallery</h3>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="space-types space-type-3" (click)="openModalWithComponent2('Film Shoot')">
+                <div class="space-types space-type-3"
+                    (click)="openModalWithComponent2('Film Shoot')">
                     <span>Looking For</span>
                     <h3>Film Shoot</h3>
                 </div>
@@ -65,29 +77,41 @@
             <div class="col-4">
                 <div class="category_item">
                     <h3>Coworking Space</h3>
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/71a48365d20499d9581b197aa49a4663397b91a6.png" class="img-fluid" alt="Coworking Space">
-                    <a routerLink="/coworking/" class="stretched-link"></a>
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/71a48365d20499d9581b197aa49a4663397b91a6.png"
+                        class="img-fluid"
+                        alt="Coworking Space">
+                    <a routerLink="/coworking/"
+                        class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4">
                 <div class="category_item">
                     <h3>Coliving Space</h3>
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/36f099fd541668970c5ddebc95a306f3b1035d87.png" class="img-fluid" alt="Coliving Space">
-                    <a routerLink="/co-living/" class="stretched-link"></a>
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/36f099fd541668970c5ddebc95a306f3b1035d87.png"
+                        class="img-fluid"
+                        alt="Coliving Space">
+                    <a routerLink="/co-living/"
+                        class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4">
                 <div class="category_item">
                     <h3>Virtual Office</h3>
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5223cffd54fec673419d92740a7bbe8804438c66.png" class="img-fluid" alt="Virtual Office">
-                    <a routerLink="virtual-office" class="stretched-link"></a>
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5223cffd54fec673419d92740a7bbe8804438c66.png"
+                        class="img-fluid"
+                        alt="Virtual Office">
+                    <a routerLink="virtual-office"
+                        class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-12 mt-3">
                 <div class="category_item2 full-width">
                     <h3>Private Office</h3>
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59a94c746b993e6714643856f02f62a7aa0ca3e1.jpg" class="img-fluid" alt="Private Office">
-                    <a routerLink="/office-space/rent/" class="stretched-link"></a>
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59a94c746b993e6714643856f02f62a7aa0ca3e1.jpg"
+                        class="img-fluid"
+                        alt="Private Office">
+                    <a routerLink="/office-space/rent/"
+                        class="stretched-link"></a>
                 </div>
             </div>
         </div>
@@ -221,7 +245,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5fe89b1ad0fdf44bbe39c8c7ea4ac8d936a6f730.png">
+                <img
+                    src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5fe89b1ad0fdf44bbe39c8c7ea4ac8d936a6f730.png">
                 <!-- <div class="covid-content">
           <h3>
             <span>COVID-19 RESPONSE</span>
@@ -288,11 +313,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="left-content">
-                        <h2>CoFynd is India's fastest growing online discovery platform for searching and booking Coworking and Co-living spaces.</h2>
+                        <h2>CoFynd is India's fastest growing online discovery platform for searching and booking
+                            Coworking and Co-living spaces.</h2>
                         <div class="divider-line"></div>
-                        <button type="button" (click)="openModalWithComponent()" class="anchor-text">
-              Search . Book . Work . Live<i class="icon-next fas fa-angle-right"> </i>
-            </button>
+                        <button type="button"
+                            (click)="openModalWithComponent()"
+                            class="anchor-text">
+                            Search . Book . Work . Live<i class="icon-next fas fa-angle-right"> </i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -314,7 +342,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg" alt="CoFynd">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg"
+                    alt="CoFynd">
             </div>
             <div class="col-md-6 right-part">
                 <div class="page-title page-title-left">
@@ -391,12 +420,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb5e9207e5f8829905ecf64de5ffb75b01d7e6a4.jpg" alt="Low Cost" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb5e9207e5f8829905ecf64de5ffb75b01d7e6a4.jpg"
+                                alt="Low Cost"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Low Cost</h4>
                         </div>
-                        <a type="button" (click)="openModal('10,000')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('10,000')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -404,12 +437,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb72b93ba681938b8e3151bae063eb8eaf2faa23.jpg" alt="Affordable" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb72b93ba681938b8e3151bae063eb8eaf2faa23.jpg"
+                                alt="Affordable"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Affordable</h4>
                         </div>
-                        <a type="button" (click)="openModal('20,000')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('20,000')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -417,12 +454,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74736bb62b2de3f0a4fb8c41cd07da4aa2ca1a98.jpg" alt="Luxury" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74736bb62b2de3f0a4fb8c41cd07da4aa2ca1a98.jpg"
+                                alt="Luxury"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Luxury</h4>
                         </div>
-                        <a type="button" (click)="openModal('above 20,000')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('above 20,000')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -430,7 +471,8 @@
     </div>
 </section>
 
-<section class="feature_sec partners pb-5 onlyMobile" *ngIf="coworkingImages && coworkingImages.length > 0">
+<section class="feature_sec partners pb-5 onlyMobile"
+    *ngIf="coworkingImages && coworkingImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -442,9 +484,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
-                    <div class="item" *ngFor="let item of coworkingImages">
+                    <div class="item"
+                        *ngFor="let item of coworkingImages">
                         <!-- <img src="/assets/images/star-coworking-img.jpg" alt="" class="img-fluid"> -->
-                        <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                        <a [routerLink]="item.description"
+                            target="_blank"> <img [src]="item.image?.s3_link"
+                                [alt]="item.name"
+                                class="img-fluid"> </a>
                     </div>
                 </div>
             </div>
@@ -452,13 +498,18 @@
     </div>
 </section>
 
-<section class="advertisement_sec onlyMobile" *ngIf="coworkingBrandAdsImages && coworkingBrandAdsImages.length > 0">
+<section class="advertisement_sec onlyMobile"
+    *ngIf="coworkingBrandAdsImages && coworkingBrandAdsImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="add-item-list">
-                    <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of coworkingBrandAdsImages">
-                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
+                    <div class="add-item"
+                        [routerLink]="item?.slug"
+                        *ngFor="let item of coworkingBrandAdsImages">
+                        <img [src]="item.image?.s3_link"
+                            [alt]="item.name"
+                            class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -470,8 +521,11 @@
 <section class="enquiry-section hideOnMobile">
     <div class="container">
         <div class="row">
-            <div class="col-md-12" (click)="openAdd()">
-                <img lazyLoad="	https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/641c965dd4e6887cd9e4260905bc7a0dfa327908.png" class="enquiry-box" alt="Co Working Spaces" />
+            <div class="col-md-12"
+                (click)="openAdd()">
+                <img lazyLoad="	https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/641c965dd4e6887cd9e4260905bc7a0dfa327908.png"
+                    class="enquiry-box"
+                    alt="Co Working Spaces" />
             </div>
         </div>
     </div>
@@ -496,9 +550,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="video">
-                    <video width="100%" loop autoplay playsinline id="videoPlayer" onloadedmetadata="this.muted = true">
-                        <source src="/assets/images/home/cofynd-home.mp4" type="video/mp4" />
-                        <source src="/assets/images/home/cofynd-home.ogg" type="video/ogg">
+                    <video width="100%"
+                        loop
+                        autoplay
+                        playsinline
+                        id="videoPlayer"
+                        onloadedmetadata="this.muted = true">
+                        <source src="/assets/images/home/cofynd-home.mp4"
+                            type="video/mp4" />
+                        <source src="/assets/images/home/cofynd-home.ogg"
+                            type="video/ogg">
                     </video>
                 </div>
             </div>
@@ -507,7 +568,10 @@
 </section>
 
 <div class="">
-    <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
+    <app-home-popular-space [shouldCoLivingVisible]="true"
+        [pageTitle]="'Top Coliving in India'"
+        [popularCoLivingSpaces]="popularCoLivingSpaces"
+        [shouldCoWorkingVisible]="false">
     </app-home-popular-space>
 </div>
 
@@ -564,12 +628,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008a8663bb6af0890c03005b643c4572a3484388.jpg" alt="Food Available" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008a8663bb6af0890c03005b643c4572a3484388.jpg"
+                                alt="Food Available"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Food Available</h4>
                         </div>
-                        <a type="button" (click)="openModal('Inclusive')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('Inclusive')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -577,12 +645,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0905b0bd74dc081e5c8bce0c606d6b354c6104bf.jpg" alt="Private Room" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0905b0bd74dc081e5c8bce0c606d6b354c6104bf.jpg"
+                                alt="Private Room"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Private Room</h4>
                         </div>
-                        <a type="button" (click)="openModal('625698d3a91948671a4c590b')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('625698d3a91948671a4c590b')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -590,12 +662,16 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/992cb7c6d50bccd39e9f553ebb43d76323ed182b.jpg" alt="Bangalore" class="img-fluid">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/992cb7c6d50bccd39e9f553ebb43d76323ed182b.jpg"
+                                alt="Bangalore"
+                                class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Twin Sharing</h4>
                         </div>
-                        <a type="button" (click)="openModal('625698e8a91948671a4c590c')" class="stretched-link"></a>
+                        <a type="button"
+                            (click)="openModal('625698e8a91948671a4c590c')"
+                            class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -603,7 +679,8 @@
     </div>
 </section>
 
-<section class="feature_sec partners pb-5 onlyMobile" *ngIf="colivingImages && colivingImages.length > 0">
+<section class="feature_sec partners pb-5 onlyMobile"
+    *ngIf="colivingImages && colivingImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -615,9 +692,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
-                    <div class="item" *ngFor="let item of colivingImages">
+                    <div class="item"
+                        *ngFor="let item of colivingImages">
                         <!-- <img src="img/pearl-premium-lux-homes.jpg" alt="" class="img-fluid"> -->
-                        <a [routerLink]="item.description" target="_blank"> <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid"> </a>
+                        <a [routerLink]="item.description"
+                            target="_blank"> <img [src]="item.image?.s3_link"
+                                [alt]="item.name"
+                                class="img-fluid"> </a>
                     </div>
 
                 </div>
@@ -641,13 +722,18 @@
 </section> -->
 
 
-<section class="advertisement_sec onlyMobile" *ngIf="colivingBrandAdsImages && colivingBrandAdsImages.length > 0">
+<section class="advertisement_sec onlyMobile"
+    *ngIf="colivingBrandAdsImages && colivingBrandAdsImages.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="add-item-list">
-                    <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of colivingBrandAdsImages">
-                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid">
+                    <div class="add-item"
+                        [routerLink]="item?.slug"
+                        *ngFor="let item of colivingBrandAdsImages">
+                        <img [src]="item.image?.s3_link"
+                            [alt]="item.name"
+                            class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -667,25 +753,29 @@
         <div class="row">
             <div class="col-6">
                 <div class="icon_box">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png"
+                        alt="">
                     <h4>Exclusive Pricing</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png"
+                        alt="">
                     <h4>Verified Spaces</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png"
+                        alt="">
                     <h4>100% Support</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png"
+                        alt="">
                     <h4>Zero Brokerage</h4>
                 </div>
             </div>
@@ -693,13 +783,730 @@
     </div>
 </section>
 
-<section class="enquiry-section hideOnMobile">
+<!-- <section class="enquiry-section hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <a routerLink="brand/gostops">
                     <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/572f7e1d255ce28bd100127da9cf601d3780a068.jpg" style="cursor: pointer;" class="enquiry-box" alt="Co Working Spaces" />
                 </a>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="form_cta_sec mt-5 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cta_form"
+                    style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09ec467fbe0bdb62ed9abe828b5eb220f06fa19d.jpg');">
+                    <div class="form_col">
+                        <h3>Let us find your Dream Property</h3>
+                        <p>Connect to a CoFynd Space Expert now</p>
+                        <form class="form_dream_ptoperty">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-input">
+                                        <input type="text"
+                                            class="form-control border-light"
+                                            id="name"
+                                            placeholder="Name"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <input type="email"
+                                            class="form-control border-light"
+                                            id="exampleInputEmail1"
+                                            placeholder="Email"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <input type="text"
+                                            class="form-control border-light"
+                                            id="mobilenumber"
+                                            placeholder="Mobile Number"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <select class="form-select"
+                                            aria-label="Default select example">
+                                            <option selected
+                                                disabled>Type Of Space</option>
+                                            <option value="Coworking">Coworking</option>
+                                            <option value="Coliving">Coliving</option>
+                                            <option value="Office Space">Office Space</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <select required
+                                            class="form-select"
+                                            aria-label="Default select example">
+                                            <option selected
+                                                disabled>City</option>
+                                            <option value="Adilabad">Adilabad</option>
+                                            <option value="Agra">Agra</option>
+                                            <option value="Ahmedabad">Ahmedabad</option>
+                                            <option value="Ahmednagar">Ahmednagar</option>
+                                            <option value="Aizawl">Aizawl</option>
+                                            <option value="Ajitgarh(Mohali)">Ajitgarh (Mohali)</option>
+                                            <option value="Ajmer">Ajmer</option>
+                                            <option value="Akola">Akola</option>
+                                            <option value="Alappuzha">Alappuzha</option>
+                                            <option value="Aligarh">Aligarh</option>
+                                            <option value="Alirajpur">Alirajpur</option>
+                                            <option value="Allahabad">Allahabad</option>
+                                            <option value="Almora">Almora</option>
+                                            <option value="Alwar">Alwar</option>
+                                            <option value="Ambala">Ambala</option>
+                                            <option value="AmbedkarNagar">Ambedkar Nagar</option>
+                                            <option value="Amravati">Amravati</option>
+                                            <option value="Amrelidistrict">Amreli district</option>
+                                            <option value="Amritsar">Amritsar</option>
+                                            <option value="Anand">Anand</option>
+                                            <option value="Anantapur">Anantapur</option>
+                                            <option value="Anantnag">Anantnag</option>
+                                            <option value="Angul">Angul</option>
+                                            <option value="Anjaw">Anjaw</option>
+                                            <option value="Anuppur">Anuppur</option>
+                                            <option value="Araria">Araria</option>
+                                            <option value="Ariyalur">Ariyalur</option>
+                                            <option value="Arwal">Arwal</option>
+                                            <option value="AshokNagar">Ashok Nagar</option>
+                                            <option value="Auraiya">Auraiya</option>
+                                            <option value="Aurangabad">Aurangabad</option>
+                                            <option value="Aurangabad">Aurangabad</option>
+                                            <option value="Azamgarh">Azamgarh</option>
+                                            <option value="Badgam">Badgam</option>
+                                            <option value="Bagalkot">Bagalkot</option>
+                                            <option value="Bageshwar">Bageshwar</option>
+                                            <option value="Bagpat">Bagpat</option>
+                                            <option value="Bahraich">Bahraich</option>
+                                            <option value="Baksa">Baksa</option>
+                                            <option value="Balaghat">Balaghat</option>
+                                            <option value="Balangir">Balangir</option>
+                                            <option value="Balasore">Balasore</option>
+                                            <option value="Ballia">Ballia</option>
+                                            <option value="Balrampur">Balrampur</option>
+                                            <option value="Banaskantha">Banaskantha</option>
+                                            <option value="Banda">Banda</option>
+                                            <option value="Bandipora">Bandipora</option>
+                                            <option value="BangaloreRural">Bangalore Rural</option>
+                                            <option value="BangaloreUrban">Bangalore Urban</option>
+                                            <option value="Banka">Banka</option>
+                                            <option value="Bankura">Bankura</option>
+                                            <option value="Banswara">Banswara</option>
+                                            <option value="Barabanki">Barabanki</option>
+                                            <option value="Baramulla">Baramulla</option>
+                                            <option value="Baran">Baran</option>
+                                            <option value="Bardhaman">Bardhaman</option>
+                                            <option value="Bareilly">Bareilly</option>
+                                            <option value="Bargarh(Baragarh)">Bargarh (Baragarh)</option>
+                                            <option value="Barmer">Barmer</option>
+                                            <option value="Barnala">Barnala</option>
+                                            <option value="Barpeta">Barpeta</option>
+                                            <option value="Barwani">Barwani</option>
+                                            <option value="Bastar">Bastar</option>
+                                            <option value="Basti">Basti</option>
+                                            <option value="Bathinda">Bathinda</option>
+                                            <option value="Beed">Beed</option>
+                                            <option value="Begusarai">Begusarai</option>
+                                            <option value="Belgaum">Belgaum</option>
+                                            <option value="Bellary">Bellary</option>
+                                            <option value="Betul">Betul</option>
+                                            <option value="Bhadrak">Bhadrak</option>
+                                            <option value="Bhagalpur">Bhagalpur</option>
+                                            <option value="Bhandara">Bhandara</option>
+                                            <option value="Bharatpur">Bharatpur</option>
+                                            <option value="Bharuch">Bharuch</option>
+                                            <option value="Bhavnagar">Bhavnagar</option>
+                                            <option value="Bhilwara">Bhilwara</option>
+                                            <option value="Bhind">Bhind</option>
+                                            <option value="Bhiwani">Bhiwani</option>
+                                            <option value="Bhojpur">Bhojpur</option>
+                                            <option value="Bhopal">Bhopal</option>
+                                            <option value="Bidar">Bidar</option>
+                                            <option value="Bijapur">Bijapur</option>
+                                            <option value="Bijapur">Bijapur</option>
+                                            <option value="Bijnor">Bijnor</option>
+                                            <option value="Bikaner">Bikaner</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Birbhum">Birbhum</option>
+                                            <option value="Bishnupur">Bishnupur</option>
+                                            <option value="Bokaro">Bokaro</option>
+                                            <option value="Bongaigaon">Bongaigaon</option>
+                                            <option value="Boudh(Bauda)">Boudh (Bauda)</option>
+                                            <option value="Budaun">Budaun</option>
+                                            <option value="Bulandshahr">Bulandshahr</option>
+                                            <option value="Buldhana">Buldhana</option>
+                                            <option value="Bundi">Bundi</option>
+                                            <option value="Burhanpur">Burhanpur</option>
+                                            <option value="Buxar">Buxar</option>
+                                            <option value="Cachar">Cachar</option>
+                                            <option value="CentralDelhi">Central Delhi</option>
+                                            <option value="Chamarajnagar">Chamarajnagar</option>
+                                            <option value="Chamba">Chamba</option>
+                                            <option value="Chamoli">Chamoli</option>
+                                            <option value="Champawat">Champawat</option>
+                                            <option value="Champhai">Champhai</option>
+                                            <option value="Chandauli">Chandauli</option>
+                                            <option value="Chandel">Chandel</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Chandrapur">Chandrapur</option>
+                                            <option value="Changlang">Changlang</option>
+                                            <option value="Chatra">Chatra</option>
+                                            <option value="Chennai">Chennai</option>
+                                            <option value="Chhatarpur">Chhatarpur</option>
+                                            <option value="ChhatrapatiShahujiMaharajNagar"> Chhatrapati Shahuji Maharaj
+                                                Nagar </option>
+                                            <option value="Chhindwara">Chhindwara</option>
+                                            <option value="Chikkaballapur">Chikkaballapur</option>
+                                            <option value="Chikkamagaluru">Chikkamagaluru</option>
+                                            <option value="Chirang">Chirang</option>
+                                            <option value="Chitradurga">Chitradurga</option>
+                                            <option value="Chitrakoot">Chitrakoot</option>
+                                            <option value="Chittoor">Chittoor</option>
+                                            <option value="Chittorgarh">Chittorgarh</option>
+                                            <option value="Churachandpur">Churachandpur</option>
+                                            <option value="Churu">Churu</option>
+                                            <option value="Coimbatore">Coimbatore</option>
+                                            <option value="CoochBehar">Cooch Behar</option>
+                                            <option value="Cuddalore">Cuddalore</option>
+                                            <option value="Cuttack">Cuttack</option>
+                                            <option value="DadraandNagarHaveli"> Dadra and Nagar Haveli </option>
+                                            <option value="Dahod">Dahod</option>
+                                            <option value="DakshinDinajpur">Dakshin Dinajpur</option>
+                                            <option value="DakshinaKannada">Dakshina Kannada</option>
+                                            <option value="Daman">Daman</option>
+                                            <option value="Damoh">Damoh</option>
+                                            <option value="Dantewada">Dantewada</option>
+                                            <option value="Darbhanga">Darbhanga</option>
+                                            <option value="Darjeeling">Darjeeling</option>
+                                            <option value="Darrang">Darrang</option>
+                                            <option value="Datia">Datia</option>
+                                            <option value="Dausa">Dausa</option>
+                                            <option value="Davanagere">Davanagere</option>
+                                            <option value="Debagarh(Deogarh)">Debagarh (Deogarh)</option>
+                                            <option value="Dehradun">Dehradun</option>
+                                            <option value="Deoghar">Deoghar</option>
+                                            <option value="Deoria">Deoria</option>
+                                            <option value="Dewas">Dewas</option>
+                                            <option value="Dhalai">Dhalai</option>
+                                            <option value="Dhamtari">Dhamtari</option>
+                                            <option value="Dhanbad">Dhanbad</option>
+                                            <option value="Dhar">Dhar</option>
+                                            <option value="Dharmapuri">Dharmapuri</option>
+                                            <option value="Dharwad">Dharwad</option>
+                                            <option value="Dhemaji">Dhemaji</option>
+                                            <option value="Dhenkanal">Dhenkanal</option>
+                                            <option value="Dholpur">Dholpur</option>
+                                            <option value="Dhubri">Dhubri</option>
+                                            <option value="Dhule">Dhule</option>
+                                            <option value="DibangValley">Dibang Valley</option>
+                                            <option value="Dibrugarh">Dibrugarh</option>
+                                            <option value="DimaHasao">Dima Hasao</option>
+                                            <option value="Dimapur">Dimapur</option>
+                                            <option value="Dindigul">Dindigul</option>
+                                            <option value="Dindori">Dindori</option>
+                                            <option value="Diu">Diu</option>
+                                            <option value="Doda">Doda</option>
+                                            <option value="Dumka">Dumka</option>
+                                            <option value="Dungapur">Dungapur</option>
+                                            <option value="Durg">Durg</option>
+                                            <option value="EastChamparan">East Champaran</option>
+                                            <option value="EastDelhi">East Delhi</option>
+                                            <option value="EastGaroHills">East Garo Hills</option>
+                                            <option value="EastKhasiHills">East Khasi Hills</option>
+                                            <option value="EastSiang">East Siang</option>
+                                            <option value="EastSikkim">East Sikkim</option>
+                                            <option value="EastSinghbhum">East Singhbhum</option>
+                                            <option value="Eluru">Eluru</option>
+                                            <option value="Ernakulam">Ernakulam</option>
+                                            <option value="Erode">Erode</option>
+                                            <option value="Etah">Etah</option>
+                                            <option value="Etawah">Etawah</option>
+                                            <option value="Faizabad">Faizabad</option>
+                                            <option value="Faridabad">Faridabad</option>
+                                            <option value="Faridkot">Faridkot</option>
+                                            <option value="Farrukhabad">Farrukhabad</option>
+                                            <option value="Fatehabad">Fatehabad</option>
+                                            <option value="FatehgarhSahib">Fatehgarh Sahib</option>
+                                            <option value="Fatehpur">Fatehpur</option>
+                                            <option value="Fazilka">Fazilka</option>
+                                            <option value="Firozabad">Firozabad</option>
+                                            <option value="Firozpur">Firozpur</option>
+                                            <option value="Gadag">Gadag</option>
+                                            <option value="Gadchiroli">Gadchiroli</option>
+                                            <option value="Gajapati">Gajapati</option>
+                                            <option value="Ganderbal">Ganderbal</option>
+                                            <option value="Gandhinagar">Gandhinagar</option>
+                                            <option value="Ganganagar">Ganganagar</option>
+                                            <option value="Ganjam">Ganjam</option>
+                                            <option value="Garhwa">Garhwa</option>
+                                            <option value="GautamBuddhNagar">Gautam Buddh Nagar</option>
+                                            <option value="Gaya">Gaya</option>
+                                            <option value="Ghaziabad">Ghaziabad</option>
+                                            <option value="Ghazipur">Ghazipur</option>
+                                            <option value="Giridih">Giridih</option>
+                                            <option value="Goalpara">Goalpara</option>
+                                            <option value="Godda">Godda</option>
+                                            <option value="Golaghat">Golaghat</option>
+                                            <option value="Gonda">Gonda</option>
+                                            <option value="Gondia">Gondia</option>
+                                            <option value="Gopalganj">Gopalganj</option>
+                                            <option value="Gorakhpur">Gorakhpur</option>
+                                            <option value="Gulbarga">Gulbarga</option>
+                                            <option value="Gumla">Gumla</option>
+                                            <option value="Guna">Guna</option>
+                                            <option value="Guntur">Guntur</option>
+                                            <option value="Gurdaspur">Gurdaspur</option>
+                                            <option value="Gurgaon">Gurgaon</option>
+                                            <option value="Gwalior">Gwalior</option>
+                                            <option value="Hailakandi">Hailakandi</option>
+                                            <option value="Hamirpur">Hamirpur</option>
+                                            <option value="Hamirpur">Hamirpur</option>
+                                            <option value="Hanumangarh">Hanumangarh</option>
+                                            <option value="Harda">Harda</option>
+                                            <option value="Hardoi">Hardoi</option>
+                                            <option value="Haridwar">Haridwar</option>
+                                            <option value="Hassan">Hassan</option>
+                                            <option value="Haveridistrict">Haveri district</option>
+                                            <option value="Hazaribag">Hazaribag</option>
+                                            <option value="Hingoli">Hingoli</option>
+                                            <option value="Hissar">Hissar</option>
+                                            <option value="Hooghly">Hooghly</option>
+                                            <option value="Hoshangabad">Hoshangabad</option>
+                                            <option value="Hoshiarpur">Hoshiarpur</option>
+                                            <option value="Howrah">Howrah</option>
+                                            <option value="Hyderabad">Hyderabad</option>
+                                            <option value="Hyderabad">Hyderabad</option>
+                                            <option value="Idukki">Idukki</option>
+                                            <option value="ImphalEast">Imphal East</option>
+                                            <option value="ImphalWest">Imphal West</option>
+                                            <option value="Indore">Indore</option>
+                                            <option value="Jabalpur">Jabalpur</option>
+                                            <option value="Jagatsinghpur">Jagatsinghpur</option>
+                                            <option value="JaintiaHills">Jaintia Hills</option>
+                                            <option value="Jaipur">Jaipur</option>
+                                            <option value="Jaisalmer">Jaisalmer</option>
+                                            <option value="Jajpur">Jajpur</option>
+                                            <option value="Jalandhar">Jalandhar</option>
+                                            <option value="Jalaun">Jalaun</option>
+                                            <option value="Jalgaon">Jalgaon</option>
+                                            <option value="Jalna">Jalna</option>
+                                            <option value="Jalore">Jalore</option>
+                                            <option value="Jalpaiguri">Jalpaiguri</option>
+                                            <option value="Jammu">Jammu</option>
+                                            <option value="Jamnagar">Jamnagar</option>
+                                            <option value="Jamtara">Jamtara</option>
+                                            <option value="Jamui">Jamui</option>
+                                            <option value="Janjgir-Champa">Janjgir-Champa</option>
+                                            <option value="Jashpur">Jashpur</option>
+                                            <option value="Jaunpurdistrict">Jaunpur district</option>
+                                            <option value="Jehanabad">Jehanabad</option>
+                                            <option value="Jhabua">Jhabua</option>
+                                            <option value="Jhajjar">Jhajjar</option>
+                                            <option value="Jhalawar">Jhalawar</option>
+                                            <option value="Jhansi">Jhansi</option>
+                                            <option value="Jharsuguda">Jharsuguda</option>
+                                            <option value="Jhunjhunu">Jhunjhunu</option>
+                                            <option value="Jind">Jind</option>
+                                            <option value="Jodhpur">Jodhpur</option>
+                                            <option value="Jorhat">Jorhat</option>
+                                            <option value="Junagadh">Junagadh</option>
+                                            <option value="JyotibaPhuleNagar">Jyotiba Phule Nagar</option>
+                                            <option value="Kabirdham(formerlyKawardha)"> Kabirdham (formerly Kawardha)
+                                            </option>
+                                            <option value="Kadapa">Kadapa</option>
+                                            <option value="Kaimur">Kaimur</option>
+                                            <option value="Kaithal">Kaithal</option>
+                                            <option value="Kakinada">Kakinada</option>
+                                            <option value="Kalahandi">Kalahandi</option>
+                                            <option value="Kamrup">Kamrup</option>
+                                            <option value="KamrupMetropolitan">Kamrup Metropolitan</option>
+                                            <option value="Kanchipuram">Kanchipuram</option>
+                                            <option value="Kandhamal">Kandhamal</option>
+                                            <option value="Kangra">Kangra</option>
+                                            <option value="Kanker">Kanker</option>
+                                            <option value="Kannauj">Kannauj</option>
+                                            <option value="Kannur">Kannur</option>
+                                            <option value="Kanpur">Kanpur</option>
+                                            <option value="KanshiRamNagar">Kanshi Ram Nagar</option>
+                                            <option value="Kanyakumari">Kanyakumari</option>
+                                            <option value="Kapurthala">Kapurthala</option>
+                                            <option value="Karaikal">Karaikal</option>
+                                            <option value="Karauli">Karauli</option>
+                                            <option value="KarbiAnglong">Karbi Anglong</option>
+                                            <option value="Kargil">Kargil</option>
+                                            <option value="Karimganj">Karimganj</option>
+                                            <option value="Karimnagar">Karimnagar</option>
+                                            <option value="Karnal">Karnal</option>
+                                            <option value="Karur">Karur</option>
+                                            <option value="Kasaragod">Kasaragod</option>
+                                            <option value="Kathua">Kathua</option>
+                                            <option value="Katihar">Katihar</option>
+                                            <option value="Katni">Katni</option>
+                                            <option value="Kaushambi">Kaushambi</option>
+                                            <option value="Kendrapara">Kendrapara</option>
+                                            <option value="Kendujhar(Keonjhar)"> Kendujhar (Keonjhar) </option>
+                                            <option value="Khagaria">Khagaria</option>
+                                            <option value="Khammam">Khammam</option>
+                                            <option value="Khandwa(EastNimar)">Khandwa (East Nimar)</option>
+                                            <option value="Khargone(WestNimar)"> Khargone (West Nimar) </option>
+                                            <option value="Kheda">Kheda</option>
+                                            <option value="Khordha">Khordha</option>
+                                            <option value="Khowai">Khowai</option>
+                                            <option value="Khunti">Khunti</option>
+                                            <option value="Kinnaur">Kinnaur</option>
+                                            <option value="Kishanganj">Kishanganj</option>
+                                            <option value="Kishtwar">Kishtwar</option>
+                                            <option value="Kodagu">Kodagu</option>
+                                            <option value="Koderma">Koderma</option>
+                                            <option value="Kohima">Kohima</option>
+                                            <option value="Kokrajhar">Kokrajhar</option>
+                                            <option value="Kolar">Kolar</option>
+                                            <option value="Kolasib">Kolasib</option>
+                                            <option value="Kolhapur">Kolhapur</option>
+                                            <option value="Kolkata">Kolkata</option>
+                                            <option value="Kollam">Kollam</option>
+                                            <option value="Koppal">Koppal</option>
+                                            <option value="Koraput">Koraput</option>
+                                            <option value="Korba">Korba</option>
+                                            <option value="Koriya">Koriya</option>
+                                            <option value="Kota">Kota</option>
+                                            <option value="Kottayam">Kottayam</option>
+                                            <option value="Kozhikode">Kozhikode</option>
+                                            <option value="Krishna">Krishna</option>
+                                            <option value="Kulgam">Kulgam</option>
+                                            <option value="Kullu">Kullu</option>
+                                            <option value="Kupwara">Kupwara</option>
+                                            <option value="Kurnool">Kurnool</option>
+                                            <option value="Kurukshetra">Kurukshetra</option>
+                                            <option value="KurungKumey">Kurung Kumey</option>
+                                            <option value="Kushinagar">Kushinagar</option>
+                                            <option value="Kutch">Kutch</option>
+                                            <option value="LahaulandSpiti">Lahaul and Spiti</option>
+                                            <option value="Lakhimpur">Lakhimpur</option>
+                                            <option value="LakhimpurKheri">Lakhimpur Kheri</option>
+                                            <option value="Lakhisarai">Lakhisarai</option>
+                                            <option value="Lalitpur">Lalitpur</option>
+                                            <option value="Latehar">Latehar</option>
+                                            <option value="Latur">Latur</option>
+                                            <option value="Lawngtlai">Lawngtlai</option>
+                                            <option value="Leh">Leh</option>
+                                            <option value="Lohardaga">Lohardaga</option>
+                                            <option value="Lohit">Lohit</option>
+                                            <option value="LowerDibangValley">Lower Dibang Valley</option>
+                                            <option value="LowerSubansiri">Lower Subansiri</option>
+                                            <option value="Lucknow">Lucknow</option>
+                                            <option value="Ludhiana">Ludhiana</option>
+                                            <option value="Lunglei">Lunglei</option>
+                                            <option value="Madhepura">Madhepura</option>
+                                            <option value="Madhubani">Madhubani</option>
+                                            <option value="Madurai">Madurai</option>
+                                            <option value="MahamayaNagar">Mahamaya Nagar</option>
+                                            <option value="Maharajganj">Maharajganj</option>
+                                            <option value="Mahasamund">Mahasamund</option>
+                                            <option value="Mahbubnagar">Mahbubnagar</option>
+                                            <option value="Mahe">Mahe</option>
+                                            <option value="Mahendragarh">Mahendragarh</option>
+                                            <option value="Mahoba">Mahoba</option>
+                                            <option value="Mainpuri">Mainpuri</option>
+                                            <option value="Malappuram">Malappuram</option>
+                                            <option value="Maldah">Maldah</option>
+                                            <option value="Malkangiri">Malkangiri</option>
+                                            <option value="Mamit">Mamit</option>
+                                            <option value="Mandi">Mandi</option>
+                                            <option value="Mandla">Mandla</option>
+                                            <option value="Mandsaur">Mandsaur</option>
+                                            <option value="Mandya">Mandya</option>
+                                            <option value="Mansa">Mansa</option>
+                                            <option value="Marigaon">Marigaon</option>
+                                            <option value="Mathura">Mathura</option>
+                                            <option value="Mau">Mau</option>
+                                            <option value="Mayurbhanj">Mayurbhanj</option>
+                                            <option value="Medak">Medak</option>
+                                            <option value="Meerut">Meerut</option>
+                                            <option value="Mehsana">Mehsana</option>
+                                            <option value="Mewat">Mewat</option>
+                                            <option value="Mirzapur">Mirzapur</option>
+                                            <option value="Moga">Moga</option>
+                                            <option value="Mokokchung">Mokokchung</option>
+                                            <option value="Mon">Mon</option>
+                                            <option value="Moradabad">Moradabad</option>
+                                            <option value="Morena">Morena</option>
+                                            <option value="MumbaiCity">Mumbai City</option>
+                                            <option value="Mumbaisuburban">Mumbai suburban</option>
+                                            <option value="Munger">Munger</option>
+                                            <option value="Murshidabad">Murshidabad</option>
+                                            <option value="Muzaffarnagar">Muzaffarnagar</option>
+                                            <option value="Muzaffarpur">Muzaffarpur</option>
+                                            <option value="Mysore">Mysore</option>
+                                            <option value="Nabarangpur">Nabarangpur</option>
+                                            <option value="Nadia">Nadia</option>
+                                            <option value="Nagaon">Nagaon</option>
+                                            <option value="Nagapattinam">Nagapattinam</option>
+                                            <option value="Nagaur">Nagaur</option>
+                                            <option value="Nagpur">Nagpur</option>
+                                            <option value="Nainital">Nainital</option>
+                                            <option value="Nalanda">Nalanda</option>
+                                            <option value="Nalbari">Nalbari</option>
+                                            <option value="Nalgonda">Nalgonda</option>
+                                            <option value="Namakkal">Namakkal</option>
+                                            <option value="Nanded">Nanded</option>
+                                            <option value="Nandurbar">Nandurbar</option>
+                                            <option value="Narayanpur">Narayanpur</option>
+                                            <option value="Narmada">Narmada</option>
+                                            <option value="Narsinghpur">Narsinghpur</option>
+                                            <option value="Nashik">Nashik</option>
+                                            <option value="Navsari">Navsari</option>
+                                            <option value="Nawada">Nawada</option>
+                                            <option value="Nawanshahr">Nawanshahr</option>
+                                            <option value="Nayagarh">Nayagarh</option>
+                                            <option value="Neemuch">Neemuch</option>
+                                            <option value="Nellore">Nellore</option>
+                                            <option value="NewDelhi">New Delhi</option>
+                                            <option value="Nilgiris">Nilgiris</option>
+                                            <option value="Nizamabad">Nizamabad</option>
+                                            <option value="North24Parganas">North 24 Parganas</option>
+                                            <option value="NorthDelhi">North Delhi</option>
+                                            <option value="NorthEastDelhi">North East Delhi</option>
+                                            <option value="NorthGoa">North Goa</option>
+                                            <option value="NorthSikkim">North Sikkim</option>
+                                            <option value="NorthTripura">North Tripura</option>
+                                            <option value="NorthWestDelhi">North West Delhi</option>
+                                            <option value="Nuapada">Nuapada</option>
+                                            <option value="Ongole">Ongole</option>
+                                            <option value="Osmanabad">Osmanabad</option>
+                                            <option value="Pakur">Pakur</option>
+                                            <option value="Palakkad">Palakkad</option>
+                                            <option value="Palamu">Palamu</option>
+                                            <option value="Pali">Pali</option>
+                                            <option value="Palwal">Palwal</option>
+                                            <option value="Panchkula">Panchkula</option>
+                                            <option value="Panchmahal">Panchmahal</option>
+                                            <option value="PanchsheelNagardistrict(Hapur)"> Panchsheel Nagar district
+                                                (Hapur) </option>
+                                            <option value="Panipat">Panipat</option>
+                                            <option value="Panna">Panna</option>
+                                            <option value="PapumPare">Papum Pare</option>
+                                            <option value="Parbhani">Parbhani</option>
+                                            <option value="PaschimMedinipur">Paschim Medinipur</option>
+                                            <option value="Patan">Patan</option>
+                                            <option value="Pathanamthitta">Pathanamthitta</option>
+                                            <option value="Pathankot">Pathankot</option>
+                                            <option value="Patiala">Patiala</option>
+                                            <option value="Patna">Patna</option>
+                                            <option value="PauriGarhwal">Pauri Garhwal</option>
+                                            <option value="Perambalur">Perambalur</option>
+                                            <option value="Phek">Phek</option>
+                                            <option value="Pilibhit">Pilibhit</option>
+                                            <option value="Pithoragarh">Pithoragarh</option>
+                                            <option value="Pondicherry">Pondicherry</option>
+                                            <option value="Poonch">Poonch</option>
+                                            <option value="Porbandar">Porbandar</option>
+                                            <option value="Pratapgarh">Pratapgarh</option>
+                                            <option value="Pratapgarh">Pratapgarh</option>
+                                            <option value="Pudukkottai">Pudukkottai</option>
+                                            <option value="Pulwama">Pulwama</option>
+                                            <option value="Pune">Pune</option>
+                                            <option value="PurbaMedinipur">Purba Medinipur</option>
+                                            <option value="Puri">Puri</option>
+                                            <option value="Purnia">Purnia</option>
+                                            <option value="Purulia">Purulia</option>
+                                            <option value="Raebareli">Raebareli</option>
+                                            <option value="Raichur">Raichur</option>
+                                            <option value="Raigad">Raigad</option>
+                                            <option value="Raigarh">Raigarh</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Raisen">Raisen</option>
+                                            <option value="Rajauri">Rajauri</option>
+                                            <option value="Rajgarh">Rajgarh</option>
+                                            <option value="Rajkot">Rajkot</option>
+                                            <option value="Rajnandgaon">Rajnandgaon</option>
+                                            <option value="Rajsamand">Rajsamand</option>
+                                            <option value="RamabaiNagar(KanpurDehat)">Ramabai Nagar (Kanpur Dehat)</option>
+                                            <option value="Ramanagara">Ramanagara</option>
+                                            <option value="Ramanathapuram">Ramanathapuram</option>
+                                            <option value="Ramban">Ramban</option>
+                                            <option value="Ramgarh">Ramgarh</option>
+                                            <option value="Rampur">Rampur</option>
+                                            <option value="Ranchi">Ranchi</option>
+                                            <option value="Ratlam">Ratlam</option>
+                                            <option value="Ratnagiri">Ratnagiri</option>
+                                            <option value="Rayagada">Rayagada</option>
+                                            <option value="Reasi">Reasi</option>
+                                            <option value="Rewa">Rewa</option>
+                                            <option value="Rewari">Rewari</option>
+                                            <option value="RiBhoi">Ri Bhoi</option>
+                                            <option value="Rohtak">Rohtak</option>
+                                            <option value="Rohtas">Rohtas</option>
+                                            <option value="Rudraprayag">Rudraprayag</option>
+                                            <option value="Rupnagar">Rupnagar</option>
+                                            <option value="Sabarkantha">Sabarkantha</option>
+                                            <option value="Sagar">Sagar</option>
+                                            <option value="Saharanpur">Saharanpur</option>
+                                            <option value="Saharsa">Saharsa</option>
+                                            <option value="Sahibganj">Sahibganj</option>
+                                            <option value="Saiha">Saiha</option>
+                                            <option value="Salem">Salem</option>
+                                            <option value="Samastipur">Samastipur</option>
+                                            <option value="Samba">Samba</option>
+                                            <option value="Sambalpur">Sambalpur</option>
+                                            <option value="Sangli">Sangli</option>
+                                            <option value="Sangrur">Sangrur</option>
+                                            <option value="SantKabirNagar">Sant Kabir Nagar</option>
+                                            <option value="SantRavidasNagar">Sant Ravidas Nagar</option>
+                                            <option value="Saran">Saran</option>
+                                            <option value="Satara">Satara</option>
+                                            <option value="Satna">Satna</option>
+                                            <option value="SawaiMadhopur">Sawai Madhopur</option>
+                                            <option value="Sehore">Sehore</option>
+                                            <option value="Senapati">Senapati</option>
+                                            <option value="Seoni">Seoni</option>
+                                            <option value="SeraikelaKharsawan">Seraikela Kharsawan</option>
+                                            <option value="Serchhip">Serchhip</option>
+                                            <option value="Shahdol">Shahdol</option>
+                                            <option value="Shahjahanpur">Shahjahanpur</option>
+                                            <option value="Shajapur">Shajapur</option>
+                                            <option value="Shamli">Shamli</option>
+                                            <option value="Sheikhpura">Sheikhpura</option>
+                                            <option value="Sheohar">Sheohar</option>
+                                            <option value="Sheopur">Sheopur</option>
+                                            <option value="Shimla">Shimla</option>
+                                            <option value="Shimoga">Shimoga</option>
+                                            <option value="Shivpuri">Shivpuri</option>
+                                            <option value="Shopian">Shopian</option>
+                                            <option value="Shravasti">Shravasti</option>
+                                            <option value="Sibsagar">Sibsagar</option>
+                                            <option value="Siddharthnagar">Siddharthnagar</option>
+                                            <option value="Sidhi">Sidhi</option>
+                                            <option value="Sikar">Sikar</option>
+                                            <option value="Simdega">Simdega</option>
+                                            <option value="Sindhudurg">Sindhudurg</option>
+                                            <option value="Singrauli">Singrauli</option>
+                                            <option value="Sirmaur">Sirmaur</option>
+                                            <option value="Sirohi">Sirohi</option>
+                                            <option value="Sirsa">Sirsa</option>
+                                            <option value="Sitamarhi">Sitamarhi</option>
+                                            <option value="Sitapur">Sitapur</option>
+                                            <option value="Sivaganga">Sivaganga</option>
+                                            <option value="Siwan">Siwan</option>
+                                            <option value="Solan">Solan</option>
+                                            <option value="Solapur">Solapur</option>
+                                            <option value="Sonbhadra">Sonbhadra</option>
+                                            <option value="Sonipat">Sonipat</option>
+                                            <option value="Sonitpur">Sonitpur</option>
+                                            <option value="South24Parganas">South 24 Parganas</option>
+                                            <option value="SouthDelhi">South Delhi</option>
+                                            <option value="SouthGaroHills">South Garo Hills</option>
+                                            <option value="SouthGoa">South Goa</option>
+                                            <option value="SouthSikkim">South Sikkim</option>
+                                            <option value="SouthTripura">South Tripura</option>
+                                            <option value="SouthWestDelhi">South West Delhi</option>
+                                            <option value="SriMuktsarSahib">Sri Muktsar Sahib</option>
+                                            <option value="Srikakulam">Srikakulam</option>
+                                            <option value="Srinagar">Srinagar</option>
+                                            <option value="Subarnapur(Sonepur)"> Subarnapur (Sonepur) </option>
+                                            <option value="Sultanpur">Sultanpur</option>
+                                            <option value="Sundergarh">Sundergarh</option>
+                                            <option value="Supaul">Supaul</option>
+                                            <option value="Surat">Surat</option>
+                                            <option value="Surendranagar">Surendranagar</option>
+                                            <option value="Surguja">Surguja</option>
+                                            <option value="Tamenglong">Tamenglong</option>
+                                            <option value="TarnTaran">Tarn Taran</option>
+                                            <option value="Tawang">Tawang</option>
+                                            <option value="TehriGarhwal">Tehri Garhwal</option>
+                                            <option value="Thane">Thane</option>
+                                            <option value="Thanjavur">Thanjavur</option>
+                                            <option value="TheDangs">The Dangs</option>
+                                            <option value="Theni">Theni</option>
+                                            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                            <option value="Thoothukudi">Thoothukudi</option>
+                                            <option value="Thoubal">Thoubal</option>
+                                            <option value="Thrissur">Thrissur</option>
+                                            <option value="Tikamgarh">Tikamgarh</option>
+                                            <option value="Tinsukia">Tinsukia</option>
+                                            <option value="Tirap">Tirap</option>
+                                            <option value="Tiruchirappalli">Tiruchirappalli</option>
+                                            <option value="Tirunelveli">Tirunelveli</option>
+                                            <option value="Tirupur">Tirupur</option>
+                                            <option value="Tiruvallur">Tiruvallur</option>
+                                            <option value="Tiruvannamalai">Tiruvannamalai</option>
+                                            <option value="Tiruvarur">Tiruvarur</option>
+                                            <option value="Tonk">Tonk</option>
+                                            <option value="Tuensang">Tuensang</option>
+                                            <option value="Tumkur">Tumkur</option>
+                                            <option value="Udaipur">Udaipur</option>
+                                            <option value="Udalguri">Udalguri</option>
+                                            <option value="UdhamSinghNagar">Udham Singh Nagar</option>
+                                            <option value="Udhampur">Udhampur</option>
+                                            <option value="Udupi">Udupi</option>
+                                            <option value="Ujjain">Ujjain</option>
+                                            <option value="Ukhrul">Ukhrul</option>
+                                            <option value="Umaria">Umaria</option>
+                                            <option value="Una">Una</option>
+                                            <option value="Unnao">Unnao</option>
+                                            <option value="UpperSiang">Upper Siang</option>
+                                            <option value="UpperSubansiri">Upper Subansiri</option>
+                                            <option value="UttarDinajpur">Uttar Dinajpur</option>
+                                            <option value="UttaraKannada">Uttara Kannada</option>
+                                            <option value="Uttarkashi">Uttarkashi</option>
+                                            <option value="Vadodara">Vadodara</option>
+                                            <option value="Vaishali">Vaishali</option>
+                                            <option value="Valsad">Valsad</option>
+                                            <option value="Varanasi">Varanasi</option>
+                                            <option value="Vellore">Vellore</option>
+                                            <option value="Vidisha">Vidisha</option>
+                                            <option value="Viluppuram">Viluppuram</option>
+                                            <option value="Virudhunagar">Virudhunagar</option>
+                                            <option value="Visakhapatnam">Visakhapatnam</option>
+                                            <option value="Vizianagaram">Vizianagaram</option>
+                                            <option value="Vyara">Vyara</option>
+                                            <option value="Warangal">Warangal</option>
+                                            <option value="Wardha">Wardha</option>
+                                            <option value="Washim">Washim</option>
+                                            <option value="Wayanad">Wayanad</option>
+                                            <option value="WestChamparan">West Champaran</option>
+                                            <option value="WestDelhi">West Delhi</option>
+                                            <option value="WestGaroHills">West Garo Hills</option>
+                                            <option value="WestKameng">West Kameng</option>
+                                            <option value="WestKhasiHills">West Khasi Hills</option>
+                                            <option value="WestSiang">West Siang</option>
+                                            <option value="WestSikkim">West Sikkim</option>
+                                            <option value="WestSinghbhum">West Singhbhum</option>
+                                            <option value="WestTripura">West Tripura</option>
+                                            <option value="Wokha">Wokha</option>
+                                            <option value="Yadgir">Yadgir</option>
+                                            <option value="YamunaNagar">Yamuna Nagar</option>
+                                            <option value="Yanam">Yanam</option>
+                                            <option value="Yavatmal">Yavatmal</option>
+                                            <option value="Zunheboto">Zunheboto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn w-100 site_btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="cta_img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/97c25bb142eb6cca3d810df493e12701599c5cb0.png"
+                            alt=""
+                            class="img-fluid">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -736,50 +1543,125 @@
         <div class="row">
             <div class="col-12">
                 <div class="logos_slider client_logo_slider">
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'" alt="" class="img-fluid"></div>
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'" alt="" class="img-fluid"></div>
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'" alt="" class="img-fluid"></div>
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'" alt="" class="img-fluid"></div>
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'" alt="" class="img-fluid"></div>
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'"
+                            alt=""
+                            class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'"
+                            alt=""
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7b9fb349915858efbcdd50fa136eba35b297cda9.png'" alt="Acciojob Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7b9fb349915858efbcdd50fa136eba35b297cda9.png'"
+                            alt="Acciojob Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6129f05c386b12d328a5d3d58e0c036e7e66afd5.png'" alt="Atlas Law Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6129f05c386b12d328a5d3d58e0c036e7e66afd5.png'"
+                            alt="Atlas Law Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c81ea45f61705da2cc8f8ab5f7b83caecdc58aa1.png'" alt="Bluone Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c81ea45f61705da2cc8f8ab5f7b83caecdc58aa1.png'"
+                            alt="Bluone Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5741d86b37405d2e37281345a4dd90ed098cd4ba.png'" alt="Bricz Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5741d86b37405d2e37281345a4dd90ed098cd4ba.png'"
+                            alt="Bricz Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7d9415d0d68cd1656aedd522d4d3bfd72e774b76.png'" alt="Credable Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7d9415d0d68cd1656aedd522d4d3bfd72e774b76.png'"
+                            alt="Credable Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7dba2fe956ff2e98e4029333c02324ab199b6915.png'" alt="Dahua Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7dba2fe956ff2e98e4029333c02324ab199b6915.png'"
+                            alt="Dahua Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/69a26c306d1af10947a2bc2bd7f8be1994625d81.png'" alt="Devtown Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/69a26c306d1af10947a2bc2bd7f8be1994625d81.png'"
+                            alt="Devtown Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e650bcfa5444037833dd7f835bfb9447b981a2b2.png'" alt="Doubtnut Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e650bcfa5444037833dd7f835bfb9447b981a2b2.png'"
+                            alt="Doubtnut Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/daca10ffa403e80f29ac51d368beefb021376dc0.png'" alt="Flash Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/daca10ffa403e80f29ac51d368beefb021376dc0.png'"
+                            alt="Flash Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/68db0982e98f5a23ec87ef494df1ae3899bf533e.png'" alt="Genesys Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/68db0982e98f5a23ec87ef494df1ae3899bf533e.png'"
+                            alt="Genesys Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d9e155e232b7314fc6468faba47815a81512c35b.png'" alt="Hector Beverages Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d9e155e232b7314fc6468faba47815a81512c35b.png'"
+                            alt="Hector Beverages Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1bd8c3d5cb135908007579be26fa28082ea74a81.png'" alt="India Leaders for Social Sector Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1bd8c3d5cb135908007579be26fa28082ea74a81.png'"
+                            alt="India Leaders for Social Sector Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b2617d1216ab67f66344ba747bfac9c06b80dc7b.png'" alt="MNC Corporation Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b2617d1216ab67f66344ba747bfac9c06b80dc7b.png'"
+                            alt="MNC Corporation Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b66bf4c7b44471e18ed1eb8ace551cf9962abe2.png'" alt="NS Partners Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b66bf4c7b44471e18ed1eb8ace551cf9962abe2.png'"
+                            alt="NS Partners Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c85f758097513122d0fb069b87ce9ceb95465dd4.png'" alt="Purpllr Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c85f758097513122d0fb069b87ce9ceb95465dd4.png'"
+                            alt="Purpllr Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4f82875699784445c0d314f1835477470d685d2c.png'" alt="Talentshell Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4f82875699784445c0d314f1835477470d685d2c.png'"
+                            alt="Talentshell Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/370fcfcd6e7869fab85688842554962bc2c8b784.png'" alt="The Connections Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/370fcfcd6e7869fab85688842554962bc2c8b784.png'"
+                            alt="The Connections Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c6c5c7d73cab43066fa9d4dbce347c1a741e5536.png'" alt="Wakeup Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c6c5c7d73cab43066fa9d4dbce347c1a741e5536.png'"
+                            alt="Wakeup Logo"
+                            class="img-fluid"></div>
 
-                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0c9020becefb9fe1ec9ce5000993ff0ca4e3ea53.png'" alt="Zipcar Logo" class="img-fluid"></div>
+                    <div class="item band-img"><img
+                            [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0c9020becefb9fe1ec9ce5000993ff0ca4e3ea53.png'"
+                            alt="Zipcar Logo"
+                            class="img-fluid"></div>
                 </div>
             </div>
         </div>
@@ -810,12 +1692,16 @@
             <div class="col-8">
                 <div class="cta_content">
                     <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
-                    <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
-                    <a routerLink="/list-your-space" class="btn site_btn blue_btn">List Your Space</a>
+                    <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads,
+                        and track your bookings - all in one place.</p>
+                    <a routerLink="/list-your-space"
+                        class="btn site_btn blue_btn">List Your Space</a>
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                <img src="../../../assets/images/list-your-space-img.svg"
+                    alt=""
+                    class="img-fluid">
             </div>
         </div>
     </div>
@@ -873,9 +1759,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <img style="max-height: 200px;"
+                        src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
+                        alt="">
                     <h4>What's the CoFynd Desk ?</h4>
-                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space &
+                        Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem,
+                        one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>
                     <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
                     <!-- <div class="space-btn pb-5">
