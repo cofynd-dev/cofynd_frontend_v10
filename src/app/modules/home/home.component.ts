@@ -60,7 +60,41 @@ export class HomeComponent implements OnInit {
   };
   loading: boolean = true;
   contactUserName: any;
-  showSuccessMessage: boolean = false;
+  showSuccessMessage: boolean;
+
+  constructor(
+    private _renderer2: Renderer2,
+    @Inject(DOCUMENT) private _document: Document,
+    private brandService: BrandService,
+    private seoService: SeoService,
+    private bsModalService: BsModalService,
+    private router: Router,
+    private workSpaceService: WorkSpaceService,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
+    private toastrService: ToastrService,
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.addSeoTags();
+    this.setScript();
+    this.getPopularCoworkingSpace();
+    this.getFeaturedImages();
+    this.getBrandAdsImages();
+  }
+
+  ngOnInit(): void {
+    this.getFeaturedImages();
+    forkJoin([
+      this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
+      this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
+    ]).subscribe(res => {
+      this.coLivingBrands = res[1];
+      this.coworkingBrands = res[0].filter(
+        brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
+      );
+    });
+    this.loopColivingSliders();
+  }
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
@@ -139,40 +173,6 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private _renderer2: Renderer2,
-    @Inject(DOCUMENT) private _document: Document,
-    private brandService: BrandService,
-    private seoService: SeoService,
-    private bsModalService: BsModalService,
-    private router: Router,
-    private workSpaceService: WorkSpaceService,
-    private _formBuilder: FormBuilder,
-    private userService: UserService,
-    private toastrService: ToastrService,
-  ) {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.addSeoTags();
-    this.setScript();
-    this.getPopularCoworkingSpace();
-    this.getFeaturedImages();
-    this.getBrandAdsImages();
-  }
-
-  ngOnInit(): void {
-    this.getFeaturedImages();
-    forkJoin([
-      this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
-      this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
-    ]).subscribe(res => {
-      this.coLivingBrands = res[1];
-      this.coworkingBrands = res[0].filter(
-        brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
-      );
-    });
-    this.loopColivingSliders();
-  }
-
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
@@ -194,12 +194,10 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.showSuccessMessage = false;
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
       return;
     } else {
-      this.loading = true;
       this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
       const object = {
         user: {
@@ -212,11 +210,12 @@ export class HomeComponent implements OnInit {
       };
       this.userService.createLead(object).subscribe(
         () => {
-          this.loading = false;
           this.showSuccessMessage = true;
-          this.toastrService.success('your enquiry submmited successfully.');
           this.enterpriseFormGroup.reset();
           this.submitted = false;
+          this.toastrService.success(
+            'your enquiry submmited successfully,Cofynd executive will contact you shortly for further details.',
+          );
         },
         error => {
           this.loading = false;
