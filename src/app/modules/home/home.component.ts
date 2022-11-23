@@ -13,6 +13,9 @@ import { DOCUMENT } from '@angular/common';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UserService } from '@app/core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface PopularSpace {
   name: string;
@@ -40,6 +43,7 @@ export class HomeComponent {
   colivingBrandAdsImages: any = [];
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
+  submitted = false;
 
   carouselConfig: NguCarouselConfig = {
     grid: { xs: 1.4, sm: 1.4, md: 3, lg: 4, all: 0 },
@@ -54,6 +58,9 @@ export class HomeComponent {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
+  loading: boolean = false;
+  contactUserName: any;
+  showSuccessMessage: boolean = false;
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
@@ -140,6 +147,9 @@ export class HomeComponent {
     private bsModalService: BsModalService,
     private router: Router,
     private workSpaceService: WorkSpaceService,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
+    private toastrService: ToastrService,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.addSeoTags();
@@ -161,6 +171,58 @@ export class HomeComponent {
       );
     });
     this.loopColivingSliders();
+  }
+
+  enterpriseFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    interested_in: ['', Validators.required],
+    city: ['', Validators.required],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.enterpriseFormGroup.invalid) {
+      return;
+    } else {
+      this.loading = true;
+      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+      const object = {
+        user: {
+          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          email: this.enterpriseFormGroup.controls['email'].value,
+          name: this.enterpriseFormGroup.controls['name'].value,
+        },
+        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
+        city: this.enterpriseFormGroup.controls['city'].value,
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.showSuccessMessage = true;
+          this.toastrService.success('your enquiry submmited successfully.');
+          this.enterpriseFormGroup.reset();
+          this.submitted = false;
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message);
+        },
+      );
+    }
   }
 
   loopColivingSliders() {
