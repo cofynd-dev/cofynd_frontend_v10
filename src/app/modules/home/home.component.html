@@ -754,7 +754,7 @@
                                     <div class="form-input">
                                         <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
                                             <option 
-                                               value="" >Type Of Space</option>
+                                               value=""  selected>Type Of Space</option>
                                             <option value="Coworking">Coworking</option>
                                             <option value="Coliving">Coliving</option>
                                             <option value="Office Space">Office Space</option>
@@ -767,7 +767,7 @@
                                 <div class="col-md-4">
                                     <div class="form-input">
                                         <select required class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" aria-label="Default select example">
-                                            <option value=""
+                                            <option value="" selected
                                                 >City</option>
                                             <option value="Adilabad">Adilabad</option>
                                             <option value="Agra">Agra</option>

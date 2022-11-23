@@ -1,6 +1,6 @@
 import { HomeMenuModalComponent } from './home-menu-modal/home-menu-modal.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ChangeDetectionStrategy, Component, Inject, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
@@ -31,7 +31,7 @@ interface PopularSpace {
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
   coworkingBrands: Brand[] = [];
@@ -58,7 +58,7 @@ export class HomeComponent {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
-  loading: boolean = false;
+  loading: boolean = true;
   contactUserName: any;
   showSuccessMessage: boolean = false;
 
@@ -194,6 +194,7 @@ export class HomeComponent {
   }
 
   onSubmit() {
+    this.showSuccessMessage = false;
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
       return;
