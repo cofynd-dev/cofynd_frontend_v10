@@ -1146,20 +1146,19 @@ body {
 
 .cofynd-desk {
     h4 {
-        font-size: 32px;
-        line-height: 40px;
-        font-weight: 300;
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 600;
         color: #262626;
         margin: 10px 0;
     }
     p {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-align: center;
-        font-size: 17px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 21px;
         color: #212529;
-        padding-right: 40px;
-        font-weight: 300;
+        padding-right: 0px;
     }
     .link-text {
         color: #3131e6 !important;
@@ -3059,6 +3058,223 @@ h3.site_title {
 .christmas_banner {
 	padding-top: 20px !important;
 	padding-bottom: 20px !important;
+}
+.bhk_type_list {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.bhk_type_list .bhk_item {
+	display: inline-block;
+	margin: 8px 1%;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 31.5%;
+	overflow: hidden;
+	vertical-align: top;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+	border-radius: 15px;
+	padding: 10px 10px;
+}
+.bhk_item .bhk-text {
+	position: relative;
+	padding-left: 70px;
+}
+.bhk_item .bhk-text img {
+	position: absolute;
+	left: 0px;
+	top: -9px;
+	width: 65px;
+}
+.bhk_item .bhk-text h6 {
+	font-size: 15px;
+	line-height: 25px;
+	margin-bottom: 0px;
+	font-weight: 600;
+}
+.bhk_item .bhk-text p {
+	font-size: 11px;
+	line-height: 16px;
+	margin-bottom: 0px;
+}
+.bhk_item .bhk-img {
+	width: 80px;
+}
+.counter_sec .counter_row {
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 20px !important;
+	background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+.counter_sec .counter_row::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+	background: linear-gradient(198.12deg, rgba(255, 255, 255, 0) 12.33%, rgba(34, 41, 33, 0.5) 87.67%);
+}
+.counter_sec .counter_content {
+	padding: 50px 50px;
+}
+.counter_sec .counter_content img {
+	width: 160px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+.counter_sec .counter_content h3 {
+	font-size: 35px;
+	line-height: 45px;
+	font-weight: 700;
+	color: #fff;
+}
+.count_item {
+	text-align: center;
+}
+.count_item p {
+	margin-bottom: 0px;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 27px;
+}
+.count_item p span {
+	display: block;
+	font-size: 50px;
+	line-height: 60px;
+	color: #FFE785;
+}
+.developer_logos_sec {
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+.developer_logos_list {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.developer_logos_list .developer_logo_item {
+	display: inline-block;
+	margin: 0px 1.4%;
+	flex: 0 0 71.4285714286%;
+	width: 11.5%;
+	padding: 10px 30px;
+}
+.flat_list_space {
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+.reviews_area {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.testi_slider {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.testi_slider .testi_item {
+	display: inline-block;
+	margin: 10px 1%;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 33.5%;
+	padding: 14px 20px;
+	background: #FFFFFF;
+	box-shadow: 0px 3px 10px rgba(33, 37, 41, 0.15);
+	border-radius: 20px;
+}
+.testi_item i {
+	font-size: 25px;
+	line-height: 23px;
+	color: #ffe785;
+}
+.quote-text p {
+	font-size: 13px;
+	line-height: 18px;
+	margin-bottom: 5px;
+	white-space: normal;
+}
+.review-box {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+.review-box .review-image {
+	width: 45px;
+}
+.review-box .review-text {
+	margin-left: 10px;
+}
+.review-box .review-text h4 {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 14px;
+	letter-spacing: 0;
+	color: #272828;
+	margin: 0;
+}
+.review-box .review-text p {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 21px;
+	letter-spacing: 0;
+	color: #908f8f;
+	margin-bottom: 0px;
+}
+.flat_cofynd_desk {
+    padding-bottom: 30px !important;
+}
+.faqs_list {
+	margin-top: 20px;
+}
+.faqs_list .accordion-header {
+	margin-bottom: 0;
+	position: relative;
+}
+.faqs_list .accordion-item {
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.faqs_list .accordion-header .accordion-button {
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 23px;
+	width: 100%;
+	text-align: left;
+}
+.faqs_list .accordion-header .accordion-button::after {
+	content: "\f107";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	background-image: none;
+	text-align: center;
+	line-height: 20px;
+}
+.faqs_list .accordion-item .accordion-body {
+	padding: 0px 10px 10px;
 }
 
 
