@@ -3276,6 +3276,33 @@ h3.site_title {
 .faqs_list .accordion-item .accordion-body {
 	padding: 0px 10px 10px;
 }
+.seo_content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.seo_content h2, .seo_content h3, .seo_content h4 {
+	font-size: 15px;
+	color: #7b7b7b;
+	margin-bottom: 10px;
+	line-height: 20px;
+    text-transform: capitalize;
+}
+.seo_content p, .seo_content ul {
+	font-size: 13px;
+	color: #7b7b7b;
+}
+.seo_content ul, .seo_content ol {
+	list-style-type: decimal;
+	padding-left: 19px;
+	margin-bottom: 12px;
+	color: #7b7b7b;
+}
+.seo_content ul li, .seo_content ol li {
+	margin-bottom: 4px;
+}
+.seo_content ul li:last-child, .seo_content ol li:last-child {
+	margin-bottom: 0px;
+}
 
 
 
