@@ -3463,9 +3463,8 @@ h3.site_title {
 }
 .property-item-img {
 	position: relative;
-	z-index: 9;
+	z-index: 1;
 }
-
 .cofynd_network_sec {
 	padding-top: 80px;
 	padding-bottom: 70px;
@@ -3503,6 +3502,291 @@ h3.site_title {
 	font-size: 13px;
 	color: rgba(33, 37, 41, 0.48);
 	line-height: 15px;
+}
+.microlocation_list {
+	display: -webkit-box;
+	display: flex;
+}
+.microlocation_list ul {
+	display: -webkit-box;
+	display: flex;
+	overflow-x: scroll;
+}
+.microlocation_list ul {
+    -webkit-overflow-scrolling: touch !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+.microlocation_list ul::-webkit-scrollbar {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+.microlocation_list li {
+	margin-right: 6px;
+	cursor: pointer;
+}
+.microlocation_list li a {
+	background: #fff;
+	border-radius: 3px;
+	padding: 4px 10px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #9e9e9e;
+	border: 1px solid #d4d4d4;
+	max-width: 140px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+.microlocation_list li a:hover {
+	background: #e9e9ff;
+	border-color: #7d9dd9;
+	color: #4343e8;
+}
+.city_title_area {
+	padding: 20px 0px;
+}
+.city_title_area h1 {
+	font-size: 25px;
+	line-height: 35px;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+.radio_buttons .form-check {
+	position: relative;
+	padding-left: 0;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.radio_buttons .form-check input[type="checkbox"], .radio_buttons .form-check input[type="radio"] {
+	display: none;
+}
+.radio_buttons .form-check .form-check-label {
+	margin-bottom: 0;
+	border: 0.7px solid rgba(33, 37, 41, 0.3);
+	border-top-color: #2125294d;
+	border-right-color: #2125294d;
+	border-bottom-color: #2125294d;
+	border-left-color: #2125294d;
+	border-radius: 10px;
+	padding: 4px 15px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 20px;
+	white-space: nowrap;
+	color: #555;
+	cursor: pointer;
+}
+.radio_buttons .form-check input[type="checkbox"]:checked + .form-check-label, .radio_buttons .form-check input[type="radio"]:checked + .form-check-label {
+	background: #4343E8;
+	color: #fff;
+	border-color: #4343e8;
+}
+.filter_footer .btn {
+	width: 100%;
+}
+.city_properties_filter {
+	border: 0.7px solid rgba(33, 37, 41, 0.1);
+	border-radius: 20px;
+	padding: 20px 20px;
+}
+.city_properties_filter .filter_head {
+	border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+.city_properties_filter .filter_head h3 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 600;
+}
+.filter_body h4 {
+	font-size: 15px;
+	line-height: 22px;
+	margin-bottom: 8px;
+	font-weight: 500;
+}
+.location_filter, .price_filter, .bhk_type_filter, .property_status_filter, .tenant_type_filter {
+	margin-bottom: 15px;
+}
+.filter_footer .row {
+	margin: 0px -5px;
+}
+.filter_footer .col-md-6 {
+	padding: 0px 5px;
+}
+.filter_body .form-select {
+	font-size: 13px !important;
+	line-height: 20px !important;
+	background-color: #fff;
+	border: 1px solid rgba(33, 37, 41, 0.1);
+	padding: 8px 10px !important;
+	border-radius: 5px;
+	width: 100%;
+}
+.all_properties_sec {
+	padding-top: 0px;
+	padding-bottom: 40px;
+}
+.property-card {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	border: none;
+	position: relative;
+	border: 1px solid rgba(33,37,41,.05);
+	border-radius: 20px;
+	padding: 16px;
+	margin-bottom: 20px;
+}
+.property-card .property-card-img {
+	height: 260px !important;
+	border-radius: 15px !important;
+	width: 40% !important;
+	overflow: hidden !important;
+}
+.property-card .carousel-inner {
+	height: 260px;
+}
+.property-card .carousel-item img {
+	height: 260px;
+	object-fit: cover;
+}
+.property-card .detail {
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0 0 0 30px !important;
+	width: 65% !important;
+	position: relative;
+}
+.property-card .option-area {
+	position: absolute;
+	right: 0;
+}
+.property-card .option-area i {
+	font-size: 15px;
+	margin-right: 10px;
+}
+.property-card .option-area i:last-child {
+	margin-right: 0;
+}
+.property-card .detail .space-id {
+	margin-bottom: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #21252980;
+}
+.property-card .detail h4 {
+	font-size: 16px !important;
+	color: #272828 !important;
+	white-space: normal;
+	margin-bottom: 5px !important;
+	font-weight: 600;
+	text-align: left;
+	line-height: 26px;
+}
+.property-card .detail .address {
+	margin-bottom: 0;
+	color: #555;
+	font-size: 13px;
+	position: relative;
+	padding-left: 20px;
+}
+.property-card .detail .address img {
+	position: absolute;
+	left: 0;
+	top: 3px;
+	font-size: 10px;
+	width: 15px;
+	text-align: center;
+}
+.property-card .detail hr {
+	margin: 10px 0;
+	opacity: 1;
+	border-color: rgba(33, 37, 41, 0.05);
+}
+.property-card .detail .features-type {
+	color: #555;
+	font-size: 13px;
+	font-weight: 500;
+	display: flex;
+}
+.property-card .detail .features-type img {
+	width: 16px;
+	margin-right: 8px;
+}
+.property-card .detail .features-type span {
+	margin: 0 25px;
+}
+.property-card .detail .space_status ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	margin-bottom: 0;
+}
+.property-card .detail .space_status ul li {
+	width: 100%;
+	padding-left: 8px;
+	border-left: 2px solid #ffdd2c;
+}
+.property-card .detail .space_status ul li h6 {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 600;
+	margin-bottom: 2px;
+	color: #212529;
+}
+.property-card .detail .space_status ul li p {
+	margin-bottom: 0;
+	color: #666;
+	font-size: 12px;
+	line-height: 18px;
+}
+.property-card .price-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.property-card .price-box .price {
+	font-size: 16px !important;
+	line-height: 26px !important;
+	color: #4343e8;
+	font-weight: 700;
+	letter-spacing: .36px;
+	width: 50%;
+}
+.property-card .price-box .price span {
+	font-size: 12px !important;
+	color: #212529 !important;
+	margin-bottom: 2px !important;
+	display: block;
+	font-weight: 500;
+	line-height: 12px;
+}
+.property-card .price-box .price small {
+	font-size: 16px !important;
+	color: #212529 !important;
+	font-weight: 500;
+}
+.property-card .price-box .card-link {
+	width: 50%;
+	text-align: right;
+}
+.property-card .price-box .btn-link {
+	font-size: 14px !important;
+	line-height: 16px !important;
+	font-weight: 600;
+	text-decoration: none;
+	color: #4343e8;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+}
+.property-card .price-box .btn-link i {
+	font-size: 11px;
+	margin-left: 5px;
 }
 
 
