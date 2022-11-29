@@ -3588,7 +3588,7 @@ h3.site_title {
 	width: 100%;
 }
 .city_properties_filter {
-	border: 0.7px solid rgba(33, 37, 41, 0.1);
+	border: 1px solid rgba(33, 37, 41, 0.1);
 	border-radius: 20px;
 	padding: 20px 20px;
 }
@@ -3618,7 +3618,7 @@ h3.site_title {
 	padding: 0px 5px;
 }
 .filter_body .form-select {
-	font-size: 13px !important;
+	font-size: 12px !important;
 	line-height: 20px !important;
 	background-color: #fff;
 	border: 1px solid rgba(33, 37, 41, 0.1);
@@ -3627,7 +3627,7 @@ h3.site_title {
 	width: 100%;
 }
 .all_properties_sec {
-	padding-top: 0px;
+	padding-top: 20px;
 	padding-bottom: 40px;
 }
 .property-card {
@@ -3636,23 +3636,28 @@ h3.site_title {
 	overflow: hidden;
 	border: none;
 	position: relative;
-	border: 1px solid rgba(33,37,41,.05);
+	border: 1px solid rgba(33, 37, 41, 0.1);
 	border-radius: 20px;
 	padding: 16px;
 	margin-bottom: 20px;
 }
 .property-card .property-card-img {
-	height: 260px !important;
+	height: 250px !important;
 	border-radius: 15px !important;
 	width: 40% !important;
 	overflow: hidden !important;
 }
 .property-card .carousel-inner {
-	height: 260px;
+	height: 250px;
 }
-.property-card .carousel-item img {
-	height: 260px;
+.property-card .property-card-img img {
+	height: 250px;
 	object-fit: cover;
+    transition: all 0.5s;
+}
+.property-card .property-card-img:hover img {
+	-webkit-transform: scale(1.06);
+	transform: scale(1.06);
 }
 .property-card .detail {
 	border: none !important;
@@ -3705,13 +3710,14 @@ h3.site_title {
 .property-card .detail hr {
 	margin: 10px 0;
 	opacity: 1;
-	border-color: rgba(33, 37, 41, 0.05);
+	border-color: rgba(33, 37, 41, 0.1);
 }
 .property-card .detail .features-type {
 	color: #555;
 	font-size: 13px;
 	font-weight: 500;
 	display: flex;
+    margin-bottom: 10px;
 }
 .property-card .detail .features-type img {
 	width: 16px;
@@ -3787,6 +3793,148 @@ h3.site_title {
 .property-card .price-box .btn-link i {
 	font-size: 11px;
 	margin-left: 5px;
+}
+.city_properties_filter {
+	position: sticky;
+	top: 90px;
+}
+.property_card_list .property-card:last-child {
+	margin-bottom: 0px;
+}
+.flat_rent_location {
+	background: linear-gradient(97.81deg, rgba(244, 242, 255, 0.6) 0%, rgba(244, 242, 255, 0.6) 42.67%, rgba(252, 251, 255, 0.195918) 62.5%, rgba(244, 242, 255, 0.6) 100%);
+	border-radius: 20px;
+	padding: 20px 20px;
+	margin-bottom: 20px;
+	position: relative;
+    overflow: hidden;
+}
+.flat_rent_location h3 {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 26px;
+	margin-bottom: 5px;
+}
+.flat_rent_location::before {
+	background-image: url(https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4a1ab07c82b54c559f861cbc0a3ac2884d2db464.png);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.flats_rent_slider {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.flats_rent_slider .flats_rent_item {
+	display: inline-block;
+	margin: 0 5px;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 32.429%;
+	overflow: hidden;
+	vertical-align: top;
+}
+.flats_rent_item {
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 20px;
+	border: 1px solid rgba(0,0,0,0.07);
+}
+.flats_rent_slider .flats_rent_item .flats_rent_img {
+	border-radius: 15px;
+	overflow: hidden;
+	height: 160px;
+	margin-bottom: 8px;
+}
+.flats_rent_slider .flats_rent_item .flats_rent_img img {
+	height: 160px;
+    object-fit: cover;
+    width: 100%;    
+}
+.flats_rent_text h5 {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 600;
+}
+.flats_rent_slider .flats_rent_item .flats_rent_img {
+	border-radius: 15px;
+	overflow: hidden;
+	height: 160px;
+	margin-bottom: 8px;
+}
+.flats_rent_item .flats_rent_foot {
+	display: -webkit-box;
+	display: flex;
+	padding: 5px 0px 0px;
+	margin-top: 7px;
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.flats_rent_item .flats_rent_foot .price {
+	width: 100%;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 600;
+	color: #4343e8;
+}
+.flats_rent_item .flats_rent_foot .price .rent_title {
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+}
+.flats_rent_item .flats_rent_foot .price span {
+	font-weight: normal;
+	color: #212529;
+}
+.flats_rent_item .flats_rent_foot .button {
+	width: 100%;
+	text-align: right;
+}
+.flats_rent_item .flats_rent_foot .button a {
+	width: 100%;
+	font-size: 12px;
+	font-weight: 500;
+	padding-right: 10px;
+	position: relative;
+	text-decoration: none;
+	color: #4343e8 !important;
+}
+.flats_rent_item .flats_rent_foot .button a::before {
+	content: "" !important;
+	position: absolute;
+	right: 0px;
+	font-family: "Font Awesome 6 Pro" !important;
+	font-weight: 900;
+	font-size: 11px !important;
+	line-height: 17px !important;
+	color: #4343e8 !important;
+	top: 0px;
+}
+.flats_rent_text h5 span {
+	font-size: 12px;
+	color: rgba(33, 37, 41, 0.7);
+}
+.save_your_money_sec {
+	margin-bottom: 20px;
+}
+.microlocation_title {
+	padding: 20px 0px 0px;
+}
+.microlocation_title h1 {
+	margin-bottom: 0px;
 }
 
 
