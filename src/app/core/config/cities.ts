@@ -181,7 +181,7 @@ export const AVAILABLE_CITY = [
       'Preet Vihar',
       'South Extension',
       'Tilak Nagar',
-      'Indirapuram',
+      // 'Indirapuram',
       'Defence Colony',
       'Patel Nagar',
       'Lajpat Nagar',
