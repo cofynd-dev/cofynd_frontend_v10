@@ -53,7 +53,7 @@ export class DropdownItemComponent {
           this.country_id = data._id;
           this.countryNameGloble = data.name;
           this.open1 = !this.open1;
-          this.workSpaceService.getCity(data._id).subscribe((res: any) => {
+          this.workSpaceService.getCityForCoworking(data._id).subscribe((res: any) => {
             this.cities1 = res.data.filter(city => city.for_coWorking === true);
             if (this.cities1.length > 6) {
               this.isSingle = false;
@@ -104,7 +104,7 @@ export class DropdownItemComponent {
           this.country_id = data._id;
           this.countryNameGloble = data.name;
           this.open1 = !this.open1;
-          this.workSpaceService.getCity(data._id).subscribe((res: any) => {
+          this.workSpaceService.getCityForColiving(data._id).subscribe((res: any) => {
             this.cities1 = res.data.filter(city => city.for_coLiving === true);
             if (this.cities1.length > 6) {
               this.isSingle = false;
