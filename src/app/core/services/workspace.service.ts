@@ -58,6 +58,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   getCountry(data: any): Observable<ApiResponse<City[]>> {
     return this.http.post<ApiResponse<City[]>>(`/user/countryByDynamic`, data).pipe(
       map(City => {
@@ -65,6 +66,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   getCity(countryId: string) {
     return this.http.get<ApiResponse<City[]>>(`/user/getCityByCountry/${countryId}`).pipe(
       map(citys => {
@@ -72,6 +74,27 @@ export class WorkSpaceService {
       }),
     );
   }
+
+  getCityForCoworking(countryId: string) {
+    return this.http
+      .get<ApiResponse<City[]>>(`/user/getCitiesBySpaceType?countryId=${countryId}&for_coWorking=true`)
+      .pipe(
+        map(citys => {
+          return citys;
+        }),
+      );
+  }
+
+  getCityForColiving(countryId: string) {
+    return this.http
+      .get<ApiResponse<City[]>>(`/user/getCitiesBySpaceType?countryId=${countryId}&for_coLiving=true`)
+      .pipe(
+        map(citys => {
+          return citys;
+        }),
+      );
+  }
+
   getByCity_name(params: any): Observable<ApiResponse<any[]>> {
     return this.http.get<ApiResponse<any[]>>(`/user/getByCity_name/${params}`).pipe(
       map(workspaces => {
@@ -79,6 +102,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   getCountryByName(params: any): Observable<ApiResponse<any[]>> {
     return this.http.get<ApiResponse<any[]>>(`/user/getCountryByName/${params}`).pipe(
       map(workspaces => {
@@ -86,6 +110,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   getByCityName1(params: any): Observable<ApiResponse<any[]>> {
     return this.http.get<ApiResponse<any[]>>(`/user/getByCityName1/${params}`).pipe(
       map(workspaces => {
@@ -93,6 +118,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   WorkSpacesCountryWise(data: any): Observable<ApiResponse<WorkSpace[]>> {
     return this.http.post<ApiResponse<WorkSpace[]>>(`/user/WorkSpacesCountryWise`, data).pipe(
       map((workspaces: any) => {
@@ -102,6 +128,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   searchWorkspaces_country(keyword: string, data: any): Observable<SearchResult> {
     return this.http
       .post<SearchResult>(`/user/workSpaces_country_wise?name=${keyword}`, data)
@@ -139,6 +166,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   popularWorkSpacesCountryWise(data) {
     return this.http.post<ApiResponse<{ popularSpaces: WorkSpace[] }>>(`/user/popularWorkSpacesCountryWise`, data).pipe(
       map((response: any) => {
@@ -148,6 +176,7 @@ export class WorkSpaceService {
       }),
     );
   }
+
   getWorSpacesByAddress(params: {}): Observable<ApiResponse<WorkSpace[]>> {
     return this.http.get<ApiResponse<WorkSpace[]>>(`/user/workSpaces/popular?${params}`).pipe(
       map(workspaces => {
