@@ -1314,7 +1314,7 @@ body {
 }
 
 .cofynd_desk_sec {
-    padding: 0px !important;
+	padding-bottom: 50px;
 }
 
 .faq {
@@ -1709,6 +1709,10 @@ h3.site_title {
 .solution_form_area h3 {
 	margin-bottom: 10px;
 }
+.coworking_partner_section {
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+}
 .form_img {
 	border-radius: 20px;
 	overflow: hidden;
@@ -1769,6 +1773,36 @@ h3.site_title {
 	background-size: cover;
 	overflow: hidden;
 }
+.home_banner {
+	padding-top: 70px;
+	padding-bottom: 60px;
+	position: relative;
+}
+.home_banner .innerbanner_img {
+	width: 50%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-radius: 0 0 0 250px;
+	background-size: cover;
+	overflow: hidden;
+	height: 630px;
+}
+.home_banner .innerbanner_img img {
+	height: 630px;
+	object-fit: cover;
+}
+.coworking_banner {
+	padding-bottom: 10px !important;
+}
+.coworking_banner .innerbanner_img {
+	height: 580px;
+	border-radius: 0 0 0 250px;
+}
+.coworking_banner .innerbanner_img img {
+	height: 580px;
+	object-fit: cover;
+}
 .main_heading {
 	position: relative;
     display: inline-block;
@@ -1778,7 +1812,8 @@ h3.site_title {
 	font-weight: 600;
 	margin: 0 0 25px;
 	color: #000;
-	position: relative;
+	position: relative;    
+    text-transform: capitalize;
 }
 .main_heading::before {
 	width: 70px;
@@ -1925,6 +1960,7 @@ h3.site_title {
 	position: relative;
 	border-radius: 20px;
 	overflow: hidden;
+	cursor: pointer;
 }
 .top-city-img {
 	position: relative;
@@ -1991,7 +2027,7 @@ h3.site_title {
     // visibility: visible;
 }
 .top-city-text p {
-	color: #fff;
+	color: #fff !important;
 	font-size: 13px;
 	margin-bottom: 0px;
 	line-height: 15px;
@@ -2165,6 +2201,7 @@ h3.site_title {
 	overflow: hidden;
 	height: 220px;
     position: relative;
+    transition: all 0.5s;
 }
 .details_page_gallery .banner-image-item::after {
 	position: absolute;
@@ -2199,10 +2236,24 @@ h3.site_title {
 	font-size: 11px;
 	font-weight: 600;
 }
-
-
-
-
+.what-you-get .main_heading {
+	margin-bottom: 60px !important;
+}
+.top_cities_slider {
+	padding-top: 90px !important;
+	padding-bottom: 80px !important;
+}
+.top_cities_slider .main_heading {
+	margin-bottom: 50px !important;
+}
+.client_logo_sec {
+	padding-top: 60px;
+	padding-bottom: 20px;
+}
+.news_brands {
+	padding-top: 60px;
+	padding-bottom: 20px;
+}
 
 .heading-info h2 {
 	font-size: 22px;
@@ -4056,7 +4107,78 @@ h3.site_title {
 // .top-city-img.main_city img {
 // 	height: 476px;
 // }
-
+.coworking_brands_slider {
+	padding-top: 50px !important;
+	padding-bottom: 60px !important;
+}
+.coworking_advantages {
+	padding-top: 70px !important;
+	padding-bottom: 50px !important;
+}
+.our_services_sec {
+	padding: 40px 0 70px;
+}
+.our_services_sec .service_item {
+	border: 1px solid #e9e9e9;
+	padding: 60px 30px;
+	text-align: right;
+	background-position: center left;
+	background-size: cover;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	border-radius: 20px;
+	-webkit-transition: border-color ease-out 0.5s;
+	transition: border-color ease-out 0.5s;
+    position: relative;
+}
+.our_services_sec .service_item::before {
+	content: "";
+	background: -webkit-gradient(linear, right top, left top, color-stop(35.23%, #FFFFFF), color-stop(59.75%, rgba(255, 255, 255, 0)));
+	background: linear-gradient(270deg, rgba(255,255,255,0.9) 35.23%, rgba(255, 255, 255, 0) 59.75%);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+}
+.our_services_sec .service_item2 {
+	margin-top: 40px;
+	min-height: 150px;
+}
+.our_services_sec h4 {
+	color: #222121;
+	font-size: 28px;
+	line-height: 30px;
+	font-weight: 300;
+    text-align: right;
+    position: relative;
+}
+.our_services_sec h4 span {
+	font-weight: 500;
+	display: block;
+}
+.top_cities_slider .top-city-img {
+	height: 330px;
+}
+.top_cities_slider .top-city-img img {
+	height: 330px;
+}
+.coworking_customized {
+	padding-top: 50px !important;
+	padding-bottom: 50px !important;
+}
+.coworking_brands_partner {
+	padding-top: 50px !important;
+	padding-bottom: 20px !important;
+}
+.coworking_list_space {
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+}
+.coworking_cofynd_desk {
+	padding-top: 0px !important;
+	padding-bottom: 20px !important;
+}
 
 
 
@@ -4323,9 +4445,35 @@ h3.site_title {
         width: 100%;
         height: 100%;
     }
+    .home_banner {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+    .home_banner .innerbanner_img {
+        display: none;
+    }
     .banner_content h1 {
         font-size: 20px !important;
         line-height: 30px !important;
+    }
+    .main_heading {
+        padding-left: 14px;
+    }
+    .main_heading h1 {
+        font-size: 25px !important;
+        line-height: 30px !important;
+    }
+    .main_heading::before {
+        width: 40px;
+        height: 40px;
+        left: 0px;
+        top: -12px;
+    }
+    .top_cities_slider .top-city-img {
+        height: 270px;
+    }
+    .top_cities_slider .top-city-img img {
+        height: 270px;
     }
     .city_page_title h1 {
         margin-bottom: 0px !important;
@@ -4411,6 +4559,38 @@ h3.site_title {
     }
     .cofynd-desk .link-text {
         margin-bottom: 2px;
+    }
+    .cta_form .cta_img {
+        display: none;
+    }
+    .cta_form .form_col {
+        -webkit-box-flex: 0;
+        flex: 0 0 100%;
+        margin-right: 0px;
+    }
+    .cta_form {
+        padding: 20px 20px;
+    }
+    .cta_form .form_col h3 {
+        font-size: 16px !important;
+        line-height: 24px !important;
+        font-weight: 600 !important;
+        color: #272828 !important;
+    }
+    .form_dream_ptoperty .col-md-4.mb-3 {
+        margin-bottom: 0px !important;
+    }
+    .form_dream_ptoperty input, .form_dream_ptoperty select {
+        margin-bottom: 15px;
+    }
+    .title_divider::after {
+        display: none;
+    }
+    .top_cities_slider .text-center {
+        text-align: left !important;
+    }
+    .top_cities_slider .main_heading {
+        margin-bottom: 0px !important;
     }
     // ------------ Listing Style  -----------
     .listing-card {
@@ -5282,16 +5462,17 @@ h3.site_title {
         display: inline-block;
         margin: 0 5px;
         height: 300px;
-        background: center center no-repeat rgba(0, 0, 0, .05);
+        background: center center no-repeat rgba(0, 0, 0, 0.05);
         background-size: cover;
         position: relative;
         border-radius: 8px;
         box-shadow: 0 0 10px #dfdfdf;
         -webkit-box-flex: 0;
-        flex: 0 0 71.42857142857143%;
-        width: 71.42857142857143%;
+        flex: 0 0 71.4285714286%;
+        width: 71.4285714286%;
         overflow: hidden;
         padding: 0 5px;
+        width: 64% !important;
     }
     .top_cities_slider .popular-space-box {
         height: 300px !important;

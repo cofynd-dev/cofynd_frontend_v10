@@ -3,11 +3,16 @@
     [class.grey-layout]="layout === 'grey'">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="page-title">
+            <div class="col-md-12 text-center mb-3">
+                <div class="main_heading title_divider">
                     <h2>{{ pageTitle }}</h2>
                 </div>
             </div>
+            <!-- <div class="col-12">
+                <div class="page-title">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-12">
@@ -62,10 +67,15 @@
 <section class="our_brands"
     *ngIf="shouldOtherBrandVisible">
     <div class="container">
-        <div class="page-title">
+        <!-- <div class="page-title">
             <h2>{{pageTitle}}</h2>
-        </div>
+        </div> -->
         <div class="row">
+            <div class="col-md-12 text-center mb-3">
+                <div class="main_heading title_divider">
+                    <h2>{{pageTitle}}</h2>
+                </div>
+            </div>
             <div class="col-12">
                 <div class="logos_slider">
                     <div class="band-img"

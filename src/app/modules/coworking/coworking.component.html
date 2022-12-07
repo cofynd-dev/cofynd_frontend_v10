@@ -1,16 +1,44 @@
 <div class="wrapper">
 
-    <section class="banner hideInMobile" style="margin-top: 0 !important;">
+    <section class="innerpage_banner coworking_banner hideOnMobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="innerpage_content mb-0">
+                        <div class="main_heading">
+                            <h1>Find the Best<br /><span>Coworking Spaces</span> in India</h1>
+                        </div>
+                    </div>
+                    <div class="city-list">
+                        <button (click)="locateMyLocation()" type="button">
+                        <img src="/assets/images/home/near-me.svg"
+                            alt="'Office Space for Rent near me" />
+                        Near Me
+                        </button>
+                        <a *ngFor="let city of cities" [routerLink]="city.name">
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="innerbanner_img">
+            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg" alt="">
+        </div>
+    
+    </section>
+
+    <!-- <section class="banner hideInMobile" style="margin-top: 0 !important;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h1>Find the Best<br /><span>Coworking Spaces</span> in India</h1>
                     <div class="city-list">
                         <button (click)="locateMyLocation()" type="button">
-              <img src="/assets/images/home/near-me.svg"
-                alt="'Office Space for Rent near me" />
-              Near Me
-            </button>
+                        <img src="/assets/images/home/near-me.svg"
+                            alt="'Office Space for Rent near me" />
+                        Near Me
+                        </button>
                         <a *ngFor="let city of cities" [routerLink]="city.name">
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                         </a>
@@ -19,7 +47,7 @@
             </div>
         </div>
         <div class="banner-bg"></div>
-    </section>
+    </section> -->
 
     <!--------------------- Mobile Banner -------------------->
 
@@ -255,87 +283,20 @@
 
     <!-------------------- End Mobile Enquire Now ----------------------->
 
-    <!-------------------- Mobile Easy Steps ----------------------->
-
-    <!-- <section class="curated_section onlyMobile">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="page-title">
-              <h2>Book Your Space in 3 Easy Steps</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="curated-box" (click)="openModal('virtualOffice')">
-              <div class="curated-item">
-                <div class="curated-img">
-                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d3de144a1fad6928fb87507c8231eab28f86f7fc.png"
-                    alt="Under ₹10,000"
-                    class="img-fluid">
-                </div>
-                <div class="curated-content">
-                  <h4>Under ₹10,000</h4>
-                </div>
-                <a type="button"
-                  data-toggle="modal"
-                  data-target="#curated_coliving"
-                  class="stretched-link"></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="curated-box" (click)="openModal('virtualOffice')">
-              <div class="curated-item">
-                <div class="curated-img">
-                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6db97edcae205302c26922c396cbd3a86fa3c4cd.png"
-                    alt="Under ₹30,000"
-                    class="img-fluid">
-                </div>
-                <div class="curated-content">
-                  <h4>Under ₹30,000</h4>
-                </div>
-                <a type="button"
-                  data-toggle="modal"
-                  data-target="#curated_coliving"
-                  class="stretched-link"></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="curated-box" (click)="openModal('virtualOffice')">
-              <div class="curated-item">
-                <div class="curated-img">
-                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/47f038cbf277dce5508a893806944dcba564497d.png"
-                    alt="Luxury Spaces"
-                    class="img-fluid">
-                </div>
-                <div class="curated-content">
-                  <h4>Luxury Spaces</h4>
-                </div>
-                <a type="button"
-                  data-toggle="modal"
-                  data-target="#curated_coliving"
-                  class="stretched-link"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>   -->
-    <!-------------------- End Mobile Easy Steps ----------------------->
-
-
     <!-- booking navigation -->
     <section class="booking-navigation bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
+                    <div class="main_heading title_divider">
+                        <h2>Book Your Coworking Space in 3 Easy Steps</h2>
+                    </div>
+                </div>
+                <!-- <div class="col-md-12">
                     <div class="page-title">
                         <h2> Book Your Coworking Space in 3 Easy Steps</h2>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row mt-3 step_scroller">
                 <div class="col-md-4 step_box">
@@ -361,10 +322,48 @@
     <!-- top Spaces -->
     <section class="virtualSpace">
         <div class="container">
-            <div class="page-title pt-3">
-                <h2> Top Coworking Cities in India</h2>
-            </div>
             <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="main_heading title_divider">
+                        <h2>Top Coworking Cities in India</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="page-title pt-3">
+                <h2>Top Coworking Cities in India</h2>
+            </div> -->
+            <div class="row">
+                <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoWorkingSpaces | slice:0:1">
+                    <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                        <div class="top-city-img main_city">
+                            <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                        </div>
+                        <div class="top-city-text">
+                            <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
+                            <!-- <p class="mb-3 pl-2 text-center text-white" style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoWorkingSpaces | slice:1:7">
+                            <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                                <div class="top-city-img">
+                                    <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                                </div>
+                                <div class="top-city-text">
+                                    <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="row">
                 <div class="col-md-4 pt-2" style="cursor: pointer;" *ngFor=" let _centerCity of popularCoWorkingSpaces | slice:0:1">
                     <div style="position: relative;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                         <img [src]="_centerCity.image" class="img-fluid d-block m-auto" style="height:516px; object-fit:cover; border-radius:10px;">
@@ -387,7 +386,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -507,13 +506,13 @@
     <app-home-popular-space [pageTitle]="'Top Coworking Cities in India'"></app-home-popular-space>
   </span>
 
-    <section class="pt-0 logos_background_img logo_list_section hideInMobile">
+    <section class="pt-0 logos_background_img coworking_brands_slider hideInMobile">
         <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands" [pageTitle]="'Our CoWorking Partners'">
         </app-home-brand-list>
     </section>
 
     <!-- Covid-19 Section -->
-    <section class="covid-section hideInMobile">
+    <!-- <section class="covid-section hideInMobile">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -555,18 +554,22 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!--Cofynd Advantages-->
-    <section class="why-cofynd bg-light advantages_sec">
+    <section class="why-cofynd bg-light coworking_advantages advantages_sec">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
+                    <div class="main_heading title_divider">
+                        <h2>CoFynd Advantages</h2>
+                    </div>
+                </div>
+                <!-- <div class="col-md-12">
                     <div class="page-title">
                         <h2>CoFynd Advantages</h2>
                     </div>
-                    <!-- <p class="font-36 text-center">CoFynd Advantages</p> -->
-                </div>
+                </div> -->
             </div>
             <div class="row advantages_row">
                 <div class="col-4">
@@ -606,7 +609,7 @@
         </div>
     </section>
 
-    <section class="customized hideInMobile">
+    <section class="customized coworking_customized hideInMobile">
         <div class="container">
             <div class="p-5 option-box">
                 <div class="row">
@@ -639,7 +642,7 @@
     </section>
 
     <!-- Brand Partner -->
-    <section class="hideInMobile">
+    <section class="hideInMobile coworking_brands_partner">
         <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false">
         </app-home-brand-list>
     </section>
@@ -714,7 +717,7 @@
     </div>
   </section> -->
 
-  <section class="list_your_space_sec">
+  <section class="list_your_space_sec coworking_list_space">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-8">
@@ -814,7 +817,7 @@
     </div>
   </section> -->
 
-    <section class="cofynd_desk_sec">
+    <section class="cofynd_desk_sec coworking_cofynd_desk">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
