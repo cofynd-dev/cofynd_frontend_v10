@@ -375,7 +375,7 @@
                 <!-- <app-static-review></app-static-review> -->
             </div>
             <div *ngIf="!loading && workspace" class="col-lg-4 col-md-12 enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
-                <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" [isOfficeEnquiry]="true" (backButtonClick)="closeEnquireModal()">
+                <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" [isColivEnquiry]="true" (backButtonClick)="closeEnquireModal()">
                 </app-workspace-enquire>
             </div>
         </div>

@@ -42,6 +42,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
   @Input() isOfficeEnquiry: boolean;
+  @Input() isColivEnquiry: boolean;
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
@@ -98,6 +99,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    console.log("isColivEnquiry", this.isColivEnquiry);
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
       this.loadWorkSpace(this.workSpaceId);
