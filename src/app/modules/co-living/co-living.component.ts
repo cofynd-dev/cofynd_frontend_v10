@@ -1318,7 +1318,7 @@ export class CoLivingComponent implements OnInit {
       name: 'Cofynd CoLo Oasis',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae636374fbff5e01efcb978b101a884b39e8ff8f.jpg',
-      address: 'Sector 40, Gurgaon',
+      address: 'Sector 40, Gurugram',
       slug: 'flock-oasis',
     },
     {
