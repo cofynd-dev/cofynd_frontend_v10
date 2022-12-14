@@ -227,7 +227,7 @@ export class OfficeSpaceComponent implements OnInit {
     {
       name: 'Advant Navis Business Park',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f3857c1612c7c2646ebcec2ed2f6ce6a28437e00.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9bbab82feaa4fd65641aa17a3f8278f9f6be4330.jpg',
       address: 'Sector 142, Noida',
       slug: '6619-sqft-fully-furnished-advant-navis-business-park',
     },
@@ -392,5 +392,9 @@ export class OfficeSpaceComponent implements OnInit {
 
   openAdd() {
     this.router.navigate([`coworking/roseate-house-aerocity-new-delhi`]);
+  }
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
   }
 }

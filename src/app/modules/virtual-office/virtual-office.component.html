@@ -414,11 +414,27 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="cities_carousel">
-                    <div class="cities_item first-slide" (click)="openWithFreeSlug(city.slug)" *ngFor="let city of popularVirtualOffice">
-                        <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
-                        <div class="space-detail">
-                            <h5>{{removedash(city.name) | titlecase}}</h5>
+                
+                <!-- <div class="col-md-4 p-2" *ngFor="let _centerCity of popularVirtualOffice | slice:1:7">
+                    <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.name.split(',').pop())">
+                        <div class="top-city-img">
+                            <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                        </div>
+                        <div class="top-city-text">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p> ₹ {{_centerCity.price}}/ Year</p>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="virtual_cities_carousel">
+                    <div class="top-city-item" style="cursor: pointer;" (click)="openWithFreeSlug(city.slug)" *ngFor="let city of popularVirtualOffice">
+                        <div class="top-city-img">
+                            <img class="ng-lazyloaded" [alt]="city.name" [src]="city.image">
+                        </div>
+                        <div class="top-city-text">
+                            <h4>{{removedash(city.name) | titlecase}}</h4>
                             <p><i class="icon-location"></i>{{city.address}}</p>
                         </div>
                     </div>
