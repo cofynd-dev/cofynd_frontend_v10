@@ -42,6 +42,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
   @Input() isOfficeEnquiry: boolean;
+  @Input() isColivEnquiry: boolean;
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
