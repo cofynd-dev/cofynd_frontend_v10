@@ -3530,6 +3530,7 @@ h3.site_title {
 	right: -80px;
 	top: -50px;
 	rotate: -5deg;
+    width: 65%;
 }
 .marketplace-arrow2 {
 	position: absolute;
@@ -3538,12 +3539,14 @@ h3.site_title {
 	-webkit-transform: scaleY(-1);
 	transform: scaleY(-1);
 	rotate: 5deg;
+    width: 65%;
 }
 .marketplace-arrow3 {
 	position: absolute;
 	left: -80px;
 	top: -50px;
 	rotate: 5deg;
+    width: 65%;
 }
 .marketplace-arrow4 {
 	position: absolute;
@@ -3551,6 +3554,18 @@ h3.site_title {
 	bottom: -50px;
 	transform: scaleY(-1);
 	rotate: -5deg;
+    width: 65%;
+}
+.light_blue {
+	color: #4343e8bf !important;
+}
+.coliving_title_form h4 {
+	font-size: 26px !important;
+	line-height: 36px;
+	font-weight: 600 !important;
+}
+.coliving_title_form p {
+	margin-bottom: 0px;
 }
 .property-item-img {
 	position: relative;
