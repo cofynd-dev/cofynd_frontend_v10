@@ -1,69 +1,69 @@
-.banner {
-    padding: 120px 0 80px;
-    position: relative;
-    @media (max-width: 580px) {
-        padding: 50px 0;
-    }
-    .banner-bg {
-        background: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7a43d15d2a9cd0f772a52bede9ab214e01c66c06.jpg') no-repeat top right;
-        width: 50%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        border-radius: 0 0 0 30%;
-        background-size: cover;
-        @media (max-width: 767px) {
-            display: none;
-        }
-    }
-    h1 {
-        font-size: 36px;
-        font-weight: 600;
-        margin: 0 0 25px;
-        color: #010101;
-        position: relative;
-        span {
-            display: inline-block;
-            color: #4343e8;
-            vertical-align: middle;
-        }
-        &::before {
-            width: 75px;
-            height: 75px;
-            background: #ffe785;
-            border-radius: 100%;
-            position: absolute;
-            left: -25px;
-            top: -25px;
-            content: "";
-            display: block;
-            z-index: -1;
-        }
-        @media(max-width: 1080px) {
-            margin-left: 25px;
-            font-size: 26px;
-            line-height: 32px;
-            &::before {
-                width: 55px;
-                height: 55px;
-                left: -20px;
-                top: -20px;
-            }
-        }
-        @media(max-width: 480px) {
-            margin-left: 15px;
-            font-size: 25px !important;
-            line-height: 30px !important;
-            &::before {
-                width: 50px;
-                height: 50px;
-                left: -15px;
-                top: -15px;
-            }
-        }
-    }
-}
+// .banner {
+//     padding: 120px 0 80px;
+//     position: relative;
+//     @media (max-width: 580px) {
+//         padding: 50px 0;
+//     }
+//     .banner-bg {
+//         background: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7a43d15d2a9cd0f772a52bede9ab214e01c66c06.jpg') no-repeat top right;
+//         width: 50%;
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+//         height: 100%;
+//         border-radius: 0 0 0 30%;
+//         background-size: cover;
+//         @media (max-width: 767px) {
+//             display: none;
+//         }
+//     }
+//     h1 {
+//         font-size: 36px;
+//         font-weight: 600;
+//         margin: 0 0 25px;
+//         color: #010101;
+//         position: relative;
+//         span {
+//             display: inline-block;
+//             color: #4343e8;
+//             vertical-align: middle;
+//         }
+//         &::before {
+//             width: 75px;
+//             height: 75px;
+//             background: #ffe785;
+//             border-radius: 100%;
+//             position: absolute;
+//             left: -25px;
+//             top: -25px;
+//             content: "";
+//             display: block;
+//             z-index: -1;
+//         }
+//         @media(max-width: 1080px) {
+//             margin-left: 25px;
+//             font-size: 26px;
+//             line-height: 32px;
+//             &::before {
+//                 width: 55px;
+//                 height: 55px;
+//                 left: -20px;
+//                 top: -20px;
+//             }
+//         }
+//         @media(max-width: 480px) {
+//             margin-left: 15px;
+//             font-size: 25px !important;
+//             line-height: 30px !important;
+//             &::before {
+//                 width: 50px;
+//                 height: 50px;
+//                 left: -15px;
+//                 top: -15px;
+//             }
+//         }
+//     }
+// }
 
 .banner-footer {
     padding: 75px 0;
@@ -633,31 +633,31 @@ body {
     padding-top: 80px;
 }
 
-h1 {
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 55px;
-    letter-spacing: 0em;
-    text-align: left;
-    text-transform: capitalize;
-}
+// h1 {
+//     font-size: 56px;
+//     font-weight: 600;
+//     line-height: 55px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//     text-transform: capitalize;
+// }
 
-h2 {
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 50px;
-    letter-spacing: 0em;
-    text-align: left;
-    text-transform: capitalize;
-}
+// h2 {
+//     font-size: 40px;
+//     font-weight: 600;
+//     line-height: 50px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//     text-transform: capitalize;
+// }
 
-h3 {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 34px;
-    letter-spacing: 0em;
-    text-transform: capitalize;
-}
+// h3 {
+//     font-size: 26px;
+//     font-weight: 600;
+//     line-height: 34px;
+//     letter-spacing: 0em;
+//     text-transform: capitalize;
+// }
 
 ul {
     padding-left: 18px;

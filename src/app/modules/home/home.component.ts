@@ -151,7 +151,7 @@ export class HomeComponent implements OnInit {
     {
       name: 'Mumbai',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91963d7cede91e6a1660edde9f9dce8b07b3d039.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b5dc544341221b96035907ff7c60710f0c2ba13.jpg',
       slug: 'mumbai',
       address: 'A City of Dreams',
     },
