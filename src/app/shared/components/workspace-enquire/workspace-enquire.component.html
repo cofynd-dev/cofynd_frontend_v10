@@ -1,6 +1,6 @@
 <div #enquireBox class="enquire-box" [class.fixed]="isSticky" [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
     <div class="enquire-box-content" [@shake]="shakeTheForm" (@shake.done)="animationChanged($event)">
-        <div class="title">
+        <div class="title" *ngIf="!isColivEnquiry">
             <h4>
                 <button type="button" class="icon-left fas fa-arrow-left" (click)="onClose()">
         </button> Enquire Now
