@@ -3455,8 +3455,8 @@ h3.site_title {
 	margin-bottom: 0;
 }
 .how_to_start_sec {
-	padding-top: 140px;
-	padding-bottom: 80px;
+	padding-top: 160px;
+	padding-bottom: 100px;
 }
 .how_to_start_sec .step_item {
 	display: -webkit-box;
@@ -3482,8 +3482,15 @@ h3.site_title {
 	margin-bottom: 4px;
 }
 .why_list_sec {
-	padding-top: 80px;
-	padding-bottom: 70px;
+	padding-top: 90px;
+	padding-bottom: 90px;
+}
+.why_list_sec .col-md-6.col-6.mb-5 {
+	margin-bottom: 70px !important;
+}
+.why_list_sec .col-md-6 {
+	padding-left: 50px;
+	padding-right: 50px;
 }
 .why_list_sec .why_list_item {
 	display: -webkit-box;
@@ -3590,7 +3597,7 @@ h3.site_title {
 	padding-top: 80px;
 	padding-bottom: 70px;
 }
-.testimonials_video iframe {
+.testimonials_video video {
 	border-radius: 20px;
 	overflow: hidden;
 	background-color: #000;
@@ -4438,6 +4445,7 @@ h3.site_title {
 }
 .customer_testimonials_slider .carousel-indicators {
 	bottom: -20px;
+	z-index: 1;
 }
 .customer_testimonials_slider .carousel-indicators li {
 	width: 8px;
@@ -4471,6 +4479,75 @@ h3.site_title {
 
 .amenity-list li i {
     background-size: contain;
+}
+
+
+@media (min-width: 768px) {
+
+    /* show 3 items */
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+        display: block;
+    }
+    
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+        transition: none;
+    }
+    
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+      position: relative;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -25%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+
 }
 
 @media (max-width:480px) {
@@ -5844,7 +5921,7 @@ h3.site_title {
     }
     .how_to_start_sec {
         padding-top: 100px;
-        padding-bottom: 40px;
+        padding-bottom: 50px;
     }
     .how_to_start_sec .step_item .icon {
         width: 30px;
@@ -5904,7 +5981,7 @@ h3.site_title {
         padding-top: 50px;
         padding-bottom: 40px;
     }
-    .testimonials_video iframe {
+    .testimonials_video video {
         height: 237px;
     }
     .flat_testimonials_sec {
@@ -5948,6 +6025,12 @@ h3.site_title {
         font-size: 10px !important;
         line-height: 16px !important;
         margin-bottom: 8px;
+    }
+    .list_now_sec .cta_content .site_btn {
+        background-color: #FFA891 !important;
+    }
+    .border_btn:hover {
+        background-color: #4343E8 !important;
     }
     
 }
