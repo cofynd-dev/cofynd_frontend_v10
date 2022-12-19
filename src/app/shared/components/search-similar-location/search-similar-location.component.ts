@@ -25,7 +25,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
     private _renderer2: Renderer2,
     // private mapsAPILoader: MapsAPILoader,
     private toastrService: ToastrService,
-  ) {}
+  ) { }
 
   getSlug(location: string) {
     return generateSlug(location);
@@ -46,7 +46,6 @@ export class SearchSimilarLocationComponent implements OnChanges {
     });
   }
   reRoute(location) {
-    // debugger
     let country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
     if (this.relativeUrl === 'co-living' && country != 'india' && country != 'India' && country != 'INDIA') {
       const url = `/${country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
@@ -116,5 +115,5 @@ export class SearchSimilarLocationComponent implements OnChanges {
     script.text = `${cityScript} `;
     this._renderer2.appendChild(this._document.head, script);
   }
-  ngOnChanges(): void {}
+  ngOnChanges(): void { }
 }

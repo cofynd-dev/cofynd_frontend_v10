@@ -45,7 +45,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   totalRecords: number;
 
   // popularLocation = POPULAR_COWORKING_LOCALITY.city;
-  cityWisePopularLocation = [];
+  cityWisePopularLocation = ['Near Me'];
   IMAGE_STATIC_ALT = [];
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
@@ -218,7 +218,11 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         });
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.cityWisePopularLocation = filteredLocations[0].locations;
+          this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
       }
 

@@ -10,7 +10,7 @@ import { CoLiving } from './co-living.model';
   providedIn: 'root',
 })
 export class CoLivingService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCoLivings(params: {}): Observable<ApiResponse<CoLiving[]>> {
     return this.http.get<ApiResponse<CoLiving[]>>(`/user/coLivingSpaces?${params}`).pipe(
@@ -97,9 +97,18 @@ export class CoLivingService {
     }
     return updatedWorkspace;
   }
+
   getAverageRating(spaceId): Observable<{ average: number }> {
     return this.http
       .get<{ data: { average: number } }>(`/user/ColivingspaceAverageReview/${spaceId}`)
       .pipe(map(searchResult => searchResult.data));
+  }
+
+  microLocationByCityAndSpaceType(cityId: any) {
+    return this.http.get<ApiResponse<any[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coLiving=${true}`).pipe(
+      map(microlocations => {
+        return microlocations;
+      }),
+    );
   }
 }

@@ -22,6 +22,7 @@ import { script } from '@app/core/config/script';
   templateUrl: './co-living-locality.component.html',
   styleUrls: ['./co-living-locality.component.scss'],
 })
+
 export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY_CO_LIVING;
   loading: boolean;
@@ -43,8 +44,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   totalRecords: number = 20;
   pageTitle: string;
   subTitle: string;
-
-  popularLocation = [];
+  popularLocation = ['Near Me'];
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
   price_filters = [];
@@ -75,7 +75,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         const filteredCity = this.availableCities.filter(
           city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
         );
-
         this.title = results.routeParams[0].path;
         this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
         if (this.featuredColiving && this.featuredColiving == 'Inclusive') {
@@ -130,7 +129,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.getOfficeList(this.queryParams);
         this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
         this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
-
         if (results.routeParams[1].path && script.coliving.microLocation[results.routeParams[1].path]) {
           for (let scrt of script.coliving.microLocation[results.routeParams[1].path]) {
             this.setHeaderScript(scrt);
@@ -164,19 +162,18 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.queryParams.limit = 20;
     this.number_record = 20;
-
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
-      // this.coLivingService.getPriorityWorkSpaces(param).subscribe(allOffices => {
       this.coLivings = allOffices.data;
-
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
         const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.popularLocation = filteredLocations[0].locations;
+          this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.popularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
-
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
           'Best Co Living Space in ' + altCity,
@@ -187,21 +184,18 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           image.image.alt = IMAGE_STATIC_ALT[index];
         });
       }
-
       const found = this.coLivings.find(element => element.starting_price < 15000);
       const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
       const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
       if (found) {
         this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
       }
-
       if (found1) {
         this.price_filters.push({ id: '29999', value: '15,000-30,000' });
       }
       if (found2) {
         this.price_filters.push({ id: '30000', value: 'More than 30,000' });
       }
-
       this.totalRecords = allOffices.totalRecords;
       this.loading = false;
       const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
@@ -238,7 +232,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     const currentUrl = environment.appUrl + this.router.url.split('?')[0] + '?page=';
     const prevPage = currentPage - 1;
     const nextPage = currentPage + 1;
-
     const nextPageCanonical = currentUrl + nextPage;
     const prevPageCanonical = currentUrl + prevPage;
 
@@ -259,7 +252,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       queryParams: { page: this.page },
       queryParamsHandling: 'merge',
     });
-
     // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;
@@ -274,14 +266,12 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     // Reset pagination to 1 & count to 0 & load more button to false for new results
     this.count = 0;
     this.page = 1;
-
     this.queryParams = {
       ...this.queryParams,
       page: this.page,
       minPrice: priceRange.minPrice,
       maxPrice: priceRange.maxPrice,
     };
-
     this.recallOfficeList();
   }
 
@@ -312,7 +302,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   onPageScroll(event: { scroll: boolean; count: number }) {
     this.isScrolled = event.scroll;
     this.scrollCount = event.count;
-
     if (isPlatformBrowser(this.platformId)) {
       this.changeMapPosition();
     }
@@ -331,6 +320,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       this.isSearchFooterVisible = false;
     }
   }
+
   filterMapView(data) {
     this.loading = true;
     if (data == '') {
@@ -338,7 +328,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     } else {
       this.queryParams.limit = 10000;
       delete this.queryParams.page;
-
       this.coLivingService.getPopularCoLivings(sanitizeParams(this.queryParams)).subscribe(allOffices => {
         let coLivings = allOffices.data.sort((a: any, b: any) => {
           if (b.priority) {
@@ -361,12 +350,14 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.loading = false;
         if (allOffices.data.length) {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.popularLocation = filteredLocations[0].locations;
+            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.popularLocation.push(mlocations.data[index]['name']);
+              }
+            })
           }
-
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,
             'Best Co Living Space in ' + altCity,
@@ -379,12 +370,12 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         }
         this.totalRecords = coLivings.length;
         this.number_record = coLivings.length;
-
         const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
         this.setRelationCanonical(this.page, totalPageCount);
       });
     }
   }
+
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
   }

@@ -164,7 +164,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim(),
         );
         if (filteredLocations && filteredLocations.length) {
-          this.popularLocation = filteredLocations[0].locations;
+          this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.popularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
@@ -335,7 +339,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.popularLocation = filteredLocations[0].locations;
+            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.popularLocation.push(mlocations.data[index]['name']);
+              }
+            })
           }
 
           const IMAGE_STATIC_ALT = [
