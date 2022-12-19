@@ -23,6 +23,7 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
   templateUrl: './co-living-locality.component.html',
   styleUrls: ['./co-living-locality.component.scss'],
 })
+
 export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   availableCities: any = [];
   loading: boolean;
@@ -44,7 +45,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   totalRecords: number;
   pageTitle: string;
   subTitle: string;
-
   popularLocation = [];
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
@@ -92,7 +92,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             micro_location: 'enabled',
             ...results.queryParams,
           };
-
           this.IMAGE_STATIC_ALT.push(
             'Co-Living Space in ' + this.subTitle,
             'Co-Living Space ' + this.subTitle + ' ' + this.title,
@@ -104,7 +103,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           this.getOfficeList(this.queryParams);
           this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
           this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
-
           if (results.routeParams[1].path && script.coliving.microLocation[results.routeParams[1].path]) {
             for (let scrt of script.coliving.microLocation[results.routeParams[1].path]) {
               this.setHeaderScript(scrt);
@@ -146,7 +144,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     param.limit = 20;
     this.coLivingService.getPopularCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data;
-
       const found = this.coLivings.find(element => element.starting_price < 15000);
       const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
       const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
@@ -163,12 +160,14 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
 
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
         const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.popularLocation = filteredLocations[0].locations;
+          this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.popularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
-
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
           'Best Co Living Space in ' + altCity,
@@ -179,7 +178,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           image.image.alt = IMAGE_STATIC_ALT[index];
         });
       }
-
       this.totalRecords = allOffices.totalRecords;
       this.number_record = this.coLivings.length;
       this.loading = false;
@@ -217,10 +215,8 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     const currentUrl = environment.appUrl + this.router.url.split('?')[0] + '?page=';
     const prevPage = currentPage - 1;
     const nextPage = currentPage + 1;
-
     const nextPageCanonical = currentUrl + nextPage;
     const prevPageCanonical = currentUrl + prevPage;
-
     if (prevPage >= 1) {
       this.seoService.setPrevRelationUrl(prevPageCanonical);
     }
@@ -253,14 +249,12 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     // Reset pagination to 1 & count to 0 & load more button to false for new results
     this.count = 0;
     this.page = 1;
-
     this.queryParams = {
       ...this.queryParams,
       page: this.page,
       minPrice: priceRange.minPrice,
       maxPrice: priceRange.maxPrice,
     };
-
     this.recallOfficeList();
   }
 
@@ -272,7 +266,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       page: this.page,
       sortType: sort.value,
     };
-
     this.recallOfficeList();
   }
 
@@ -291,7 +284,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   onPageScroll(event: { scroll: boolean; count: number }) {
     this.isScrolled = event.scroll;
     this.scrollCount = event.count;
-
     if (isPlatformBrowser(this.platformId)) {
       this.changeMapPosition();
     }
@@ -310,9 +302,9 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       this.isSearchFooterVisible = false;
     }
   }
+
   filterMapView(data) {
     this.loading = true;
-
     if (data == '') {
       this.getOfficeList(this.queryParams);
     } else {
@@ -338,12 +330,14 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.loading = false;
         if (allOffices.data.length) {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.popularLocation = filteredLocations[0].locations;
+            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.popularLocation.push(mlocations.data[index]['name']);
+              }
+            })
           }
-
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,
             'Best Co Living Space in ' + altCity,

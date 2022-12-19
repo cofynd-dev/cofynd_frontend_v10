@@ -271,7 +271,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
           }
         */
         this.resetForm();
-        window.open('/thank-you', '_blank');
+        this.router.navigate(['/thank-you']);
       },
       error => {
         this.loading = false;

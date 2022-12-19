@@ -110,10 +110,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
               this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
               this.addSeoTags(
                 results.routeParams[1].path.toLowerCase() +
-                  '-' +
-                  results.routeParams[0].path.toLowerCase() +
-                  '-' +
-                  this.country_name.toLowerCase(),
+                '-' +
+                results.routeParams[0].path.toLowerCase() +
+                '-' +
+                this.country_name.toLowerCase(),
               );
               this.queryParams = {
                 ...AppConstant.DEFAULT_SEARCH_PARAMS,
@@ -208,7 +208,11 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim(),
         );
         if (filteredLocations && filteredLocations.length) {
-          this.cityWisePopularLocation = filteredLocations[0].locations;
+          this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;

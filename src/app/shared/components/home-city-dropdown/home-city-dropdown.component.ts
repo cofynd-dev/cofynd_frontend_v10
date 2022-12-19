@@ -79,7 +79,7 @@ export class HomeCityDropdownComponent {
     private toastrService: ToastrService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (this.enabledForm) {
@@ -253,7 +253,7 @@ export class HomeCityDropdownComponent {
     this.userService.createLead(object).subscribe(res => {
       this.toastrService.success(`Response Captured! We'll contact you in a short`);
       this.closeModal();
-      window.open('/thank-you', '_blank');
+      this.router.navigate(['/thank-you']);
     });
   }
 

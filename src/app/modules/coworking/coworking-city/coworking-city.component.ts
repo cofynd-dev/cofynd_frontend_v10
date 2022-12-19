@@ -48,7 +48,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   totalRecords: number;
 
   popularLocation: City[];
-  cityWisePopularLocation = [];
+  cityWisePopularLocation = ['Near Me'];
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
@@ -57,6 +57,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   maxPrice: any;
   selectedValue: any = 'Select Price';
   roomType: any;
+  filteredCity: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -87,18 +88,18 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           this.country_name = res.data.country.name;
           localStorage.setItem('country_name', res.data.country.name);
           localStorage.setItem('country_id', res.data.country.id);
-          let filteredCity = this.availableCities.filter(
+          this.filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );
-          if (!filteredCity.length) {
-            filteredCity.push(res.data);
+          if (!this.filteredCity.length) {
+            this.filteredCity.push(res.data);
           }
           this.title = results.routeParams[0].path;
           const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COWORKING_FILTER_KEY));
           if (this.minPrice && this.maxPrice) {
             this.queryParams = {
               ...AppConstant.DEFAULT_SEARCH_PARAMS,
-              city: filteredCity[0].id,
+              city: this.filteredCity[0].id,
               minPrice: +this.minPrice,
               maxPrice: +this.maxPrice,
               ...results.queryParams,
@@ -107,7 +108,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           } else {
             this.queryParams = {
               ...AppConstant.DEFAULT_SEARCH_PARAMS,
-              city: filteredCity[0].id,
+              city: this.filteredCity[0].id,
               ...results.queryParams,
               ...prevParam,
             };
@@ -128,7 +129,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
               this.queryParams = {
                 ...AppConstant.DEFAULT_SEARCH_PARAMS,
                 key: results.routeParams[1].path + '-' + this.title,
-                city: filteredCity[0].id,
+                city: this.filteredCity[0].id,
                 minPrice: +this.minPrice,
                 maxPrice: +this.maxPrice,
                 ...results.queryParams,
@@ -137,7 +138,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
               this.queryParams = {
                 ...AppConstant.DEFAULT_SEARCH_PARAMS,
                 key: results.routeParams[1].path + '-' + this.title,
-                city: filteredCity[0].id,
+                city: this.filteredCity[0].id,
                 ...results.queryParams,
               };
             }
@@ -262,11 +263,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       if (allWorkSpaces.data.length) {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.cityWisePopularLocation = filteredLocations[0].locations;
+          this.workSpaceService.microLocationByCityAndSpaceType(this.filteredCity[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
-
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
         });
