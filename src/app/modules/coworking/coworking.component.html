@@ -28,27 +28,6 @@
     
     </section>
 
-    <!-- <section class="banner hideInMobile" style="margin-top: 0 !important;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>Find the Best<br /><span>Coworking Spaces</span> in India</h1>
-                    <div class="city-list">
-                        <button (click)="locateMyLocation()" type="button">
-                        <img src="/assets/images/home/near-me.svg"
-                            alt="'Office Space for Rent near me" />
-                        Near Me
-                        </button>
-                        <a *ngFor="let city of cities" [routerLink]="city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-bg"></div>
-    </section> -->
-
     <!--------------------- Mobile Banner -------------------->
 
     <section class="innerpage_banner onlyMobile" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d76dbae3fc984d286d56580f607710430cfea5a.jpg');">
@@ -292,11 +271,6 @@
                         <h2>Book Your Coworking Space in 3 Easy Steps</h2>
                     </div>
                 </div>
-                <!-- <div class="col-md-12">
-                    <div class="page-title">
-                        <h2> Book Your Coworking Space in 3 Easy Steps</h2>
-                    </div>
-                </div> -->
             </div>
             <div class="row mt-3 step_scroller">
                 <div class="col-md-4 step_box">
@@ -340,8 +314,6 @@
                         </div>
                         <div class="top-city-text">
                             <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
-                            <!-- <p class="mb-3 pl-2 text-center text-white" style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
-                            </p> -->
                         </div>
                     </div>
                 </div>
@@ -361,32 +333,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- <div class="row">
-                <div class="col-md-4 pt-2" style="cursor: pointer;" *ngFor=" let _centerCity of popularCoWorkingSpaces | slice:0:1">
-                    <div style="position: relative;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                        <img [src]="_centerCity.image" class="img-fluid d-block m-auto" style="height:516px; object-fit:cover; border-radius:10px;">
-                        <div class="SpaceText">
-                            <p class="mb-3 pl-2 text-center text-white" style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-4 p-2" style="cursor: pointer;" *ngFor="let _centerCity of popularCoWorkingSpaces | slice:1:7">
-                            <div class="spaceCenter" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                                <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
-                                <div class="SpaceText">
-                                    <p class="text-center text-white mb-3" style="font-size: 20px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -511,51 +457,6 @@
         </app-home-brand-list>
     </section>
 
-    <!-- Covid-19 Section -->
-    <!-- <section class="covid-section hideInMobile">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="covid-content">
-                        <h3>
-                            <span>COVID-19 RESPONSE</span> We are ready for <br>the new normal!
-                        </h3>
-                        <ul>
-                            <li>
-                                <div class="img">
-                                    <img lazyLoad="/assets/images/amenities/mask.svg" alt="Free Mask">
-                                </div>
-                                <h4>Free Masks Provided</h4>
-                                <p>Each of our hubs will provide you with free masks whenever you visit.</p>
-                            </li>
-                            <li>
-                                <div class="img">
-                                    <img lazyLoad="/assets/images/amenities/sanitizer.svg" alt="Sanitized Spaces">
-                                </div>
-                                <h4>Sanitized Spaces</h4>
-                                <p>All our Workspaces are sanitized regularly to make sure you have the best experience</p>
-                            </li>
-                            <li>
-                                <div class="img">
-                                    <img lazyLoad="/assets/images/amenities/hand-sanitizers.svg" alt="Hand Sanitizers">
-                                </div>
-                                <h4>Hand Sanitizers Provided</h4>
-                                <p>We provide you with sanitizers at each desk so that you have a clean experience.</p>
-                            </li>
-                            <li>
-                                <div class="img">
-                                    <img lazyLoad="/assets/images/amenities/social-distancing.svg" alt="Social Distancing">
-                                </div>
-                                <h4>Social Distancing </h4>
-                                <p>Each of our hubs makes sure that we maintain social distancing norms.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!--Cofynd Advantages-->
     <section class="why-cofynd bg-light coworking_advantages advantages_sec">
         <div class="container">
@@ -565,11 +466,6 @@
                         <h2>CoFynd Advantages</h2>
                     </div>
                 </div>
-                <!-- <div class="col-md-12">
-                    <div class="page-title">
-                        <h2>CoFynd Advantages</h2>
-                    </div>
-                </div> -->
             </div>
             <div class="row advantages_row">
                 <div class="col-4">
@@ -734,23 +630,6 @@
     </div>
 </section>
 
-    <!-- <section class="cta_section calltoaction_sec">
-        <div class="container">
-            <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fb09a42817b823c6d3fc1deca27aed3ee7a231b.png');">
-                <div class="col-8">
-                    <div class="cta_content">
-                        <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
-                        <p class="hideOnMobile">List for free, set your price and rest all things leave on our expert. Stay organized, manage leads, and track your earnings - all in one place.</p>
-                        <a routerLink="/list-your-space" class="btn site_btn">List Your Space</a>
-                    </div>
-                </div>
-                <div class="col-4 text-center">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/07738f398a3aa6605ef9809b77702fa14ca20685.png" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- visite other section -->
     <section class="visiteOther pt-5 pb-5 hideOnMobile">
         <div class="container">
@@ -790,32 +669,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section class="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="cofynd-desk text-center">
-            <img style="max-height: 200px;"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
-              alt="">
-            <h4>What's the CoFynd Desk ?</h4>
-            <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br />
-              As we
-              grow, we think of ourselves as creating a shared Ecosystem, one that lets the
-              Cofynd community Breathe, Connect and Climb to their highest in life.</p>
-            <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
-            <div class="space-btn">
-              <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2">India </span>|
-                <span class="pl-2 pr-2"
-                  routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
     <section class="cofynd_desk_sec coworking_cofynd_desk">
         <div class="container">
