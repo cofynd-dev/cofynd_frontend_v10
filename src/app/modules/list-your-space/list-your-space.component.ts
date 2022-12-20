@@ -19,7 +19,7 @@ export class ListYourSpaceComponent implements OnInit {
     this.addSeoTags();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   addSeoTags() {
     const metaInfo = {
@@ -34,4 +34,5 @@ export class ListYourSpaceComponent implements OnInit {
     };
     this.seoService.setData(metaInfo);
   }
+
 }
