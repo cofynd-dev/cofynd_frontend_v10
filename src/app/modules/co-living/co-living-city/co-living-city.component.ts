@@ -23,6 +23,7 @@ declare var $: any;
   templateUrl: './co-living-city.component.html',
   styleUrls: ['./co-living-city.component.scss'],
 })
+
 export class CoLivingCityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY_CO_LIVING;
   loading: boolean = true;
@@ -38,13 +39,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   isScrolled: boolean;
   isSearchFooterVisible: boolean;
   seoData: SeoSocialShareData;
-
   // Pagination
   maxSize = 5;
   totalRecords: number;
   pageTitle: string;
-
-  popularLocation = [];
+  popularLocation = ['Near Me'];
   breadcrumbs: BreadCrumb[];
   price_filters = [];
   number_record: number = 20;
@@ -55,11 +54,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   roomType: any;
   filterValue: any;
   selectedValue: any = 'Select Price';
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
     private _renderer2: Renderer2,
-
     private coLivingService: CoLivingService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -127,12 +126,14 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           this.addSeoTags(this.title.toLowerCase());
         });
     });
+
     if (this.title) {
       for (let scrt of script.coliving[this.title]) {
         this.setHeaderScript(scrt);
       }
     }
   }
+
   onPriceSelect(value) {
     this.selectedValue = value;
     if (value === 'Select Price') {
@@ -155,6 +156,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.filterValue = 30000;
     }
   }
+
   selectRoomType(value) {
     if (value === this.roomType) {
       this.roomType = null;
@@ -162,6 +164,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.roomType = value;
     }
   }
+
   apply() {
     this.queryParams['minPrice'] = this.minPrice;
     this.queryParams['maxPrice'] = this.maxPrice;
@@ -199,26 +202,22 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.price_filters.length = 0;
     this.number_record = 20;
     this.loading = true;
-    // this.coLivings.length = 0;
-    // (param.limit = 100000),
-    // (param.maxPrice = 15000),
-    // param.minPrice = 15000;
-    // param.maxPrice = 30000;
     this.coLivingService.getCoLivings(sanitizeParams(param)).subscribe(allOffices => {
       this.coLivings = allOffices.data.sort((a: any, b: any) => {
         if (b.priority) {
           return a.priority.location.order > b.priority.location.order ? 1 : -1;
         }
       });
-
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
         const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.popularLocation = filteredLocations[0].locations;
+          this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+            for (let index = 0; index < mlocations.data.length; index++) {
+              this.popularLocation.push(mlocations.data[index]['name']);
+            }
+          })
         }
-
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
           'Best Co Living Space in ' + altCity,
@@ -277,7 +276,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     const currentUrl = environment.appUrl + this.router.url.split('?')[0] + '?page=';
     const prevPage = currentPage - 1;
     const nextPage = currentPage + 1;
-
     const nextPageCanonical = currentUrl + nextPage;
     const prevPageCanonical = currentUrl + prevPage;
 
@@ -298,7 +296,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       queryParams: { page: this.page },
       queryParamsHandling: 'merge',
     });
-
     // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;
@@ -308,6 +305,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   toggleMapView(isMapView: boolean) {
     this.isMapView = isMapView;
   }
+
   filterMapView(data) {
     if (data == '') {
       this.getOfficeList(this.queryParams);
@@ -324,7 +322,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
             return a.priority.location.order > b.priority.location.order ? 1 : -1;
           }
         });
-
         if (+data == 29999) {
           this.coLivings = coLivings.filter(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
         }
@@ -340,12 +337,14 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         this.loading = false;
         if (allOffices.data.length) {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.popularLocation = filteredLocations[0].locations;
+            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.popularLocation.push(mlocations.data[index]['name']);
+              }
+            })
           }
-
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,
             'Best Co Living Space in ' + altCity,
@@ -372,7 +371,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       page: this.page,
       sortType: sort.value,
     };
-
     this.recallCoworkingList();
   }
 
@@ -385,7 +383,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       minPrice: priceRange.minPrice,
       maxPrice: priceRange.maxPrice,
     };
-
     this.recallCoworkingList();
   }
 
@@ -404,7 +401,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   onPageScroll(event: { scroll: boolean; count: number }) {
     this.isScrolled = event.scroll;
     this.scrollCount = event.count;
-
     if (isPlatformBrowser(this.platformId)) {
       this.changeMapPosition();
     }
@@ -424,6 +420,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
   }
+
 }
 function ViewChild(arg0: string) {
   throw new Error('Function not implemented.');
