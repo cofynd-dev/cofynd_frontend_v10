@@ -32,7 +32,7 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   active = 0;
 
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1.4, sm: 1.4, md: 3.4, lg: 5.4, all: 0 },
+    grid: { xs: 1.4, sm: 1.4, md: 3.4, lg: 4, all: 0 },
     slide: 1,
     speed: 250,
     point: {
@@ -44,13 +44,13 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
-  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) {}
+  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) { }
 
   ngOnInit(): void {
     // this.getPopularWorSpaces()
   }
 
-  ngOnChanges(): void {}
+  ngOnChanges(): void { }
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
