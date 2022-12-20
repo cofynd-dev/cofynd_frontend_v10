@@ -18,6 +18,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
   @Input() popularLocationList = [];
   @Input() relativeUrl: string;
   @Input() isPageScrolled: boolean;
+  country: any = "India"
 
   constructor(
     private router: Router,
@@ -46,15 +47,15 @@ export class SearchSimilarLocationComponent implements OnChanges {
     });
   }
   reRoute(location) {
-    let country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
-    if (this.relativeUrl === 'co-living' && country != 'india' && country != 'India' && country != 'INDIA') {
-      const url = `/${country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
+    this.country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
+    if (this.relativeUrl === 'co-living' && this.country != 'india' && this.country != 'India' && this.country != 'INDIA') {
+      const url = `/${this.country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
         location.toLowerCase().trim(),
       )}`;
 
       this.router.navigate([url]);
     }
-    if (this.relativeUrl === 'co-living' && (country == 'india' || country == 'India' || country == 'INDIA')) {
+    if (this.relativeUrl === 'co-living' && (this.country == 'india' || this.country == 'India' || this.country == 'INDIA')) {
       if (location === 'Near Me') {
         this.getCurrentPosition().subscribe((position: any) => {
           this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
@@ -86,7 +87,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
       this.router.navigate([url]);
     }
 
-    if (this.relativeUrl === 'coworking' && (country == 'india' || country == 'India' || country == 'INDIA')) {
+    if (this.relativeUrl === 'coworking' && (this.country == 'india' || this.country == 'India' || this.country == 'INDIA')) {
       if (location === 'Near Me') {
         this.getCurrentPosition().subscribe((position: any) => {
           this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
@@ -101,8 +102,8 @@ export class SearchSimilarLocationComponent implements OnChanges {
         generateSlug(location.toLowerCase().trim());
       this.router.navigate([url]);
     }
-    if (this.relativeUrl === 'coworking' && country != 'india' && country != 'India' && country != 'INDIA') {
-      const url = `/${country}/coworking/${this.cityName.toLowerCase().trim()}/${generateSlug(
+    if (this.relativeUrl === 'coworking' && this.country != 'india' && this.country != 'India' && this.country != 'INDIA') {
+      const url = `/${this.country}/coworking/${this.cityName.toLowerCase().trim()}/${generateSlug(
         location.toLowerCase().trim(),
       )}`;
       this.router.navigate([url]);
