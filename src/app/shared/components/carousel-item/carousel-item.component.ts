@@ -26,7 +26,6 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   @Input() coLivingSpaces: PopularSpace[] = [];
   @Input() shouldCoWorkingVisible: boolean = true;
   @Input() shouldCoLivingVisible: boolean;
-
   @ViewChild('popularSpaceCarousel', { static: false })
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
@@ -47,7 +46,6 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.getPopularWorSpaces()
   }
 
   ngOnChanges(): void { }
@@ -90,6 +88,7 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   openOfficeSpace(slug: string) {
     this.router.navigate([`/office-space/rent/${slug}`]);
   }
+
   openWithFreeSlug(slug: string) {
     this.router.navigate([`${slug}`]);
   }
@@ -98,10 +97,4 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     this.cdr.detectChanges();
   }
 
-  // getPopularWorSpaces() {
-  //   this.workSpaceService.getPopularWorSpaces().subscribe(spaces => {
-  //     this.coWorkingSpaces = spaces;
-  //     this.cdr.detectChanges();
-  //   });
-  // }
 }
