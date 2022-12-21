@@ -25,7 +25,7 @@
         <div class="innerbanner_img">
             <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg" alt="">
         </div>
-    
+
     </section>
 
     <!--------------------- Mobile Banner -------------------->
@@ -333,10 +333,10 @@
         </div>
     </section>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Gurgaon'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.gurugram">
+    <app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurgaon'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="gurugramSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.bangalore">
+    <app-carousel-item *ngIf="bangloreSpaces.length > 0" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="bangloreSpaces">
     </app-carousel-item>
 
     <!-------------------- Mobile Enquire Now ----------------------->
@@ -359,7 +359,7 @@
 
     <!-------------------- End Mobile Enquire Now ----------------------->
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.hyderabad">
+    <app-carousel-item *ngIf="hyderabadSpaces.length > 0" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="hyderabadSpaces">
     </app-carousel-item>
 
     <app-carousel-item [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.pune">
@@ -610,22 +610,22 @@
     </div>
   </section> -->
 
-  <section class="list_your_space_sec coworking_list_space">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-8">
-                <div class="cta_content">
-                    <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
-                    <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
-                    <a routerLink="/list-your-space" class="btn site_btn blue_btn">List Your Space</a>
+    <section class="list_your_space_sec coworking_list_space">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                        <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                        <a routerLink="/list-your-space" class="btn site_btn blue_btn">List Your Space</a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
                 </div>
             </div>
-            <div class="col-4 text-center">
-                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- visite other section -->
     <section class="visiteOther pt-5 pb-5 hideOnMobile">
