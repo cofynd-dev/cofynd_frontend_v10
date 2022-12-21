@@ -142,7 +142,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Awfis Augusta Point',
-      address: 'Gurgaon',
+      address: 'Gurugram',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/35a69cc6dea37ed8bac00bef42c8cd10de070e68.jpg',
       slug: 'awfis-augusta-point',
@@ -1028,7 +1028,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
   }
 
-  locateMyLocation() {}
+  locateMyLocation() { }
 
   ngAfterViewInit() {
     this.cdr.detectChanges();

@@ -366,11 +366,12 @@ p {
         color: #888;
         font-size: 10px;
         box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.05);
-        background-color: rgba($color: #fff, $alpha: 0.5);
+        background-color: rgba($color: #fff, $alpha: 0.9);
         width: 28px;
         height: 28px;
         margin-top: -14px;
         border-radius: 100%;
+        z-index: 9;
         &:hover {
             background-color: rgba($color: #fff, $alpha: 1);
         }
@@ -2834,10 +2835,22 @@ h3.site_title {
 	margin-bottom: 10px;
 	position: relative;
 }
-.property_item .property-img img {
+// .listing_card .property-img {
+// 	height: auto;
+// 	width: 100%;
+// }
+.property_item .property-img .item {
 	height: 200px;
-	object-fit: cover;
 	width: 100%;
+}
+.property_item .property-img img {
+	height: 200px !important;
+	object-fit: cover;
+	width: 100% !important;
+    transition: all 0.5s !important;
+}
+.property_item .item:hover img {
+	transform: scale(1.06);
 }
 .property_item .property-img::after {
 	content: "";
@@ -2846,6 +2859,42 @@ h3.site_title {
 	height: 80px;
 	background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%);
 	bottom: 0;
+}
+.listing_card {
+	margin-bottom: 50px;
+}
+.listing_card .property-img {
+	height: 250px;
+}
+.listing_card .property-img .item {
+	height: 250px !important;
+	width: 100%;
+}
+.listing_card .property-img .item img {
+	height: 250px !important;
+}
+.listing_card .carousel-arrow {
+	position: absolute;
+	top: 50%;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+	color: #888;
+	font-size: 10px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+	background-color: rgba(255,255,255,.9);
+	width: 28px;
+	height: 28px;
+	margin-top: -14px;
+	border-radius: 100%;
+}
+.listing_card .carousel-arrow.icon-back {
+	left: 10px;
+}
+.listing_card .carousel-arrow.icon-next {
+	right: 10px;
+}
+.listing_card .property-foot .price {
+	font-size: 16px !important;
+	line-height: 26px !important;
 }
 .office_top_properties .property_item .property-dis {
 	height: 64px;
@@ -2856,11 +2905,17 @@ h3.site_title {
 	font-weight: 600;
 	margin-bottom: 0px;
 }
+.listing_card .property-dis h4 {
+	font-size: 17px;
+	line-height: 25px;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
 .property_item .property-dis h4 .builder_name {
 	color: rgba(33, 37, 41, 0.7);
 	font-size: 12px;
 }
-.property_item .property-dis .address {
+.property_item .property-dis p {
 	margin-bottom: 0px;
 	color: rgba(33, 37, 41, 0.5);
 	font-size: 12px;
@@ -2873,9 +2928,17 @@ h3.site_title {
 	padding-left: 24px;
 	color: #908f8f;
 }
-.property_item .property-dis .address img, .property_item .property-dis .furnish_type img {
+.property_item .property-dis .address {
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.property_item .property-dis img, .property_item .property-dis .furnish_type img {
 	width: 15px;
 	margin-right: 3px;
+}
+.property_item .property-dis p {
+	margin-bottom: 0px;
 }
 .property_item .property-foot {
 	display: flex;
