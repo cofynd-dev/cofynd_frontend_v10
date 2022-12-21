@@ -332,12 +332,14 @@
             </div>
         </div>
     </section>
-
-    <app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurgaon'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="gurugramSpaces">
-    </app-carousel-item>
-
-    <app-carousel-item *ngIf="bangloreSpaces.length > 0" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="bangloreSpaces">
-    </app-carousel-item>
+    <ng-container *ngIf="gurugramSpaces.length">
+        <app-carousel-item [pageTitle]="'Top Spaces in Gurgaon'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="gurugramSpaces">
+        </app-carousel-item>
+    </ng-container>
+    <ng-container *ngIf="bangloreSpaces.length">
+        <app-carousel-item [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="bangloreSpaces">
+        </app-carousel-item>
+    </ng-container>
 
     <!-------------------- Mobile Enquire Now ----------------------->
 
@@ -358,9 +360,10 @@
     </section>
 
     <!-------------------- End Mobile Enquire Now ----------------------->
-
-    <app-carousel-item *ngIf="hyderabadSpaces.length > 0" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="hyderabadSpaces">
-    </app-carousel-item>
+    <ng-container *ngIf="hyderabadSpaces.length">
+        <app-carousel-item [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="hyderabadSpaces">
+        </app-carousel-item>
+    </ng-container>
 
     <app-carousel-item [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.pune">
     </app-carousel-item>

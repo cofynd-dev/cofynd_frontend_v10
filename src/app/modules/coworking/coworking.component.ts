@@ -138,7 +138,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Awfis Augusta Point',
-      address: 'Gurgaon',
+      address: 'Gurugram',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/35a69cc6dea37ed8bac00bef42c8cd10de070e68.jpg',
       slug: 'awfis-augusta-point',
@@ -906,15 +906,15 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     },
   ];
   gurugramSpaces: any = [];
-  bangloreSpaces: any[];
-  hyderabadSpaces: any[];
-  puneSpaces: any[];
-  mumbaiSpaces: any[];
-  noidaSpaces: any[];
-  delhiSpaces: any[];
-  ahmedaSpaces: any[];
-  chennaiSpaces: any[];
-  indoreSpaces: any[];
+  bangloreSpaces: any = [];
+  hyderabadSpaces: any = [];
+  puneSpaces: any = [];
+  mumbaiSpaces: any = [];
+  noidaSpaces: any = [];
+  delhiSpaces: any = [];
+  ahmedaSpaces: any = [];
+  chennaiSpaces: any = [];
+  indoreSpaces: any = [];
 
   constructor(
     private brandService: BrandService,
@@ -955,7 +955,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
     this.getPopularWorSpacesAsCountry();
     let gurugramQueryParams = {
-      limit: 21,
+      limit: 8,
       city: '5e3eb83c18c88277e81427d9'
     };
     let bangaloreQueryParams = {
@@ -963,7 +963,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       city: '5f2a4210ecdb5a5d67f0bbbc'
     };
     let hyderabadQueryParams = {
-      limit: 20,
+      limit: 8,
       city: '5f338a5f59d5584617676837'
     };
     let puneQueryParams = {

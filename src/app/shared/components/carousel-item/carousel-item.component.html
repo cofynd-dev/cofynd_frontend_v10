@@ -8,11 +8,11 @@
                     </div>
                 </div>
                 <div class="populer_slider_area popular_coworking_slider">
-                    <div class="popular-space-carousel" style="cursor: pointer;">
+                    <div class="popular-space-carousel">
                         <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coWorkingSpaces" (onMove)="onSliderMove($event)">
                             <div class="item" *nguCarouselDef="let space; let i = index;" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">
                                 <div class="property_item">
-                                    <div class="property-img" (click)="openWorkSpace(space.slug,space.country)" style="cursor: pointer;">
+                                    <div class="property-img" (click)="openWorkSpace(space.slug,space.country)">
                                         <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid">
                                     </div>
                                     <div class="property-dis">
@@ -20,7 +20,7 @@
                                         <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space.address}}</p>
                                     </div>
                                     <div class="property-foot align-items-end">
-                                        <div class="price"><span class="rent_title">Rent</span>₹{{space.starting}}/-<span>month</span></div>
+                                        <div class="price"><span class="rent_title">Starting from</span>₹{{space.starting}}/-<span>month</span></div>
                                         <div class="button"><a (click)="openWorkSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
                                     </div>
                                 </div>
@@ -74,9 +74,11 @@
                                     <div class="property-dis">
                                         <h4>{{space.name}}</h4>
                                         <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space.address}}</p>
+                                        <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
+                                        <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
                                     </div>
                                     <div class="property-foot align-items-end">
-                                        <div class="price"><span class="rent_title">Rent</span>₹{{space.starting}}/- <span>month</span></div>
+                                        <div class="price"><span class="rent_title">Starting from</span>₹{{space.starting}}/- <span>month</span></div>
                                         <div class="button"><a (click)="openCoLivingSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
                                     </div>
                                 </div>
