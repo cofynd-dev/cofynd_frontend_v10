@@ -8,6 +8,9 @@ import { sanitizeParams } from '@app/shared/utils';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
+import { CoLivingService } from './co-living.service';
+import { forkJoin } from "rxjs";
+
 
 @Component({
   selector: 'app-co-living',
@@ -19,7 +22,16 @@ export class CoLivingComponent implements OnInit {
   loading: boolean;
   coLivingBrands: Brand[] = [];
   cities: City[];
-
+  gurugramSpaces: any = [];
+  bangloreSpaces: any = [];
+  hyderabadSpaces: any = [];
+  puneSpaces: any = [];
+  mumbaiSpaces: any = [];
+  noidaSpaces: any = [];
+  delhiSpaces: any = [];
+  ahmedaSpaces: any = [];
+  chennaiSpaces: any = [];
+  indoreSpaces: any = [];
   service = [
     {
       title: 'Fully Furnished',
@@ -1420,14 +1432,104 @@ export class CoLivingComponent implements OnInit {
     },
   ];
 
-  constructor(private brandService: BrandService, private seoService: SeoService, private router: Router) {
+  constructor(private brandService: BrandService, private coLivingService: CoLivingService, private seoService: SeoService, private router: Router) {
     this.cities = AVAILABLE_CITY_CO_LIVING.filter(city => city.for_coLiving === true);
   }
 
   ngOnInit() {
     this.addSeoTags();
     this.getBrands();
+    let gurugramQueryParams = {
+      limit: 8,
+      city: '5e3eb83c18c88277e81427d9'
+    };
+    let bangaloreQueryParams = {
+      limit: 8,
+      city: '5f2a4210ecdb5a5d67f0bbbc'
+    };
+    let hyderabadQueryParams = {
+      limit: 8,
+      city: '5f338a5f59d5584617676837'
+    };
+    let puneQueryParams = {
+      limit: 8,
+      city: '5e3eb83c18c88277e8142795'
+    };
+    let mumbaiQueryParams = {
+      limit: 8,
+      city: '5f5b1f728bbbb85328976417'
+    };
+    let noidaQueryParams = {
+      limit: 8,
+      city: '5e3e77de936bc06de1f9a5e2'
+    };
+    let delhiQueryParams = {
+      limit: 8,
+      city: '5e3e77c6936bc06de1f9a2d9'
+    };
+    let ahmedabadQueryParams = {
+      limit: 8,
+      city: '5f7af1c48c4e6961990e620e'
+    };
+    let chennaiQueryParams = {
+      limit: 8,
+      city: '5f7410348c4e6961990e5a21'
+    };
+    let indoreQueryParams = {
+      limit: 8,
+      city: '5f60926926e9e64d7b61b41b'
+    };
+    const observables = [
+      this.coLivingService.getCoLivings(sanitizeParams(gurugramQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(bangaloreQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(hyderabadQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(puneQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(mumbaiQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(noidaQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(delhiQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(ahmedabadQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(chennaiQueryParams)),
+      this.coLivingService.getCoLivings(sanitizeParams(indoreQueryParams)),
+    ];
+    forkJoin(observables).subscribe((res: any) => {
+      let gurugramData = res[0].data;
+      let bangloreData = res[1].data;
+      let hyderData = res[2].data;
+      let puneData = res[3].data;
+      let mumData = res[4].data;
+      let noidaData = res[5].data;
+      let delhiData = res[6].data;
+      let ahmedaData = res[7].data;
+      let chennaiData = res[8].data;
+      let indoreData = res[9].data;
+      this.gurugramSpaces = this.formatSpaces(gurugramData);
+      this.bangloreSpaces = this.formatSpaces(bangloreData);
+      this.hyderabadSpaces = this.formatSpaces(hyderData);
+      this.puneSpaces = this.formatSpaces(puneData);
+      this.mumbaiSpaces = this.formatSpaces(mumData);
+      this.noidaSpaces = this.formatSpaces(noidaData);
+      this.delhiSpaces = this.formatSpaces(delhiData);
+      this.ahmedaSpaces = this.formatSpaces(ahmedaData);
+      this.chennaiSpaces = this.formatSpaces(chennaiData);
+      this.indoreSpaces = this.formatSpaces(indoreData);
+    })
   }
+
+  formatSpaces(data) {
+    let formattedData = [];
+    for (let index = 0; index < data.length; index++) {
+      let obj = {
+        name: `${data[index].name}`,
+        address: data[index].location.address,
+        image: data[index]['images'][0]['image']['s3_link'],
+        slug: data[index]['slug'],
+        starting: data[index]['starting_price'],
+      }
+      formattedData.push(obj)
+    }
+    return formattedData;
+  }
+
 
   getBrands() {
     this.brandService.getBrands(sanitizeParams({ type: 'coliving' })).subscribe(res => {

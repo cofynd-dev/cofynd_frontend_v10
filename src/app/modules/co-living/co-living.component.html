@@ -161,13 +161,13 @@
     <app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.bangalore">
+    <app-carousel-item *ngIf="bangloreSpaces.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="bangloreSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.hyderabad">
+    <app-carousel-item *ngIf="hyderabadSpaces.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="hyderabadSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.gurugram">
+    <app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="gurugramSpaces">
     </app-carousel-item>
 
     <section class="flock_banner">
@@ -192,19 +192,19 @@
         </div>
     </section> -->
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.pune">
+    <app-carousel-item *ngIf="puneSpaces.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="puneSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.delhi">
+    <app-carousel-item *ngIf="delhiSpaces.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="delhiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.noida">
+    <app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="noidaSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.mumbai">
+    <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.chennai">
+    <app-carousel-item *ngIf="chennaiSpaces.length" [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="chennaiSpaces">
     </app-carousel-item>
 
     <!-- <app-carousel-item [pageTitle]="'Top Spaces in Bhubaneswar'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.bhubaneswar">
@@ -1329,8 +1329,8 @@
                             <h4 accordion-heading>
                                 What is a coliving space?
                             </h4>
-                            <p>Coliving Spaces relate to shared-housing to inhabit, work and have a good time. This experience includes fully furnished, bringing individuals together and creating a conducive environment for their interaction. A growing
-                                number of population across the globe are preferring coliving to unfasten benefits such as community, comfort and cost-saving. </p>
+                            <p>Coliving Spaces relate to shared-housing to inhabit, work and have a good time. This experience includes fully furnished, bringing individuals together and creating a conducive environment for their interaction. A growing number
+                                of population across the globe are preferring coliving to unfasten benefits such as community, comfort and cost-saving. </p>
                         </accordion-group>
                         <accordion-group>
                             <h4 accordion-heading>
