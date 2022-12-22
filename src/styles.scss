@@ -2834,6 +2834,10 @@ h3.site_title {
 	border-radius: 20px;
 	margin-bottom: 10px;
 	position: relative;
+    width: 100%;
+}
+.property_item .property-dis {
+	width: 100%;
 }
 // .listing_card .property-img {
 // 	height: auto;
@@ -4327,6 +4331,7 @@ h3.site_title {
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 	border-radius: 20px;
 	padding: 10px 10px;
+    width: 100%;
 }
 .office_top_properties .property_item {
 	margin-bottom: 30px;
@@ -6160,6 +6165,9 @@ h3.site_title {
         z-index: 1;
         align-items: center !important;
         display: flex !important;   
+    }
+    .listing_card .btn-favorite {
+        display: none;
     }
     
 }
