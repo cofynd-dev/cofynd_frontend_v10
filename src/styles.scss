@@ -6095,5 +6095,71 @@ h3.site_title {
     .border_btn:hover {
         background-color: #4343E8 !important;
     }
+    .listing_card {
+        margin-bottom: 30px !important;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 0px;
+        box-shadow: none;
+    }
+    .listing_card .property-img {
+        height: auto !important;
+        border-radius: 15px !important;
+        width: 45% !important;
+        overflow: hidden !important;
+        margin-bottom: 0px;
+    }
+    .listing_card .property-img .item {
+        height: 170px !important;
+    }
+    .listing_card .property-img .item img {
+        height: 170px !important;
+    }
+    .listing_card .space_details {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 10px 15px !important;
+        width: 55% !important;
+    }
+    .listing_card .space_details h4 {
+        font-size: 13px !important;
+        color: #272828 !important;
+        white-space: normal;
+        margin-bottom: 2px !important;
+        line-height: 17px;
+    }
+    .listing_card .property-dis p {
+        font-size: 11px !important;
+    }
+    .listing_card .property-dis img, .listing_card .property-dis .furnish_type img {
+        width: 12px;
+    }
+    .listing_card .property-foot .price {
+        font-size: 11px !important;
+        line-height: 20px !important;
+    }
+    .listing_card .property-foot .price .rent_duration {
+        font-size: 9px;
+    }
+    .listing_card .property-foot .button a {
+        font-size: 10px;
+        padding-right: 7px;
+    }
+    .listing_card .property-foot .button a::before {
+        font-size: 8px !important;
+        line-height: 13px !important;
+    }
+    .listing_card .property-foot {
+        padding: 6px 0px 0px;
+        margin-top: 6px;
+    }
+    .listing_card .property-img .myPoint {
+        z-index: 1;
+        align-items: center !important;
+        display: flex !important;   
+    }
     
 }
