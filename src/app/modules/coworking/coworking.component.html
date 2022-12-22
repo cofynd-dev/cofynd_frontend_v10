@@ -365,7 +365,7 @@
         </app-carousel-item>
     </ng-container>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.pune">
+    <app-carousel-item *ngIf="puneSpaces.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="puneSpaces">
     </app-carousel-item>
 
     <!-------------------- Mobile Enquire Now ----------------------->
@@ -388,10 +388,10 @@
 
     <!-------------------- End Mobile Enquire Now ----------------------->
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.mumbai">
+    <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="mumbaiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.noida">
+    <app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="noidaSpaces">
     </app-carousel-item>
 
     <!-------------------- Mobile Enquire Now ----------------------->
@@ -415,10 +415,10 @@
 
     <!-------------------- End Mobile Enquire Now ----------------------->
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.delhi">
+    <app-carousel-item *ngIf="delhiSpaces.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="delhiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Ahmedabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.ahmedabad">
+    <app-carousel-item *ngIf="ahmedaSpaces.length" [pageTitle]="'Top Spaces in Ahmedabad'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="ahmedaSpaces">
     </app-carousel-item>
 
     <!-------------------- Mobile Enquire Now ----------------------->
@@ -442,10 +442,10 @@
 
     <!-------------------- End Mobile Enquire Now ----------------------->
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.chennai">
+    <app-carousel-item *ngIf="chennaiSpaces.length" [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="chennaiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item [pageTitle]="'Top Spaces in Indore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="spaceForMobile.indore">
+    <app-carousel-item *ngIf="indoreSpaces.length" [pageTitle]="'Top Spaces in Indore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="indoreSpaces">
     </app-carousel-item>
 
     <span class="mobileViewColiving">
