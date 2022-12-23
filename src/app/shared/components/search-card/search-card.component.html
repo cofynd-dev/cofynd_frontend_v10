@@ -25,13 +25,13 @@
             <div *ngIf="workspace.show_price" class="price">
                 <ng-template [ngIf]="forAll">
                     <span class="rent_title">Starting from</span>
-                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}<small>/{{ workspace.price_type }}</small></div>
-                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<small>/{{ workspace.price_type }}</small></div>
+                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}/- <small>{{ workspace.price_type }}</small></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span>/{{ workspace.price_type }}</span></div>
                 </ng-template>
-                <!-- <ng-template [ngIf]="!forAll">
+                <ng-template [ngIf]="!forAll">
                     <span class="rent_title">Starting from</span>
-                    <i class="fa-solid fa-indian-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}<small>/{{workspace.plans[workspace.plans.length - 1].duration }}</small>
-                </ng-template> -->
+                    <i class="fa-solid fa-indian-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span>{{workspace.plans[workspace.plans.length - 1].duration }}</span>
+                </ng-template>
             </div>
             <div *ngIf="!workspace.show_price" class="price">
                 <span class="rent_title">Starting from</span> on request

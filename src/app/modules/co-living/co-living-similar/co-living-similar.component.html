@@ -1,7 +1,25 @@
-<div class="similar-workspaces hideOnMobile" *ngIf="!loading && workSpaces.length">
+<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
     <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
         <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
-            <div class="box" [routerLink]="['/co-living/', office.slug]">
+
+            <div class="property_item" [routerLink]="['/co-living/', office.slug]">
+                <div class="property-img">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
+                </div>
+                <div class="property-dis">
+                    <h4>{{ office.name }}</h4>
+                    <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                    <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
+                    <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                </div>
+                <div class="property-foot align-items-end">
+                    <div class="price"><span class="rent_title">Starting from</span>₹{{office.starting_price}}/- <span>month</span></div>
+                    <div class="button"><a [routerLink]="['/co-living/', office.slug]" tabindex="0">Explore More</a></div>
+                </div>
+            </div>
+
+            
+            <!-- <div class="box" [routerLink]="['/co-living/', office.slug]">
                 <div class="img">
                     <img [lazyLoad]="office.images[0]?.image.s3_link" alt="">
                 </div>
@@ -10,22 +28,16 @@
                     <p class="address">
                         <i class="fa-solid fa-location-dot"></i> {{ office.location.address }}
                     </p>
-                    <!-- <p class="capacity">
-            <i class="building-icon"></i>
-            Best Price Guarantee
-          </p> -->
                     <div class="price-box">
                         <div class="price">
-                            <!-- <span>Monthly Rent*</span> -->
                             <i class="fa-solid fa-indian-rupee-sign"></i>
-                            <!-- {{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }} -->
                             {{office.starting_price}}<span class="price-bed">/-Month</span>
                         </div>
                         <a target="_blank" [routerLink]="['/co-living/', office.slug]" class="btn-link forMobileOnly">Explore Now<small class="icon-next"></small>
-            </a>
+                        </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </ngu-carousel>
@@ -41,7 +53,7 @@
 
 
 
-<section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
+<!-- <section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -60,9 +72,6 @@
                         <div class="properties-content">
                             <h4>{{_centerCity.name}}</h4>
                             <p><i class="fa-solid fa-location-dot"></i> {{_centerCity.location.address}}</p>
-                            <!-- <p class="capacity">
-                                <i class="building-icon"></i> {{ getFloorSuffix(_centerCity.location.floor) }} Floor
-                            </p> -->
                             <ng-container>
                                 <p class="price"><span style="color: blue !important;">₹{{_centerCity.starting_price}}</span>/- Month</p>
                             </ng-container>
@@ -73,4 +82,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
