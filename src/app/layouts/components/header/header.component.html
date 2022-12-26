@@ -48,15 +48,10 @@
                     </div>
                 </li>
                 <li class="divider-line mobile-phone-menu no-tablet">
-                    <!-- <<<<<<< HEAD
-                    <a [href]="'tel:' + contactInfo.phone "
-                        [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{
-                        contactInfo.phone }}
-                    </a>
-======= -->
+
                     <a *ngIf="phoneflag" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a>
                     <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + contactInfo.email " [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email}}</a>
-                    <!-- >>>>>>> 3e4654729523d48af8ee37ca57a38e49b364efcd -->
+                    
                 </li>
                 <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">

@@ -2,7 +2,7 @@
     <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
         <div *nguCarouselDef=" let workspace;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
 
-            <div class="property_item" (click)="openDetailsPage(workspace.slug)">
+            <div class="property_item" (click)="openDetailsPage(workspace.slug)" style="cursor: pointer;">
                 <div class="property-img">
                     <img [lazyLoad]="workspace.images[0]?.image.s3_link" alt="" class="img-fluid">
                 </div>

@@ -2,7 +2,7 @@
     <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
         <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
 
-            <div class="property_item" [routerLink]="['/co-living/', office.slug]">
+            <div class="property_item" [routerLink]="['/co-living/', office.slug]" style="cursor: pointer;">
                 <div class="property-img">
                     <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
                 </div>

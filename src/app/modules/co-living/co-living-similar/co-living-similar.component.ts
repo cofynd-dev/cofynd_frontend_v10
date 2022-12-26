@@ -77,4 +77,5 @@ export class CoLivingSimilarComponent implements OnInit {
   getFloorSuffix(floor: number) {
     return !isNaN(floor) ? intToOrdinalNumberString(floor) : floor;
   }
+
 }
