@@ -6257,5 +6257,67 @@ h3.site_title {
         font-size: 11px !important;
         padding: 11px 15px !important;
     }
+    .space_title_area h1 {
+        font-size: 16px !important;
+        line-height: 20px !important;
+    }
+    .property_item .property-foot {
+        display: block;
+    }
+    .property_item {
+        padding: 8px 8px !important;
+    }
     
+    
+}
+
+@media (max-width: 400px) {
+
+    
+    .popular-spaces .item, .similar-workspaces .item {
+        padding: 0 4px !important;
+    }
+    .property_item .property-dis .furnish_type img, .property_item .property-dis img {
+        width: 11px;
+    }
+    .property_item .property-foot .button a {
+        font-size: 8px;
+        padding-right: 4px;
+    }
+    .property_item .property-foot .button a::before {
+        font-size: 6px !important;
+        line-height: 12px !important;
+    }
+    .property_item .property-img {
+        height: 90px;
+    }
+    .property_item .property-img img {
+        height: 90px !important;
+    }
+    .property_item .property-dis .address {
+        padding-bottom: 3px;
+        margin-bottom: 2px;
+    }
+    .property_item .property-foot {
+        padding: 5px 0 0;
+        margin-top: 4px;
+    }
+    .property_item .property-foot .price .rent_title {
+        font-size: 8px;
+        line-height: 8px;
+    }
+    .property_item .property-dis h4 {
+        font-size: 11px;
+        line-height: 15px;
+    }
+    .property_item .property-dis p {
+        font-size: 9px !important;
+        line-height: 15px !important;
+    }
+    // .similar-workspaces .property_item p {
+    //     font-size: 9px !important;
+    //     margin-bottom: 0px !important;
+    //     line-height: 16px !important;
+    // }
+
 }
