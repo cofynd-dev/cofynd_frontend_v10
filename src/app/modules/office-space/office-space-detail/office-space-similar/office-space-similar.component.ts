@@ -22,7 +22,7 @@ export class OfficeSpaceSimilarComponent implements OnInit {
   active = 0;
 
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1, sm: 2, md: 3, lg: 4, all: 0 },
+    grid: { xs: 2.2, sm: 2.2, md: 3, lg: 4, all: 0 },
     slide: 1,
     speed: 250,
     point: {
@@ -35,7 +35,7 @@ export class OfficeSpaceSimilarComponent implements OnInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private cdr: ChangeDetectorRef, private officeSpaceService: OfficeSpaceService) {}
+  constructor(private cdr: ChangeDetectorRef, private officeSpaceService: OfficeSpaceService) { }
 
   ngOnInit() {
     this.loadWorkSpaces();

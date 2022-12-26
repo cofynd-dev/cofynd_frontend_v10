@@ -11,8 +11,8 @@
                     <div class="popular-space-carousel">
                         <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coWorkingSpaces" (onMove)="onSliderMove($event)">
                             <div class="item" *nguCarouselDef="let space; let i = index;" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">
-                                <div class="property_item">
-                                    <div class="property-img" (click)="openWorkSpace(space.slug,space.country)">
+                                <div class="property_item" style="cursor: pointer;" (click)="openWorkSpace(space.slug,space.country)">
+                                    <div class="property-img">
                                         <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid">
                                     </div>
                                     <div class="property-dis">
@@ -74,8 +74,8 @@
                     <div class="popular-space-carousel">
                         <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coLivingSpaces" (onMove)="onSliderMove($event)">
                             <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">
-                                <div class="property_item">
-                                    <div (click)="openCoLivingSpace(space.slug,space.country)" class="property-img">
+                                <div class="property_item" style="cursor: pointer;" (click)="openCoLivingSpace(space.slug,space.country)">
+                                    <div class="property-img">
                                         <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid">
                                     </div>
                                     <div class="property-dis">

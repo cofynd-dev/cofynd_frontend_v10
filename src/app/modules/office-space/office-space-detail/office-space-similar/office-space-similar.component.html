@@ -1,7 +1,25 @@
-<div class="similar-workspaces hideOnMobile" *ngIf="!loading && workSpaces.length">
+<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
     <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
         <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
-            <div class="box" [routerLink]="['/office-space/rent/', office.slug]">
+
+            <div class="property_item" [routerLink]="['/office-space/rent/', office.slug]" style="cursor: pointer;">
+                <div *ngIf="office.images[0]?.image.s3_link" class="property-img">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
+                </div>
+                <div class="property-dis">
+                    <h4>{{ office.name }}</h4>
+                    <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                    <!-- <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p> -->
+                    <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
+                </div>
+                <div class="property-foot align-items-end">
+                    <div class="price"><span class="rent_title">Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span></div>
+                    <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]" tabindex="0">Explore More</a></div>
+                </div>
+            </div>
+
+
+            <!-- <div class="box" [routerLink]="['/office-space/rent/', office.slug]">
                 <div *ngIf="office.images[0]?.image.s3_link" class="img">
                     <img [lazyLoad]="office.images[0]?.image.s3_link" alt="">
                 </div>
@@ -20,10 +38,10 @@
                             <i class="icon-rupee"></i>{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}
                         </div>
                         <a [routerLink]="['/office-space/rent/', office.slug]" class="btn-link">Explore Now<small class="icon-next"></small>
-            </a>
+                        </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </ngu-carousel>
@@ -38,7 +56,7 @@
 
 
 
-<section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
+<!-- <section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -70,4 +88,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
