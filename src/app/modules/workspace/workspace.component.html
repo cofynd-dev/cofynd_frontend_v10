@@ -55,23 +55,11 @@
                 <div *ngIf="!loading && workspace">
                     <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <div class="row">
-                            <div class="col-md-8 col-8">
+                            <div class="col-md-12 col-12">
                                 <h1>{{ workspace.name }} {{ workspace.location.name }}</h1>
                                 <p class="address">
                                     <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address1 }}
                                 </p>
-                            </div>
-                            <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
-                                <ng-template [ngIf]="rating===0 && !userReview">
-                                    <button class="bfrReview" (click)="openModal()">Write a review</button>
-                                </ng-template>
-                                <ng-template [ngIf]="rating>0">
-                                    <span class="forRating">
-                            <app-star-rating (click)="scrollOnRating()"
-                            *ngIf="rating>0"
-                            [rating]='rating'></app-star-rating>
-                            </span>
-                                </ng-template>
                             </div>
                         </div>
 
@@ -242,6 +230,21 @@
                 <div class="onlyMobile">
                     <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
+                        <ng-template [ngIf]="rating===0 && !userReview">
+                            <button class="bfrReview site_btn border_btn" (click)="openModal()">Write a review</button>
+                        </ng-template>
+                        <ng-template [ngIf]="rating>0">
+                            <span class="forRating">
+                        <app-star-rating (click)="scrollOnRating()"
+                        *ngIf="rating>0"
+                        [rating]='rating'></app-star-rating>
+                        </span>
+                        </ng-template>
+                    </div>
+                </div>
             </div>
             <div *ngIf="!loading && workspace" class="col-lg-4 col-md-12 enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
                 <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="ENQUIRY_TYPE" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" (backButtonClick)="closeEnquireModal()">
@@ -249,7 +252,7 @@
             </div>
         </div>
         <app-review *ngIf="workspace" [userReview]="userReview" [averageRating]="rating" [space]="workspace"></app-review>
-        <div class="row similar_spaces_area">
+        <div class="row similar_spaces_area mt-4">
             <div class="col-md-12">
                 <div class="sections no-border" style="padding-top: 20px;">
                     <h2 class="" *ngIf="!loading && workspace">Similar Properties</h2>
