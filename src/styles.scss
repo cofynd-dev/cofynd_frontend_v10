@@ -1604,8 +1604,14 @@ h3.site_title {
 	display: none;
 }
 .solution_section {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 90px;
+	padding-bottom: 90px;
+}
+.enterprise_banner .banner_img {
+	height: 550px;
+}
+.enterprise_banner .banner_img img {
+	height: 550px;
 }
 .top_icon_box img {
 	background-color: #f8f8f8;
@@ -4535,6 +4541,9 @@ h3.site_title {
 .similar-workspaces .property_item .property-dis h4 {
 	margin-bottom: 5px !important;
 }
+.banner_content p {
+	margin-bottom: 25px;
+}
 
 
 
@@ -4900,10 +4909,10 @@ h3.site_title {
         top: -12px;
     }
     .top_cities_slider .top-city-img {
-        height: 270px;
+        height: 240px;
     }
     .top_cities_slider .top-city-img img {
-        height: 270px;
+        height: 240px;
     }
     .city_page_title h1 {
         margin-bottom: 0px !important;
@@ -6202,7 +6211,7 @@ h3.site_title {
         overflow: hidden !important;
     }
     .property_item .property-foot .price {
-        font-size: 11px;
+        font-size: 9px;
     }
     .property_item .property-foot .price .rent_title {
         font-size: 9px;
@@ -6237,6 +6246,16 @@ h3.site_title {
     }
     .coliving_similar_space {
         margin-top: 30px;
+    }
+    .similar_spaces_area h2 {
+        margin-bottom: 0px !important;
+    }
+    .similar-workspaces {
+        margin-top: 10px;
+    }
+    .form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
+        font-size: 11px !important;
+        padding: 11px 15px !important;
     }
     
 }
