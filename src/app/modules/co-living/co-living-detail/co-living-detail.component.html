@@ -52,23 +52,11 @@
                 <div *ngIf="!loading && workspace">
                     <div [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible" class="sections section-1 space_title_area">
                         <div class="row">
-                            <div class="col-md-8 col-8">
+                            <div class="col-md-12 col-12">
                                 <h1>{{ workspace.name }}</h1>
                                 <p class="address">
                                     <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address }}
                                 </p>
-                            </div>
-                            <div class="col-md-4 col-4 mt-2 mb-2 rating_star_col">
-                                <ng-template [ngIf]="rating===0 && !userReview">
-                                    <button class="bfrReview" (click)="openModal()">Write a review</button>
-                                </ng-template>
-                                <ng-template [ngIf]="rating>0">
-                                    <span class="forRating">
-                        <app-star-rating (click)="scrollOnRating()"
-                        *ngIf="rating>0"
-                        [rating]='rating'></app-star-rating>
-                        </span>
-                                </ng-template>
                             </div>
                         </div>
                         <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent</span><i class="fa-solid fa-indian-rupee-sign"></i> {{ (workspace.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace.price_type }}</small>
@@ -151,7 +139,15 @@
                         <!-- <h2 class="onlyMobile">About property</h2> -->
                         <p class="hideOnMobile" [innerHTML]="workspace.description">
                         </p>
-                        <div class="hideOnweb">
+
+                        <div class="desktophide">
+                            <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide"></p>
+                            <ng-template #hide>
+                                <p [innerHTML]="workspace.description"> </p>
+                            </ng-template>
+                            <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
+                        </div>
+                        <!-- <div class="hideOnweb">
                             <p class="mobileabout" [innerHTML]="workspace.description" *ngIf="seeMore; else hide">
                             </p>
                             <ng-template #hide>
@@ -159,7 +155,7 @@
                             </ng-template>
 
                             <p (click)="toggleAboutMore()" class="see_more mt-1">{{seeMore? "See More":"See Less"}}</p>
-                        </div>
+                        </div> -->
                         <!-- <div class="row buttonOnMobile"
               (click)="toggleAmenitiesDiv()">
               <div class="col-12">
@@ -364,6 +360,21 @@
                     <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12 col-12 mt-2 mb-2 rating_star_col">
+                        <ng-template [ngIf]="rating===0 && !userReview">
+                            <button class="bfrReview site_btn border_btn" (click)="openModal()">Write a review</button>
+                        </ng-template>
+                        <ng-template [ngIf]="rating>0">
+                            <span class="forRating">
+                <app-star-rating (click)="scrollOnRating()"
+                *ngIf="rating>0"
+                [rating]='rating'></app-star-rating>
+                </span>
+                        </ng-template>
+                    </div>
+                </div>
+
                 <!-- for Mobile -->
                 <div class="metro-detail onlyMobile mb-5" *ngIf="!loading && workspace && workspace.location.metro_detail.is_near_metro">
                     <p class="P-heading">Nearest Metro &amp; Shuttl</p>
@@ -389,10 +400,10 @@
             </div>
         </div>
 
-        <div class="row pt-4 similar_spaces_area">
+        <div class="row pt-4 similar_spaces_area coliving_similar_space">
             <div class="col-md-12">
                 <div class="sections no-border">
-                    <h2 class="hideOnMobile">Similar Properties</h2>
+                    <h2>Similar Properties</h2>
                     <app-co-living-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address">
                     </app-co-living-similar>
                 </div>
