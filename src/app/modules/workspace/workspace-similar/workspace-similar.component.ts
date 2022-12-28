@@ -23,7 +23,7 @@ export class WorkspaceSimilarComponent implements OnInit {
   active = 0;
 
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 2.4, sm: 2, md: 3, lg: 4, all: 0 },
+    grid: { xs: 2.2, sm: 2.2, md: 3, lg: 4, all: 0 },
     slide: 1,
     speed: 250,
     point: {
@@ -38,7 +38,7 @@ export class WorkspaceSimilarComponent implements OnInit {
   minPrice: string;
   maxPrice: string;
 
-  constructor(private workSpaceService: WorkSpaceService, private cdr: ChangeDetectorRef, private router: Router) {}
+  constructor(private workSpaceService: WorkSpaceService, private cdr: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit() {
     this.minPrice = localStorage.getItem('minPrice');

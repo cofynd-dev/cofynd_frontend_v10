@@ -154,7 +154,7 @@
 	position: relative;
 }
 .populer_slider_area .carousel-arrow {
-	top: 120px !important;
+	top: 50% !important;
 }
 
 .page-title-h2 {
@@ -163,16 +163,4 @@
   padding: 20px 10px;
   position: relative;
   z-index: 1;
-
-  // h2::after {
-  //   width: 92px;
-  //   height: 2px;
-  //   background: #4343e8;
-  //   position: absolute;
-  //   bottom: -15px;
-  //   left: 50%;
-  //   margin-left: -46px;
-  //   content: "";
-  //   display: inline-block;
-  // }
 }

@@ -26,7 +26,6 @@ export class ListYourSpaceComponent implements OnInit {
       title: 'List your Office Space with CoFynd for Free ',
       image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
       description:
-        // tslint:disable-next-line: max-line-length
         'List your Office Space for Rent with CoFynd and get quality tenants. Advertise your space to thousands of businesses every month for free.',
       url: environment.appUrl + this.router.url,
       type: 'website',

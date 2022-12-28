@@ -204,8 +204,8 @@
     <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
     </app-carousel-item>
 
-    <app-carousel-item *ngIf="chennaiSpaces.length" [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="chennaiSpaces">
-    </app-carousel-item>
+    <!-- <app-carousel-item *ngIf="chennaiSpaces.length" [pageTitle]="'Top Spaces in Chennai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="chennaiSpaces">
+    </app-carousel-item> -->
 
     <!-- <app-carousel-item [pageTitle]="'Top Spaces in Bhubaneswar'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.bhubaneswar">
     </app-carousel-item> -->
@@ -744,16 +744,12 @@
     <section class="pt-4 pb-3 india-top-coliving">
 
         <!-- Top Couple Living Spaces -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Couple Living Spaces</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="fas fa-venus-mars"></i>
-                        <img src="../../../assets/images/common/icon2.png" style="height: 20px;width: 20px;" />
-                        Top Couple Living Spaces
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -774,19 +770,38 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
+        </app-carousel-item>
+
+
+        <app-carousel-item *ngIf="bangloreSpaces.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="bangloreSpaces">
+        </app-carousel-item>
+    
+        <app-carousel-item *ngIf="hyderabadSpaces.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="hyderabadSpaces">
+        </app-carousel-item>
+    
+        <app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="gurugramSpaces">
+        </app-carousel-item>
+
+        <section class="flock_banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" (click)="goToBrand()">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- gurgaon -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Gurgaon</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="far fa-bookmark"></i>
-                        <img src="../../../assets/images/common/icon5.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Gurgaon
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -808,19 +823,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- bangalore -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Bangalore</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="far fa-arrow-alt-circle-right"></i>
-                        <img src="../../../assets/images/common/icon2.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Bangalore
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -841,19 +852,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- hyderabad -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Hyderabad</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i class="far fa-caret-square-right"></i>
-                        <img src="../../../assets/images/common/icon3.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Hyderabad
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -875,19 +882,27 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <app-carousel-item *ngIf="puneSpaces.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="puneSpaces">
+        </app-carousel-item>
+    
+        <app-carousel-item *ngIf="delhiSpaces.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="delhiSpaces">
+        </app-carousel-item>
+    
+        <app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="noidaSpaces">
+        </app-carousel-item>
+    
+        <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
+        </app-carousel-item>
 
         <!-- pune -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Pune</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i class="far fa-caret-square-right"></i>
-                        <img src="../../../assets/images/common/icon3.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Pune
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -909,19 +924,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- mumbai -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Mumbai</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="fab fa-stack-overflow"></i>
-                        <img src="../../../assets/images/common/icon1.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Mumbai
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -943,19 +954,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- noida -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Noida</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="fab fa-gg"></i>
-                        <img src="../../../assets/images/common/icon4.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Noida
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -977,19 +984,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- delhi -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Delhi</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="far fa-check-square"></i>
-                        <img src="../../../assets/images/common/icon6.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Delhi
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -1011,19 +1014,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- chennai -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Chennai</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="far fa-check-square"></i>
-                        <img src="../../../assets/images/common/icon6.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Chennai
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -1045,19 +1044,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- bhubaneswar -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Top Spaces in Bhubaneswar</h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;"><i style="font-size: 16px;" class="far fa-check-square"></i>
-                        <img src="../../../assets/images/common/icon6.png" style="height: 20px;width: 20px;" />
-                        Top Spaces in Bhubaneswar
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -1079,18 +1074,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Premium Coliving -->
-        <div class="container pb-4">
+        <!-- <div class="container pb-4">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
                         <h2>Premium Coliving<img style="height: 12px; width: auto; position:absolute;top: 6px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f1a6bb50443237b8dfd6474ee1fac1686aa69fd.png" alt=""></h2>
                     </div>
-                    <!-- <p class="facility-head" style="font-size: 16px; font-weight: 500;">
-                        Premium Coliving<img style="height: 12px; width: auto; position:absolute;top: 6px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f1a6bb50443237b8dfd6474ee1fac1686aa69fd.png" alt="">
-                    </p> -->
                 </div>
             </div>
             <div class="container pb-2">
@@ -1112,7 +1104,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <app-carousel-item [pageTitle]="'Premium Coliving Flock'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.flock">
+        </app-carousel-item>
+    
+        <app-carousel-item [pageTitle]="'Premium Coliving Stanza'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.stanza">
+        </app-carousel-item>
+    
+        <app-carousel-item [pageTitle]="'Premium Coliving HelloWorld'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.HelloWorld">
+        </app-carousel-item>
+    
+        <app-carousel-item [pageTitle]="'Premium Coliving Orion'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.Orion">
+        </app-carousel-item>
 
     </section>
     <!-- --------------------------->
@@ -1125,7 +1129,6 @@
                     <div class="page-title">
                         <h2>Book Your Coliving in 3 Easy Steps</h2>
                     </div>
-                    <!-- <p class="facility-head">Book Your Coliving in 3 Easy Steps</p> -->
                 </div>
             </div>
             <div class="row">

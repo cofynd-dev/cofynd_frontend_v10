@@ -1,4 +1,50 @@
-<div class="listing-card">
+<div class="property_item listing_card">
+    <div *ngIf="workspace.images.length" class="property-img">
+        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
+            <div *nguCarouselDef="let images; let i = index;" class="item">
+                <img rel="preload" (click)="openWorkSpace(workspace)" style="cursor: pointer;" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
+            </div>
+            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
+            <ul class="myPoint onlyMobile" NguCarouselPoint>
+                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+            </ul>
+        </ngu-carousel>
+    </div>
+    <div class="image" *ngIf="!workspace.images.length"></div>
+    <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
+    </app-favorite-button>
+    <div class="space_details">
+        <div class="property-dis">
+            <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
+            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
+            <p class="capacity"><img src="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
+        <p class="capacity"><img class="img-fluid" src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
+        </div>
+        <div class="property-foot align-items-end">
+            <div *ngIf="workspace.show_price" class="price">
+                <ng-template [ngIf]="forAll">
+                    <span class="rent_title">Starting from</span>
+                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}/- <small>{{ workspace.price_type }}</small></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span>/{{ workspace.price_type }}</span></div>
+                </ng-template>
+                <ng-template [ngIf]="!forAll">
+                    <span class="rent_title">Starting from</span>
+                    <i class="fa-solid fa-indian-rupee-sign"></i> {{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span>{{workspace.plans[workspace.plans.length - 1].duration }}</span>
+                </ng-template>
+            </div>
+            <div *ngIf="!workspace.show_price" class="price">
+                <span class="rent_title">Starting from</span> on request
+            </div>
+                <!-- <ng-template [ngIf]="forAll">
+                    <span class="rent_title">Starting from</span>₹{{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{workspace.plans[workspace.plans.length - 1].duration }}</span>
+                </ng-template></div> -->
+            <div class="button"><a (click)="openDetailsPage(workspace)" target="_blank" tabindex="0">Explore More</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="listing-card">
     <div class="image" *ngIf="workspace.images.length">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
             <div *nguCarouselDef="let images; let i = index;" class="item">
@@ -20,7 +66,6 @@
             <i class="fa-solid fa-location-dot"></i> {{ workspace.location.address1 }}
         </p>
         <p class="capacity">
-            <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
             <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
         </p>
         <p class="capacity">
@@ -71,4 +116,4 @@
       </a>
         </div>
     </div>
-</div>
+</div> -->
