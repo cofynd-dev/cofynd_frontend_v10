@@ -57,6 +57,7 @@ import { CarouselItemComponent } from './components/carousel-item/carousel-item.
 import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-nearme-popup.component';
 import { CuratedCityPopupComponent } from './components/curated-city-popup/curated-city-popup.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { OurClientsComponent } from './components/our-clients/our-clients.component';
 
 const MODULES = [
   CommonModule,
@@ -99,6 +100,7 @@ const COMPONENTS = [
   HomeNearmePopupComponent,
   CuratedCityPopupComponent,
   CarouselItemComponent,
+  OurClientsComponent
 ];
 const DIRECTIVES = [
   LoadingButtonDirective,
@@ -124,7 +126,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -156,4 +158,4 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     },
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
