@@ -18,17 +18,19 @@
                                     <div class="property-dis">
                                         <h4>{{space.name}}</h4>
                                         <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space.address}}</p>
-                                        <p class="capacity">
-                                            <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
-                                            <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                        </p>
-                                        <p class="capacity">
-                                            <img src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar
-                                        </p>
+                                        <div class="amenities_card">
+                                          <p class="capacity">
+                                              <!-- <i class="fal fa-user-tie"></i> Seating Capacity : {{ workspace.no_of_seats }} -->
+                                              <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                          </p>
+                                          <p class="capacity">
+                                              <img src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar
+                                          </p>
+                                        </div>
                                     </div>
                                     <div class="property-foot align-items-end">
                                         <div class="price"><span class="rent_title">Starting from</span>₹{{space.starting}}/-<span>month</span></div>
-                                        <div class="button mobilehide"><a (click)="openWorkSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
+                                        <div class="button"><a (click)="openWorkSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,12 +83,14 @@
                                     <div class="property-dis">
                                         <h4>{{space.name}}</h4>
                                         <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space.address}}</p>
-                                        <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-                                        <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                                        <div class="amenities_card">
+                                          <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
+                                          <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                                        </div>
                                     </div>
                                     <div class="property-foot align-items-end">
                                         <div class="price"><span class="rent_title">Starting from</span>₹{{space.starting}}/- <span>month</span></div>
-                                        <div class="button mobilehide"><a (click)="openCoLivingSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
+                                        <div class="button"><a (click)="openCoLivingSpace(space.slug,space.country)" tabindex="0">Explore More</a></div>
                                     </div>
                                 </div>
                                 <!-- <div (click)="openCoLivingSpace(space.slug,space.country)" class="popular-space-box">
