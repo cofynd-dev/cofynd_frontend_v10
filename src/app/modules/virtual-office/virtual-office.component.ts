@@ -318,4 +318,8 @@ export class VirtualOfficeComponent implements OnInit {
   openWorkSpace(slug: string) {
     this.router.navigate([`/virtual-office/${slug.toLowerCase().trim()}`]);
   }
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }

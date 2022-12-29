@@ -16,14 +16,14 @@ export class EnterpriseComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private _formBuilder: FormBuilder,
-  ) {}
+  ) { }
 
   submitted = false;
   loading: boolean;
   showSuccessMessage: boolean;
   contactUserName: string;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
@@ -79,4 +79,12 @@ export class EnterpriseComponent implements OnInit {
   scrollToElement(element: HTMLElement) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
+
+  seeMore: boolean = true;
+  togglePanIndia() {
+    this.seeMore = !this.seeMore;
+  }
 }
+
+
+
