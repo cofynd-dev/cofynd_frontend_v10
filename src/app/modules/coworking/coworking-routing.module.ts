@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'bhubaneswar',
     component: CoworkingCityComponent,
   },
+  // {
+  //   path: 'patna',
+  //   component: CoworkingCityComponent,
+  // },
   {
     path: 'delhi/:locality',
     component: CoworkingLocalityComponent,
