@@ -1175,19 +1175,24 @@ body {
     @media(max-width:480px) {
         h4 {
             margin: 10px 0 5px !important;
-            font-size: 16px;
-            line-height: 20px;
+            font-size: 14px;
+            line-height: 18px;
             font-weight: 500;
         }
         p {
             padding-right: 0px;
-            font-size: 15px;
+            font-size: 10px !important;
             font-weight: 400;
-            text-align: justify;
+            text-align: justify !important;
             margin-bottom: 10px;
+            line-height: 16px !important;
             br {
                 display: none;
             }
+        }
+        .link-text {
+            margin-bottom: 2px;
+            text-align: center !important;
         }
         .space-btn {
             margin: auto;
@@ -1771,6 +1776,10 @@ h3.site_title {
 	padding-top: 70px;
 	padding-bottom: 100px;
 	position: relative;
+}
+.virtual_office_banner {
+	padding-top: 70px;
+	padding-bottom: 240px;
 }
 .innerpage_banner .innerbanner_img {
 	width: 50%;
@@ -4850,8 +4859,8 @@ h3.site_title {
         top: -8px;
     }
     .site_btn {
-        padding: 4px 12px !important;
-        font-size: 9px !important;
+        padding: 3px 12px !important;
+        font-size: 8px !important;
         border-radius: 6px;
     }
     .categories_sec .col-4,
@@ -5455,7 +5464,7 @@ h3.site_title {
         border: none;
     }
     .list_your_space_sec .cta_content .site_btn {
-        padding: 7px 14px;
+        padding: 6px 12px !important;
         font-size: 11px;
     }
     .list_your_space_sec .img-fluid {
@@ -6214,8 +6223,12 @@ h3.site_title {
     .client_logo_sec .row.mt-3 {
         margin-top: 0px !important;
     }
+    
     .list_now_sec .row {
         padding: 0px 10px;
+    }
+    .list_your_space_sec .row {
+        padding: 15px 5px;
     }
     .list_your_space_sec .cta_content {
         padding: 0px 0px;
@@ -6228,6 +6241,7 @@ h3.site_title {
     }
     .list_your_space_sec .cta_content h4 {
         margin-bottom: 5px !important;
+        font-size: 10px !important;
     }
     .faqs_area {
         padding-top: 30px;
@@ -6670,6 +6684,8 @@ h3.site_title {
     .faqs_area .pt-3 {
         text-align: center;
         padding-top: 0px !important;
+        font-size: 10px !important;
+        line-height: 15px !important;
     }
     .virtual_office_query {
         padding-top: 40px;
@@ -6762,6 +6778,11 @@ h3.site_title {
     //     -webkit-transition: none !important;
     //     transition: none !important;
     // }
+    .virtual_office_cta .cta_content p {
+        font-size: 9px !important;
+        line-height: 4px !important;
+        margin-bottom: 10px;
+    }
     
     
     
