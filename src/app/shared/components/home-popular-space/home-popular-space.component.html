@@ -15,7 +15,7 @@
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
                             <div (click)="openWorkSpace(space.address.split(',').pop(),space.city,space.country,space.countryId)" class="top-city-item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <div class="top-city-img">
-                                    <img  [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                    <img [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
                                 </div>
                                 <div class="top-city-text">
                                     <h4>{{removedash(space?.city) | titlecase}}</h4>
@@ -39,7 +39,7 @@
 
                 <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
                 </button>
-            <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
             </button>
 
                 <!-- <div class="popular-space-carousel">
@@ -79,7 +79,7 @@
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==popularCoWorkingSpaces.length-1)?'last-slide':null">
                             <div (click)="openCoLivingSpace(space.slug)" class="top-city-item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <div class="top-city-img">
-                                    <img  [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                    <img [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
                                 </div>
                                 <div class="top-city-text">
                                     <h4>{{ removedash(space.name) | titlecase }}</h4>
