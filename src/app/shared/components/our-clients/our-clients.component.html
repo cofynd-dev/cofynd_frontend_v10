@@ -1,4 +1,4 @@
-<section class="popular-spaces top_cities_slider" [class.white-layout]="layout=== 'white'">
+<section class="our_client_sec" [class.white-layout]="layout=== 'white'">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -7,11 +7,11 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <div class="popular-space-carousel">
+                <div class="our-client-carousel">
                     <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="clients" (onMove)="onSliderMove($event)">
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==clients.length-1)?'last-slide':null">
-                            <div class="top-city-item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                                <div class="top-city-img">
+                            <div class="our_client_item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <div class="client-log">
                                     <img [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
                                 </div>
                             </div>

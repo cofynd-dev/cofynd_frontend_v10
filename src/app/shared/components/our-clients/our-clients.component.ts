@@ -22,7 +22,7 @@ export class OurClientsComponent implements OnInit {
   popularSpaceCarousel: NguCarousel<OurClient>;
   active = 0;
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1.4, sm: 1.4, md: 3, lg: 4, all: 0 },
+    grid: { xs: 2.5, sm: 2.5, md: 4.5, lg: 6.5, all: 0 },
     slide: 1,
     speed: 250,
     point: {

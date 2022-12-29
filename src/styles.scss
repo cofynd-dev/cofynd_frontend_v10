@@ -6738,6 +6738,30 @@ h3.site_title {
     .virtual_curated_sec {
         padding: 30px 0px 20px;
     }
+    .our_client_sec {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+    .our_client_sec .ngucarousel .ngucarousel-items {
+        scrollbar-width: none !important;
+        transform: none !important;
+        overflow-x: scroll;
+        transition: none !important;
+    }
+    // .top_cities_slider .popular-space-carousel .ngucarousel .ngucarousel-items {
+    //     display: block !important;
+    //     width: 100%;
+    //     height: auto !important;
+    //     overflow-x: scroll;
+    //     padding: 0px;
+    //     margin: 0;
+    //     white-space: nowrap;
+    //     scrollbar-width: none !important;
+    //     -webkit-transform: none !important;
+    //     transform: none !important;
+    //     -webkit-transition: none !important;
+    //     transition: none !important;
+    // }
     
     
     
