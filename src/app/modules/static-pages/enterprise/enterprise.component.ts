@@ -29,7 +29,7 @@ export class EnterpriseComponent implements OnInit {
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
-    org_name: ['', Validators.required],
+    city: ['', Validators.required],
     requirements: ['', Validators.required],
   });
 
@@ -57,9 +57,10 @@ export class EnterpriseComponent implements OnInit {
           phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
           email: this.enterpriseFormGroup.controls['email'].value,
           name: this.enterpriseFormGroup.controls['name'].value,
-          org_name: this.enterpriseFormGroup.controls['org_name'].value,
           requirements: this.enterpriseFormGroup.controls['requirements'].value,
         },
+        city: this.enterpriseFormGroup.controls['city'].value,
+        mx_Page_Url: 'Enterprise Page'
       };
       this.userService.createLead(object).subscribe(
         () => {

@@ -161,7 +161,7 @@ export class VirtualOfficeComponent implements OnInit {
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
-    interested_in: ['', Validators.required],
+    city: ['', Validators.required],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -226,7 +226,8 @@ export class VirtualOfficeComponent implements OnInit {
           email: this.queryFormGroup.controls['email'].value,
           name: this.queryFormGroup.controls['name'].value,
         },
-        interested_in: this.queryFormGroup.controls['interested_in'].value,
+        city: this.queryFormGroup.controls['city'].value,
+        mx_Page_Url: 'Virtual Office Page'
       };
       this.userService.createLead(object).subscribe(
         () => {
