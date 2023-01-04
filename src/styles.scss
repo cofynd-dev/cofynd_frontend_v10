@@ -4736,6 +4736,35 @@ h3.site_title {
 .coworking_feature_spaces {
     background-color: #FFFDF5;
 }
+.dropdown_field.ng-select .ng-select-container {
+	box-shadow: none;
+    border: none !important;
+    border-bottom: 1px solid rgba(0,0,0,0.2) !important;
+    border-radius: 0px !important;
+    background-color: #fff !important;
+    box-shadow: none;
+    z-index: 0 !important;
+    height: auto !important;
+    min-height: 41px !important;
+}
+.dropdown_field.ng-select .ng-select-container .ng-value-container {
+	padding-left: 35px;
+}
+.dropdown_field.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+	color: #212529;
+	font-size: 13px;
+	line-height: 20px !important;
+}
+.dropdown_field.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+	top: 0;
+	left: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+.dropdown_field .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+	color: #212529;
+	font-size: 13px;
+}
 
 
 
@@ -6926,6 +6955,20 @@ h3.site_title {
     }
     .faqs_accordion .panel-heading {
         padding: 10px 15px 10px 5px;
+    }
+    .dropdown_field.ng-select .ng-select-container .ng-value-container {
+        padding-left: 30px;
+    }
+    .dropdown_field.ng-select .ng-select-container {
+        min-height: 30px !important;
+    }
+    .dropdown_field.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+        font-size: 10px;
+        line-height: 15px !important;
+    }
+    .dropdown_field .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+        font-size: 10px;
+        line-height: 15px;
     }
     
     
