@@ -104,8 +104,8 @@ export class ContactUsComponent implements OnDestroy {
       email: ['', [Validators.required, CustomValidators.emailValidator]],
       phone_number: ['', [Validators.required, CustomValidators.phoneValidator]],
       message: ['', Validators.required],
-      interest: [null, Validators.required],
-      city: [null, Validators.required],
+      interest: ['', Validators.required],
+      city: ['', Validators.required],
     });
   }
 

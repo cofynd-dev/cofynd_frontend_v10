@@ -1,49 +1,49 @@
 <section class="contact_page_area">
-  <div class="container">
-    <div class="row contact_page_row">
-      <div class="col-md-6 col-12">
-        <div class="contact_form_area">
-          <h1>Connect with Cofynd Expert</h1>
-          <p>Our team is ready to assist you</p>
+    <div class="container">
+        <div class="row contact_page_row">
+            <div class="col-md-6 col-12">
+                <div class="contact_form_area">
+                    <h1>Connect with Cofynd Expert</h1>
+                    <p>Our team is ready to assist you</p>
 
-          <div *ngIf="showSuccessMessage" class="success-box">
-            <app-check-mark-circle></app-check-mark-circle>
-            <h6>Hi! {{ contactUserName }}</h6>
-            <h3>Thank You for Your Query</h3>
-            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
-            <a routerLink="/coworking">Search More Spaces</a>
-          </div>
+                    <div *ngIf="showSuccessMessage" class="success-box">
+                        <app-check-mark-circle></app-check-mark-circle>
+                        <h6>Hi! {{ contactUserName }}</h6>
+                        <h3>Thank You for Your Query</h3>
+                        <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
+                        <a routerLink="/coworking">Search More Spaces</a>
+                    </div>
 
-          <form *ngIf="!showSuccessMessage" class="form" [formGroup]="contactForm" appScrollToInvalidField (ngSubmit)="onSubmit()">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Name*" formControlName="name">
-                  <app-input-validation [control]="contactForm.controls.name"></app-input-validation>
-                </div>
-              </div>
+                    <form *ngIf="!showSuccessMessage" class="form" [formGroup]="contactForm" appScrollToInvalidField (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" class="form-control" placeholder="Name*" formControlName="name">
+                                    <app-input-validation [control]="contactForm.controls.name"></app-input-validation>
+                                </div>
+                            </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Email*" formControlName="email">
-                  <app-input-validation [control]="contactForm.controls.email"></app-input-validation>
-                </div>
-              </div>
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" class="form-control" placeholder="Email*" formControlName="email">
+                                    <app-input-validation [control]="contactForm.controls.email"></app-input-validation>
+                                </div>
+                            </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Phone*" formControlName="phone_number">
-                  <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
-                  <select class="form-select" class="form-control" placeholder="I am interested in" aria-label="Default select example">
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" class="form-control" placeholder="Phone*" formControlName="phone_number">
+                                    <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" placeholder="I am interested in" aria-label="Default select example">
                     <option value="" disabled>Interested in</option>
                     <option value="Coworking Space">Coworking Space</option>
                     <option value="Coliving">Coliving Space</option>
@@ -52,13 +52,13 @@
                     <option value="Talk about my membership">Talk about my membership</option>
                     <option value="Any/Other Query">Any/Other Query</option>
                     </select>
-                </div>
-              </div>
+                                </div>
+                            </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                  <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
                       <option value="" disabled>Select City*</option>
                       <option value="Delhi">Delhi</option>
                       <option value="Noida">Noida</option>
@@ -79,44 +79,44 @@
                       <option value="Patna">Patna</option>
                       <option value="Bhubaneswar">Bhubaneswar</option>
                     </select>
-                </div>
-              </div>
+                                </div>
+                            </div>
 
-              <div class="col-md-12">
-                <div class="form-group">
-                  <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
-                  <textarea type="text" class="form-control" placeholder="Requirements" formControlName="message"></textarea>
-                  <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
-                </div>
-              </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
+                                    <textarea type="text" class="form-control" placeholder="Requirements" formControlName="message"></textarea>
+                                    <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
+                                </div>
+                            </div>
 
-              <div class="col-md-12 text-center">
-                <button type="submit" [appLoadingButton]="loading" class="site_btn border_btn">Submit</button>
-              </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" [appLoadingButton]="loading" class="site_btn border_btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="contact-footer">
+                        <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> , Email : <a [href]="'mailto:' + contactInfo.email"
+                                [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email }}</a></p>
+                    </div>
+
+                </div>
             </div>
-          </form>
 
-          <div class="contact-footer">
-            <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> ,
-              Email : <a [href]="'mailto:' + contactInfo.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email }}</a></p>
-          </div>
 
+            <div class="col-md-6 col-12 form_text_area">
+                <div class="form_content text-center">
+                    <h2>Find Your Dream Space in India</h2>
+                    <div class="location">
+                        <p>Bangalore | Gurugram | Mumbai | Hyderabad | Pune | Delhi | Noida | Indore | Chennai | Ahmedabad | Kochi | Chandigarh | Jaipur | Lucknow | Kolkata | Coimbatore | Goa | Bhubaneswar and More.</p>
+                    </div>
+                </div>
+
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
+            </div>
         </div>
-      </div>
-
-
-      <div class="col-md-6 col-12 form_text_area">
-        <div class="form_content text-center">
-          <h2>Find Your Dream Space in India</h2>
-          <div class="location">
-            <p>Bangalore | Gurugram | Mumbai | Hyderabad | Pune | Delhi | Noida | Indore | Chennai | Ahmedabad | Kochi | Chandigarh | Jaipur | Lucknow | Kolkata | Coimbatore | Goa | Bhubaneswar and More.</p>
-          </div>
-        </div>
-
-        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
-      </div>
     </div>
-  </div>
 </section>
 
 
