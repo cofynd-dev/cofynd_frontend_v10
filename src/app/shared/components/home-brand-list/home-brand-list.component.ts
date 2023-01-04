@@ -18,7 +18,7 @@ export class HomeBrandListComponent {
   @Input() shouldCoLivingVisible: boolean;
   @Input() shouldOtherBrandVisible: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.loading = true;

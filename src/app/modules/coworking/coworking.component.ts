@@ -32,7 +32,7 @@ interface PopularSpace {
 @Component({
   selector: 'app-coworking',
   templateUrl: './coworking.component.html',
-  styleUrls: ['./coworking.component.scss', '../virtual-office/virtual-office.component.scss'],
+  styleUrls: ['./coworking.component.scss',],
 })
 
 export class CoworkingComponent implements OnInit, OnDestroy {
@@ -902,9 +902,47 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     {
       title: 'Parking',
       description: 'Avoid morning hassle with easy and convenient parking area availability.',
-      icon: 'amenities/bike-parking.svg',
+      icon: 'amenities/parking-icon.svg',
     },
   ];
+
+  chooseVirtualOffice = [
+    {
+      icon: 'icons/brokerage-icon.svg',
+      title: 'Zero Brokerage',
+      description: 'Find a space on Cofynd is Fast, simple and Free',
+    },
+    {
+      icon: 'icons/pricing-tag-icon.svg',
+      title: 'Exclusive Pricing & Verified Spaces',
+      description: 'Spaces Listed on cofynd have been verified by cofynd space team',
+    },
+    {
+      icon: 'icons/pan-india-icon.svg',
+      title: 'PAN India Coverage',
+      description: 'We cover India like no one else, Office Spaces across all major Indian Cities',
+    },
+  ];
+
+  coFyndAdvantages = [
+    {
+      icon: 'home/work-spaces.svg',
+      title: '25,000+ Spaces',
+      description: 'Get access to 25,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+    },
+    {
+      icon: 'home/fee.svg',
+      title: 'No Booking Fees',
+      description: "CoFynd is India's fastest growing space discovery platform that doesn't charge anything from the customers.",
+    },
+    {
+      icon: 'home/support.svg',
+      title: '100% Offline Support',
+      description: 'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
+    },
+  ];
+
+
   gurugramSpaces: any = [];
   bangloreSpaces: any = [];
   hyderabadSpaces: any = [];
@@ -1158,4 +1196,9 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
   }
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+
 }
