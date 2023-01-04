@@ -120,6 +120,9 @@
 }
 
 @media (max-width: 480px) {
+  .col-md-12.text-center {
+    text-align: left !important;
+  }
   .our_brands {
     padding: 20px 0px 20px !important;
   }

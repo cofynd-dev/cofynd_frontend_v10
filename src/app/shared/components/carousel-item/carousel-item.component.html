@@ -1,12 +1,12 @@
 <section class="popular-spaces properties_space_sec" *ngIf="coWorkingSpaces.length && shouldCoWorkingVisible" [class.white-layout]="layout=== 'white'">
     <div class="container">
         <div class="row">
+            <div class="col-md-12 text-center">
+                  <div class="main_heading title_divider">
+                      <h2>{{ pageTitle }}</h2>
+                  </div>
+            </div>
             <div class="col-md-12">
-                <div class="text-center">
-                    <div class="main_heading title_divider">
-                        <h2>{{ pageTitle }}</h2>
-                    </div>
-                </div>
                 <div class="populer_slider_area popular_coworking_slider">
                     <div class="popular-space-carousel">
                         <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coWorkingSpaces" (onMove)="onSliderMove($event)">

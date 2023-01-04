@@ -17,6 +17,9 @@ p {
     letter-spacing: 0;
     color: #272828;
 }
+button, input, optgroup, select, textarea {
+    font-family: Montserrat;
+}
 
 // Auth Dialog
 .auth-modal {
@@ -4592,7 +4595,7 @@ h3.site_title {
 .query_from_sec .input-group {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	padding-left: 32px;
-	margin-bottom: 14px;
+	margin-bottom: 20px;
 }
 .query_from_sec .input-group img {
 	width: 18px;
@@ -4611,7 +4614,7 @@ h3.site_title {
 	font-size: 13px;
 	width: 100%;
 	background-color: transparent;
-	line-height: 21px !important;
+	line-height: 15px !important;
 }
 .query_from_sec .form-select {
 	border: none;
@@ -4677,7 +4680,62 @@ h3.site_title {
 .cities_map img {
 	width: 71%;
 }
+.gradient_cta_sec {
+	padding: 40px 0px;
+}
+.gradient_cta_sec .row {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px;
+	overflow: hidden;
+}
+.gradient_cta_sec .cta_content {
+	padding: 80px 70px;
+}
+.gradient_cta_sec h4 {
+	font-size: 22px;
+	line-height: 32px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.cofynd_advantage_area {
+	padding: 40px 0px;
+}
+.cofynd_advantage_area .row {
+	padding: 30px 15px;
+	border-radius: 20px;
+	overflow: hidden;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.advantage_item img {
+	width: 40px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+.advantage_item h4 {
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 5px;
+}
+.cofynd_advantage_area h3 {
+	font-weight: 700;
+	line-height: 40px;
+	font-size: 30px;
+	padding-top: 40px;
+}
 
+.featured_space_sec {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.coworking_feature_spaces {
+    background-color: #FFFDF5;
+}
 
 
 
@@ -5695,11 +5753,11 @@ h3.site_title {
     // .similar_spaces_area .col-md-12 {
     //     padding: 0px;
     // }
-    .logos_background_img {
-        background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8aedf6a13715c3aec2f3b02476b9e8787143cda0.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+    // .logos_background_img {
+    //     background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8aedf6a13715c3aec2f3b02476b9e8787143cda0.png');
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    // }
     .properties_space_sec {
         padding: 20px 0 !important;
     }
@@ -6394,10 +6452,12 @@ h3.site_title {
     }
     .property_item {
         padding: 8px 8px !important;
+        border-radius: 10px;
     }
     .property_item .property-img {
         height: 130px;
         margin-bottom: 5px;
+        border-radius: 10px;
     }
     .property_item .property-img img {
         height: 130px !important;
@@ -6693,6 +6753,8 @@ h3.site_title {
     }
     .space_carousel {
         padding-right: 110px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     .space_carousel .property_item {
         margin: 6px 7px;
@@ -6783,7 +6845,88 @@ h3.site_title {
         line-height: 4px !important;
         margin-bottom: 10px;
     }
-    
+    .amenities_row .icon_item img {
+        height: 25px !important;
+        width: 25px !important;
+        margin: 0 !important;
+    }
+    .amenities_row h4 {
+        font-size: 10px !important;
+        line-height: 14px !important;
+        text-align: left !important;
+        font-weight: 500 !important;
+        margin-top: 4px !important;
+    }
+    .facilities_sec .icon_item.mb-5 {
+        margin-bottom: 20px !important;
+    }
+
+    .curated-item {
+		position: relative;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.curated-img {
+		position: relative;
+		height: 100px;
+	}
+	.curated-img img {
+		-o-object-fit: cover;
+		object-fit: cover;
+		height: 120px;
+	}
+	.curated-content {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.34%, rgba(0, 0, 0, 0.447625) 50.99%, #000 98.69%);
+		padding: 30px 0px 0px;
+		transition: all 0.5s;
+	}
+	.curated-item:hover .curated-content {
+		padding-bottom: 15px;
+		background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.34%, rgba(0, 0, 0, 0.447625) 50.99%, #000 98.69%);
+	}
+	.curated-content h4 {
+		margin-bottom: 7px;
+		color: #fff;
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 14px;
+	}
+    .gradient_cta_sec {
+        padding: 20px 0px 30px;
+    }
+    .gradient_cta_sec .row {
+        margin: 0;
+        border-radius: 10px;
+    }
+    .gradient_cta_sec .cta_content {
+        padding: 20px 10px;
+    }
+    .coworking_brands_slider {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+    .query_from_sec {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .featured_space_sec {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .list_your_space_sec .row {
+        border-radius: 10px;
+    }
+    .faqs_area p {
+        font-size: 10px !important;
+        line-height: 16px !important;
+    }
+    .faqs_accordion .panel-heading {
+        padding: 10px 15px 10px 5px;
+    }
     
     
 }
