@@ -43,6 +43,20 @@
               <div class="col-md-6">
                 <div class="form-group align-items-center">
                   <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                  <ng-select placeholder="I am interested in*" class="dropdown_field" [clearable]="false" [searchable]="false" formControlName="interest">
+                    <ng-option value="Coworking Space">Coworking Space</ng-option>
+                    <ng-option value="Coliving">Coliving Space</ng-option>
+                    <ng-option value="Private Office">Private Office</ng-option>
+                    <ng-option value="Customise Office">Customise Office</ng-option>
+                    <ng-option value="CoFynd of Landlords">CoFynd of Landlords</ng-option>
+                    <ng-option value="Broker Partnership Program">Broker Partnership</ng-option>
+                    <ng-option value="List Your Property">List Your Property</ng-option>
+                    <ng-option value="Any/Other Query">Any/Other Query</ng-option>
+                  </ng-select>
+                </div>
+
+                <!-- <div class="form-group align-items-center">
+                  <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                   <select class="form-select" class="form-control" placeholder="I am interested in" aria-label="Default select example">
                     <option value="" disabled>Interested in</option>
                     <option value="Coworking Space">Coworking Space</option>
@@ -52,11 +66,22 @@
                     <option value="Talk about my membership">Talk about my membership</option>
                     <option value="Any/Other Query">Any/Other Query</option>
                     </select>
-                </div>
+                </div> -->
               </div>
 
               <div class="col-md-6">
                 <div class="form-group align-items-center">
+                  <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                  <ng-select [items]="cities" class="dropdown_field"
+                    bindValue="name"
+                    bindLabel="name"
+                    placeholder="Select City*"
+                    [clearable]="false"
+                    [searchable]="false"
+                    formControlName="city">
+                  </ng-select>
+                </div>
+                <!-- <div class="form-group align-items-center">
                   <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                   <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
                       <option value="" disabled>Select City*</option>
@@ -79,7 +104,7 @@
                       <option value="Patna">Patna</option>
                       <option value="Bhubaneswar">Bhubaneswar</option>
                     </select>
-                </div>
+                </div> -->
               </div>
 
               <div class="col-md-12">
