@@ -43,7 +43,7 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
-                                        <option value="" selected disabled>I am interested in*</option>
+                                        <option value="" selected disabled style="display: none;">I am interested in*</option>
                                         <option value="Coworking Space">Coworking Space</option>
                                         <option value="Coliving">Coliving Space</option>
                                         <option value="Private Office">Private Office</option>
@@ -76,7 +76,7 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
-                                      <option value="" selected disabled>Select City*</option>
+                                      <option value="" selected disabled style="display: none;">Select City*</option>
                                       <option value="Bangalore">Bangalore</option>
                                       <option value="Gurugram">Gurugram</option>
                                       <option value="Mumbai">Mumbai</option>

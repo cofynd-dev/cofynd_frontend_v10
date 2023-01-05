@@ -8,43 +8,16 @@
                     </div>
                     <p>Cofynd provides Virtual Office solutions across India. Virtual Office help you for GST Registration & expansion of your business across India at minimal cost with no fuss.</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/workspace/day-pass.svg" alt="">
-                            <h4>Company Registration</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/workspace/hot-desk.svg" alt="">
-                            <h4>GST Registration</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/workspace/private-cabin.svg" alt="">
-                            <h4>Business Address</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/workspace/dedicated-desk.svg" alt="">
-                            <h4>Mailing Address</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/amenities/reception.svg" alt="">
-                            <h4>Reception Services</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon_item">
-                            <img src="../../../assets/images/amenities/meeting-room.svg" alt="">
-                            <h4>Meeting Room Access</h4>
-                        </div>
-                    </div>
+
+                <div class="city-list">
+                    <button (click)="locateMyLocation()" type="button">
+                    <img src="/assets/images/home/near-me.svg"
+                        alt="'Office Space for Rent near me" />
+                    Near Me
+                    </button>
+                    <a *ngFor="let city of cities" [routerLink]="city.name">
+                        <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                    </a>
                 </div>
             </div>
         </div>
@@ -80,54 +53,19 @@
     </div>
 </section>
 
-<!-- <section class="facilities_sec vitual_facilities mobilehide">
+<section class="facilities_sec vitual_facilities mobilehide">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row amenities_row">
+            <div class="col-md-4 col-4" *ngFor="let data of service">
                 <div class="icon_item mb-5">
-                    <img alt="Company Registration" src="assets/images/workspace/day-pass.svg">
-                    <h4>Company Registration</h4>
-                    <p>Register your company in your desired city without having any physical address there.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="icon_item">
-                    <img alt="GST Registration" src="assets/images/workspace/hot-desk.svg">
-                    <h4>GST Registration</h4>
-                    <p>Get a GST number for your company with all documents like NOC, Signage, Electricity Bill & more.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="icon_item">
-                    <img alt="Business Address" src="assets/images/workspace/private-cabin.svg">
-                    <h4>Business Address</h4>
-                    <p>Get your business address in the prestigious location and mention it on your visiting card and website.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="icon_item">
-                    <img alt="Mailing Address" src="assets/images/workspace/dedicated-desk.svg">
-                    <h4>Mailing Address</h4>
-                    <p>Collect all couriers at your virtual office address and forwarded them to the address given by you.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="icon_item">
-                    <img alt="Reception Services" src="assets/images/amenities/reception.svg">
-                    <h4>Reception Services</h4>
-                    <p>Get reception services for client handling, guest greeting and customer support.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="icon_item">
-                    <img alt="" src="assets/images/amenities/meeting-room.svg">
-                    <h4>Meeting Room Access</h4>
-                    <p>Get free complimentary hours of meeting rooms every month for client meetings.</p>
+                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <h4>{{data.title}}</h4>
+                    <p class="mobilehide">{{data.description}}</p>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 <section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="workSpaces">
     <div class="container">
@@ -167,27 +105,13 @@
                             <div class="button"><a (click)="routeTodetail(_centerCity.slug)" tabindex="0">Explore More</a></div>
                         </div>
                     </div>
-
-                    <!-- <div class="property-item" (click)="routeTodetail(_centerCity.slug)" *ngFor=" let _centerCity of workSpaces">
-                        <div class="property-img">
-                            <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
-                        </div>
-                        <div class="properties-content">
-                            <h4>{{_centerCity.name}}</h4>
-                            <p>{{_centerCity.location.address1}}</p>
-                            <ng-container *ngFor="let price of _centerCity.plans">
-                                <p class="price" *ngIf="price.duration === 'year'">₹{{price.price}}/- {{price.duration}}</p>
-                            </ng-container>
-                        </div>
-                        <a></a>
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="choose_virtual_office_sec">
+<section class="choosewithcofynd_sec virtual_choose_sec">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -197,36 +121,14 @@
             </div>
         </div>
         <div class="row mt-2">
-            <div class="col-md-4">
+            <div class="col-md-4" *ngFor="let data of chooseVirtual">
                 <div class="left_icon_box2">
                     <div class="icon">
-                        <img src="../../../assets/images/icons/hassle-icon.svg" alt="">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
-                        <h4>Hassle free experience. No follow-ups</h4>
-                        <p>100% digital process with no running around for compliances</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="left_icon_box2">
-                    <div class="icon">
-                        <img src="../../../assets/images/icons/fasted-icon.svg" alt="">
-                    </div>
-                    <div class="content">
-                        <h4>Fastest Document Delivery</h4>
-                        <p>Our average document delivery time is less than 3 working days</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="left_icon_box2">
-                    <div class="icon">
-                        <img src="../../../assets/images/icons/pan-india-icon.svg" alt="">
-                    </div>
-                    <div class="content">
-                        <h4>PAN India Coverage</h4>
-                        <p>We cover India like no one else, Virtual Office across all major Indian Cities</p>
+                        <h4>{{data.title}}</h4>
+                        <p>{{data.description}}</p>
                     </div>
                 </div>
             </div>
