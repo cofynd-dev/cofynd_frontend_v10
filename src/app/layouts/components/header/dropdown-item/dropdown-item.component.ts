@@ -21,7 +21,7 @@ export class DropdownItemComponent {
   country_id: any;
   image_url: string = 'http://localhost:8081/img/';
   countryNameGloble: string;
-  constructor(private workSpaceService: WorkSpaceService, private Router: Router) {}
+  constructor(private workSpaceService: WorkSpaceService, private Router: Router) { }
 
   open_menu(data: any, type: any) {
     if (this.relativeUrl == '/coworking/') {

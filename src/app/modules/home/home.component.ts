@@ -41,6 +41,9 @@ export class HomeComponent implements OnInit {
   colivingImages: any = [];
   coworkingBrandAdsImages: any = [];
   colivingBrandAdsImages: any = [];
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
   submitted = false;
@@ -80,6 +83,8 @@ export class HomeComponent implements OnInit {
     this.getPopularCoworkingSpace();
     this.getFeaturedImages();
     this.getBrandAdsImages();
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
   }
 
   ngOnInit(): void {
@@ -94,6 +99,29 @@ export class HomeComponent implements OnInit {
       );
     });
     this.loopColivingSliders();
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
   }
 
   onSliderMove(slideData: NguCarouselStore) {

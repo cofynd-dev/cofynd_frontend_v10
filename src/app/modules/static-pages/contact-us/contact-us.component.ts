@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
@@ -16,13 +16,14 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthType } from '@app/core/enum/auth-type.enum';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss'],
 })
-export class ContactUsComponent implements OnDestroy {
+export class ContactUsComponent implements OnInit, OnDestroy {
   user: User;
   contactForm: FormGroup;
   loading: boolean;
@@ -31,11 +32,13 @@ export class ContactUsComponent implements OnDestroy {
   contactUserName: string;
   cities: City[] = AVAILABLE_CITY;
   submitted = false;
-
-
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
 
   constructor(
     private configService: ConfigService,
+    private workSpaceService: WorkSpaceService,
     private userService: UserService,
     private formBuilder: FormBuilder,
     private helperService: HelperService,
@@ -48,6 +51,36 @@ export class ContactUsComponent implements OnDestroy {
     this.addClass();
     this.buildForm();
     this.addSeoTags();
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  ngOnInit() {
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    console.log(this.finalCities);
+
   }
 
   addSeoTags() {
