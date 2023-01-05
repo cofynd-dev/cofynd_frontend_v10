@@ -2153,6 +2153,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
                                     <button class="site_btn border_btn" type="submit">Submit</button>
                                 </div>
                                 <div class="col-md-12 col-12">

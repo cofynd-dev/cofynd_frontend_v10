@@ -1,5 +1,4 @@
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
@@ -15,6 +14,8 @@ import { AppConstant } from '@shared/constants/app.constant';
 import { CustomValidators } from '@shared/validators/custom-validators';
 import { ToastrService } from 'ngx-toastr';
 import { AuthType } from '@app/core/enum/auth-type.enum';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -29,6 +30,9 @@ export class ContactUsComponent implements OnDestroy {
   showSuccessMessage: boolean;
   contactUserName: string;
   cities: City[] = AVAILABLE_CITY;
+  submitted = false;
+
+
 
   constructor(
     private configService: ConfigService,
@@ -38,6 +42,7 @@ export class ContactUsComponent implements OnDestroy {
     private toastrService: ToastrService,
     private seoService: SeoService,
     private authService: AuthService,
+    private router: Router,
   ) {
     this.configService.configs.footer = false;
     this.addClass();
@@ -107,6 +112,61 @@ export class ContactUsComponent implements OnDestroy {
       interest: ['', Validators.required],
       city: ['', Validators.required],
     });
+  }
+
+  enterpriseFormGroup: FormGroup = this.formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    interested_in: ['', Validators.required],
+    requirements: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  onSubmit1() {
+    this.submitted = true;
+    if (this.enterpriseFormGroup.invalid) {
+      return;
+    } else {
+      this.loading = true;
+      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+      const object = {
+        user: {
+          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          email: this.enterpriseFormGroup.controls['email'].value,
+          name: this.enterpriseFormGroup.controls['name'].value,
+          requirements: this.enterpriseFormGroup.controls['requirements'].value,
+        },
+        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
+        city: this.enterpriseFormGroup.controls['city'].value,
+        mx_Page_Url: 'Contact-Us Page'
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.showSuccessMessage = true;
+          this.enterpriseFormGroup.reset();
+          this.submitted = false;
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message);
+        },
+      );
+    }
   }
 
   addClass() {
