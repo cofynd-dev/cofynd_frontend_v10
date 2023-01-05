@@ -77,27 +77,8 @@
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                       <option value="" selected disabled style="display: none;">Select City*</option>
-                                      <option value="Bangalore">Bangalore</option>
-                                      <option value="Gurugram">Gurugram</option>
-                                      <option value="Mumbai">Mumbai</option>
-                                      <option value="Hyderabad">Hyderabad</option>
-                                      <option value="Pune">Pune</option>
-                                      <option value="Delhi">Delhi</option>
-                                      <option value="Noida">Noida</option>
-                                      <option value="Indore">Indore</option>
-                                      <option value="Chennai">Chennai</option>
-                                      <option value="Ahmedabad">Ahmedabad</option>
-                                      <option value="Kochi">Kochi</option>
-                                      <option value="Chandigarh">Chandigarh</option>
-                                      <option value="Jaipur">Jaipur</option>
-                                      <option value="Lucknow">Lucknow</option>
-                                      <option value="Kolkata">Kolkata</option>
-                                      <option value="Coimbatore">Coimbatore</option>
-                                      <option value="Goa">Goa</option>
-                                      <option value="Bhubaneswar">Bhubaneswar</option>
-                                      <option value="Dehradun">Dehradun</option>
-                                      <option value="Patna">Patna</option>
-                                      <option value="Other">Other</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
+                                            <option value="Other">Other</option>
                                   </select>
                                     <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
                                         <div *ngIf="f['city'].errors['required']">Please select your city.</div>

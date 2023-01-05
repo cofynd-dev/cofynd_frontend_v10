@@ -959,6 +959,9 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   submitted = false;
   contactUserName: string;
   showSuccessMessage: boolean;
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
 
 
 
@@ -992,6 +995,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -1097,6 +1102,30 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.chennaiSpaces = this.formatSpaces(chennaiData);
       this.indoreSpaces = this.formatSpaces(indoreData);
     })
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
   }
 
   onSubmit() {
