@@ -906,7 +906,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     },
   ];
 
-  chooseVirtualOffice = [
+  chooseCoworking = [
     {
       icon: 'icons/brokerage-icon.svg',
       title: 'Zero Brokerage',

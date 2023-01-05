@@ -37,20 +37,9 @@ export class VirtualOfficeComponent implements OnInit {
       icon: 'workspace/day-pass.svg',
     },
     {
-      title: 'Meeting Room Access',
-      description: 'Get free complimentary hours of meeting rooms every month for client meetings.',
-      icon: 'amenities/meeting-room.svg',
-    },
-    {
       title: 'GST Registration',
       description: 'Get a GST number for your company with all documents like NOC, Signage, Electricity Bill & more.',
       icon: 'workspace/hot-desk.svg',
-    },
-    {
-      title: 'Mailing Address',
-      description:
-        'Collect all couriers at your virtual office address and forwarded them to the address given by you.',
-      icon: 'workspace/dedicated-desk.svg',
     },
     {
       title: 'Business Address',
@@ -59,9 +48,38 @@ export class VirtualOfficeComponent implements OnInit {
       icon: 'workspace/private-cabin.svg',
     },
     {
+      title: 'Mailing Address',
+      description:
+        'Collect all couriers at your virtual office address and forwarded them to the address given by you.',
+      icon: 'workspace/dedicated-desk.svg',
+    },
+    {
       title: 'Reception Services',
       description: 'Get reception services for client handling, guest greeting and customer support.',
       icon: 'amenities/reception.svg',
+    },
+    {
+      title: 'Meeting Room Access',
+      description: 'Get free complimentary hours of meeting rooms every month for client meetings.',
+      icon: 'amenities/meeting-room.svg',
+    },
+  ];
+
+  chooseVirtual = [
+    {
+      icon: 'icons/hassle-icon.svg',
+      title: 'Hassle free experience. No follow-ups',
+      description: '100% digital process with no running around for compliances',
+    },
+    {
+      icon: 'icons/fasted-icon.svg',
+      title: 'Fastest Document Delivery',
+      description: 'Our average document delivery time is less than 3 working days',
+    },
+    {
+      icon: 'icons/pan-india-icon.svg',
+      title: 'PAN India Coverage',
+      description: 'We cover India like no one else, Virtual Office across all major Indian Cities',
     },
   ];
 
