@@ -934,9 +934,9 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
-      icon: 'home/fee.svg',
-      title: 'No Booking Fees',
-      description: "CoFynd is India's fastest growing space discovery platform that doesn't charge anything from the customers.",
+      icon: 'icons/brokerage-icon.svg',
+      title: 'Zero Brokerage',
+      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
     },
     {
       icon: 'home/support.svg',
