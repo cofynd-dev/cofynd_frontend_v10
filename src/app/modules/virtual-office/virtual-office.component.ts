@@ -133,6 +133,9 @@ export class VirtualOfficeComponent implements OnInit {
   longitute: any;
   workSpaces: WorkSpace[];
   submitted = false;
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
 
   constructor(
     private bsModalService: BsModalService,
@@ -155,6 +158,8 @@ export class VirtualOfficeComponent implements OnInit {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
   }
 
   queryFormGroup: FormGroup = this._formBuilder.group({
@@ -188,6 +193,29 @@ export class VirtualOfficeComponent implements OnInit {
       );
     });
     this.addSeoTags();
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
   }
 
   getCurrentPosition(): any {
