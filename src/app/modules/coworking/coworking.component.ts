@@ -930,8 +930,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   coFyndAdvantages = [
     {
       icon: 'home/work-spaces.svg',
-      title: '25,000+ Spaces',
-      description: 'Get access to 25,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+      title: '100,000+ Spaces',
+      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
       icon: 'home/fee.svg',

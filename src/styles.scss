@@ -3020,12 +3020,12 @@ h3.site_title {
     padding: 20px 0px 0px;
 }
 
-.properties_section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    margin-bottom: 5px;
-}
+// .properties_section {
+//     padding-top: 20px;
+//     padding-bottom: 20px;
+//     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+//     margin-bottom: 5px;
+// }
 
 .amenities_icon {
     display: flex;
@@ -4842,7 +4842,15 @@ h3.site_title {
 }
 
 .office_space_banner {
-    padding-bottom: 170px;
+	padding-bottom: 100px;
+	padding-top: 150px;
+}
+.office_space_banner .innerbanner_img {
+	height: 590px;
+}
+.office_space_banner .innerbanner_img img {
+	height: 590px;
+	object-fit: cover;
 }
 
 .top_cities_carousel {
@@ -4922,10 +4930,11 @@ h3.site_title {
 }
 
 .office_top_properties {
-    padding-bottom: 100px;
+	padding-bottom: 40px;
+	padding-top: 40px;
 }
 
-.office_space_query {
+.query_form {
     padding-bottom: 80px;
 }
 
@@ -4975,15 +4984,6 @@ h3.site_title {
     top: 2px;
     color: #ADD3F1;
     font-size: 18px;
-}
-
-.office_delhi_properties {
-    padding-bottom: 60px;
-}
-
-.office_noida_properties {
-    padding-top: 80px;
-    padding-bottom: 70px;
 }
 
 .office_dream_area {
@@ -5365,6 +5365,15 @@ h3.site_title {
     color: #212529;
     font-size: 13px;
 }
+.officespace_cta1 {
+	padding: 20px 0px 30px;
+}
+.officespace_cta2 {
+	padding: 20px 0px 30px;
+}
+.our_brands {
+	padding: 50px 0px 60px;
+}
 
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {
@@ -5617,6 +5626,9 @@ h3.site_title {
     .search-description ul,
     .search-description p {
         margin-bottom: 10px;
+    }
+    .banner_content {
+        padding: 40px 15px 40px 15px;
     }
     .listing-card .carousel-arrow {
         font-size: 8px;
@@ -7395,6 +7407,36 @@ h3.site_title {
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    // .choose_item_slider {
+    //     overflow-x: scroll;
+    //     scrollbar-width: none !important;
+    //     padding-right: 110px;
+    //     padding-top: 5px;
+    //     padding-bottom: 5px;
+    //     display: block;
+    //     width: 100%;
+    //     height: auto;
+    //     overflow-x: scroll;
+    //     padding: 0px;
+    //     padding-top: 0px;
+    //     padding-right: 0px;
+    //     padding-bottom: 0px;
+    //     margin: 0;
+    //     white-space: nowrap;
+    // }
+    // .choose_item_slider .col-md-4 {
+    //     display: inline-block;
+    //     margin: 0 5px;
+    //     background-size: cover;
+    //     position: relative;
+    //     -webkit-box-flex: 0;
+    //     flex: 0 0 71.4285714286%;
+    //     width: 71.429%;
+    //     overflow: hidden;
+    //     vertical-align: top;
+    //     max-width: 100%;
+    //     padding: 0px;
+    // }
     .choosewithcofynd_sec .left_icon_box2 {
         background: transparent;
         border: none;
@@ -7566,4 +7608,23 @@ h3.site_title {
         font-size: 10px;
         line-height: 15px;
     }
+    .office_facilities {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .office_curated_office {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .officespace_cta1 .cta_content, .officespace_cta2 .cta_content {
+        padding: 20px 0px;
+    }
+    .best_officespace_near {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+    .cta_content h4 br {
+        display: none;
+    }
+    
 }

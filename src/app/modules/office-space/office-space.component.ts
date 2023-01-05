@@ -18,7 +18,7 @@ declare var $: any;
 @Component({
   selector: 'app-office-space',
   templateUrl: './office-space.component.html',
-  styleUrls: ['./office-space.component.scss', '../virtual-office/virtual-office.component.scss'],
+  styleUrls: ['./office-space.component.scss'],
 })
 export class OfficeSpaceComponent implements OnInit {
   menuModalRef: BsModalRef;
@@ -75,37 +75,108 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
+  // service = [
+  //   {
+  //     title: 'Fully Furnished',
+  //     description: 'Working in a fully-furnished office space is a privilege which can save you a lot of bucks.',
+  //     icon: 'office-space/icons8-armchair-100 copy.png',
+  //   },
+  //   {
+  //     title: 'Long Lease',
+  //     description: 'We want to support your business for a long run and that’s why we offer long lease office spaces.',
+  //     icon: 'office-space/icons8-term-100.png',
+  //   },
+  //   {
+  //     title: 'Fixed Rental',
+  //     description: 'We ensure the most reasonable price offered after a good negotiation done by our space experts.',
+  //     icon: 'office-space/no-booking-fee.svg',
+  //   },
+  //   {
+  //     title: 'Approved space',
+  //     description:
+  //       'Our dedicated team visits each and every space and inspect thoroughly to provide you with the best.',
+  //     icon: 'office-space/security.svg',
+  //   },
+  //   {
+  //     title: 'Flexible Terms',
+  //     description: 'We have all flexible terms to grow your business in every possible way.',
+  //     icon: 'office-space/icons8-terms-and-conditions-100 copy.png',
+  //   },
+  //   {
+  //     title: '24/7 Support',
+  //     description: "CoFynd's Expert team is available 24*7 for your any doubts or queries.",
+  //     icon: 'office-space/icons8-online-support-100.png',
+  //   },
+  // ];
+
+
   service = [
     {
-      title: 'Long Lease',
-      description: 'We want to support your business for a long run and that’s why we offer long lease office spaces.',
-      icon: 'office-space/icons8-term-100.png',
-    },
-    {
-      title: 'Fixed Rental',
-      description: 'We ensure the most reasonable price offered after a good negotiation done by our space experts.',
-      icon: 'office-space/no-booking-fee.svg',
-    },
-    {
-      title: 'Approved space',
-      description:
-        'Our dedicated team visits each and every space and inspect thoroughly to provide you with the best.',
-      icon: 'office-space/security.svg',
-    },
-    {
-      title: 'Flexible Terms',
-      description: 'We have all flexible terms to grow your business in every possible way.',
-      icon: 'office-space/icons8-terms-and-conditions-100 copy.png',
-    },
-    {
       title: 'Fully Furnished',
-      description: 'Working in a fully-furnished office space is a privilege which can save you a lot of bucks.',
+      description: 'Get all the comforts of a fully furnished office space available for rent equipped with all the amenities.',
       icon: 'office-space/icons8-armchair-100 copy.png',
     },
     {
-      title: '24/7 Support',
-      description: "CoFynd's Expert team is available 24*7 for your any doubts or queries.",
-      icon: 'office-space/icons8-online-support-100.png',
+      title: 'No Extra Bills',
+      description: 'Our office space includes everything you need, with no hidden fees or extra bills to worry about.',
+      icon: 'icons/no-bill-icon.svg',
+    },
+    {
+      title: 'Flexible Lease',
+      description: 'Our fully furnished options offer short-term and long-term rental options to suit your needs.',
+      icon: 'icons/flexible-lease-icon.svg',
+    },
+    {
+      title: 'Regular Cleaning',
+      description:
+        'Our office spaces come with regular cleaning services, so you can work without worrying about maintenance.',
+      icon: 'icons/housekeeping-icon.svg',
+    },
+    {
+      title: 'Professional Host',
+      description: 'Our office spaces come with a professional host to greet your guests and ensure a smooth, welcoming.',
+      icon: 'icons/day-pass.svg',
+    },
+    {
+      title: 'Amazing Community',
+      description: "Join a community of professionals in office spaces. Network and collaborate with like-minded individuals.",
+      icon: 'icons/community-icon.svg',
+    },
+  ];
+
+  chooseOffice = [
+    {
+      icon: 'icons/hassle-icon.svg',
+      title: 'Hassle-free set-up in the space',
+      description: 'Finding an apartment on CoFynd is Fast and Free.',
+    },
+    {
+      icon: 'icons/verified-icon.svg',
+      title: 'As flexible as you need it to be',
+      description: 'Real images and verified properties by our agents.',
+    },
+    {
+      icon: 'icons/tenant-icon.svg',
+      title: "It's quick, easy and budget savvy",
+      description: 'Families, Couples, or Bachelors freedom to choose your tenant.',
+    },
+  ];
+
+  coFyndAdvantages = [
+    {
+      icon: 'home/work-spaces.svg',
+      title: '100,000+ Spaces',
+      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+    },
+    {
+      icon: 'icons/brokerage-icon.svg',
+      title: 'Zero Brokerage',
+      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+    },
+    {
+      icon: 'home/support.svg',
+      title: '100% Offline Support',
+      description: 'We provide complete offline support from choosing the best space, scheduling site visits, bookings and after sales.',
     },
   ];
 
