@@ -162,6 +162,7 @@ export class VirtualOfficeComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
     city: ['', Validators.required],
+    requirements: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -225,6 +226,7 @@ export class VirtualOfficeComponent implements OnInit {
           phone_number: this.queryFormGroup.controls['phone_number'].value,
           email: this.queryFormGroup.controls['email'].value,
           name: this.queryFormGroup.controls['name'].value,
+          requirements: this.queryFormGroup.controls['requirements'].value,
         },
         city: this.queryFormGroup.controls['city'].value,
         mx_Page_Url: 'Virtual Office Page'
@@ -234,7 +236,8 @@ export class VirtualOfficeComponent implements OnInit {
           this.loading = false;
           this.queryFormGroup.reset();
           this.submitted = false;
-          this.toastrService.success('Your query submitted successfully, we connect with you soon..');
+          this.router.navigate(['/thank-you']);
+          // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
         },
         error => {
           this.loading = false;
