@@ -1,61 +1,64 @@
 <section class="contact_page_area">
-  <div class="container">
-    <div class="row contact_page_row">
-      <div class="col-md-6 col-12">
-        <div class="contact_form_area">
-          <h1>Connect with Cofynd Expert</h1>
-          <p>Our team is ready to assist you</p>
+    <div class="container">
+        <div class="row contact_page_row">
+            <div class="col-md-6 col-12">
+                <div class="contact_form_area">
+                    <h1>Connect with Cofynd Expert</h1>
+                    <p>Our team is ready to assist you</p>
+                    <form *ngIf="!showSuccessMessage" class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit1()" appScrollToInvalidField>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" class="form-control" placeholder="Name*" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name">
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                    </div>
+                                </div>
+                            </div>
 
-          <div *ngIf="showSuccessMessage" class="success-box">
-            <app-check-mark-circle></app-check-mark-circle>
-            <h6>Hi! {{ contactUserName }}</h6>
-            <h3>Thank You for Your Query</h3>
-            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
-            <a routerLink="/coworking">Search More Spaces</a>
-          </div>
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" class="form-control" placeholder="Email*" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email">
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                        <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                    </div>
+                                </div>
+                            </div>
 
-          <form *ngIf="!showSuccessMessage" class="form" [formGroup]="contactForm" appScrollToInvalidField (ngSubmit)="onSubmit()">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Name*" formControlName="name">
-                  <app-input-validation [control]="contactForm.controls.name"></app-input-validation>
-                </div>
-              </div>
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    <input type="tel" class="form-control" placeholder="Phone*" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number">
+                                    <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                        <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                    </div>
+                                </div>
+                            </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Email*" formControlName="email">
-                  <app-input-validation [control]="contactForm.controls.email"></app-input-validation>
-                </div>
-              </div>
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
+                                        <option value="" selected disabled>I am interested in*</option>
+                                        <option value="Coworking Space">Coworking Space</option>
+                                        <option value="Coliving">Coliving Space</option>
+                                        <option value="Private Office">Private Office</option>
+                                        <option value="Customise Office">Customise Office</option>
+                                        <option value="CoFynd of Landlords">CoFynd of Landlords</option>
+                                        <option value="Broker Partnership Program">Broker Partnership</option>
+                                        <option value="List Your Property">List Your Property</option>
+                                        <option value="Any/Other Query">Any/Other Query</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['interested_in'].errors['required']">Please select your interest.</div>
+                                    </div>
+                                </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                  <input type="text" class="form-control" placeholder="Phone*" formControlName="phone_number">
-                  <app-input-validation [control]="contactForm.controls.phone_number"></app-input-validation>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
-                  <ng-select placeholder="I am interested in*" class="dropdown_field" [clearable]="false" [searchable]="false" formControlName="interest">
-                    <ng-option value="Coworking Space">Coworking Space</ng-option>
-                    <ng-option value="Coliving">Coliving Space</ng-option>
-                    <ng-option value="Private Office">Private Office</ng-option>
-                    <ng-option value="Customise Office">Customise Office</ng-option>
-                    <ng-option value="CoFynd of Landlords">CoFynd of Landlords</ng-option>
-                    <ng-option value="Broker Partnership Program">Broker Partnership</ng-option>
-                    <ng-option value="List Your Property">List Your Property</ng-option>
-                    <ng-option value="Any/Other Query">Any/Other Query</ng-option>
-                  </ng-select>
-                </div>
-
-                <!-- <div class="form-group align-items-center">
+                                <!-- <div class="form-group align-items-center">
                   <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                   <select class="form-select" class="form-control" placeholder="I am interested in" aria-label="Default select example">
                     <option value="" disabled>Interested in</option>
@@ -67,21 +70,40 @@
                     <option value="Any/Other Query">Any/Other Query</option>
                     </select>
                 </div> -->
-              </div>
+                            </div>
 
-              <div class="col-md-6">
-                <div class="form-group align-items-center">
-                  <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                  <ng-select [items]="cities" class="dropdown_field"
-                    bindValue="name"
-                    bindLabel="name"
-                    placeholder="Select City*"
-                    [clearable]="false"
-                    [searchable]="false"
-                    formControlName="city">
-                  </ng-select>
-                </div>
-                <!-- <div class="form-group align-items-center">
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
+                                      <option value="" selected disabled>Select City*</option>
+                                      <option value="Bangalore">Bangalore</option>
+                                      <option value="Gurugram">Gurugram</option>
+                                      <option value="Mumbai">Mumbai</option>
+                                      <option value="Hyderabad">Hyderabad</option>
+                                      <option value="Pune">Pune</option>
+                                      <option value="Delhi">Delhi</option>
+                                      <option value="Noida">Noida</option>
+                                      <option value="Indore">Indore</option>
+                                      <option value="Chennai">Chennai</option>
+                                      <option value="Ahmedabad">Ahmedabad</option>
+                                      <option value="Kochi">Kochi</option>
+                                      <option value="Chandigarh">Chandigarh</option>
+                                      <option value="Jaipur">Jaipur</option>
+                                      <option value="Lucknow">Lucknow</option>
+                                      <option value="Kolkata">Kolkata</option>
+                                      <option value="Coimbatore">Coimbatore</option>
+                                      <option value="Goa">Goa</option>
+                                      <option value="Bhubaneswar">Bhubaneswar</option>
+                                      <option value="Dehradun">Dehradun</option>
+                                      <option value="Patna">Patna</option>
+                                      <option value="Other">Other</option>
+                                  </select>
+                                    <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group align-items-center">
                   <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                   <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
                       <option value="" disabled>Select City*</option>
@@ -105,43 +127,43 @@
                       <option value="Bhubaneswar">Bhubaneswar</option>
                     </select>
                 </div> -->
-              </div>
+                            </div>
 
-              <div class="col-md-12">
-                <div class="form-group">
-                  <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
-                  <textarea type="text" class="form-control" placeholder="Requirements" formControlName="message"></textarea>
-                  <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
+                                    <textarea type="text" class="form-control" placeholder="Requirements" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements"></textarea>
+                                    <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button type="submit" [appLoadingButton]="loading" class="site_btn border_btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="contact-footer">
+                        <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> , Email : <a [href]="'mailto:' + contactInfo.email"
+                                [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email }}</a></p>
+                    </div>
+
                 </div>
-              </div>
-
-              <div class="col-md-12 text-center">
-                <button type="submit" [appLoadingButton]="loading" class="site_btn border_btn">Submit</button>
-              </div>
             </div>
-          </form>
 
-          <div class="contact-footer">
-            <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> ,
-              Email : <a [href]="'mailto:' + contactInfo.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email }}</a></p>
-          </div>
 
+            <div class="col-md-6 col-12 form_text_area">
+                <div class="form_content text-center">
+                    <h2>Find Your Dream Space in India</h2>
+                    <div class="location">
+                        <p>Bangalore | Gurugram | Mumbai | Hyderabad | Pune | Delhi | Noida | Indore | Chennai | Ahmedabad | Kochi | Chandigarh | Jaipur | Lucknow | Kolkata | Coimbatore | Goa | Bhubaneswar and More.</p>
+                    </div>
+                </div>
+
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
+            </div>
         </div>
-      </div>
-
-
-      <div class="col-md-6 col-12 form_text_area">
-        <div class="form_content text-center">
-          <h2>Find Your Dream Space in India</h2>
-          <div class="location">
-            <p>Bangalore | Gurugram | Mumbai | Hyderabad | Pune | Delhi | Noida | Indore | Chennai | Ahmedabad | Kochi | Chandigarh | Jaipur | Lucknow | Kolkata | Coimbatore | Goa | Bhubaneswar and More.</p>
-          </div>
-        </div>
-
-        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
-      </div>
     </div>
-  </div>
 </section>
 
 

@@ -19,6 +19,9 @@ import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-p
 import { Observable, Subscriber } from 'rxjs';
 import { WorkSpace } from '@core/models/workspace.model';
 import { forkJoin } from "rxjs";
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UserService } from '@app/core/services/user.service';
+
 
 
 interface PopularSpace {
@@ -953,6 +956,11 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   ahmedaSpaces: any = [];
   chennaiSpaces: any = [];
   indoreSpaces: any = [];
+  submitted = false;
+  contactUserName: string;
+  showSuccessMessage: boolean;
+
+
 
   constructor(
     private brandService: BrandService,
@@ -965,6 +973,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     // private mapsAPILoader: MapsAPILoader,
     private toastrService: ToastrService,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
   ) {
     // Handle header position on scroll
     // this.configService.updateConfig({ headerClass: 'search-listing' });
@@ -983,6 +993,27 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.loadWorkSpacesByLatLong(queryParams);
     });
   }
+
+  enterpriseFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    requirements: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -1066,6 +1097,39 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.chennaiSpaces = this.formatSpaces(chennaiData);
       this.indoreSpaces = this.formatSpaces(indoreData);
     })
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.enterpriseFormGroup.invalid) {
+      return;
+    } else {
+      this.loading = true;
+      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+      const object = {
+        user: {
+          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          email: this.enterpriseFormGroup.controls['email'].value,
+          name: this.enterpriseFormGroup.controls['name'].value,
+          requirements: this.enterpriseFormGroup.controls['requirements'].value,
+        },
+        city: this.enterpriseFormGroup.controls['city'].value,
+        mx_Page_Url: 'Coworking Page'
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.showSuccessMessage = true;
+          this.enterpriseFormGroup.reset();
+          this.submitted = false;
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message);
+        },
+      );
+    }
   }
 
   formatSpaces(data) {
