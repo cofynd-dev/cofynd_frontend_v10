@@ -12,6 +12,69 @@
     }
 }
 
+.city-list {
+    max-width: 530px;
+  
+    @media screen and (max-width: 767px) {
+      max-width         : 100%;
+      white-space       : nowrap;
+      overflow-y        : hidden;
+      overflow-x        : auto;
+      scrollbar-width   : none;
+      /* Firefox */
+      -ms-overflow-style: none;
+  
+      /* IE 10+ */
+      &::-webkit-scrollbar {
+        width     : 0px;
+        background: transparent;
+        /* Chrome/Safari/Webkit */
+      }
+    }
+  
+    button,
+    a {
+      width          : 78px;
+      height         : 78px;
+      border-radius  : 100%;
+      text-align     : center;
+      background     : #f8f8f8;
+      font-size      : 10px;
+      font-weight    : 600;
+      color          : #000;
+      margin-right   : 10px;
+      text-transform : capitalize;
+      transition     : all ease-in .5s;
+      padding        : 0;
+      outline        : none;
+      vertical-align : middle;
+      margin-top     : 10px;
+      display        : inline-flex;
+      align-items    : center;
+      justify-content: center;
+      flex-direction : column;
+  
+      img {
+        max-height   : 32px;
+        max-width    : 40px;
+        margin-bottom: 2px;
+      }
+  
+      &:last-child {
+        margin-right: 0;
+      }
+  
+      &:hover {
+        background: #f0f0fe;
+      }
+  
+      @media (max-width: 380px) {
+        width : 72px;
+        height: 72px;
+      }
+    }
+  }
+
 .office-benifits {
     .benifits {
         border-radius: 10px;
@@ -108,6 +171,10 @@
 /**************  Responsive  *************/
 
 @media (max-width: 480px) {
+    
+  .col-md-12.text-center {
+    text-align: left !important;
+  }
     .innerpage_banner::before {
 	background-color: rgba(0, 0, 0, 0.6);
 }
@@ -165,9 +232,7 @@
         display: block;
         z-index: -1;
     }
-    .curated_section {
-        padding: 20px 0 !important;
-    }
+    
     .curated_section .row:last-child {
         margin-left: 0;
         margin-right: 0;
@@ -265,9 +330,6 @@
         box-shadow: 0 0 9px 4px rgba(0, 0, 0, .16);
         background-color: #e8e8ff;
         padding: 20px 0;
-    }
-    .cta_content {
-        padding: 10px 0;
     }
     .coworking_cta .cta_content p {
         line-height: 10px !important;
