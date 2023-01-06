@@ -13,6 +13,9 @@ import { OfficeSpaceModalComponent } from './office-space-modal/office-space-mod
 import { OfficeSpace } from '@core/models/office-space.model';
 import { Observable, Subscriber } from 'rxjs';
 import { OfficeSpaceService } from './office-space.service';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { UserService } from '@app/core/services/user.service';
 declare var $: any;
 
 @Component({
@@ -29,6 +32,10 @@ export class OfficeSpaceComponent implements OnInit {
   longitute: any;
   offices: OfficeSpace[];
   loading: boolean;
+  submitted = false;
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
 
   constructor(
     private seoService: SeoService,
@@ -36,6 +43,9 @@ export class OfficeSpaceComponent implements OnInit {
     private bsModalService: BsModalService,
     private brandService: BrandService,
     private officeSpaceService: OfficeSpaceService,
+    private workSpaceService: WorkSpaceService,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
   ) {
     this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
     this.loading = true;
@@ -49,6 +59,28 @@ export class OfficeSpaceComponent implements OnInit {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  queryFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    requirements: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.queryFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.queryFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.queryFormGroup.controls;
   }
 
   getCurrentPosition(): any {
@@ -415,6 +447,59 @@ export class OfficeSpaceComponent implements OnInit {
         brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
       );
     });
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.queryFormGroup.invalid) {
+      return;
+    } else {
+      const object = {
+        user: {
+          phone_number: this.queryFormGroup.controls['phone_number'].value,
+          email: this.queryFormGroup.controls['email'].value,
+          name: this.queryFormGroup.controls['name'].value,
+          requirements: this.queryFormGroup.controls['requirements'].value,
+        },
+        city: this.queryFormGroup.controls['city'].value,
+        mx_Page_Url: 'Office Space Page'
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.queryFormGroup.reset();
+          this.submitted = false;
+          this.router.navigate(['/thank-you']);
+          // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
+        },
+        error => {
+          this.loading = false;
+        },
+      );
+    }
   }
 
   removedash(name: string) {

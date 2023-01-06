@@ -401,9 +401,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                      <div class="main_heading title_divider">
-                          <h2>Top Office Space Cities</h2>
-                      </div>
+                    <div class="main_heading title_divider">
+                        <h2>Top Office Space Cities</h2>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -429,9 +429,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                      <div class="main_heading title_divider">
-                          <h2>Office Space for Rent in Gurugram</h2>
-                      </div>
+                    <div class="main_heading title_divider">
+                        <h2>Office Space for Rent in Gurugram</h2>
+                    </div>
                 </div>
             </div>
 
@@ -708,14 +708,14 @@
         </div>
     </section>
 
-    
+
     <section class="office_top_properties office_delhi_properties mobilehide">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                      <div class="main_heading title_divider">
-                          <h2>Office Space for Rent in Delhi</h2>
-                      </div>
+                    <div class="main_heading title_divider">
+                        <h2>Office Space for Rent in Delhi</h2>
+                    </div>
                 </div>
             </div>
 
@@ -1019,9 +1019,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                      <div class="main_heading title_divider">
-                          <h2>Office Space for Rent in Noida</h2>
-                      </div>
+                    <div class="main_heading title_divider">
+                        <h2>Office Space for Rent in Noida</h2>
+                    </div>
                 </div>
             </div>
 
@@ -1341,73 +1341,68 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="row align-items-center">
                 <div class="col-md-6 mobilehide">
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/28ea3eaa2af7ac7991b576c496d9fbbe48267fa3.png" class="img-fluid" alt="">
                 </div>
-    
+
                 <div class="col-md-6">
                     <div class="virtual_query_form">
                         <div class="form_head">
                             <h3>Answers to your Office Space query</h3>
                             <p>Our team is ready to answer your questions.</p>
                         </div>
-    
+
                         <div class="form_body">
-                            <form action="">
+                            <form [formGroup]="queryFormGroup" (ngSubmit)="onSubmit()">
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="input-group align-items-center">
                                             <img src="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                            <input type="text" formControlName="name" class="form-control" placeholder="Name*" required>
+                                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
+                                            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="input-group align-items-center">
                                             <img src="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                            <input type="email" formControlName="email" class="form-control" placeholder="Email*" required>
+                                            <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                                <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="input-group align-items-center">
                                             <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                            <input type="tel" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                            <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                                <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="input-group align-items-center">
                                             <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                            <select class="form-select" class="form-control" placeholder="select city*" required aria-label="Default select example">
+                                            <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" class="form-control" placeholder="select city*" required aria-label="Default select example">
                                                 <option value="" selected disabled style="display: none;">Select City*</option>
-                                                <option value="Bangalore">Bangalore</option>
-                                                <option value="Gurugram">Gurugram</option>
-                                                <option value="Mumbai">Mumbai</option>
-                                                <option value="Hyderabad">Hyderabad</option>
-                                                <option value="Pune">Pune</option>
-                                                <option value="Delhi">Delhi</option>
-                                                <option value="Noida">Noida</option>
-                                                <option value="Indore">Indore</option>
-                                                <option value="Chennai">Chennai</option>
-                                                <option value="Ahmedabad">Ahmedabad</option>
-                                                <option value="Kochi">Kochi</option>
-                                                <option value="Chandigarh">Chandigarh</option>
-                                                <option value="Jaipur">Jaipur</option>
-                                                <option value="Lucknow">Lucknow</option>
-                                                <option value="Kolkata">Kolkata</option>
-                                                <option value="Coimbatore">Coimbatore</option>
-                                                <option value="Goa">Goa</option>
-                                                <option value="Bhubaneswar">Bhubaneswar</option>
-                                                <option value="Dehradun">Dehradun</option>
-                                                <option value="Patna">Patna</option>
+                                                <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
                                                 <option value="Other">Other</option>
                                             </select>
+                                            <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="input-group align-items-center">
                                             <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
-                                            <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                            <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
@@ -1491,11 +1486,11 @@
         </div>
     </section> -->
 
-    
 
-    
 
-    
+
+
+
 
     <!-- <section class="looking_sec desktophide">
         <div class="container">
