@@ -3204,7 +3204,7 @@ h3.site_title {
 }
 
 .property_item .property-dis h4 .builder_name {
-    color: rgba(33, 37, 41, 0.7);
+    color: #4343E8;
     font-size: 12px;
 }
 
@@ -4895,6 +4895,9 @@ h3.site_title {
     width: 100%;
 }
 
+.office_top_properties .col-md-3 {
+	padding: 0px 10px;
+}
 .office_top_properties .property_item {
     margin-bottom: 30px;
 }
@@ -5714,6 +5717,7 @@ h3.site_title {
     .banner_content h1 {
         font-size: 20px !important;
         line-height: 30px !important;
+        margin-bottom: 10px;
     }
     .main_heading {
         padding-left: 14px;
@@ -7096,10 +7100,11 @@ h3.site_title {
     }
     .property_item .property-dis h4 {
         font-size: 11px;
-        line-height: 20px;
+        line-height: 14px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        margin-bottom: 5px;
     }
     .property_item .property-dis .address {
         white-space: nowrap !important;
@@ -7437,19 +7442,51 @@ h3.site_title {
     //     max-width: 100%;
     //     padding: 0px;
     // }
+    
+    .choose_item_slider {
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        margin-top: 0px !important;
+    }
+    .choose_item_slider .col-md-4 {
+        display: inline-block;
+        -webkit-box-flex: 0;
+        // flex: 0 0 71.4285714286%;
+        width: 75.429%;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 0 10px;
+    }
+    .choosewithcofynd_sec .left_icon_box2 .content {
+        width: 80%;
+        white-space: normal;
+    }
     .choosewithcofynd_sec .left_icon_box2 {
-        background: transparent;
+        /* background: transparent; */
         border: none;
         box-shadow: none;
-        border-radius: 0px;
-        padding: 0px 0px;
-        margin-bottom: 22px;
+        /* border-radius: 0px; */
+        /* padding: 0px 0px; */
+        /* margin-bottom: 22px; */
+        display: -webkit-inline-box;
+        display: inline-flex;
+        border-radius: 10px;
+        padding: 10px 10px;
     }
     .choosewithcofynd_sec .col-md-4:last-child .left_icon_box2 {
         margin-bottom: 0px;
     }
     .choosewithcofynd_sec .left_icon_box2 img {
-        background-color: #fff;
+        // background-color: #fff;
         width: 45px;
         height: 45px;
         text-align: center;
@@ -7457,7 +7494,7 @@ h3.site_title {
         border-radius: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 .icon {
-        width: 55px;
+        width: 45px;
         margin-right: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 h4 {
@@ -7625,6 +7662,46 @@ h3.site_title {
     }
     .cta_content h4 br {
         display: none;
+    }
+
+    .office_top_properties_slider {
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        margin-top: 0px !important;
+    }
+    .office_top_properties_slider .col-md-3 {
+        display: inline-block;
+        -webkit-box-flex: 0;
+        // flex: 0 0 71.4285714286%;
+        width: 75.429%;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 0 10px;
+    }
+    .property_item .property-dis h4 .builder_name {
+        font-size: 9px;
+        line-height: 11px;
+    }
+    .all_properties_show .text_btn {
+        font-size: 10px;
+        padding-right: 8px;
+        line-height: 14px;
+    }
+    .all_properties_show .text_btn::before {
+        font-size: 7px !important;
+        line-height: 8px !important;
+    }
+    .office_top_properties .property_item {
+        margin-bottom: 10px;
     }
     
 }
