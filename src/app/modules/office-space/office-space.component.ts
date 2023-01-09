@@ -553,4 +553,9 @@ export class OfficeSpaceComponent implements OnInit {
   scrollToElement(element: HTMLElement) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
+
+  goToLink(url: string) {
+    window.open(url, "_blank");
+  }
+
 }
