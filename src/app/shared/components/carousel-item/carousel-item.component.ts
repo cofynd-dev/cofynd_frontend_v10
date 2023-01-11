@@ -73,6 +73,7 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     } else {
       this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
     }
+
   }
 
   openCoLivingSpace(slug: string, country: string) {

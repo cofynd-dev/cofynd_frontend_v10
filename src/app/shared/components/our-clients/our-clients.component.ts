@@ -38,108 +38,108 @@ export class OurClientsComponent implements OnInit {
   clients = [
     {
       id: 1,
-      name: 'first',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'
-    },
-    {
-      id: 2,
-      name: 'second',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'
-    },
-    {
-      id: 3,
-      name: 'third',
+      name: 'Kotak',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'
     },
     {
-      id: 4,
-      name: 'fourth',
+      id: 2,
+      name: 'Inox',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'
     },
     {
-      id: 5,
-      name: 'fifth',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'
-    },
-    {
-      id: 6,
-      name: 'six',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'
-    },
-    {
-      id: 7,
-      name: 'Acciojob Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7b9fb349915858efbcdd50fa136eba35b297cda9.png'
-    },
-    {
-      id: 8,
-      name: 'Atlas Law Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6129f05c386b12d328a5d3d58e0c036e7e66afd5.png'
-    },
-    {
-      id: 9,
-      name: 'Bluone Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c81ea45f61705da2cc8f8ab5f7b83caecdc58aa1.png'
-    },
-    {
-      id: 10,
-      name: 'Bricz Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5741d86b37405d2e37281345a4dd90ed098cd4ba.png'
-    },
-    {
-      id: 11,
+      id: 3,
       name: 'Credable Logo',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7d9415d0d68cd1656aedd522d4d3bfd72e774b76.png'
     },
     {
-      id: 12,
-      name: 'Dahua Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7dba2fe956ff2e98e4029333c02324ab199b6915.png'
-    },
-    {
-      id: 13,
-      name: 'Devtown Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/69a26c306d1af10947a2bc2bd7f8be1994625d81.png'
-    },
-    {
-      id: 14,
-      name: 'Doubtnut Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e650bcfa5444037833dd7f835bfb9447b981a2b2.png'
-    },
-    {
-      id: 15,
-      name: 'Flash Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/daca10ffa403e80f29ac51d368beefb021376dc0.png'
-    },
-    {
-      id: 16,
-      name: 'Genesys Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/68db0982e98f5a23ec87ef494df1ae3899bf533e.png'
-    },
-    {
-      id: 17,
+      id: 4,
       name: 'Hector Beverages Logo',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d9e155e232b7314fc6468faba47815a81512c35b.png'
     },
     {
+      id: 5,
+      name: 'Purpllr Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c85f758097513122d0fb069b87ce9ceb95465dd4.png'
+    },
+    {
+      id: 6,
+      name: 'Fyp',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'
+    },
+    {
+      id: 7,
+      name: 'Easebuzz',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'
+    },
+    {
+      id: 8,
+      name: 'Zingbus',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'
+    },
+    {
+      id: 9,
+      name: 'Classplus',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'
+    },
+    {
+      id: 10,
+      name: 'Acciojob Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7b9fb349915858efbcdd50fa136eba35b297cda9.png'
+    },
+    {
+      id: 11,
+      name: 'Atlas Law Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6129f05c386b12d328a5d3d58e0c036e7e66afd5.png'
+    },
+    {
+      id: 12,
+      name: 'Bluone Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c81ea45f61705da2cc8f8ab5f7b83caecdc58aa1.png'
+    },
+    {
+      id: 13,
+      name: 'Bricz Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5741d86b37405d2e37281345a4dd90ed098cd4ba.png'
+    },
+    {
+      id: 14,
+      name: 'Dahua Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7dba2fe956ff2e98e4029333c02324ab199b6915.png'
+    },
+    {
+      id: 15,
+      name: 'Devtown Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/69a26c306d1af10947a2bc2bd7f8be1994625d81.png'
+    },
+    {
+      id: 16,
+      name: 'Doubtnut Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e650bcfa5444037833dd7f835bfb9447b981a2b2.png'
+    },
+    {
+      id: 17,
+      name: 'Flash Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/daca10ffa403e80f29ac51d368beefb021376dc0.png'
+    },
+    {
       id: 18,
+      name: 'Genesys Logo',
+      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/68db0982e98f5a23ec87ef494df1ae3899bf533e.png'
+    },
+    {
+      id: 19,
       name: 'India Leaders for Social Sector Logo',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1bd8c3d5cb135908007579be26fa28082ea74a81.png'
     },
     {
-      id: 19,
+      id: 20,
       name: 'MNC Corporation Logo',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b2617d1216ab67f66344ba747bfac9c06b80dc7b.png'
     },
     {
-      id: 20,
+      id: 21,
       name: 'NS Partners Logo',
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b66bf4c7b44471e18ed1eb8ace551cf9962abe2.png'
-    },
-    {
-      id: 21,
-      name: 'Purpllr Logo',
-      image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c85f758097513122d0fb069b87ce9ceb95465dd4.png'
     },
     {
       id: 22,

@@ -91,6 +91,10 @@ textarea {
     .breadcrumb-item {
         font-size: 14px;
         color: #908f8f;
+        a {
+           color: #222;
+           font-weight: 500;
+        }
         .breadcrumb-item {
             font-size: 14px;
             color: #908f8f;
@@ -494,7 +498,7 @@ Amenity Icons
     background: url('/assets/images/amenities/team.svg') no-repeat center center;
 }
 
-.amn-24x7 {
+.amn-24x7-security {
     background: url('/assets/images/amenities/24x7.svg') no-repeat center center;
 }
 
@@ -2350,7 +2354,7 @@ h3.site_title {
 }
 
 .details_page_gallery {
-    padding: 10px 0px !important;
+    padding: 30px 0px !important;
 }
 
 .details_page_gallery .col-md-6,
@@ -2438,11 +2442,29 @@ h3.site_title {
     padding-bottom: 20px;
 }
 
-.heading-info h2 {
+.heading-info h1 {
     font-size: 22px;
     line-height: 32px;
     margin-bottom: 3px;
     font-weight: 600;
+}
+.heading-info .address {
+	margin-bottom: 0px;
+}
+.heading-info .price {
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 600;
+	color: #4343e8;
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+.heading-info .price .rent_title {
+	display: block;
+	font-size: 11px;
+	line-height: 11px;
+	font-weight: 600;
+    color: #272828;
 }
 
 .heading-info img {
@@ -2580,11 +2602,11 @@ h3.site_title {
 
 .divider_line {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    margin: 35px 0px 30px;
+    margin: 30px 0px 30px;
 }
 
-.flat-properties {
-    margin-top: 15px;
+.space_facility_area {
+    margin-top: 25px;
     position: relative;
 }
 
@@ -2603,14 +2625,14 @@ h3.site_title {
     padding: 7px;
 }
 
-.flat-icons-box {
+.space_facility_box {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     padding: 16px 15px;
     display: flex;
 }
 
-.flat-properties-icons {
+.space_facility_icons {
     display: flex;
     align-items: center;
     border-right: 1px solid rgba(33, 37, 41, 0.05);
@@ -2619,19 +2641,19 @@ h3.site_title {
     width: 50%;
 }
 
-.flat-properties-icons:last-child {
+.space_facility_icons:last-child {
     border-right: none;
 }
 
-.flat-properties-icons .icon {
+.space_facility_icons .icon {
     padding-right: 10px;
 }
 
-.flat-properties-icons img {
+.space_facility_icons img {
     width: 30px;
 }
 
-.flat-properties-icons span {
+.space_facility_icons span {
     font-size: 13px;
     font-weight: 600;
     font-stretch: normal;
@@ -2676,11 +2698,17 @@ h3.site_title {
     margin-bottom: 4px;
 }
 
-.details_area h3 {
+.details_area h2, .details_area h3 {
     font-size: 20px;
     line-height: 30px;
     font-weight: 600;
     margin-bottom: 10px;
+}
+.similar_spaces_area h2 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 600;
+	margin-bottom: 10px;
 }
 
 .overview-icons .info p {
@@ -2698,12 +2726,13 @@ h3.site_title {
 // 	margin-bottom: 5px;
 // }
 .moreless-button {
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 600;
-    border: none;
-    padding: 0px !important;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: 600;
+	border: none;
+	padding: 0px !important;
+	cursor: pointer;
 }
 
 // .amenities_section {
@@ -2729,6 +2758,35 @@ h3.site_title {
     border: none;
     padding: 0px !important;
 }
+.amenities_section .basic-icons {
+	display: flex;
+	flex-wrap: wrap;
+}
+.amenities_section .basic-icons p {
+	padding: 0 15px 0 30px;
+	line-height: 20px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	color: #272828;
+	position: relative;
+	flex: 0 0 33.33%;
+}
+
+.amenities_section .basic-icons i {
+	width: 20px;
+	height: 20px;
+	margin-right: 4px;
+	border-radius: 3px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: contain;
+}
+
 
 .plans_slider {
     margin-bottom: 0px;
@@ -2788,6 +2846,154 @@ h3.site_title {
     font-size: 13px;
     line-height: 20px;
 }
+
+.space_head {
+    padding: 0px 0px;
+    &.section-1 {
+        padding-bottom: 30px;
+        border: 0;
+        @media (max-width: 480px) {
+            padding-top: 5px;
+        }
+    }
+    &.no-border {
+        border-bottom: 0;
+    }
+    &.fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        max-width: 100%;
+        padding: 0 30px;
+        border-radius: 0;
+        height: 80px;
+        background: #fff;
+        margin: -80px 0 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-bottom: 1px solid #e5e5e5;
+        z-index: 9999;
+        .price {
+            position: absolute;
+            right: 30px;
+            font-size: 23px;
+            line-height: normal;
+            text-align: right;
+            font-weight: 700;
+            top: 10px;
+            color: #272828;
+            span {
+                display: block;
+                font-size: 12px;
+                font-weight: normal;
+            }
+            
+        }
+        h1 {
+            font-size: 22px;
+            line-height: 30px;
+        }
+        .address {
+            font-size: 13px;
+            i {
+                top: 3px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 767px) {
+            position: static;
+            .price {
+                display: none;
+            }
+        }
+    }
+    .map-container {
+        width: 100%;
+        height: 250px;
+        border-radius: 10px;
+    }
+}
+
+.heading-info .price .rent_type {
+	font-size: 15px !important;
+	display: inline-block !important;
+}
+
+.enquiry_section .form-section .form .form-group {
+	border: none;
+	padding-top: 12px;
+	margin-bottom: 14px;
+}
+.enquiry_section .form-section .form .floating-label label {
+	left: 8px;
+	top: 25px;
+    // z-index: 1;
+}
+.enquiry_section .form-section .form .floating-label.focused label, .enquiry_section .form-section .form .floating-label.filled label {
+	left: 7px;
+	top: 20px;
+}
+// .enquiry_section .form-section .form .floating-label.filled label {
+// 	left: 7px;
+// 	top: 20px;
+// }
+.enquiry_section .form-section .form .form-control.ng-invalid.ng-touched {
+	border-color: transparent;
+	background-color: transparent;
+}
+.enquiry_section .form-section .form .ng-select.ng-invalid.ng-touched .ng-select-container {
+	border-color: transparent;
+	background-color: transparent;
+}
+.enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container {
+	height: 36px;
+	border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+	box-shadow: none;
+	// margin-bottom: 20px;
+    border: none;
+    border-radius: 0px;
+}
+.enquiry_section .ng-select span.ng-value-label {
+	top: 13px !important;
+	position: relative;
+}
+.enquiry_section .form-section .form .error-message {
+	bottom: -20px;
+}
+.form-section .form .site_btn {
+	margin-top: 10px;
+}
+// .enquiry_section .form-section .ng-select .error-message {
+// 	bottom: 0px !important;
+// }
+.enquiry_section .form-section::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 10px;
+	width: 85px;
+	height: 85px;
+	background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}   
+.form-section .heading button {
+	display: none;
+
+    @media (max-width: 480px) {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 3px;
+        z-index: 1;
+    }
+}
+
+
+
 
 // .map-location .location-icon {
 // 	position: relative;
@@ -2872,19 +3078,21 @@ h3.site_title {
 }
 
 .enquiry_section .form-section {
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0px 0px 16px rgba(33, 37, 41, 0.07);
-    border-radius: 20px;
+	padding: 30px;
+	background: rgba(255, 255, 255, 0.12);
+	box-shadow: 0px 0px 16px rgba(33, 37, 41, 0.07);
+	border-radius: 20px;
+	// overflow: hidden;
 }
 
 .form-section .heading {
-    font-size: 20px;
-    line-height: 25px;
-    margin-top: 0;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #000;
+	font-size: 20px;
+	line-height: 25px;
+	margin-top: 0;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: #000;
+	position: relative;
 }
 
 .form-section .form input {
@@ -2931,38 +3139,72 @@ h3.site_title {
 }
 
 .contact-details {
-    display: flex;
-    align-items: center;
-    margin-top: 12px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 20px;
-    /* justify-content: center; */
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-top: 12px;
+	padding: 20px 40px;
+	background: #fff;
+	border-radius: 20px;
+	position: relative;
+	overflow: hidden;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0px 0px 16px rgba(33, 37, 41, 0.07);
+}
+.enquiry-footer .contact-details::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -36px;
+	width: 65px;
+	height: 65px;
+	background-image: url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	transform: rotateX(180deg);
+}
+.enquiry-footer .contact-details::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: -10px;
+	width: 65px;
+	height: 65px;
+	background-image: url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	transform: rotateX(180deg);
 }
 
 .contact-image img {
-    height: 50px;
+    height: 60px;
     object-fit: cover;
 }
 
 .contact-info .heading {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: .5px;
-    line-height: normal;
-    margin: 4px 0 7px;
-    color: grey;
-    padding-left: 20px;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 12px;
+	letter-spacing: 0.5px;
+	line-height: normal;
+	margin: 0px 0 1px;
+	color: #000;
+	padding-left: 20px;
+	line-height: 18px;
 }
 
 .contact-info p {
-    color: #343434;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 20px;
-    margin: 0;
-    margin-left: 15px;
+	color: #000;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 20px;
+	margin: 0;
+	margin-left: 15px;
+}
+.contact-info p .email_text {
+	color: #272828;
 }
 
 .policy {
@@ -3017,7 +3259,7 @@ h3.site_title {
 }
 
 .details_area {
-    padding: 20px 0px 0px;
+	padding: 0px 0px 40px;
 }
 
 // .properties_section {
@@ -3130,15 +3372,15 @@ h3.site_title {
     transform: scale(1.06);
 }
 
-.property_item .property-img::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 80px;
-    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);
-    bottom: 0;
-    left: 0;
-}
+// .property_item .property-img::after {
+//     content: "";
+//     position: absolute;
+//     width: 100%;
+//     height: 80px;
+//     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);
+//     bottom: 0;
+//     left: 0;
+// }
 
 .listing_card {
     margin-bottom: 50px;
@@ -5551,7 +5793,7 @@ h3.site_title {
     }
     .site_btn {
         padding: 3px 12px !important;
-        font-size: 8px !important;
+        font-size: 10px !important;
         border-radius: 6px;
     }
     .categories_sec .col-4,
@@ -7490,15 +7732,14 @@ h3.site_title {
         margin-bottom: 0px;
     }
     .choosewithcofynd_sec .left_icon_box2 img {
-        // background-color: #fff;
-        width: 45px;
+        width: 35px;
         height: 45px;
         text-align: center;
-        padding: 8px;
+        padding: 5px;
         border-radius: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 .icon {
-        width: 45px;
+        width: 35px;
         margin-right: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 h4 {
@@ -7706,6 +7947,99 @@ h3.site_title {
     }
     .office_top_properties .property_item {
         margin-bottom: 10px;
+    }
+    .details_page_gallery {
+        padding: 0px 0px !important;
+    }
+    .amenities_section .basic-icons p {
+        font-size: 13px;
+        max-width: 50%;
+        -webkit-box-flex: 0;
+        flex: 0 0 50%;
+    }
+    .details_area {
+        padding: 12px 0px 40px;
+    }
+    .heading-info .price {
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 600 !important;
+        color: #4343e8 !important;
+    }
+    .space_facility_box {
+        padding: 6px 5px;
+        border-radius: 10px;
+    }
+    .space_facility_icons {
+        padding: 5px;
+    }
+    .space_facility_icons .icon {
+        padding-right: 5px;
+    }
+    .space_facility_icons img {
+        width: 22px;
+    }
+    .space_facility_icons span {
+        font-size: 9px;
+    }
+    .divider_line {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 20px 0px 20px;
+    }
+    .details_area h3 {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .overview-icons .icon {
+        background: #f8f9fa;
+        border-radius: 6px;
+        padding: 6px;
+        margin-right: 10px;
+    }
+    .overview-icons img {
+        width: 20px;
+    }
+    .overview-icons .info h5 {
+        font-size: 11px;
+        line-height: 11px;
+        margin-bottom: 0px;
+    }
+    .overview-icons .info p {
+        font-size: 10px !important;
+        margin-bottom: 0px;
+    }
+    .moreless-button {
+        font-size: 10px !important;
+        line-height: 21px !important;
+        font-weight: 600 !important;
+        margin-bottom: 0px;
+        margin-top: 0px !important;
+    }
+    .amenities_section .basic-icons i {
+        width: 16px;
+    }
+    .amenities_section .basic-icons p {
+        padding: 0 15px 0 25px;
+        margin-bottom: 10px;
+    }
+    .places-tag-slider .places-tag-item {
+        width: 71.429%;
+    }
+    .places-tag-box .tag-text h5 {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .places-tag-box .tag-text p {
+        font-size: 10px !important;
+        line-height: 15px !important;
+    }
+    .places-tag-box img {
+        width: 24px !important;
+    }
+    .similar_spaces_area {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        border-top: none !important;
     }
     
 }
