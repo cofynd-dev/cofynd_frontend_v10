@@ -3407,10 +3407,12 @@ h3.site_title {
 .listing_card .property-img .item {
     height: 250px !important;
     width: 100%;
+	border-radius: 20px;
 }
 
 .listing_card .property-img .item img {
-    height: 250px !important;
+	height: 250px !important;
+	border-radius: 20px;
 }
 
 .listing_card .carousel-arrow {
@@ -4273,8 +4275,10 @@ h3.site_title {
 }
 
 .marketplace_item .icon {
-    margin-right: 10px;
-    flex: 0 0 10%;
+	margin-right: 10px;
+	-webkit-box-flex: 0;
+	flex: 0 0 10%;
+	padding-top: 6px;
 }
 
 .marketplace_item h4 {
@@ -4338,8 +4342,12 @@ h3.site_title {
 }
 
 .property-item-img {
-    position: relative;
-    z-index: 1;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+.property-item-img img {
+	width: 90%;
 }
 
 .cofynd_network_sec {
@@ -6439,7 +6447,8 @@ h3.site_title {
         display: none;
     }
     .list_your_space_sec {
-        padding-top: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .cities_carousel,
     .feature_slides,
@@ -6450,7 +6459,8 @@ h3.site_title {
     .partners .slider-on-mobile-view,
     .logos_slider,
     .step_scroller,
-    .virtual_cities_carousel {
+    .virtual_cities_carousel,
+    .choose_item_slider {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -6464,7 +6474,8 @@ h3.site_title {
     .partners .slider-on-mobile-view::-webkit-scrollbar,
     .logos_slider::-webkit-scrollbar,
     .step_scroller::-webkit-scrollbar,
-    .virtual_cities_carousel::-webkit-scrollbar {
+    .virtual_cities_carousel::-webkit-scrollbar,
+    .choose_item_slider::-webkit-scrollbar {
         display: none !important;
         height: 0 !important;
         width: 0 !important;
@@ -7081,8 +7092,9 @@ h3.site_title {
         height: 260px;
     }
     .list_space_counter .flat_counter_row {
-        padding: 15px 10px;
+        padding: 10px 10px;
         margin: 0px 0px;
+        border-radius: 10px;
     }
     .list_space_counter .col-4 {
         padding: 0px 5px;
@@ -7091,8 +7103,8 @@ h3.site_title {
         display: block;
     }
     .list_space_counter .counter_item .number {
-        font-size: 12px;
-        line-height: 13px;
+        font-size: 10px;
+        line-height: 9px;
     }
     .list_space_counter .counter_item h4 {
         font-size: 9px;
@@ -7104,7 +7116,7 @@ h3.site_title {
     }
     .how_to_start_sec {
         padding-top: 100px;
-        padding-bottom: 50px;
+        padding-bottom: 20px;
     }
     .how_to_start_sec .step_item .icon {
         width: 30px;
@@ -7121,8 +7133,8 @@ h3.site_title {
         margin-bottom: 20px;
     }
     .why_list_sec {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
     .why_list_sec .row.mt-4 {
         margin-top: 0px !important;
@@ -7134,10 +7146,14 @@ h3.site_title {
     }
     .why_list_sec .why_list_item h4 {
         font-size: 11px;
-        line-height: 20px;
+        line-height: 15px;
     }
-    .why_list_sec .col-6.mb-5 {
-        margin-bottom: 14px !important;
+    .why_list_sec .col-md-6 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .why_list_sec .col-md-6.col-6.mb-5 {
+        margin-bottom: 15px !important;
     }
     .why_list_sec .why_list_item {
         display: block;
@@ -7160,16 +7176,19 @@ h3.site_title {
     .marketplace_item.bottom_space {
         margin-bottom: 20px;
     }
+    .full-grid-sec .container-fluid {
+        padding: 0px 15px;
+    }
     .cofynd_network_sec {
-        padding-top: 50px;
-        padding-bottom: 40px;
+        padding-top: 40px;
+        padding-bottom: 20px;
     }
     .testimonials_video video {
         height: 237px;
     }
     .flat_testimonials_sec {
-        padding-top: 50px;
-        padding-bottom: 40px;
+        padding-top: 40px;
+        padding-bottom: 30px;
     }
     .client_logo_sec {
         padding-top: 20px;
@@ -7214,9 +7233,9 @@ h3.site_title {
         line-height: 16px !important;
         margin-bottom: 8px;
     }
-    .list_now_sec .cta_content .site_btn {
-        background-color: #FFA891 !important;
-    }
+    // .list_now_sec .cta_content .site_btn {
+    //     background-color: #FFA891 !important;
+    // }
     .border_btn:hover {
         background-color: #4343E8 !important;
     }
@@ -7326,6 +7345,7 @@ h3.site_title {
         overflow-x: scroll;
         white-space: nowrap;
         scrollbar-width: none !important;
+        transform: none !important;
     }
     .similar-workspaces .ngucarousel-items .last-slide {
         margin-left: 0;
@@ -7660,13 +7680,15 @@ h3.site_title {
         padding-bottom: 30px;
     }
     .space_carousel {
-        padding-right: 110px;
+        // padding-right: 110px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
     .space_carousel .property_item {
         margin: 6px 7px;
+        width: 71%;
     }
+
     .property_item .property-foot .price,
     .property_item .property-foot .price .price_tag {
         font-size: 10px;
@@ -7746,19 +7768,20 @@ h3.site_title {
         display: inline-flex;
         border-radius: 10px;
         padding: 10px 10px;
+        width: 100%;
     }
     .choosewithcofynd_sec .col-md-4:last-child .left_icon_box2 {
         margin-bottom: 0px;
     }
     .choosewithcofynd_sec .left_icon_box2 img {
-        width: 35px;
+        width: 45px;
         height: 45px;
         text-align: center;
         padding: 5px;
         border-radius: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 .icon {
-        width: 35px;
+        width: 45px;
         margin-right: 10px;
     }
     .choosewithcofynd_sec .left_icon_box2 h4 {
@@ -8060,4 +8083,14 @@ h3.site_title {
         padding-bottom: 0px !important;
         border-top: none !important;
     }
+<<<<<<< HEAD
+=======
+    .list_space_banner .banner_text h1 {
+        margin-bottom: 5px;
+    }
+    .list_space_banner .banner_text p {
+        margin-bottom: 10px;
+    }
+    
+>>>>>>> da16d69befb1dbc88297617d0c1e3a64b51eeba9
 }
