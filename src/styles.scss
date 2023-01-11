@@ -3407,12 +3407,12 @@ h3.site_title {
 .listing_card .property-img .item {
     height: 250px !important;
     width: 100%;
-	border-radius: 20px;
+    border-radius: 20px;
 }
 
 .listing_card .property-img .item img {
-	height: 250px !important;
-	border-radius: 20px;
+    height: 250px !important;
+    border-radius: 20px;
 }
 
 .listing_card .carousel-arrow {
@@ -4275,10 +4275,10 @@ h3.site_title {
 }
 
 .marketplace_item .icon {
-	margin-right: 10px;
-	-webkit-box-flex: 0;
-	flex: 0 0 10%;
-	padding-top: 6px;
+    margin-right: 10px;
+    -webkit-box-flex: 0;
+    flex: 0 0 10%;
+    padding-top: 6px;
 }
 
 .marketplace_item h4 {
@@ -4342,12 +4342,13 @@ h3.site_title {
 }
 
 .property-item-img {
-	position: relative;
-	z-index: 1;
-	text-align: center;
+    position: relative;
+    z-index: 1;
+    text-align: center;
 }
+
 .property-item-img img {
-	width: 90%;
+    width: 90%;
 }
 
 .cofynd_network_sec {
@@ -7688,7 +7689,6 @@ h3.site_title {
         margin: 6px 7px;
         width: 71%;
     }
-
     .property_item .property-foot .price,
     .property_item .property-foot .price .price_tag {
         font-size: 10px;
@@ -8083,14 +8083,10 @@ h3.site_title {
         padding-bottom: 0px !important;
         border-top: none !important;
     }
-<<<<<<< HEAD
-=======
     .list_space_banner .banner_text h1 {
         margin-bottom: 5px;
     }
     .list_space_banner .banner_text p {
         margin-bottom: 10px;
     }
-    
->>>>>>> da16d69befb1dbc88297617d0c1e3a64b51eeba9
 }
