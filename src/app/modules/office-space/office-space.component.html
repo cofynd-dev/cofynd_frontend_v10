@@ -1,48 +1,1044 @@
-<div style="display: block;">
-    <section class="innerpage_banner office_space_banner mobilehide">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="innerpage_content">
-                        <div class="main_heading">
-                            <h1>Find the Best <br /><span>Office Spaces</span> in India</h1>
+<section class="innerpage_banner office_space_banner mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="innerpage_content">
+                    <div class="main_heading">
+                        <h1>Find the Best <br /><span>Office Spaces</span> in India</h1>
+                    </div>
+                    <p>Find office space that supports your business in a conducive setting. Attentively designed workspaces providing flexible and effective working environments.</p>
+                </div>
+
+                <div class="city-list">
+                    <!-- <button (click)="locateMyLocation()" type="button">
+                    <img src="/assets/images/home/near-me.svg"
+                        alt="'Office Space for Rent near me" />
+                    Near Me
+                    </button> -->
+                    <a *ngFor="let city of cities" [routerLink]="city.name">
+                        <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="innerbanner_img">
+        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg" alt="">
+    </div>
+</section>
+
+<section class="innerpage_banner desktophide" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg');">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find The Best Office Spaces in India</h1>
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control" (change)="openCityListing($event.target.value)" id="exampleFormControlSelect1">
+                                    <option value="">Select City</option>
+                                    <option *ngFor="let city of cities"  [value]="city.name">{{removedash(city.name) | titlecase}}</option>
+                                </select>
+                                </div>
+                            </div>
                         </div>
-                        <p>Find office space that supports your business in a conducive setting. Attentively designed workspaces providing flexible and effective working environments.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="near-vitual-office best_officespace_near desktophide" *ngIf="offices && offices.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Best Office Space Near You</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="space_carousel">
+                    <div class="property_item" *ngFor=" let _centerCity of offices" [routerLink]="['/office-space/rent/', _centerCity.slug]">
+                        <div class="property-img">
+                            <img [src]="_centerCity.images[0].image.s3_link" alt="CoworkInsta" class="img-fluid">
+                        </div>
+                        <div class="property-dis">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{_centerCity.location.address}}</p>
+                            <div class="amenities_card">
+                                <p class="capacity">
+                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                </p>
+                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                            </div>
+                        </div>
+                        <div class="property-foot align-items-end">
+                            <div class="price"><span class="rent_title">Rent</span>{{ (_centerCity.other_detail.area_for_lease_in_sq_ft * _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span></div>
+                            <div class="button"><a [routerLink]="['/office-space/rent/', _centerCity.slug]" tabindex="0">Explore More</a></div>
+                        </div>
                     </div>
 
-                    <div class="city-list">
-                        <!-- <button (click)="locateMyLocation()" type="button">
-                        <img src="/assets/images/home/near-me.svg"
-                            alt="'Office Space for Rent near me" />
-                        Near Me
-                        </button> -->
-                        <a *ngFor="let city of cities" [routerLink]="city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                        </a>
+
+                    <!-- <div class="property-item" *ngFor=" let _centerCity of offices">
+                        <div class="property-img">
+                            <img [src]="_centerCity.images[0].image.s3_link" alt="CoworkInsta" class="img-fluid">
+                        </div>
+                        <div class="properties-content">
+                            <h4>{{_centerCity.name}}</h4>
+                            <p>{{_centerCity.location.address1}}</p>
+                            <p class="price"><b>{{ (_centerCity.other_detail.area_for_lease_in_sq_ft * _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- month</b></p>
+                        </div>
+                        <a target="_blank" [routerLink]="['/office-space/rent/', _centerCity.slug]" class="stretched-link"></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="facilities_sec office_facilities">
+    <div class="container">
+        <div class="row desktophide">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Amenities you will get</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row amenities_row">
+            <div class="col-md-4 col-4" *ngFor="let data of service">
+                <div class="icon_item mb-5">
+                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <h4>{{data.title}}</h4>
+                    <p class="mobilehide">{{data.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="choosewithcofynd_sec office_choose_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Find a Office Space With CoFynd</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row choose_item_slider mt-2">
+            <div class="col-md-4" *ngFor="let data of chooseOffice">
+                <div class="left_icon_box2">
+                    <div class="icon">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    </div>
+                    <div class="content">
+                        <h4>{{data.title}}</h4>
+                        <p class="mobilehide">{{data.description}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="innerbanner_img">
-            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg" alt="">
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section class="innerpage_banner desktophide" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg');">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="banner_content">
-                        <h1 class="text-light text-center">Find The Best Office Spaces in India</h1>
-                        <form>
+<section class="curated_section office_curated_office desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Curated Office Space For You</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item" (click)="onClick('raw')">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfd31a363339982b0669301c5214fc454ec5529e.jpg" alt="Raw Office" class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>Raw Office</h4>
+                        </div>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item" (click)="onClick('fully-furnished')">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e3dbfd1e6e359cc6ca02cbbbc072feac17ef5e2.jpg" alt="Furnished Office" class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>Furnished Office</h4>
+                        </div>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item" (click)="onClick('build-to-suite')">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/158e89700617ca5cc7e3399b81e5989855c45103.jpg" alt="Built to Suit Office" class="img-fluid">
+                        </div>
+                        <div class="curated-content">
+                            <h4>Built to Suit Office</h4>
+                        </div>
+                        <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Curated Coliving popup -->
+<div class="modal fade" id="curated_coliving" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Select City</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="coworking_cities">
+                    <div class="city-left-box" *ngFor="let city of cities">
+                        <div class="cities-icon-item">
+                            <div class="cities-img">
+                                <img [src]="city.image" alt="Delhi" class="img-fluid">
+                            </div>
+                            <div class="cities-icon-content">
+                                <h4>{{removedash(city.name) | titlecase}}</h4>
+                            </div>
+                            <a (click)="openWorkSpace(city.name)" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="top_virtualoffice_city mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Top Office Space Cities in India</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularOfficeSpaces | slice:0:1">
+                <div class="top-city-item" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                    <div class="top-city-img main_city">
+                        <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                    </div>
+                    <div class="top-city-text">
+                        <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4 p-2" *ngFor="let _centerCity of popularOfficeSpaces | slice:1:7">
+                        <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                            <div class="top-city-img">
+                                <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                            </div>
+                            <div class="top-city-text">
+                                <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cities_section desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Top Office Space Cities</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="top_cities_carousel">
+
+                    <div class="top-city-item" *ngFor=" let _centerCity of popularOfficeCities">
+                        <div class="top-city-img" (click)="openWorkSpace(_centerCity.slug)">
+                            <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                        </div>
+                        <div class="top-city-text" (click)="openWorkSpace(_centerCity.slug)">
+                            <h4>{{_centerCity.name}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="office_top_properties office_gurugram_properties">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Office Space for Rent in Gurugram</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row office_top_properties_slider">
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58c9f6a1f91e5191820119042d38b03d49b6ca0b.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1421 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹92,365/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/567-sqft-fully-furnished-jmd-megapolis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c0d49e3bbadcc6f63252e42595e0acd5bbeb6408.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>567 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹31,185/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/567-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1400-sqft-fully-furnished-jmd-megapolis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a4ee1669432906a7eaf083b969135e6e4681abee.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1400 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹77,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1400-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-2')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8fcc8a15712438848f0caad6460ae23de6a17d80.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1421 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-28, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹78,155/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-2" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-1')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8192d53828a7182207ee7bb17e94ced4b872b10f.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>978 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹34,230/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-1" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/935-sqft-fully-furnished-jmd-megapolis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ed33658111153f059cab1ab8ea6835190515d13.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>935 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-26, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹42,075/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/935-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/2800-sqft-fully-furnished-jmd-megapolis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/639ede4f7cd13a32bf264eb4f636211656dcb4c7.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>2800 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹1,68,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/2800-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/947-sqft-fully-furnished-jmd-megapolis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e5f366755be22b3c12db93bb92f90c11ab074d1.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>947 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹42,615/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/947-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="all_properties_show" routerLink="/office-space/rent/gurugram"><button class="text_btn">Show More</button></div>
+        </div>
+    </div>
+</section>
+
+
+<section class="gradient_cta_sec officespace_cta1">
+    <div class="container">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3a71d5686abcc4cb8058d1bcb9c583b5c6d57d8c.jpg');">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>Get the Perfect Office Spaces in your cities</h4>
+                    <p class="mobilehide">Bangalore | Hyderabad | Mumbai | Pune | Delhi | Noida | Gurgaon & More...</p>
+                    <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="office_top_properties office_delhi_properties">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Office Space for Rent in Delhi</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row office_top_properties_slider">
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1821-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a40e94aae9b15ed91b0b90d38075e92a3ccf97ad.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,821 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Apollo, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹1,27,470/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1821-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/11500-sqft-raw-uppal-genesis')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f99dc7fcd9e0f08d3236480c3a131548d1227560.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>11,500 sq.ft. Office Space for Rent <br><span class="builder_name">Uppal Genesis</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Mathura Road, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹8,62,500/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/11500-sqft-raw-uppal-genesis" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1895-sqft-raw-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b0308226ab103cb09489778684866e01e5e48fc0.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,895 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Tower</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹1,42,125/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1895-sqft-raw-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1067-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d3a4ce48a89b7ef41df8e517e75aacb553d2e8c6.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,067 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹95,987.32/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1067-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4685-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2795eae366228a082c4cd294e5b7464cc4f7d221.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>4,865 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹4,13,525/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/4685-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1122-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a6159663a9318b4dc13f54e8a0f7e2eec16ce87.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,122 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹1,00,980/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1122-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/2964-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c5df3592237789df4075a762e653221328a79486.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>2,964 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹3,02,328/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/2964-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1242-sqft-fully-furnished-dlf-towers')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e97e9112fd809ed2404bc64e8ad7cba82f8f82c4.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,242 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹93,150/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1242-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="all_properties_show" routerLink="/office-space/rent/delhi"><button class="text_btn">Show More</button></div>
+        </div>
+    </div>
+</section>
+
+
+<section class="gradient_cta_sec officespace_cta2">
+    <div class="container">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fe5cb8e6ccbfd6d114c9e0c9c7783e04246442be.jpg');">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>Customize Office Spaces as per <br>your need</h4>
+                    <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="office_top_properties office_noida_properties">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Office Space for Rent in Noida</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row office_top_properties_slider">
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/6619-sqft-fully-furnished-advant-navis-business-park')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae14b6926c80a0af1ca95e85bf732c1d72ddaaf0.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>6,619 sq.ft. Office Space for Rent <br><span class="builder_name">Advant Navis Business Park</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 142, Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹3,97,140/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/6619-sqft-fully-furnished-advant-navis-business-park" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/15000-sqft-fully-furnished-the-search-house')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f99dc7fcd9e0f08d3236480c3a131548d1227560.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>15,000 sq.ft. Office Space for Rent <br><span class="builder_name">The Search House</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 62, Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹8,25,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/15000-sqft-fully-furnished-the-search-house" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4700-sqft-fully-furnished-sector-67-noida')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f06f542517248d4af02bf20348455d39971991fe.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>4700 sq.ft. Office Space for Rent</h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 67 Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹2,72,600/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/4700-sqft-fully-furnished-sector-67-noida" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4000-sqft-fully-furnished-sector-132')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a093793dd5f5282dbeb06cf4243650eafa6341e9.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>4,000 sq.ft. Office Space for Rent </h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 132, Noida </p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹2,20,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/4000-sqft-fully-furnished-sector-132" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1000-sqft-fully-furnished-sector-135')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/aeb67825177bdba013419de1455406c97ba65b71.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,000 sq.ft. Office Space for Rent</h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 135, Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹68,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1000-sqft-fully-furnished-sector-135" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/3970-sqft-raw-ansal-corporate')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b382d3b69cf2e4d7f01ce22e829106fb50d9de9.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>3,970 sq.ft. Office Space for Rent <br><span class="builder_name">Ansal Corporate</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 142, Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹2,38,200/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/3970-sqft-raw-ansal-corporate" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1000-sqft-semi-furnished-assotech-business')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da5a98ccff0471b9fb754c7d3ed33083820c076a.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>1,000 sq.ft. Office Space for Rent <br><span class="builder_name">Assotech Business</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 135, Noida </p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹45,000/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/1000-sqft-semi-furnished-assotech-business" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/850-sqft-fully-furnished-bhutani-alphathum')">
+                    <div class="property-img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ba2b27dc84a91db6be8dbd8c8043e6d8d96188c7.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="property-dis">
+                        <h4>850 sq.ft. Office Space for Rent <br><span class="builder_name">Bhutani Alphatum</span></h4>
+                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 90, Noida</p>
+                        <div class="amenities_card">
+                            <p class="capacity">
+                                <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                        </div>
+                    </div>
+                    <div class="property-foot align-items-end">
+                        <div class="price"><span class="rent_title">Rent</span>₹55,250/- <span>month</span></div>
+                        <div class="button"><a routerLink="/office-space/rent/850-sqft-fully-furnished-bhutani-alphathum" tabindex="0">Explore More</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="all_properties_show" routerLink="/office-space/rent/delhi"><button class="text_btn">Show More</button></div>
+        </div>
+    </div>
+</section>
+
+<section class="our_brand_partner">
+    <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false">
+    </app-home-brand-list>
+</section>
+
+
+<section class="cofynd_advantage_area office_advantage_area mobilehide">
+    <div class="container">
+        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
+            <div class="col-md-3">
+                <h3>CoFynd Advantages</h3>
+            </div>
+            <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
+                <div class="advantage_item">
+                    <div class="icon">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    </div>
+                    <div class="content">
+                        <h4>{{data.title}}</h4>
+                        <p>{{data.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- <section class="office_dream_sec mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="office_dream_area" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6908eacf05ef77abb40d2d198c6ed9815dcbf3a1.png');">
+                    <div class="dream_space_content">
+                        <h3>Let us find your Dream Space Property</h3>
+                        <p>Connect to a CoFynd Space Expert now</p>
+                        <button (click)="scrollToElement(officeCta)" class="site_btn btn">Enquire Now</button>
+                    </div>
+                    <div class="office_dream_img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2bda6be07622d1b772e28210b88363acfd52e606.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="query_from_sec officespace_query" #target>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Yes, I'm interested in Office Space</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-6 mobilehide">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/28ea3eaa2af7ac7991b576c496d9fbbe48267fa3.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-md-6">
+                <div class="virtual_query_form">
+                    <div class="form_head">
+                        <h3>Answers to your Office Space query</h3>
+                        <p>Our team is ready to answer your questions.</p>
+                    </div>
+
+                    <div class="form_body">
+                        <form [formGroup]="queryFormGroup" (ngSubmit)="onSubmit()">
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <select class="form-control" (change)="openCityListing($event.target.value)" id="exampleFormControlSelect1">
-                                        <option value="">Select City</option>
-                                        <option *ngFor="let city of cities"  [value]="city.name">{{removedash(city.name) | titlecase}}</option>
-                                    </select>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                        <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" class="form-control" placeholder="select city*" required aria-label="Default select example">
+                                            <option value="" selected disabled style="display: none;">Select City*</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <button class="site_btn border_btn" type="submit">Submit</button>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <p class="form_query_text">Need Assistance for Query? Call Now : <span><a href="tel:+91-9599509999">+91-9599509999</a></span></p>
                                 </div>
                             </div>
                         </form>
@@ -50,1215 +1046,214 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="near-vitual-office best_officespace_near desktophide" *ngIf="offices && offices.length > 0">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Best Office Space Near You</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="space_carousel">
-                        <div class="property_item" *ngFor=" let _centerCity of offices">
-                            <div class="property-img">
-                                <img [src]="_centerCity.images[0].image.s3_link" alt="CoworkInsta" class="img-fluid">
-                            </div>
-                            <div class="property-dis">
-                                <h4>{{_centerCity.name}}</h4>
-                                <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{_centerCity.location.address}}</p>
-                                <div class="amenities_card">
-                                    <p class="capacity">
-                                        <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                    </p>
-                                    <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                                </div>
-                            </div>
-                            <div class="property-foot align-items-end">
-                                <div class="price"><span class="rent_title">Rent</span>{{ (_centerCity.other_detail.area_for_lease_in_sq_ft * _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span></div>
-                                <div class="button"><a [routerLink]="['/office-space/rent/', _centerCity.slug]" tabindex="0">Explore More</a></div>
-                            </div>
-                        </div>
-
-
-                        <!-- <div class="property-item" *ngFor=" let _centerCity of offices">
-                            <div class="property-img">
-                                <img [src]="_centerCity.images[0].image.s3_link" alt="CoworkInsta" class="img-fluid">
-                            </div>
-                            <div class="properties-content">
-                                <h4>{{_centerCity.name}}</h4>
-                                <p>{{_centerCity.location.address1}}</p>
-                                <p class="price"><b>{{ (_centerCity.other_detail.area_for_lease_in_sq_ft * _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- month</b></p>
-                            </div>
-                            <a target="_blank" [routerLink]="['/office-space/rent/', _centerCity.slug]" class="stretched-link"></a>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="facilities_sec office_facilities">
-        <div class="container">
-            <div class="row desktophide">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Amenities you will get</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row amenities_row">
-                <div class="col-md-4 col-4" *ngFor="let data of service">
-                    <div class="icon_item mb-5">
-                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                        <h4>{{data.title}}</h4>
-                        <p class="mobilehide">{{data.description}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="choosewithcofynd_sec office_choose_sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Find a Office Space With CoFynd</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row choose_item_slider mt-2">
-                <div class="col-md-4" *ngFor="let data of chooseOffice">
-                    <div class="left_icon_box2">
-                        <div class="icon">
-                            <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                        </div>
-                        <div class="content">
-                            <h4>{{data.title}}</h4>
-                            <p>{{data.description}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="curated_section office_curated_office desktophide">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title">
-                        <h2>Curated Office Space For You</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="curated-box">
-                        <div class="curated-item" (click)="onClick('raw')">
-                            <div class="curated-img">
-                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfd31a363339982b0669301c5214fc454ec5529e.jpg" alt="Raw Office" class="img-fluid">
-                            </div>
-                            <div class="curated-content">
-                                <h4>Raw Office</h4>
-                            </div>
-                            <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="curated-box">
-                        <div class="curated-item" (click)="onClick('fully-furnished')">
-                            <div class="curated-img">
-                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e3dbfd1e6e359cc6ca02cbbbc072feac17ef5e2.jpg" alt="Furnished Office" class="img-fluid">
-                            </div>
-                            <div class="curated-content">
-                                <h4>Furnished Office</h4>
-                            </div>
-                            <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="curated-box">
-                        <div class="curated-item" (click)="onClick('build-to-suite')">
-                            <div class="curated-img">
-                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/158e89700617ca5cc7e3399b81e5989855c45103.jpg" alt="Built to Suit Office" class="img-fluid">
-                            </div>
-                            <div class="curated-content">
-                                <h4>Built to Suit Office</h4>
-                            </div>
-                            <a type="button" data-toggle="modal" data-target="#curated_coliving" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Curated Coliving popup -->
-    <div class="modal fade" id="curated_coliving" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Select City</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="coworking_cities">
-                        <div class="city-left-box" *ngFor="let city of cities">
-                            <div class="cities-icon-item">
-                                <div class="cities-img">
-                                    <img [src]="city.image" alt="Delhi" class="img-fluid">
-                                </div>
-                                <div class="cities-icon-content">
-                                    <h4>{{removedash(city.name) | titlecase}}</h4>
-                                </div>
-                                <a (click)="openWorkSpace(city.name)" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</section>
 
-    <section class="top_virtualoffice_city mobilehide">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Top Office Space Cities in India</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularOfficeSpaces | slice:0:1">
-                    <div class="top-city-item" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                        <div class="top-city-img main_city">
-                            <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
-                        </div>
-                        <div class="top-city-text">
-                            <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-4 p-2" *ngFor="let _centerCity of popularOfficeSpaces | slice:1:7">
-                            <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                                <div class="top-city-img">
-                                    <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
-                                </div>
-                                <div class="top-city-text">
-                                    <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cities_section desktophide">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Top Office Space Cities</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="top_cities_carousel">
-
-                        <div class="top-city-item" *ngFor=" let _centerCity of popularOfficeCities">
-                            <div class="top-city-img">
-                                <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
-                            </div>
-                            <div class="top-city-text">
-                                <h4>{{_centerCity.name}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="office_top_properties office_gurugram_properties">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Office Space for Rent in Gurugram</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row office_top_properties_slider">
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58c9f6a1f91e5191820119042d38b03d49b6ca0b.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1421 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹92,365/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/567-sqft-fully-furnished-jmd-megapolis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c0d49e3bbadcc6f63252e42595e0acd5bbeb6408.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>567 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹31,185/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/567-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1400-sqft-fully-furnished-jmd-megapolis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a4ee1669432906a7eaf083b969135e6e4681abee.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1400 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹77,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1400-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-2')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8fcc8a15712438848f0caad6460ae23de6a17d80.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1421 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-28, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹78,155/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-2" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-1')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8192d53828a7182207ee7bb17e94ced4b872b10f.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>978 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹34,230/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/978-sqft-fully-furnished-jmd-megapolis-1" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/935-sqft-fully-furnished-jmd-megapolis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ed33658111153f059cab1ab8ea6835190515d13.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>935 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-26, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹42,075/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/935-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/2800-sqft-fully-furnished-jmd-megapolis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/639ede4f7cd13a32bf264eb4f636211656dcb4c7.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>2800 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹1,68,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/2800-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/947-sqft-fully-furnished-jmd-megapolis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5e5f366755be22b3c12db93bb92f90c11ab074d1.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>947 sq.ft. Office Space for Rent <br><span class="builder_name">JMD Megapolis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-48, Gurugram</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹42,615/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/947-sqft-fully-furnished-jmd-megapolis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-12">
-                <div class="all_properties_show" routerLink="/office-space/rent/gurugram"><button class="text_btn">Show More</button></div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="gradient_cta_sec officespace_cta1">
-        <div class="container">
-            <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3a71d5686abcc4cb8058d1bcb9c583b5c6d57d8c.jpg');">
-                <div class="col-8">
-                    <div class="cta_content">
-                        <h4>Get the Perfect Office Spaces in your cities</h4>
-                        <p class="mobilehide">Bangalore | Hyderabad | Mumbai | Pune | Delhi | Noida | Gurgaon & More...</p>
-                        <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <section class="office_top_properties office_delhi_properties">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Office Space for Rent in Delhi</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row office_top_properties_slider">
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1821-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a40e94aae9b15ed91b0b90d38075e92a3ccf97ad.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,821 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Apollo, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹1,27,470/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1821-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/11500-sqft-raw-uppal-genesis')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f99dc7fcd9e0f08d3236480c3a131548d1227560.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>11,500 sq.ft. Office Space for Rent <br><span class="builder_name">Uppal Genesis</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Mathura Road, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹8,62,500/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/11500-sqft-raw-uppal-genesis" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1895-sqft-raw-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b0308226ab103cb09489778684866e01e5e48fc0.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,895 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Tower</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹1,42,125/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1895-sqft-raw-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1067-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d3a4ce48a89b7ef41df8e517e75aacb553d2e8c6.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,067 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹95,987.32/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1067-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4685-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2795eae366228a082c4cd294e5b7464cc4f7d221.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>4,865 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹4,13,525/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/4685-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1122-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a6159663a9318b4dc13f54e8a0f7e2eec16ce87.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,122 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹1,00,980/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1122-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/2964-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c5df3592237789df4075a762e653221328a79486.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>2,964 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹3,02,328/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/2964-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1242-sqft-fully-furnished-dlf-towers')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e97e9112fd809ed2404bc64e8ad7cba82f8f82c4.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,242 sq.ft. Office Space for Rent <br><span class="builder_name">DLF Towers</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Jasola, Delhi</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹93,150/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1242-sqft-fully-furnished-dlf-towers" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-12">
-                <div class="all_properties_show" routerLink="/office-space/rent/delhi"><button class="text_btn">Show More</button></div>
-            </div>
-        </div>
-    </section>
-
-    
-    <section class="gradient_cta_sec officespace_cta2">
-        <div class="container">
-            <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fe5cb8e6ccbfd6d114c9e0c9c7783e04246442be.jpg');">
-                <div class="col-8">
-                    <div class="cta_content">
-                        <h4>Customize Office Spaces as per <br>your need</h4>
-                        <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="office_top_properties office_noida_properties">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Office Space for Rent in Noida</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row office_top_properties_slider">
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/6619-sqft-fully-furnished-advant-navis-business-park')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae14b6926c80a0af1ca95e85bf732c1d72ddaaf0.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>6,619 sq.ft. Office Space for Rent <br><span class="builder_name">Advant Navis Business Park</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 142, Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹3,97,140/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/6619-sqft-fully-furnished-advant-navis-business-park" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/15000-sqft-fully-furnished-the-search-house')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f99dc7fcd9e0f08d3236480c3a131548d1227560.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>15,000 sq.ft. Office Space for Rent <br><span class="builder_name">The Search House</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 62, Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹8,25,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/15000-sqft-fully-furnished-the-search-house" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4700-sqft-fully-furnished-sector-67-noida')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f06f542517248d4af02bf20348455d39971991fe.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>4700 sq.ft. Office Space for Rent</h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 67 Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹2,72,600/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/4700-sqft-fully-furnished-sector-67-noida" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/4000-sqft-fully-furnished-sector-132')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a093793dd5f5282dbeb06cf4243650eafa6341e9.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>4,000 sq.ft. Office Space for Rent </h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 132, Noida </p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹2,20,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/4000-sqft-fully-furnished-sector-132" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1000-sqft-fully-furnished-sector-135')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/aeb67825177bdba013419de1455406c97ba65b71.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,000 sq.ft. Office Space for Rent</h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 135, Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹68,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1000-sqft-fully-furnished-sector-135" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/3970-sqft-raw-ansal-corporate')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b382d3b69cf2e4d7f01ce22e829106fb50d9de9.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>3,970 sq.ft. Office Space for Rent <br><span class="builder_name">Ansal Corporate</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 142, Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹2,38,200/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/3970-sqft-raw-ansal-corporate" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/1000-sqft-semi-furnished-assotech-business')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da5a98ccff0471b9fb754c7d3ed33083820c076a.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>1,000 sq.ft. Office Space for Rent <br><span class="builder_name">Assotech Business</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 135, Noida </p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹45,000/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/1000-sqft-semi-furnished-assotech-business" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="property_item" style="cursor: pointer;" (click)="goToLink('/office-space/rent/850-sqft-fully-furnished-bhutani-alphathum')">
-                        <div class="property-img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ba2b27dc84a91db6be8dbd8c8043e6d8d96188c7.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="property-dis">
-                            <h4>850 sq.ft. Office Space for Rent <br><span class="builder_name">Bhutani Alphatum</span></h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 90, Noida</p>
-                            <div class="amenities_card">
-                                <p class="capacity">
-                                    <img src="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
-                                </p>
-                                <p class="capacity"><img alt="Flexible Lease" class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
-                            </div>
-                        </div>
-                        <div class="property-foot align-items-end">
-                            <div class="price"><span class="rent_title">Rent</span>₹55,250/- <span>month</span></div>
-                            <div class="button"><a routerLink="/office-space/rent/850-sqft-fully-furnished-bhutani-alphathum" tabindex="0">Explore More</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-12">
-                <div class="all_properties_show" routerLink="/office-space/rent/delhi"><button class="text_btn">Show More</button></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="our_brand_partner">
-        <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false">
-        </app-home-brand-list>
-    </section>
-
-
-    <section class="cofynd_advantage_area office_advantage_area mobilehide">
-        <div class="container">
-            <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
-                <div class="col-md-3">
-                    <h3>CoFynd Advantages</h3>
-                </div>
-                <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
-                    <div class="advantage_item">
-                        <div class="icon">
-                            <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                        </div>
-                        <div class="content">
-                            <h4>{{data.title}}</h4>
-                            <p>{{data.description}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- <section class="office_dream_sec mobilehide">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="office_dream_area" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6908eacf05ef77abb40d2d198c6ed9815dcbf3a1.png');">
-                        <div class="dream_space_content">
-                            <h3>Let us find your Dream Space Property</h3>
-                            <p>Connect to a CoFynd Space Expert now</p>
-                            <button (click)="scrollToElement(officeCta)" class="site_btn btn">Enquire Now</button>
-                        </div>
-                        <div class="office_dream_img">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2bda6be07622d1b772e28210b88363acfd52e606.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <section class="query_from_sec officespace_query" #target>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Yes, I'm interested in Office Space</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row align-items-center">
-                <div class="col-md-6 mobilehide">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/28ea3eaa2af7ac7991b576c496d9fbbe48267fa3.png" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-md-6">
-                    <div class="virtual_query_form">
-                        <div class="form_head">
-                            <h3>Answers to your Office Space query</h3>
-                            <p>Our team is ready to answer your questions.</p>
-                        </div>
-
-                        <div class="form_body">
-                            <form [formGroup]="queryFormGroup" (ngSubmit)="onSubmit()">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="input-group align-items-center">
-                                            <img src="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
-                                            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="input-group align-items-center">
-                                            <img src="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                            <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
-                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
-                                                <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="input-group align-items-center">
-                                            <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
-                                            <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
-                                                <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="input-group align-items-center">
-                                            <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                            <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" class="form-control" placeholder="select city*" required aria-label="Default select example">
-                                                <option value="" selected disabled style="display: none;">Select City*</option>
-                                                <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                            <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['city'].errors['required']">Please select your city.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-12">
-                                        <div class="input-group align-items-center">
-                                            <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
-                                            <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-12">
-                                        <button class="site_btn border_btn" type="submit">Submit</button>
-                                    </div>
-                                    <div class="col-md-12 col-12">
-                                        <p class="form_query_text">Need Assistance for Query? Call Now : <span><a href="tel:+91-9599509999">+91-9599509999</a></span></p>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="office_client_sec">
-        <app-our-clients></app-our-clients>
-    </div>
-
-    <!-- <section class="developer_logos_sec office_space_developers mobilehide">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>Top Developers in India</h2>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="developer_logos_list">
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6b2ee28382f0ec0a248e58e85165e8e2dbe19343.png" alt="M3M" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fec56ac8eb11435fbdb3a87d9a072193554caf0e.png" alt="DLF" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/99c6baa5a1654984bde5fc89af519ac6a6f25dc2.png" alt="Emaar" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2de69148a27f9aebd02d5e18ea92cd2e8c86a4c6.png" alt="Godrej" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7869de921da4d3e0a1bfe7c27718ba3a49b3ff03.png" alt="Ireo" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30d6c561922394ac7605ba4b1809b7efa0c38719.png" alt="Tulip" class="img-fluid">
-                        </div>
-                        <div class="developer_logo_item">
-                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0aac3c0c5df6a20ebc923110f141de8e7f558f46.png" alt="Vatika" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-    <!-- <section class="client_logo_sec desktophide">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title">
-                        <h2>Companies we have helped</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="logos_slider">
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'" alt="" class="img-fluid"></div>
-                        <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'" alt="" class="img-fluid"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-
-
-
-
-
-    <!-- <section class="looking_sec desktophide">
-        <div class="container">
-            <div class="row looking_box">
-                <div class="col-12">
-                    <div class="page-title">
-                        <h2>Looking for a Customized Office Solution</h2>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="icon-box">
-                        <img src="../../../assets/images/icons/hot-desk.svg" alt="" class="img-fluid">
-                        <h5>Office Suite</h5>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="icon-box">
-                        <img src="../../../assets/images/icons/dedicated-desk.svg" alt="" class="img-fluid">
-                        <h5>CXO Suite</h5>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="icon-box">
-                        <img src="../../../assets/images/icons/private-cabin.svg" alt="" class="img-fluid">
-                        <h5>Custom Buildout</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <section class="list_your_space_sec office_list_space">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <div class="cta_content">
-                        <h4>List Your Vacant Property with Cofynd and Start Earning</h4>
-                        <p class="mobilehide">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
-                        <a routerLink="/list-your-space" class="btn site_btn blue_btn">List Your Property</a>
-                    </div>
-                </div>
-                <div class="col-4 text-center">
-                    <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cofynd_desk_sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="cofynd-desk text-center">
-                        <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
-                        <h4>What's the CoFynd Desk?</h4>
-                        <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
-                            Climb to their highest in life.</p>
-                        <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq faqs_section office_space_faqs">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="faq_content text-center">
-                        <div class="main_heading title_divider">
-                            <h2>Frequently Asked Questions</h2>
-                        </div>
-                        <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing an office space. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
-                    </div>
-                    <accordion [isAnimated]="true" class="faqs_accordion">
-                        <accordion-group>
-                            <h4 accordion-heading>
-                                What are the benefits of an office space?
-                            </h4>
-                            <p>An office space offers benefits like a great amount of privacy, high concentration, healthy atmosphere, regular cleaning, full of amenities, prestige and more. </p>
-                        </accordion-group>
-                        <accordion-group>
-                            <h4 accordion-heading>
-                                What are the types of office space?
-                            </h4>
-                            <p>The types of an office space are serviced, managed, leased and subleased.
-                            </p>
-                        </accordion-group>
-                        <accordion-group>
-                            <h4 accordion-heading>
-                                Who should choose an office?
-                            </h4>
-                            <p> An office space is suitable for both large and small enterprises.
-                            </p>
-                        </accordion-group>
-                        <accordion-group>
-                            <h4 accordion-heading>
-                                Where are office spaces most popular in India?
-                            </h4>
-                            <p>office spaces are most popular in Delhi, Gurgaon, Mumbai, Pune, Bangalore and Noida.
-                            </p>
-                        </accordion-group>
-                        <accordion-group>
-                            <h4 accordion-heading>
-                                Are visitors allowed in an office space?
-                            </h4>
-                            <p> Yes, visitors can be taken to your cabin.
-                            </p>
-                        </accordion-group>
-                    </accordion>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="search-description">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>{{footer_title }}</h2>
-                    <div [innerHTML]="footer_description"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+<div class="office_client_sec">
+    <app-our-clients></app-our-clients>
 </div>
 
+<!-- <section class="developer_logos_sec office_space_developers mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Top Developers in India</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="developer_logos_list">
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6b2ee28382f0ec0a248e58e85165e8e2dbe19343.png" alt="M3M" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fec56ac8eb11435fbdb3a87d9a072193554caf0e.png" alt="DLF" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/99c6baa5a1654984bde5fc89af519ac6a6f25dc2.png" alt="Emaar" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2de69148a27f9aebd02d5e18ea92cd2e8c86a4c6.png" alt="Godrej" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7869de921da4d3e0a1bfe7c27718ba3a49b3ff03.png" alt="Ireo" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/30d6c561922394ac7605ba4b1809b7efa0c38719.png" alt="Tulip" class="img-fluid">
+                    </div>
+                    <div class="developer_logo_item">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0aac3c0c5df6a20ebc923110f141de8e7f558f46.png" alt="Vatika" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<!-- <section class="client_logo_sec desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Companies we have helped</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="logos_slider">
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18239ac46f0095fa3f64ce3f11d84be4708fd8ea.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/134c977d30c8f1329a95ca71bd6eba6252733852.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c95b92cde2f2df7f82f31aee85f109e817404b4b.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9c3df6a15f74fe5310620ccfbaf13226649ba4d.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2151c641ffa4ec98b086617eef4193881e20834f.png'" alt="" class="img-fluid"></div>
+                    <div class="item band-img"><img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a66d2b173c8faa08fd6d4d1ba11890cd2542db24.png'" alt="" class="img-fluid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+
+
+
+
+<!-- <section class="looking_sec desktophide">
+    <div class="container">
+        <div class="row looking_box">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Looking for a Customized Office Solution</h2>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon-box">
+                    <img src="../../../assets/images/icons/hot-desk.svg" alt="" class="img-fluid">
+                    <h5>Office Suite</h5>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon-box">
+                    <img src="../../../assets/images/icons/dedicated-desk.svg" alt="" class="img-fluid">
+                    <h5>CXO Suite</h5>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="icon-box">
+                    <img src="../../../assets/images/icons/private-cabin.svg" alt="" class="img-fluid">
+                    <h5>Custom Buildout</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="list_your_space_sec office_list_space">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>List Your Vacant Property with Cofynd and Start Earning</h4>
+                    <p class="mobilehide">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                    <a routerLink="/list-your-space" class="site_btn border_btn">List Your Property</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cofynd_desk_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk?</h4>
+                    <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
+                        Climb to their highest in life.</p>
+                    <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq faqs_section office_space_faqs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq_content text-center">
+                    <div class="main_heading title_divider">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing an office space. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
+                </div>
+                <accordion [isAnimated]="true" class="faqs_accordion">
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the benefits of an office space?
+                        </h4>
+                        <p>An office space offers benefits like a great amount of privacy, high concentration, healthy atmosphere, regular cleaning, full of amenities, prestige and more. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the types of office space?
+                        </h4>
+                        <p>The types of an office space are serviced, managed, leased and subleased.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Who should choose an office?
+                        </h4>
+                        <p> An office space is suitable for both large and small enterprises.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Where are office spaces most popular in India?
+                        </h4>
+                        <p>office spaces are most popular in Delhi, Gurgaon, Mumbai, Pune, Bangalore and Noida.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Are visitors allowed in an office space?
+                        </h4>
+                        <p> Yes, visitors can be taken to your cabin.
+                        </p>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="search-description">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{footer_title }}</h2>
+                <div [innerHTML]="footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- <router-outlet></router-outlet> -->
-<div class="wrapper" style="display: none;">
+<!-- <div class="wrapper" style="display: none;">
 
     <section class="banner" style="margin-top: 0 !important;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h1>Find the Best<br /><span>Office Spaces</span> in India</h1>
-                    <!-- <app-home-cities></app-home-cities> -->
                     <div class="city-list">
                         <a *ngFor="let city of cities" [routerLink]="city.name">
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="'Office Space for Rent in ' + city.name" /> {{ city.name }}
@@ -1270,7 +1265,7 @@
         <div class="office-banner-bg"></div>
     </section>
 
-    <!-- Catagory Services -->
+    
     <section class="facilities">
         <div class="container">
             <div class="option-box">
@@ -1292,7 +1287,7 @@
         </div>
     </section>
 
-    <!-- booking navigation -->
+    
     <section class="booking-navigation bg-light">
         <div class="container">
             <div class=" ">
@@ -1325,7 +1320,7 @@
         </div>
     </section>
 
-    <!-- top Spaces -->
+    
     <section class="virtualSpace">
         <div class="container">
             <div class="page-title pt-3">
@@ -1338,8 +1333,6 @@
                         <div class="SpaceText">
                             <p class="mb-3 pl-2 text-center text-white" style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
                             </p>
-                            <!-- <p class="text-white pl-2 text-center"
-                  style="font-weight:500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address}}</p> -->
                         </div>
                     </div>
                 </div>
@@ -1351,8 +1344,6 @@
                                 <div class="SpaceText">
                                     <p class="text-center text-white mb-3" style="font-size: 20px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
                                     </p>
-                                    <!-- <p class="text-white text-center"
-                      style="font-weight:500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address}} </p> -->
                                 </div>
                             </div>
                         </div>
@@ -1404,7 +1395,6 @@
         </div>
     </section>
 
-    <!-- Covid-19 Section -->
     <section class="covid-section">
         <div class="container">
             <div class="row">
@@ -1449,7 +1439,6 @@
         </div>
     </section>
 
-    <!--Cofynd Advantages-->
     <section class="why-cofynd bg-light">
         <div class="container">
             <div class="bg-style">
@@ -1489,7 +1478,6 @@
         </div>
     </section>
 
-    <!-- Looking For Section -->
     <section class="customized">
         <div class="container">
             <div class="mt-5 pt-4 pb-4 pl-3 pr-3 option-box">
@@ -1526,19 +1514,6 @@
         </app-home-brand-list>
     </section>
 
-    <!-- <section class="listSpaceBox">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <a routerLink="/list-your-space" target="_blank">
-                        <img src="../../../assets/images/listYourSpace.jpg" style="cursor: pointer;" class="enquiry-box forLapT" alt="Co Working Spaces" />
-                        <img src="../../../assets/images/listYourSpaceMobile.jpg" style="cursor: pointer;" class="enquiry-box forMob" alt="Co Working Spaces" />
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <section class="list_your_space_sec mobilehide">
         <div class="container">
             <div class="row align-items-center">
@@ -1555,27 +1530,7 @@
             </div>
         </div>
     </section>
-
-    <!-- <section class="cta_section mobilehide">
-        <div class="container">
-            <div class="cta_area">
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="cta_content">
-                            <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
-                            <p>List for free, set your price and rest all things leave on our expert. Stay organized, manage leads, and track your earnings - all in one place.</p>
-                            <a routerLink="/list-your-space" class="btn site_btn">List Your Space</a>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6adb6d29795833ce274d687efce84be6e124ef9f.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- visite other section -->
+    
     <section class="visiteOther pt-5 pb-5">
         <div class="container">
             <div class="row">
@@ -1615,7 +1570,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    
     <section class="faq faqs_section">
         <div class="container">
             <div class="row">
@@ -1626,13 +1581,6 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <!-- <div class="faq_content">
-                        <div class="page-title">
-                          <h2>Frequently Asked Questions</h2>
-                        </div>
-                        <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a
-                            virtual office. We have gathered the most crucial ones and answer here to help you in making the right decision. </p>
-                      </div> -->
                     <accordion [isAnimated]="true" class="faqs_accordion">
                         <accordion-group>
                             <h4 accordion-heading>
@@ -1681,13 +1629,11 @@
                 </div>
             </div>
         </div>
-    </section>
-
-</div>
+    </section> -->
 
 <!-- mobile view seprated html -->
 
-<div class="wrapper desktophide" style="display: none;">
+<!-- <div class="wrapper desktophide" style="display: none;">
     <section class="innerpage_banner" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg');">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -1833,7 +1779,7 @@
         </div>
     </section>
 
-    <!-- Curated Coliving popup -->
+    
     <div class="modal fade" id="curated_coliving" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1878,26 +1824,7 @@
         </div>
     </section>
 
-    <!-- <section class="cta_section coworking_cta">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="cta_area" style="background-image: url('../../../assets/images/cta-pattern-img.png');">
-                    <div class="col-8">
-                        <div class="cta_content">
-                            <p>Hurry in choosing your <span style="color:#1313E6;">ideal space</span>?</p>
-                            <a routerLink="/contact-us" class="btn site_btn">Enquire Now</a>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <img src="../../../assets/images/cta-img2.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-    <section class="amenities_sec">
+        <section class="amenities_sec">
         <div class="container">
             <div class="row mb-2">
                 <div class="col-12">
@@ -1969,22 +1896,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="cities_carousel">
-                        <div class="cities-item" *ngFor=" let _centerCity of popularOfficeCities">
-                            <img [src]="_centerCity.image" alt="Delhi" class="img-fluid">
-                            <div class="cities-content">
-                                <h4>{{_centerCity.name}}</h4>
-                            </div>
-                            <a [routerLink]="_centerCity.slug" class="stretched-link"></a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!--Companies we have helped-->
+    
     <section class="client_logo_sec desktophide">
         <div class="container">
             <div class="row">
@@ -2275,25 +2192,7 @@
             </div>
         </div>
     </section>
-
-    <!-- <section class="cta_section desktophide">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <div class="cta_content">
-                        <p>List Your Vacant Space with Cofynd and Start Earning</p>
-                        <a routerLink="/list-your-space" class="btn site_btn">List Your Space</a>
-                    </div>
-                </div>
-                <div class="col-4 text-center">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6adb6d29795833ce274d687efce84be6e124ef9f.png" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- FAQ Coliving -->
-    <!-- FAQ Coliving -->
+    
     <section class="faq faqs_section">
         <div class="container">
             <div class="row">
@@ -2374,4 +2273,4 @@
         </div>
     </section>
 
-</div>
+</div> -->
