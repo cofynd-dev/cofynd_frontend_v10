@@ -285,7 +285,7 @@
                     <div class="top_cities_carousel">
 
                         <div class="top-city-item" *ngFor=" let _centerCity of popularOfficeCities">
-                            <div class="top-city-img">
+                            <div class="top-city-img" (click)="openWorkSpace(_centerCity.slug)">
                                 <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
                             </div>
                             <div class="top-city-text">
@@ -508,7 +508,7 @@
         </div>
     </section>
 
-    
+
     <section class="office_top_properties office_delhi_properties">
         <div class="container">
             <div class="row">
@@ -704,7 +704,7 @@
         </div>
     </section>
 
-    
+
     <section class="gradient_cta_sec officespace_cta2">
         <div class="container">
             <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fe5cb8e6ccbfd6d114c9e0c9c7783e04246442be.jpg');">
