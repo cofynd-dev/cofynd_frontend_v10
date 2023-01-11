@@ -45,6 +45,7 @@
         background-color: transparent;
         line-height: 21px !important;
         border: none;
+        height: 42px;
       }
       ::placeholder {
         color: #212529;
@@ -122,14 +123,14 @@
         .form-group{
           .form-control {
             padding: 8px 8px 8px 30px;
-            font-size: 10px;
+            font-size: 11px;
             line-height: 15px !important;
           }
 
           img {
-            width: 14px;
-            height: 14px;
-            top: 8px;
+            width: 15px;
+            height: 15px;
+            top: 14px;
           }
         } 
         
@@ -143,6 +144,10 @@
     
   }
   
+}
+
+.message_field img {
+	top: 8px !important;
 }
 
 // .contact-us-section {
