@@ -58,11 +58,40 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3 align-items-center">
+
+        
+        <div class="row align-items-center">
             <div class="col-md-6 start_list_img mobilehide">
                 <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9fbc669962147e9f6bc343f1d49e6b564f2cdb19.png" alt="" class="img-fluid">
             </div>
+
             <div class="col-md-6">
+                <div class="choose_item_slider">
+                    
+                        <div class="step_item" *ngFor="let data of startListing">
+                            <div class="icon"><img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title"></div>
+                            <div class="content">
+                                <h4>{{data.title}}</h4>
+                                <p>{{data.description}}</p>
+                            </div>
+                        </div>
+
+                        <!-- <div class="left_icon_box2">
+                            <div class="icon">
+                                <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                            </div>
+                            <div class="content">
+                                <h4>{{data.title}}</h4>
+                                <p class="mobilehide">{{data.description}}</p>
+                            </div>
+                        </div> -->
+                    <div class="mobilehide">
+                        <a href="https://listing.cofynd.com" target="_blank" class="site_btn border_btn">List Your Property</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6">
                 <div class="step_item">
                     <div class="icon"><img src="../../../assets/images/icons/user-laptop-icon.svg" alt="" class="img-fluid"></div>
                     <div class="content">
@@ -87,8 +116,8 @@
                     </div>
                 </div>
 
-                <a href="https://listing.cofynd.com" target="_blank" class="mobilehide site_btn border_btn">List Your Property</a>
-            </div>
+                
+            </div> -->
         </div>
     </div>
 </section>
