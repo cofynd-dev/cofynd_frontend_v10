@@ -5,7 +5,7 @@ $white:#fff;
 
 .social-btn-group {
   position: absolute;
-  right: 65px;
+  right: 20px;
   top: 20px;
   z-index: 2;
 
@@ -68,10 +68,10 @@ $white:#fff;
     height: 25px;
     font-size: 11px;
   }
-  .social-btn-group {
-    right: 52px;
-    top: 20px;
-  }
+  // .social-btn-group {
+  //   right: 52px;
+  //   top: 20px;
+  // }
   .social-btn-group .dropdown-menu button, .social-btn-group .dropdown-menu a {
     color: #272828 !important;
     font-size: 11px;

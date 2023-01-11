@@ -1,7 +1,7 @@
-<div class="property_item listing_card" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
+<div class="property_item listing_card">
     <div *ngIf="workspace.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
-            <div *nguCarouselDef="let images; let i = index;" class="item">
+            <div *nguCarouselDef="let images; let i = index;" class="item"  (click)="openWorkSpace(workspace)" style="cursor: pointer;">
                 <img rel="preload" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
             </div>
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
@@ -12,9 +12,9 @@
         </ngu-carousel>
     </div>
     <div class="image" *ngIf="!workspace.images.length"></div>
-    <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
-    </app-favorite-button>
-    <div class="space_details">
+    <!-- <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
+    </app-favorite-button> -->
+    <div class="space_details" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
         <div class="property-dis">
             <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
             <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
@@ -39,7 +39,7 @@
                 <!-- <ng-template [ngIf]="forAll">
                     <span class="rent_title">Starting from</span>₹{{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{workspace.plans[workspace.plans.length - 1].duration }}</span>
                 </ng-template></div> -->
-            <div class="button"><a (click)="openDetailsPage(workspace)" target="_blank">Explore More</a></div>
+            <div class="button"><a>Explore More</a></div>
         </div>
     </div>
 </div>

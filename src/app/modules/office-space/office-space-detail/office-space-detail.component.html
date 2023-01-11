@@ -1,6 +1,392 @@
 <app-workspace-loader *ngIf="loading"></app-workspace-loader>
-<section class="space-details">
-    <div class="container hideOnMobile">
+<section class="breadcrumbs_sec mobilehide">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/']">Office Space</a>
+                        </li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_page_gallery">
+    <div class="container">
+        <div class="row">
+            <div class="relative" *ngIf="!loading">
+                <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                </app-social-share>
+
+                <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner>
+
+                <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner-blank>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="breadcrumbs_sec desktophide">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/']">Office Space</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_area content" *ngIf="!loading && workspace">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+
+                    <div class=" col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
+                                        <!-- <div class="sections section-1 space_title_area">
+                                            <h1>{{ workspace.name }}</h1>
+                                            <p class="address">
+                                                <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ workspace.location.address }}
+                                            </p>
+                                            <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><small class="icon-rupee fas fa-rupee-sign"></small>{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}
+                                            </div>
+                                        </div> -->
+                                        <div class="heading-info">
+                                            <h1>{{ workspace.name }}</h1>
+                                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}</p>
+                                            <p class="price"><span class="rent_title">Monthly Rent</span>₹{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p>
+
+                                            <!-- <div *ngIf="isStickyHeaderVisible === visibilityState.Visible" class="price"><span>Monthly Rent*</span><small class="icon-rupee fas fa-rupee-sign"></small>{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="space_facility_area">
+                                        <div class="space_facility_box">
+                                            <div class="space_facility_icons">
+                                                <div class="icon">
+                                                    <img class="bhk" src="../../../../assets/images/icons/furnished-status-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <span>Fully Furnished</span>
+                                                </div>
+                                            </div>
+            
+                                            <div class="space_facility_icons">
+                                                <div class="icon">
+                                                    <img class="bhk" src="../../../../assets/images/icons/brokerage-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <span>Zero Brokerage</span>
+                                                </div>
+                                            </div>
+            
+                                            <div class="space_facility_icons">
+                                                <div class="icon">
+                                                    <img class="bhk" src="../../../../assets/images/icons/verify-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <span>Verified Spaces</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <hr class="divider_line">
+
+                            <div class="row overview_area">
+                                <div class="col-md-12">
+                                    <!-- <h2>Overview</h2> -->
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="../../../../assets/images/icons/area-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Area</h5>
+                                                    <p>{{ workspace.other_detail.area_for_lease_in_sq_ft }} Sq. Ft.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="../../../../assets/images/icons/security-deposit-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Security Deposit</h5>
+                                                    <p>{{ checkAmenityIsAvailable('Deposit') ? 'Yes' : 'No' }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="../../../../assets/images/icons/space-status-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Status</h5>
+                                                    <p>{{workspace.other_detail.office_type}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="assets/images/icons/brokerage-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Zero Brokerage</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="assets/images/icons/verify-thumb-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Verified Spaces</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="overview-icons">
+                                                <div class="icon">
+                                                    <img src="assets/images/icons/flexible-lease-icon.svg" />
+                                                </div>
+                                                <div class="info">
+                                                    <h5>Flexible Lease</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <hr class="divider_line">
+
+                            <div class="row about-area" *ngIf="workspace.description">
+                                <div class="col-md-12">
+                                    <h2 class="mobilehide">About this property</h2>
+                                </div>
+                                <div class="col-md-12">
+                                    <p *ngIf="seeMore; else hide">
+                                        {{ workspace.description |slice:0:270 }} ...
+                                    </p>
+                                    <ng-template #hide>
+                                        <p>
+                                            {{ workspace.description }}
+                                        </p>
+                                    </ng-template>
+            
+                                    <p class="moreless-button mt-1" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
+                                </div>
+                            </div>
+            
+                            <hr class="divider_line">
+
+                            <div class="row amenities_section">
+                                <div class="col-md-12">
+                                    <h2>Building Amenities</h2>
+                                </div>
+                                <div class="col-md-12 mobilehide" id="amenities-icons">
+                                    <div class="basic-icons">
+                                        <ng-container *ngFor="let amenity of workspace.amenties">
+                                            <p><i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}</p>
+                                        </ng-container>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 desktophide" id="amenities-icons">
+                                    <div class="basic-icons">
+                                        <ng-container *ngIf="haftAmenities; else fullAmenities">
+                                            <p *ngFor="let amenity of workspace.amenties.slice(0,6)">
+                                                <i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}
+                                            </p>
+                                        </ng-container>
+            
+                                        <ng-template #fullAmenities>
+                                            <p *ngFor="let amenity of workspace.amenties">
+                                                <i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}
+                                            </p>
+                                        </ng-template>
+                                    </div>
+                                    <!-- <div class="col-12 desktophide"> -->
+                                        <p class="moreless-button" (click)="toggleAmenitiesDiv()">See {{haftAmenities? "More »": "Less »" }} </p>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+
+                            <hr class="divider_line">
+
+                            <div class="row map-location">
+                                <div class="col-md-12">
+                                    <h2>You'll work here</h2>
+                                    <p class="location-icon" *ngIf="workspace">
+                                        <img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}
+                                    </p>
+                                    <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
+                                    </div>
+                                    <div class="desktophide">
+                                        <p style="font-weight: 300;">Located at the most prime location with 24*7 surveillance</p>
+                                    </div>
+                                    <!-- <p class="location-icon"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-65, Gurgaon</p> -->
+                                </div>
+                            </div>
+
+                            <hr class="divider_line">
+
+                            <div class="row near_places" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
+                                <div class="col-md-12 places-nearby">
+                                    <h2 class="heading">Places Nearby</h2>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="places-tag-slider">
+                                        <div class="places-tag-item">
+                                            <div class="places-tag-box">
+                                                <div class="tag-icon">
+                                                    <img class="img-fluid" src="../../../../assets/images/icons/metro-icon.svg" />
+                                                </div>
+                                                <div class="tag-text">
+                                                    <h5>Nearest Metro</h5>
+                                                    <p>{{ workspace.location.metro_detail.name }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="places-tag-item">
+                                            <div class="places-tag-box">
+                                                <div class="tag-icon">
+                                                    <img class="img-fluid" src="../../../../assets/images/icons/airport-icon.svg">
+                                                </div>
+                                                <div class="tag-text">
+                                                    <h5>IGI Airport</h5>
+                                                    <p>4.6 Km</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="places-tag-item">
+                                            <div class="places-tag-box">
+                                                <div class="tag-icon">
+                                                    <img class="img-fluid" src="../../../../assets/images/icons/school-icon.svg">
+                                                </div>
+                                                <div class="tag-text">
+                                                    <h5>DPS International School</h5>
+                                                    <p>4.9 Km</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="places-tag-item">
+                                            <div class="places-tag-box">
+                                                <div class="tag-icon">
+                                                    <img class="img-fluid" src="../../../../assets/images/icons/mall-icon.svg">
+                                                </div>
+                                                <div class="tag-text">
+                                                    <h5>Raheja Mall</h5>
+                                                    <p>4.9 Km</p>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- <div class="enquiry_section">
+                    <div class="form-section">
+                        <h2 class="heading">Send Enquiry</h2>
+                        <p>Know More About M3M Merlin</p>
+                        <form class="form">
+                            <div class="form-input">
+                                <input type="text" class="form-control border-light" id="name" placeholder="Name" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-input">
+                                <input type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-input">
+                                <input type="text" class="form-control border-light" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">I agree to be contacted by Cofynd and other agents via <i class="fa-brands fa-whatsapp me-1"></i>WhatsApp, SMS, phone, email etc.</label>
+                            </div>
+                            <button type="button" class="btn w-100">Send</button>
+                        </form>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-image">
+                            <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
+                        </div>
+                        <div class="contact-info">
+                            <p class="heading">Get in Touch</p>
+                            <p>+91 9999 10 8078</p>
+                        </div>
+                    </div>
+                    <div class="policy">
+                        <p>By clicking the above button you agree to our Terms of service and have read and understood our <span><a class="text-decoration-none" routerLink="/privacy-policy">Privacy Policy</a></span>
+                        </p>
+                    </div>
+                </div> -->
+
+                <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
+                    <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" [isOfficeEnquiry]="true" (backButtonClick)="closeEnquireModal()">
+                    </app-workspace-enquire>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider_line">
+
+        <div class="row similar_spaces_area">
+            <div class="col-md-12">
+                <div class="sections no-border">
+                    <h2 class="similarSpace">Similar Office Spaces</h2>
+                    <app-office-space-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address">
+                    </app-office-space-similar>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- <section class="space-details">
+    <div class="container-field breadcrumbs_sec mobilehide">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -16,19 +402,23 @@
         </div>
     </div>
 
-    <div class="relative" *ngIf="!loading">
+    <div class="container">
+        <div class="row">
+            <div class="relative" *ngIf="!loading">
 
-        <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
-        </app-social-share>
+                <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                </app-social-share>
 
-        <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
-        </app-workspace-banner>
+                <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner>
 
-        <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
-        </app-workspace-banner-blank>
+                <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner-blank>
+            </div>
+        </div>
     </div>
 
-    <div class="container onlyMobile pt-3 breadcrumb_area">
+    <div class="container desktophide pt-3 breadcrumb_area">
         <div class="row">
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
@@ -39,8 +429,8 @@
                 Office Space
               </a>
                         </li>
-                        <!-- <li class="breadcrumb-item text-overflow active"
-              aria-current="page">{{ workspace.name }}</li> -->
+                        <li class="breadcrumb-item text-overflow active"
+              aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
             </div>
@@ -63,7 +453,7 @@
                         <p>
                             <img width="26" src="/assets/images/amenities/verified.svg" alt="CoFynd Verified Spaces"> Verified Spaces
                         </p>
-                        <p class="hideOnMobile">
+                        <p class="mobilehide">
                             <img width="30" src="/assets/images/amenities/trusted.svg" alt="CoFynd Trusted Partner"> Trusted Partner
                         </p>
                         <p>
@@ -92,7 +482,7 @@
                         </div>
                     </div>
                     <div *ngIf="workspace.description" class="sections about-section">
-                        <h2 class="hideOnMobile">About this Office Space</h2>
+                        <h2 class="mobilehide">About this Office Space</h2>
                         <p *ngIf="seeMore; else hide">
                             {{ workspace.description |slice:0:270 }}
                         </p>
@@ -103,16 +493,9 @@
                         </ng-template>
 
                         <p class="see_more mt-1" (click)="toggleAboutMore()">{{seeMore? "See More":"See Less"}}</p>
-
-                        <!-- <div class="metro-detail"
-              *ngIf="workspace.location.metro_detail.is_near_metro">
-              <p>
-                <i class="metro-icon"></i>Nearest Metro Station <span>{{ workspace.location.metro_detail.name }}</span>
-              </p>
-            </div> -->
                     </div>
 
-                    <div class="sections hideOnMobile">
+                    <div class="sections mobilehide">
                         <h2>Building Amenities</h2>
                         <ul class="amenity-list">
                             <li *ngFor="let amenity of workspace.amenties">
@@ -121,7 +504,7 @@
                         </ul>
                     </div>
 
-                    <div class="sections onlyMobile offers_section">
+                    <div class="sections desktophide offers_section">
                         <h2>Building Amenities</h2>
                         <ul class="amenity-list">
                             <ng-container *ngIf="haftAmenities; else fullAmenities">
@@ -138,9 +521,7 @@
                         </ul>
                         <div class="row buttonOnMobile" (click)="toggleAmenitiesDiv()">
                             <div class="col-12">
-                                <button class="btn btn-block bg-white">
-                  show {{haftAmenities? "all": "less" }} amenities
-                </button>
+                                <button class="btn btn-block bg-white">show {{haftAmenities? "all": "less" }} amenities </button>
                             </div>
                         </div>
                     </div>
@@ -150,17 +531,14 @@
                     <p *ngIf="workspace">
                         {{ workspace.location.address }}
                     </p>
-                    <!-- <div #workspaceMap
-            class="map-container">
-          </div> -->
                     <div *ngIf="options.zoom" style="height: 200px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                     </div>
                 </div>
-                <div class="onlyMobile">
+                <div class="desktophide">
                     <p style="font-weight: 300;">Located at the most prime location with 24*7 surveillance</p>
                 </div>
 
-                <div class="metro-detail mb-2 hideOnMobile" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
+                <div class="metro-detail mb-2 mobilehide" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
                     <p class="P-heading">Nearest Metro &amp; Shuttl</p>
                     <div class="row">
                         <div class="col-12 pr-0">
@@ -188,9 +566,9 @@
         </div>
 
     </div>
-</section>
+</section> -->
 
-<section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile">
+<section class="mobile-ftr-contact bg-white pb-0 pt-0 desktophide">
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
             <div class="col-6 bottomPrize">
