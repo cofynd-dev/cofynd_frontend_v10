@@ -1,45 +1,45 @@
 @import "base/variable";
 
 .enquire-box {
-  position: absolute;
-  width: 100%;
-  max-width: 370px;
-  top: 80px;
-  z-index: 1;
-  background: #fff;
+  // position: absolute;
+  // width: 100%;
+  // max-width: 370px;
+  // top: 80px;
+  // z-index: 1;
+  // background: #fff;
 
-  &-content {
-    border: 1px solid #e4e4e4;
-    border-radius: 6px;
+  // &-content {
+  //   border: 1px solid #e4e4e4;
+  //   border-radius: 6px;
 
-    @media(max-width:991px) {
-      border-radius: 0;
-    }
-  }
+  //   @media(max-width:991px) {
+  //     border-radius: 0;
+  //   }
+  // }
 
-  &.fixed {
-    position: fixed;
+  // &.fixed {
+  //   position: fixed;
 
-    .enquire-box-content {
-      border-top: 5px solid #4343e8;
-    }
-  }
+  //   .enquire-box-content {
+  //     border-top: 5px solid #4343e8;
+  //   }
+  // }
 
-  .title {
-    padding: 25px;
-    border-bottom: 1px solid #e4e4e4;
+  // .title {
+  //   padding: 25px;
+  //   border-bottom: 1px solid #e4e4e4;
 
-    h4 {
-      margin: 0;
-      font-size: 26px;
-      font-weight: 500;
-      color: #262626;
+  //   h4 {
+  //     margin: 0;
+  //     font-size: 26px;
+  //     font-weight: 500;
+  //     color: #262626;
 
-      .icon-left {
-        display: none;
-      }
-    }
-  }
+  //     .icon-left {
+  //       display: none;
+  //     }
+  //   }
+  // }
 
   @media(max-width:991px) {
     top: 0;
@@ -50,23 +50,23 @@
       position: static;
     }
 
-    .title {
-      padding: 20px;
+    // .title {
+    //   padding: 20px;
 
-      h4 {
-        font-size: 20px;
-        line-height: 24px;
+    //   h4 {
+    //     font-size: 20px;
+    //     line-height: 24px;
 
-        .icon-left {
-          display: inline-block;
-          vertical-align: middle;
-          font-size: 20px;
-          position: relative;
-          top: -2px;
-          margin-right: 8px;
-        }
-      }
-    }
+    //     .icon-left {
+    //       display: inline-block;
+    //       vertical-align: middle;
+    //       font-size: 20px;
+    //       position: relative;
+    //       top: -2px;
+    //       margin-right: 8px;
+    //     }
+    //   }
+    // }
 
     .enquiry-footer  {
       padding: 10px;

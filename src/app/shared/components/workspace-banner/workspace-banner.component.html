@@ -1,47 +1,32 @@
-<section class="slider-section">
-  <app-favorite-button *ngIf="favoriteOption"
-    class="btn-favorite"
-    [isFavorite]="isFavorite"
-    [loading]="loading"
-    (addedToFavoriteChange)="addToFavorite()">
-  </app-favorite-button>
-  <!-- <button type="button"
-    (click)="openGallery()"
-    class="btn btn-white">
-    View More
-  </button> -->
-  <div *ngIf="!this.hideBannerView"
-    class="workspace-banner-container"
-    (click)="openGallery()">
-    <div class="workspace-banner-half">
-      <div class="workspace-banner">
-        <img [src]="mainImg ? mainImg.image.s3_link : ''"
-          [alt]="mainImg.image.title ? mainImg.image.title : ''">
+<div class="container">
+    <div class="row" *ngIf="!this.hideBannerView" (click)="openGallery()">
+      <div class="col-md-6">
+        <div class="banner-image-item first-img">
+          <img [src]="mainImg ? mainImg.image.s3_link : ''"
+            [alt]="mainImg.image.title ? mainImg.image.title : ''">
+        </div>
       </div>
-    </div>
-    <div class="workspace-banner-one-third">
-      <div class="workspace-banner">
-        <img [src]="imgTL ? imgTL.image.s3_link : ''"
-          [alt]="imgTL ? imgTL.image.title : ''">
+      <div class="col-md-3 image_space">
+        <div class="banner-image-item">
+          <img [src]="imgTL ? imgTL.image.s3_link : ''"
+            [alt]="imgTL ? imgTL.image.title : ''">
+        </div>
+        <div class="banner-image-item mb-0">
+          <img [src]="imgTR ? imgTR.image.s3_link : ''"
+            [alt]="imgTR.image.title  ? imgTR.image.title : ''">
+        </div>
       </div>
-      <div class="workspace-banner">
-        <img [src]="imgTR ? imgTR.image.s3_link : ''"
-          [alt]="imgTR.image.title  ? imgTR.image.title : ''">
-      </div>
-    </div>
-    <div class="workspace-banner-one-third">
-      <div class="workspace-banner">
-        <img [src]="imgBL ? imgBL.image.s3_link : ''"
-        [alt]="imgBL ? imgBL.image.title : ''">
-      </div>
-      <div class="workspace-banner">
-        <img [src]="imgBR ? imgBR.image.s3_link : ''"
-          [alt]="imgBR ? imgBR.image.title : ''">
+      <div class="col-md-3">
+        <div class="banner-image-item last-img">
+          <img [src]="imgBL ? imgBL.image.s3_link : ''"
+            [alt]="imgBL ? imgBL.image.title : ''">
+        </div>
+        <button type="button"
+          (click)="openGallery()"
+          class="all_photon_btn"><i class="fa-solid fa-layer-group"></i> View All Photos</button>
       </div>
     </div>
   </div>
-
-  <!-- Property Image Carousel -->
   <app-image-gallery *ngIf="showImageGallery"
     [images]="images"
     [title]="title"
@@ -50,4 +35,42 @@
     (closeImageGallery)="closeImageGallery()">
   </app-image-gallery>
 
-</section>
+<!-- <section class="slider-section">
+  <app-favorite-button *ngIf="favoriteOption" class="btn-favorite" [isFavorite]="isFavorite" [loading]="loading" (addedToFavoriteChange)="addToFavorite()"></app-favorite-button>
+
+  <button type="button" (click)="openGallery()" class="btn btn-white">View More</button>
+
+  <div *ngIf="!this.hideBannerView" class="workspace-banner-container" (click)="openGallery()">
+    <div class="workspace-banner-half">
+      <div class="workspace-banner">
+        <img [src]="mainImg ? mainImg.image.s3_link : ''" [alt]="mainImg.image.title ? mainImg.image.title : ''">
+      </div>
+    </div>
+    <div class="workspace-banner-one-third">
+      <div class="workspace-banner">
+        <img [src]="imgTL ? imgTL.image.s3_link : ''" [alt]="imgTL ? imgTL.image.title : ''">
+      </div>
+      <div class="workspace-banner">
+        <img [src]="imgTR ? imgTR.image.s3_link : ''" [alt]="imgTR.image.title  ? imgTR.image.title : ''">
+      </div>
+    </div>
+    <div class="workspace-banner-one-third">
+      <div class="workspace-banner">
+        <img [src]="imgBL ? imgBL.image.s3_link : ''" [alt]="imgBL ? imgBL.image.title : ''">
+      </div>
+      <div class="workspace-banner">
+        <img [src]="imgBR ? imgBR.image.s3_link : ''" [alt]="imgBR ? imgBR.image.title : ''">
+      </div>
+    </div>
+  </div>
+
+  
+  <app-image-gallery *ngIf="showImageGallery"
+    [images]="images"
+    [title]="title"
+    [isMobileMode]="isMobileMode"
+    [isSliderMode]="isSliderMode"
+    (closeImageGallery)="closeImageGallery()">
+  </app-image-gallery>
+
+</section> -->
