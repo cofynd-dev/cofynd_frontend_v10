@@ -6,9 +6,7 @@
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item">
-                            <a [routerLink]="['/office-space/rent/']">Office Space</a>
-                        </li>
+                        <li class="breadcrumb-item"><a [routerLink]="['/co-living/']">Co Living</a></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
