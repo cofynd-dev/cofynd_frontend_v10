@@ -295,7 +295,7 @@ export class WorkSpaceService {
   }
 
   microLocationByCityAndSpaceType(cityId: any) {
-    return this.http.get<ApiResponse<City[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coWorking=${true}`).pipe(
+    return this.http.get<ApiResponse<City[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coworking=${true}`).pipe(
       map(microlocations => {
         return microlocations;
       }),

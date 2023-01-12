@@ -105,7 +105,7 @@ export class CoLivingService {
   }
 
   microLocationByCityAndSpaceType(cityId: any) {
-    return this.http.get<ApiResponse<any[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coLiving=${true}`).pipe(
+    return this.http.get<ApiResponse<any[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coliving=${true}`).pipe(
       map(microlocations => {
         return microlocations;
       }),
