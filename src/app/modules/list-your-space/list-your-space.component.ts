@@ -32,6 +32,24 @@ export class ListYourSpaceComponent implements OnInit {
       keywords: 'List your Space, List your Office Space, List your Office Space for Rent, List your event space',
     };
     this.seoService.setData(metaInfo);
-  }
+  };
+
+  startListing = [
+    {
+      icon: 'icons/user-laptop-icon.svg',
+      title: 'Sign up for FREE',
+      description: 'Start listing your space without any Charge',
+    },
+    {
+      icon: 'icons/create-listing-icon.svg',
+      title: 'Create a listing',
+      description: 'Details about your space including Photos & Price',
+    },
+    {
+      icon: 'icons/support-icon.svg',
+      title: 'We find you tenants',
+      description: 'Connect with genuine leads for your space',
+    },
+  ];
 
 }
