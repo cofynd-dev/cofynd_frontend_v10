@@ -76,6 +76,16 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     { label: 'Custom Buildout', value: 'custom-buildout' },
   ];
 
+  coworkingNoOfSeats = [
+    { label: '1-10', value: '1-10' },
+    { label: `11-20`, value: '11-20' },
+    { label: '21-50', value: '21-50' },
+    { label: '51-100', value: '51-100' },
+    { label: '100++', value: '100++' },
+    { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
+    { label: 'Customised solutions', value: 'Customised_solutions' },
+  ];
+
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
 
   constructor(
@@ -298,7 +308,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
-      form['no_of_person'] = ['1-10', Validators.required];
+      form['no_of_person'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
   }

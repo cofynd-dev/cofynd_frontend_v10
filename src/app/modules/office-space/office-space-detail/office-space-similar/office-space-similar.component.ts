@@ -58,6 +58,12 @@ export class OfficeSpaceSimilarComponent implements OnInit {
       });
   }
 
+  getoffceType(type: string) {
+    let stringToReplace = type;
+    var desired = stringToReplace.replace(/[^\w\s]/gi, ' ');
+    return desired;
+  }
+
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
   }

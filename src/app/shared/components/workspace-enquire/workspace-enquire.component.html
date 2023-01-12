@@ -24,7 +24,7 @@
 
             <div [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
 
-                
+
 
                 <div class="form-group floating-label">
                     <label>Name*</label>
@@ -67,14 +67,7 @@
                 </div>
                 <div class="col-sm-5">
                     <div class="form-group">
-                        <ng-select placeholder="No of seats" [clearable]="false" [searchable]="false" formControlName="no_of_person">
-                            <ng-option value="1-10">1-10</ng-option>
-                            <ng-option value="11-20">11-20</ng-option>
-                            <ng-option value="21-50">21-50</ng-option>
-                            <ng-option value="51-100">51-100</ng-option>
-                            <ng-option value="100+">100++</ng-option>
-                            <ng-option value="Enterprise_Solutions">Enterprise Solutions</ng-option>
-                            <ng-option value="Customised_solutions">Customised solutions</ng-option>
+                        <ng-select placeholder="seats" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
                         </ng-select>
                         <app-input-validation [control]="enquiryForm.controls.no_of_person">
                         </app-input-validation>
