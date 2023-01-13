@@ -5674,6 +5674,9 @@ h3.site_title {
 .city_form_sec .cta_img img {
 	width: 250px;
 }
+.breadcrumb .breadcrumb-item a {
+	cursor: pointer;
+}
 
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {
@@ -6485,7 +6488,8 @@ h3.site_title {
     .virtual_cities_carousel,
     .choose_item_slider,
     .top_cities_carousel,
-    .office_top_properties_slider {
+    .office_top_properties_slider,
+    .visible-list {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -6502,7 +6506,8 @@ h3.site_title {
     .virtual_cities_carousel::-webkit-scrollbar,
     .choose_item_slider::-webkit-scrollbar,
     .top_cities_carousel::-webkit-scrollbar,
-    .office_top_properties_slider::-webkit-scrollbar {
+    .office_top_properties_slider::-webkit-scrollbar,
+    .visible-list::-webkit-scrollbar {
         display: none !important;
         height: 0 !important;
         width: 0 !important;
