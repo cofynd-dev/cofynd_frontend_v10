@@ -5656,6 +5656,25 @@ h3.site_title {
     padding-bottom: 60px !important;
 }
 
+.micro-location-cta, .city_advantage_area {
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+.city_form_sec {
+	padding-top: 20px;
+	padding-bottom: 60px;
+}
+.micro-location-cta .row, .cofynd_advantage_area .row {
+	margin: 0;
+}
+.micro-location-cta .cta_content p {
+	width: 60%;
+	line-height: 24px;
+}
+.city_form_sec .cta_img img {
+	width: 250px;
+}
+
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {
         font-size: 13px !important;
