@@ -58,6 +58,8 @@ import { HomeNearmePopupComponent } from './components/home-nearme-popup/home-ne
 import { CuratedCityPopupComponent } from './components/curated-city-popup/curated-city-popup.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { OurClientsComponent } from './components/our-clients/our-clients.component';
+import { SearchContactUsText1Component } from './components/search-contact-us-text1/search-contact-us-text1.component';
+import { SearchContactUsText2Component } from './components/search-contact-us-text2/search-contact-us-text2.component';
 
 const MODULES = [
   CommonModule,
@@ -83,6 +85,8 @@ const COMPONENTS = [
   SearchNoResultComponent,
   SearchMapViewComponent,
   SearchContactUsTextComponent,
+  SearchContactUsText1Component,
+  SearchContactUsText2Component,
   ImageGalleryComponent,
   WorkspaceBannerBlankComponent,
   WorkspaceBannerComponent,
@@ -126,7 +130,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component],
   imports: [
     CommonModule,
     RouterModule,
