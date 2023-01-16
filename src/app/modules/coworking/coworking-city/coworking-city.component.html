@@ -18,9 +18,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <h1 class="page-heading" *ngIf="!loading && workSpaces.length">
-                {{ pageTitle ? pageTitle : setSubName()}}
-            </h1> -->
 
             <!-- Modal -->
             <div class="modal fade filters_popup" id="coworking_filters_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,10 +108,6 @@
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
-                            </app-search-contact-us-text>
-                        </div> -->
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
                             </app-search-contact-us-text>
