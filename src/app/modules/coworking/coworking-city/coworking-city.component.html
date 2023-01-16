@@ -111,12 +111,12 @@
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
-                        <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
+                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
                             <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
                             </app-search-contact-us-text>
-                        </div>
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) === 6">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
+                        </div> -->
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <app-search-contact-us-text [cities]="availableCities" [microlocations]="cityWisePopularLocation" [type]="'for_coWorking'">
                             </app-search-contact-us-text>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12">
@@ -126,7 +126,7 @@
                         <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <app-search-contact-us-text2>
                             </app-search-contact-us-text2>
-                        </div> -->
+                        </div>
                     </ng-template>
                 </ng-container>
             </div>
