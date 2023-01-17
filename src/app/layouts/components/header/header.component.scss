@@ -762,7 +762,8 @@ border-bottom: 1px solid rgba(0,0,0,0.1) !important;
         text-align: right;
     }
     .main_header .logo_col {
-        text-align: center;
+        text-align: left;
+        padding-left: 0;
     }
     .main_header .logo_col .navbar-brand {
         margin-right: 0px;

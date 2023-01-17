@@ -16,6 +16,8 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { uniqBy } from 'lodash';
 import { Location } from '@angular/common';
+import { generateSlug } from '@app/shared/utils';
+
 
 @Component({
   selector: 'app-coworking-locality',
@@ -126,6 +128,11 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     }
   }
 
+  routeToMicro(item) {
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
+  }
+
   setHeaderScript() {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
@@ -207,11 +214,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     this.workSpaceService.getWorSpacesByAddress(sanitizeParams(param)).subscribe(allWorkSpaces => {
       allWorkSpaces.data = uniqBy(allWorkSpaces.data, 'id');
       this.workSpaces = allWorkSpaces.data;
-      // .sort((a: any, b: any) => {
-      //   if (b.priority) {
-      //     return a.priority.micro_location.order > b.priority.micro_location.order ? 1 : -1;
-      //   }
-      // });
       if (allWorkSpaces.data.length) {
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];

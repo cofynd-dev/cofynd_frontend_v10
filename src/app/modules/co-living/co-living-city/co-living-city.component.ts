@@ -16,6 +16,7 @@ import { CoLivingService } from './../co-living.service';
 import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
+import { generateSlug } from '@app/shared/utils';
 declare var $: any;
 
 @Component({
@@ -245,6 +246,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
       this.setRelationCanonical(this.page, totalPageCount);
     });
+  }
+
+  routeToMicro(item) {
+    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
   }
 
   addSeoTags(city: string) {

@@ -21,6 +21,8 @@ import {
   TypeFilter,
 } from '@app/core/config/office-filter-data';
 import { Location } from '@angular/common';
+import { generateSlug } from '@app/shared/utils';
+
 
 @Component({
   selector: 'app-office-space-locality',
@@ -175,6 +177,11 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
     };
 
     this.recallOfficeList();
+  }
+
+  routeToMicro(item) {
+    const url = `/office-space/rent/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
   }
 
   onFilterSizeChange(sizeRage: SizeFilter) {

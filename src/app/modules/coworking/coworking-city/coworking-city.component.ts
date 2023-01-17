@@ -16,6 +16,9 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { script } from '@app/core/config/script';
+import { ViewportScroller } from '@angular/common';
+import { generateSlug } from '@app/shared/utils';
+
 declare var $: any;
 
 @Component({
@@ -70,6 +73,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private location: Location,
     private router: Router,
     private el: ElementRef,
+    private vps: ViewportScroller
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
@@ -155,6 +159,15 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         this.setHeaderScript(scrt);
       }
     }
+  }
+
+  routeToMicro(item) {
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
+  }
+
+  getSlug(location: string) {
+    return generateSlug(location);
   }
 
   createBreadcrumb() {
@@ -393,6 +406,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     }
     return str.join(' ');
   };
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
