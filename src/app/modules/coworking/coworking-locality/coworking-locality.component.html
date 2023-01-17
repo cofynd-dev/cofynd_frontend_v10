@@ -39,7 +39,6 @@
                                             <ul class="mobilehide">
                                                 <li (click)="routeToMicro(item)" *ngFor="let item of cityWisePopularLocation | slice:0:5; let i=index">{{item}}</li>
                                             </ul>
-                                            <!-- <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -53,13 +52,7 @@
                             <app-search-contact-us-text2>
                             </app-search-contact-us-text2>
                         </div>
-
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
-                            </app-search-contact-us-text>
-                        </div> -->
                     </ng-template>
-
                 </ng-container>
             </div>
 

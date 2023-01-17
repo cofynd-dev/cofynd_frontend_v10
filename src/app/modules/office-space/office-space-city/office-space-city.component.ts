@@ -20,6 +20,8 @@ import { AppConstant } from '@shared/constants/app.constant';
 import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
 import { script } from '../../../core/config/script';
+import { generateSlug } from '@app/shared/utils';
+
 @Component({
   selector: 'app-office-space-city',
   templateUrl: './office-space-city.component.html',
@@ -223,6 +225,11 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     };
 
     this.recallOfficeList();
+  }
+
+  routeToMicro(item) {
+    const url = `/office-space/rent/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
   }
 
   private recallOfficeList() {

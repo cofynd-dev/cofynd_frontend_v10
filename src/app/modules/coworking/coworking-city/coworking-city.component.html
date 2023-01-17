@@ -107,10 +107,6 @@
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
-                            </app-search-contact-us-text>
-                        </div> -->
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
@@ -120,7 +116,6 @@
                                             <ul class="mobilehide">
                                                 <li (click)="routeToMicro(item)" *ngFor="let item of cityWisePopularLocation | slice:0:5; let i=index">{{item}}</li>
                                             </ul>
-                                            <!-- <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a> -->
                                         </div>
                                     </div>
                                 </div>

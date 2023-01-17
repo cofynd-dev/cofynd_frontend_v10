@@ -214,11 +214,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     this.workSpaceService.getWorSpacesByAddress(sanitizeParams(param)).subscribe(allWorkSpaces => {
       allWorkSpaces.data = uniqBy(allWorkSpaces.data, 'id');
       this.workSpaces = allWorkSpaces.data;
-      // .sort((a: any, b: any) => {
-      //   if (b.priority) {
-      //     return a.priority.micro_location.order > b.priority.micro_location.order ? 1 : -1;
-      //   }
-      // });
       if (allWorkSpaces.data.length) {
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];

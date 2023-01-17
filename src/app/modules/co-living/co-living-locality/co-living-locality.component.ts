@@ -16,6 +16,8 @@ import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
 import { PriceFilter } from '@app/core/models/workspace.model';
 import { script } from '@app/core/config/script';
+import { generateSlug } from '@app/shared/utils';
+
 
 @Component({
   selector: 'app-co-living-locality',
@@ -125,7 +127,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           'Co-Living Space for rent in ' + this.subTitle,
         );
         this.createBreadcrumb();
-        // this.getOfficeList(this.queryParams);
         this.getOfficeList(this.queryParams);
         this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
         this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
@@ -374,6 +375,11 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.setRelationCanonical(this.page, totalPageCount);
       });
     }
+  }
+
+  routeToMicro(item) {
+    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
   }
 
   ngOnDestroy() {
