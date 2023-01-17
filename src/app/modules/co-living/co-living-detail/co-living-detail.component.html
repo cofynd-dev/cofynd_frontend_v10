@@ -21,10 +21,10 @@
             <div class="relative" *ngIf="!loading">
                 <app-social-share class="hideOnMobile" *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
                 </app-social-share>
-        
+
                 <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name" [favoriteOption]="false">
                 </app-workspace-banner>
-        
+
                 <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
                 </app-workspace-banner-blank>
             </div>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <hr class="divider_line">
 
                 <div class="row about-area" *ngIf="workspace.description">
@@ -145,19 +145,17 @@
                         <h2>About this property</h2>
                     </div>
                     <div class="col-md-12">
-                        <p *ngIf="seeMore; else hide">
-                            {{ workspace.description |slice:0:500 }} ...
+                        <p *ngIf="seeMore; else hide" [innerHTML]="workspace.description |slice:0:470">
                         </p>
                         <ng-template #hide>
-                            <p>
-                                {{ workspace.description }}
+                            <p [innerHTML]="workspace.description">
                             </p>
                         </ng-template>
 
                         <p class="moreless-button mt-1" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                     </div>
                 </div>
-            
+
                 <hr class="divider_line">
 
                 <div class="price_area">
@@ -184,14 +182,14 @@
                             </div>
                         </ng-container>
                     </div>
-                    
+
                     <div class="row onlyMobile" (click)="openEnquireModal()">
                         <div class="col-12">
                             <button class="btn btn-block bg-white" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>Enquire</button>
                         </div>
                     </div>
                 </div>
-            
+
                 <hr class="divider_line desktophide">
 
                 <div class="desktophide sleep_area" *ngIf="!workspace.sleepimg">
@@ -208,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="desktophide sleep_area" *ngIf="workspace.sleepimg">
                     <h2>Where you'll sleep</h2>
@@ -223,7 +221,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <hr class="divider_line">
 
                 <div class="row amenities_section">
@@ -278,7 +276,7 @@
                         </p>
                         <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                         </div>
-                        
+
                         <div class="desktophide">
                             <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
                         </div>
@@ -294,7 +292,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <hr class="divider_line">
 
