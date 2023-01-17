@@ -1,137 +1,93 @@
-
-<app-search-breadcrumb [breadcrumbs]="breadcrumbs"
-  [isPriceFilter]="true"
-  [isSortFilter]="true"
-  [priceFilters]="price_filters"
-  breadcumbType='coliving'
-  (onResetFilter)="resetFilter()"
-  (priceFilterChanged)="onFilterPriceChange($event)"
-  (sortTypeChanged)="onSortTypeChange($event)"
-  [isPageScrolled]="isScrolled"
-  [breadcrumbs]="breadcrumbs"
-  (filterChanged)="filterMapView($event)"
-  (mapViewChanged)="toggleMapView($event)">
+<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [isSortFilter]="true" [priceFilters]="price_filters" breadcumbType='coliving' (onResetFilter)="resetFilter()" (priceFilterChanged)="onFilterPriceChange($event)" (sortTypeChanged)="onSortTypeChange($event)"
+    [isPageScrolled]="isScrolled" [breadcrumbs]="breadcrumbs" (filterChanged)="filterMapView($event)" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 <section class="search-container clearfix">
-  <div class="search-grid-container"
-    [class.search-grid-full]="!isMapView">
-    <div class="search-grid-wrapper">
+    <div class="search-grid-container" [class.search-grid-full]="!isMapView">
+        <div class="search-grid-wrapper">
 
-      <h1 class="page-heading"
-        *ngIf="!loading">
-        {{ pageTitle ? pageTitle : 'Coliving space in ' + subTitle + ' ' + title }}
-      </h1>
+            <h1 class="page-heading" *ngIf="!loading">
+                {{ pageTitle ? pageTitle : 'Coliving space in ' + subTitle + ' ' + title }}
+            </h1>
 
-      <app-search-no-result *ngIf="!loading && !coLivings.length"
-        [title]="'Co-Living'"
-        [url]="'/co-living'">
-      </app-search-no-result>
+            <app-search-no-result *ngIf="!loading && !coLivings.length" [title]="'Co-Living'" [url]="'/co-living'">
+            </app-search-no-result>
 
-      <app-search-card-loader *ngIf="loading">
-      </app-search-card-loader>
+            <app-search-card-loader *ngIf="loading">
+            </app-search-card-loader>
 
-      <app-search-similar-location *ngIf="!loading"
-        [relativeUrl]="'co-living'"
-        [cityName]="title"
-        [popularLocationList]="popularLocation">
-      </app-search-similar-location>
+            <app-search-similar-location *ngIf="!loading" [relativeUrl]="'co-living'" [cityName]="title" [popularLocationList]="popularLocation">
+            </app-search-similar-location>
 
-      <div class="row"
-        *ngIf="!loading">
-        <ng-container *ngFor="let coLiving of coLivings; let i = index">
-          <div class="col-sm-6"
-            [class.col-md-4]="!isMapView"
-            [class.col-md-6]="isMapView">
-            <app-co-living-card [coLiving]="coLiving"></app-co-living-card>
-          </div>
-          
-
-  <ng-template [ngIf]="isMapView">
-          <div class="col-sm-12"
-            *ngIf="(i + 1) % 4 === 0">
-            <app-search-contact-us-text [cities]="availableCities"
-              [type]="'for_coLiving'">
-            </app-search-contact-us-text>
-          </div>
-        </ng-template>
-        <ng-template [ngIf]="!isMapView">
-          <!-- <div class="col-sm-12"
-            *ngIf="(i + 1) % 6 === 0">
-            <app-search-contact-us-text [cities]="availableCities"
-              [type]="'for_coLiving'">
-            </app-search-contact-us-text>
-          </div> -->
-
-          <div class="col-sm-12" *ngIf="(i + 1) === 6">
-            <section class="gradient_cta_sec micro-location-cta">
-                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
-                    <div class="col-8">
-                        <div class="cta_content">
-                            <h4>Get the Perfect Coliving in your city</h4>
-                            <ul class="mobilehide">
-                                <li [routerLink]="'/co-living/' + title + '/' + item" *ngFor="let item of popularLocation | slice:0:9; let i=index">{{item}}</li> and More...
-                            </ul>
-                        </div>
+            <div class="row" *ngIf="!loading">
+                <ng-container *ngFor="let coLiving of coLivings; let i = index">
+                    <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                        <app-co-living-card [coLiving]="coLiving"></app-co-living-card>
                     </div>
-                </div>
-            </section>
-        </div>
-        <div class="col-sm-12" *ngIf="(i + 1) === 12">
-            <section class="gradient_cta_sec micro-location-cta">
-                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
-                    <div class="col-8">
-                        <div class="cta_content">
-                            <h4>Looking for Coworking Office in Your City</h4>
-                            <p>Select from thousands of options, without brokerage.</p>
-                            <a routerLink="/coworking" class="btn site_btn border_btn">Enquire Now</a>
+
+
+                    <ng-template [ngIf]="isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coLiving'">
+                            </app-search-contact-us-text>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <!-- <app-search-contact-us-text1>
-            </app-search-contact-us-text1> -->
-        </div>
-        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
-            <app-search-contact-us-text2>
-            </app-search-contact-us-text2>
-        </div>
-        </ng-template>
+                    </ng-template>
+                    <ng-template [ngIf]="!isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coliving in your city</h4>
+                                            <ul class="mobilehide">
+                                                <li (click)="routeToMicro(item)" *ngFor="let item of popularLocation | slice:0:9; let i=index">{{item}}</li> and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Looking for Coworking Office in Your City</h4>
+                                            <p>Select from thousands of options, without brokerage.</p>
+                                            <a routerLink="/coworking" class="btn site_btn border_btn">Enquire Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
+                            <app-search-contact-us-text2>
+                            </app-search-contact-us-text2>
+                        </div>
+                    </ng-template>
 
-        </ng-container>
-      </div>
+                </ng-container>
+            </div>
 
-      <div *ngIf="!loading"
-        class="pagination-container">
-        <pagination [totalItems]="totalRecords"
-          [itemsPerPage]="number_record"
-          [(ngModel)]="page"
-          [maxSize]="maxSize"
-          (pageChanged)="loadMore($event)">
-        </pagination>
-</div>
+            <div *ngIf="!loading" class="pagination-container">
+                <pagination [totalItems]="totalRecords" [itemsPerPage]="number_record" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                </pagination>
+            </div>
+        </div>
     </div>
-  </div>
-  <div *ngIf="loading"
-    class="search-map-container">
-  </div>
-  <div *ngIf="!loading && isMapView"
-    class="search-map-container"
-    [class.absolute-map]="isSearchFooterVisible"
-    [class.hide-map]="!isMapView">
-    <app-search-map-view (pageScrollEvent)="onPageScroll($event)"
-      [spaceType]="'co-living'"
-      [workspaces]="coLivings">
-    </app-search-map-view>
-  </div>
+    <div *ngIf="loading" class="search-map-container">
+    </div>
+    <div *ngIf="!loading && isMapView" class="search-map-container" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
+        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'co-living'" [workspaces]="coLivings">
+        </app-search-map-view>
+    </div>
 </section>
-<section class="search-description"
-  *ngIf="!loading && seoData">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>{{ seoData?.footer_title }}</h2>
-        <div [innerHTML]="seoData?.footer_description"></div>
-      </div>
+<section class="search-description" *ngIf="!loading && seoData">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
