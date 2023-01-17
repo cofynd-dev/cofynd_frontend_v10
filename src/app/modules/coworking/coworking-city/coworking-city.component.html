@@ -1,6 +1,5 @@
 <app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" (priceFilterChanged)="onFilterPriceChange($event)" (onResetFilter)="resetFilter()" (sortTypeChanged)="onSortTypeChange($event)" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
-<a (click)="scrollToElement(target)">SACHIN</a>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
@@ -119,7 +118,7 @@
                                         <div class="cta_content">
                                             <h4>Get the Perfect Coworking in your city</h4>
                                             <ul class="mobilehide">
-                                                <li [routerLink]="'/coworking/' + title + '/' + item" *ngFor="let item of cityWisePopularLocation | slice:0:5; let i=index">{{item}}</li>
+                                                <li [routerLink]="'/coworking/' + title + '/' + item" *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">{{item}}</li> and More...
                                             </ul>
                                             <!-- <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a> -->
                                         </div>
