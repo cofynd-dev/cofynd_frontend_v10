@@ -1,6 +1,6 @@
 <app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" (priceFilterChanged)="onFilterPriceChange($event)" (onResetFilter)="resetFilter()" (sortTypeChanged)="onSortTypeChange($event)" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
-
+<a (click)="scrollToElement(target)">SACHIN</a>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
@@ -116,20 +116,32 @@
                             </app-search-contact-us-text>
                         </div> -->
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
-                            <app-search-contact-us-text [cities]="availableCities" [microlocations]="cityWisePopularLocation" [type]="'for_coWorking'">
-                            </app-search-contact-us-text>
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coworking in your city</h4>
+                                            <ul class="mobilehide">
+                                                <li [routerLink]="'/coworking/' + title + '/' + item" *ngFor="let item of cityWisePopularLocation | slice:0:5; let i=index">{{item}}</li>
+                                            </ul>
+                                            <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12">
                             <app-search-contact-us-text1>
                             </app-search-contact-us-text1>
                         </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
                             <app-search-contact-us-text2>
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                 </ng-container>
             </div>
+
 
             <div *ngIf="!loading && workSpaces.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
@@ -145,7 +157,7 @@
     </div>
 </section>
 
-<section class="search-description" *ngIf="!loading && seoData">
+<section class="search-description" *ngIf="!loading && seoData" #target>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
