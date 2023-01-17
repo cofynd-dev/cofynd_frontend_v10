@@ -25,8 +25,6 @@
                         <app-office-card [office]="office">
                         </app-office-card>
                     </div>
-
-
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
                             <app-search-contact-us-text [cities]="availableCities" [type]="'for_office'">
@@ -39,11 +37,10 @@
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
                                     <div class="col-8">
                                         <div class="cta_content">
-                                            <h4>Get the Perfect Coworking in your city</h4>
+                                            <h4>Get the Perfect Office Space in your city</h4>
                                             <ul class="mobilehide">
-                                                <li (click)="routeToMicro(item)" [routerLink]="'/office-space/rent/' + title + '/' + item" *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">{{item}}</li> and More...
+                                                <li (click)="routeToMicro(item)" *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">{{item}}</li> and More...
                                             </ul>
-                                            <!-- <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -57,16 +54,7 @@
                             <app-search-contact-us-text2>
                             </app-search-contact-us-text2>
                         </div>
-
-                        <!-- <div class="col-sm-12"
-              *ngIf="(i + 1) % 6 === 0">
-              <app-search-contact-us-text [cities]="availableCities"
-                [type]="'for_office'">
-              </app-search-contact-us-text>
-            </div> -->
                     </ng-template>
-
-
                 </ng-container>
             </div>
 
