@@ -1,5 +1,5 @@
 import { AuthService } from './../../../core/services/auth.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '@core/models/user.model';
 import { UserService } from '@core/services/user.service';
@@ -11,8 +11,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './search-contact-us-text.component.html',
   styleUrls: ['./search-contact-us-text.component.scss'],
 })
-export class SearchContactUsTextComponent {
+export class SearchContactUsTextComponent implements OnInit {
   @Input() cities: any;
+  @Input() microlocations: any;
   @Input() type: string;
   user: User;
   contactForm: FormGroup;
@@ -31,6 +32,10 @@ export class SearchContactUsTextComponent {
     private authService: AuthService,
   ) {
     this.buildForm();
+  }
+
+  ngOnInit() {
+    console.log(this.microlocations);
   }
 
   onSubmit() {
@@ -137,7 +142,7 @@ export class SearchContactUsTextComponent {
     );
   }
 
-  onCityChange(cityName: string) {}
+  onCityChange(cityName: string) { }
 
   private buildForm() {
     this.contactForm = this.formBuilder.group({

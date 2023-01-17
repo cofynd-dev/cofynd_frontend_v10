@@ -16,6 +16,7 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { script } from '@app/core/config/script';
+import { ViewportScroller } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -70,6 +71,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private location: Location,
     private router: Router,
     private el: ElementRef,
+    private vps: ViewportScroller
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
@@ -393,6 +395,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     }
     return str.join(' ');
   };
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 
   ngOnDestroy() {
     this.configService.setDefaultConfigs();
