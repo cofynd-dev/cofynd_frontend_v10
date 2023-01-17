@@ -5550,14 +5550,14 @@ h3.site_title {
 .gradient_cta_sec .row {
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center;
+	background-position: bottom;
 	border-radius: 20px;
 	overflow: hidden;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .gradient_cta_sec .cta_content {
-    padding: 80px 70px;
+    padding: 90px 70px;
 }
 
 .gradient_cta_sec h4 {
@@ -5690,7 +5690,7 @@ h3.site_title {
 	line-height: 24px;
 }
 .city_form_sec .cta_img img {
-	width: 250px;
+	width: 320px;
 }
 .breadcrumb .breadcrumb-item a {
 	cursor: pointer;
@@ -5737,11 +5737,11 @@ h3.site_title {
 	position: absolute;
 	top: 47%;
 	left: -18px;
-	width: 5px;
-	height: 5px;
+	width: 3px;
+	height: 3px;
 	border-radius: 100%;
 	content: "";
-	background-color: #000;
+	background-color: rgba(0,0,0,0.6);
 }
 .micro-location-cta .cta_content ul li:first-child::before {
 	display: none;

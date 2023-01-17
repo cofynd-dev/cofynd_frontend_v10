@@ -9,7 +9,7 @@
                       <div class="row">
                           <div class="col-md-4 mb-3">
                               <div class="form-input">
-                                  <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name" aria-describedby="emailHelp">
+                                  <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp">
                                   <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                       <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
                                   </div>
@@ -17,7 +17,7 @@
                           </div>
                           <div class="col-md-4">
                               <div class="form-input">
-                                  <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                                  <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp">
                                   <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                       <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
                                       <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
@@ -26,7 +26,7 @@
                           </div>
                           <div class="col-md-4">
                               <div class="form-input">
-                                  <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
+                                  <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp">
                                   <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                       <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
                                       <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
@@ -36,7 +36,7 @@
                           <div class="col-md-4 col-6">
                               <div class="form-input">
                                   <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
-                                      <option value="" disabled>Type Of Space</option>
+                                      <option value="" disabled style="display: none;">Type Of Space</option>
                                       <option value="Coworking">Coworking</option>
                                       <option value="Coliving">Coliving</option>
                                       <option value="Office Space">Office Space</option>
@@ -65,7 +65,7 @@
                   </form>
               </div>
               <div class="cta_img">
-                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5f5620dd82421e7f0a3b3185d52f6648ad5b2d47.png" alt="" class="img-fluid">
+                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fb13f86c441fda8778e902b5760872e3d3c48592.png" alt="City Form Space" class="img-fluid">
               </div>
           </div>
       </div>
