@@ -16,6 +16,8 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { uniqBy } from 'lodash';
 import { Location } from '@angular/common';
+import { generateSlug } from '@app/shared/utils';
+
 
 @Component({
   selector: 'app-coworking-locality',
@@ -124,6 +126,11 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     if (this.subTitle == 'goregaon') {
       this.setHeaderScript();
     }
+  }
+
+  routeToMicro(item) {
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
   }
 
   setHeaderScript() {

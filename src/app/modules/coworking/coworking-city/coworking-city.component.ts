@@ -17,6 +17,8 @@ import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { script } from '@app/core/config/script';
 import { ViewportScroller } from '@angular/common';
+import { generateSlug } from '@app/shared/utils';
+
 declare var $: any;
 
 @Component({
@@ -157,6 +159,15 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         this.setHeaderScript(scrt);
       }
     }
+  }
+
+  routeToMicro(item) {
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    this.router.navigate([url]);
+  }
+
+  getSlug(location: string) {
+    return generateSlug(location);
   }
 
   createBreadcrumb() {
