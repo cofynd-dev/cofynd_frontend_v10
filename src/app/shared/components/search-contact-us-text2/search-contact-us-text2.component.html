@@ -1,73 +1,81 @@
 <section class="form_cta_sec city_form_sec">
-  <div class="row">
-      <div class="col-md-12">
-          <div class="cta_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09ec467fbe0bdb62ed9abe828b5eb220f06fa19d.jpg');">
-              <div class="form_col">
-                  <h3>Let us find your Dream Property</h3>
-                  <p>Connect to a CoFynd Space Expert now</p>
-                  <form class="form_dream_ptoperty" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
-                      <div class="row">
-                          <div class="col-md-4 mb-3">
-                              <div class="form-input">
-                                  <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp">
-                                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                                      <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-input">
-                                  <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp">
-                                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                                      <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
-                                      <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-input">
-                                  <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp">
-                                  <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
-                                      <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
-                                      <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-6">
-                              <div class="form-input">
-                                  <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
-                                      <option value="" disabled style="display: none;">Type Of Space</option>
-                                      <option value="Coworking">Coworking</option>
-                                      <option value="Coliving">Coliving</option>
-                                      <option value="Office Space">Office Space</option>
-                                  </select>
-                                  <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
-                                      <div *ngIf="f['interested_in'].errors['required']">Please select space type.</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-6">
-                              <div class="form-input">
-                                  <select required class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" aria-label="Default select example">
-                                      <option value="" selected disabled style="display: none;">Select City*</option>
-                                      <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
-                                      <option value="Other">Other</option>
-                                  </select>
-                                  <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
-                                      <div *ngIf="f['city'].errors['required']">Please select your city name.</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <button type="submit" class="btn w-100 site_btn">Send</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-              <div class="cta_img">
-                  <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fb13f86c441fda8778e902b5760872e3d3c48592.png" alt="City Form Space" class="img-fluid">
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cta_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09ec467fbe0bdb62ed9abe828b5eb220f06fa19d.jpg');">
+                <div class="form_col">
+                    <div class="form_head">
+                        <h3>Let us find your Dream Property</h3>
+                        <p class="mobilehide">Connect to a CoFynd Space Expert now</p>
+                    </div>
+
+                    <!-- <h3>Let us find your Dream Property</h3>
+                    <p>Connect to a CoFynd Space Expert now</p> -->
+                    <div class="form_body">
+                        <form class="form_dream_ptoperty" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-input">
+                                        <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-input">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6">
+                                    <div class="form-input">
+                                        <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
+                                            <option value="" disabled style="display: none;">Type Of Space</option>
+                                            <option value="Coworking">Coworking</option>
+                                            <option value="Coliving">Coliving</option>
+                                            <option value="Office Space">Office Space</option>
+                                        </select>
+                                        <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['interested_in'].errors['required']">Please select space type.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6">
+                                    <div class="form-input">
+                                        <select required class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" aria-label="Default select example">
+                                            <option value="" selected disabled style="display: none;">Select City*</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['city'].errors['required']">Please select your city name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn w-100 site_btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="cta_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fb13f86c441fda8778e902b5760872e3d3c48592.png" alt="City Form Space" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

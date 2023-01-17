@@ -8212,6 +8212,31 @@ h3.site_title {
     .gradient_cta_sec h4 {
         margin-bottom: 5px !important;
     }
+    .micro-location-cta .col-8 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .micro-location-cta .cta_content {
+        padding: 20px 0px;
+    }
+    .micro-location-cta .cta_content ul {
+        display: inline-block;
+        font-size: 9px;
+        line-height: 15px;
+    }
+    .micro-location-cta .cta_content ul li {
+        margin-left: 12px;
+        padding: 0px;
+        margin-bottom: 0px;
+        font-size: 9px;
+        line-height: 15px;
+    }
+    .micro-location-cta .cta_content ul li::before {
+        top: 47%;
+        left: -7px;
+        width: 2px;
+        height: 2px;
+    }
     
 }
 
