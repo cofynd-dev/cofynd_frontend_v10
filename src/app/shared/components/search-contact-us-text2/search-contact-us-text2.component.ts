@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app/core/services/user.service';
@@ -12,6 +12,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./search-contact-us-text2.component.scss']
 })
 export class SearchContactUsText2Component implements OnInit {
+  @Input() pageNo: any;
+  @Input() microlocation: any;
+
 
   constructor(private _formBuilder: FormBuilder,
     private userService: UserService,
@@ -92,7 +95,8 @@ export class SearchContactUsText2Component implements OnInit {
         },
         city: this.enterpriseFormGroup.controls['city'].value,
         interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-        mx_Page_Url: 'City Page'
+        mx_Page_Url: this.pageNo,
+        microlocation: this.microlocation
       };
       this.userService.createLead(object).subscribe(
         () => {

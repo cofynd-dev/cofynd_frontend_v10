@@ -59,8 +59,8 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
-                            <app-search-contact-us-text2>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle">
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
