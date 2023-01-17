@@ -131,7 +131,6 @@
 </section>
 
 <!------------------- Mobile Best Coworking Near You ---------------->
-
 <section class="near-coworking-space desktophide">
     <div class="container">
         <div class="row">
@@ -165,69 +164,13 @@
                             <div class="button"><a (click)="routeTodetail(_centerCity.slug)" tabindex="0" target="_blank">Explore More</a></div>
                         </div>
                     </div>
-
-                    <!-- <div class="property-item" (click)="routeTodetail(_centerCity.slug)" *ngFor=" let _centerCity of workSpaces">
-                        <div class="property-img">
-                            <img [src]="_centerCity.images[1].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
-                        </div>
-                        <div class="properties-content">
-                            <h4>{{_centerCity.name}}</h4>
-                            <p>{{_centerCity.location.address1}}</p>
-                            <p class="price">₹{{_centerCity.starting_price}}/- {{_centerCity.price_type}}</p>
-                        </div>
-                        <a routerLink="/coworking/rainmakers-workspace" class="stretched-link"></a>
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!------------------- Mobile Book with Cofynd ---------------->
-
-<!-- <section class="feature_sec desktophide">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-12">
-                <div class="page-title">
-                    <h2>Book with Cofynd</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="icon_box mb-3">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="">
-                    <h4>Exclusive Pricing</h4>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="icon_box mb-3">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="">
-                    <h4>Verified Spaces</h4>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="">
-                    <h4>100% Support</h4>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="icon_box mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="">
-                    <h4>Zero Brokerage</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!------------------- End Mobile Book with Cofynd ---------------->
-
 <!-------------------- Mobile Cruted for You ----------------------->
-
-
 <section class="curated_section desktophide">
     <div class="container">
         <div class="row">
@@ -282,58 +225,6 @@
 </section>
 <!-------------------- End Mobile Cruted for You ----------------------->
 
-<!-------------------- Mobile Enquire Now ----------------------->
-
-<!-- <section class="calltoaction_sec desktophide">
-    <div class="container">
-        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7308fe0bad41fa621a0148fbcc40ed1723c4fa8c.png');">
-            <div class="col-8">
-                <div class="calltoaction_content">
-                    <h4>Hurry in choosing your ideal Coworking Space?</h4>
-                    <a (click)="openModalWithComponent('virtual office')" class="btn site_btn border_btn">Enquire Now</a>
-                </div>
-            </div>
-            <div class="col-4 text-center">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0ee9f0dfda994513a022d4f971e0ed365d884978.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-------------------- End Mobile Enquire Now ----------------------->
-
-<!-- booking navigation -->
-<!-- <section class="booking-navigation bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="main_heading title_divider">
-                    <h2>Book Your Coworking Space in 3 Easy Steps</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 step_scroller">
-            <div class="col-md-4 step_box">
-                <p class="mb-0 stepNumber">01</p>
-                <p class="steps">Step 01</p>
-                <p class="pt-3 step-text">Select your desired city and search for the best suited Coworking Space.</p>
-            </div>
-            <div class="col-md-4 step_box">
-                <p class="mb-0 stepNumber">02</p>
-                <p class="steps">Step 02</p>
-                <p class="pt-3 step-text">Choose the Coworking Space plan and fill in your details in the query form.</p>
-            </div>
-            <div class="col-md-4 step_box">
-                <p class="mb-0 stepNumber">03</p>
-                <p class="steps">Step 03</p>
-                <p class="pt-3 step-text">Our Coworking Space team will get in touch with you and help you get your desired Coworking Space.
-                </p>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!------------------- End Mobile Best Coworking Near You ---------------->
 
 <!-- top Spaces -->
 <section class="virtualSpace coworking_top_city mobilehide">
@@ -493,116 +384,10 @@
 <app-carousel-item *ngIf="indoreSpaces.length" [pageTitle]="'Top Spaces in Indore'" [shouldCoWorkingVisible]="true" [shouldCoLivingVisible]="false" [coWorkingSpaces]="indoreSpaces">
 </app-carousel-item>
 
-<!-- <span class="mobileViewColiving">
-    <app-home-popular-space [pageTitle]="'Top Coworking Cities in India'"></app-home-popular-space>
-  </span> -->
-
 <section class="pt-0 logos_background_img coworking_brands_slider">
     <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands" [pageTitle]="'Our CoWorking Partners'">
     </app-home-brand-list>
 </section>
-
-
-<!--Cofynd Advantages-->
-<!-- <section class="why-cofynd bg-light coworking_advantages advantages_sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="main_heading title_divider">
-                        <h2>CoFynd Advantages</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row advantages_row">
-                <div class="col-4">
-                    <div class="mt-2 mb-2 circle_icon_box">
-                        <div class="img_box">
-                            <img src="https://cofynd.com/assets/images/home/work-spaces.svg" class="d-block img-60" alt="25,000+ Spaces">
-                        </div>
-                        <div class="content_box">
-                            <p class="font-20-mid mt-3 mb-1">25,000+ <span>Spaces</span></p>
-                            <p class="font-14 mobilehide">Get access to 25,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="mt-2 mb-2 circle_icon_box">
-                        <div class="img_box">
-                            <img src="https://cofynd.com/assets/images/home/fee.svg" class="d-block img-60" alt="No Booking Fees">
-                        </div>
-                        <div class="content_box">
-                            <p class="font-20-mid mt-3 mb-1">No <span>Booking Fees</span></p>
-                            <p class="font-14 mobilehide">CoFynd is India's fastest growing space discovery platform that doesn't charge anything from the customers.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="mt-2 mb-2 circle_icon_box">
-                        <div class="img_box">
-                            <img src="https://cofynd.com/assets/images/home/support.svg" class="d-block img-60" alt="100% Offline Support">
-                        </div>
-                        <div class="content_box">
-                            <p class="font-20-mid mt-3 mb-1">100% <span>Offline Support</span></p>
-                            <p class="font-14 mobilehide">We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-<!-- <section class="customized coworking_customized mobilehide">
-        <div class="container">
-            <div class="p-5 option-box">
-                <div class="row">
-                    <div class="col-md-3">
-                        <p class="pt-4">Looking for a Customized Office Solution</p>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="row">
-                            <div class="col-4" style="cursor: pointer;" (click)="openModalWithComponent('Office Suite')">
-                                <img src="https://cofynd.com/assets/images/workspace/hot-desk.svg" class="img-fluid d-block">
-                                <h4 class="mt-2 mb-2">Office Suite</h4>
-                                <p class="mb-0 hide-m">Office space for larger teams with their own reception.
-                                </p>
-                            </div>
-                            <div class="col-4" style="cursor: pointer;" (click)="openModalWithComponent('CXOs Suite')">
-                                <img src="https://cofynd.com/assets/images/workspace/dedicated-desk.svg" class="img-fluid d-block">
-                                <h4 class="mt-2 mb-2">CXO's Suite</h4>
-                                <p class="mb-0 hide-m">Customised office spaces for CEO’S & CXO’s.</p>
-                            </div>
-                            <div class="col-4" style="cursor: pointer;" (click)="openModalWithComponent('Custom Buildout')">
-                                <img src="https://cofynd.com/assets/images/workspace/private-cabin.svg" class="img-fluid d-block">
-                                <h4 class="mt-2 mb-2">Custom Buildout</h4>
-                                <p class=" mb-0 hide-m">Custom built offices as per your requirements.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-<!-- Brand Partner -->
-<!-- <section class="mobilehide coworking_brands_partner">
-        <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false">
-        </app-home-brand-list>
-    </section> -->
-
-<!-- exclusive cofynd -->
-<!-- <section class="mobilehide">
-    <div class="container">
-        <div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a routerLink="wework-nh8-gurugram">
-                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c667870544d744841b58c61f4c47b391c2fc5f6.jpg" style="border-radius: 10px;" class="img-fluid m-auto d-block">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <section class="featured_space_sec coworking_feature_spaces">
     <div class="container">
@@ -642,7 +427,7 @@
 
 <section class="query_from_sec coworking_query" #target>
     <div class="container">
-        <div class="row">
+        <div class="row mobilehide">
             <div class="col-md-12 text-center">
                 <div class="main_heading title_divider">
                     <h2>Yes, I'm interested in Coworking Space</h2>
@@ -658,8 +443,9 @@
             <div class="col-md-6 col-12">
                 <div class="virtual_query_form">
                     <div class="form_head">
-                        <h3>Answers to your Coworking Space query</h3>
-                        <p>Our team is ready to answer your questions.</p>
+                        <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
+                        <h3 class="mobilehide">Answers to your Coworking Space query</h3>
+                        <p class="mobilehide">Our team is ready to answer your questions.</p>
                     </div>
 
                     <div class="form_body">
@@ -729,61 +515,6 @@
     </div>
 </section>
 
-<!-- <section class="pt-4 featured_by desktophide">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-title">
-                    <h2>Featured Spaces</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div routerLink="nukleus-cowork-coplay-sector-142-noida" class="ad_box" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab9625340f4be7e5ba6a8ec13e0d19d3af2e5879.jpg');background-size:cover;border-radius: 10px;">
-                    <h4>Nukleus Noida</h4>
-                    <p>Sector 142, Noida</p>
-                    <button class="exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i> 6,000</button>
-                </div>
-
-                <div routerLink="devx-ahmedabad" class="ad_box" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a858510d4e24f619203ccb69de5b6af232af7f72.jpg');background-size:cover;border-radius: 10px;">
-                    <h4>Beginest Harbor 1</h4>
-                    <p>Indiranagar, Bengaluru</p>
-                    <button class="exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i> 5,000</button>
-                </div>
-
-                <div routerLink="awfis-unitech-cyber-park" class="ad_box" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/17c985bd34b85d3a423410e99c8f31440f78cee5.jpg');background-size:cover;border-radius: 10px;">
-                    <h4>Awfis Unitech Cyber Park</h4>
-                    <p>Tower-B, Sector - 39 Gurgaon</p>
-                    <button class="exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i> 11,000</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- <section class="calltoaction_sec desktophide">
-<div class="container">
-  <div class="row align-items-center"
-    style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/16440e72e31ae289d14863f8f339ff636ae06d4d.png');">
-    <div class="col-8">
-      <div class="calltoaction_content">
-        <h4>Still Confused?</h4>
-        <p>Connect with us. We’ll guide you for getting perfect coworking space</p>
-        <a (click)="openModalWithComponent('virtual office')"
-          class="btn site_btn border_btn text_btn">Enquire Now</a>
-      </div>
-    </div>
-    <div class="col-4 text-center pr-0 pl-0">
-      <img
-        src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f6765fecebafc74b1dffccafeabf6a281ec96147.png"
-        alt=""
-        class="img-fluid">
-    </div>
-  </div>
-</div>
-</section> -->
-
 <div class="coworking_client_sec">
     <app-our-clients></app-our-clients>
 </div>
@@ -804,46 +535,6 @@
         </div>
     </div>
 </section>
-
-<!-- visite other section -->
-<!-- <section class="visiteOther pt-5 pb-5 hideOnMobile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-12">
-                <div class="p-4 border br5px mt-2 mb-2">
-                    <div class="row">
-                        <div class="col-8">
-                            <div>
-                                <p class="mb-1 quote">Search for curated <span style="font-weight: 500;">virtual office space
-                  solutions</span></p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <p routerLink="/virtual-office" class="text-center mt-3"><button class="br5px btn pt-2 pb-2 pl-4 pr-4" style="background-color: #4343e8;"><strong>Explore</strong></button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="p-4 border br5px mt-2 mb-2">
-                    <div class="row">
-                        <div class="col-8">
-                            <div>
-                                <p class="mb-1 quote">Filter your search for Customized <span style="font-weight:500;">Office Space
-                  Solution</span></p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <p routerLink="/office-space/rent" class="text-center mt-3 mb-0"><button class="br5px btn pt-2 pb-2 pl-4 pr-4" style="background-color: #ffcc05;"><strong>Explore</strong></button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <section class="cofynd_desk_sec coworking_cofynd_desk">
     <div class="container">
