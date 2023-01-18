@@ -114,7 +114,10 @@
                                         <div class="cta_content">
                                             <h4>Get the Perfect Coworking in Your City</h4>
                                             <ul class="mobilehide">
-                                                <li (click)="routeToMicro(item)" *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">{{item}}</li> and More...
+                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
                                             </ul>
                                         </div>
                                     </div>
@@ -125,8 +128,8 @@
                             <app-search-contact-us-text1>
                             </app-search-contact-us-text1>
                         </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
-                            <app-search-contact-us-text2>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'city page'">
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
