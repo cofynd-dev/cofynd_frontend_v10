@@ -77,7 +77,7 @@
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city*" required aria-label="Default select example">
                                       <option value="" selected disabled style="display: none;">Select City*</option>
-                                            <option [value]="city.name" *ngFor="let city of finalCities" style="font-family: 'Montserrat'">{{city.name}}</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
                                             <option value="Other">Other</option>
                                   </select>
                                     <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">

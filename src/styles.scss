@@ -8,9 +8,10 @@
 @import 'base/form';
 @import 'base/icons';
 @import 'base/button';
+
 body,
 p {
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -22,8 +23,9 @@ button,
 input,
 optgroup,
 select,
-textarea {
-    font-family: Montserrat;
+textarea,
+option {
+    font-family: 'Montserrat', sans-serif;;
 }
 
 // Auth Dialog
@@ -5694,6 +5696,66 @@ h3.site_title {
 }
 .breadcrumb .breadcrumb-item a {
 	cursor: pointer;
+}
+.card_form {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+	padding: 40px 25px;
+	border-radius: 20px;
+	border: 1px solid rgba(33, 37, 41, 0.1);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+.card_form .form-control, .card_form .form-select {
+	border: none;
+	box-shadow: none;
+	border-radius: 10px;
+	padding: 8px 12px;
+	height: 45px;
+	background-color: #fff;
+	font-size: 13px;
+	width: 100%;
+	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+}
+.card_form .form-group, .card_form .form-select {
+	margin-bottom: 15px;
+}
+.card_form .form_title h4 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+.card_form .col-md-5 {
+	padding-left: 5px;
+}
+
+
+.card_form ::placeholder {
+    color: #000;
+    opacity: 1;
+    /* Firefox */
+}
+
+.card_form :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+
+.card_form ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+}
+.card_form .form_title span {
+	position: relative;
+	width: 4px;
+	height: 4px;
+	background-color: #7CD1E4;
+	content: "";
+	display: inline-block;
+	border-radius: 20px;
+	top: -1px;
+	margin: 0px 5px;
 }
 
 @media (max-width: 1366px) {
