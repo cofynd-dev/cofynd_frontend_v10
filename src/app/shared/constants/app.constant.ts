@@ -17,7 +17,7 @@ export class AppConstant {
   // tslint:disable-next-line:max-line-length
   static readonly EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  static readonly DEFAULT_PAGE_LIMIT = 23;
+  static readonly DEFAULT_PAGE_LIMIT = 24;
 
   static readonly DEFAULT_SEARCH_PARAMS: { [key: string]: string | number } = {
     limit: AppConstant.DEFAULT_PAGE_LIMIT,
