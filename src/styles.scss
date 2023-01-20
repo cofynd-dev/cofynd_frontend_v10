@@ -8,9 +8,10 @@
 @import 'base/form';
 @import 'base/icons';
 @import 'base/button';
+
 body,
 p {
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -22,8 +23,9 @@ button,
 input,
 optgroup,
 select,
-textarea {
-    font-family: Montserrat;
+textarea,
+option {
+    font-family: 'Montserrat', sans-serif;;
 }
 
 // Auth Dialog
@@ -5695,6 +5697,149 @@ h3.site_title {
 .breadcrumb .breadcrumb-item a {
 	cursor: pointer;
 }
+.card_form {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+	padding: 40px 25px;
+	border-radius: 20px;
+	border: 1px solid rgba(33, 37, 41, 0.1);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+.card_form .form-control, .card_form .form-select {
+	border: none;
+	box-shadow: none;
+	border-radius: 10px;
+	padding: 8px 12px;
+	height: 45px;
+	background-color: #fff;
+	font-size: 13px;
+	width: 100%;
+	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+}
+.card_form .form-group, .card_form .form-select {
+	margin-bottom: 15px;
+}
+.card_form .form_title h4 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+.card_form .col-md-5 {
+	padding-left: 5px;
+}
+
+
+.card_form ::placeholder {
+    color: #000;
+    opacity: 1;
+    /* Firefox */
+}
+
+.card_form :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+
+.card_form ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+}
+.card_form .form_title span {
+	position: relative;
+	width: 4px;
+	height: 4px;
+	background-color: #7CD1E4;
+	content: "";
+	display: inline-block;
+	border-radius: 20px;
+	top: -1px;
+	margin: 0px 5px;
+}
+.main_footer .footer-top {
+	background: linear-gradient(180.37deg, #FFFDF5 0.34%, #FFF9F4 102.54%) !important;
+	border: none !important;
+	padding: 0px !important;
+}
+.footer_about {
+	padding-left: 150px;
+	padding-top: 40px;
+}
+.footer_about img {
+	width: 180px;
+	margin-bottom: 10px;
+}
+.footer_about h5 {
+	font-size: 12px;
+	line-height: normal;
+	font-weight: 600;
+	color: #464646;
+	margin-bottom: 15px;
+}
+.footer_about p {
+	font-size: 12px;
+	line-height: 20px;
+	margin-bottom: 0px;
+}
+.footer_right {
+	padding-right: 150px;
+}
+.footer_links {
+	background: linear-gradient(90deg, #FFC883 0%, #FFD200 100%);
+	padding: 40px 15px 40px 40px;
+}
+.footer_links::before {
+	content: "";
+	background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c89409ca1f13b4d9bec5f687c08d01ea98c3b171.png');
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 30%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: cover;
+}
+.footer_right h4 {
+	color: #212529;
+	font-size: 16px;
+	font-weight: 600;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.footer_right li a {
+	color: #111;
+	font-size: 12px;
+	line-height: 28px;
+}
+.footer_info, .footer_sm {
+	margin-top: 15px;
+}
+.footer_info h5 {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 15px;
+	color: #111;
+}
+.footer_info a {
+	color: #111;
+	font-size: 12px;
+	line-height: 15px;
+}
+
+.footer_bottom {
+	padding: 15px 15px;
+}
+.footer_bottom p {
+	font-size: 11px;
+	margin-bottom: 0;
+}
+.footer_bottom p span {
+	font-weight: 600;
+}
+
 
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {
@@ -7833,6 +7978,12 @@ h3.site_title {
         line-height: 15px;
         margin-bottom: 1px;
     }
+    .how_to_start_sec .step_item p {
+        margin-bottom: 4px;
+        font-size: 10px !important;
+        line-height: 13px !important;
+        margin-top: 3px;
+    }
     .choose_item_slider .col-md-4 {
         display: inline-block;
         -webkit-box-flex: 0;
@@ -8236,6 +8387,11 @@ h3.site_title {
         left: -7px;
         width: 2px;
         height: 2px;
+    }
+    .footer_about {
+        padding-left: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
     
 }
