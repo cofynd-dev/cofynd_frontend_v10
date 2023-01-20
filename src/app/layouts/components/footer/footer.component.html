@@ -1,4 +1,108 @@
-<footer>
+<footer class="main_footer">
+  <div class="footer-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer_about">
+            <div class="logo">
+              <a routerLink="/"><img src="/assets/images/logo.svg" alt=""></a>
+              <h5>Fynd the right space, Globally</h5>
+            </div>
+            <p>CoFynd is India’s fastest growing space discovery platform for searching and booking coworking,
+              coliving, and private office spaces. We give access to choose from 100,000+ verified spaces across India
+              and we have just started! Our spaces boast of present-day amenities and reflect Freedom,
+              Flexibility and Fulfillment completely in sync with the modern day millennial behavior. Space Search
+              Made Simple.</p>
+              <p>Search. Book. Work. Live.</p>
+          </div>
+        </div>
+
+        <div class="col-md-8 footer_links mobilehide">
+          <div class="footer_right">
+            <div class="row">
+              <div class="col-md-4">
+                <h4>Coworking Space</h4>
+                <ul class="footer_menu">
+                  <li><a routerLink="/coworking/gurugram">Coworking Space in Gurgaon</a></li>
+                  <li><a routerLink="/coworking/delhi">Coworking Space in Delhi</a></li>
+                  <li><a routerLink="/coworking/noida">Coworking Space in Noida</a></li>
+                  <li><a routerLink="/coworking/bangalore">Coworking Space in Bangalore</a></li>
+                  <li><a routerLink="/coworking/hyderabad">Coworking Space in Hyderabad</a></li>
+                  <li><a routerLink="/coworking/pune">Coworking Space in Pune</a></li>
+                  <li><a routerLink="/coworking/mumbai">Coworking Space in Mumbai</a></li>
+                </ul>
+
+                <div class="footer_info">
+                  <h5>Phone</h5>
+                  <a [href]="'tel:' + contactInfo.phone"
+                    [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>
+                    {{ contactInfo.phone }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <h4>Coworking Space</h4>
+                <ul class="footer_menu">
+                  <li><a routerLink="/coworking/indore">Coworking Space in Indore</a></li>
+                  <li><a routerLink="/coworking/chennai">Coworking Space in Chennai</a></li>
+                  <li><a routerLink="/coworking/ahmedabad">Coworking Space in Ahmedabad</a></li>
+                  <li><a routerLink="/coworking/kochi">Coworking Space in Kochi</a></li>
+                  <li><a routerLink="/coworking/chandigarh">Coworking Space in Chandigarh</a></li>
+                  <li><a routerLink="/coworking/jaipur">Coworking Space in Jaipur</a></li>
+                  <li><a routerLink="/coworking/lucknow">Coworking Space in Lucknow</a></li>
+                </ul>
+
+                <div class="footer_info">
+                  <h5>Email</h5>
+                  <a [href]="'mailto:' + contactInfo.email"
+                    [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>
+                    {{ contactInfo.email }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <h4>Knowledge Centre</h4>
+                <ul class="footer_menu">
+                  <li><a routerLink="/coworking">Coworking Space</a></li>
+                  <li><a routerLink="/co-living">Coliving Space</a></li>
+                  <li><a routerLink="/enterprise">Enterprise Solutions</a></li>
+                  <li><a routerLink="/list-your-space">List Your Space</a></li>
+                  <li><a routerLink="/about-us">About Us</a></li>
+                  <li><a routerLink="/contact-us">Contact Us</a></li>
+                  <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+
+                <div class="footer_sm">
+                  <ul class="social-links">
+                    <li *ngFor="let link of socialLinks;">
+                      <a [href]="link.url"
+                        target="_blank"
+                        [classList]="link.icon"></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container footer_bottom">
+    <div class="row">
+      <div class="col-md-6">
+        <p>Copyright © 2023 Cofynd. All rights reserved.</p>
+      </div>
+      <div class="col-md-6">
+        <p>Cofynd and the Cofynd.com logo are registered trademarks of Cofynd Infotech Pvt Ltd. | <span (click)="routeOnPage('terms-and-conditions')">T&C</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- <footer class="main_footer">
   <div class="footer-top">
     <div class="yellow-overlay"></div>
     <div class="container">
@@ -12,7 +116,8 @@
                 <h5>Fynd the right space, Globally</h5>
               </div>
               <p>CoFynd is India’s fastest growing space discovery platform for searching and booking coworking,
-                coliving, and private office spaces. We give access to choose from 100,000+ verified spaces across India and we have just started! Our spaces boast of present-day amenities and reflect Freedom,
+                coliving, and private office spaces. We give access to choose from 100,000+ verified spaces across India
+                and we have just started! Our spaces boast of present-day amenities and reflect Freedom,
                 Flexibility and Fulfillment completely in sync with the modern day millennial behavior. Space Search
                 Made Simple. Search. Book. Work. Live.</p>
             </div>
@@ -84,7 +189,6 @@
         <p>Copyright © 2023 Cofynd. All rights reserved.</p>
         <p class="mt-0">Cofynd and the Cofynd.com logo are registered trademarks of Cofynd Infotech Pvt Ltd.</p>
       </div>
-      <!-- <div class="col-md-1"></div> -->
       <div class="col-md-6 links-item">
         <p class="text"
           (click)="routeOnPage('about-us')">About Us</p>
@@ -97,12 +201,6 @@
         <p class="text"
           (click)="routeOnPage('terms-and-conditions')"> &nbsp;| T&C</p>
       </div>
-      <!-- <div class="col-md-2">
-        <div class="text-right">
-          <img src="/assets/images/t9l-logo.png"
-            alt="">
-        </div>
-      </div> -->
     </div>
   </div>
-</footer>
+</footer> -->
