@@ -57,17 +57,17 @@
             </div>
 
             <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                        <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                         </ng-select>
                         <app-input-validation [control]="enquiryForm.controls.interested_in">
                         </app-input-validation>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <ng-select placeholder="seats" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
+                        <ng-select placeholder="No. of Seats" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
                         </ng-select>
                         <app-input-validation [control]="enquiryForm.controls.no_of_person">
                         </app-input-validation>
