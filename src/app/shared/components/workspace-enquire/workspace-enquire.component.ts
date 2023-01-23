@@ -72,7 +72,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   coworkingPlans = [
     { label: 'Office Suite', value: 'office-suite' },
-    { label: `CXO's Suite`, value: 'cxo-suite' },
+    // { label: `CXO's Suite`, value: 'cxo-suite' },
     { label: 'Custom Buildout', value: 'custom-buildout' },
   ];
 
@@ -81,9 +81,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     { label: `11-20`, value: '11-20' },
     { label: '21-50', value: '21-50' },
     { label: '51-100', value: '51-100' },
-    { label: '100++', value: '100++' },
-    { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
-    { label: 'Customised solutions', value: 'Customised_solutions' },
+    { label: '100+', value: '100+' },
+    // { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
+    // { label: 'Customised solutions', value: 'Customised_solutions' },
   ];
 
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
