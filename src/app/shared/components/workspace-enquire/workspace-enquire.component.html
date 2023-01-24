@@ -1,5 +1,5 @@
 <div #enquireBox class="enquire-box" [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
-    <div class="form-section enquire-box-content" [@shake]="shakeTheForm" (@shake.done)="animationChanged($event)">
+    <div class="form-section enquire-box-content" [@shake]="shakeTheForm" (@shake.done)="animationChanged($event)" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
         <div class="title" *ngIf="!isColivEnquiry">
             <h4 class="heading">
                 <button type="button" class="fas fa-close" (click)="onClose()">
@@ -26,23 +26,20 @@
 
 
 
-                <div class="form-group floating-label">
-                    <label>Name*</label>
-                    <input class="form-control" type="text" formControlName="name" appMaterialInput />
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
                     <app-input-validation [control]="enquiryForm.controls.name">
                     </app-input-validation>
                 </div>
 
-                <div class="form-group floating-label">
-                    <label>Email*</label>
-                    <input class="form-control" type="text" formControlName="email" appMaterialInput />
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="email" placeholder="Email*" appMaterialInput />
                     <app-input-validation [control]="enquiryForm.controls.email">
                     </app-input-validation>
                 </div>
 
-                <div class="form-group floating-label">
-                    <label>Phone*</label>
-                    <input class="form-control" type="text" formControlName="phone_number" appMaterialInput />
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
                     <app-input-validation [control]="enquiryForm.controls.phone_number">
                     </app-input-validation>
                 </div>
@@ -94,7 +91,7 @@
         </form>
     </div>
     <div *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS" class="enquiry-footer">
-        <div class="contact-details">
+        <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
             <div class="contact-image">
                 <img class="img-fluid" src="/assets/images/dipika-img.png" />
             </div>
