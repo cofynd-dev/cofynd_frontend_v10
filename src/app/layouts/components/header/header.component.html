@@ -191,12 +191,24 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Offices</a>
                         <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
                             <li *ngFor="let office of menuPopularOffices" class="cities-list">
                                 <a tabindex="-1" class="dropdown-item" [routerLink]="'/office-space/rent/' + office.name.toLowerCase()"><img [src]="'/assets/images/city/' + office.icon">{{office.name}}</a>
                             </li>
+                        </ul>
+                    </li> -->
+
+                    <li class="nav-item dropdown">
+                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Knowledge</a>
+                        <ul class="dropdown-menu border-0 shadow">
+                            <li><a class="dropdown-item" routerLink="/enterprise">Enterprise Solutions</a></li>
+                            <li><a class="dropdown-item" routerLink="/about-us">About Us</a></li>
+                            <li><a class="dropdown-item" routerLink="/contact-us">Contact Us</a></li>
+                            <!-- <li *ngFor="let city of colivingCities" class="cities-list">
+                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city?.image?.s3_link">{{city.name}}</a>
+                            </li> -->
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
