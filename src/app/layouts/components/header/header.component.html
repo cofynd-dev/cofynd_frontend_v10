@@ -22,9 +22,21 @@
                     <app-dropdown-item [relativeUrl]="'/co-living/'" [title]="'Coliving'" [cities]="menuPopularCoLiving">
                     </app-dropdown-item>
                 </li>
-                <li class="no-tablet">
+                <!-- <li class="no-tablet">
                     <app-dropdown-item [relativeUrl]="'/office-space/rent/'" [title]="'Offices'" [cities]="menuPopularOffices" [isSingle]="true">
                     </app-dropdown-item>
+                </li> -->
+                <li class="menu_dropdown">
+                    <div class="btn-group dropdown-list-menu" dropdown>
+                        <button dropdownToggle type="button" class="dropdown-link">
+                            Knowledge <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                            <li><a routerLink="/enterprise">Enterprise Solutions</a></li>
+                            <li><a routerLink="/about-us">About Us</a></li>
+                            <li><a routerLink="/contact-us">Contact Us</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="no-tablet">
                     <div class="btn-group dropdown-list-menu" dropdown>
@@ -39,7 +51,7 @@
                     <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + contactInfo.email " [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email}}</a>
 
                 </li>
-                <li *ngIf="!isAuthenticated()" class="no-tablet">
+                <!-- <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
                             Signup</button>
@@ -68,11 +80,11 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
-    <div class="mobile-menu-wrapper" [class.show-offcanvas]="isMobileMenuOpen">
+    <!-- <div class="mobile-menu-wrapper" [class.show-offcanvas]="isMobileMenuOpen">
         <ul class="mobile-menu">
             <li class="mobile-close-menu">
                 <button type="button" *ngIf="isMobileMenuOpen" (click)="isMobileMenuOpen = false;" class="icon-close fas fa-times"></button>
@@ -131,7 +143,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> -->
 </header>
 
 
@@ -193,12 +205,12 @@
                     <li class="divider-line mobile-phone-menu ">
                         <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>
                     </li>
-                    <li class="login_btn">
+                    <!-- <li class="login_btn">
                         <div class="btn-group">
                             <button class="btn btn-primary login-btn" type="button" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
                                 Signup</button>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
