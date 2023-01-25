@@ -361,15 +361,6 @@ export const AVAILABLE_CITY = [
     locations: [],
   },
 
-  // {
-  //   name: 'dehradun',
-  //   id: '5ff3fbd1a3304537cef8378a',
-  //   icon: 'dehradun.jpeg',
-  //   for_coWorking: false,
-  //   for_office: false,
-  //   for_coLiving: false,
-  //   locations: [],
-  // },
 ];
 
 export const AVAILABLE_CITY_CO_LIVING = [
@@ -847,34 +838,6 @@ export const AVAILABLE_CITY_CO_LIVING = [
       'Sowripalayam',
     ],
   },
-  // {
-  //   name: 'dehradun',
-  //   id: '5ff3fbd1a3304537cef8378a',
-  //   icon: 'dehradun.jpeg',
-  //   for_coWorking: true,
-  //   for_office: false,
-  //   for_coLiving: true,
-  //   locations: [
-  //     'Pondha',
-  //     'Prem Nagar',
-  //     'Mitthi Behri',
-  //     'Bidholi',
-  //     'Kharakhet',
-  //     'Ajabpur Kalan',
-  //     'Balliwala',
-  //     'Dalanwala',
-  //     'Govind Vihar',
-  //     'Kaonli',
-  //     'Chukkuwala',
-  //     'Clement town',
-  //     'Jakhan',
-  //     'Sewla Kalan',
-  //     'Sahastradhara Road',
-  //     'Malsi',
-  //     'Aamwala',
-  //     'Kanwali',
-  //   ],
-  // },
   {
     name: 'bhubaneswar',
     id: '5ff4367926f5cd67c919a112',
@@ -897,25 +860,6 @@ export const AVAILABLE_CITY_CO_LIVING = [
       'Old town',
     ],
   },
-
-  // {
-  //   name: 'Amritsar',
-  //   id: '5ff315b5a3304537cef836cd',
-  //   icon: 'coimbatore.png',
-  //   for_coWorking: false,
-  //   for_office: false,
-  //   for_coLiving: false,
-  //   locations: [],
-  // },
-  // {
-  //   name: 'Kota',
-  //   id: '5ff315b5a3304537cef836cd',
-  //   icon: 'coimbatore.png',
-  //   for_coWorking: false,
-  //   for_office: false,
-  //   for_coLiving: false,
-  //   locations: [],
-  // },
   {
     name: 'goa',
     id: '5f9a6a18c2502350f24ffc9e',
@@ -939,15 +883,6 @@ export const AVAILABLE_CITY_CO_LIVING = [
     ],
   },
 
-  // {
-  //   name: 'visakhapatnam',
-  //   id: '5ff42164a3304537cef838ee',
-  //   icon: 'coimbatore.png',
-  //   for_coWorking: false,
-  //   for_office: false,
-  //   for_coLiving: false,
-  //   locations: [],
-  // },
 ];
 
 export const AVAILABLE_CITY_VIRTUAL_OFFICE = [

@@ -207,22 +207,6 @@ option {
     transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
 }
 
-// .faqs_section .card-header h4 .icon-arrow-down {
-//     color: #797979;
-//     position: absolute;
-//     right: 0;
-//     top: 8px;
-//     font-size: 25px;
-//     -webkit-transition: -webkit-transform 0.5s ease 0s;
-//     transition: -webkit-transform 0.5s ease 0s;
-//     transition: transform 0.5s ease 0s;
-//     transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
-// }
-
-/*
-  Google Map Search Drop down
-*/
-
 .pac-container {
     z-index: 1000000;
 }
@@ -1261,15 +1245,6 @@ body {
     margin-bottom: 10px;
 }
 
-// .filter_btn {
-//     background-color: transparent !important;
-//     color: #4343e8 !important;
-//     border: 1px solid #4343e8;
-//     padding: 8px 19px !important;
-//     border-radius: 7px;
-//     font-size: 13px !important;
-//     font-weight: 500;
-// }
 .filter_col {
     text-align: right;
 }
@@ -1498,12 +1473,6 @@ body {
     font-size: 15px;
 }
 
-// .logos_slider {
-//     display: flex;
-// }
-// .logos_slider .band-img {
-//     margin: 0px 12px;
-// }
 .enquiry-section img {
     margin-bottom: 0px !important;
 }
@@ -1616,10 +1585,6 @@ body {
     font-weight: 600;
 }
 
-// .list_your_space_sec .cta_content .site_btn {
-//     padding: 10px 25px;
-//     font-size: 13px;
-// }
 .list_your_space_sec .img-fluid {
     width: 100%;
     margin: 30px auto;
@@ -1781,7 +1746,6 @@ h3.site_title {
 
 .counter_area {
     background: #F8F9FA;
-    // box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.18);
     box-shadow: 0px 4px 16px rgba(33, 37, 41, 0.07);
     border-radius: 10px;
 }
@@ -2038,7 +2002,6 @@ h3.site_title {
     position: absolute;
     right: 0;
     top: 0;
-    // height: 100%;
     border-radius: 0 0 0 120px;
     background-size: cover;
     overflow: hidden;
@@ -2110,18 +2073,6 @@ h3.site_title {
     color: #4343e8;
 }
 
-// .main_heading::before {
-// 	width: 75px;
-// 	height: 75px;
-// 	background: #ffe785;
-// 	border-radius: 100%;
-// 	position: absolute;
-// 	left: -30px;
-// 	top: -30px;
-// 	content: "";
-// 	display: block;
-// 	z-index: -1;
-// }
 .main_heading h2 {
     font-size: 28px;
     font-weight: 600;
@@ -2341,7 +2292,6 @@ h3.site_title {
 
 .top-city-item:hover .coming_soon_text .coming_soon {
     display: block;
-    // visibility: visible;
 }
 
 .top-city-text p {
@@ -2844,11 +2794,6 @@ h3.site_title {
     font-family: 'Montserrat';
 }
 
-// .overview_area {
-// 	padding: 0px;
-// 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-// 	margin-bottom: 0px;
-// }
 .overview-icons {
     padding: 5px 0px;
     display: flex;
@@ -2903,11 +2848,6 @@ h3.site_title {
     display: none;
 }
 
-// .about-area {
-// 	padding: 20px 0px;
-// 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-// 	margin-bottom: 5px;
-// }
 .moreless-button {
     text-decoration: none;
     font-size: 14px;
@@ -2918,16 +2858,6 @@ h3.site_title {
     cursor: pointer;
 }
 
-// .amenities_section {
-// 	padding: 20px 0px;
-// 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-// 	margin-bottom: 5px;
-// }
-// .floor-plan {
-// 	padding: 20px 0px;
-// 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-// 	margin-bottom: 5px;
-// }
 .basic-icons img {
     padding-right: 7px;
     width: 30px;
@@ -3114,7 +3044,6 @@ h3.site_title {
 .enquiry_section .form-section .form .floating-label label {
     left: 8px;
     top: 25px;
-    // z-index: 1;
 }
 
 .enquiry_section .form-section .form .floating-label.focused label,
@@ -3123,10 +3052,6 @@ h3.site_title {
     top: 20px;
 }
 
-// .enquiry_section .form-section .form .floating-label.filled label {
-// 	left: 7px;
-// 	top: 20px;
-// }
 .enquiry_section .form-section .form .form-control.ng-invalid.ng-touched {
     border-color: transparent;
     background-color: transparent;
@@ -3137,14 +3062,6 @@ h3.site_title {
     background-color: transparent;
 }
 
-// .enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container {
-//     height: 36px;
-//     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-//     box-shadow: none;
-//     border: none;
-//     border-radius: 0px;
-// }
-
 .enquiry_section .ng-select span.ng-value-label {
     top: 13px !important;
     position: relative;
@@ -3153,25 +3070,6 @@ h3.site_title {
 .enquiry_section .form-section .form .error-message {
     bottom: -20px;
 }
-
-// .form-section .form .site_btn {
-//     margin-top: 10px;
-// }
-
-// .enquiry_section .form-section .ng-select .error-message {
-// 	bottom: 0px !important;
-// }
-// .enquiry_section .form-section::after {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     right: 10px;
-//     width: 85px;
-//     height: 85px;
-//     background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png');
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
 
 .form-section .heading button {
     display: none;
@@ -3184,18 +3082,6 @@ h3.site_title {
     }
 }
 
-// .map-location .location-icon {
-// 	position: relative;
-// 	padding-left: 18px;
-// }
-// .map-location .location-icon::before {
-// 	content: "\f3c5";
-// 	position: absolute;
-// 	left: 0px;
-// 	font-weight: 900;
-// 	font-size: 13px;
-// 	font-family: "fontawesome";
-// }
 .map-location .location-icon img {
     width: 15px;
     margin-right: 3px;
@@ -3211,7 +3097,7 @@ h3.site_title {
     display: block;
     width: 100%;
     height: auto;
-    overflow-x: scroll;
+    // overflow-x: scroll;
     padding: 0px;
     margin: 0;
     white-space: nowrap;
@@ -3295,7 +3181,6 @@ h3.site_title {
 	line-height: 23px;
 	color: rgba(33, 37, 41, 1);
 	padding: 12px 12px;
-	// margin-bottom: 20px;
 	border-radius: 10px !important;
 	height: auto;
 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
@@ -3361,32 +3246,6 @@ h3.site_title {
 	border: 0.7px solid rgba(33, 37, 41, 0.1);
 }
 
-// .enquiry-footer .contact-details::before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: -36px;
-//     width: 65px;
-//     height: 65px;
-//     background-image: url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     transform: rotateX(180deg);
-// }
-
-// .enquiry-footer .contact-details::after {
-//     content: "";
-//     position: absolute;
-//     bottom: 0;
-//     right: -10px;
-//     width: 65px;
-//     height: 65px;
-//     background-image: url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7940268a21897cdd0a3b650d05fb8a2b285fe4b3.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     transform: rotateX(180deg);
-// }
-
 .contact-image img {
     height: 60px;
     object-fit: cover;
@@ -3400,7 +3259,7 @@ h3.site_title {
     line-height: normal;
     margin: 0px 0 1px;
     color: #000;
-    padding-left: 20px;
+    padding-left: 15px;
     line-height: 18px;
 }
 
@@ -3437,7 +3296,6 @@ h3.site_title {
     background: #f8f9fa;
     padding: 30px 20px;
     border-radius: 20px;
-    // background-image: url(img/pattern.png);
     display: flex;
 }
 
@@ -3472,12 +3330,6 @@ h3.site_title {
     padding: 0px 0px 40px;
 }
 
-// .properties_section {
-//     padding-top: 20px;
-//     padding-bottom: 20px;
-//     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-//     margin-bottom: 5px;
-// }
 .amenities_icon {
     display: flex;
     margin-bottom: 0px;
@@ -3502,14 +3354,11 @@ h3.site_title {
 }
 
 .hide_text {
-    // overflow: hidden;
     display: none;
     transition: all 0.5s;
 }
 
 .show {
-    // overflow: visible;
-    // height: auto;
     display: block;
 }
 
@@ -3560,10 +3409,6 @@ h3.site_title {
     width: 100%;
 }
 
-// .listing_card .property-img {
-// 	height: auto;
-// 	width: 100%;
-// }
 .property_item .property-img .item {
     height: 200px;
     width: 100%;
@@ -3581,15 +3426,6 @@ h3.site_title {
     transform: scale(1.06);
 }
 
-// .property_item .property-img::after {
-//     content: "";
-//     position: absolute;
-//     width: 100%;
-//     height: 80px;
-//     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);
-//     bottom: 0;
-//     left: 0;
-// }
 .listing_card {
     margin-bottom: 50px;
 }
@@ -3637,9 +3473,6 @@ h3.site_title {
     line-height: 26px !important;
 }
 
-// .office_top_properties .property_item .property-dis {
-//     height: 64px;
-// }
 .property_item .property-dis h4 {
     font-size: 15px;
     line-height: 20px;
@@ -4971,7 +4804,7 @@ h3.site_title {
 }
 
 .flat_rent_location::before {
-    background-image: url(https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4a1ab07c82b54c559f861cbc0a3ac2884d2db464.png);
+    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4a1ab07c82b54c559f861cbc0a3ac2884d2db464.png');
     content: "";
     position: absolute;
     top: 0;
@@ -5139,7 +4972,6 @@ h3.site_title {
     background: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
-    // padding: 10px 10px;
 }
 
 .top-microlocation-item {
@@ -5194,18 +5026,6 @@ h3.site_title {
     transition: all 0.5s;
 }
 
-// .top-city-text p {
-// 	color: #fff;
-// 	font-size: 13px;
-// 	margin-bottom: 0px;
-// 	line-height: 15px;
-// }
-// .top-city-img.main_city {
-// 	height: 476px;
-// }
-// .top-city-img.main_city img {
-// 	height: 476px;
-// }
 .coworking_brands_slider {
     padding-top: 50px !important;
     padding-bottom: 60px !important;
@@ -5221,7 +5041,6 @@ h3.site_title {
 }
 
 .our_services_sec .service_item {
-    // border: 1px solid #e9e9e9;
     padding: 60px 30px;
     text-align: right;
     background-position: center left;
@@ -5232,7 +5051,6 @@ h3.site_title {
     -webkit-transition: border-color ease-out 0.5s;
     transition: border-color ease-out 0.5s;
     position: relative;
-    // overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -6798,10 +6616,6 @@ h3.site_title {
         font-size: 10px;
         border: none;
     }
-    // .list_your_space_sec .cta_content .site_btn {
-    //     padding: 6px 12px !important;
-    //     font-size: 11px;
-    // }
     .list_your_space_sec .img-fluid {
         margin: 0px auto;
     }
@@ -6832,7 +6646,8 @@ h3.site_title {
     .choose_item_slider,
     .top_cities_carousel,
     .office_top_properties_slider,
-    .visible-list {
+    .visible-list,
+    .places-tag-slider {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -6850,7 +6665,8 @@ h3.site_title {
     .choose_item_slider::-webkit-scrollbar,
     .top_cities_carousel::-webkit-scrollbar,
     .office_top_properties_slider::-webkit-scrollbar,
-    .visible-list::-webkit-scrollbar {
+    .visible-list::-webkit-scrollbar,
+    .places-tag-slider::-webkit-scrollbar {
         display: none !important;
         height: 0 !important;
         width: 0 !important;
@@ -7008,22 +6824,6 @@ h3.site_title {
     .top_coworking_cities {
         padding: 20px 0px !important;
     }
-    // .popular-spaces .page-title {
-    //     text-align: left !important;
-    //     padding: 0px 0px 0px 15px !important;
-    // }
-    // .popular-spaces .page-title h2::before {
-    //     display: block !important;
-    // }
-    // .popular-spaces .page-title h2 {
-    //     margin-bottom: 0px !important;
-    //     display: block !important;
-    //     text-align: left !important;
-    //     margin-bottom: 15px !important;
-    //     font-size: 16px !important;
-    //     line-height: 24px !important;
-    //     font-weight: 600 !important;
-    // }
     .location_area .leaflet-container {
         border: 1px solid #e5e5e5 !important;
         border-radius: 10px;
@@ -7036,23 +6836,13 @@ h3.site_title {
         font-size: 11px !important;
         line-height: 14px !important;
     }
-    // .similar_spaces_area .col-md-12 {
-    //     padding: 0px;
-    // }
-    // .logos_background_img {
-    //     background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8aedf6a13715c3aec2f3b02476b9e8787143cda0.png');
-    //     background-size: cover;
-    //     background-repeat: no-repeat;
-    // }
     .properties_space_sec {
         padding: 20px 0 !important;
     }
     .properties_space_sec .popular-space-carousel .ngucarousel .ngucarousel-items {
-        // display: block !important;
         width: 100%;
         height: auto !important;
         overflow-x: scroll;
-        // padding: 0px 0px 0px;
         margin: 0;
         white-space: nowrap;
         scrollbar-width: none !important;
@@ -7061,16 +6851,6 @@ h3.site_title {
         -webkit-transition: none !important;
         transition: none !important;
     }
-    // .properties_space_sec .popular-space-carousel .item {
-    //     padding: 0px !important;
-    //     display: inline-block;
-    //     margin: 0 5px;
-    //     background-size: cover;
-    //     position: relative;
-    //     width: 38.429% !important;
-    //     overflow: hidden;
-    //     vertical-align: top;
-    // }
     .properties_space_sec .popular-space-box {
         height: auto !important;
         border-radius: 10px;
@@ -7395,22 +7175,6 @@ h3.site_title {
     .top_cities_slider .popular-space-box {
         height: 300px !important;
     }
-    // .top_cities_slider .popular-space-box img {
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     bottom: 0;
-    //     right: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     -o-object-fit: cover;
-    //     object-fit: cover;
-    //     border-radius: 8px;
-    //     -webkit-transition: -webkit-transform 2s;
-    //     transition: -webkit-transform 2s ease;
-    //     transition: transform 2s ease;
-    //     transition: transform 2s ease,-webkit-transform 2s ease;
-    // }
     .top_cities_slider .popular-space-box .space-detail {
         padding: 10px 20px !important;
     }
@@ -7616,9 +7380,6 @@ h3.site_title {
         line-height: 16px !important;
         margin-bottom: 8px;
     }
-    // .list_now_sec .cta_content .site_btn {
-    //     background-color: #FFA891 !important;
-    // }
     .border_btn:hover {
         background-color: #4343E8 !important;
     }
@@ -7692,31 +7453,6 @@ h3.site_title {
     .listing_card .btn-favorite {
         display: none;
     }
-    // .property_item .property-img {
-    //     height: 110px;
-    // }
-    // .property_item .property-img img {
-    //     height: 110px !important;
-    // }
-    // .property_item .property-foot .price {
-    //     font-size: 9px;
-    // }
-    // .property_item .property-foot .price .rent_title {
-    //     font-size: 9px;
-    //     line-height: 8px;
-    // }
-    // .property_item .property-foot .button a {
-    //     font-size: 9px;
-    //     padding-right: 8px;
-    // }
-    // .property_item .property-foot .button a::before {
-    //     font-size: 8px !important;
-    //     line-height: 13px !important;
-    // }
-    // .property_item .property-dis img, .property_item .property-dis .furnish_type img {
-    //     width: 13px;
-    //     margin-right: 2px;
-    // }
     .popular-space-carousel p {
         font-size: 10px !important;
         line-height: 18px !important;
@@ -7805,7 +7541,6 @@ h3.site_title {
         width: 12px;
     }
     .property_item .property-foot {
-        // display: block;
         padding: 5px 0 0;
         margin-top: 4px;
     }
@@ -8004,17 +7739,6 @@ h3.site_title {
         line-height: 20px;
         font-weight: 700;
     }
-    // .dvantage_item img {
-    //     width: 28px;
-    //     margin-bottom: 3px;
-    // }
-    // .dvantage_item h4 {
-    //     font-size: 10px;
-    //     line-height: 14px;
-    // }
-    // .cofynd_advantage_sec .row .col-md-3.col-3 {
-    //     padding: 0px 6px;
-    // }
     .virtual_query_form {
         padding: 0px;
         overflow: hidden;
@@ -8074,7 +7798,6 @@ h3.site_title {
         padding-bottom: 30px;
     }
     .space_carousel {
-        // padding-right: 110px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
@@ -8096,36 +7819,6 @@ h3.site_title {
         padding-top: 40px;
         padding-bottom: 40px;
     }
-    // .choose_item_slider {
-    //     overflow-x: scroll;
-    //     scrollbar-width: none !important;
-    //     padding-right: 110px;
-    //     padding-top: 5px;
-    //     padding-bottom: 5px;
-    //     display: block;
-    //     width: 100%;
-    //     height: auto;
-    //     overflow-x: scroll;
-    //     padding: 0px;
-    //     padding-top: 0px;
-    //     padding-right: 0px;
-    //     padding-bottom: 0px;
-    //     margin: 0;
-    //     white-space: nowrap;
-    // }
-    // .choose_item_slider .col-md-4 {
-    //     display: inline-block;
-    //     margin: 0 5px;
-    //     background-size: cover;
-    //     position: relative;
-    //     -webkit-box-flex: 0;
-    //     flex: 0 0 71.4285714286%;
-    //     width: 71.429%;
-    //     overflow: hidden;
-    //     vertical-align: top;
-    //     max-width: 100%;
-    //     padding: 0px;
-    // }
     .choose_item_slider {
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: none !important;
@@ -8185,7 +7878,6 @@ h3.site_title {
     .choose_item_slider .col-md-4 {
         display: inline-block;
         -webkit-box-flex: 0;
-        // flex: 0 0 71.4285714286%;
         width: 75.429%;
         position: relative;
         border-radius: 20px;
@@ -8197,12 +7889,8 @@ h3.site_title {
         white-space: normal;
     }
     .choosewithcofynd_sec .left_icon_box2 {
-        /* background: transparent; */
         border: none;
         box-shadow: none;
-        /* border-radius: 0px; */
-        /* padding: 0px 0px; */
-        /* margin-bottom: 22px; */
         display: -webkit-inline-box;
         display: inline-flex;
         border-radius: 10px;
@@ -8257,20 +7945,6 @@ h3.site_title {
         overflow-x: scroll;
         transition: none !important;
     }
-    // .top_cities_slider .popular-space-carousel .ngucarousel .ngucarousel-items {
-    //     display: block !important;
-    //     width: 100%;
-    //     height: auto !important;
-    //     overflow-x: scroll;
-    //     padding: 0px;
-    //     margin: 0;
-    //     white-space: nowrap;
-    //     scrollbar-width: none !important;
-    //     -webkit-transform: none !important;
-    //     transform: none !important;
-    //     -webkit-transition: none !important;
-    //     transition: none !important;
-    // }
     .virtual_office_cta .cta_content p {
         font-size: 9px !important;
         line-height: 4px !important;
@@ -8406,7 +8080,6 @@ h3.site_title {
     .office_top_properties_slider .col-md-3 {
         display: inline-block;
         -webkit-box-flex: 0;
-        // flex: 0 0 71.4285714286%;
         width: 75.429%;
         position: relative;
         border-radius: 20px;

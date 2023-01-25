@@ -57,19 +57,6 @@
                                         <div *ngIf="f['interested_in'].errors['required']">Please select your interest.</div>
                                     </div>
                                 </div>
-
-                                <!-- <div class="form-group align-items-center">
-                  <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
-                  <select class="form-select" class="form-control" placeholder="I am interested in" aria-label="Default select example">
-                    <option value="" disabled>Interested in</option>
-                    <option value="Coworking Space">Coworking Space</option>
-                    <option value="Coliving">Coliving Space</option>
-                    <option value="Broker Partnership Program">Broker Partnership Program</option>
-                    <option value="CoFynd for Landlords">CoFynd for Landlords</option>
-                    <option value="Talk about my membership">Talk about my membership</option>
-                    <option value="Any/Other Query">Any/Other Query</option>
-                    </select>
-                </div> -->
                             </div>
 
                             <div class="col-md-6">
@@ -84,30 +71,6 @@
                                         <div *ngIf="f['city'].errors['required']">Please select your city.</div>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group align-items-center">
-                  <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                  <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
-                      <option value="" disabled>Select City*</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Noida">Noida</option>
-                      <option value="Pune">Pune</option>
-                      <option value="Gurugram">Gurugram</option>
-                      <option value="Bangalore">Bangalore</option>
-                      <option value="Hyderabad">Hyderabad</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Indore">Indore</option>
-                      <option value="Chennai">Chennai</option>
-                      <option value="Ahmedabad">Ahmedabad</option>
-                      <option value="Jaipur">Jaipur</option>
-                      <option value="Lucknow">Lucknow</option>
-                      <option value="Chandigarh">Chandigarh</option>
-                      <option value="Goa">Goa</option>
-                      <option value="Coimbatore">Coimbatore</option>
-                      <option value="Dehradun">Dehradun</option>
-                      <option value="Patna">Patna</option>
-                      <option value="Bhubaneswar">Bhubaneswar</option>
-                    </select>
-                </div> -->
                             </div>
 
                             <div class="col-md-12">
@@ -125,8 +88,7 @@
                     </form>
 
                     <div class="contact-footer">
-                        <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> , Email : <a [href]="'mailto:' + contactInfo.email"
-                                [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email }}</a></p>
+                        <p>Call : <a [href]="'tel:' + contactInfo.phone" [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a> , Email : <a href="mail:hello@cofynd.com">hello@cofynd.com</a></p>
                     </div>
 
                 </div>
