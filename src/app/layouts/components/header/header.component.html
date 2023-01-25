@@ -84,66 +84,6 @@
             </ul>
         </div>
     </div>
-    <!-- <div class="mobile-menu-wrapper" [class.show-offcanvas]="isMobileMenuOpen">
-        <ul class="mobile-menu">
-            <li class="mobile-close-menu">
-                <button type="button" *ngIf="isMobileMenuOpen" (click)="isMobileMenuOpen = false;" class="icon-close fas fa-times"></button>
-            </li>
-            <li class="spacer-item" *ngIf="!isAuthenticated()">
-                <div class="btn btn-primary login-btn">
-                    <button type="button" (click)="openLoginModal()">
-                        <h5>Log In/Sign Up</h5>
-                    </button>
-                </div>
-            </li>
-            <li class="logged-user-item" *ngIf="isAuthenticated()">
-                <h4 class="text-capitalize">hello {{ getUser() }}, </h4>
-                <ul>
-                    <li>
-                        <a (click)="closeMobileMenu()" routerLink="/user/account">My Account</a>
-                    </li>
-                    <li>
-                        <button type="button" (click)="onLogOut()">Log Out</button>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h5 class="mb-2 mt-4" routerLink="/coworking" (click)="closeMobileMenu()">Coworking</h5>
-                <ul class="city-list">
-                    <li *ngFor="let city of menuPopularCoWorkings;">
-                        <a class="text-capitalize city-name" [routerLink]="'/coworking/' + city.name" (click)="closeMobileMenu()">
-                            {{ city.name }}
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h5 class="mb-2 mt-4" routerLink="/co-living" (click)="closeMobileMenu()">Coliving</h5>
-                <ul class="city-list">
-                    <li *ngFor="let city of menuPopularCoLiving;">
-                        <a class="text-capitalize city-name" [routerLink]="'/co-living/' + city.name" (click)="closeMobileMenu()">
-                            {{ city.name }}
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <br>
-            <li class="spacer-item"><a routerLink="/list-your-space" (click)="closeMobileMenu()">List Your Space</a></li>
-            <li class="spacer-item"><a routerLink="/about-us" (click)="closeMobileMenu()">About CoFynd</a></li>
-            <li class="spacer-item"><a routerLink="/contact-us" (click)="closeMobileMenu()">Connect CoFynd</a></li>
-            <li class="spacer-item"><a href="https://blog.cofynd.com" target="_blank">CoFynd Blog</a></li>
-            <li class="call-to-help">
-                <h5>GET IN TOUCH</h5>
-            </li>
-            <li>
-                <a (click)="closeMobileMenu()" style="color: blue;" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{
-                    contactInfo.phone }}
-                </a>
-                <a style="text-transform: none; color: blue;">hello@cofynd.com
-                </a>
-            </li>
-        </ul>
-    </div> -->
 </header>
 
 

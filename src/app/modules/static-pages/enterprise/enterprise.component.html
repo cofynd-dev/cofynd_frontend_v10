@@ -180,11 +180,6 @@
                     <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</a>
                 </div>
             </div>
-            <!-- <div class="col-5">
-                <div class="tailored_img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4b81def3bf809b2788be5a988015e2e2e9c83315.png" alt="">
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -211,7 +206,6 @@
                     the best office layouts with ample sunlight and modern day work culture. Specially designed ergonomic desks and seats go a long way in increasing team productivity. We value our client's vision and provide them with their dream workplace,
                     which they will fall in love with at first sight. All custom-built office spaces offered by us are at an all inclusive cost with zero add-ons.</p>
                 <a (click)="scrollToElement(target)" style="cursor: pointer;" class="btn_text">Enquire Now »</a>
-                <!-- <p class="btn_text"><a href="#">Learn more about our amenities »</a></p> -->
             </div>
         </div>
     </div>
@@ -386,105 +380,6 @@
     </div>
 </section>
 
-<!-- <section class="why_chooes_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center mb-4">
-                    <h3 class="site_title title_divider">Why choose Managed Office by CoFynd</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="top_icon_box mb-4"><img alt="" class="img-fluid" src="../../../../assets/images/icons/partner-expert-icon.svg">
-                    <h4>Partner with Experts</h4>
-                    <p>Cofynd is a revolutionary space provider platform offering an extensive collection of all types of spaces, both on rent and sale at affordable prices. All the startups and small/large-scale businesses explore our website and grab a
-                        chance to become partners with the experts. Partnering with our experts will help you to reach out to maximum customer reach with high-revenue generating leads. </p>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="top_icon_box mb-4"><img alt="" class="img-fluid" src="../../../../assets/images/icons/billing-icon.svg">
-                    <h4>An end-to-end Solution</h4>
-                    <p>Cofynd is the king of coworking space providers and it offers its clients a wide range of coworking spaces to choose from according to their requirements. This type of workplace attracts all professionals and Millenials from different
-                        walks of life. With Cofynd your business will get 100% support along with end-to-end solutions throughout the process and even after the purchase.</p>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="top_icon_box mb-4"><img alt="" class="img-fluid" src="../../../../assets/images/icons/billing-icon.svg">
-                    <h4>Support Beyond Space</h4>
-                    <p>Cofynd is there to help your company in every way possible around the clock. Our assistance is not just during the purchase of coworking space needed by your company, rather, we are here to help you increase profits, marketing strategies,
-                        and more. Our aim is to ensure that the company partnering with us is able to generate value for money while being a part of the Cofynd family.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- <section id="get-in-touch" class="form_area" #target>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <div class="form_img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/588ad8e812926083807d04a25b8e770febde2548.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="solution_form_area">
-                    <h3>Looking for Customized Business Solutions?</h3>
-                    <p>Fill out the form below and our space expert will get in touch with you</p>
-                    <div class="solution_form">
-                        <div *ngIf="showSuccessMessage" class="success-box">
-                            <app-check-mark-circle></app-check-mark-circle>
-                            <h6>Hi! {{ contactUserName }}</h6>
-                            <h3>Thank You for Your Query</h3>
-                            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
-                            <a routerLink="/coworking">Search More Spaces</a>
-                        </div>
-                        <form action="" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
-                            <div class="input-group">
-                                <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Enter your Name*" required>
-                                <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
-                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
-                                    <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
-                                <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
-                                    <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <input type="text" [ngClass]="{ 'is-invalid': submitted && f['org_name'].errors }" formControlName="org_name" class="form-control" placeholder="Company Name*" required>
-                                <div *ngIf="submitted && f['org_name'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['org_name'].errors['required']">Please enter your company name.</div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <textarea type="text-area" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements" required></textarea>
-                            </div>
-                            <div *ngIf="submitted && f['requirements'].errors" class="invalid-feedback" style="display: block;">
-                                <div *ngIf="f['requirements'].errors['required']">Please enter your requirements.</div>
-                            </div>
-                            <p>By clicking the above button you agree to our Terms of service and have read and understood our <span class="color_text">Privacy Policy</span></p>
-                            <button class="btn btn-primary site_btn blue_btn" type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
 <div class="home_client_sec">
     <app-our-clients></app-our-clients>
 </div>
@@ -516,12 +411,6 @@
                 <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a enterprise business solutions. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
             </div>
             <div class="col-md-12">
-                <!-- <div class="faq_content">
-                    <div class="page-title">
-                        <h2>Frequently Asked Questions</h2>
-                    </div>
-                    <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a enterprise business solutions. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
-                </div> -->
                 <accordion [isAnimated]="true" class="faqs_accordion">
                     <accordion-group>
                         <h4 accordion-heading>What is a coworking space?</h4>

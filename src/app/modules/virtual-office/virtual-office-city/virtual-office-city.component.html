@@ -13,23 +13,9 @@
                 </div>
                 <div class="col-3">
                     <div class="filter_col">
-                        <!-- <button type="button" class="btn site_btn filter_btn"  data-toggle="modal" data-target="#coliving_filter">
-                        <img src="../../../assets/images/icons/filter-icon.png" alt="Filters"> Filters
-                        </button> -->
                     </div>
                 </div>
             </div>
-
-            <!-- <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length"
-        [cityName]="title"
-        [relativeUrl]="'coworking'"
-        [popularLocationList]="cityWisePopularLocation">
-      </app-search-similar-location> -->
-
-            <!-- <app-search-no-result *ngIf="!loading && !workSpaces.length"
-        [title]="'Virtual Office'"
-        [url]="'/virtual-office'">
-      </app-search-no-result> -->
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
@@ -56,7 +42,6 @@
                                             <ul class="mobilehide">
                                                 <li [routerLink]="'/coworking/' + title + '/' + item" *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">{{item}}</li> and More...
                                             </ul>
-                                            <!-- <a (click)="scrollToElement(target)" class="btn site_btn border_btn">Enquire Now</a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -70,10 +55,6 @@
                             <app-search-contact-us-text2>
                             </app-search-contact-us-text2>
                         </div>
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 6 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
-                            </app-search-contact-us-text>
-                        </div> -->
                     </ng-template>
                 </ng-container>
             </div>
@@ -91,18 +72,6 @@
         <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [workspaces]="workSpaces"></app-search-map-view>
     </div>
 </section>
-
-<!-- 
-<section class="search-description">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>{{footerData?.title }}</h2>
-                <div [innerHTML]="footerData?.description"></div>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <section class="search-description" *ngIf="!loading && seoData">
     <div class="container">

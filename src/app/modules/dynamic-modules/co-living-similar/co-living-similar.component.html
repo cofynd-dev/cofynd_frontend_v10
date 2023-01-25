@@ -10,15 +10,8 @@
                     <p class="address">
                         <i class="icon-location-outline fal fa-map-marker-alt"></i> {{ office.location.address }}
                     </p>
-                    <!-- <p class="capacity">
-            <i class="building-icon"></i>
-            Best Price Guarantee
-          </p> -->
                     <div class="price-box">
                         <div class="price">
-                            <!-- <span>Monthly Rent*</span> -->
-
-                            <!-- {{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }} -->
                             {{office.starting_price | currency:office.currency_code : 'symbol' : '1.0-0' }}<span class="price-bed">/-Month</span>
                         </div>
                         <a target="_blank" [routerLink]="['/co-living/', office.slug]" class="btn-link forMobileOnly">Explore Now<small class="icon-next"></small>

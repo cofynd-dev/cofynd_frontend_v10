@@ -156,11 +156,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         url: this.country_name + '/coworking/' + this.title,
         isActive: false,
       },
-      // {
-      //   title: this.subTitle,
-      //   url: '',
-      //   isActive: true,
-      // },
     ];
   }
 
