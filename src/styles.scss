@@ -1472,7 +1472,16 @@ body {
     padding: 11px 30px;
     font-size: 15px;
 }
-
+.enquiry-section {
+	padding: 60px 0px;
+}
+.enquiry-box {
+    margin-bottom: 50px;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
 .enquiry-section img {
     margin-bottom: 0px !important;
 }
@@ -5027,8 +5036,8 @@ h3.site_title {
 }
 
 .coworking_brands_slider {
-    padding-top: 50px !important;
-    padding-bottom: 60px !important;
+	padding-top: 20px !important;
+	padding-bottom: 0px !important;
 }
 
 .coworking_advantages {
@@ -5051,7 +5060,7 @@ h3.site_title {
     -webkit-transition: border-color ease-out 0.5s;
     transition: border-color ease-out 0.5s;
     position: relative;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .our_services_sec .service_item::before {
@@ -5997,9 +6006,7 @@ h3.site_title {
         font-size: 9px !important;
         border-radius: 6px;
     }
-    .categories_sec .col-4,
-    .categories_sec .col-12,
-    .curated_section .col-4 {
+    .categories_sec .col-8, .categories_sec .col-4, .categories_sec .col-12, .curated_section .col-4 {
         padding: 0px 5px;
     }
     .curated_section .row:last-child {
@@ -7163,7 +7170,7 @@ h3.site_title {
         background: transparent;
         background-size: cover;
         position: relative;
-        border-radius: 8px;
+        border-radius: 20px;
         box-shadow: none;
         -webkit-box-flex: 0;
         flex: 0 0 71.4285714286%;
@@ -7190,8 +7197,8 @@ h3.site_title {
         margin: 0;
     }
     .form_dream_ptoperty .site_btn {
-        background-color: transparent !important;
-        border-color: #EAE6FF;
+        // background-color: transparent !important;
+        border-color: #EAE6FF !important;
         font-size: 9px !important;
         padding: 5px 15px !important;
         height: auto;
@@ -7251,7 +7258,7 @@ h3.site_title {
         line-height: 10px;
     }
     .list_space_counter .counter_item .icon img {
-        width: 30px !important;
+        width: 25px !important;
         margin-bottom: 6px;
     }
     .how_to_start_sec {
@@ -7285,8 +7292,8 @@ h3.site_title {
         margin-bottom: 6px;
     }
     .why_list_sec .why_list_item h4 {
-        font-size: 11px;
-        line-height: 15px;
+        font-size: 10px;
+        line-height: 13px;
     }
     .why_list_sec .col-md-6 {
         padding-left: 15px;
@@ -7324,7 +7331,7 @@ h3.site_title {
         padding-bottom: 20px;
     }
     .testimonials_video video {
-        height: 237px;
+        height: 200px;
     }
     .flat_testimonials_sec {
         padding-top: 40px;
@@ -7864,9 +7871,9 @@ h3.site_title {
         white-space: normal;
     }
     .choose_item_slider .step_item h4 {
-        font-size: 12px;
+        font-size: 10px;
         margin-left: 0;
-        line-height: 15px;
+        line-height: 12px;
         margin-bottom: 1px;
     }
     .how_to_start_sec .step_item p {
@@ -8263,6 +8270,9 @@ h3.site_title {
         padding-left: 0;
         padding-top: 40px;
         padding-bottom: 40px;
+    }
+    .cofynd_footer {
+        text-align: left;
     }
     
 }

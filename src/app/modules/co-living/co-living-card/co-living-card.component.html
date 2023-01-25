@@ -1,36 +1,8 @@
-<!-- <div class="listing-card"> -->
-    <div class="property_item listing_card">
-        <div *ngIf="coLiving.images.length" class="property-img">
-            <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="coLiving.images">
-                <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
-                    <img [lazyLoad]="images?.image?.s3_link" (click)="openWorkSpace(coLiving.slug)" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
-                </div>
-                <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
-                <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
-                <ul class="myPoint onlyMobile" NguCarouselPoint>
-                    <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
-                </ul>
-            </ngu-carousel>
-        </div>
-        <div class="image" *ngIf="!coLiving.images.length"></div>
-        <div class="space_details" (click)="openWorkSpace(coLiving.slug)" style="cursor: pointer;">
-            <div class="property-dis">
-                <h4>{{ coLiving.name }}</h4>
-                <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ coLiving.location.address }}</p>
-                <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-            <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
-            </div>
-            <div class="property-foot align-items-end">
-                <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{ coLiving.duration }}</span></div>
-                <div class="button"><a>Explore More</a></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- <div class="image" *ngIf="coLiving.images.length">
+<div class="property_item listing_card">
+    <div *ngIf="coLiving.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="coLiving.images">
-            <div *nguCarouselDef="let images; let i = index;" class="item">
-                <img (click)="openWorkSpace(coLiving.slug)" [lazyLoad]="images?.image?.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
+            <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
+                <img [lazyLoad]="images?.image?.s3_link" (click)="openWorkSpace(coLiving.slug)" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
             </div>
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
             <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
@@ -40,27 +12,16 @@
         </ngu-carousel>
     </div>
     <div class="image" *ngIf="!coLiving.images.length"></div>
-    <div class="detail" (click)="openWorkSpace(coLiving.slug)">
-        <h4 class="text-capitalize">{{ coLiving.name }}</h4>
-        <p class="address">
-            <i class="fa-solid fa-location-dot"></i> {{ coLiving.location.address }}
-        </p>
-        <p class="capacity">
-            <img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price
-        </p>
-        <p class="capacity light_blue">
-            <img class="img-fluid" alt="" src="../../../../assets/images/amenities/single-sharing.svg"> Minimum stay 3 months
-        </p>
-        <hr />
-        <div class="price-box">
-            <div class="price">
-                <span>Starting From</span>
-                <i class="fa-solid fa-indian-rupee-sign"></i> {{ coLiving.starting_price.toLocaleString('en-IN') }}
-                <small *ngIf="!coLiving.duration">/{{ coLiving.price_type }}</small>
-                <small *ngIf="coLiving.duration">/{{ coLiving.duration }}</small>
-            </div>
-            <a target="_blank" [routerLink]="['/co-living/', coLiving.slug]" class="btn-link">Explore Now<small class="icon-next fas fa-angle-right"></small>
-      </a>
+    <div class="space_details" (click)="openWorkSpace(coLiving.slug)" style="cursor: pointer;">
+        <div class="property-dis">
+            <h4>{{ coLiving.name }}</h4>
+            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ coLiving.location.address }}</p>
+            <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
+        <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
         </div>
-    </div> -->
-<!-- </div> -->
+        <div class="property-foot align-items-end">
+            <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{ coLiving.duration }}</span></div>
+            <div class="button"><a>Explore More</a></div>
+        </div>
+    </div>
+</div>

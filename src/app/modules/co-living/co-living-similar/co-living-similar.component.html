@@ -17,27 +17,6 @@
                     <div class="button mobilehide"><a [routerLink]="['/co-living/', office.slug]" tabindex="0">Explore More</a></div>
                 </div>
             </div>
-
-            
-            <!-- <div class="box" [routerLink]="['/co-living/', office.slug]">
-                <div class="img">
-                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="">
-                </div>
-                <div>
-                    <h5 class="detail">{{ office.name }}</h5>
-                    <p class="address">
-                        <i class="fa-solid fa-location-dot"></i> {{ office.location.address }}
-                    </p>
-                    <div class="price-box">
-                        <div class="price">
-                            <i class="fa-solid fa-indian-rupee-sign"></i>
-                            {{office.starting_price}}<span class="price-bed">/-Month</span>
-                        </div>
-                        <a target="_blank" [routerLink]="['/co-living/', office.slug]" class="btn-link forMobileOnly">Explore Now<small class="icon-next"></small>
-                        </a>
-                    </div>
-                </div>
-            </div> -->
         </div>
 
     </ngu-carousel>

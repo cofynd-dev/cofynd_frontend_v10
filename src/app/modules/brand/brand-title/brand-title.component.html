@@ -1,7 +1,6 @@
 <div class="brand-info">
   <h1 *ngIf="!pageTitle">{{ brand.name }} {{workspaceName}} Spaces</h1>
   <h1 *ngIf="pageTitle">{{ pageTitle }}</h1>
-  <!-- <img [src]="brand.image.s3_link" /> -->
   <div class="city-dropdown">
     <ng-select [clearable]="false"
       *ngIf="!isColiving"
