@@ -1,6 +1,4 @@
-<section class="our_brands"
-    *ngIf="coworkingBrands.length && shouldCoWorkingVisible"
-    [class.grey-layout]="layout === 'grey'">
+<section class="our_brands coworking_brand_list" *ngIf="coworkingBrands.length && shouldCoWorkingVisible" [class.grey-layout]="layout === 'grey'">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -12,11 +10,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="logos_slider">
-                    <div class="band-img"
-                        *ngFor="let brand of coworkingBrands">
-                        <img (click)="goToBrandPage(brand)"
-                            [lazyLoad]="brand.image?.s3_link"
-                            [alt]="brand.name">
+                    <div class="band-img" *ngFor="let brand of coworkingBrands">
+                        <img (click)="goToBrandPage(brand)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
                     </div>
                 </div>
             </div>
@@ -24,8 +19,7 @@
     </div>
 </section>
 
-<section class="partners"
-    *ngIf="coLivingBrands.length && shouldCoLivingVisible">
+<section class="partners" *ngIf="coLivingBrands.length && shouldCoLivingVisible">
     <div class="row">
         <div class="col-12">
             <div class="page-title remove-side-circle">
@@ -38,9 +32,7 @@
             <div class="partner-carousel slider-on-mobile-view">
                 <div class="band-img"
                     *ngFor="let brand of coLivingBrands">
-                    <img (click)="goToBrandPage(brand, true)"
-                        [lazyLoad]="brand.image?.s3_link"
-                        [alt]="brand.name">
+                    <img (click)="goToBrandPage(brand, true)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
                 </div>
             </div>
         </div>
@@ -48,7 +40,7 @@
 </section>
 
 
-<section class="our_brands"
+<!-- <section class="our_brands"
     *ngIf="shouldOtherBrandVisible">
     <div class="container">
         <div class="row">
@@ -69,4 +61,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

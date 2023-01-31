@@ -457,7 +457,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-input">
-                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
+                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone" aria-describedby="emailHelp">
                                             <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
                                                 <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>

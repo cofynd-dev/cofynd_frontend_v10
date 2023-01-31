@@ -5864,6 +5864,86 @@ h3.site_title {
 .cofynd_footer {
 	text-align: right;
 }
+.coworking_brand_banner {
+	padding-top: 10px;
+	padding-bottom: 60px;
+}
+.coworking_brands_sec {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+.coworking_brand_query {
+	padding-top: 60px;
+	padding-bottom: 50px;
+}
+.coworking_brands_sec .col-md-4 {
+	padding: 0px 35px;
+}
+.brant_item {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	background: #fff;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	padding: 10px;
+	width: 100%;
+	position: relative;
+	margin: 25px 0px;
+}
+.brant_item::before {
+	position: absolute;
+	content: "";
+	background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c9b1b74cb344f296d51448b3512a5e2cb364b62e.png');
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 180px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 0 auto;
+}
+.brant_item .brand_img {
+	height: 200px;
+	overflow: hidden;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 100%;
+}
+.brant_item .brand_logo img {
+	height: 200px !important;
+	-o-object-fit: cover;
+	object-fit: cover;
+	width: 100% !important;
+	-webkit-transition: .5s !important;
+	transition: all .5s !important;
+	position: relative;
+}
+.brant_item .title_img {
+	height: 60px;
+}
+.brant_item .title_img img {
+	height: 60px;
+	width: 150px;
+	object-fit: contain;
+}
+.brandCounter {
+	padding: 20px 0px 30px;
+}
+.brandCounter p {
+	color: #4343E8;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	margin-bottom: 0px;
+}
+.brandCounter h5 {
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+}
 
 
 @media (max-width: 1366px) {
@@ -8273,6 +8353,39 @@ h3.site_title {
     }
     .cofynd_footer {
         text-align: left;
+    }
+    .coworking_brands_sec {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .coworking_brands_sec .col-md-4 {
+        padding: 0px 15px;
+    }
+    .brant_item {
+        margin: 0px 0px 30px;
+    }
+    .brandCounter {
+        padding: 10px 0px 10px;
+    }
+    .brant_item .title_img {
+        height: 40px;
+    }
+    .brant_item .title_img img {
+        height: 40px;
+        width: 100px;
+    }
+    .brandCounter p {
+        color: #4343E8 !important;
+        font-weight: 600 !important;
+        font-size: 12px !important;
+        line-height: 16px !important;
+    }
+    .brandCounter h5 {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .faqs_accordion .panel-body {
+        padding: 10px 5px;
     }
     
 }

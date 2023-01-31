@@ -1,1 +1,269 @@
-<router-outlet></router-outlet>;
+<router-outlet></router-outlet>
+
+<!-- 
+
+<section class="innerpage_banner coworking_brand_banner mobilehide">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-md-6">
+              <div class="innerpage_content mb-0">
+                  <div class="main_heading">
+                      <h1>Find the Best<br /><span>Coworking Brand</span> in India</h1>
+                  </div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  <a (click)="scrollToElement(target)" class="site_btn border_btn">Enquire Now</a>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5bcbc0321eec9dcdde23fd46a5fe440c7e432780.jpg" alt="Coworking Brand" class="img-fluid">
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="innerpage_banner desktophide" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d76dbae3fc984d286d56580f607710430cfea5a.jpg');">
+  <div class="container-fluid">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <div class="banner_content">
+                  <h1 class="text-light text-center">Find the Best<br />Coworking Brand in India</h1>
+                  <div class="search-bar">
+                    <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
+                    </ng-select>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="coworking_brands_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Choose a Coworking Space With CoFynd</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-4 col-6" *ngFor="let data of coworkingBrand">
+                <div class="brant_item" [routerLink]="data.url">
+                    <div class="brand_logo mobilehide">
+                        <img [src]="data.image" class="img-fluid" [alt]="data.title">
+                    </div>
+                    <div class="brand_content text-center">
+                      <div class="title_img">
+                        <img [src]="data.titleImg" class="img-fluid" [alt]="data.title">
+                      </div>
+                      <div class="brandCounter row">
+                        <div class="cityNum col-md-6 col-6">
+                          <p>{{data.cityCount}}</p>
+                          <h5>Cities</h5>
+                        </div>
+                        <div class="centerNum col-md-6 col-6">
+                          <p>{{data.centersCount}}</p>
+                          <h5>Centers</h5>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <button class="site_btn border_btn">Load More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="query_from_sec coworking_brand_query" #target>
+  <div class="container">
+      <div class="row mobilehide">
+          <div class="col-md-12 text-center">
+              <div class="main_heading title_divider">
+                  <h2>Yes, I'm interested in Coworking Space</h2>
+              </div>
+          </div>
+      </div>
+
+      <div class="row align-items-center">
+          <div class="col-md-6 mobilehide">
+              <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-md-6 col-12">
+              <div class="virtual_query_form">
+                  <div class="form_head">
+                      <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
+                      <h3 class="mobilehide">Answers to your Coworking Space query</h3>
+                      <p class="mobilehide">Our team is ready to answer your questions.</p>
+                  </div>
+
+                  <div class="form_body">
+                      <form action="">
+                          <div class="row">
+                              <div class="col-md-6 col-12">
+                                  <div class="input-group align-items-center">
+                                      <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                      <input type="text" formControlName="name" class="form-control" placeholder="Name*" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-12">
+                                  <div class="input-group align-items-center">
+                                      <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                      <input type="email" formControlName="email" class="form-control" placeholder="Email*" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-12">
+                                  <div class="input-group align-items-center">
+                                      <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                      <input type="tel" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-12">
+                                  <div class="input-group align-items-center">
+                                      <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                      <select class="form-select" class="form-control" placeholder="city" required aria-label="Default select example">
+                                          <option value="" selected disabled style="display: none;">Select City*</option>
+                                          <option value="Delhi">Delhi</option>
+                                          <option value="Noida">Noida</option>
+                                          <option value="Pune">Pune</option>
+                                          <option value="Gurugram">Gurugram</option>
+                                          <option value="Bangalore">Bangalore</option>
+                                          <option value="Hyderabad">Hyderabad</option>
+                                          <option value="Mumbai">Mumbai</option>
+                                          <option value="Indore">Indore</option>
+                                          <option value="Chennai">Chennai</option>
+                                          <option value="Ahmedabad">Ahmedabad</option>
+                                          <option value="Jaipur">Jaipur</option>
+                                          <option value="Lucknow">Lucknow</option>
+                                          <option value="Chandigarh">Chandigarh</option>
+                                          <option value="Goa">Goa</option>
+                                          <option value="Coimbatore">Coimbatore</option>
+                                          <option value="Dehradun">Dehradun</option>
+                                          <option value="Patna">Patna</option>
+                                          <option value="Bhubaneswar">Bhubaneswar</option>
+                                          <option value="Other">Other</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-md-12 col-12">
+                                  <div class="input-group align-items-center">
+                                      <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                      <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                  </div>
+                              </div>
+                              <div class="col-md-12 col-12">
+                                  <button class="site_btn border_btn" type="submit">Submit</button>
+                              </div>
+                              <div class="col-md-12 col-12">
+                                  <p class="form_query_text">Need Assistance? Call Now : <span><a href="tel:+91-9599509999">+91-9599509999</a></span></p>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="coworking_brand_client_sec">
+    <app-our-clients></app-our-clients>
+</div>
+
+<section class="list_your_space_sec coworking_brand_list_space">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>List Your Vacant Property with Cofynd and Start Earning</h4>
+                    <p class="mobilehide">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                    <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cofynd_desk_sec coworking_brand_cofynd_desk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faqs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center mb-4">
+                    <h3 class="site_title title_divider">Frequently Asked Questions</h3>
+                    <p>Here are the frequently asked questions that people enquired online before choosing a virtual office. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <accordion [isAnimated]="true" class="faqs_accordion">
+                    <accordion-group>
+                        <h4 accordion-heading>What is a coworking space?
+                        </h4>
+                        <p>A coworking space is a shared workspace in which people from different professional backgrounds work together. It gives you an amazing work environment and access to numerous state of the art amenities resulting in better communication,
+                            productivity, creativity and innovation.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Who uses coworking spaces?
+                        </h4>
+                        <p>From small startups to SMEs and large corporations, every type of organization can utilize a coworking space. In fact, individuals like business travelers, freelancers, remote workers, solo entrepreneurs and content creators etc.
+                            are also utilizing modern coworking spaces for their business needs.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            How much does a coworking space cost?
+                        </h4>
+                        <p>The overall cost of a coworking space depends on the type of seats you choose- Hot Desks, Dedicated Desks, Private Cabins and the location where it is located. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the benefits of a coworking space?
+                        </h4>
+                        <p>A coworking space gives you an ample of work benefits such as enhanced productivity, invaluable networking opportunities, community events, enhanced creativity, good work-life balance, less operating expenses, more flexibility
+                            etc.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the amenities offered by coworking spaces?
+                        </h4>
+                        <p>Fast-speed wifi, ergonomic furniture, air conditioning, housekeeping service, support & maintenance, tight security, beverages, power backup, reception facilities, printer/scanner, washroom facilities, free tea/coffee, common area,
+                            meeting rooms, phone booths, recreation facilities, pantry, dedicated storage space and a lot more.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What types of flexible seats are available in coworking spaces?
+                        </h4>
+                        <p>There are hot desks, dedicated desks, private cabins and virtual offices. If you want a workspace for a day, then you can go with day passes. All the aforementioned flexible seat options are available as per your business requirements.</p>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+</section> -->
