@@ -73,7 +73,7 @@
             </div>
 
             <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                         </ng-select>
@@ -81,12 +81,33 @@
                         </app-input-validation>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected style="display: none;">Budget*</option>
+                        <option value="10k to 15k">10k to 15k</option>
+                        <option value="15k to 20k">15k to 20k</option>
+                        <option value="20k to 30k">20k to 30k</option>
+                        <option value="30k">30k +</option>
+                    </select>
+                </div>
             </div>
 
-
-            <button type="submit" class="site_btn border_btn" [appLoadingButton]="loading">
-        {{ btnLabel }}
-      </button>
+            <div class="row">
+                <div class="col-sm-6">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected style="display: none;">Move In*</option>
+                        <option value="Immediate">Immediate</option>
+                        <option value="0-1 Month">0-1 Month</option>
+                        <option value="1-2 Month">1-2 Month</option>
+                        <option value="3-4 Month">3-4 Month</option>
+                        <option value="More...">More...</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="site_btn border_btn full_width_btn" [appLoadingButton]="loading">{{ btnLabel }} </button>
+                </div>
+            </div>
+            
 
         </form>
     </div>
