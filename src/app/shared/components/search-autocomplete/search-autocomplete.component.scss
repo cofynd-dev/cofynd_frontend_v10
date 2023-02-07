@@ -13,7 +13,8 @@
 
 .search-box {
   position: relative;
-  width: 350px;
+  width: 300px;
+
 
   .form-control {
     border-radius: 10px;
@@ -26,6 +27,10 @@
       background-repeat: no-repeat;
       background-position: right center;
     }
+  }
+  
+  @media(max-width: 1480px) {
+    width: 200px;
   }
 
   .icon-location-outline {

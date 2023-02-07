@@ -37,8 +37,8 @@ header {
         top: 3px;
     }
     .top-left {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 40%;
+        max-width: 40%;
         .logo {
             img {
                 max-width: 230px;
@@ -93,8 +93,8 @@ header {
 }
 
 .top-right {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 60%;
+    max-width: 60%;
     .btn {
         padding: 10px 8px;
         font-size: 12px;
@@ -124,7 +124,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     li {
-        margin-left: 15px;
+        margin-left: 20px;
         position: relative;
         a {
             color: #575757;

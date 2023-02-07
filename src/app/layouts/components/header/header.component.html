@@ -6,6 +6,13 @@
             <a (click)="logoClick()" class="logo" routerLink="/">
                 <img src="/assets/images/logo.svg" alt="">
             </a>
+
+            <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
+                <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
+                </button>
+                <app-search-autocomplete [placeholder]="'Start typing location'" (locationSelected)="closeMobileSearch()">
+                </app-search-autocomplete>
+            </div>
             <button (click)="openMobileMenu()" class="hamburger">
                 <span></span>
                 <span></span>
@@ -22,6 +29,15 @@
                     <app-dropdown-item [relativeUrl]="'/co-living/'" [title]="'Coliving'" [cities]="menuPopularCoLiving">
                     </app-dropdown-item>
                 </li>
+                <!-- <li class="no-tablet">
+                    <a routerLink="/enterprise">Enterprise Solutions</a>
+                </li>
+                <li class="no-tablet">
+                    <a routerLink="/about-us">About Us</a>
+                </li>
+                <li class="no-tablet">
+                    <a routerLink="/contact-us">Contact Us</a>
+                </li> -->
                 <!-- <li class="no-tablet">
                     <app-dropdown-item [relativeUrl]="'/office-space/rent/'" [title]="'Offices'" [cities]="menuPopularOffices" [isSingle]="true">
                     </app-dropdown-item>
@@ -41,7 +57,7 @@
                 <li class="no-tablet">
                     <div class="btn-group dropdown-list-menu" dropdown>
                         <button dropdownToggle type="button">
-                            <span routerLink="/list-your-space">List Your Space<i class="fa-solid"></i></span>
+                            <span routerLink="/list-your-space">List Your Property<i class="fa-solid"></i></span>
                         </button>
                     </div>
                 </li>
@@ -131,6 +147,22 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" routerLink="/virtual-office">Virtual Office</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" routerLink="/enterprise">Enterprise Solutions</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" routerLink="/about-us">About Us</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+                    </li>
+
                     <!-- <li class="nav-item dropdown">
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Offices</a>
                         <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
@@ -140,19 +172,16 @@
                         </ul>
                     </li> -->
 
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Knowledge</a>
                         <ul class="dropdown-menu border-0 shadow">
                             <li><a class="dropdown-item" routerLink="/enterprise">Enterprise Solutions</a></li>
                             <li><a class="dropdown-item" routerLink="/about-us">About Us</a></li>
                             <li><a class="dropdown-item" routerLink="/contact-us">Contact Us</a></li>
-                            <!-- <li *ngFor="let city of colivingCities" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city?.image?.s3_link">{{city.name}}</a>
-                            </li> -->
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List Your Space</a>
+                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List Your Property</a>
                     </li>
                     <li class="divider-line mobile-phone-menu ">
                         <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>

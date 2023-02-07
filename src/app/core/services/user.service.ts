@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUser(): Observable<User> {
     return this.http.get<ApiResponse<User>>('/user/profile').pipe(map(user => user.data));
