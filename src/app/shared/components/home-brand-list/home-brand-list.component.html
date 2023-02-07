@@ -1,4 +1,4 @@
-<section class="our_brands" *ngIf="coworkingBrands.length && shouldCoWorkingVisible" [class.grey-layout]="layout === 'grey'">
+<section class="our_brands coworking_brand_list" *ngIf="coworkingBrands.length && shouldCoWorkingVisible" [class.grey-layout]="layout === 'grey'">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -39,7 +39,8 @@
 </section>
 
 
-<section class="our_brands" *ngIf="shouldOtherBrandVisible">
+<!-- <section class="our_brands"
+    *ngIf="shouldOtherBrandVisible">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mb-3">
@@ -49,11 +50,14 @@
             </div>
             <div class="col-12">
                 <div class="logos_slider">
-                    <div class="band-img" *ngFor="let brand of [3,4,2,6,11,12]">
-                        <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'" [alt]="brand" class="brand-partner">
+                    <div class="band-img"
+                        *ngFor="let brand of [3,4,2,6,11,12]">
+                        <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'"
+                            [alt]="brand"
+                            class="brand-partner">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
