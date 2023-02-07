@@ -86,6 +86,21 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     // { label: 'Customised solutions', value: 'Customised_solutions' },
   ];
 
+  MoveIn = [
+    { label: 'Immediate', value: 'Immediate' },
+    { label: `0-1 Month`, value: '0-1 Month' },
+    { label: '1-2 Month', value: '1-2 Month' },
+    { label: '3-4 Month', value: '3-4 Month' },
+    { label: 'More...', value: 'More...' },
+  ]
+
+  Budgets = [
+    { label: '10k to 15k', value: '10k to 15k' },
+    { label: `15k to 20k`, value: '15k to 20k' },
+    { label: '20k to 30k', value: '20k to 30k' },
+    { label: '30k', value: '30k' },
+  ]
+
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
 
   constructor(
@@ -306,9 +321,13 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['interested_in'] = [null, Validators.required];
+      form['mx_Move_In_Date'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
       form['no_of_person'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['mx_Budget'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
   }
