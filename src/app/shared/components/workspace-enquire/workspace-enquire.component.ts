@@ -329,6 +329,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['mx_Budget'] = [null, Validators.required];
     }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['mx_Move_In_Date'] = [null, Validators.required];
+    }
     this.enquiryForm = this.formBuilder.group(form);
   }
 
