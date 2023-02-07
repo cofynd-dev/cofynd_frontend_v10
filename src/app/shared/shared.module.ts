@@ -60,6 +60,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { OurClientsComponent } from './components/our-clients/our-clients.component';
 import { SearchContactUsText1Component } from './components/search-contact-us-text1/search-contact-us-text1.component';
 import { SearchContactUsText2Component } from './components/search-contact-us-text2/search-contact-us-text2.component';
+import { CityPageEnquireComponent } from './components/city-page-enquire/city-page-enquire.component';
 
 const MODULES = [
   CommonModule,
@@ -93,6 +94,7 @@ const COMPONENTS = [
   WorkspaceLoaderComponent,
   SocialShareComponent,
   WorkspaceEnquireComponent,
+  CityPageEnquireComponent,
   HomeBrandListComponent,
   HomePopularSpaceComponent,
   HomeCityDropdownComponent,
@@ -130,7 +132,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent],
   imports: [
     CommonModule,
     RouterModule,
