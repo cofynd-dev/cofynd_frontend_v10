@@ -62,68 +62,68 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   longitute: any;
   workSpaces: WorkSpace[];
   pageTitle: string = 'Top CoWorking Spaces in India';
-  // city = [
-  //   {
-  //     name: 'gurugram',
-  //     img: 'gurgaon-ofcc.jpg',
-  //     title: 'A Millennium City',
-  //     seat: '131',
-  //   },
-  //   {
-  //     name: 'bangalore',
-  //     img: 'bangalore-ofcc.jpg',
-  //     title: "India's Silicon Valley",
-  //     seat: '259',
-  //   },
-  //   {
-  //     name: 'delhi',
-  //     img: 'delhi.jpg',
-  //     title: 'The Nation Capital',
-  //     seat: '131',
-  //   },
-  //   {
-  //     name: 'noida',
-  //     img: 'wtc.jpg',
-  //     title: 'The Hitech City',
-  //     seat: '53',
-  //   },
-  //   {
-  //     name: 'hyderabad',
-  //     img: 'hyderbad.jpg',
-  //     title: 'The City of Pearls',
-  //     seat: '79',
-  //   },
-  //   {
-  //     name: 'mumbai',
-  //     img: 'mumbai2.jpg',
-  //     title: 'City of Dreams',
-  //     seat: '90',
-  //   },
-  //   {
-  //     name: 'pune',
-  //     img: 'pune.jpg',
-  //     title: 'Queen of Deccan',
-  //     seat: '74',
-  //   },
-  //   {
-  //     name: 'indore',
-  //     img: 'indore.jpg',
-  //     title: 'The Cleanest City',
-  //     seat: '8',
-  //   },
-  //   {
-  //     name: 'ahmedabad',
-  //     img: 'ahemdabad.jpg',
-  //     title: 'Manchester of India',
-  //     seat: '10',
-  //   },
-  //   {
-  //     name: 'kolkata',
-  //     img: 'kolkata.jpg',
-  //     title: 'City of Joy',
-  //     seat: '14',
-  //   },
-  // ];
+  city = [
+    {
+      name: 'gurugram',
+      img: 'gurgaon-ofcc.jpg',
+      title: 'A Millennium City',
+      seat: '131',
+    },
+    {
+      name: 'bangalore',
+      img: 'bangalore-ofcc.jpg',
+      title: "India's Silicon Valley",
+      seat: '259',
+    },
+    {
+      name: 'delhi',
+      img: 'delhi.jpg',
+      title: 'The Nation Capital',
+      seat: '131',
+    },
+    {
+      name: 'noida',
+      img: 'wtc.jpg',
+      title: 'The Hitech City',
+      seat: '53',
+    },
+    {
+      name: 'hyderabad',
+      img: 'hyderbad.jpg',
+      title: 'The City of Pearls',
+      seat: '79',
+    },
+    {
+      name: 'mumbai',
+      img: 'mumbai2.jpg',
+      title: 'City of Dreams',
+      seat: '90',
+    },
+    {
+      name: 'pune',
+      img: 'pune.jpg',
+      title: 'Queen of Deccan',
+      seat: '74',
+    },
+    {
+      name: 'indore',
+      img: 'indore.jpg',
+      title: 'The Cleanest City',
+      seat: '8',
+    },
+    {
+      name: 'ahmedabad',
+      img: 'ahemdabad.jpg',
+      title: 'Manchester of India',
+      seat: '10',
+    },
+    {
+      name: 'kolkata',
+      img: 'kolkata.jpg',
+      title: 'City of Joy',
+      seat: '14',
+    },
+  ];
 
   // spaces = [
   //   {

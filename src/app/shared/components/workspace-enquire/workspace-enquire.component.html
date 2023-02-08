@@ -48,7 +48,7 @@
 
             <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                 <label>OTP</label>
-                <input class="form-control" type="password" formControlName="otp" appMaterialInput autofocus />
+                <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
                 <app-input-validation [control]="enquiryForm.controls.otp">
                 </app-input-validation>
             </div>
