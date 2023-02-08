@@ -5731,7 +5731,7 @@ h3.site_title {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top;
-	padding: 40px 25px;
+	padding: 30px 25px;
 	border-radius: 20px;
 	border: 1px solid rgba(33, 37, 41, 0.1);
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -5760,7 +5760,6 @@ h3.site_title {
 	padding-left: 5px;
 }
 
-
 .card_form ::placeholder {
     color: #000;
     opacity: 1;
@@ -5786,6 +5785,9 @@ h3.site_title {
 	border-radius: 20px;
 	top: -1px;
 	margin: 0px 5px;
+}
+.card_form .site_btn {
+	height: 45px;
 }
 .main_footer .footer-top {
 	background: linear-gradient(180.37deg, #FFFDF5 0.34%, #FFF9F4 102.54%) !important;
