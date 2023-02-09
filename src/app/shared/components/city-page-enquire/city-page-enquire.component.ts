@@ -342,6 +342,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
       email: ['', Validators.required],
       phone_number: ['', Validators.required],
       otp: [''],
+      mx_Page_Url: ['City Page']
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
@@ -352,12 +353,12 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
       form['no_of_person'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Budget'] = [null, Validators.required];
+      form['mx_BudgetPrice'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
       form['mx_Move_In_Date'] = [null, Validators.required];
       form['interested_in'] = [null, Validators.required];
-      form['mx_Budget'] = [null, Validators.required]
+      form['mx_BudgetPrice'] = [null, Validators.required]
     }
     this.enquiryForm = this.formBuilder.group(form);
   }
