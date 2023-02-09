@@ -5749,6 +5749,18 @@ h3.site_title {
 	width: 100%;
 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
 }
+.card_form .ng-select .ng-select-container {
+	border-radius: 10px;
+	min-height: 45px;
+	box-shadow: 0 0 16px rgba(250,234,249,.5) !important;
+	text-transform: capitalize;
+	border: none;
+	padding: 8px 12px;
+}
+.card_form .ng-select span.ng-value-label {
+	top: 12px !important;
+	left: 10px;
+}
 .card_form .form-group, .card_form .form-select {
 	margin-bottom: 15px;
 }
