@@ -1,1 +1,110 @@
-<p>city-page-enquire works!</p>
+<div class="card_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dee00d307fbd75d50527be8713839ca86c905442.jpg');">
+    <div class="form_title" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING || enquiryType == ENQUIRY_TYPES.OFFICE">
+        <h4>Let us help you find office Space</h4>
+        <p>Zero Brokerage <span></span> Verified Spaces</p>
+    </div>
+
+    <div class="form_title office_form_title" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
+        <h4>Let us help you find Coliving</h4>
+        <p class="light_blue">Minimum stay 3 months</p>
+    </div>
+
+    <form class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.name">
+                    </app-input-validation>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="email" placeholder="Email*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.email">
+                    </app-input-validation>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.phone_number">
+                    </app-input-validation>
+                </div>
+            </div>
+        </div>
+
+        <div class="row coworking_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="No. of Seats" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.no_of_person">
+                    </app-input-validation>
+                </div>
+            </div>
+        </div>
+
+        <div class="row coliving_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Budget" [clearable]="true" [searchable]="false" [items]="Budgets" bindLabel="label" bindValue="value" formControlName="mx_Budget">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.mx_Budget">
+                    </app-input-validation>
+                </div>
+            </div>
+        </div>
+
+        <div class="row office_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.OFFICE">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Type" [clearable]="true" [searchable]="false" [items]="OfficePlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Type" [clearable]="true" [searchable]="false" [items]="OfficeBudgets" bindLabel="label" bindValue="value" formControlName="mx_Budget">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.mx_Budget">
+                    </app-input-validation>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Move In" [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                    </app-input-validation>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+            </div>
+        </div>
+    </form>
+</div>

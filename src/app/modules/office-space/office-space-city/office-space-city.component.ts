@@ -21,6 +21,8 @@ import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
 import { script } from '../../../core/config/script';
 import { generateSlug } from '@app/shared/utils';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+
 
 @Component({
   selector: 'app-office-space-city',
@@ -54,6 +56,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   sizeFilter = SizeFilterData;
   typeFilter = TypeFilter;
   officeType: string;
+  enquiryType: number = ENQUIRY_TYPES.OFFICE;
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,

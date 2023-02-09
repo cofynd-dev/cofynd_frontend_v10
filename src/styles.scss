@@ -4411,6 +4411,10 @@ h3.site_title {
     padding-top: 80px;
     padding-bottom: 70px;
 }
+.testimonials_video iframe {
+	border-radius: 20px;
+	overflow: hidden;
+}
 
 .testimonials_video video {
     border-radius: 20px;
@@ -5727,7 +5731,7 @@ h3.site_title {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top;
-	padding: 40px 25px;
+	padding: 30px 25px;
 	border-radius: 20px;
 	border: 1px solid rgba(33, 37, 41, 0.1);
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -5756,7 +5760,6 @@ h3.site_title {
 	padding-left: 5px;
 }
 
-
 .card_form ::placeholder {
     color: #000;
     opacity: 1;
@@ -5782,6 +5785,9 @@ h3.site_title {
 	border-radius: 20px;
 	top: -1px;
 	margin: 0px 5px;
+}
+.card_form .site_btn {
+	height: 45px;
 }
 .main_footer .footer-top {
 	background: linear-gradient(180.37deg, #FFFDF5 0.34%, #FFF9F4 102.54%) !important;
@@ -7370,7 +7376,7 @@ h3.site_title {
     }
     .why_list_sec {
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 40px;
     }
     .why_list_sec .row.mt-4 {
         margin-top: 0px !important;
@@ -7394,6 +7400,7 @@ h3.site_title {
     }
     .why_list_sec .why_list_item {
         display: block;
+        margin-bottom: 10px;
     }
     .marketplace_item h4 {
         font-size: 10px;
@@ -7418,7 +7425,7 @@ h3.site_title {
     }
     .cofynd_network_sec {
         padding-top: 60px;
-        padding-bottom: 40px;
+        padding-bottom: 60px;
     }
     .cofynd_network_sec .site_btn {
         display: inline-block;
@@ -7559,10 +7566,6 @@ h3.site_title {
     }
     .properties_space_sec .main_heading.title_divider {
         margin-bottom: 10px !important;
-    }
-    .list_space_banner .banner_text p {
-        font-size: 10px !important;
-        line-height: 16px !important;
     }
     .similar-workspaces .ngucarousel-items {
         overflow-x: scroll;
@@ -7936,7 +7939,7 @@ h3.site_title {
         display: -webkit-inline-box;
         display: inline-flex;
         -webkit-box-flex: 0;
-        width: 75.429%;
+        width: 55.429%;
         position: relative;
         border-radius: 10px;
         overflow: hidden;
@@ -8300,9 +8303,14 @@ h3.site_title {
     }
     .list_space_banner .banner_text h1 {
         margin-bottom: 5px;
+        font-weight: 700 !important;
+        color: #4343E8 !important;
     }
     .list_space_banner .banner_text p {
         margin-bottom: 10px;
+        font-size: 10px !important;
+        line-height: 16px !important;
+        font-weight: 500 !important;
     }
     .cofynd_advantage_area .row {
         padding: 30px 15px;
@@ -8412,6 +8420,9 @@ h3.site_title {
     .list_space_banner {
         padding-top: 35px;
         padding-bottom: 35px;
+    }
+    .testimonials_video iframe {
+        height: 210px;
     }
     
 }

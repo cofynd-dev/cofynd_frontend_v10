@@ -88,10 +88,10 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   MoveIn = [
     { label: 'Immediate', value: 'Immediate' },
-    { label: `0-1 Month`, value: '0-1 Month' },
+    { label: 'Within This Month', value: 'Within This Month' },
     { label: '1-2 Month', value: '1-2 Month' },
     { label: '3-4 Month', value: '3-4 Month' },
-    { label: 'More...', value: 'More...' },
+    { label: 'After 4 Month', value: 'After 4 Month' },
   ]
 
   Budgets = [

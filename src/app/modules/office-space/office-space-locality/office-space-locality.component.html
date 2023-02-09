@@ -59,6 +59,11 @@
                         </div>
                     </ng-template>
                 </ng-container>
+
+                <div class="col-md-4">
+                    <app-city-page-enquire [enquiryType]="enquiryType" [isOfficeEnquiry]="true"></app-city-page-enquire>
+                </div>
+
             </div>
 
             <div *ngIf="!loading && offices.length" class="pagination-container">

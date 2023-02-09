@@ -17,6 +17,8 @@ import { CoLivingService } from './../co-living.service';
 import { PriceFilter } from '@app/core/models/workspace.model';
 import { script } from '@app/core/config/script';
 import { generateSlug } from '@app/shared/utils';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+
 
 
 @Component({
@@ -52,6 +54,8 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   price_filters = [];
   number_record: number;
   featuredColiving: string;
+  enquiryType: number = ENQUIRY_TYPES.COLIVING;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
