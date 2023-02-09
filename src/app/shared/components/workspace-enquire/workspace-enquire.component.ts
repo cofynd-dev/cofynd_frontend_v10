@@ -345,13 +345,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       form['mx_Budget'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
-      form['mx_Budget'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
-      form['interested_in'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
       form['mx_Move_In_Date'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
+      form['mx_Budget'] = [null, Validators.required]
     }
     this.enquiryForm = this.formBuilder.group(form);
   }
