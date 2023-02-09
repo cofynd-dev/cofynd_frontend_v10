@@ -149,7 +149,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log("isColivEnquiry", this.isColivEnquiry);
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
     // if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
     //   this.loadWorkSpace(this.workSpaceId);

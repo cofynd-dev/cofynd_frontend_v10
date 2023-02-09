@@ -17,6 +17,8 @@ import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { virtual_Office_SeoData } from './virtual-office-SEO-data';
 import { script } from '@app/core/config/script';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+
 
 @Component({
   selector: 'app-virtual-office-city',
@@ -52,6 +54,8 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
+  ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
