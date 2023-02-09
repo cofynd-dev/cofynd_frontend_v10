@@ -17,6 +17,8 @@ import { map } from 'rxjs/operators';
 import { uniqBy } from 'lodash';
 import { Location } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+
 
 
 @Component({
@@ -53,6 +55,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   minPrice: string;
   maxPrice: string;
+  ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
+
 
   constructor(
     @Inject(DOCUMENT) private _document: Document,

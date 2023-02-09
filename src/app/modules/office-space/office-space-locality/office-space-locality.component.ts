@@ -22,6 +22,7 @@ import {
 } from '@app/core/config/office-filter-data';
 import { Location } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
 
 @Component({
@@ -55,6 +56,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
   pageTitle: string;
 
   breadcrumbs: BreadCrumb[];
+  enquiryType: number = ENQUIRY_TYPES.OFFICE;
 
   priceFilter = PriceFilterData;
   sizeFilter = SizeFilterData;
