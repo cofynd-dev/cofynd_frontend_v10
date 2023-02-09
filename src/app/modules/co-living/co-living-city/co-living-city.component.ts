@@ -17,6 +17,7 @@ import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
 import { generateSlug } from '@app/shared/utils';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 declare var $: any;
 
 @Component({
@@ -55,6 +56,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   roomType: any;
   filterValue: any;
   selectedValue: any = 'Select Price';
+  enquiryType: number = ENQUIRY_TYPES.COLIVING;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,

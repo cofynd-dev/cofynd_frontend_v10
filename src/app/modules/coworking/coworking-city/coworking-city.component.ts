@@ -1,6 +1,6 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
@@ -18,6 +18,9 @@ import { Location } from '@angular/common';
 import { script } from '@app/core/config/script';
 import { ViewportScroller } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
+import { AuthService } from '@app/core/services/auth.service';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+
 
 declare var $: any;
 
@@ -39,7 +42,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   loadMoreLoading: boolean;
   seoData: SeoSocialShareData;
   subTitle: string;
-
+  ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
   isMapView: boolean = false;
   scrollCount: number;
   title: string;
@@ -61,6 +64,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   selectedValue: any = 'Select Price';
   roomType: any;
   filteredCity: any = [];
+  mySubscription: any;
+  shouldReloadEnquiryForm: boolean;
+
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -73,11 +80,22 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private location: Location,
     private router: Router,
     private el: ElementRef,
-    private vps: ViewportScroller
+    private vps: ViewportScroller,
+    private authService: AuthService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
     //this.isMapView = true;
+    this.mySubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const isLogout = this.authService.getToken() ? false : true;
+        if (isLogout) {
+          this.shouldReloadEnquiryForm = true;
+        } else {
+          this.shouldReloadEnquiryForm = false;
+        }
+      }
+    });
   }
 
   ngOnInit() {
