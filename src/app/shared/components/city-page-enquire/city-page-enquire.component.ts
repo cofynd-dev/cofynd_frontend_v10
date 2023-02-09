@@ -306,7 +306,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     //     formValues.living_space = this.workSpaceId;
     //     break;
     // }
-    this.btnLabel = 'Submitting Enquiry...';
+    this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
         this.loading = false;
