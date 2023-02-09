@@ -96,9 +96,24 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   Budgets = [
     { label: '10k to 15k', value: '10k to 15k' },
-    { label: `15k to 20k`, value: '15k to 20k' },
+    { label: '15k to 20k', value: '15k to 20k' },
     { label: '20k to 30k', value: '20k to 30k' },
     { label: '30k', value: '30k' },
+  ]
+
+  OfficeBudgets = [
+    { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
+    { label: '1 Lac - 2 Lac', value: '1 Lac - 2 Lac' },
+    { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
+    { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
+    { label: '10 Lac +', value: '10 Lac +' },
+  ]
+
+  OfficeType = [
+    { label: 'Row', value: 'Row' },
+    { label: 'Semi-Furnished', value: 'Semi-Furnished' },
+    { label: 'Fully-Furnished', value: 'Fully-Furnished' },
+    { label: 'Built to Suit/Customized', value: 'Built to Suit/Customized' },
   ]
 
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
@@ -328,6 +343,12 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['mx_Budget'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['mx_Budget'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
       form['mx_Move_In_Date'] = [null, Validators.required];
