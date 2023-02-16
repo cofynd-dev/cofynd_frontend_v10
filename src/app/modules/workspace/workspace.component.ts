@@ -51,7 +51,7 @@ export class WorkSpaceComponent implements OnInit {
   zoom: number;
   marker: google.maps.Marker;
   infoWindow: google.maps.InfoWindow;
-  mapMarkerImage = '/assets/images/marker.png';
+  mapMarkerImage = '/assets/images/marker-icon.png';
 
   // Sticky Header
   isStickyHeaderVisible = VisibilityState.Hidden;
@@ -145,7 +145,7 @@ export class WorkSpaceComponent implements OnInit {
     // this.getScreenWidth = window.innerWidth;
     // this.getScreenHeight = window.innerHeight;
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
       icon: icon({
@@ -263,7 +263,7 @@ export class WorkSpaceComponent implements OnInit {
         `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
         {},
       )
-      .then(function(response) {});
+      .then(function (response) { });
   }
 
   setMarker(position: google.maps.LatLng) {
