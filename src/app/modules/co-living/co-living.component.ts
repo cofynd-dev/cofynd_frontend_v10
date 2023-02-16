@@ -549,6 +549,24 @@ export class CoLivingComponent implements OnInit {
     },
   ];
 
+  coFyndAdvantages = [
+    {
+      icon: 'home/work-spaces.svg',
+      title: '100,000+ Spaces',
+      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+    },
+    {
+      icon: 'icons/brokerage-icon.svg',
+      title: 'Zero Brokerage',
+      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+    },
+    {
+      icon: 'home/support.svg',
+      title: '100% Offline Support',
+      description: 'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
+    },
+  ];
+
   constructor(private brandService: BrandService, private coLivingService: CoLivingService, private seoService: SeoService, private router: Router) {
     this.cities = AVAILABLE_CITY_CO_LIVING.filter(city => city.for_coLiving === true);
   }

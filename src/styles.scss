@@ -5189,14 +5189,15 @@ h3.site_title {
 }
 
 .property_item {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: top;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    padding: 10px 10px;
-    width: 100%;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	padding: 10px 10px;
+	width: 100%;
+	text-align: left;
 }
 
 .office_top_properties .col-md-3 {
@@ -5970,6 +5971,10 @@ h3.site_title {
 	font-size: 14px;
 	line-height: 22px;
 	font-weight: 500;
+}
+.coliving_banner {
+	padding-top: 120px;
+	padding-bottom: 20px;
 }
 
 
@@ -8438,6 +8443,14 @@ h3.site_title {
     .testimonials_video iframe {
         height: 210px;
     }
+    .coliving_cities_list {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .coliving_facilities {
+        padding: 50px 0px 20px;
+    }
+    
     
 }
 
