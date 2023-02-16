@@ -43,7 +43,7 @@
         </div>
     </section>
     <!-- booking navigation -->
-    <section class="booking-navigation bg-light">
+    <!-- <section class="booking-navigation bg-light">
         <div class="container">
             <div class=" ">
                 <div class="row">
@@ -69,6 +69,31 @@
                         <p class="steps">Step 03</p>
                         <p class="pt-3">Our Coworking Space team will get in touch with you and help you get your desired Coworking Space.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="choosewithcofynd_sec coworking_choose_sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="main_heading title_divider">
+                        <h2>Choose a Coworking Space With CoFynd</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row choose_item_slider mt-2">
+                <div class="col-md-4" *ngFor="let data of chooseCoworking">
+                    <div class="left_icon_box2">
+                        <div class="icon">
+                            <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        </div>
+                        <div class="content">
+                            <h4>{{data.title}}</h4>
+                            <p class="mobilehide">{{data.description}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,6 +141,11 @@
     </app-carousel-item>
 
 
+    <!-- <section class="pt-0 logos_background_img coworking_brands_slider">
+        <app-home-brand-list *ngIf="coworkingBrands" [coworkingBrands]="coworkingBrands" [pageTitle]="'Our CoWorking Partners'">
+        </app-home-brand-list>
+    </section> -->
+
     <section class="partners">
         <div class="container">
             <div class="row">
@@ -130,16 +160,16 @@
                     <img class="img-fluid m-auto d-block" alt="WeWork" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/93f7fa099b87eccf93812fbff5d13f83a2cc487a.png" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="Awfis" src="../../../assets/images/found-8-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Found8 Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0f1725de50062fe5cf566cb140f7e67585ce0059.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="Innov8" src="../../../assets/images/just-co-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Just CO Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/50718ab58b8519811381798fbe7685ad05960bee.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/the-great-room-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="The Great Room Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f5c5f902166e326d498c13150ee60fc91af8f51a.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/the-hive-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="The Hive Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/acebb48e4dc05bc35cd57dbfdc386a5470ff7024.jpg" />
                 </div>
 
                 <div class="col-md-2">
@@ -149,8 +179,30 @@
         </div>
     </section>
 
+
+    <section class="cofynd_advantage_area coworking_advantage_area mobilehide">
+        <div class="container">
+            <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
+                <div class="col-md-3">
+                    <h3>CoFynd Advantages</h3>
+                </div>
+                <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
+                    <div class="advantage_item">
+                        <div class="icon">
+                            <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        </div>
+                        <div class="content">
+                            <h4>{{data.title}}</h4>
+                            <p>{{data.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--Cofynd Advantages-->
-    <section class="why-cofynd bg-light">
+    <!-- <section class="why-cofynd bg-light">
         <div class="container">
             <div class="bg-style">
                 <div class="row">
@@ -187,10 +239,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
-    <section class="customized">
+    <!-- <section class="customized">
         <div class="container">
             <div class="p-5 option-box">
                 <div class="row">
@@ -220,7 +272,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
@@ -248,7 +300,11 @@
         </div>
     </section>
 
-    <section class="enquiry-section">
+    <div class="coworking_client_sec">
+        <app-our-clients></app-our-clients>
+    </div>
+
+    <!-- <section class="enquiry-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -259,10 +315,27 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <section class="list_your_space_sec coworking_list_space">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <h4>List Your Vacant Property with Cofynd and Start Earning</h4>
+                        <p class="mobilehide">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                        <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- visite other section -->
-    <section class="visiteOther pt-5 pb-5">
+    <!-- <section class="visiteOther pt-5 pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-12">
@@ -299,9 +372,25 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <section class="cofynd_desk_sec coworking_cofynd_desk">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cofynd-desk text-center">
+                        <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                        <h4>What's the CoFynd Desk ?</h4>
+                        <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                            to their highest in life.</p>
+                        <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section>
+    <!-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -320,7 +409,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="search-description" *ngIf="seoData">
         <div class="container">

@@ -65,125 +65,130 @@
     }
 }
 
-.banner-footer {
-    padding: 75px 0;
-    .space-facility {
-        border: 1px solid #e9e9e9;
-        padding: 60px 30px;
-        text-align: right;
-        background-position: center left;
-        background-size: cover;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: border-color ease-out 0.5s;
-        &:focus {
-            outline: none;
-        }
-        &:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            border-color: #9291ef;
-        }
-    }
-    h4 {
-        color: #222121;
-        font-size: 28px;
-        line-height: 30px;
-        font-weight: 300;
-        span {
-            font-weight: 500;
-            display: block;
-        }
-    }
-    .space-types {
-        border: 1px solid #e9e9e9;
-        padding: 25px 30px;
-        margin-top: 40px;
-        background-repeat: no-repeat;
-        background-position: 93% 85%;
-        background-size: auto 30px;
-        min-height: 150px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: border-color ease-out 0.5s;
-        &:focus {
-            outline: none;
-        }
-        &:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            border-color: #9291ef;
-        }
-        span {
-            color: #898989;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
-        h3 {
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 26px;
-            margin: 0;
-            color: #010101;
-        }
-        &.space-type-1 {
-            background-image: url('/assets/images/home/day-pass.svg');
-            &:hover {
-                background-image: url('/assets/images/home/day-pass-hover.svg');
-            }
-        }
-        &.space-type-2 {
-            background-image: url('/assets/images/home/team.svg');
-            &:hover {
-                background-image: url('/assets/images/home/team-hover.svg');
-            }
-            span {
-                margin-bottom: 20px;
-            }
-        }
-        &.space-type-3 {
-            background-image: url('/assets/images/home/enterprise.svg');
-            &:hover {
-                background-image: url('/assets/images/home/enterprise-hover.svg');
-            }
-        }
-    }
-    @media(max-width: 1200px) {
-        h4 {
-            font-size: 21px;
-        }
-        .space-types {
-            min-height: 135px;
-            margin-top: 30px;
-            h3 {
-                font-size: 16px;
-                line-height: 20px;
-            }
-        }
-    }
-    @media(max-width: 991px) {
-        .space-types {
-            padding: 20px;
-            background-size: auto 22px;
-            min-height: 120px;
-            span {
-                font-size: 13px;
-            }
-            h3 {
-                font-size: 14px;
-            }
-        }
-    }
-    @media(max-width: 767px) {
-        padding: 0 0 50px;
-        .space-types,
-        .space-facility {
-            margin-top: 10px;
-        }
-    }
+// .banner-footer {
+//     padding: 75px 0;
+//     .space-facility {
+//         border: 1px solid #e9e9e9;
+//         padding: 60px 30px;
+//         text-align: right;
+//         background-position: center left;
+//         background-size: cover;
+//         background-repeat: no-repeat;
+//         cursor: pointer;
+//         border-radius: 5px;
+//         transition: border-color ease-out 0.5s;
+//         &:focus {
+//             outline: none;
+//         }
+//         &:hover {
+//             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+//             border-color: #9291ef;
+//         }
+//     }
+//     h4 {
+//         color: #222121;
+//         font-size: 28px;
+//         line-height: 30px;
+//         font-weight: 300;
+//         span {
+//             font-weight: 500;
+//             display: block;
+//         }
+//     }
+//     .space-types {
+//         border: 1px solid #e9e9e9;
+//         padding: 25px 30px;
+//         margin-top: 40px;
+//         background-repeat: no-repeat;
+//         background-position: 93% 85%;
+//         background-size: auto 30px;
+//         min-height: 150px;
+//         cursor: pointer;
+//         border-radius: 5px;
+//         transition: border-color ease-out 0.5s;
+//         &:focus {
+//             outline: none;
+//         }
+//         &:hover {
+//             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+//             border-color: #9291ef;
+//         }
+//         span {
+//             color: #898989;
+//             font-size: 16px;
+//             letter-spacing: 0.5px;
+//             text-transform: uppercase;
+//             display: block;
+//             margin-bottom: 40px;
+//             font-weight: 500;
+//         }
+//         h3 {
+//             font-size: 20px;
+//             font-weight: 500;
+//             line-height: 26px;
+//             margin: 0;
+//             color: #010101;
+//         }
+//         &.space-type-1 {
+//             background-image: url('/assets/images/home/day-pass.svg');
+//             &:hover {
+//                 background-image: url('/assets/images/home/day-pass-hover.svg');
+//             }
+//         }
+//         &.space-type-2 {
+//             background-image: url('/assets/images/home/team.svg');
+//             &:hover {
+//                 background-image: url('/assets/images/home/team-hover.svg');
+//             }
+//             span {
+//                 margin-bottom: 20px;
+//             }
+//         }
+//         &.space-type-3 {
+//             background-image: url('/assets/images/home/enterprise.svg');
+//             &:hover {
+//                 background-image: url('/assets/images/home/enterprise-hover.svg');
+//             }
+//         }
+//     }
+//     @media(max-width: 1200px) {
+//         h4 {
+//             font-size: 21px;
+//         }
+//         .space-types {
+//             min-height: 135px;
+//             margin-top: 30px;
+//             h3 {
+//                 font-size: 16px;
+//                 line-height: 20px;
+//             }
+//         }
+//     }
+//     @media(max-width: 991px) {
+//         .space-types {
+//             padding: 20px;
+//             background-size: auto 22px;
+//             min-height: 120px;
+//             span {
+//                 font-size: 13px;
+//             }
+//             h3 {
+//                 font-size: 14px;
+//             }
+//         }
+//     }
+//     @media(max-width: 767px) {
+//         padding: 0 0 50px;
+//         .space-types,
+//         .space-facility {
+//             margin-top: 10px;
+//         }
+//     }
+// }
+
+.singapore_service {
+	padding-top: 80px;
+	padding-bottom: 80px;
 }
 
 .feature {
@@ -348,7 +353,7 @@
             color: #000;
             font-weight: 300;
             position: relative;
-            padding-left: 70px;
+            padding-left: 60px;
             margin-bottom: 50px;
             @media(max-width: 767px) {
                 br {
@@ -360,11 +365,11 @@
             }
             .wt-icon {
                 width: 50px;
-                height: 50px;
+                height: 40px;
                 display: inline-block;
                 position: absolute;
                 left: 0;
-                top: -10px;
+                top: -6px;
                 &.wt-icon-support {
                     background: url('/assets/images/home/support.svg') no-repeat center center;
                 }
@@ -379,7 +384,7 @@
                     background: url('/assets/images/home/fee.svg') no-repeat center center;
                 }
                 &.wt-icon-Coupon {
-                    background: url('/assets/images/home/day-pass.svg') no-repeat center center;
+                    background: url('/assets/images/home/exclusive-brand-coupons.svg') no-repeat center center;
                 }
                 @media (max-width: 480px) {
                     top: 0;
@@ -391,6 +396,9 @@
                     }
                 }
             }
+        }
+        li:last-child {
+            margin-bottom: 0px !important;
         }
     }
     @media (max-width: 767px) {
@@ -670,62 +678,6 @@
         }
     }
 }
-
-// .city-list {
-//   max-width: 530px;
-//   @media screen and (max-width: 767px) {
-//     max-width         : 100%;
-//     white-space       : nowrap;
-//     overflow-y        : hidden;
-//     overflow-x        : auto;
-//     scrollbar-width   : none;
-//     /* Firefox */
-//     -ms-overflow-style: none;
-//     /* IE 10+ */
-//     &::-webkit-scrollbar {
-//       width     : 0px;
-//       background: transparent;
-//       /* Chrome/Safari/Webkit */
-//     }
-//   }
-//   button,
-//   a {
-//     width          : 78px;
-//     height         : 78px;
-//     border-radius  : 100%;
-//     text-align     : center;
-//     background     : #f8f8f8;
-//     font-size      : 10px;
-//     font-weight    : 600;
-//     color          : #000;
-//     margin-right   : 10px;
-//     text-transform : capitalize;
-//     transition     : all ease-in .5s;
-//     padding        : 0;
-//     outline        : none;
-//     vertical-align : middle;
-//     margin-top     : 10px;
-//     display        : inline-flex;
-//     align-items    : center;
-//     justify-content: center;
-//     flex-direction : column;
-//     img {
-//       max-height   : 32px;
-//       max-width    : 40px;
-//       margin-bottom: 2px;
-//     }
-//     &:last-child {
-//       margin-right: 0;
-//     }
-//     &:hover {
-//       background: #f0f0fe;
-//     }
-//     @media (max-width: 380px) {
-//       width : 72px;
-//       height: 72px;
-//     }
-//   }
-// }
 .city-list {
     max-width: 530px;
     @media screen and (max-width: 767px) {
@@ -790,7 +742,6 @@
 .partners {
     padding: 0 9%;
     overflow: hidden;
-    background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
     &.grey-layout {
         background: #f8f9fa;
         padding: 30px 0 60px;
@@ -917,7 +868,7 @@
     }
     .carousel-arrow {
         position: absolute;
-        top: 345px;
+        top: 150px;
         color: #4343e8;
         font-size: 26px;
         font-weight: bold;
@@ -950,29 +901,15 @@
     }
     .popular-space-carousel {
         position: relative;
-        // bottom: -50px;
         overflow: hidden;
     }
-    // .first-slide {
-    //   @media (max-width:767px) {
-    //     width: 87%;
-    //     left: 0;
-    //   }
-    // }
     .last-slide {
         @media (max-width: 767px) {
-            // margin-left: 44px !important;
             .not-first-slide {
                 width: 100% !important;
             }
         }
     }
-    // .not-first-slide {
-    //   @media (max-width:767px) {
-    //     width: 95%;
-    //     left: -18px;
-    //   }
-    // }
     .popular-space-box {
         height: 390px;
         border-radius: 8px;

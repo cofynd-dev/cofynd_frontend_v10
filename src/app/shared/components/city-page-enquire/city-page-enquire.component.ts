@@ -86,7 +86,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: `11-20`, value: '11-20' },
     { label: '21-50', value: '21-50' },
     { label: '51-100', value: '51-100' },
-    { label: '100+', value: '100+' },
+    { label: '100 +', value: '100 +' },
     // { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
     // { label: 'Customised solutions', value: 'Customised_solutions' },
   ];
@@ -103,7 +103,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: '10k to 15k', value: '10k to 15k' },
     { label: `15k to 20k`, value: '15k to 20k' },
     { label: '20k to 30k', value: '20k to 30k' },
-    { label: '30k', value: '30k' },
+    { label: '30k +', value: '30k +' },
   ]
 
   OfficeBudgets = [
