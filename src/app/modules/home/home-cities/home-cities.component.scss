@@ -39,6 +39,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 
     img {
       max-height: 32px;
@@ -59,6 +60,7 @@
       height: 72px;
     }
   }
+  
 }
 
 @media (max-width: 480px) {

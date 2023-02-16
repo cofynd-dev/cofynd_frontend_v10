@@ -20,14 +20,35 @@
         </div>
     </div>
 </section>
+
+<section class="facilities">
+    <div class="container">
+        <div class="option-box">
+            <div class="row hide-d">
+                <div class="col-12 blueLine text-center">
+                    <p>Amenities offered</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-6" *ngFor="let data of service">
+                    <div class="mt-3 mb-3">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        <p class="mt-2 mb-2 h-font18">{{data.title}}</p>
+                        <p class="text-dark mb-0 hide-m">{{data.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="wrapper">
     <!-- Catagory Services -->
-    <section class="facilities">
+    <!-- <section class="facilities">
         <div class="container">
             <div class="option-box">
                 <div class="row hide-d">
                     <div class="col-12 blueLine text-center">
-                        <!-- <p>Coworking Amenities</p> -->
                     </div>
                 </div>
                 <div class="row">
@@ -41,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- booking navigation -->
     <section class="booking-navigation bg-light">
         <div class="container">
@@ -126,30 +147,30 @@
             </div>
             <div class="row mob-hide partner-carousel slider-on-mobile-view">
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/casa-mia-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Casa Mia Logo " src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e1cf303e90b8953716594f93aaa28f3e5d4e301.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="Awfis" src="../../../assets/images/cove-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Cove Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/218137c9b505399e49d329277f6a277b86e7df14.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="Innov8" src="../../../assets/images/dash-living-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Dash Living Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/17b297bb76fa6521a14fdd24a05c6e49db956f50.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/figment-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Figment Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e84d826637d5c4dc9186d1f53308592a22ceb1b.jpg" />
                 </div>
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/hei-homes-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Hei Homes Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1a13b7f78b04ad0b7c28619d18216e6432b81c82.jpg" />
                 </div>
 
                 <div class="col-md-2">
-                    <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/hmlet-logo.jpg" />
+                    <img class="img-fluid m-auto d-block" alt="Hmlet Logo" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/481ce6f841cecc0e9060024dd4e72bce06ef300e.jpg" />
                 </div>
             </div>
         </div>
     </section>
 
     <!--Cofynd Advantages-->
-    <section class="why-cofynd bg-light">
+    <!-- <section class="why-cofynd bg-light">
         <div class="container">
             <div class="bg-style">
                 <div class="row">
@@ -186,7 +207,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <!-- <section class="customized">
@@ -266,7 +287,7 @@
   </div>
 </section> -->
 
-    <section class="enquiry-section">
+    <!-- <section class="enquiry-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -277,11 +298,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <!-- visite other section -->
-    <section class="visiteOther pt-5 pb-5">
+    <!-- <section class="visiteOther pt-5 pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-12">
@@ -318,9 +339,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <section>
+    <!-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -335,6 +356,40 @@
                                 <span class="pl-2 pr-2" routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="list_your_space_sec hideOnMobile">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <div class="cta_content">
+                        <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                        <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                        <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cofynd_desk_sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cofynd-desk text-center">
+                        <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+
+                        <h4>What's the CoFynd Desk ?</h4>
+                        <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
+                            Climb to their highest in life.</p>
+                        <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
                     </div>
                 </div>
             </div>

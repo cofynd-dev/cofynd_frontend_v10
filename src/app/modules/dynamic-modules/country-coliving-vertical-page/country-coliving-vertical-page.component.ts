@@ -52,37 +52,75 @@ export class CountryColivingVerticalPageComponent implements OnInit {
 
   service = [
     {
-      title: 'High Speed WiFi',
-      description: 'High-Speed Wifi, HDTVs everything you need to do your best work.',
-      icon: 'amenities/wifi.svg',
+      title: 'Fully Furnished',
+      description:
+        'Live in a fully furnished space and unlock the benefits such as community, comfort and cost-saving.',
+      icon: 'amenities/fully-furnished.svg',
     },
     {
-      title: 'Comfy Workstation',
-      description: 'Connect with other people and share your skills for better and quick growth.',
-      icon: 'amenities/workstation.svg',
+      title: 'No Extra Bills',
+      description: 'No need to give extra bills. Just book your desired space, live with freedom and enjoy the ride.',
+      icon: 'amenities/no-booking-fee.svg',
     },
     {
-      title: 'Meeting Rooms',
-      description: 'Come up with great ideas and engage in valuable discussions in meeting rooms.',
+      title: 'Flexible Lease',
+      description:
+        'There is a presence of flexible lease terms and countless amenities. No need to worry just live with glory.',
+      icon: 'amenities/security.svg',
+    },
+    {
+      title: 'Regular Cleaning',
+      description:
+        'We aim to provide the best experience, Thus regular cleaning activities are taken care of on a priority basis.',
+      icon: 'amenities/housekeeping.svg',
+    },
+    {
+      title: 'Professional Host',
+      description:
+        'Community managers are always available for you to help out with any problems. So, now say goodbye to live-in landlords.',
+      icon: 'workspace/day-pass.svg',
+    },
+    {
+      title: 'Amazing Community',
+      description:
+        'We make sure you interact with wonderful people and build an amazing community. Live & enjoy your living journey with us.',
       icon: 'amenities/meeting-room.svg',
     },
-    {
-      title: 'Printer',
-      description: 'Printing and scanning facilities available without any extra cost.',
-      icon: 'amenities/printer.svg',
-    },
-
-    {
-      title: 'Pantry',
-      description: 'Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.',
-      icon: 'amenities/kitchen.svg',
-    },
-    {
-      title: 'Parking',
-      description: 'Avoid morning hassle with easy and convenient parking area availability.',
-      icon: 'amenities/bike-parking.svg',
-    },
   ];
+
+  // service = [
+  //   {
+  //     title: 'High Speed WiFi',
+  //     description: 'High-Speed Wifi, HDTVs everything you need to do your best work.',
+  //     icon: 'amenities/wifi.svg',
+  //   },
+  //   {
+  //     title: 'Comfy Workstation',
+  //     description: 'Connect with other people and share your skills for better and quick growth.',
+  //     icon: 'amenities/workstation.svg',
+  //   },
+  //   {
+  //     title: 'Meeting Rooms',
+  //     description: 'Come up with great ideas and engage in valuable discussions in meeting rooms.',
+  //     icon: 'amenities/meeting-room.svg',
+  //   },
+  //   {
+  //     title: 'Printer',
+  //     description: 'Printing and scanning facilities available without any extra cost.',
+  //     icon: 'amenities/printer.svg',
+  //   },
+
+  //   {
+  //     title: 'Pantry',
+  //     description: 'Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.',
+  //     icon: 'amenities/kitchen.svg',
+  //   },
+  //   {
+  //     title: 'Parking',
+  //     description: 'Avoid morning hassle with easy and convenient parking area availability.',
+  //     icon: 'amenities/bike-parking.svg',
+  //   },
+  // ];
   country_name: string;
   constructor(
     private _renderer2: Renderer2,
