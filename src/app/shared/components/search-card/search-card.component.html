@@ -31,9 +31,9 @@
                 <ng-template [ngIf]="!forAll">
                     <span class="rent_title">Starting from</span>
                     <ng-container *ngFor="let item of workspace?.plans">
-                        <span *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
+                        <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
                             <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }}/- <span>{{item?.duration }}</span>
-                        </span>
+                        </div>
                     </ng-container>
                 </ng-template>
             </div>
