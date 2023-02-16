@@ -51,7 +51,7 @@ export class WorkSpaceComponent implements OnInit {
   zoom: number;
   marker: google.maps.Marker;
   infoWindow: google.maps.InfoWindow;
-  mapMarkerImage = '/assets/images/marker-icon.png';
+  mapMarkerImage = '/assets/images/marker.png';
 
   // Sticky Header
   isStickyHeaderVisible = VisibilityState.Hidden;
