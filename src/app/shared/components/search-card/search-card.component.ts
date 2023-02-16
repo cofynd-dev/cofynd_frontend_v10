@@ -76,6 +76,7 @@ export class SearchCardComponent implements AfterViewInit {
       this.isMobileResolution = false;
     }
   }
+
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
