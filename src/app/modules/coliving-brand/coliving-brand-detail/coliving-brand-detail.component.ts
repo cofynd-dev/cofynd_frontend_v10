@@ -127,6 +127,34 @@ export class ColivingBrandDetailComponent implements OnInit {
     this.loading = false;
   }
 
+  toggleMapView(isMapView: boolean) {
+    this.isMapView = isMapView;
+  }
+
+  routePageEvent() {
+    if (this.isColiving) {
+      /** TODO
+       * will change it with dynamically
+       */
+      return `/`;
+    }
+    return `/brand/${this.urlPath[0]}`;
+  }
+
+  loadMore(event: any) {
+    this.page = event.page;
+    this.queryParams = { ...this.queryParams, page: this.page };
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { page: this.page },
+      queryParamsHandling: 'merge',
+    });
+    // Reset All Scroll Activities
+    this.isScrolled = false;
+    this.scrollCount = 0;
+    this.isSearchFooterVisible = false;
+  }
+
   addSeoTags() {
     this.brandService.getBrands(sanitizeParams({ dropdown: 1 })).subscribe(brands => {
       const selectedBrandSeoMeta = brands.filter(brand => brand.slug === this.brand.slug)[0].seo;
