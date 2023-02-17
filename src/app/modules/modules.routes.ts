@@ -34,6 +34,14 @@ export const routes: Routes = [
     loadChildren: () => import('./brand/brand.module').then(m => m.BrandModule),
   },
   {
+    path: 'coworking-brand',
+    loadChildren: () => import('./coworking-brand/coworking-brand.module').then(m => m.CoworkingBrandModule)
+  },
+  {
+    path: 'co-living-brand',
+    loadChildren: () => import('./coliving-brand/coliving-brand.module').then(m => m.ColivingBrandModule)
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
     canActivate: [AuthGuard],

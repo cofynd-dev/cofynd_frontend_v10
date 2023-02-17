@@ -26,9 +26,9 @@ export class HomeBrandListComponent {
 
   goToBrandPage(brand: Brand, isColiving = false) {
     if (isColiving) {
-      this.router.navigate([`/brand/co-living/${brand.slug}`]);
+      this.router.navigate([`/co-living-brand/${brand.slug}`]);
       return;
     }
-    this.router.navigate([`/brand/${brand.slug}`]);
+    this.router.navigate([`/coworking-brand/${brand.slug}`]);
   }
 }
