@@ -1250,15 +1250,16 @@ body {
 }
 
 .site_btn {
-    background: #f7e034;
-    border-radius: 10px;
-    padding: 8px 20px;
-    color: #000 !important;
-    font-size: 13px;
-    border: 1px solid transparent;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    display: inline-block;
+	background: #f7e034;
+	border-radius: 10px;
+	padding: 8px 20px;
+	color: #000 !important;
+	font-size: 13px;
+	border: 1px solid transparent;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	display: inline-block;
+	cursor: pointer;
 }
 
 .site_btn:hover {
@@ -4114,6 +4115,17 @@ h3.site_title {
     padding: 0px 10px 10px;
 }
 
+.visible-list {
+    -webkit-overflow-scrolling: touch !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+.visible-list::-webkit-scrollbar {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
 .seo_content {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -5932,6 +5944,10 @@ h3.site_title {
 .brant_item .brand_content {
 	margin-top: 10px;
 }
+// .brant_item .brand_logo {
+// 	border-radius: 20px;
+// 	overflow: hidden;
+// }
 .brant_item .brand_img {
 	height: 200px;
 	overflow: hidden;
@@ -5975,6 +5991,9 @@ h3.site_title {
 .coliving_banner {
 	padding-top: 120px;
 	padding-bottom: 20px;
+}
+.coworking_brand_list_space {
+	padding-top: 30px;
 }
 
 
@@ -6765,8 +6784,8 @@ h3.site_title {
     .choose_item_slider,
     .top_cities_carousel,
     .office_top_properties_slider,
-    .visible-list,
-    .places-tag-slider {
+    .places-tag-slider,
+    .visible-list {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -6784,8 +6803,8 @@ h3.site_title {
     .choose_item_slider::-webkit-scrollbar,
     .top_cities_carousel::-webkit-scrollbar,
     .office_top_properties_slider::-webkit-scrollbar,
-    .visible-list::-webkit-scrollbar,
-    .places-tag-slider::-webkit-scrollbar {
+    .places-tag-slider::-webkit-scrollbar,
+    .visible-list::-webkit-scrollbar {
         display: none !important;
         height: 0 !important;
         width: 0 !important;
