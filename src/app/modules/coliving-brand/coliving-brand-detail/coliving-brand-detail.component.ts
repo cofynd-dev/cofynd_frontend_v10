@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
+import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { sanitizeParams } from '@app/shared/utils';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { Brand } from '@core/models/brand.model';
@@ -45,6 +46,8 @@ export class ColivingBrandDetailComponent implements OnInit {
   totalRecords: number;
   urlPath: string[] = [];
   selectedCity: string;
+  enquiryType: number = ENQUIRY_TYPES.COLIVING;
+
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private activatedRoute: ActivatedRoute,

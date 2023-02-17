@@ -5,10 +5,10 @@ import { CoworkingBrandDetailComponent } from './coworking-brand-detail/coworkin
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: CoworkingBrandComponent,
-  },
+  // {
+  //   path: '',
+  //   component: CoworkingBrandComponent,
+  // },
   {
     path: ':slug',
     component: CoworkingBrandDetailComponent,

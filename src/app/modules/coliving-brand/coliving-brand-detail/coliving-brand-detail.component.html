@@ -22,8 +22,6 @@
                                 </app-search-card>
                                 <app-co-living-card *ngIf="isColiving" [coLiving]="space"></app-co-living-card>
                             </div>
-
-
                             <ng-template [ngIf]="isMapView">
                                 <div class="enquire-box col-sm-12" *ngIf="(i + 1) % 4 === 0">
                                     <div class="box">
@@ -46,20 +44,15 @@
 
                 <div class="col-md-4">
                     <div class="enquiry_section brand_query_col">
-                        <app-workspace-enquire></app-workspace-enquire>
+                        <app-city-page-enquire [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                     </div>
                 </div>
-
-
-
-
             </div>
 
             <div *ngIf="!loading && workSpaces.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
-
         </div>
     </div>
 

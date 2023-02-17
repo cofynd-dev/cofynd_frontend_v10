@@ -1,38 +1,39 @@
 <!-- <router-outlet></router-outlet> -->
 
 <section class="innerpage_banner coworking_brand_banner mobilehide">
-  <div class="container">
-      <div class="row align-items-center">
-          <div class="col-md-6">
-              <div class="innerpage_content mb-0">
-                  <div class="main_heading">
-                      <h1>Find the Best<br /><span>Coworking Brand</span> in India</h1>
-                  </div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a (click)="scrollToElement(target)" class="site_btn border_btn">Enquire Now</a>
-              </div>
-          </div>
-          <div class="col-md-6">
-            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5bcbc0321eec9dcdde23fd46a5fe440c7e432780.jpg" alt="Coworking Brand" class="img-fluid">
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="innerpage_content mb-0">
+                    <div class="main_heading">
+                        <h1>Find the Best<br /><span>Coworking Brand</span> in India</h1>
+                    </div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book.</p>
+                    <a (click)="scrollToElement(target)" class="site_btn border_btn">Enquire Now</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5bcbc0321eec9dcdde23fd46a5fe440c7e432780.jpg" alt="Coworking Brand" class="img-fluid">
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="innerpage_banner desktophide" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d76dbae3fc984d286d56580f607710430cfea5a.jpg');">
-  <div class="container-fluid">
-      <div class="row align-items-center">
-          <div class="col-12">
-              <div class="banner_content">
-                  <h1 class="text-light text-center">Find the Best<br />Coworking Brand in India</h1>
-                  <div class="search-bar">
-                    <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
-                    </ng-select>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find the Best<br />Coworking Brand in India</h1>
+                    <div class="search-bar">
+                        <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
+                        </ng-select>
+                    </div>
                 </div>
-              </div>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="coworking_brands_sec">
@@ -51,19 +52,19 @@
                         <img [src]="data.image" class="img-fluid" [alt]="data.title">
                     </div>
                     <div class="brand_content text-center">
-                      <div class="title_img">
-                        <img [src]="data.titleImg" class="img-fluid" [alt]="data.title">
-                      </div>
-                      <div class="brandCounter row">
-                        <div class="cityNum col-md-6 col-6">
-                          <p>{{data.cityCount}}</p>
-                          <h5>Cities</h5>
+                        <div class="title_img">
+                            <img [src]="data.titleImg" class="img-fluid" [alt]="data.title">
                         </div>
-                        <div class="centerNum col-md-6 col-6">
-                          <p>{{data.centersCount}}</p>
-                          <h5>Centers</h5>
+                        <div class="brandCounter row">
+                            <div class="cityNum col-md-6 col-6">
+                                <p>{{data.cityCount}}</p>
+                                <h5>Cities</h5>
+                            </div>
+                            <div class="centerNum col-md-6 col-6">
+                                <p>{{data.centersCount}}</p>
+                                <h5>Centers</h5>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
@@ -80,95 +81,93 @@
 
 
 <section class="query_from_sec coworking_brand_query" #target>
-  <div class="container">
-      <div class="row mobilehide">
-          <div class="col-md-12 text-center">
-              <div class="main_heading title_divider">
-                  <h2>Yes, I'm interested in Coworking Space</h2>
-              </div>
-          </div>
-      </div>
+    <div class="container">
+        <div class="row mobilehide">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Yes, I'm interested in Coworking Space</h2>
+                </div>
+            </div>
+        </div>
 
-      <div class="row align-items-center">
-          <div class="col-md-6 mobilehide">
-              <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
-          </div>
+        <div class="row align-items-center">
+            <div class="col-md-6 mobilehide">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
+            </div>
 
-          <div class="col-md-6 col-12">
-              <div class="virtual_query_form">
-                  <div class="form_head">
-                      <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
-                      <h3 class="mobilehide">Answers to your Coworking Space query</h3>
-                      <p class="mobilehide">Our team is ready to answer your questions.</p>
-                  </div>
+            <div class="col-md-6 col-12">
+                <div class="virtual_query_form">
+                    <div class="form_head">
+                        <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
+                        <h3 class="mobilehide">Answers to your Coworking Space query</h3>
+                        <p class="mobilehide">Our team is ready to answer your questions.</p>
+                    </div>
 
-                  <div class="form_body">
-                      <form action="">
-                          <div class="row">
-                              <div class="col-md-6 col-12">
-                                  <div class="input-group align-items-center">
-                                      <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                      <input type="text" formControlName="name" class="form-control" placeholder="Name*" required>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-12">
-                                  <div class="input-group align-items-center">
-                                      <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                      <input type="email" formControlName="email" class="form-control" placeholder="Email*" required>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-12">
-                                  <div class="input-group align-items-center">
-                                      <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                      <input type="tel" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-12">
-                                  <div class="input-group align-items-center">
-                                      <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                      <select class="form-select" class="form-control" placeholder="city" required aria-label="Default select example">
-                                          <option value="" selected disabled style="display: none;">Select City*</option>
-                                          <option value="Delhi">Delhi</option>
-                                          <option value="Noida">Noida</option>
-                                          <option value="Pune">Pune</option>
-                                          <option value="Gurugram">Gurugram</option>
-                                          <option value="Bangalore">Bangalore</option>
-                                          <option value="Hyderabad">Hyderabad</option>
-                                          <option value="Mumbai">Mumbai</option>
-                                          <option value="Indore">Indore</option>
-                                          <option value="Chennai">Chennai</option>
-                                          <option value="Ahmedabad">Ahmedabad</option>
-                                          <option value="Jaipur">Jaipur</option>
-                                          <option value="Lucknow">Lucknow</option>
-                                          <option value="Chandigarh">Chandigarh</option>
-                                          <option value="Goa">Goa</option>
-                                          <option value="Coimbatore">Coimbatore</option>
-                                          <option value="Dehradun">Dehradun</option>
-                                          <option value="Patna">Patna</option>
-                                          <option value="Bhubaneswar">Bhubaneswar</option>
-                                          <option value="Other">Other</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-md-12 col-12">
-                                  <div class="input-group align-items-center">
-                                      <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
-                                      <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
-                                  </div>
-                              </div>
-                              <div class="col-md-12 col-12">
-                                  <button class="site_btn border_btn" type="submit">Submit</button>
-                              </div>
-                              <div class="col-md-12 col-12">
-                                  <p class="form_query_text">Need Assistance? Call Now : <span><a href="tel:+91-9599509999">+91-9599509999</a></span></p>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                    <div class="form_body">
+                        <form action="" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                        <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
+                                            <option value="" selected disabled style="display: none;">Select City*</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <button class="site_btn border_btn" type="submit">Submit</button>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <p class="form_query_text">Need Assistance? Call Now : <span><a
+                                                href="tel:+91-9599509999">+91-9599509999</a></span></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <div class="coworking_brand_client_sec">

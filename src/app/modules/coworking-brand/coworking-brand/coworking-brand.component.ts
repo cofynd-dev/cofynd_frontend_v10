@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '@app/core/services/user.service';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-coworking-brand',
@@ -7,11 +13,104 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoworkingBrandComponent implements OnInit {
 
-  constructor() {
+  submitted = false;
+  contactUserName: string;
+  showSuccessMessage: boolean;
+  loading = true;
+  finalCities: any = [];
+  coworkingCities: any = [];
+  colivingCities: any = [];
 
+
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private toastrService: ToastrService,
+    private workSpaceService: WorkSpaceService,
+  ) {
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
   }
 
   ngOnInit() {
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+  }
+
+  enterpriseFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    requirements: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.coworkingCities = res.data;
+    })
+  };
+
+  getCitiesForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+      if (this.colivingCities.length) {
+        this.removeDuplicateCities();
+      }
+    })
+  }
+
+  removeDuplicateCities() {
+    const key = 'name';
+    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.enterpriseFormGroup.invalid) {
+      return;
+    } else {
+      this.loading = true;
+      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+      const object = {
+        user: {
+          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          email: this.enterpriseFormGroup.controls['email'].value,
+          name: this.enterpriseFormGroup.controls['name'].value,
+          requirements: this.enterpriseFormGroup.controls['requirements'].value,
+        },
+        city: this.enterpriseFormGroup.controls['city'].value,
+        mx_Page_Url: 'Coworking Brand Page'
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.showSuccessMessage = true;
+          this.enterpriseFormGroup.reset();
+          this.submitted = false;
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message);
+        },
+      );
+    }
   }
 
   coworkingBrand = [
