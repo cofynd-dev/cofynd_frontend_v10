@@ -10,11 +10,6 @@
                 </div>
 
                 <div class="city-list">
-                    <!-- <button (click)="locateMyLocation()" type="button">
-                    <img src="/assets/images/home/near-me.svg"
-                        alt="'Office Space for Rent near me" />
-                    Near Me
-                    </button> -->
                     <a *ngFor="let city of cities" [routerLink]="city.name">
                         <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                     </a>
@@ -203,7 +198,7 @@
                     <div class="city-left-box" *ngFor="let city of cities">
                         <div class="cities-icon-item">
                             <div class="cities-img">
-                                <img [src]="city.image" alt="Delhi" class="img-fluid">
+                                <img [src]="city.image" alt="{{removedash(city.name) | titlecase}}" class="img-fluid">
                             </div>
                             <div class="cities-icon-content">
                                 <h4>{{removedash(city.name) | titlecase}}</h4>
