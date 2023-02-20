@@ -236,11 +236,13 @@ export class CoworkingBrandDetailComponent implements OnInit {
           this.getBrandCityDetail(this.urlPath[0], cityName);
         }
         if (cityName) {
+          this.loading = true;
           this.addSeoTagsForBrandLocations();
           this.workSpaceService
             .getWorkspacesByBrandAndCity(this.urlPath[0], cityName, sanitizeParams(this.queryParams))
             .subscribe(allWorkSpaces => {
               this.setWorkspaceDetail(allWorkSpaces);
+              this.loading = false;
             });
         } else {
           this.getQueryParam();
