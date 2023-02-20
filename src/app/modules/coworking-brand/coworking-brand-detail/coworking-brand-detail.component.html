@@ -4,8 +4,8 @@
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
 
-            <!-- <app-brand-title *ngIf="brand" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
-            </app-brand-title> -->
+            <app-coworking-brand-title *ngIf="brand" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
+            </app-coworking-brand-title>
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>

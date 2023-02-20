@@ -79,8 +79,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
     this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
-    console.log(this.finalCities);
-
   }
 
   addSeoTags() {

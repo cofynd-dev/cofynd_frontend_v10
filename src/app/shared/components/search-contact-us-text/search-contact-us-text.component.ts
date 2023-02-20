@@ -35,7 +35,6 @@ export class SearchContactUsTextComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.microlocations);
   }
 
   onSubmit() {

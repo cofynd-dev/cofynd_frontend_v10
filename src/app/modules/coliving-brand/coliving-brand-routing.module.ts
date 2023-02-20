@@ -13,6 +13,14 @@ const routes: Routes = [
     path: ':slug',
     component: ColivingBrandDetailComponent,
   },
+  {
+    path: ':slug/:city',
+    component: ColivingBrandDetailComponent,
+  },
+  {
+    path: ':category/:slug/:city',
+    component: ColivingBrandDetailComponent,
+  },
 ];
 
 @NgModule({

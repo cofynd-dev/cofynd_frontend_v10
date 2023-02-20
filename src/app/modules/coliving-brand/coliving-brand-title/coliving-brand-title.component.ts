@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Brand } from '@core/models/brand.model';
 
 @Component({
-  selector: 'app-brand-title',
-  templateUrl: './brand-title.component.html',
-  styleUrls: ['./brand-title.component.scss'],
+  selector: 'app-coliving-brand-title',
+  templateUrl: './coliving-brand-title.component.html',
+  styleUrls: ['./coliving-brand-title.component.scss']
 })
-export class BrandTitleComponent {
+export class ColivingBrandTitleComponent {
   @Input() brand: Brand;
   @Input() pageTitle: string;
   @Input() selectedCity: string;
@@ -24,7 +24,8 @@ export class BrandTitleComponent {
   }
 
   onChangeCity(city): void {
-    this.router.navigateByUrl(`/brand/${this.url[0]}/${city.name.toLocaleLowerCase()}`);
+    this.router.navigateByUrl(`/coworking-brand/${this.url[0]}/${city.name.toLocaleLowerCase()}`);
     this.onCityEvent.emit(city.id);
   }
+
 }

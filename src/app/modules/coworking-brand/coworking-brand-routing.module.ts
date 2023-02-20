@@ -13,6 +13,14 @@ const routes: Routes = [
     path: ':slug',
     component: CoworkingBrandDetailComponent,
   },
+  {
+    path: ':slug/:city',
+    component: CoworkingBrandDetailComponent,
+  },
+  {
+    path: ':category/:slug/:city',
+    component: CoworkingBrandDetailComponent,
+  },
 ];
 
 @NgModule({
