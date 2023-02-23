@@ -30,6 +30,7 @@ export class CoworkingBrandComponent implements OnInit {
     private toastrService: ToastrService,
     private workSpaceService: WorkSpaceService,
   ) {
+    this.router.navigate(['/404'], { skipLocationChange: true });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
