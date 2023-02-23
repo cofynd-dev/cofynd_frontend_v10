@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coliving-brand',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColivingBrandComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) {
+    this.router.navigate(['/404'], { skipLocationChange: true });
+  }
 
   ngOnInit() {
   }
