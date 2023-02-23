@@ -2106,6 +2106,19 @@ h3.site_title {
     font-weight: 500;
 }
 
+.city-dropdown .ng-select-container {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    box-shadow: none;
+}
+.city-dropdown .ng-select span.ng-value-label {
+	top: 11px !important;
+	position: relative;
+	left: 11px;
+}
+
 .cities_list_area {
     margin-top: 110px;
 }
@@ -4115,6 +4128,10 @@ h3.site_title {
     padding: 0px 10px 10px;
 }
 
+.faqs_list .accordion-item .accordion-body p:last-child {
+    margin-bottom: 0px;
+}
+
 .visible-list {
     -webkit-overflow-scrolling: touch !important;
     -ms-overflow-style: none !important;
@@ -5995,7 +6012,120 @@ h3.site_title {
 .coworking_brand_list_space {
 	padding-top: 30px;
 }
+.aboutus_banner {
+	padding-bottom: 30px;
+}
+.aboutus_banner .banner_img {
+	z-index: 1;
+	position: relative;
+}
 
+.more_about_sec {
+	padding: 80px;
+	padding-bottom: 80px;
+}
+.more_about_sec img {
+	position: absolute;
+	top: -240px;
+	z-index: 0;
+	width: 80%;
+}
+.about_network_area {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+.about_network_area img {
+	width: 70%;
+	margin: 0 auto;
+	display: block;
+}
+.about_image_sec img {
+	width: 80%;
+	border-radius: 20px;
+}
+.tag_line {
+	background-color: #FFE785;
+	display: inline-block;
+	padding: 5px 10px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.about_image_sec .site_title::before {
+	display: none;
+}
+.about_image_sec {
+	padding: 50px 0px;
+}
+.about_image_sec .text-end {
+	text-align: right;
+}
+.team_section {
+	padding-top: 60px;
+	padding-bottom: 50px;
+}
+.team_box {
+	border-radius: 20px;
+	overflow: hidden;
+	border: 1px solid rgba(33, 37, 41, 0.1);
+	position: relative;
+}
+.team_box img {
+	position: relative;
+}
+.team_bio {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+	padding: 10px 15px;
+}
+.team_bio h4 {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 25px;
+}
+.team_bio p {
+	margin-bottom: 0px;
+	font-size: 12px;
+	line-height: 16px;
+}
+.join_team_sec {
+	padding-top: 40px;
+	padding-bottom: 60px;
+}
+.join_team_sec .row {
+	padding: 25px 15px;
+	border-radius: 20px;
+	-webkit-box-align: center;
+	align-items: center;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+    background-color: #F5FAFF;
+}
+.join_team_sec .cta_content {
+	padding: 10px 70px;
+}
+.join_team_sec .cta_content h4 {
+	font-size: 28px;
+	line-height: 38px;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+.join_team_sec .site_btn {
+	padding: 8px 15px;
+	font-size: 12px;
+	line-height: 18px;
+	border-radius: 8px !important;
+}
+.join_team_sec img {
+	width: 80%;
+	margin: 10px auto;
+}
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -8572,6 +8702,129 @@ h3.site_title {
     }
     .coliving_facilities {
         padding: 50px 0px 20px;
+    }
+    .aboutus_banner {
+        padding-bottom: 0px;
+    }
+    .aboutus_banner .banner_img {
+        border-radius: 0px;
+        height: 200px;
+    }
+    .aboutus_banner .banner_img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100%;
+    }
+    .aboutus_banner .banner_img img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+    .aboutus_banner .about_content_col {
+        position: absolute;
+        top: 85px;
+        z-index: 9;
+        padding: 0 15px;
+        text-align: center;
+    }
+    .aboutus_banner .site_title::before {
+        display: none;
+    }
+    .aboutus_banner .banner_content h2 {
+        margin-bottom: 5px;
+        text-align: left;
+        color: #fff !important;
+    }
+    .aboutus_banner .banner_content h5 {
+        margin-bottom: 0px;
+        font-size: 15px;
+        line-height: 20px;
+        color: #fff !important;
+    }
+    .more_about_sec {
+        padding: 30px 0px !important;
+    }
+    .more_about_sec p {
+        margin-bottom: 0px;
+    }
+    .about_network_area {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .about_image_sec {
+        padding: 20px 0px;
+    }
+    .about_image_sec img {
+        width: 100%;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        height: 210px;
+        object-fit: cover;
+    }
+
+    .team_slider {
+        -webkit-overflow-scrolling: touch !important;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+    
+    .team_slider::-webkit-scrollbar {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+    
+    .team_slider {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    
+    .team_slider .col-6 {
+        display: inline-block;
+        margin: 0 5px;
+        width: 40.2%;
+        overflow: hidden;
+        padding: 0px !important;
+    }
+    .team_box {
+        border-radius: 10px;
+    }
+    .team_bio {
+        padding: 5px 10px;
+    }
+    .team_bio h4 {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .team_bio p {
+        font-size: 10px !important;
+        line-height: 13px !important;
+    }
+    .team_section {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    .team_section .text-center.mb-4 {
+        margin-bottom: 10px !important;
+    }
+    .join_team_sec .cta_content {
+        padding: 10px 0px;
+    }
+    .join_team_sec img {
+        margin: 0px auto;
+    }
+    .join_team_sec .row {
+        padding: 15px 15px;
+        border-radius: 10px;
     }
     
     
