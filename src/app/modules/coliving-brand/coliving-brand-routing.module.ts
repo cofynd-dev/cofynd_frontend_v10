@@ -5,10 +5,10 @@ import { ColivingBrandDetailComponent } from './coliving-brand-detail/coliving-b
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: ColivingBrandComponent,
-  // },
+  {
+    path: '',
+    component: ColivingBrandComponent,
+  },
   {
     path: ':slug',
     component: ColivingBrandDetailComponent,
