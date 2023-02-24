@@ -4,13 +4,14 @@
     justify-content: space-between;
     margin-bottom: 10px;
     h1 {
-        font-size: 30px;
+        font-size: 22px;
         font-weight: 600;
         letter-spacing: 0.5px;
         text-transform: capitalize;
     }
     .city-dropdown {
-        width: 150px;
+        width: 170px;
+        z-index: 1;
     }
     img {
         max-width: 180px;
@@ -22,3 +23,5 @@
         }
     }
 }
+
+

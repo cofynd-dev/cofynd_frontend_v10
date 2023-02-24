@@ -6,7 +6,7 @@ header {
     left: 0;
     top: 0;
     height: 80px;
-    z-index: 9;
+    z-index: 999;
     a {
         cursor: pointer;
     }
@@ -542,6 +542,7 @@ a+a {
 	background: #fff !important;
 	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid #ededed;
+    z-index: 999;
 }
 
 .main_header .navbar {
