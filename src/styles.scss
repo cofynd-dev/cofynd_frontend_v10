@@ -2106,6 +2106,76 @@ h3.site_title {
     font-weight: 500;
 }
 
+.career_banner {
+	padding-bottom: 40px;
+}
+
+.opening_job_sec {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+.job_item {
+	display: flex;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 4px rgba(33, 37, 41, 0.1);
+	border-radius: 10px;
+	padding: 30px 40px;
+	margin-bottom: 20px;
+}
+.job_item:last-child {
+	margin-bottom: 0px;
+}
+.job_item .job_icon {
+	flex: 0 0 10%;
+}
+.job_item .job_icon .icon {
+	text-align: center;
+	padding: 0px 15px;
+}
+.job_item .job_content {
+	width: 70%;
+	padding: 0px 15px;
+}
+.job_item .job_btn {
+	flex: 0 0 20%;
+	text-align: right;
+	padding: 0px 15px;
+	margin-top: 30px;
+}
+.job_item .job_content h6 {
+	font-weight: 600;
+	color: rgba(33, 37, 41, 0.5);
+	font-size: 12px;
+	line-height: 20px;
+	margin-bottom: 4px;
+}
+.job_item .job_content h4 {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 5px;
+}
+.job_item .job_content p {
+	margin-bottom: 10px;
+}
+.job_item .job_content button {
+	color: #4343e8;
+	font-weight: 600;
+}
+.job_item .job_content button i {
+	font-size: 11px;
+}
+.job_content .job_description_details p {
+	font-size: 13px;
+	line-height: 22px;
+}
+.job_content .job_description_details ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	font-size: 13px;
+	line-height: 22px;
+}
+
 .city-dropdown .ng-select-container {
     border: 1px solid rgba(0,0,0,0.1) !important;
     border-radius: 10px !important;
@@ -8825,6 +8895,9 @@ h3.site_title {
     .join_team_sec .row {
         padding: 15px 15px;
         border-radius: 10px;
+    }
+    .about-area p {
+        margin-bottom: 5px;
     }
     
     

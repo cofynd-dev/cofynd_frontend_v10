@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SharedModule } from '@app/shared/shared.module';
 import { CareerRoutingModule } from './career-routing.module';
 import { CareerComponent } from './career/career.component';
 import { CareerDetailsComponent } from './career-details/career-details.component';
@@ -10,7 +10,7 @@ import { CareerDetailsComponent } from './career-details/career-details.componen
   declarations: [CareerComponent, CareerDetailsComponent],
   imports: [
     CommonModule,
-    CareerRoutingModule
+    CareerRoutingModule, SharedModule
   ]
 })
 export class CareerModule { }

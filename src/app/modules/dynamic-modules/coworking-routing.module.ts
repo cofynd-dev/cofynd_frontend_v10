@@ -18,6 +18,7 @@ import { FlatSpaceCityComponent } from './flat-space/flat-space-city/flat-space-
 import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
 import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-space-detail.component';
 
+
 const routes: Routes = [
   { path: '', component: CoworkingComponent },
   { path: 'home', component: CoworkingHomeComponent },

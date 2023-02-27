@@ -12,4 +12,9 @@ export class CareerComponent implements OnInit {
   ngOnInit() {
   }
 
+  seeMore: boolean = false;
+  toggleAboutMore() {
+    this.seeMore = !this.seeMore;
+  }
+
 }
