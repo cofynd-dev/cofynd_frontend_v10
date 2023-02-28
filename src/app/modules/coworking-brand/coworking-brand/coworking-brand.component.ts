@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SeoSocialShareData } from '@app/core/models/seo.model';
+import { SeoService } from '@app/core/services/seo.service';
 import { UserService } from '@app/core/services/user.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '@env/environment';
+
 
 
 @Component({
@@ -21,6 +25,9 @@ export class CoworkingBrandComponent implements OnInit {
   coworkingCities: any = [];
   colivingCities: any = [];
   show = 15;
+  footerDescription: any;
+  footerTitle: any;
+  seoData: SeoSocialShareData;
 
 
   constructor(
@@ -29,6 +36,7 @@ export class CoworkingBrandComponent implements OnInit {
     private router: Router,
     private toastrService: ToastrService,
     private workSpaceService: WorkSpaceService,
+    private seoService: SeoService,
   ) {
     // this.router.navigate(['/404'], { skipLocationChange: true });
     this.getCitiesForCoworking();
@@ -38,6 +46,7 @@ export class CoworkingBrandComponent implements OnInit {
   ngOnInit() {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.addSeoTags()
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -112,6 +121,25 @@ export class CoworkingBrandComponent implements OnInit {
         },
       );
     }
+  }
+
+  addSeoTags() {
+    this.loading = true;
+    this.seoService.getMeta('coworking-brand').subscribe(seoMeta => {
+      if (seoMeta) {
+        this.seoData = {
+          title: seoMeta.title,
+          image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
+          description: seoMeta.description,
+          url: environment.appUrl + this.router.url,
+          type: 'website',
+          footer_title: seoMeta.footer_title,
+          footer_description: seoMeta.footer_description,
+        };
+        this.seoService.setData(this.seoData);
+      }
+      this.loading = false;
+    });
   }
 
   coworkingBrand = [
