@@ -8,7 +8,8 @@
                     <div class="main_heading">
                         <h1>Find the Best<br /><span>Coworking Brand</span> in India</h1>
                     </div>
-                    <p>Co-working is the future of office space in India. India is experiencing high demand in coworking office space market with the flexibility it provides toward work and work culture. Cofynd offers top coworking brands in India to choose the perfect workspace for startups, growing organizations, and top MNCs. We assist you to find the perfect coworking office space for rent in India.</p>
+                    <p>Co-working is the future of office space in India. India is experiencing high demand in coworking office space market with the flexibility it provides toward work and work culture. Cofynd offers top coworking brands in India to choose
+                        the perfect workspace for startups, growing organizations, and top MNCs. We assist you to find the perfect coworking office space for rent in India.</p>
                     <a (click)="scrollToElement(target)" class="site_btn border_btn">Enquire Now</a>
                 </div>
             </div>
@@ -45,7 +46,7 @@
             </div>
         </div>
         <div class="row mt-2">
-            <div class="col-md-4 col-6" *ngFor="let data of coworkingBrand">
+            <div class="col-md-4 col-6" *ngFor="let data of coworkingBrand|slice:0:show; let i=index">
                 <div class="brant_item" [routerLink]="data.url">
                     <div class="brand_img mobilehide">
                         <img [src]="data.image" class="img-fluid" [alt]="data.title">
@@ -66,12 +67,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-12">
-                <div class="text-center">
-                    <button class="site_btn border_btn">Load More</button>
+                <div class="row mt-2" *ngIf="i==14 && show == 15">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <button (click)="show = data.length" class="site_btn border_btn">Load More</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,7 +223,7 @@
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>Name some of the top coworking space brands in India.</h4>
-                        <p>Some of the top coworking space companies in India are -  Awfis, IndiQube, Workafella, Cowrks, ABL workspaces, and more.</p>
+                        <p>Some of the top coworking space companies in India are - Awfis, IndiQube, Workafella, Cowrks, ABL workspaces, and more.</p>
                     </accordion-group>
                     <accordion-group>
                         <h4 accordion-heading>What is the starting price of dedicated desk space for coworking spaces in India?</h4>
