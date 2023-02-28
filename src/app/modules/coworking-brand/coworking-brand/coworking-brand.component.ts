@@ -20,7 +20,7 @@ export class CoworkingBrandComponent implements OnInit {
   finalCities: any = [];
   coworkingCities: any = [];
   colivingCities: any = [];
-
+  show = 15;
 
 
   constructor(
@@ -30,7 +30,7 @@ export class CoworkingBrandComponent implements OnInit {
     private toastrService: ToastrService,
     private workSpaceService: WorkSpaceService,
   ) {
-    this.router.navigate(['/404'], { skipLocationChange: true });
+    // this.router.navigate(['/404'], { skipLocationChange: true });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
