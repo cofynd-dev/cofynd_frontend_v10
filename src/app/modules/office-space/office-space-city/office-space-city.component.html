@@ -34,7 +34,7 @@
                     </div>
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_office'">
+                            <app-search-contact-us-text *ngIf="offices.length" [cities]="availableCities" [type]="'for_office'">
                             </app-search-contact-us-text>
                         </div>
                     </ng-template>
@@ -57,18 +57,18 @@
                             </section>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12">
-                            <app-search-contact-us-text1>
+                            <app-search-contact-us-text1 *ngIf="offices.length">
                             </app-search-contact-us-text1>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
-                            <app-search-contact-us-text2 [pageNo]="'city page'">
+                            <app-search-contact-us-text2 *ngIf="offices.length" [pageNo]="'city page'">
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                 </ng-container>
 
                 <div class="col-md-4">
-                    <app-city-page-enquire [enquiryType]="enquiryType" [isOfficeEnquiry]="true"></app-city-page-enquire>
+                    <app-city-page-enquire *ngIf="offices.length" [enquiryType]="enquiryType" [isOfficeEnquiry]="true"></app-city-page-enquire>
                 </div>
 
             </div>
