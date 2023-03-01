@@ -1,633 +1,4 @@
 <app-workspace-loader *ngIf="loading"></app-workspace-loader>
-<!-- <section class="breadcrumbs_sec">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Emaar</a></li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">Emaar Capital Tower</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="details_page_gallery">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="banner-image-item first-img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-md-3 image_space">
-                <div class="banner-image-item">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f9093e6a6cd17530b4ee827460e1141485ac39c6.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="banner-image-item mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9736117ef06e4197e19ff5e6f9d506cf2739685f.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="banner-image-item last-img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e35e69acccd6dc6e4051bfbca2f589a70b399bf.jpg" alt="" class="img-fluid">
-                </div>
-                <button class="all_photon_btn"><i class="fa-solid fa-layer-group"></i> View All Photos</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="details_area content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-
-                <div class="row">
-
-                    <div class="col-md-12">
-
-                        <div class="space_head">
-                            <div class="heading-info">
-                                <h2>Emaar Capital Tower </h2>
-                                <p><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 26, Gurugram</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-2">
-                    <div class="col-md-12">
-                        <div class="flat-properties">
-                            <div class="flat-icons-box">
-                                <div class="flat-properties-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/furnished-status-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Fully Furnished</span>
-                                    </div>
-                                </div>
-
-                                <div class="flat-properties-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/brokerage-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Zero Brokerage</span>
-                                    </div>
-                                </div>
-
-                                <div class="flat-properties-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/ready-to-move.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Ready To Move</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-                <div class="row overview_area">
-                    <div class="col-md-12">
-                        <h3>Overview</h3>
-                        <div class="row">
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/bhk-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>BHK</h5>
-                                        <p>3 BHK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/area-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Built-up Area</h5>
-                                        <p>2,850 sq.ft.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/area-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Carpet Area</h5>
-                                        <p>2,850 sq.ft.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/security-deposit-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Security Deposit</h5>
-                                        <p>6000/-</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/mainteance-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Maintenance Charges</h5>
-                                        <p>2000/-</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/tenant-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Tenant Type</h5>
-                                        <p>Family</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/space-status-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Status</h5>
-                                        <p>Furnished</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/building-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Floor</h5>
-                                        <p>3rd/10</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/facing-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Facing</h5>
-                                        <p>East</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/bedroom-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Bedrooms</h5>
-                                        <p>2</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/bathroom-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Bathrooms</h5>
-                                        <p>2</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="../../../../assets/images/icons/balcony-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Balconies</h5>
-                                        <p>2</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-
-                <div class="row about-area">
-                    <div class="col-md-12">
-                        <h3>About this property</h3>
-                    </div>
-                    <div class="col-md-12">
-                        <p>
-                            M3M Golf Estate is the High-End Residential Project by M3M Group. This Lavish Residential Project is on the Sector-65 Golf Course Extension Road Gurgaon. It is a Combination of Low-Rise, Mid-Rise and High-Rise Towers. Here, M3M presenting the Spacious
-                            3BHK, 4BHK and 5BHK Apartments, Duplex and Penthouses with the range of sizes from 3005 Sq. Ft. to 5760 Sq. Ft. M3M Golf Estate Gurgaon is spread on a Built-up Area of 56 Acres with over 25 Towers and 870 Units.
-                        </p>
-                        <p class="hide_text" [class.show]="show">
-                            This Project is easy to access from many Schools, Hospitals, Shopping Malls and the count goes on. The Amenities of this Amazing Residential Project is totally Top-Notch which includes High-Speed Elevators, Gyms, Exclusive Clubhouse, Abundant Parking
-                            Space, Swimming Pool and lot more. This Lavish Project is designed by World’s Top Architectural Firm Le Group Arcop whose Headquarter is in Canada. The Interior Designing of this Project is done by the Leading International
-                            Firm Bilkey Linas Design which is a USA Based Company and the Structural Designing is done by the (LERA) Leslie E Robots and Associates which is also a USA Based Company. The Apartments in M3M Golf Estate Gurgaon is designed
-                            in such a way to give a Luxury Lifestyle with all the conveniences and their Features. M3M Golf Estate is the Luxury Project which everyone dreamt of and Now you are One Step close to fulfilling your Dreams. So, What are you
-                            waiting for?? Get your Dream Property in M3M Golf Estate Sector-65 Gurgaon.
-                        </p>
-                        <button class="moreless-button" (click)="show = !show">{{ show ? 'Show less »': 'Show More »' }}</button>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-                <div class="row amenities_section">
-                    <div class="col-md-12">
-                        <h3>Building Amenities</h3>
-                    </div>
-                    <div class="col-md-12" id="amenities-icons">
-                        <div class="row basic">
-                            <div class="col-4 basic-icons">
-                                <p><img src="../../../../assets/images/icons/snooker-icon.svg" />Snooker</p>
-                                <p><img src="../../../../assets/images/icons/theatre-icon.svg" />Mini Theatre</p>
-                                <p><img src="../../../../assets/images/icons/swimming-pool-icon.svg" />Swimming Pool</p>
-                            </div>
-                            <div class="col-4 basic-icons">
-                                <p><img src="../../../../assets/images/icons/children-park-icon.svg" />Children Park</p>
-                                <p><img src="../../../../assets/images/icons/club-house-icon.svg" />Club House</p>
-                                <p><img src="../../../../assets/images/icons/gym-icon.svg" />Gymnasium</p>
-
-                            </div>
-                            <div class="col-4 basic-icons">
-                                <p><img src="../../../../assets/images/icons/car-parking-icon.svg" />Car Parking</p>
-                                <p><img src="../../../../assets/images/icons/24x7-security-icon.svg" />24x7 Security</p>
-                                <p><img src="../../../../assets/images/icons/bar-icon.svg" />Bar/Lounge</p>
-
-                            </div>
-                        </div>
-                        <div class="hide_text" [class.show]="showamenity">
-                            <div class="row">
-                                <div class="col-4 basic-icons">
-                                    <p><img src="../../../../assets/images/icons/football-icon.svg" />Football Court</p>
-                                    <p><img src="../../../../assets/images/icons/basketball-court.svg" />Basketball Court</p>
-                                    <p><img src="../../../../assets/images/icons/lift-icon.svg" />Lift System</p>
-                                </div>
-                                <div class="col-4 basic-icons">
-                                    <p><img src="../../../../assets/images/icons/cycle-icon.svg" />Cycle Track</p>
-                                    <p><img src="../../../../assets/images/icons/cricket-pitch-icon.svg" />Cricket Pitch </p>
-                                    <p><img src="../../../../assets/images/icons/fire-safety-icon.svg" />Fire Safety</p>
-                                </div>
-                                <div class="col-4 basic-icons">
-                                    <p><img src="../../../../assets/images/icons/golf-court-icon.svg" />Golf Course</p>
-                                    <p><img src="../../../../assets/images/icons/intercom-icon.svg" />Intercom</p>
-                                    <p><img src="../../../../assets/images/icons/tennis-court-icon.svg" />Outdoor Tennis Courts</p>
-                                </div>
-                            </div>
-                    </div>
-                        <button class="moreless-button" (click)="showamenity = !showamenity">{{ showamenity ? 'Show less »': 'Show More »' }}</button>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-
-                <div class="row floor-plan">
-                    <div class="col-md-12">
-                        <h3>Floor Plans</h3>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="properties_item_slider">
-                            <div class="slider slider-nav plans_slider popup-gallery">
-
-                                <div class="plan_item">
-                                    <div class="floor-plan-img">
-                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-1.png" alt="9.jpg" />
-                                    </div>
-                                    <div class="floor-plan-details">
-                                        <div class="square-ft">
-                                            <h5>Built-up Area</h5>
-                                            <p>2,882 sq.ft.</p>
-                                        </div>
-                                        <div class="price">
-                                            <h5>Price</h5>
-                                            <p>₹ 4.04 Cr</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="plan_item magnific-img">
-                                    <div class="floor-plan-img">
-                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-2.png" alt="10.jpg" />
-                                    </div>
-                                    <div class="floor-plan-details">
-                                        <div class="square-ft">
-                                            <h5>Built-up Area</h5>
-                                            <p>2,850 sq.ft.</p>
-                                        </div>
-                                        <div class="price">
-                                            <h5>Price</h5>
-                                            <p>₹ 4.20 Cr</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="plan_item magnific-img">
-                                    <div class="floor-plan-img">
-                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-3.png" alt="3.jpg" />
-                                    </div>
-                                    <div class="floor-plan-details">
-                                        <div class="square-ft">
-                                            <h5>Built-up Area</h5>
-                                            <p>2,992 sq.ft.</p>
-                                        </div>
-                                        <div class="price">
-                                            <h5>Price</h5>
-                                            <p>₹ 4.5 Cr</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="plan_item magnific-img">
-                                    <div class="floor-plan-img">
-                                        <img class="img-fluid floor-plan-img" src="img/golf-estate-floor-plan-4.jpg" alt="9.jpg" />
-                                    </div>
-
-                                    <div class="floor-plan-details">
-                                        <div class="square-ft">
-                                            <h5>Built-up Area</h5>
-                                            <p>2,882 sq.ft.</p>
-                                        </div>
-                                        <div class="price">
-                                            <h5>Price</h5>
-                                            <p>₹ 4.04 Cr</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-                <div class="row map-location">
-                    <div class="col-md-12">
-                        <h3>Properties Location</h3>
-                        <p class="location-icon"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-65, Gurgaon</p>
-                    </div>
-                    <div class="col-md-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4384.02468179727!2d77.06513306638949!3d28.400970259413807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d226f6c6b9b99%3A0x959ab1d7af7ad1c5!2sM3M%20Golf%20Estate!5e0!3m2!1sen!2sin!4v1664284150955!5m2!1sen!2sin"
-                            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
-                <div class="row near_places">
-                    <div class="col-md-12 places-nearby">
-                        <h3 class="heading">Places Nearby</h3>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="places-tag-slider">
-                            <div class="places-tag-item">
-                                <div class="places-tag-box">
-                                    <div class="tag-icon">
-                                        <img class="img-fluid" src="../../../../assets/images/icons/metro-icon.svg" />
-                                    </div>
-                                    <div class="tag-text">
-                                        <h5>Sector 55-56 Metro Station</h5>
-                                        <p>2.6 Km</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="places-tag-box">
-                                    <div class="tag-icon">
-                                        <img class="img-fluid" src="../../../../assets/images/icons/airport-icon.svg">
-                                    </div>
-                                    <div class="tag-text">
-                                        <h5>IGI Airport</h5>
-                                        <p>4.6 Km</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="places-tag-box">
-                                    <div class="tag-icon">
-                                        <img class="img-fluid" src="../../../../assets/images/icons/school-icon.svg">
-                                    </div>
-                                    <div class="tag-text">
-                                        <h5>DPS International School</h5>
-                                        <p>4.9 Km</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="places-tag-box">
-                                    <div class="tag-icon">
-                                        <img class="img-fluid" src="../../../../assets/images/icons/mall-icon.svg">
-                                    </div>
-                                    <div class="tag-text">
-                                        <h5>Raheja Mall</h5>
-                                        <p>4.9 Km</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="enquiry_section">
-                    <div class="form-section">
-                        <h2 class="heading">Send Enquiry</h2>
-                        <p>Know More About M3M Merlin</p>
-                        <form class="form">
-                            <div class="form-input">
-                                <input type="text" class="form-control border-light" id="name" placeholder="Name" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-input">
-                                <input type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-input">
-                                <input type="text" class="form-control border-light" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">I agree to be contacted by Cofynd and other agents via <i class="fa-brands fa-whatsapp me-1"></i>WhatsApp, SMS, phone, email etc.</label>
-                            </div>
-                            <button type="button" class="btn w-100">Send</button>
-                        </form>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-image">
-                            <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                        </div>
-                        <div class="contact-info">
-                            <p class="heading">Get in Touch</p>
-                            <p>+91 9999 10 8078</p>
-                        </div>
-                    </div>
-                    <div class="policy">
-                        <p>By clicking the above button you agree to our Terms of service and have read and understood our <span><a class="text-decoration-none" routerLink="/privacy-policy">Privacy Policy</a></span>
-                        </p>
-                    </div>
-                    <div class="write-review">
-                        <div class="image">
-                            <img class="img-fluid" src="img/review_img.png" />
-                        </div>
-                        <div class="button-section">
-                            <h5>Write about your experiences</h5>
-                            <a type="button" href="#write_review" class="btn">Write Review</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<hr class="divider_line">
-
-<section class="property_review_sec pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="h3_title">Reviews From Our Customers</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="review_list_slider">
-                    <div class="review_item">
-                        <img class="img-fluid quote_icon" src="../../../../assets/images/icons/quote-icon.svg" alt="">
-                        <p>I Think If I want to buy a house, It’s always expensive. I Don’t want a bad house. Finally I found my dream House here. The service is also friendly.</p>
-                        <div class="review_profile">
-                            <div class="review_img">
-                                <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                            </div>
-                            <div class="review_about">
-                                <h4>Dipesh Agrawal</h4>
-                                <p>Happy Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="review_item">
-                        <img class="img-fluid quote_icon" src="../../../../assets/images/icons/quote-icon.svg" alt="">
-                        <p>I Think If I want to buy a house, It’s always expensive. I Don’t want a bad house. Finally I found my dream House here. The service is also friendly.</p>
-                        <div class="review_profile">
-                            <div class="review_img">
-                                <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                            </div>
-                            <div class="review_about">
-                                <h4>Dipesh Agrawal</h4>
-                                <p>Happy Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="review_item">
-                        <img class="img-fluid quote_icon" src="../../../../assets/images/icons/quote-icon.svg" alt="">
-                        <p>I Think If I want to buy a house, It’s always expensive. I Don’t want a bad house. Finally I found my dream House here. The service is also friendly.</p>
-                        <div class="review_profile">
-                            <div class="review_img">
-                                <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                            </div>
-                            <div class="review_about">
-                                <h4>Dipesh Agrawal</h4>
-                                <p>Happy Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="review_item">
-                        <img class="img-fluid quote_icon" src="../../../../assets/images/icons/quote-icon.svg" alt="">
-                        <p>I Think If I want to buy a house, It’s always expensive. I Don’t want a bad house. Finally I found my dream House here. The service is also friendly.</p>
-                        <div class="review_profile">
-                            <div class="review_img">
-                                <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                            </div>
-                            <div class="review_about">
-                                <h4>Dipesh Agrawal</h4>
-                                <p>Happy Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="review_item">
-                        <img class="img-fluid quote_icon" src="../../../../assets/images/icons/quote-icon.svg" alt="">
-                        <p>I Think If I want to buy a house, It’s always expensive. I Don’t want a bad house. Finally I found my dream House here. The service is also friendly.</p>
-                        <div class="review_profile">
-                            <div class="review_img">
-                                <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
-                            </div>
-                            <div class="review_about">
-                                <h4>Dipesh Agrawal</h4>
-                                <p>Happy Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="review_form">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 text-center">
-                            <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6a0b3456462c71ae841aaedd29f410e0243de9be.png" />
-                        </div>
-                        <div class="col-md-6">
-                            <div class="review_form_body">
-                                <h3 class="h3_title">Love this Property! Let’s Us Know</h3>
-                                <form class="form">
-                                    <div class="form-input">
-                                        <label for="">Enter Your Name*</label>
-                                        <input type="text" class="form-control" id="name" placeholder="">
-                                    </div>
-                                    <div class="form-input">
-                                        <label for="">What do you like about this property?</label>
-                                        <textarea type="textarea" class="form-control" id="review_text" placeholder=""></textarea>
-                                    </div>
-                                    <button type="button" class="btn">Send</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
-
 <section class="breadcrumbs_sec mobilehide">
     <div class="container-fluid">
         <div class="row">
@@ -906,3 +277,586 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- <section class="breadcrumbs_sec">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Emaar</a></li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">Emaar Capital Tower</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_page_gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="banner-image-item first-img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-3 image_space">
+                <div class="banner-image-item">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f9093e6a6cd17530b4ee827460e1141485ac39c6.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="banner-image-item mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9736117ef06e4197e19ff5e6f9d506cf2739685f.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="banner-image-item last-img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e35e69acccd6dc6e4051bfbca2f589a70b399bf.jpg" alt="" class="img-fluid">
+                </div>
+                <button class="all_photon_btn"><i class="fa-solid fa-layer-group"></i> View All Photos</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_area content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="space_head">
+                            <div class="heading-info">
+                                <h2>Emaar Capital Tower </h2>
+                                <p><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 26, Gurugram</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div class="flat-properties">
+                            <div class="flat-icons-box">
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/furnished-status-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Fully Furnished</span>
+                                    </div>
+                                </div>
+
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Zero Brokerage</span>
+                                    </div>
+                                </div>
+
+                                <div class="flat-properties-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/ready-to-move.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <span>Ready To Move</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row overview_area">
+                    <div class="col-md-12">
+                        <h3>Overview</h3>
+                        <div class="row">
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/building-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Project Size</h5>
+                                        <p>6 Acre</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/pricing-tag-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Starting Price*</h5>
+                                        <p>₹ 4.94 Cr</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/area-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Built-up Area</h5>
+                                        <p>2,850 sq.ft.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/project-type-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Project Type</h5>
+                                        <p>Commercial</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/configuration-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Configuration</h5>
+                                        <p>Office Space</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+
+                <div class="row about-area">
+                    <div class="col-md-12">
+                        <h3>About this property</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Emaar Capital Tower is a place for all who want to develop their Brand Equity and Fame in the world of Business and Retail Space with Top-Notch Office Space, Ground Floor Retail Shops, and other Entertaining spaces. It is prepared by Award-winning Architects. The Entrance of the Emaar MGF Capital Tower 1 is Spectacular and there are a lot more exciting features also. For More Details, You can call us at 99991-8999 and Get your Commercial Property in Emaar Capital Tower 1. Emaar MGF Capital Tower 1 at Downtown Sector-26 Gurgaon over G-12, is available with adjustable. Emaar MGF Capital Tower 1 at Downtown Sector-26 Gurgaon over G-12, is available with adjustable.</p>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row amenities_section">
+                    <div class="col-md-12">
+                        <h3>Building Amenities</h3>
+                    </div>
+                    <div class="col-md-12" id="amenities-icons">
+                        <div class="row basic">
+                            <div class="col-md-12 basic-icons">
+                                <p><img src="../../../../assets/images/icons/snooker-icon.svg" />Snooker</p>
+                                <p><img src="../../../../assets/images/icons/theatre-icon.svg" />Mini Theatre</p>
+                                <p><img src="../../../../assets/images/icons/swimming-pool-icon.svg" />Swimming Pool</p>
+                                <p><img src="../../../../assets/images/icons/children-park-icon.svg" />Children Park</p>
+                                <p><img src="../../../../assets/images/icons/club-house-icon.svg" />Club House</p>
+                                <p><img src="../../../../assets/images/icons/gym-icon.svg" />Gymnasium</p>
+                                <p><img src="../../../../assets/images/icons/car-parking-icon.svg" />Car Parking</p>
+                                <p><img src="../../../../assets/images/icons/24x7-security-icon.svg" />24x7 Security</p>
+                                <p><img src="../../../../assets/images/icons/bar-icon.svg" />Bar/Lounge</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+
+                <div class="row floor-plan">
+                    <div class="col-md-12">
+                        <h3>Floor Plans Emmar Capital Tower</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="properties_item_slider">
+                            <div class="plans_slider">
+                                <div class="plan_item">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor_plan_title">
+                                        <h4>Ground Floor 1761.84 sq.ft. Office</h4>
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="price">
+                                            <h5>Rent Price</h5>
+                                            <p>₹ 15,000/month</p>
+                                        </div>
+                                        <div class="square-ft">
+                                            <h5>Sale Price</h5>
+                                            <p>₹ 1.85 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="plan_item">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6b637ffd171ec35cede137b0b74146671e11f7c3.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor_plan_title">
+                                        <h4>1st Floor 2,000 sq.ft. Office</h4>
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="price">
+                                            <h5>Rent Price</h5>
+                                            <p>₹ 15,000/month</p>
+                                        </div>
+                                        <div class="square-ft">
+                                            <h5>Sale Price</h5>
+                                            <p>₹ 1.85 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="plan_item">
+                                    <div class="floor-plan-img">
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/acec5f65fd8aa25fe91c89fa6b4bc199e4adb643.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor_plan_title">
+                                        <h4>2nd Floor 2,000 sq.ft. Office</h4>
+                                    </div>
+                                    <div class="floor-plan-details">
+                                        <div class="price">
+                                            <h5>Rent Price</h5>
+                                            <p>₹ 15,000/month</p>
+                                        </div>
+                                        <div class="square-ft">
+                                            <h5>Sale Price</h5>
+                                            <p>₹ 1.85 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row map-location">
+                    <div class="col-md-12">
+                        <h3>Properties Location</h3>
+                        <p class="location-icon"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 26, Gurugram</p>
+                    </div>
+                    <div class="col-md-12">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4384.02468179727!2d77.06513306638949!3d28.400970259413807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d226f6c6b9b99%3A0x959ab1d7af7ad1c5!2sM3M%20Golf%20Estate!5e0!3m2!1sen!2sin!4v1664284150955!5m2!1sen!2sin"
+                            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row near_places">
+                    <div class="col-md-12 places-nearby">
+                        <h3 class="heading">Places Nearby</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="places-tag-slider">
+                            <div class="places-tag-item">
+                                    <div class="tag-icon">
+                                        <img class="img-fluid" src="../../../../assets/images/icons/metro-icon.svg" />
+                                    </div>
+                                    <div class="tag-text">
+                                        <h5>Sector 55-56 Metro Station</h5>
+                                        <p>2.6 Km</p>
+                                    </div>
+                            </div>
+
+                            <div class="places-tag-item">
+                                    <div class="tag-icon">
+                                        <img class="img-fluid" src="../../../../assets/images/icons/airport-icon.svg">
+                                    </div>
+                                    <div class="tag-text">
+                                        <h5>IGI Airport</h5>
+                                        <p>4.6 Km</p>
+                                    </div>
+                            </div>
+
+                            <div class="places-tag-item">
+                                    <div class="tag-icon">
+                                        <img class="img-fluid" src="../../../../assets/images/icons/school-icon.svg">
+                                    </div>
+                                    <div class="tag-text">
+                                        <h5>DPS International School</h5>
+                                        <p>4.9 Km</p>
+                                    </div>
+                            </div>
+
+                            <div class="places-tag-item">
+                                    <div class="tag-icon">
+                                        <img class="img-fluid" src="../../../../assets/images/icons/mall-icon.svg">
+                                    </div>
+                                    <div class="tag-text">
+                                        <h5>Raheja Mall</h5>
+                                        <p>4.9 Km</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="enquiry_section">
+                    <div class="form-section enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                        <h2 class="heading">Yes, I'm Interested!</h2>
+                        <p>Know More About M3M Merlin</p>
+                        <form class="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Name" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
+                            </div>
+                            <button type="button" class="site_btn border_btn full_width_btn">Send</button>
+                        </form>
+                    </div>
+                    <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
+                        <div class="contact-image">
+                            <img class="img-fluid" src="../../../../assets/images/icons/profile-img.png" />
+                        </div>
+                        <div class="contact-info">
+                            <p class="heading">Get in Touch</p>
+                            <p>+91 9999 10 8078</p>
+                        </div>
+                    </div>
+                    <div class="policy">
+                        <p>By clicking the above button you agree to our Terms of service and have read and understood our <span><a class="text-decoration-none" routerLink="/privacy-policy">Privacy Policy</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider_line">
+
+<section class="similar_spaces_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="h3_heading">Office Space For Rent in Emaar Capital Tower</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="properties_slider">
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>1,277Sq. Ft. Office Space for Rent</h4>
+                                <p class="building_name">Emaar Capital Tower</p>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-26, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>1,277Sq. Ft. Office Space for Rent</h4>
+                                <p class="building_name">Emaar Capital Tower</p>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-26, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>1,277Sq. Ft. Office Space for Rent</h4>
+                                <p class="building_name">Emaar Capital Tower</p>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-26, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider_line">
+
+<section class="simlar_builders">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="h3_heading">Similar Builders Projects</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="properties_slider">
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Vatika Market Walk</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-82A, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Vatika Market Walk</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-82A, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Vatika Market Walk</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector-82A, Gurugram</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider_line">
+
+<section class="more_builders">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="h3_heading">More Properties By Emmar</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="properties_slider">
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Emaar The Views</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Mohali Hillis, Mohali</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Emaar The Views</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Mohali Hillis, Mohali</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property_item">
+                        <div class="property-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+                        </div>
+                        <div class="space_details" style="cursor: pointer;">
+                            <div class="property-dis">
+                                <h4>Emaar The Views</h4>
+                                <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Mohali Hillis, Mohali</p>
+                                <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> Fully Furnished</p>
+                            </div>
+                            <div class="property-foot align-items-end">
+                                <div class="price"><span class="rent_title">Rent</span>₹20,500/- <span>month</span></div>
+                                <div class="button"><a href="" tabindex="0">Explore More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->

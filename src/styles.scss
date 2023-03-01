@@ -2925,6 +2925,28 @@ h3.site_title {
     margin-bottom: 10px;
 }
 
+.h3_heading {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.similar_spaces_sec {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.simlar_builders {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.more_builders {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
 .similar_spaces_area h2 {
     font-size: 20px;
     line-height: 30px;
@@ -2951,9 +2973,11 @@ h3.site_title {
     cursor: pointer;
 }
 
-.basic-icons img {
-    padding-right: 7px;
-    width: 30px;
+.amenities_section .basic-icons img {
+	padding-right: 7px;
+	width: 26px;
+	position: absolute;
+	left: 0;
 }
 
 .amenities_section .more-icon-button {
@@ -2974,7 +2998,7 @@ h3.site_title {
     padding: 0 15px 0 30px;
     line-height: 20px;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -2998,15 +3022,39 @@ h3.site_title {
 .plans_slider {
     margin-bottom: 0px;
 }
-
-.plan_item {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
+.plans_slider {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.plans_slider .plan_item {
+	display: inline-block;
+	margin: 8px 1.5%;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 40.5%;
+	overflow: hidden;
+	vertical-align: top;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
     padding: 14px 14px;
-    margin: 0px 10px;
+	white-space: normal;
 }
 
+.plan_item .floor_plan_title h4 {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 21px;
+	margin-bottom: 5px;
+}
 .plan_item .floor-plan-img {
     height: 200px;
     overflow: hidden;
@@ -3033,25 +3081,25 @@ h3.site_title {
     display: flex;
 }
 
-.floor-plan-details .square-ft {
-    width: 70%;
+.floor-plan-details .price {
+    width: 60%;
 }
 
-.floor-plan-details .price {
-    width: 30%;
+.floor-plan-details .square-ft {
+    width: 40%;
 }
 
 .floor-plan-details h5 {
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 1px;
-    font-weight: 600;
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 1px;
+	font-weight: 500;
 }
 
 .floor-plan-details p {
-    margin-bottom: 0px;
-    font-size: 13px;
-    line-height: 20px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	line-height: 16px;
 }
 
 .space_head {
@@ -3185,55 +3233,93 @@ h3.site_title {
     border-bottom: none;
     margin-bottom: 0px;
 }
-
 .places-tag-slider {
-    display: block;
-    width: 100%;
-    height: auto;
-    // overflow-x: scroll;
-    padding: 0px;
-    margin: 0;
-    white-space: nowrap;
-    scrollbar-width: none !important;
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
 }
-
 .places-tag-slider .places-tag-item {
-    display: inline-block;
-    margin: 0 5px;
-    background-size: cover;
-    position: relative;
-    -webkit-box-flex: 0;
-    flex: 0 0 71.4285714286%;
-    width: 38.429%;
-    overflow: hidden;
-    vertical-align: top;
-}
-
-.places-tag-box {
-    background: #FFFFFF;
-    box-shadow: 0px 3px 10px rgba(33, 37, 41, 0.1);
-    border-radius: 10px;
-    display: -webkit-box !important;
-    display: flex !important;
-    padding: 15px;
+	display: inline-block;
+	margin: 8px 1.5%;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 38.5%;
+	overflow: hidden;
+	vertical-align: top;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+    padding: 14px 14px;
+	white-space: normal;
+    // display: flex !important;
+    padding: 20px 15px;
     -webkit-box-align: center;
     align-items: center;
-    margin: 10px 5px;
+}
+// .places-tag-box {
+//     background: #FFFFFF;
+//     box-shadow: 0px 3px 10px rgba(33, 37, 41, 0.1);
+//     border-radius: 10px;
+//     display: -webkit-box !important;
+//     display: flex !important;
+//     padding: 15px;
+//     -webkit-box-align: center;
+//     align-items: center;
+//     margin: 10px 5px;
+// }
+
+// .places-tag-slider {
+//     display: block;
+//     width: 100%;
+//     height: auto;
+//     padding: 0px;
+//     margin: 0;
+//     white-space: nowrap;
+//     scrollbar-width: none !important;
+// }
+
+// .places-tag-slider .places-tag-item {
+//     display: inline-block;
+//     margin: 0 5px;
+//     background-size: cover;
+//     position: relative;
+//     -webkit-box-flex: 0;
+//     flex: 0 0 71.4285714286%;
+//     width: 38.429%;
+//     overflow: hidden;
+//     vertical-align: top;
+// }
+
+
+.places-tag-slider .places-tag-item .tag-text {
+	position: relative;
+	padding-left: 50px;
+}
+.places-tag-slider .places-tag-item .tag-icon {
+	position: absolute;
+	left: 20px;
 }
 
-.places-tag-box img {
+.places-tag-item img {
     width: 30px !important;
     margin-right: 10px;
 }
 
-.places-tag-box .tag-text h5 {
+.places-tag-item .tag-text h5 {
     font-size: 14px;
     line-height: 16px;
     color: #000000;
     margin: 0;
 }
 
-.places-tag-box .tag-text p {
+.places-tag-item .tag-text p {
     font-size: 12px;
     line-height: 20px;
     color: rgba(33, 37, 41, 0.5);
@@ -3425,6 +3511,36 @@ h3.site_title {
     padding: 0px 0px 40px;
 }
 
+.properties_slider {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow-x: scroll;
+	padding: 0px;
+	margin: 0;
+	white-space: nowrap;
+	scrollbar-width: none !important;
+}
+.properties_slider .property_item {
+	display: inline-block;
+	margin: 8px 1.5%;
+	background-size: cover;
+	position: relative;
+	-webkit-box-flex: 0;
+	flex: 0 0 71.4285714286%;
+	width: 30.2%;
+	overflow: hidden;
+	vertical-align: top;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	padding: 14px 14px;
+	white-space: normal;
+	padding: 20px 15px;
+	-webkit-box-align: center;
+	align-items: center;
+}
+
 .amenities_icon {
     display: flex;
     margin-bottom: 0px;
@@ -3591,6 +3707,11 @@ h3.site_title {
     margin-bottom: 0px;
     color: rgba(33, 37, 41, 0.5);
     font-size: 12px;
+}
+
+.property_item .property-dis p.building_name {
+	color: rgba(33, 37, 41, 0.7) !important;
+	font-weight: 600;
 }
 
 .property_item .property-dis .amenities {
