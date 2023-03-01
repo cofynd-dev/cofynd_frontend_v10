@@ -4326,6 +4326,36 @@ h3.site_title {
     margin-bottom: 0;
 }
 
+.flat-properties {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 25px 20px;
+	border-radius: 20px;
+}
+.flat-icons-box {
+	display: flex;
+}
+.flat-icons-box .flat-properties-icons {
+	flex: 0 0 33.33%;
+	padding: 0px 15px;
+	display: flex;
+    align-items: center;
+}
+// .flat-icons-box .flat-properties-icons .icon, .flat-icons-box .flat-properties-icons .info {
+// 	padding: 0px 15px;
+// }
+.flat-icons-box .flat-properties-icons .icon {
+	flex: 0 0 25%;
+}
+.flat-icons-box .flat-properties-icons .info {
+	flex: 0 0 75%;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 18px;
+}
+.flat-icons-box .flat-properties-icons .icon img {
+	width: 35px;
+}
+
 .how_to_start_sec {
     padding-top: 150px;
     padding-bottom: 50px;
