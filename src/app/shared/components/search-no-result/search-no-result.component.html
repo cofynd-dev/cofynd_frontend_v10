@@ -11,40 +11,51 @@
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
 </div>
 
-<section class="cities_query_sec">
+<section class="cities_query_sec" *ngIf="title == 'Office'">
     <div class="container">
         <div class="row cities_page_row">
             <div class="col-md-6 col-12">
                 <div class="cities_form_area">
                     <h1>Connect with Cofynd Expert</h1>
                     <p>Our team is ready to assist you</p>
-                    <form *ngIf="!showSuccessMessage" class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit1()" appScrollToInvalidField>
+                    <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                    <input type="text" class="form-control" placeholder="Name*" formControlName="name">
+                                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Enter your Name*" required>
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                    <input type="text" class="form-control" placeholder="Email*" formControlName="email">
+                                    <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                        <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                    <input type="tel" class="form-control" placeholder="Phone*" formControlName="phone_number">
+                                    <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
+                                    <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                        <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
-                                    <select class="form-select" class="form-control" placeholder="I am interested in*">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
                                         <option value="" selected disabled style="display: none;">I am interested in*</option>
                                         <option value="Coworking Space">Coworking Space</option>
                                         <option value="Coliving">Coliving Space</option>
@@ -55,46 +66,38 @@
                                         <option value="List Your Property">List Your Property</option>
                                         <option value="Any/Other Query">Any/Other Query</option>
                                     </select>
+                                    <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['interested_in'].errors['required']">Please select your interest.</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                    <select class="form-select" class="form-control" placeholder="select your city*" required aria-label="Default select example">
+                                    <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" class="form-control" placeholder="select your city" required aria-label="Default select example">
                                         <option value="" selected disabled style="display: none;">Select City*</option>
-                                        <option value="Bangalore">Bangalore</option>
-                                        <option value="Gurugram">Gurugram</option>
-                                        <option value="Mumbai">Mumbai</option>
-                                        <option value="Hyderabad">Hyderabad</option>
-                                        <option value="Pune">Pune</option>
-                                        <option value="Delhi">Delhi</option>
-                                        <option value="Noida">Noida</option>
-                                        <option value="Indore">Indore</option>
-                                        <option value="Chennai">Chennai</option>
-                                        <option value="Ahmedabad">Ahmedabad</option>
-                                        <option value="Kochi">Kochi</option>
-                                        <option value="Chandigarh">Chandigarh</option>
-                                        <option value="Jaipur">Jaipur</option>
-                                        <option value="Lucknow">Lucknow</option>
-                                        <option value="Kolkata">Kolkata</option>
-                                        <option value="Coimbatore">Coimbatore</option>
-                                        <option value="Goa">Goa</option>
-                                        <option value="Bhubaneswar">Bhubaneswar</option>
+                                        <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
                                         <option value="Other">Other</option>
                                     </select>
+                                    <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group message_field">
                                     <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
-                                    <textarea type="text" class="form-control" placeholder="Requirements" formControlName="requirements"></textarea>
+                                    <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    <!-- <div *ngIf="submitted && f['requirements'].errors" class="invalid-feedback" style="display: block;">
+                                        <div *ngIf="f['requirements'].errors['required']">Please enter your requirements.</div>
+                                    </div> -->
                                 </div>
                             </div>
 
                             <div class="col-md-12 text-center">
-                                <button type="submit" [appLoadingButton]="loading" class="site_btn border_btn">Submit</button>
+                                <button type="submit" class="site_btn border_btn">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -109,8 +112,7 @@
 
             <div class="col-md-6 col-12 form_text_area">
                 <div class="form_content text-center">
-                    <h2>Office Space for Rent<br> 
-                        in Mumbai</h2>
+                    <h2>Office Space for Rent<br> in {{city | titlecase }}</h2>
                     <div class="location">
                         <p>Andheri | BKC | Bandra | Borivali | <br>Churchgate | Dadar | Goregaon and More.</p>
                     </div>
