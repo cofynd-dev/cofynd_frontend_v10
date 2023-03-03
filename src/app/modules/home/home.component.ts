@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   contactUserName: any;
   showSuccessMessage: boolean;
-  user: import("d:/CofyndNew/Cofynd-Front-end/Cofynd-frontend-website/src/app/core/models/user.model").User;
+  user: any;
 
   constructor(
     private _renderer2: Renderer2,
