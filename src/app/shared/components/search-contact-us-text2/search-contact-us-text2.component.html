@@ -39,6 +39,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="form-input">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-4 col-6">
                                     <div class="form-input">
                                         <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
@@ -65,13 +73,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn w-100 site_btn">Send</button>
+                                    <button type="submit" class="btn w-100 site_btn">{{btnLabel}}</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="cta_img">
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fb13f86c441fda8778e902b5760872e3d3c48592.png" alt="City Form Space" class="img-fluid">
                 </div>
