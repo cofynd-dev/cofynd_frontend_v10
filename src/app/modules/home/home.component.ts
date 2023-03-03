@@ -253,17 +253,19 @@ export class HomeComponent implements OnInit {
 
   getOtp() {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
-      this.loading = true;
+      this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+      this.btnLabel = 'Verify OTP';
+      this.addValidationOnOtpField();
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
       this.userService.addUserEnquiry(formValues).subscribe(
-        () => {
-          this.loading = false;
-          this.btnLabel = 'Verify OTP';
-          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
-          this.addValidationOnOtpField();
+        (data: any) => {
+          if (data) {
+            this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+            this.btnLabel = 'Verify OTP';
+            this.addValidationOnOtpField();
+          }
         },
         error => {
-          this.loading = false;
           this.toastrService.error(error.message || 'Something broke the server, Please try latter');
         },
       );

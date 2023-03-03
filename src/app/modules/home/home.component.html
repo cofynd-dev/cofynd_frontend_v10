@@ -311,7 +311,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="col-md-4" *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
                                         <div class="form-input">
                                             <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                             <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
