@@ -10,8 +10,8 @@
         <p class="light_blue">Minimum stay 3 months</p>
     </div>
 
-    <form class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
-        <div class="row">
+    <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+        <div class="row" [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
             <div class="col-md-12">
                 <div class="form-group">
                     <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
@@ -35,6 +35,13 @@
                     </app-input-validation>
                 </div>
             </div>
+        </div>
+
+        <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+            <label>OTP</label>
+            <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
+            <app-input-validation [control]="enquiryForm.controls.otp">
+            </app-input-validation>
         </div>
 
         <div class="row coworking_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">

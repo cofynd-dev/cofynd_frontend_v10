@@ -287,7 +287,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="form-input">
-                                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name" aria-describedby="emailHelp">
+                                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp">
                                             <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
                                             </div>
@@ -295,7 +295,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-input">
-                                            <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                                            <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp">
                                             <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
                                                 <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
@@ -304,10 +304,18 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-input">
-                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone" aria-describedby="emailHelp">
+                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp">
                                             <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
                                                 <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
+                                        <div class="form-input">
+                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                            <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -337,7 +345,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn site_btn border_btn">Send</button>
+                                        <button type="submit" class="btn w-100 site_btn">{{btnLabel}}</button>
                                     </div>
                                 </div>
                             </form>

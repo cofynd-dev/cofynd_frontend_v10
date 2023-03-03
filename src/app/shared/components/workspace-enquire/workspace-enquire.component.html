@@ -12,13 +12,13 @@
             <p class="light_blue">Minimum stay 3 months</p>
         </div>
 
-        <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS" class="success-box">
+        <!-- <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS" class="success-box">
             <app-check-mark-circle></app-check-mark-circle>
             <h6>Hi! {{ user.name }}</h6>
             <h3>Thank You for Your Query</h3>
             <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
             <a href="/coworking">Search More Spaces</a>
-        </div>
+        </div> -->
 
         <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
 

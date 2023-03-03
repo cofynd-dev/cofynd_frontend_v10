@@ -480,6 +480,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
