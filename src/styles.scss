@@ -3102,6 +3102,38 @@ h3.site_title {
 	line-height: 16px;
 }
 
+.about_details {
+	display: flex;
+	margin-bottom: 20px;
+    align-items: center;
+}
+.about_details .logo_col {
+	flex: 0 0 20%;
+	padding: 0px 0px 0px 0px;
+	margin-right: 30px;
+}
+.about_details .building_experience {
+	flex: 0 0 25%;
+}
+.about_details h4 {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+}
+.about_details p {
+	font-size: 13px;
+	font-weight: 500;
+	color: rgba(33, 37, 41, 0.5);
+	margin-bottom: 0px;
+}
+.video_area {
+	border-radius: 20px;
+	overflow: hidden;
+}
+.video_area iframe {
+	margin-bottom: -5px;
+}
+
 .space_head {
     padding: 0px 0px;
     &.section-1 {
@@ -6346,6 +6378,22 @@ h3.site_title {
 .join_team_sec img {
 	width: 80%;
 	margin: 10px auto;
+}
+
+.about-area p {
+	margin-bottom: 10px;
+}
+
+.main_builder_about .about_details .logo_col {
+	-webkit-box-flex: 0;
+	flex: 0 0 12%;
+	padding: 0px 0px 0px 0px;
+	margin-right: 30px;
+}
+.about_details .building_experience {
+	-webkit-box-flex: 0;
+	flex: 0 0 15%;
+	margin-right: 20px;
 }
 .cities_query_sec {
     padding: 40px 0px;
