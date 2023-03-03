@@ -247,8 +247,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     if (this.isAuthenticated()) {
       this.createEnquiry();
     } else {
-      // this.getOtp();
-      this.createEnquiry();
+      this.getOtp();
     }
   }
 
@@ -256,7 +255,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enquiryForm.getRawValue();
-      formValues.work_space = this.workSpaceId;
+      // formValues.work_space = this.workSpaceId;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;

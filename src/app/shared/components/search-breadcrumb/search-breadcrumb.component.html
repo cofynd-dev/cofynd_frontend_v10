@@ -1,84 +1,60 @@
-<section class="breadcrumb-wrapper"
-  [class.fixed]="isPageScrolled">
-  <div class="container-fluid">
-    <div class="row">
-      <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a (click)="removeLocalStorage()" [routerLink]="['/']">home</a></li>
-            <li class="breadcrumb-item"
-              [class.active]="item.isActive"
-              *ngFor="let item of breadcrumbs">
-              <a *ngIf="!item.isActive" (click)="removeLocalStorage()"
-                [routerLink]="['/' + item.url + '/']">{{ removedash(item.title) }}</a>
-              <span *ngIf="item.isActive">{{ removedash(item.title) }}</span>
-            </li>
-          </ol>
-        </nav>
-      </div>
-      <div class="col-md-6">
-        <div class="row formobile" *ngIf="filter">
-          <div class="col-md-2 col-sm-2 hide-mobile">&nbsp;</div>
-
-          <div *ngIf="breadcumbType == 'office' || !mobileView"
-            class="col-sm-3 col-3 ">
-            <div class="form-group form-layout-outline"
-              *ngIf="isTypeFilter">
-              <ng-select class="ng-placeholder"
-                placeholder="Type"
-                [(ngModel)]="selectedType"
-                (change)="onTypeChange($event)"
-                [clearable]="false"
-                [searchable]="false">
-                <div *ngFor="let type of typeFilter">
-                  <ng-option [value]="type">
-                    <span>
-                      <small class=""></small>{{ type.label }}</span>
-                  </ng-option>
-                </div>
-              </ng-select>
+<section class="breadcrumb-wrapper" [class.fixed]="isPageScrolled">
+    <div class="container-fluid">
+        <div class="row">
+            <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a (click)="removeLocalStorage()" [routerLink]="['/']">home</a></li>
+                        <li class="breadcrumb-item" [class.active]="item.isActive" *ngFor="let item of breadcrumbs">
+                            <a *ngIf="!item.isActive" (click)="removeLocalStorage()" [routerLink]="['/' + item.url + '/']">{{ removedash(item.title) }}</a>
+                            <span *ngIf="item.isActive">{{ removedash(item.title) }}</span>
+                        </li>
+                    </ol>
+                </nav>
             </div>
-          </div>
-          <div *ngIf="breadcumbType == 'office' || !mobileView"
-            class="col-sm-3 col-3">
-            <div class="form-group form-layout-outline"
-              *ngIf="isSizeFilter">
-              <ng-select placeholder="Size"
-                class="custom"
-                [(ngModel)]="selectedSizeRange"
-                (change)="onSizeChange($event)"
-                [clearable]="false"
-                [searchable]="false">
-                <div *ngFor="let  size of sizeFilter">
-                  <ng-option [value]="size">
-                    <span *ngIf="size.isTitle">
+            <div class="col-md-6">
+                <div class="row formobile" *ngIf="filter">
+                    <div class="col-md-2 col-sm-2 hide-mobile">&nbsp;</div>
+
+                    <div *ngIf="breadcumbType == 'office' || !mobileView" class="col-sm-3 col-3 ">
+                        <div class="form-group form-layout-outline" *ngIf="isTypeFilter">
+                            <ng-select class="ng-placeholder" placeholder="Type" [(ngModel)]="selectedType" (change)="onTypeChange($event)" [clearable]="false" [searchable]="false">
+                                <div *ngFor="let type of typeFilter">
+                                    <ng-option [value]="type">
+                                        <span>
+                      <small class=""></small>{{ type.label }}</span>
+                                    </ng-option>
+                                </div>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div *ngIf="breadcumbType == 'office' || !mobileView" class="col-sm-3 col-3">
+                        <div class="form-group form-layout-outline" *ngIf="isSizeFilter">
+                            <ng-select placeholder="Size" class="custom" [(ngModel)]="selectedSizeRange" (change)="onSizeChange($event)" [clearable]="false" [searchable]="false">
+                                <div *ngFor="let  size of sizeFilter">
+                                    <ng-option [value]="size">
+                                        <span *ngIf="size.isTitle">
                       {{ size.preTitle }}
                       {{ size.postTitle }}
                       <span *ngIf="size.postTitle !== 'plus'">
                         SqFt
                       </span>
-                    </span>
-                    <span *ngIf="!size.isTitle">
+                                        </span>
+                                        <span *ngIf="!size.isTitle">
                       {{ size.minSize }} -
                       {{ size.maxSize }} SqFt
                     </span>
-                  </ng-option>
-                </div>
-              </ng-select>
-            </div>
-          </div>
-          <div [ngClass]="breadcumbType === 'coworking' && mobileView? 'col-sm-3 col-10':'col-sm-3 col-4'">
-            <div class="form-group form-layout-outline"
-              *ngIf="isPriceFilter && breadcumbType !== 'coliving'">
-              <ng-select placeholder="Price"
-                class="custom"
-                [(ngModel)]="selectedPriceRange"
-                (change)="onPriceChange($event)"
-                [clearable]="false"
-                [searchable]="false">
-                <div *ngFor="let price of priceFilter">
-                  <ng-option [value]="price">
-                    <span *ngIf="price.isTitle">
+                                    </ng-option>
+                                </div>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div [ngClass]="breadcumbType === 'coworking' && mobileView? 'col-sm-3 col-10':'col-sm-3 col-4'">
+                        <div class="form-group form-layout-outline" *ngIf="isPriceFilter && breadcumbType !== 'coliving'">
+                            <ng-select placeholder="Price" class="custom" [(ngModel)]="selectedPriceRange" (change)="onPriceChange($event)" [clearable]="false" [searchable]="false">
+                                <div *ngFor="let price of priceFilter">
+                                    <ng-option [value]="price">
+                                        <span *ngIf="price.isTitle">
                       <small class="icon-rupee"
                         *ngIf="price.postTitle !== 'plus' && !price.postTitleSign">
                       </small>
@@ -91,45 +67,38 @@
                       </small>
                       {{ price.postTitle }}
                     </span>
-                    <span *ngIf="!price.isTitle">
+                                        <span *ngIf="!price.isTitle">
                       <small class="icon-rupee"></small>
                       {{ price.minPrice }} -
                       <small class="icon-rupee"></small>
                       {{ price.maxPrice }}
                     </span>
-                  </ng-option>
+                                    </ng-option>
+                                </div>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <ng-template [ngIf]="resetButton && breadcumbType !== 'coliving'">
+                        <div class="col-md-1 col-2 p-0 reset-brnd-btn">
+                            <input type="button" (click)="resetFilter()" value="Reset" class="reset-btn1">
+                        </div>
+                    </ng-template>
                 </div>
-              </ng-select>
             </div>
-          </div>
-          <ng-template [ngIf]="resetButton && breadcumbType !== 'coliving'">
-            <div class="col-md-1 col-2 p-0 reset-brnd-btn">
-              <input type="button"
-                (click)="resetFilter()"
-                value="Reset"
-                class="reset-btn1">
-            </div>
-          </ng-template>
-        </div>
-      </div>
 
-      <div class="col-md-1 form-group" *ngIf="breadcumbType === 'coliving' && priceFilters.length > 0">
-          <select style="margin-top: 5px; height: 32px; width: 100%; font-size: 12px; display: none;"   class="form-select form-select-sm" (change)="onChange($event.target.value)">
+            <div class="col-md-1 form-group" *ngIf="breadcumbType === 'coliving' && priceFilters.length > 0">
+                <select style="margin-top: 5px; height: 32px; width: 100%; font-size: 12px; display: none;" class="form-select form-select-sm" (change)="onChange($event.target.value)">
             <option value="">Select Price </option>
             <option *ngFor="let price of priceFilters; index as i" [value]="price.id">{{price?.value}}</option>
           </select>
-      </div>
+            </div>
 
-      <div class="col-md-1">
-        <div class="custom-control custom-switch">
-          <input type="checkbox"
-            class="custom-control-input"
-            id="mapToggleSwitch"
-            (change)="toggleMapView($event)">
-          <label class="custom-control-label"
-            for="mapToggleSwitch">Map</label>
+            <div class="col-md-1">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="mapToggleSwitch" (change)="toggleMapView($event)">
+                    <label class="custom-control-label" for="mapToggleSwitch">Map</label>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

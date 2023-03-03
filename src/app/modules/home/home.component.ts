@@ -16,6 +16,8 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '@app/core/services/auth.service';
+import { Enquiry } from '@app/core/models/enquiry.model';
 
 interface PopularSpace {
   name: string;
@@ -23,6 +25,12 @@ interface PopularSpace {
   image: string;
   id: string;
   slug?: string;
+}
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
 }
 
 @Component({
@@ -47,6 +55,9 @@ export class HomeComponent implements OnInit {
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
   submitted = false;
+  btnLabel = 'submit';
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
 
   carouselConfig: NguCarouselConfig = {
     grid: { xs: 1.4, sm: 1.4, md: 3, lg: 4, all: 0 },
@@ -64,6 +75,7 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   contactUserName: any;
   showSuccessMessage: boolean;
+  user: import("d:/CofyndNew/Cofynd-Front-end/Cofynd-frontend-website/src/app/core/models/user.model").User;
 
   constructor(
     private _renderer2: Renderer2,
@@ -76,6 +88,7 @@ export class HomeComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
+    private authService: AuthService,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.addSeoTags();
@@ -207,6 +220,7 @@ export class HomeComponent implements OnInit {
     name: ['', Validators.required],
     interested_in: ['', Validators.required],
     city: ['', Validators.required],
+    otp: ['']
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -225,32 +239,91 @@ export class HomeComponent implements OnInit {
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
       return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
     } else {
-      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
-      const object = {
-        user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
-          email: this.enterpriseFormGroup.controls['email'].value,
-          name: this.enterpriseFormGroup.controls['name'].value,
-        },
-        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-        city: this.enterpriseFormGroup.controls['city'].value,
-      };
-      this.userService.createLead(object).subscribe(
+      this.getOtp();
+    }
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
+      this.loading = true;
+      const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      this.userService.addUserEnquiry(formValues).subscribe(
         () => {
-          this.showSuccessMessage = true;
-          this.enterpriseFormGroup.reset();
-          this.submitted = false;
-          this.toastrService.success(
-            'your enquiry submmited successfully,Cofynd executive will contact you shortly for further details.',
-          );
+          this.loading = false;
+          this.btnLabel = 'Verify OTP';
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.addValidationOnOtpField();
         },
         error => {
           this.loading = false;
-          this.toastrService.error(error.message);
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
         },
       );
+    } else {
+      this.validateOtp();
     }
+  }
+
+  validateOtp() {
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    const otp = this.enterpriseFormGroup.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.enterpriseFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  createEnquiry() {
+    this.loading = true;
+    this.btnLabel = 'Submitting...';
+    this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const object = {
+      user: {
+        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        email: this.enterpriseFormGroup.controls['email'].value,
+        name: this.enterpriseFormGroup.controls['name'].value,
+      },
+      city: this.enterpriseFormGroup.controls['city'].value,
+      interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
+      mx_Page_Url: "Home Page",
+    };
+    this.userService.createLead(object).subscribe(
+      () => {
+        this.loading = false;
+        this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
+        this.showSuccessMessage = true;
+        this.enterpriseFormGroup.reset();
+        this.submitted = false;
+        this.router.navigate(['/thank-you']);
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message);
+      },
+    );
   }
 
   loopColivingSliders() {
