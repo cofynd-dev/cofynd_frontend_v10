@@ -24,8 +24,7 @@ export class SearchContactUsText2Component implements OnInit {
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-
-  user: import("d:/CofyndNew/Cofynd-Front-end/Cofynd-frontend-website/src/app/core/models/user.model").User;
+  user: any;
 
 
   constructor(private _formBuilder: FormBuilder,
