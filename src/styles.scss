@@ -6398,25 +6398,6 @@ h3.site_title {
 	flex: 0 0 15%;
 	margin-right: 20px;
 }
-.filter_col .form-select {
-	border: 1px solid rgba(0,0,0,0.2);
-	font-size: 15px;
-	background-color: transparent;
-	line-height: 20px !important;
-	padding: 12px 14px;
-	display: inline-block;
-	border-radius: 10px;
-}
-.form_content .amenities_row {
-	margin-top: 16px;
-}
-.form_content .icon_box img {
-	width: 36px;
-}
-.form_content .icon_box h4 {
-	font-size: 14px;
-	line-height: 20px;
-}
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -6571,6 +6552,29 @@ h3.site_title {
 }
 .micro-location-cta .cta_content ul li:first-child::before {
 	display: none;
+}
+.filter_col .form-select {
+	border: 1px solid rgba(0,0,0,0.2);
+	font-size: 15px;
+	background-color: transparent;
+	line-height: 20px !important;
+	padding: 12px 14px;
+	display: inline-block;
+	border-radius: 10px;
+}
+.form_content .amenities_row {
+	margin-top: 16px;
+}
+.form_content .icon_box img {
+	width: 32px;
+}
+.form_content .icon_box h4 {
+	font-size: 12px;
+	line-height: 20px;
+}
+.cities_query_sec .form_text_area .for_virtual_office {
+	padding: 40px 40px;
+	margin-bottom: 0px;
 }
 
 
