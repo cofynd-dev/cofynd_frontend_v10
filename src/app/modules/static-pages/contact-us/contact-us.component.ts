@@ -17,6 +17,13 @@ import { AuthType } from '@app/core/enum/auth-type.enum';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { Enquiry } from '@app/core/models/enquiry.model';
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
 
 @Component({
   selector: 'app-contact-us',
@@ -35,6 +42,10 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   coworkingCities: any = [];
   colivingCities: any = [];
   finalCities: any = [];
+  btnLabel = 'submit';
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+
 
   constructor(
     private configService: ConfigService,
@@ -152,6 +163,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     city: ['', Validators.required],
     interested_in: ['', Validators.required],
     requirements: [''],
+    otp: ['']
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -170,34 +182,90 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
       return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
     } else {
+      this.getOtp();
+    }
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
-      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
-      const object = {
-        user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
-          email: this.enterpriseFormGroup.controls['email'].value,
-          name: this.enterpriseFormGroup.controls['name'].value,
-          requirements: this.enterpriseFormGroup.controls['requirements'].value,
-        },
-        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-        city: this.enterpriseFormGroup.controls['city'].value,
-        mx_Page_Url: 'Contact-Us Page'
-      };
-      this.userService.createLead(object).subscribe(
+      const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;
-          this.showSuccessMessage = true;
-          this.enterpriseFormGroup.reset();
-          this.submitted = false;
-          this.router.navigate(['/thank-you']);
+          this.btnLabel = 'Verify OTP';
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.addValidationOnOtpField();
         },
         error => {
           this.loading = false;
-          this.toastrService.error(error.message);
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
         },
       );
+    } else {
+      this.validateOtp();
     }
+  }
+
+  validateOtp() {
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    const otp = this.enterpriseFormGroup.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.enterpriseFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  createEnquiry() {
+    this.loading = true;
+    this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const object = {
+      user: {
+        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        email: this.enterpriseFormGroup.controls['email'].value,
+        name: this.enterpriseFormGroup.controls['name'].value,
+        requirements: this.enterpriseFormGroup.controls['requirements'].value,
+      },
+      interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
+      city: this.enterpriseFormGroup.controls['city'].value,
+      mx_Page_Url: 'Contact-Us Page'
+    };
+    this.userService.createLead(object).subscribe(
+      () => {
+        this.loading = false;
+        this.showSuccessMessage = true;
+        this.enterpriseFormGroup.reset();
+        this.submitted = false;
+        this.router.navigate(['/thank-you']);
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message);
+      },
+    );
   }
 
   addClass() {

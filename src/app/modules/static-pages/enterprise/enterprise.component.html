@@ -304,13 +304,13 @@
                     </div>
 
                     <div class="form_body">
-                        <div *ngIf="showSuccessMessage" class="success-box">
+                        <!-- <div *ngIf="showSuccessMessage" class="success-box">
                             <app-check-mark-circle></app-check-mark-circle>
                             <h6>Hi! {{ contactUserName }}</h6>
                             <h3>Thank You for Your Query</h3>
                             <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
                             <a routerLink="/coworking">Search More Spaces</a>
-                        </div>
+                        </div> -->
                         <form action="" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
                             <div class="row">
                                 <div class="col-md-6 col-12">
@@ -342,6 +342,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
@@ -358,10 +367,7 @@
                                 <div class="col-md-12 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
-                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements" required></textarea>
-                                        <div *ngIf="submitted && f['requirements'].errors" class="invalid-feedback" style="display: block;">
-                                            <div *ngIf="f['requirements'].errors['required']">Please enter your requirements.</div>
-                                        </div>
+                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12">
