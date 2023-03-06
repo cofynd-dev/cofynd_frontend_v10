@@ -1,10 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Enquiry } from '@app/core/models/enquiry.model';
+import { AuthService } from '@app/core/services/auth.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { User } from '@core/models/user.model';
 import { UserService } from '@core/services/user.service';
 import { environment } from '@env/environment';
 import { ToastrService } from 'ngx-toastr';
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
 
 @Component({
   selector: 'app-enterprise',
@@ -17,6 +26,8 @@ export class EnterpriseComponent implements OnInit {
     private toastrService: ToastrService,
     private _formBuilder: FormBuilder,
     private workSpaceService: WorkSpaceService,
+    private authService: AuthService,
+    private router: Router,
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
@@ -29,6 +40,11 @@ export class EnterpriseComponent implements OnInit {
   coworkingCities: any = [];
   colivingCities: any = [];
   finalCities: any = [];
+  btnLabel = 'submit';
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  user: any;
+
 
   ngOnInit() {
     this.getCitiesForCoworking();
@@ -40,7 +56,8 @@ export class EnterpriseComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
     city: ['', Validators.required],
-    requirements: ['', Validators.required],
+    requirements: [''],
+    otp: ['']
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -80,32 +97,89 @@ export class EnterpriseComponent implements OnInit {
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
       return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
     } else {
+      this.getOtp();
+    }
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
-      this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
-      const object = {
-        user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
-          email: this.enterpriseFormGroup.controls['email'].value,
-          name: this.enterpriseFormGroup.controls['name'].value,
-          requirements: this.enterpriseFormGroup.controls['requirements'].value,
-        },
-        city: this.enterpriseFormGroup.controls['city'].value,
-        mx_Page_Url: 'Enterprise Page'
-      };
-      this.userService.createLead(object).subscribe(
+      const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;
-          this.showSuccessMessage = true;
-          this.enterpriseFormGroup.reset();
-          this.submitted = false;
+          this.btnLabel = 'Verify OTP';
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.addValidationOnOtpField();
         },
         error => {
           this.loading = false;
-          this.toastrService.error(error.message);
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
         },
       );
+    } else {
+      this.validateOtp();
     }
+  }
+
+  validateOtp() {
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    const otp = this.enterpriseFormGroup.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.enterpriseFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  createEnquiry() {
+    this.loading = true;
+    this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const object = {
+      user: {
+        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        email: this.enterpriseFormGroup.controls['email'].value,
+        name: this.enterpriseFormGroup.controls['name'].value,
+        requirements: this.enterpriseFormGroup.controls['requirements'].value,
+      },
+      city: this.enterpriseFormGroup.controls['city'].value,
+      mx_Page_Url: 'Enterprise Page'
+    };
+    this.userService.createLead(object).subscribe(
+      () => {
+        this.loading = false;
+        this.showSuccessMessage = true;
+        this.enterpriseFormGroup.reset();
+        this.submitted = false;
+        this.router.navigate(['/thank-you']);
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message);
+      },
+    );
   }
 
   scrollToElement(element: HTMLElement) {
