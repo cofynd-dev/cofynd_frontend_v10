@@ -499,5 +499,9 @@ export class CoworkingBrandComponent implements OnInit {
   }
 
 
+  goToLink(url: any) {
+    window.open(`/coworking-brand/${url}`, '_blank');
+  }
+
 
 }
