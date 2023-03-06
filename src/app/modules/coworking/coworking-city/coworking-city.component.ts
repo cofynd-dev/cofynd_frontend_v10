@@ -238,6 +238,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       localStorage.setItem('minPrice', '30000');
       localStorage.setItem('maxPrice', '300000');
     }
+    this.apply();
   }
 
   selectRoomType(value) {
@@ -253,7 +254,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['space_type'] = this.roomType;
     this.loadWorkSpaces(this.queryParams);
-    $('#coworking_filters_popup').modal('hide');
+    // $('#coworking_filters_popup').modal('hide');
   }
 
   addSeoTags(city: string) {
