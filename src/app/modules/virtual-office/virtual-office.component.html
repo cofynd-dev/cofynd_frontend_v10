@@ -1300,7 +1300,7 @@
                             <div class="button"><a routerLink="/coworking/worxways-sector-63-noida" tabindex="0">Explore More</a></div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -1429,7 +1429,7 @@
                             <div class="button"><a routerLink="/coworking/ikeva-chennai-perungudi" tabindex="0">Explore More</a></div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -1488,6 +1488,15 @@
                                         <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                             <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
                                             <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="input-group align-items-center">
+                                        <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                         </div>
                                     </div>
                                 </div>

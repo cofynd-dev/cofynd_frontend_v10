@@ -6,6 +6,11 @@ export const DEFAULT_APP_DATA = {
     email: 'live@cofynd.com',
     address: '1st Floor, Landmark Cyber Park, Sector 67, Gurugram, Haryana 122018',
   },
+  allother: {
+    phone: '+91 9999 10 8078',
+    email: 'hello@cofynd.com',
+    address: '1st Floor, Landmark Cyber Park, Sector 67, Gurugram, Haryana 122018',
+  },
   header_contact: {
     phone: '+91 9999 10 8078',
     email: 'live@cofynd.com',
