@@ -18,6 +18,12 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { UserService } from '@app/core/services/user.service';
 declare var $: any;
 
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
+
 @Component({
   selector: 'app-office-space',
   templateUrl: './office-space.component.html',

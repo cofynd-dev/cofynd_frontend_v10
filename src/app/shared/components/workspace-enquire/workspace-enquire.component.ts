@@ -39,6 +39,7 @@ declare let ga: any;
 })
 export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   supportPhone = DEFAULT_APP_DATA.contact;
+  forNoColiving = DEFAULT_APP_DATA.allother;
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
   @Input() isOfficeEnquiry: boolean;
@@ -131,6 +132,8 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ) {
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
+      console.log("HIIIII" + this.phoneflag);
+
     }
     this.buildForm();
     if (this.isAuthenticated()) {
