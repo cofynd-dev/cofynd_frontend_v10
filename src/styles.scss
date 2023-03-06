@@ -6407,6 +6407,16 @@ h3.site_title {
 	display: inline-block;
 	border-radius: 10px;
 }
+.form_content .amenities_row {
+	margin-top: 16px;
+}
+.form_content .icon_box img {
+	width: 36px;
+}
+.form_content .icon_box h4 {
+	font-size: 14px;
+	line-height: 20px;
+}
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -9110,7 +9120,15 @@ h3.site_title {
     .about-area p {
         margin-bottom: 5px;
     }
-    
+    .filter_col .form-select {
+        font-size: 10px;
+        padding: 8px 8px;
+        border-radius: 7px;
+        width: 100%;
+    }
+    .filter_col {
+        margin-top: 11px;
+    }
     
 }
 
