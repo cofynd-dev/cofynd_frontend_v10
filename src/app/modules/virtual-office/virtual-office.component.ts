@@ -17,6 +17,14 @@ import { environment } from '@env/environment';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { Enquiry } from '@app/core/models/enquiry.model';
+import { AuthService } from '@app/core/services/auth.service';
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
 
 @Component({
   selector: 'app-virtual-office',
@@ -154,6 +162,10 @@ export class VirtualOfficeComponent implements OnInit {
   coworkingCities: any = [];
   colivingCities: any = [];
   finalCities: any = [];
+  btnLabel = 'submit';
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  user: any;
 
   constructor(
     private bsModalService: BsModalService,
@@ -164,6 +176,7 @@ export class VirtualOfficeComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
+    private authService: AuthService,
   ) {
     this.loading = true;
     this.getCurrentPosition().subscribe((position: any) => {
@@ -186,6 +199,7 @@ export class VirtualOfficeComponent implements OnInit {
     name: ['', Validators.required],
     city: ['', Validators.required],
     requirements: [''],
+    otp: ['']
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -266,30 +280,86 @@ export class VirtualOfficeComponent implements OnInit {
     this.submitted = true;
     if (this.queryFormGroup.invalid) {
       return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
     } else {
-      const object = {
-        user: {
-          phone_number: this.queryFormGroup.controls['phone_number'].value,
-          email: this.queryFormGroup.controls['email'].value,
-          name: this.queryFormGroup.controls['name'].value,
-          requirements: this.queryFormGroup.controls['requirements'].value,
-        },
-        city: this.queryFormGroup.controls['city'].value,
-        mx_Page_Url: 'Virtual Office Page'
-      };
-      this.userService.createLead(object).subscribe(
+      this.getOtp();
+    }
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
+      this.loading = true;
+      const formValues: Enquiry = this.queryFormGroup.getRawValue();
+      this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;
-          this.queryFormGroup.reset();
-          this.submitted = false;
-          this.router.navigate(['/thank-you']);
-          // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
+          this.btnLabel = 'Verify OTP';
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.addValidationOnOtpField();
         },
         error => {
           this.loading = false;
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
         },
       );
+    } else {
+      this.validateOtp();
     }
+  }
+
+  validateOtp() {
+    const phone = this.queryFormGroup.get('phone_number').value;
+    const otp = this.queryFormGroup.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.queryFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  createEnquiry() {
+    const object = {
+      user: {
+        phone_number: this.queryFormGroup.controls['phone_number'].value,
+        email: this.queryFormGroup.controls['email'].value,
+        name: this.queryFormGroup.controls['name'].value,
+        requirements: this.queryFormGroup.controls['requirements'].value,
+      },
+      city: this.queryFormGroup.controls['city'].value,
+      mx_Page_Url: 'Virtual Office Page'
+    };
+    this.userService.createLead(object).subscribe(
+      () => {
+        this.loading = false;
+        this.queryFormGroup.reset();
+        this.submitted = false;
+        this.router.navigate(['/thank-you']);
+        // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
+      },
+      error => {
+        this.loading = false;
+      },
+    );
   }
 
   removedash(name: string) {
