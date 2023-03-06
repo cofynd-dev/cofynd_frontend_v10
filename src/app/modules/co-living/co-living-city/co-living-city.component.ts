@@ -158,6 +158,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.maxPrice = 200000;
       this.filterValue = 30000;
     }
+    this.apply();
   }
 
   selectRoomType(value) {
@@ -174,15 +175,15 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.queryParams['room_type'] = this.roomType;
     if (this.maxPrice && this.roomType) {
       this.getOfficeList(this.queryParams);
-      $('#coliving_filter').modal('hide');
+      // $('#coliving_filter').modal('hide');
     }
     if (this.roomType && this.maxPrice == null) {
       this.getOfficeList(this.queryParams);
-      $('#coliving_filter').modal('hide');
+      // $('#coliving_filter').modal('hide');
     }
     if (this.maxPrice && this.roomType == null) {
       this.filterMapView(this.filterValue);
-      $('#coliving_filter').modal('hide');
+      // $('#coliving_filter').modal('hide');
     }
   }
 

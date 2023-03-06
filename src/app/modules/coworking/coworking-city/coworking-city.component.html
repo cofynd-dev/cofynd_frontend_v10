@@ -11,9 +11,16 @@
                 </div>
                 <div class="col-3">
                     <div class="filter_col">
-                        <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coworking_filters_popup">
-                        <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters
-                        </button>
+                        <!-- <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coworking_filters_popup"> -->
+                        <!-- <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters -->
+                        <!-- </button> -->
+                        <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" aria-label="Default select example" (change)="onPriceSelect($event.target.value)">
+                            <option value="Select Price">Select Price</option>
+                            <option value="Less than ₹10,000">Less than ₹10,000</option>
+                            <option value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</option>
+                            <option value="₹20,000 - ₹30,000">₹20,000 - ₹30,000</option>
+                            <option value="More than ₹30,000">More than ₹30,000</option>
+                        </select>
                     </div>
                 </div>
             </div>

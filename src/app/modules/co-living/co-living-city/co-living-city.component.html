@@ -13,9 +13,15 @@
                 </div>
                 <div class="col-3">
                     <div class="filter_col">
-                        <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
+                        <!-- <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
                         <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters
-                        </button>
+                        </button> -->
+                        <select class="form-select" style="cursor: pointer;" name="price" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
+                            <option value="Select Price">Select Price</option>
+                            <option value="Less than ₹15,000">Less than ₹15,000</option>
+                            <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
+                            <option value="More than ₹30,000">More than ₹30,000</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -29,8 +35,8 @@
                         <div class="modal-header" *ngIf="!loading">
                             <h2><b>Filters</b></h2>
                             <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="filder_area">
@@ -39,11 +45,11 @@
                                         <div class="col-12">
                                             <h3><b>Price Range</b></h3>
                                             <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
-                                        <option value="Select Price">Select Price</option>
-                                        <option value="Less than ₹15,000">Less than ₹15,000</option>
-                                        <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
-                                        <option value="More than ₹30,000">More than ₹30,000</option>
-                                    </select>
+                                                <option value="Select Price">Select Price</option>
+                                                <option value="Less than ₹15,000">Less than ₹15,000</option>
+                                                <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
+                                                <option value="More than ₹30,000">More than ₹30,000</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
