@@ -6197,6 +6197,7 @@ h3.site_title {
 	width: 100%;
 	position: relative;
 	margin: 25px 0px;
+	cursor: pointer;
 }
 .brant_item::before {
 	position: absolute;
@@ -6383,7 +6384,9 @@ h3.site_title {
 .about-area p {
 	margin-bottom: 10px;
 }
-
+.about-area p:last-child {
+	margin-bottom: 0px;
+}
 .main_builder_about .about_details .logo_col {
 	-webkit-box-flex: 0;
 	flex: 0 0 12%;

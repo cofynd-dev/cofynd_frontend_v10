@@ -116,9 +116,14 @@
 
                                 <p (click)="toggleAboutMore()" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row">
                             <div class="col-md-12">
                                 <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
-                            </div>
+                            </div>                            
                         </div>
         
                         <hr class="divider_line">
