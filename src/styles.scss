@@ -6398,6 +6398,15 @@ h3.site_title {
 	flex: 0 0 15%;
 	margin-right: 20px;
 }
+.filter_col .form-select {
+	border: 1px solid rgba(0,0,0,0.2);
+	font-size: 15px;
+	background-color: transparent;
+	line-height: 20px !important;
+	padding: 12px 14px;
+	display: inline-block;
+	border-radius: 10px;
+}
 .cities_query_sec {
     padding: 40px 0px;
   
