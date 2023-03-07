@@ -45,7 +45,8 @@ export class SearchBreadcrumbComponent implements OnChanges {
   selectedSort: any;
   mobileView: boolean;
 
-  constructor() {}
+  constructor() {
+  }
 
   @HostListener('window:resize', [])
   onResize() {
