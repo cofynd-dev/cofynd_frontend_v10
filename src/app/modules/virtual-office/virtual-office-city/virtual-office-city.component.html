@@ -5,7 +5,7 @@
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
-            <div class="row align-items-center filter_title" *ngIf="workSpaces.length">
+            <div class="row align-items-center filter_title" *ngIf="workSpaces && workSpaces.length">
                 <div class="col-9">
                     <div class="page-title city_page_title">
                         <h1 class="page-heading" *ngIf="!loading && workSpaces.length">{{ pageTitle ? pageTitle : setSubName()}}</h1>

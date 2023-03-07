@@ -204,7 +204,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-        console.log(this.workSpaces);
         if (this.workSpaces.length) {
           this.workSpaces[0].images.map((image, index) => {
             image.image.alt = this.IMAGE_STATIC_ALT[index];
