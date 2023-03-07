@@ -6398,15 +6398,6 @@ h3.site_title {
 	flex: 0 0 15%;
 	margin-right: 20px;
 }
-.filter_col .form-select {
-	border: 1px solid rgba(0,0,0,0.2);
-	font-size: 15px;
-	background-color: transparent;
-	line-height: 20px !important;
-	padding: 12px 14px;
-	display: inline-block;
-	border-radius: 10px;
-}
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -6561,6 +6552,29 @@ h3.site_title {
 }
 .micro-location-cta .cta_content ul li:first-child::before {
 	display: none;
+}
+.filter_col .form-select {
+	border: 1px solid rgba(0,0,0,0.2);
+	font-size: 15px;
+	background-color: transparent;
+	line-height: 20px !important;
+	padding: 12px 14px;
+	display: inline-block;
+	border-radius: 10px;
+}
+.form_content .amenities_row {
+	margin-top: 16px;
+}
+.form_content .icon_box img {
+	width: 32px;
+}
+.form_content .icon_box h4 {
+	font-size: 12px;
+	line-height: 20px;
+}
+.cities_query_sec .form_text_area .for_virtual_office {
+	padding: 40px 40px;
+	margin-bottom: 0px;
 }
 
 
@@ -9110,7 +9124,39 @@ h3.site_title {
     .about-area p {
         margin-bottom: 5px;
     }
-    
+    .filter_col .form-select {
+        font-size: 10px;
+        padding: 8px 8px;
+        border-radius: 7px;
+        width: 100%;
+    }
+    .filter_col {
+        margin-top: 11px;
+    }
+    .cities_query_sec .cities_form_area {
+        padding: 20px 0px;
+    }
+    .cities_query_sec .form_text_area .form_content {
+        padding: 20px 20px;
+        margin-bottom: 0px;
+    }
+    .cities_query_sec .cities_form_area .form-group .form-control {
+        font-size: 11px;
+        line-height: 17px !important;
+        height: 38px;
+        padding: 10px 10px 10px 30px;
+    }
+    .cities_query_sec .cities_form_area .form-group img {
+        width: 15px;
+        height: 18px;
+        top: 10px;
+    }
+    .cities_query_sec .cities_form_area h1 {
+        margin-bottom: 0px;
+    }
+    .form_content .icon_box h4 {
+        text-align: center !important;
+    }
     
 }
 
