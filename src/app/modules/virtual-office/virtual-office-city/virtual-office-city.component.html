@@ -5,7 +5,7 @@
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
-            <div class="row align-items-center filter_title">
+            <div class="row align-items-center filter_title" *ngIf="workSpaces && workSpaces.length">
                 <div class="col-9">
                     <div class="page-title city_page_title">
                         <h1 class="page-heading" *ngIf="!loading && workSpaces.length">{{ pageTitle ? pageTitle : setSubName()}}</h1>
@@ -16,6 +16,8 @@
                     </div>
                 </div>
             </div>
+            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Virtual'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
+            </app-search-no-result>
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
@@ -28,7 +30,7 @@
                     </div>
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
+                            <app-search-contact-us-text *ngIf="workSpaces.length" [cities]="availableCities" [type]="'for_coWorking'">
                             </app-search-contact-us-text>
                         </div>
                     </ng-template>
@@ -48,18 +50,18 @@
                             </section>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12">
-                            <app-search-contact-us-text1>
+                            <app-search-contact-us-text1 *ngIf="workSpaces.length">
                             </app-search-contact-us-text1>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
-                            <app-search-contact-us-text2>
+                            <app-search-contact-us-text2 *ngIf="workSpaces.length">
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                 </ng-container>
 
                 <div class="col-md-4">
-                    <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                    <app-city-page-enquire *ngIf="workSpaces.length" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                 </div>
             </div>
 

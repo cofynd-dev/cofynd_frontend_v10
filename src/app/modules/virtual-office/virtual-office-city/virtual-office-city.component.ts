@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
-import { AVAILABLE_CITY } from '@core/config/cities';
+import { AVAILABLE_CITY, AVAILABLE_CITY_VIRTUAL_OFFICE } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
@@ -27,7 +27,7 @@ import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspac
 })
 export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   S3_URL = environment.images.S3_URL;
-  availableCities: City[] = AVAILABLE_CITY;
+  availableCities: City[] = AVAILABLE_CITY_VIRTUAL_OFFICE;
   loading = true;
   workSpaces: WorkSpace[];
 
@@ -204,9 +204,11 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
-        this.workSpaces[0].images.map((image, index) => {
-          image.image.alt = this.IMAGE_STATIC_ALT[index];
-        });
+        if (this.workSpaces.length) {
+          this.workSpaces[0].images.map((image, index) => {
+            image.image.alt = this.IMAGE_STATIC_ALT[index];
+          });
+        }
       }
 
       this.totalRecords = allWorkSpaces.totalRecords;

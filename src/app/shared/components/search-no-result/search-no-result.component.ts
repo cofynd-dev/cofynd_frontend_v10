@@ -20,7 +20,7 @@ export class SearchNoResultComponent implements OnInit {
   @Input() type: string = 'for_office';
   city: string;
   submitted = false;
-  loading: boolean;
+  loading: boolean = true;
   showSuccessMessage: boolean;
   contactUserName: string;
   coworkingCities: any = [];
@@ -39,6 +39,7 @@ export class SearchNoResultComponent implements OnInit {
     this.city = parts[parts.length - 1];
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.loading = false;
   }
 
   ngOnInit(): void {

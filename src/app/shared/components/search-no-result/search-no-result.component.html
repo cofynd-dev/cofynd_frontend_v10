@@ -1,4 +1,4 @@
-<div class="blank-screen" *ngIf="title != 'Office'">
+<div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
     <div class="img">
         <img src="/assets/images/blank/no-listing.svg" alt="">
     </div>
@@ -11,7 +11,7 @@
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
 </div>
 
-<section class="cities_query_sec" *ngIf="title == 'Office'">
+<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'">
     <div class="container">
         <div class="row cities_page_row">
             <div class="col-md-6 col-12 order-1 order-md-2">
@@ -111,14 +111,14 @@
 
 
             <div class="col-md-6 col-12 form_text_area order-2 order-md-1">
-                <div class="form_content text-center for_office_space">
+                <div class="form_content text-center for_office_space" *ngIf="title == 'Office'">
                     <h2>Office Space for Rent<br> in {{city | titlecase }}</h2>
                     <div class="location">
                         <p>Andheri | BKC | Bandra | Borivali | <br>Churchgate | Dadar | Goregaon and More.</p>
                     </div>
                 </div>
 
-                <!-- <div class="form_content text-center for_virtual_office">
+                <div class="form_content text-center for_virtual_office" *ngIf="title == 'Virtual'">
                     <h2>Virtual Office in {{city | titlecase }}</h2>
                     <div class="row amenities_row">
                         <div class="col-4">
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
             </div>
