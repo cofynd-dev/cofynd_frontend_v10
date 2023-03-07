@@ -1171,7 +1171,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
   {
     name: 'bhopal',
     id: '6374b9a7be649f47f61efb53',
-    icon: 'Bhopal.svg',
+    icon: 'bhopalsvg.svg',
     for_coWorking: true,
     for_office: false,
     for_coLiving: true,
