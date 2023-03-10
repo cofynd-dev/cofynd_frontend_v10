@@ -1189,7 +1189,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     locations: [],
   },
   {
-    name: 'Ernakulam',
+    name: 'ernakulam',
     id: '637f120645b9002e72c98511',
     icon: 'ernakulam.svg',
     for_coWorking: true,
@@ -1199,7 +1199,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     locations: [],
   },
   {
-    name: 'Calicut',
+    name: 'calicut',
     id: '637ddc26ce0e0e1ae047e4c9',
     icon: 'calicut.svg',
     for_coWorking: true,
@@ -1209,7 +1209,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     locations: [],
   },
   {
-    name: 'Ludhiana',
+    name: 'ludhiana',
     id: '5ff41871a3304537cef83811',
     icon: 'ludhiana.svg',
     for_coWorking: true,
@@ -1219,7 +1219,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
     locations: [],
   },
   {
-    name: 'Mohali',
+    name: 'mohali',
     id: '637df6d1ce0e0e1ae047e632',
     icon: 'mohali.svg',
     for_coWorking: true,
