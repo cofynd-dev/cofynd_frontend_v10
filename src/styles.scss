@@ -5819,12 +5819,15 @@ h3.site_title {
 }
 
 .virtual_office_banner .innerbanner_img {
-    height: 580px;
+	height: 670px;
 }
 
 .virtual_office_banner .innerbanner_img img {
-    height: 590px;
-    object-fit: cover;
+	height: 670px;
+	object-fit: cover;
+}
+.vitual_facilities {
+	padding-top: 30px;
 }
 
 .facilities_sec .icon_item img {
@@ -6397,6 +6400,9 @@ h3.site_title {
 	-webkit-box-flex: 0;
 	flex: 0 0 15%;
 	margin-right: 20px;
+}
+.virtual_office_banner .main_heading h1 {
+	margin-bottom: 0px;
 }
 .cities_query_sec {
     padding: 40px 0px;
