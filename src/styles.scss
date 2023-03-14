@@ -9163,6 +9163,37 @@ h3.site_title {
     .form_content .icon_box h4 {
         text-align: center !important;
     }
+    .office_space_query_form {
+        padding-top: 40px;
+    }
+    .office_space_query_form .enquire-box {
+        padding-bottom: 0 !important;
+    }
+    .office_space_query_form .enquiry-footer {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .office_space_query_form .form-section .heading button {
+        display: none;
+    }
+    .details_area .enquire-box .site_btn {
+        font-size: 11px !important;
+        text-transform: capitalize;
+    }
+    .enquiry_section .form-section {
+        padding: 25px 20px;
+    }
+    .form-section .heading {
+        font-size: 16px;
+        line-height: 13px;
+    }
+    .form-section .form input {
+        font-size: 12px;
+    }
+    .details_area .enquire-box .site_btn {
+        height: 38px;
+    }
+    
     
 }
 
