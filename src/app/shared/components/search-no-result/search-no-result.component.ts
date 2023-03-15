@@ -26,6 +26,8 @@ export class SearchNoResultComponent implements OnInit {
   coworkingCities: any = [];
   colivingCities: any = [];
   finalCities: any = [];
+  pageUrl: string;
+
   OfficeBudgets = [
     { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
     { label: '1 Lac - 2 Lac', value: '1 Lac - 2 Lac' },
@@ -57,6 +59,7 @@ export class SearchNoResultComponent implements OnInit {
     { label: '100+', value: '100+' },
   ];
 
+
   constructor(
     private router: Router,
     private userService: UserService,
@@ -65,6 +68,7 @@ export class SearchNoResultComponent implements OnInit {
     private workSpaceService: WorkSpaceService,
   ) {
     let url = this.router.url;
+    this.pageUrl = `https://cofynd.com${url}`;
     var parts = url.split("/");
     this.city = parts[parts.length - 1];
     this.getCitiesForCoworking();
@@ -158,7 +162,7 @@ export class SearchNoResultComponent implements OnInit {
           mx_BudgetPrice: this.enterpriseFormGroup.controls['mx_BudgetPrice'].value,
           city: this.city,
           interested_in: 'Office Space',
-          mx_Page_Url: 'No Result Page'
+          mx_Page_Url: this.pageUrl,
         };
       }
       if (this.title == 'Virtual') {
@@ -173,7 +177,7 @@ export class SearchNoResultComponent implements OnInit {
           no_of_person: this.enterpriseFormGroup.controls['no_of_person'].value,
           city: this.city,
           interested_in: 'Virtual Office',
-          mx_Page_Url: 'No Result Page'
+          mx_Page_Url: this.pageUrl,
         };
       }
       this.userService.createLead(object).subscribe(
