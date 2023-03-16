@@ -1,83 +1,62 @@
-// .partners {
-//     padding: 0 9%;
-//     overflow: hidden;
-    
-//     background-size: cover;
-//     padding: 60px 0px 60px;
+.coworking_brand_list {
+  .ngucarousel-items {
+      margin: 0 -10px;
+  }
+  .carousel-arrow {
+      position: absolute;
+      top: 18px;
+      color: #4343e8;
+      font-size: 26px;
+      font-weight: bold;
+      &.icon-next {
+          right: -20px;
+      }
+      &.icon-back {
+          left: -20px;
+      }
+      &[disabled] {
+          opacity: 0.4;
+      }
+      @media (max-width: 767px) {
+          display: none;
+      }
+  }
+  .item {
+      padding: 0 25px;
+  }
+  @media (max-width: 480px) {
+      .page-title {
+          padding: 20px 0 10px;
+          h2::after {
+              bottom: -15px;
+          }
+      }
+      background:white;
+  }
+  .our-client-carousel {
+      position: relative;
+      overflow: hidden;
+  }
+  .last-slide {
+      @media (max-width: 767px) {
+          .not-first-slide {
+              width: 100% !important;
+          }
+      }
+  }
+}
 
-//   @media (max-width: 580px) {
-//     padding: 50px 9%;
-//    }
-//   &.grey-layout {
-//     background: #f8f9fa;
-//     padding: 30px 0 60px;
-   
-//     @media (max-width: 767px) {
-
-//       .page-title h2::before {
-//         display: none;
-//       }
-
-//       .partner-carousel {
-//         white-space: nowrap;
-//         overflow: hidden;
-//         flex-wrap: nowrap;
-//         overflow-x: auto;
-//         justify-content: flex-start;
-//       }
-//     }
+@media (max-width: 480px) {
+  
+//   .col-md-12.text-center {
+//     text-align: left !important;
 //   }
+.our_client_sec .col-12.mt-3 {
+margin-top: 0px !important;
+}
+  
+}
 
-//   .remove-side-circle {
-//     padding: 0px 0 50px;
-
-//     h2 {
-//       &::before {
-//         display: none;
-//       }
-//     }
-//   }
-
-//   .partner-carousel {
-//     display: -webkit-box;
-//     justify-content: space-evenly;
-
-//     .band-img {
-//       flex-grow: 1;
-//       text-align: center;
-//     }
-
-
-//     img {
-//       cursor: pointer;
-//       max-width: 100%;
-//       width: 140px;
-//       transition: filter 1000ms ease-out;
-//       height: auto !important;
-//     }
-
-//     .brand-partner{
-//       cursor: text !important;
-//     }
-
-//     @media (max-width: 767px) {
-//       margin-right: 0;
-//       margin-left: 0;
-
-//       .band-img {
-//         flex-grow: 1;
-//         max-width: 33%;
-//         flex: 0 0 33%;
-//         padding: 15px 5px;
-//         text-align: center;
-//       }
-
-//       img {
-//         max-width: 100%;
-//       }
-//     }
-//   }
-// }
 
 .slider-on-mobile-view {
   display: none;
@@ -93,14 +72,6 @@
   }
 }
 
-// @media (max-width: 600px) {
-//   .partners .remove-side-circle {
-//     padding: 40px 0;
-//   }
-//   .partners .page-title{
-//     padding: 20px 0;
-//   }
-// }
 .logos_slider {
 	display: flex;
 }
@@ -110,6 +81,16 @@
 }
 .coliving_brand_list .band-img {
 	margin: 0px 50px !important;
+}
+.coworking_brands_item .brands-log {
+	height: 60px;
+	width: 100%;
+}
+.coworking_brands_item .brands-log img {
+	width: auto;
+	height: 100%;
+	object-fit: contain;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {

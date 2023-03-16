@@ -8,13 +8,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mt-3">
+                <div class="coworking-brands-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coworkingBrandsList" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coworkingBrandsList.length-1)?'last-slide':null">
+                            <div class="coworking_brands_item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <div class="brands-log">
+                                    <img [routerLink]="space.url" [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+                </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+                </button>
+            </div>
+
+            <!-- <div class="col-12">
                 <div class="logos_slider">
                     <div class="band-img" *ngFor="let brand of coworkingBrands">
                         <img (click)="goToBrandPage(brand)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
