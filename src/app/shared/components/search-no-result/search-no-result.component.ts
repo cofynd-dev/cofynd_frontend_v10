@@ -26,6 +26,39 @@ export class SearchNoResultComponent implements OnInit {
   coworkingCities: any = [];
   colivingCities: any = [];
   finalCities: any = [];
+  pageUrl: string;
+
+  OfficeBudgets = [
+    { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
+    { label: '1 Lac - 2 Lac', value: '1 Lac - 2 Lac' },
+    { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
+    { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
+    { label: '10 Lac +', value: '10 Lac +' },
+  ]
+
+  OfficeType = [
+    { label: 'Row', value: 'Row' },
+    { label: 'Semi-Furnished', value: 'Semi-Furnished' },
+    { label: 'Fully-Furnished', value: 'Fully-Furnished' },
+    { label: 'Built to Suit/Customized', value: 'Built to Suit/Customized' },
+  ]
+
+  VirtualOfficeType = [
+    { label: 'Dedicated Desk', value: 'Dedicated-Desk' },
+    { label: 'Private Cabin', value: 'Private-Cabin' },
+    { label: 'Virtual Office', value: 'Virtual-Office' },
+    { label: 'Office Suite', value: 'Office-Suite' },
+    { label: 'Custom Buildout', value: 'Custom-Buildout' },
+  ]
+
+  coworkingNoOfSeats = [
+    { label: '1-10', value: '1-10' },
+    { label: `11-20`, value: '11-20' },
+    { label: '21-50', value: '21-50' },
+    { label: '51-100', value: '51-100' },
+    { label: '100+', value: '100+' },
+  ];
+
 
   constructor(
     private router: Router,
@@ -35,26 +68,46 @@ export class SearchNoResultComponent implements OnInit {
     private workSpaceService: WorkSpaceService,
   ) {
     let url = this.router.url;
+    this.pageUrl = `https://cofynd.com${url}`;
     var parts = url.split("/");
     this.city = parts[parts.length - 1];
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.loading = false;
   }
-
-  ngOnInit(): void {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-  }
-
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
-    city: ['', Validators.required],
     requirements: [''],
-    interested_in: ['', Validators.required],
   });
+
+  ngOnInit(): void {
+    this.getCitiesForCoworking();
+    this.getCitiesForColiving();
+    if (this.title == 'Office') {
+      let form = {
+        phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+        email: ['', [Validators.required, Validators.email]],
+        name: ['', Validators.required],
+        requirements: [''],
+      };
+      form['mx_BudgetPrice'] = ['', Validators.required];
+      form['mx_Furnishing_Type'] = ['', Validators.required];
+      this.enterpriseFormGroup = this._formBuilder.group(form);
+    }
+    if (this.title == 'Virtual') {
+      let form = {
+        phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+        email: ['', [Validators.required, Validators.email]],
+        name: ['', Validators.required],
+        requirements: [''],
+      };
+      form['mx_Office_Type'] = ['', Validators.required];
+      form['no_of_person'] = ['', Validators.required];
+      this.enterpriseFormGroup = this._formBuilder.group(form);
+    }
+  }
 
   get f(): { [key: string]: AbstractControl } {
     return this.enterpriseFormGroup.controls;
@@ -96,17 +149,37 @@ export class SearchNoResultComponent implements OnInit {
     } else {
       this.loading = true;
       this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
-      const object = {
-        user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
-          email: this.enterpriseFormGroup.controls['email'].value,
-          name: this.enterpriseFormGroup.controls['name'].value,
-          requirements: this.enterpriseFormGroup.controls['requirements'].value,
-        },
-        city: this.enterpriseFormGroup.controls['city'].value,
-        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-        mx_Page_Url: 'No Result Page'
-      };
+      let object = {};
+      if (this.title == 'Office') {
+        object = {
+          user: {
+            phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+            email: this.enterpriseFormGroup.controls['email'].value,
+            name: this.enterpriseFormGroup.controls['name'].value,
+            requirements: this.enterpriseFormGroup.controls['requirements'].value,
+          },
+          mx_Furnishing_Type: this.enterpriseFormGroup.controls['mx_Furnishing_Type'].value,
+          mx_BudgetPrice: this.enterpriseFormGroup.controls['mx_BudgetPrice'].value,
+          city: this.city,
+          interested_in: 'Office Space',
+          mx_Page_Url: this.pageUrl,
+        };
+      }
+      if (this.title == 'Virtual') {
+        object = {
+          user: {
+            phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+            email: this.enterpriseFormGroup.controls['email'].value,
+            name: this.enterpriseFormGroup.controls['name'].value,
+            requirements: this.enterpriseFormGroup.controls['requirements'].value,
+          },
+          mx_Office_Type: this.enterpriseFormGroup.controls['mx_Office_Type'].value,
+          no_of_person: this.enterpriseFormGroup.controls['no_of_person'].value,
+          city: this.city,
+          interested_in: 'Virtual Office',
+          mx_Page_Url: this.pageUrl,
+        };
+      }
       this.userService.createLead(object).subscribe(
         () => {
           this.router.navigate(['/thank-you'])
