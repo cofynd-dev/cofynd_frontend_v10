@@ -322,7 +322,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4b40bb7e36e8050df729e15bd19011a5fe763f50.png',
       cityCount: '7+',
       centersCount: '29+',
-      url: 'the executive center'
+      url: 'the-executive-center'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c64d35e54f372eb9ecfdfe219782fed0b5de1b2.jpg',
@@ -330,7 +330,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/410266f70fa59ee74956783e045ae6af1570f1e2.png',
       cityCount: '1',
       centersCount: '1',
-      url: 'quest coworks'
+      url: 'quest-coworks'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8dc7c3c3d30a77c5277981fccccd1b37ee3f1866.jpg',
@@ -338,7 +338,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a3f5442c8c5554c172c63e16884cb4cd28640443.png',
       cityCount: '1',
       centersCount: '8+',
-      url: 'executive spaces'
+      url: 'executive-spaces'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b411094af257c3e20f3bc4941a5c5a4be73bf695.jpg',
@@ -346,7 +346,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f7615b8f52e9271ef61f7838cb00be8846bd2869.png',
       cityCount: '1',
       centersCount: '10+',
-      url: 'urban vault'
+      url: 'urban-vault'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f65ba41a83cb464ebef1f5cc0c7d01f3f9d7ce8.jpg',
@@ -354,7 +354,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3aaca250b7b7f016eba8880b632250648337873a.png',
       cityCount: '8+',
       centersCount: '14+',
-      url: 'vatika business centre'
+      url: 'vatika-business-centre'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d8b4d53d6eb61de2f93382b58428d71402120d49.jpg',
@@ -418,7 +418,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/757e7d251801537479b8144c41715193deac40d2.png',
       cityCount: '3+',
       centersCount: '20+',
-      url: 'red brick'
+      url: 'red-brick'
     },
     {
       image: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d76cf8783a905b3c915581b2fe90ab9ce6a7a582.jpg',
@@ -490,7 +490,7 @@ export class CoworkingBrandComponent implements OnInit {
       titleImg: 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/73c2d9f1d6ce9c0128b6cbc6529891fa9b8937a1.png',
       cityCount: '9+',
       centersCount: '36+',
-      url: 'smart works'
+      url: 'smart-works'
     },
   ]
 

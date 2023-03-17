@@ -309,8 +309,9 @@ export class CoworkingBrandDetailComponent implements OnInit {
 
   setWorkspaceDetail(allWorkSpaces) {
     this.workSpaces = allWorkSpaces.data;
+    this.workSpaces = this.workSpaces.filter((item: any) => { return item.location.country == '6231ae062a52af3ddaa73a39' })
     this.totalRecords = allWorkSpaces.totalRecords;
-    if (allWorkSpaces.data.length) {
+    if (this.workSpaces.length) {
       this.brand = this.workSpaces[0].brand;
       const IMAGE_STATIC_ALT = [
         this.brand.name + ((this.isColiving && 'Coliving') || 'Coworking'),
@@ -328,7 +329,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
       }
     }
     this.createBreadcrumb();
-    this.count = allWorkSpaces.data.length;
+    this.count = this.workSpaces.length;
     if (allWorkSpaces.totalRecords > this.count) {
       this.showLoadMore = true;
     }
