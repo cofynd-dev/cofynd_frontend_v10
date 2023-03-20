@@ -297,6 +297,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
         formValues.living_space = this.workSpaceId;
         break;
     }
+    if (formValues['mx_Space_Type'] == 'Virtual Office') {
+      formValues['interested_in'] = 'VirtualOffice'
+    }
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
@@ -338,19 +341,23 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['interested_in'] = [null, Validators.required];
       form['mx_Move_In_Date'] = [null, Validators.required];
+      form['mx_Space_Type'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+      form['interested_in'] = ['Coworking'];
       form['no_of_person'] = [null, Validators.required];
+
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['interested_in'] = ['Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['interested_in'] = ['OfficeSpace'];
       form['mx_Move_In_Date'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-      form['mx_BudgetPrice'] = [null, Validators.required]
+      form['mx_BudgetPrice'] = [null, Validators.required];
+      form['mx_Space_Type'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
   }

@@ -127,6 +127,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: `Fully-Furnished`, value: 'Fully-Furnished' },
     { label: `Built to Suit/Customized`, value: 'Built to Suit/Customized' },
   ]
+  pageName: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -146,6 +147,9 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
     }
+    let url = this.router.url.split('/')
+    this.pageName = url[1];
+    console.log(this.pageName);
   }
 
   ngOnInit(): void {
@@ -345,19 +349,22 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['interested_in'] = [null, Validators.required];
+      form['mx_Space_Type'] = [null, Validators.required];
       form['mx_Move_In_Date'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+      form['interested_in'] = ['Coworking'];
       form['no_of_person'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['interested_in'] = ['Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['interested_in'] = ['OfficeSpace'];
       form['mx_Move_In_Date'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-      form['mx_BudgetPrice'] = [null, Validators.required]
+      form['mx_BudgetPrice'] = [null, Validators.required];
+      form['mx_Space_Type'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
   }
