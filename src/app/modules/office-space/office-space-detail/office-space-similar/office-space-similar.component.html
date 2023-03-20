@@ -13,7 +13,7 @@
                     <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
                 </div>
                 <div class="property-foot align-items-end">
-                    <div class="price"><span class="rent_title">Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span></div>
+                    <div class="price"><span class="rent_title">Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }} <span>/ month</span></div>
                     <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]" tabindex="0">Explore More</a></div>
                 </div>
             </div>
