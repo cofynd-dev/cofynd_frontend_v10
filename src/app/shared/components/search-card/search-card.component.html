@@ -25,14 +25,14 @@
             <div *ngIf="workspace.show_price" class="price">
                 <ng-template [ngIf]="forAll">
                     <span class="rent_title">Starting from</span>
-                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }}/- <small>{{ workspace.price_type }}</small></div>
-                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span>/{{ workspace.price_type }}</span></div>
+                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }} <span>/ {{ workspace.price_type }}</span></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span> / {{ workspace.price_type }}</span></div>
                 </ng-template>
                 <ng-template [ngIf]="!forAll">
                     <span class="rent_title">Starting from</span>
                     <ng-container *ngFor="let item of workspace?.plans">
                         <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
-                            <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }}/- <span>{{item?.duration }}</span>
+                            <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }} <span>/ {{item?.duration }}</span>
                         </div>
                     </ng-container>
                 </ng-template>
