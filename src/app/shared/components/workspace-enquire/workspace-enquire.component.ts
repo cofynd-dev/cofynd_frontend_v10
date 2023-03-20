@@ -118,6 +118,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ]
 
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
+  pageUrl: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -132,13 +133,13 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ) {
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
-      console.log("HIIIII" + this.phoneflag);
-
     }
     this.buildForm();
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
     }
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   ngOnInit(): void {
@@ -297,9 +298,10 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
         formValues.living_space = this.workSpaceId;
         break;
     }
-    if (formValues['mx_Space_Type'] == 'Virtual Office') {
-      formValues['interested_in'] = 'VirtualOffice'
+    if (formValues['interested_in'] == 'Virtual Office') {
+      formValues['mx_Space_Type'] = 'Web Virtual Office';
     }
+    formValues['mx_Page_Url'] = this.pageUrl;
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
@@ -342,22 +344,23 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['mx_Move_In_Date'] = [null, Validators.required];
-      form['mx_Space_Type'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
-      form['interested_in'] = ['Coworking'];
+      form['mx_Space_Type'] = ['Web Coworking'];
       form['no_of_person'] = [null, Validators.required];
-
+      form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['interested_in'] = ['Coliving'];
+      form['mx_Space_Type'] = ['Web Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
-      form['interested_in'] = ['OfficeSpace'];
+      form['mx_Space_Type'] = ['Web Office Space'];
+      form['interested_in'] = [null, Validators.required];
       form['mx_Move_In_Date'] = [null, Validators.required];
       form['mx_BudgetPrice'] = [null, Validators.required];
-      form['mx_Space_Type'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
   }

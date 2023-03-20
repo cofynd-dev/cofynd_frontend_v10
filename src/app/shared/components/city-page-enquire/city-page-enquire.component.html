@@ -47,9 +47,9 @@
         <div class="row coworking_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
             <div class="col-md-6">
                 <div class="form-group">
-                    <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="mx_Space_Type">
+                    <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                     </ng-select>
-                    <app-input-validation [control]="enquiryForm.controls.mx_Space_Type">
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
                     </app-input-validation>
                 </div>
             </div>
@@ -66,9 +66,9 @@
         <div class="row coliving_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
             <div class="col-md-6">
                 <div class="form-group">
-                    <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="mx_Space_Type">
+                    <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                     </ng-select>
-                    <app-input-validation [control]="enquiryForm.controls.mx_Space_Type">
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
                     </app-input-validation>
                 </div>
             </div>
@@ -85,9 +85,9 @@
         <div class="row office_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.OFFICE">
             <div class="col-md-6">
                 <div class="form-group">
-                    <ng-select placeholder="Type" [clearable]="true" [searchable]="false" [items]="OfficePlans" bindLabel="label" bindValue="value" formControlName="mx_Space_Type">
+                    <ng-select placeholder="Type" [clearable]="true" [searchable]="false" [items]="OfficePlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                     </ng-select>
-                    <app-input-validation [control]="enquiryForm.controls.mx_Space_Type">
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
                     </app-input-validation>
                 </div>
             </div>
