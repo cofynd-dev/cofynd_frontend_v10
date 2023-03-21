@@ -21,6 +21,7 @@ export enum ENQUIRY_STEPS {
   styleUrls: ['./enterprise.component.scss'],
 })
 export class EnterpriseComponent implements OnInit {
+  pageUrl: string;
   constructor(
     private userService: UserService,
     private toastrService: ToastrService,
@@ -31,6 +32,8 @@ export class EnterpriseComponent implements OnInit {
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   submitted = false;
@@ -165,7 +168,8 @@ export class EnterpriseComponent implements OnInit {
         requirements: this.enterpriseFormGroup.controls['requirements'].value,
       },
       city: this.enterpriseFormGroup.controls['city'].value,
-      mx_Page_Url: 'Enterprise Page'
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: 'Web Office Space'
     };
     this.userService.createLead(object).subscribe(
       () => {
