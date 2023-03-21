@@ -25,6 +25,7 @@ export class SearchContactUsText2Component implements OnInit {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
+  pageUrl: string;
 
 
   constructor(private _formBuilder: FormBuilder,
@@ -36,6 +37,8 @@ export class SearchContactUsText2Component implements OnInit {
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   submitted = false;
@@ -157,7 +160,20 @@ export class SearchContactUsText2Component implements OnInit {
   createEnquiry() {
     this.loading = true;
     this.btnLabel = 'Submitting...';
+    let mx_Space_Type = '';
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking') {
+      mx_Space_Type = 'Web Coworking'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
+      mx_Space_Type = 'Web Coliving'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Office Space') {
+      mx_Space_Type = 'Web Office Space'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Virtual Office') {
+      mx_Space_Type = 'Web Virtual Office'
+    }
     const object = {
       user: {
         phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
@@ -166,8 +182,9 @@ export class SearchContactUsText2Component implements OnInit {
       },
       city: this.enterpriseFormGroup.controls['city'].value,
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-      mx_Page_Url: this.pageNo,
-      microlocation: this.microlocation
+      mx_Page_Url: this.pageUrl,
+      microlocation: this.microlocation,
+      mx_Space_Type: mx_Space_Type
     };
     this.userService.createLead(object).subscribe(
       () => {

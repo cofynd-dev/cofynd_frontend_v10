@@ -955,6 +955,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   colivingCities: any = [];
   finalCities: any = [];
   user: any;
+  pageUrl: string;
 
 
 
@@ -991,6 +992,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -1195,7 +1198,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
         requirements: this.enterpriseFormGroup.controls['requirements'].value,
       },
       city: this.enterpriseFormGroup.controls['city'].value,
-      mx_Page_Url: 'Coworking Page'
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: 'Web Coworking'
     };
     this.userService.createLead(object).subscribe(
       () => {
