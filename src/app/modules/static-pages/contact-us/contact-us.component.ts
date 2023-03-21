@@ -45,6 +45,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  pageUrl: string;
 
 
   constructor(
@@ -64,6 +65,8 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     this.addSeoTags();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   ngOnInit() {
@@ -242,6 +245,31 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    let mx_Space_Type = '';
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking Space') {
+      mx_Space_Type = 'Web Coworking'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
+      mx_Space_Type = 'Web Coliving'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Private Office') {
+      mx_Space_Type = 'Web Office Space'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Customise Office') {
+      mx_Space_Type = 'Web Office Space'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'CoFynd of Landlords') {
+      mx_Space_Type = 'List Coliving'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Broker Partnership Program') {
+      mx_Space_Type = 'Web Coworking'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'List Your Property') {
+      mx_Space_Type = 'List Coliving'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Any/Other Query') {
+      mx_Space_Type = 'Web Coworking'
+    }
     const object = {
       user: {
         phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
@@ -251,7 +279,8 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       },
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
       city: this.enterpriseFormGroup.controls['city'].value,
-      mx_Page_Url: 'Contact-Us Page'
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: mx_Space_Type
     };
     this.userService.createLead(object).subscribe(
       () => {

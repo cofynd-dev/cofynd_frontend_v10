@@ -166,6 +166,7 @@ export class VirtualOfficeComponent implements OnInit {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
+  pageUrl: string;
 
   constructor(
     private bsModalService: BsModalService,
@@ -191,6 +192,8 @@ export class VirtualOfficeComponent implements OnInit {
     });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   queryFormGroup: FormGroup = this._formBuilder.group({
@@ -346,7 +349,8 @@ export class VirtualOfficeComponent implements OnInit {
         requirements: this.queryFormGroup.controls['requirements'].value,
       },
       city: this.queryFormGroup.controls['city'].value,
-      mx_Page_Url: 'Virtual Office Page'
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: 'Web Virtual Office'
     };
     this.userService.createLead(object).subscribe(
       () => {

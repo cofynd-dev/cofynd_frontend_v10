@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit {
   contactUserName: any;
   showSuccessMessage: boolean;
   user: any;
+  pageUrl: string;
 
   constructor(
     private _renderer2: Renderer2,
@@ -98,6 +99,8 @@ export class HomeComponent implements OnInit {
     this.getBrandAdsImages();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`
   }
 
   ngOnInit(): void {
@@ -300,8 +303,21 @@ export class HomeComponent implements OnInit {
 
   createEnquiry() {
     this.loading = true;
+    let mx_Space_Type = '';
     this.btnLabel = 'Submitting...';
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking') {
+      mx_Space_Type = 'Web Coworking'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
+      mx_Space_Type = 'Web Coliving'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Office Space') {
+      mx_Space_Type = 'Web Office Space'
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Virtual Office') {
+      mx_Space_Type = 'Web Virtual Office'
+    }
     const object = {
       user: {
         phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
@@ -310,7 +326,8 @@ export class HomeComponent implements OnInit {
       },
       city: this.enterpriseFormGroup.controls['city'].value,
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
-      mx_Page_Url: "Home Page",
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: mx_Space_Type
     };
     this.userService.createLead(object).subscribe(
       () => {
