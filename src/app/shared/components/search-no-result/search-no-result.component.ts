@@ -103,8 +103,8 @@ export class SearchNoResultComponent implements OnInit {
         name: ['', Validators.required],
         requirements: [''],
       };
-      form['mx_Office_Type'] = ['', Validators.required];
-      form['no_of_person'] = ['', Validators.required];
+      // form['mx_Office_Type'] = ['', Validators.required];
+      // form['no_of_person'] = ['', Validators.required];
       this.enterpriseFormGroup = this._formBuilder.group(form);
     }
   }
@@ -163,6 +163,7 @@ export class SearchNoResultComponent implements OnInit {
           city: this.city,
           interested_in: 'Office Space',
           mx_Page_Url: this.pageUrl,
+          mx_Space_Type: 'Web Office Space'
         };
       }
       if (this.title == 'Virtual') {
@@ -173,11 +174,12 @@ export class SearchNoResultComponent implements OnInit {
             name: this.enterpriseFormGroup.controls['name'].value,
             requirements: this.enterpriseFormGroup.controls['requirements'].value,
           },
-          mx_Office_Type: this.enterpriseFormGroup.controls['mx_Office_Type'].value,
-          no_of_person: this.enterpriseFormGroup.controls['no_of_person'].value,
+          // mx_Office_Type: this.enterpriseFormGroup.controls['mx_Office_Type'].value,
+          // no_of_person: this.enterpriseFormGroup.controls['no_of_person'].value,
           city: this.city,
           interested_in: 'Virtual Office',
           mx_Page_Url: this.pageUrl,
+          mx_Space_Type: 'Web Virtual Office'
         };
       }
       this.userService.createLead(object).subscribe(

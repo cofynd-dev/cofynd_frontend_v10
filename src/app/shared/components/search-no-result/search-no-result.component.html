@@ -77,7 +77,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6" *ngIf="title == 'Virtual'">
+                            <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Office_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Office_Type">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6" *ngIf="title == 'Virtual'">
+                            <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['no_of_person'].errors }" formControlName="no_of_person" class="form-control" placeholder="select your city" required aria-label="Default select example">
