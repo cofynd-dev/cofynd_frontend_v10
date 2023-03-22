@@ -44,7 +44,7 @@
             </app-input-validation>
         </div>
 
-        <div class="row coworking_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
+        <div class="row coworking_form_fields" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING && pageName !== 'virtual-office'">
             <div class="col-md-6">
                 <div class="form-group">
                     <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">

@@ -129,6 +129,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   ]
   pageName: string;
   pageUrl: string;
+  city: string;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -150,8 +151,10 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     }
     this.pageUrl = this.router.url;
     let url = this.router.url.split('/');
+    var parts = url;
+    this.city = parts[parts.length - 1];
     this.pageName = url[1];
-    this.pageUrl = `https://cofynd.com${this.pageUrl}`
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
   }
 
   ngOnInit(): void {
@@ -244,6 +247,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   };
 
   onSubmit() {
+    this.addValidationOnMobileField();
     this.enquiryForm.markAllAsTouched();
 
     if (this.enquiryForm.invalid) {
@@ -301,8 +305,10 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     const formValues: Enquiry = this.enquiryForm.getRawValue();
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
+      formValues['interested_in'] = 'Virtual Office';
     }
     formValues['mx_Page_Url'] = this.pageUrl;
+    formValues['city'] = this.city;
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
@@ -334,6 +340,12 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     otpControl.updateValueAndValidity();
   }
 
+  addValidationOnMobileField() {
+    const otpControl = this.enquiryForm.get('phone_number');
+    otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
+    otpControl.updateValueAndValidity();
+  }
+
   private buildForm() {
     const form = {
       name: ['', Validators.required],
@@ -344,14 +356,15 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['interested_in'] = [null, Validators.required];
       form['mx_Move_In_Date'] = [null, Validators.required];
     }
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+    if (this.enquiryType == ENQUIRY_TYPES.COWORKING && this.pageName !== 'virtual-office') {
+      form['interested_in'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coworking'];
       form['no_of_person'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['interested_in'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
     }
