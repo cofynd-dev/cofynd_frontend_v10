@@ -232,6 +232,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   };
 
   onSubmit() {
+    this.addValidationOnMobileField();
     this.enquiryForm.markAllAsTouched();
 
     if (this.enquiryForm.invalid) {
@@ -330,6 +331,12 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   addValidationOnOtpField() {
     const otpControl = this.enquiryForm.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  addValidationOnMobileField() {
+    const otpControl = this.enquiryForm.get('phone_number');
+    otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
     otpControl.updateValueAndValidity();
   }
 
