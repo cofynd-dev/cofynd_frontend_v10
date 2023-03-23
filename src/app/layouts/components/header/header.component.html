@@ -67,7 +67,7 @@
                     <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + contactInfo.email " [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email}}</a>
 
                 </li>
-                <!-- <li *ngIf="!isAuthenticated()" class="no-tablet">
+                <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
                             Signup</button>
@@ -82,21 +82,12 @@
                             <i class="icon-down-arrow"></i>
                         </button>
                         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
-                            <li>
-                                <a routerLink="/user/account">My Account</a>
-                            </li>
-                            <li>
-                                <a routerLink="/user/schedule-visits">My Visits</a>
-                            </li>
-                            <li>
-                                <a routerLink="/user/favourites">My Favourites</a>
-                            </li>
-                            <li>
+                            <li class="divider-line mobile-phone-menu no-tablet">
                                 <button type="button" (click)="onLogOut()">Log Out</button>
                             </li>
                         </ul>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </div>
