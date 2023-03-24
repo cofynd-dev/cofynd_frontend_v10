@@ -38,7 +38,14 @@ export class SearchContactUsText2Component implements OnInit {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.pageUrl = this.router.url;
-    this.pageUrl = `https://cofynd.com${this.pageUrl}`
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
+    if (this.isAuthenticated()) {
+      this.user = this.authService.getLoggedInUser();
+    };
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enterpriseFormGroup.patchValue({ name, email, phone_number });
+    }
   }
 
   submitted = false;

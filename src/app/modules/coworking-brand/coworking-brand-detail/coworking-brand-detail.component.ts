@@ -75,7 +75,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
       this.breadcrumbs = [
         {
           title: this.brand.name,
-          url: 'brand/' + this.brand.name,
+          url: 'coworking-brand/' + this.brand.name.toLocaleLowerCase().replace(/\s+/g, '-'),
           isActive: false,
         },
         {
