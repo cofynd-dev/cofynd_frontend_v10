@@ -77,6 +77,11 @@ export class HomeComponent implements OnInit {
   showSuccessMessage: boolean;
   user: any;
   pageUrl: string;
+  countries: any = [];
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
 
   constructor(
     private _renderer2: Renderer2,
@@ -124,6 +129,26 @@ export class HomeComponent implements OnInit {
     this.loopColivingSliders();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      this.countries = res.data;
+      this.activeCountries = this.countries.filter((v) => { return v.for_coWorking === true });
+      this.inActiveCountries = this.countries.filter((v) => { return v.for_coWorking == false });
+      this.selectedCountry = this.activeCountries[0];
+      console.log(this.countries)
+      console.log(this.activeCountries)
+      console.log(this.inActiveCountries)
+    })
+  }
+
+  hideCountry(country: any) {
+    console.log(country);
+
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   getCitiesForCoworking() {
