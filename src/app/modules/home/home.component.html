@@ -324,13 +324,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-input">
+                                        <div class="form-input country_phone">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
                                                     <div class="flag in" *ngIf="countries.length">
-                                                        <img [src]="selectedCountry?.image?.s3_link" width="18px" />
-                                                        <span class="dial-code">{{selectedCountry?.dial_code}}</span>
-                                                        <span class="arrow arrow-up">V</span>
+                                                        <img [src]="selectedCountry?.image?.s3_link" width="18px" /> <span class="dial-code"> {{selectedCountry?.dial_code}}</span> <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                     </div>
                                                 </div>
                                                 <ul *ngIf="showcountry" class="country-list">
@@ -352,8 +350,9 @@
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                                
                                             <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp" />
+                                            </div>
                                             <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['phone_number'].errors['required']">
                                                     Please enter mobile number.
