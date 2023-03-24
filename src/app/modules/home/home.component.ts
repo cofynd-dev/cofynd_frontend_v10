@@ -146,7 +146,6 @@ export class HomeComponent implements OnInit {
 
   hideCountry(country: any) {
     console.log(country);
-
     this.selectedCountry = country;
     this.showcountry = false;
   }
