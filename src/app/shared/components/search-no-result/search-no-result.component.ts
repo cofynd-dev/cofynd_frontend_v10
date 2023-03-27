@@ -137,6 +137,8 @@ export class SearchNoResultComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         name: ['', Validators.required],
         requirements: [''],
+        otp: ['']
+
       };
       form['mx_BudgetPrice'] = ['', Validators.required];
       form['mx_Furnishing_Type'] = ['', Validators.required];
@@ -149,6 +151,7 @@ export class SearchNoResultComponent implements OnInit {
         name: ['', Validators.required],
         requirements: [''],
         otp: ['']
+
       };
       // form['mx_Office_Type'] = ['', Validators.required];
       // form['no_of_person'] = ['', Validators.required];
