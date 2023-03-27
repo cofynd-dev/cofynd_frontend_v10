@@ -42,40 +42,48 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="form-group country_phone simple_dropdown no_result_phone">
-                                    <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                    
+                                <div class="form-input country_phone simple_dropdown no_result_phone">
                                     <div class="flag-container">
-                                        <div  class="selected-flag">
-                                            <div class="flag in">
-                                                <span class="dial-code"> +91</span>
+                                        <div (click)="showcountry = !showcountry" class="selected-flag">
+                                            <div class="flag in" *ngIf="activeCountries.length">
+                                                <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                 <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                             </div>
                                         </div>
-                                        <ul class="country-list">
-                                            <li class="country active" tabindex="-1">
+                                        <ul *ngIf="showcountry" class="country-list">
+                                            <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                 <div class="flag-box">
-                                                    <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                                    <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
                                                 </div>
-                                                <span class="country-name">India</span>
-                                                <span class="dial-code">+91</span>
+                                                <span class="country-name">{{country?.name}}</span>
+                                                <span class="dial-code">{{country?.dial_code}}</span>
                                             </li>
-                
+
                                             <li class="divider"></li>
-                
-                                            <li class="country selected">
+
+                                            <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                 <div class="flag-box">
-                                                    <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
+                                                    <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
                                                 </div>
-                                                <span class="country-name">India</span>
-                                                <span class="dial-code">+91</span>
+                                                <span class="country-name">{{inactive?.name}}</span>
+                                                <span class="dial-code">{{inactive?.dial_code}}</span>
                                             </li>
                                         </ul>
-                
-                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
+
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
                                         <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                             <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
                                             <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="form-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                         </div>
                                     </div>
                                 </div>
