@@ -82,6 +82,7 @@ export class HomeComponent implements OnInit {
   inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
+  phoneNumber: any;
 
   constructor(
     private _renderer2: Renderer2,
@@ -104,6 +105,7 @@ export class HomeComponent implements OnInit {
     this.getBrandAdsImages();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
+    this.getCountries();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -112,6 +114,7 @@ export class HomeComponent implements OnInit {
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
     }
   }
 
@@ -129,7 +132,7 @@ export class HomeComponent implements OnInit {
     this.loopColivingSliders();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
-    this.getCountries();
+    // this.getCountries();
   }
 
   getCountries() {
@@ -138,14 +141,10 @@ export class HomeComponent implements OnInit {
       this.activeCountries = this.countries.filter((v) => { return v.for_coWorking === true });
       this.inActiveCountries = this.countries.filter((v) => { return v.for_coWorking == false });
       this.selectedCountry = this.activeCountries[0];
-      console.log(this.countries)
-      console.log(this.activeCountries)
-      console.log(this.inActiveCountries)
     })
   }
 
   hideCountry(country: any) {
-    console.log(country);
     this.selectedCountry = country;
     this.showcountry = false;
   }
@@ -292,6 +291,7 @@ export class HomeComponent implements OnInit {
       this.btnLabel = 'Verify OTP';
       this.addValidationOnOtpField();
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         (data: any) => {
           if (data) {
@@ -310,7 +310,7 @@ export class HomeComponent implements OnInit {
   }
 
   validateOtp() {
-    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    const phone = this.enterpriseFormGroup.controls['phone_number'].value;
     const otp = this.enterpriseFormGroup.get('otp').value;
     this.loading = true;
     this.authService.verifyOtp(phone, otp).subscribe(
