@@ -1,0 +1,72 @@
+<div class="modal-body menu-modal" [class.column-view]="!isModalView">
+    <div *ngIf="isModalView">
+        <button type="button" class="icon-close pull-right" (click)="closeModal()">
+    </button>
+        <h4>Find the perfect {{spaces}} </h4>
+        <p>Choose from 25,000+ Live Spaces, 700+ Locations & 18 Cities.</p>
+    </div>
+    <div *ngIf="!enabledForm" class="form-layout-outline" [class.row]="!isModalView">
+        <div [class.col-md-4]="!isModalView">
+            <div class="form-group">
+                <ng-select [placeholder]="typeLabel" [clearable]="false" [searchable]="false" (change)="onTypeChange($event)">
+                    <ng-option *ngIf="isCoworking" [value]="'coworking'">Co-working</ng-option>
+                    <ng-option *ngIf="isOffice" [value]="'offices'">Office Space</ng-option>
+                    <ng-option *ngIf="isCoLiving" [value]="'coliving'">Co-Living</ng-option>
+                </ng-select>
+            </div>
+        </div>
+        <div [class.col-md-6]="!isModalView">
+            <div class="form-group">
+                <ng-select [searchable]="false" [clearable]="false" [placeholder]="cityLabel" [notFoundText]="'Select Type First'" (change)="onCityChange($event)">
+                    <ng-option *ngFor="let city of cities" [value]="city">
+                        <ng-container *ngIf="isCountryLandingPage == false">
+                            <img src="/assets/images/city/{{city.icon}}" width="20px" height="20px" />
+                        </ng-container>
+                        <ng-container *ngIf="isCountryLandingPage == true">
+                            <img [src]="city?.icon?.s3_link" width="20px" height="20px" [alt]="city.name">
+                        </ng-container>
+                        {{ removedash(city.name) }}
+                    </ng-option>
+                </ng-select>
+            </div>
+        </div>
+        <button *ngIf="isModalView" type="button" (click)="onSearch()" class="btn btn-primary">Submit</button>
+    </div>
+
+
+    <form class="form-layout-outline" [formGroup]="enquiryForm" (ngSubmit)="onSearch()" *ngIf="enabledForm">
+        <div class="row">
+            <div class="col-md-12">
+                <input class="form-control" type="text" placeholder="Full Name" formControlName="name" appMaterialInput />
+                <app-input-validation [control]="enquiryForm.controls.name">
+                </app-input-validation>
+            </div>
+            <div class="col-md-12">
+                <input class="form-control" type="text" placeholder="Email Id" formControlName="email" appMaterialInput />
+                <app-input-validation [control]="enquiryForm.controls.email">
+                </app-input-validation>
+            </div>
+            <div class="col-md-12">
+                <input class="form-control" type="text" placeholder="Mobile Number" formControlName="phone_number" appMaterialInput />
+                <app-input-validation [control]="enquiryForm.controls.phone_number">
+                </app-input-validation>
+            </div>
+            <div class="col-md-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                <input class="form-control" type="password" placeholder="OTP" formControlName="otp" appMaterialInput autofocus />
+                <app-input-validation [control]="enquiryForm.controls.otp">
+                </app-input-validation>
+            </div>
+
+            <div class="col-md-12" *ngIf="isCityVisible">
+                <div class="form-group">
+                    <ng-select [placeholder]="'City'" [clearable]="false" [searchable]="false" (change)="onCityChange($event)">
+                        <ng-option *ngFor="let city of allCity" [value]="city">
+                            {{ city }}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <button *ngIf="isModalView" type="submit" class="btn btn-primary"> {{ btnLabel }}</button>
+    </form>
+</div>

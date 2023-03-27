@@ -1,0 +1,65 @@
+.slider-section {
+  position: relative;
+
+  .btn-favorite {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
+  }
+
+  .workspace-banner-container {
+    width: 100%;
+    display: flex;
+    height: 425px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+
+    @media (max-width: 767px) {
+      height: 375px;
+    }
+
+  }
+
+
+  .workspace-banner {
+    background: #f9f9f9 url('/assets/images/no-img.svg') no-repeat center center;
+  }
+
+  .workspace-banner-half {
+    height: 100%;
+    width: 50%;
+
+    .workspace-banner {
+      height: 100%;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .workspace-banner-one-third {
+    height: 100%;
+    width: 25%;
+    border-left: 2px solid #fff;
+
+    .workspace-banner {
+      height: 50%;
+
+      &:first-child {
+        border-bottom: 1px solid #fff;
+      }
+
+      &:last-child {
+        border-top: 1px solid #fff;
+      }
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+}

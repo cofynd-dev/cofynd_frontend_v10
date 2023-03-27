@@ -1,0 +1,28 @@
+.brand-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+  }
+
+  .city-dropdown {
+    width: 150px;
+  }
+
+  img {
+    max-width: 180px;
+  }
+
+  @media only screen and (max-width:600px) {
+    .brand-info h1 {
+      font-size: 17px;
+      line-height: 20px;
+    }
+  }
+}

@@ -1,0 +1,403 @@
+<section class="innerpage_banner coliving_banner mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="innerpage_content mb-0">
+                    <div class="main_heading">
+                        <h1>Find the Best<br><span>Coliving Spaces</span> in India</h1>
+                    </div>
+                </div>
+                <div class="city-list">
+                    <a *ngFor="let city of cities" [routerLink]="city.name">
+                        <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="innerbanner_img">
+        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="">
+    </div>
+
+</section>
+
+<!--------------------- Mobile Banner -------------------->
+
+<section class="innerpage_banner onlyMobile" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="banner_content">
+                    <h1 class="text-light text-center">Find The Best CoLiving Spaces in India</h1>
+                    <div class="search-bar">
+                        <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--------------------- End Mobile Banner -------------------->
+
+<!--------------------- Mobile cities list -------------------->
+
+<section class="coliving_cities_list desktophide" id="city">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Top Coliving Cities</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row cities_list_row">
+            <div class="col-md-3 col-6" *ngFor="let _city of city">
+                <div class="city-icon-box">
+                    <a [routerLink]="_city.name" class="text-dark">
+                        <div class="row align-items-center">
+                            <div class="col-4 pr-0">
+                                <img [src]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" class="img-fluid citi-img">
+                            </div>
+                            <div class="col-8">
+                                <div class="cities_box_content">
+                                    <h4 class="bangalore">{{_city.name|titlecase}}</h4>
+                                    <p class="famous-name">{{_city.title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 mobilehide">
+                <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2">25000+ Live spaces </span>| <span class="pl-2 pr-2">700+ Locations </span>| <span class="pl-2 pr-2">20+ Cities</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--------------------- End Mobile Mobile cities list -------------------->
+
+<!-- offers -->
+<section class="offers coliving_offers_sec desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>Offers of the Week</h2>
+                </div>
+            </div>
+            <br />
+            <div class="col-6">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg" class="img-fluid m-auto d-block offer-img">
+            </div>
+            <div class="col-6">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg" class="img-fluid m-auto d-block offer-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Catagory Services -->
+<section class="facilities_sec coliving_facilities">
+    <div class="container">
+        <div class="row desktophide">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Amenities You will get</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row amenities_row">
+            <div class="col-md-4 col-4" *ngFor="let data of service">
+                <div class="icon_item mb-5">
+                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <h4>{{data.title}}</h4>
+                    <p class="mobilehide">{{data.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="lifestyle_with_cofynd mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- top Spaces -->
+<section class="top_coliving_cities mobilehide">
+    <div class="container">
+        <div class="page-title pt-3">
+            <h2>Top Coliving Cities in India</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoLivingSpaces | slice:0:1">
+                <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                    <div class="top-city-img main_city">
+                        <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                    </div>
+                    <div class="top-city-text">
+                        <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoLivingSpaces | slice:1:7">
+                        <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
+                            <div class="top-city-img">
+                                <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                            </div>
+                            <div class="top-city-text">
+                                <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- We are ready for the new normal! -->
+<!-- <section class="covid-safety pt-3 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>We are ready for the new normal!</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
+</app-carousel-item>
+
+
+<app-carousel-item *ngIf="bangloreSpaces.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="bangloreSpaces">
+</app-carousel-item>
+
+<app-carousel-item *ngIf="hyderabadSpaces.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="hyderabadSpaces">
+</app-carousel-item>
+
+<app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="gurugramSpaces">
+</app-carousel-item>
+
+<section class="flock_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" (click)="goToBrand()">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-carousel-item *ngIf="puneSpaces.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="puneSpaces">
+</app-carousel-item>
+
+<app-carousel-item *ngIf="delhiSpaces.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="delhiSpaces">
+</app-carousel-item>
+
+<app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="noidaSpaces">
+</app-carousel-item>
+
+<section class="cofynd_advantage_area coworking_advantage_area mobilehide">
+    <div class="container">
+        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
+            <div class="col-md-3">
+                <h3>CoFynd Advantages</h3>
+            </div>
+            <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
+                <div class="advantage_item">
+                    <div class="icon">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    </div>
+                    <div class="content">
+                        <h4>{{data.title}}</h4>
+                        <p>{{data.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
+</app-carousel-item>
+
+<app-carousel-item [pageTitle]="'Premium Coliving Flock'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.flock">
+</app-carousel-item>
+
+<app-carousel-item [pageTitle]="'Premium Coliving Stanza'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.stanza">
+</app-carousel-item>
+
+<app-carousel-item [pageTitle]="'Premium Coliving HelloWorld'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.HelloWorld">
+</app-carousel-item>
+
+<app-carousel-item [pageTitle]="'Premium Coliving Orion'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.Orion">
+</app-carousel-item>
+
+<section class="pt-0 pb-0">
+    <app-home-brand-list [shouldCoLivingVisible]="true" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
+    </app-home-brand-list>
+</section>
+
+<section class="pt-4 featured_by desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>Featured Spaces</h2>
+                </div>
+            </div>
+        </div>
+        <div class="colving-bg">
+            <div class="row">
+                <div class="col-12" routerLink="locl-colive-work-koramangala">
+                    <div class="p-4 mt-2 mb-2 featured" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c157c2257362ea2f70b5eee55f3db90b8f027839.jpg');background-size:cover;border-radius: 10px;">
+
+                        <p class="font-18 text-white mb-0">LOCL Colive & Cowork</p>
+                        <p class="text-white font-14-lite">Koramangla, Bangalore</p>
+                        <button class="pl-4 pr-4 mt-1 exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i>10,000</button>
+                    </div>
+                </div>
+                <div class="col-12" routerLink="housr-tulip-purple-gurgaon">
+                    <div class="p-4 mt-2 mb-2 featured" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/993fc678cb49a28bb6dedfa9d9de177286ef73cd.jpg');background-size:cover;border-radius: 10px;">
+
+                        <p class="font-18 text-white mb-0">Housr Tulip Purple</p>
+                        <p class="text-white font-14-lite">Sector 69, Gurgaon</p>
+                        <button class="pl-4 pr-4 mt-1 exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i>12,000</button>
+                    </div>
+                </div>
+                <div class="col-12" routerLink="stanza-living-presov-house">
+                    <div class="p-4 mt-2 mb-2 featured" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f933972879c38fd6f1c3fbc99658c94ae1d9af19.jpg');background-size:cover;border-radius: 10px;">
+                        <p class="font-18 text-white mb-0">Stanza Presov House</p>
+                        <p class="text-white font-14-lite">Viman Nagar, Pune</p>
+                        <button class="pl-4 pr-4 mt-1 exp-button">Starting @ <i class="fa-solid fa-indian-rupee-sign"></i>14,500</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="list_your_space_sec coworking_list_space">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                    <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                    <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cofynd_desk_sec coliving_cofynd_desk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faqs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center mb-4">
+                    <h3 class="site_title title_divider">Frequently Asked Questions</h3>
+                    <p>Here are the frequently asked questions that people enquired online before choosing a virtual office. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <accordion [isAnimated]="true" class="faqs_accordion">
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What is a coliving space?
+                        </h4>
+                        <p>Coliving Spaces relate to shared-housing to inhabit, work and have a good time. This experience includes fully furnished, bringing individuals together and creating a conducive environment for their interaction. A growing number
+                            of population across the globe are preferring coliving to unfasten benefits such as community, comfort and cost-saving. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Who utilises coliving spaces?
+                        </h4>
+                        <p>Coliving Spaces appeals particularly to the millennials due to rising property prices. These are opted by the people with the age group of 19 to 40 years. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            How much do coliving spaces cost?
+                        </h4>
+                        <p>The costs of shared living spaces depends on the plan you choose- private room, double sharing rooms, triple sharing rooms or the studio apartments.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the advantages offered by coliving spaces?
+                        </h4>
+                        <p>From budget friendly spaces, state of the art amenities, networking opportunities to live a sustainable lifestyle, shared living spaces offer various advantages. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            How long can one stay in coliving spaces?
+                        </h4>
+                        <p>One can stay either for a month, less than a year, to longer periods also.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Are coliving spaces safe to live in?
+                        </h4>
+                        <p>These are definitely a better option than living alone in a big and unknown city. There is provision of strict security and CCTV cameras. Unlike in a PG or flat system, the community aspect of coliving ensures ample security and
+                            socialization. </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            Is food provided in Coliving spaces?
+                        </h4>
+                        <p>It depends on the plan and the coliving you choose.</p>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="search-description" *ngIf="!loading && seoData.footer_description">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>

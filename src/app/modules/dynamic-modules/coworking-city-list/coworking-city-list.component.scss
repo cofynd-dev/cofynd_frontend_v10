@@ -1,0 +1,35 @@
+.similar-places {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.visible-list {
+  display: flex;
+  padding: 5px 0 15px;
+  overflow-x: scroll;
+
+  li {
+    margin-right: 6px;
+
+    a {
+      background: #fff;
+      border-radius: 3px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #9e9e9e;
+      border: 1px solid #d4d4d4;
+      max-width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-transform: capitalize;
+
+      &:hover {
+        background: #e9e9ff;
+        border-color: #7d9dd9;
+        color: #4343e8;
+      }
+    }
+  }
+}

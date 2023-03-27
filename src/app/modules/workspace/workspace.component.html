@@ -1,0 +1,265 @@
+<app-workspace-loader *ngIf="loading"></app-workspace-loader>
+<section class="breadcrumbs_sec mobilehide">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item"><a (click)="routetoCountryPage()">Coworking</a></li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_page_gallery">
+    <div class="container">
+        <div class="row">
+            <div class="relative" *ngIf="!loading">
+                <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                </app-social-share>
+        
+                <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner>
+        
+                <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                </app-workspace-banner-blank>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="breadcrumbs_sec desktophide">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav *ngIf="!loading && workspace">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item"><a (click)="routetoCountryPage()">Coworking</a></li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="details_area content" *ngIf="!loading && workspace">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+
+                    <div class=" col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
+                                    <div class="heading-info">
+                                        <h1>{{ workspace.name }} {{ workspace.location.name }}</h1>
+                                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
+                                        <p class="price"><span class="rent_title">Starting</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}} <span class="rent_type">/ {{ workspace.price_type }}</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <hr class="divider_line desktophide">
+
+                        <div class="facilities-points desktophide">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="icon_box">
+                                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bee161fce3dfc91e73aa642a210c5d8ad0ffed4f.png" class="img-fluid">
+                                        <h4>High Speed Wifi</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="icon_box">
+                                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f83a779025994f74fd4d81ce53bf53a1370eb7f1.png" class="img-fluid">
+                                        <h4>Printer</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="icon_box mb-0">
+                                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/40ad2d98117a27ef06d013c8629f0257cb059aa8.png" class="img-fluid">
+                                        <h4>Tea/Coffee</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="icon_box mb-0">
+                                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b79e693d12d37c05cfe5b17de9b7256761eda687.png" class="img-fluid">
+                                        <h4>Parking</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row about-area" *ngIf="workspace.description">
+                            <div class="col-md-12 mobilehide">
+                                <h2>About this property</h2>
+                            </div>
+                            <div class="col-md-12 mobilehide">
+                                <p [innerHTML]="workspace.description"></p>
+                            </div>
+                            <div class="col-md-12 desktophide">
+                                <p class="mobileabout" [innerHTML]="(workspace.description)" *ngIf="seeMore; else hide">
+                                </p>
+                                <ng-template #hide>
+                                    <p [innerHTML]="workspace.description"> </p>
+                                </ng-template>
+
+                                <p (click)="toggleAboutMore()" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
+                            </div>
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
+                            </div>                            
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row membership_plan_area">
+                            <div class="col-md-12">
+                                <div class="price_area">
+                                    <h2>Pricing Plans</h2>
+                                    <app-workspace-plan [workspaceId]="workspace.id" [plans]="workspace.plans" [currency_code]="workspace.currency_code" (enquireButtonClick)="openEnquireModal()">
+                                    </app-workspace-plan>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sections enterprise_area">
+                                    <h2>Enterprise Services</h2>
+                                    <div class="plan-list service-list row">
+                                        <div class="col-md-12 col-6" (click)="openEnquireModal()">
+                                            <div class="box">
+                                                <h4>Office Suite</h4>
+                                                <p>Office space for larger teams with own reception.
+                                                </p>
+                                                <div class="action-box">
+                                                    <button type="button" (click)="openEnquireModal()" class="btn-link hideOnMobile">Enquire</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-6" (click)="openEnquireModal()">
+                                            <div class="box">
+                                                <h4>Customised office</h4>
+                                                <p>Custom built offices as per your requirements.
+                                                </p>
+                                                <div class="action-box">
+                                                    <button type="button" (click)="openEnquireModal()" class="btn-link hideOnMobile">Enquire</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <hr class="divider_line">
+
+                        <div class="row amenities_section">
+                            <div class="col-md-12">
+                                <div class="mobilehide">
+                                    <h2>Amenities</h2>
+                                    <div class="basic-icons">
+                                        <p><i class="amn-wifi"></i>WIFI/Internet</p>
+                                        <p><i class="amn-workstation"></i>Comfy Workstations</p>
+                                        <p><i class="amn-meeting-room"></i>Meeting Rooms</p>
+                                        <p><i class="amn-printer"></i>Printer</p>
+                                        <p><i class="amn-pantry"></i>Pantry</p>
+                                        <p><i class="amn-car-parking"></i>Car / Bike Parking</p>
+                                        <p><i class="amn-reception"></i>Reception</p>
+                                        <p><i class="amn-housekeeping"></i>Super Housekeeping</p>
+                                        <p><i class="amn-tea"></i>Tea/Coffee</p>
+                                        <p><i class="amn-air-conditioning"></i>Air Conditioning</p>
+                                    </div>
+                                </div>
+            
+                                <div class="desktophide">
+                                    <h2>Amenities</h2>
+                                    <div class="basic-icons">
+                                        <ng-container *ngIf="haftAmenities; else fullAmenities">
+                                            <p><i class="amn-wifi"></i>WIFI/Internet</p>
+                                            <p><i class="amn-workstation"></i>Comfy Workstations</p>
+                                            <p><i class="amn-meeting-room"></i>Meeting Rooms</p>
+                                            <p><i class="amn-printer"></i>Printer</p>
+                                            <p><i class="amn-pantry"></i>Pantry</p>
+                                            <p><i class="amn-car-parking"></i>Car / Bike Parking</p>
+                                        </ng-container>
+                                        <ng-template #fullAmenities>
+                                            <p><i class="amn-wifi"></i>WIFI/Internet</p>
+                                            <p><i class="amn-workstation"></i>Comfy Workstations</p>
+                                            <p><i class="amn-meeting-room"></i>Meeting Rooms</p>
+                                            <p><i class="amn-printer"></i>Printer</p>
+                                            <p><i class="amn-pantry"></i>Pantry</p>
+                                            <p><i class="amn-car-parking"></i>Car / Bike Parking</p>
+                                            <p><i class="amn-reception"></i>Reception</p>
+                                            <p><i class="amn-housekeeping"></i>Super Housekeeping</p>
+                                            <p><i class="amn-tea"></i>Tea/Coffee</p>
+                                            <p><i class="amn-air-conditioning"></i>Air Conditioning</p>
+                                        </ng-template>
+                                    </div>
+                                    <div class="row buttonOnMobile" (click)="toggleAmenitiesDiv()">
+                                        <div class="col-12">
+                                            <p class="moreless-button"> See {{haftAmenities? "More »": "Less »" }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="divider_line">
+
+                        <div class="row map-location">
+                            <div class="col-md-12">
+                                <h2>You'll work here</h2>
+                                <p class="location-icon" *ngIf="workspace">
+                                    <img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{workspace.location.address1}}
+                                </p>
+                                <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
+                                </div>
+                                <div class="onlyMobile">
+                                    <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
+                    <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="ENQUIRY_TYPE" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" (backButtonClick)="closeEnquireModal()">
+                    </app-workspace-enquire>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider_line">
+
+        <div class="row similar_spaces_area">
+            <div class="col-md-12">
+                <div class="sections no-border">
+                    <h2 class="similarSpace" *ngIf="!loading && workspace">Similar Properties</h2>
+                    <app-workspace-similar *ngIf="!loading && workspace" [workSpaceId]="workspace.id" [address]="workspace.location.address1">
+                    </app-workspace-similar>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,38 @@
+<section class="testimonial-section">
+  <div class="page-title">
+    <h2>Testimonials</h2>
+  </div>
+  <div class="testimonial-wrapper">
+    <ngu-carousel #reviewsCarousel
+      [inputs]="carouselConfig"
+      [dataSource]="reviews"
+      (onMove)="onSliderMove($event)">
+      <div *nguCarouselDef="let review; let i = index;"
+        [class.active]="i===active"
+        [class.prev-item]="i < active"
+        [class.next-item]="i > active"
+        class="item">
+
+        <div class="testimonial-box">
+          <div class="box">
+            <div class="profile-img">
+              <img [src]="review.image"
+                alt="">
+            </div>
+            <h5>
+              {{ review.name }}
+            </h5>
+            <p>{{ review.review }}</p>
+          </div>
+        </div>
+
+      </div>
+      <ul class="carousel-point"
+        NguCarouselPoint>
+        <li *ngFor="let i of reviewsCarousel.pointNumbers; let i = index;"
+          [class.active]="i==reviewsCarousel.activePoint"
+          (click)="reviewsCarousel.moveTo(i)"></li>
+      </ul>
+    </ngu-carousel>
+  </div>
+</section>

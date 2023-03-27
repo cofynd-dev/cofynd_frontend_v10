@@ -1,0 +1,174 @@
+<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" (priceFilterChanged)="onFilterPriceChange($event)" (onResetFilter)="resetFilter()" (sortTypeChanged)="onSortTypeChange($event)" (mapViewChanged)="toggleMapView($event)">
+</app-search-breadcrumb>
+<section class="search-container clearfix">
+    <div class="search-grid-container" [class.search-grid-full]="!isMapView">
+        <div class="search-grid-wrapper">
+            <div class="row align-items-center filter_title">
+                <div class="col-md-9 col-7">
+                    <div class="page-title city_page_title">
+                        <h1 *ngIf="!loading">{{ pageTitle ? pageTitle : setSubName()}}</h1>
+                    </div>
+                </div>
+                <div class="col-md-3 col-5">
+                    <div class="filter_col">
+                        <!-- <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coworking_filters_popup"> -->
+                        <!-- <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters -->
+                        <!-- </button> -->
+                        <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" aria-label="Default select example" (change)="onPriceSelect($event.target.value)">
+                            <option value="Select Price">Select Price</option>
+                            <option value="Less than ₹10,000">Less than ₹10,000</option>
+                            <option value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</option>
+                            <option value="₹20,000 - ₹30,000">₹20,000 - ₹30,000</option>
+                            <option value="More than ₹30,000">More than ₹30,000</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade filters_popup" id="coworking_filters_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Filters</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="filder_area">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>Price Range</h3>
+                                            <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" aria-label="Default select example" (change)="onPriceSelect($event.target.value)">
+                                                <option value="Select Price">Select Price</option>
+                                                <option value="Less than ₹10,000">Less than ₹10,000</option>
+                                                <option value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</option>
+                                                <option value="₹20,000 - ₹30,000">₹20,000 - ₹30,000</option>
+                                                <option value="More than ₹30,000">More than ₹30,000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <h3>Space Type</h3>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '6231b1db2a52af3ddaa73a48'" (click)="selectRoomType('6231b1db2a52af3ddaa73a48')">
+                                                <img src="../../../assets/images/icons/dedicated-desk.svg" alt="">
+                                                <h4>Dedicated Desks</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '6231b1ec2a52af3ddaa73a4a'" (click)="selectRoomType('6231b1ec2a52af3ddaa73a4a')">
+                                                <img src="../../../assets/images/icons/private-cabin.svg" alt="">
+                                                <h4>Private Cabins</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '6231bca42a52af3ddaa73ab1'" (click)="selectRoomType('6231bca42a52af3ddaa73ab1')">
+                                                <img src="../../../assets/images/icons/virtual-offices-icon.svg" alt="">
+                                                <h4>Virtual Offices</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <a (click)="apply()" class="btn site_btn">Apply</a>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <button type="button" class="btn site_btn border_btn" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------------  End Coworking Listing Page Popup  ------------->
+
+            <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length" [cityName]="title" [relativeUrl]="'coworking'" [country_names]="country_name" [popularLocationList]="cityWisePopularLocation">
+            </app-search-similar-location>
+
+            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Coworking'" [url]="'/coworking'">
+            </app-search-no-result>
+
+            <app-search-card-loader *ngIf="loading">
+            </app-search-card-loader>
+
+            <div class="row" *ngIf="!loading">
+                <ng-container *ngFor="let space of workSpaces; let i = index">
+                    <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                        <app-search-card [workspace]="space">
+                        </app-search-card>
+                    </div>
+                    <ng-template [ngIf]="isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
+                            </app-search-contact-us-text>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="!isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18cdea27a9a3be653904081b3bb0223ed6e8b6c4.jpg');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coworking in Your City</h4>
+                                            <ul class="mobilehide">
+                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'city page'">
+                            </app-search-contact-us-text2>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+                <div class="col-md-4">
+                    <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                </div>
+            </div>
+
+
+            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
+                <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                </pagination>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="loading" class="search-map-container">
+    </div>
+    <div *ngIf="!loading && isMapView" class="search-map-container" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
+        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
+    </div>
+</section>
+
+<section class="search-description" *ngIf="!loading && seoData" #target>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>

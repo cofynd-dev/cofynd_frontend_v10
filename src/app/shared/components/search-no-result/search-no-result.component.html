@@ -1,0 +1,218 @@
+<div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
+    <div class="img">
+        <img src="/assets/images/blank/no-listing.svg" alt="">
+    </div>
+    <h2 *ngIf="!shouldShowContactForm">
+        No {{ title }} Found!
+    </h2>
+    <!-- <app-search-contact-us-text *ngIf="shouldShowContactForm" [type]="type" [cities]="availableCities">
+    </app-search-contact-us-text> -->
+    <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
+    <a [routerLink]="url">Explore More {{ title }} Spaces</a>
+</div>
+
+<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'">
+    <div class="container">
+        <div class="row cities_page_row">
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="cities_form_area">
+                    <h1>Connect with Cofynd Expert</h1>
+                    <p>Our team is ready to assist you</p>
+                    <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Enter your Name*" required>
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                    <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                        <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group country_phone simple_dropdown no_result_phone">
+                                    <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    
+                                    <div class="flag-container">
+                                        <div  class="selected-flag">
+                                            <div class="flag in">
+                                                <span class="dial-code"> +91</span>
+                                                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                            </div>
+                                        </div>
+                                        <ul class="country-list">
+                                            <li class="country active" tabindex="-1">
+                                                <div class="flag-box">
+                                                    <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                                </div>
+                                                <span class="country-name">India</span>
+                                                <span class="dial-code">+91</span>
+                                            </li>
+                
+                                            <li class="divider"></li>
+                
+                                            <li class="country selected">
+                                                <div class="flag-box">
+                                                    <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
+                                                </div>
+                                                <span class="country-name">India</span>
+                                                <span class="dial-code">+91</span>
+                                            </li>
+                                        </ul>
+                
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
+                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group align-items-center">
+                                    
+                                    
+                                </div> -->
+                            </div>
+                            <div class="col-md-6" *ngIf="title == 'Office'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Furnishing_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Furnishing_Type">
+                                        <option value="" selected  style="display: none;">Office Type*</option>
+                                        <option [value]="item.value" *ngFor="let item of OfficeType">{{item.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['mx_Furnishing_Type'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['mx_Furnishing_Type'].errors['required']">Please select office type.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="title == 'Office'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['mx_BudgetPrice'].errors }" formControlName="mx_BudgetPrice" class="form-control" placeholder="select your city" required aria-label="Default select example">
+                                        <option value="" selected  style="display: none;">Select Budget*</option>
+                                        <option [value]="budget.value" *ngFor="let budget of OfficeBudgets">{{budget.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['mx_BudgetPrice'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['mx_BudgetPrice'].errors['required']">Please select budget.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Office_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Office_Type">
+                                        <option value="" selected  style="display: none;">Office Type*</option>
+                                        <option [value]="item.value" *ngFor="let item of VirtualOfficeType">{{item.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['mx_Office_Type'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['mx_Office_Type'].errors['required']">Please select office type.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['no_of_person'].errors }" formControlName="no_of_person" class="form-control" placeholder="select your city" required aria-label="Default select example">
+                                        <option value="" selected  style="display: none;">No. Of Seats*</option>
+                                        <option [value]="item.value" *ngFor="let item of coworkingNoOfSeats">{{item.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['no_of_person'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['no_of_person'].errors['required']">Please select no. of seats.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group message_field">
+                                    <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
+                                    <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    <!-- <div *ngIf="submitted && f['requirements'].errors" class="invalid-feedback" style="display: block;">
+                                        <div *ngIf="f['requirements'].errors['required']">Please enter your requirements.</div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="site_btn border_btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="contact-footer">
+                        <p>Call : <a href="tel:9999108078">+91 9999 10 8078</a> , Email : <a href="mail:hello@cofynd.com">hello@cofynd.com</a></p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-12 form_text_area order-2 order-md-1">
+                <div class="form_content text-center for_office_space" *ngIf="title == 'Office'">
+                    <h2>Office Space for Rent<br> in {{city | titlecase }}</h2>
+                    <div class="location">
+                        <!-- <p>Andheri | BKC | Bandra | Borivali | <br>Churchgate | Dadar | Goregaon and More.</p> -->
+                    </div>
+                </div>
+
+                <div class="form_content text-center for_virtual_office" *ngIf="title == 'Virtual'">
+                    <h2>Virtual Office in {{city | titlecase }}</h2>
+                    <div class="row amenities_row">
+                        <div class="col-4">
+                            <div class="icon_box mb-4">
+                                <img alt="" src="../../../assets/images/icons/day-pass.svg">
+                                <h4>Company Registration</h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon_box mb-4">
+                                <img alt="" src="../../../assets/images/icons/hot-desk.svg">
+                                <h4>GST Registration</h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon_box mb-0">
+                                <img alt="" src="../../../assets/images/icons/private-cabin.svg">
+                                <h4>Business Address</h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon_box mb-0">
+                                <img alt="" src="../../../assets/images/icons/dedicated-desk.svg">
+                                <h4>Mailing Address</h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon_box mb-0">
+                                <img alt="" src="../../../assets/images/icons/reception.svg">
+                                <h4>Reception Services</h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="icon_box mb-4">
+                                <img alt="" src="../../../assets/images/icons/meeting-room.svg">
+                                <h4>Meeting Room Access</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>

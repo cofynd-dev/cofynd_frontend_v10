@@ -1,0 +1,58 @@
+.similar-workspaces {
+    .ngucarousel-items {
+        margin: 0 -10px;
+    }
+    .carousel-arrow {
+        position: absolute;
+        top: 210px;
+        color: #4343e8;
+        font-size: 26px;
+        font-weight: bold;
+        &.icon-next {
+            right: -20px;
+        }
+        &.icon-back {
+            left: -20px;
+        }
+        &[disabled] {
+            opacity: 0.4;
+        }
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+    .item {
+        padding: 0 10px;
+    }
+    .box {
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+::ng-deep .ngucarousel-items {
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+@media(max-width:480px) {
+    .hideOnMobile {
+        display: none !important;
+    }
+}
+
+.onlyMobile {
+    display: none;
+    @media (max-width: 480px) {
+        display: block;
+    }
+}
+
+.hideOnMobile {
+    @media (max-width: 480px) {
+        display: none !important;
+    }
+}

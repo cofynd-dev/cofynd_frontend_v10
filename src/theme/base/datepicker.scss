@@ -1,0 +1,124 @@
+.custom-datepicker {
+  width: 100%;
+  box-shadow: none;
+
+  .bs-datepicker-container {
+    padding: 0;
+    width: 100%;
+  }
+
+
+  .bs-datepicker-body {
+    padding: 0;
+    border-color: #3334e6;
+    border-radius: 0;
+  }
+
+  .bs-datepicker-head {
+    background: #4243e8;
+  }
+
+  .bs-datepicker-body {
+    thead {
+      background: #4042d8;
+    }
+
+    th {
+      height: 40px;
+    }
+  }
+
+  .bs-datepicker-body th {
+    table {
+      th {
+        font-size: 13px;
+        color: #000;
+        height: 40px;
+      }
+    }
+
+  }
+
+  .bs-datepicker-body {
+    table {
+      td {
+        .selected {
+          background: #4143e8;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  .bs-datepicker-body {
+    table {
+      .selected {
+        span {
+          background: #4143e8;
+          border-radius: 10px 0 10px 0;
+        }
+      }
+    }
+
+  }
+
+  .bs-datepicker-body {
+    table {
+      td {
+        color: #000;
+      }
+    }
+  }
+
+  .bs-datepicker-body table.days td {
+    .days {
+      td {
+        height: 50px;
+      }
+    }
+  }
+
+  &.booking-calender {
+    box-shadow: 0 0 5px 2px rgba($color: #000000, $alpha: 0.2);
+
+    bs-months-calendar-view,
+    bs-years-calendar-view,
+    bs-days-calendar-view {
+      width: 100%;
+    }
+
+    .bs-datepicker-head {
+      background: #f0f1f3;
+      border-radius: 0;
+
+      button {
+        color: #000;
+      }
+    }
+
+    .bs-datepicker-body {
+      padding: 0;
+      border-color: #ededed;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+
+      table {
+        font-size: 13px;
+        color: #000;
+      }
+
+      thead {
+        background: #fafafa;
+      }
+    }
+  }
+}
+
+bs-datepicker-inline-container {
+  width: 100%;
+}
+
+.bs-datepicker-multiple+.bs-datepicker-multiple {
+  margin-left: 0;
+}

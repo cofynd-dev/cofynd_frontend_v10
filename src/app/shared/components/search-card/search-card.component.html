@@ -1,0 +1,49 @@
+<div class="property_item listing_card">
+    <div *ngIf="workspace.images.length" class="property-img">
+        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
+            <div *nguCarouselDef="let images; let i = index;" class="item" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
+                <img rel="preload" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
+            </div>
+            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
+            <ul class="myPoint onlyMobile" NguCarouselPoint>
+                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+            </ul>
+        </ngu-carousel>
+    </div>
+    <div class="image" *ngIf="!workspace.images.length"></div>
+    <!-- <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
+    </app-favorite-button> -->
+    <div class="space_details" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
+        <div class="property-dis">
+            <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
+            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
+            <p class="capacity"><img src="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
+            <p class="capacity"><img class="img-fluid" src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
+        </div>
+        <div class="property-foot align-items-end">
+            <div *ngIf="workspace.show_price" class="price">
+                <ng-template [ngIf]="forAll">
+                    <span class="rent_title">Starting from</span>
+                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }} <span>/ {{ workspace.price_type }}</span></div>
+                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span> / {{ workspace.price_type }}</span></div>
+                </ng-template>
+                <ng-template [ngIf]="!forAll">
+                    <span class="rent_title">Starting from</span>
+                    <ng-container *ngFor="let item of workspace?.plans">
+                        <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
+                            <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }} <span>/ {{item?.duration }}</span>
+                        </div>
+                    </ng-container>
+                </ng-template>
+            </div>
+            <div *ngIf="!workspace.show_price" class="price">
+                <span class="rent_title">Starting from</span> on request
+            </div>
+            <!-- <ng-template [ngIf]="forAll">
+                    <span class="rent_title">Starting from</span>₹{{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{workspace.plans[workspace.plans.length - 1].duration }}</span>
+                </ng-template></div> -->
+            <div class="button"><a>Explore More</a></div>
+        </div>
+    </div>
+</div>

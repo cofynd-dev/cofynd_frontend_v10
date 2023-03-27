@@ -1,0 +1,3 @@
+<div *ngIf="options.zoom" style="height: 600px;" leaflet [leafletOptions]="options">
+    <div *ngFor="let m of markers" [leafletLayer]="m"></div>
+</div>

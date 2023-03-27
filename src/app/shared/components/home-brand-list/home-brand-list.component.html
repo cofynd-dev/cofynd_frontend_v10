@@ -1,0 +1,102 @@
+<section class="our_brands coworking_brand_list" *ngIf="coworkingBrands.length && shouldCoWorkingVisible" [class.grey-layout]="layout === 'grey'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="coworking-brands-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coworkingBrandsList" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coworkingBrandsList.length-1)?'last-slide':null">
+                            <div class="coworking_brands_item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <div class="brands-log">
+                                    <img [routerLink]="space.url" [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+                </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+                </button>
+            </div>
+
+            <!-- <div class="col-12">
+                <div class="logos_slider">
+                    <div class="band-img" *ngFor="let brand of coworkingBrands">
+                        <img (click)="goToBrandPage(brand)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<section class="our_brands coliving_brand_list" *ngIf="coLivingBrands.length && shouldCoLivingVisible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>{{ pageTitle }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="logos_slider">
+                    <div class="band-img" *ngFor="let brand of coLivingBrands">
+                        <img (click)="goToBrandPage(brand, true)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="partners" *ngIf="coLivingBrands.length && shouldCoLivingVisible">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title remove-side-circle">
+                <h2>{{pageTitle}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="partner-carousel slider-on-mobile-view">
+                <div class="band-img" *ngFor="let brand of coLivingBrands">
+                    <img (click)="goToBrandPage(brand, true)" [lazyLoad]="brand.image?.s3_link" [alt]="brand.name">
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<!-- <section class="our_brands"
+    *ngIf="shouldOtherBrandVisible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mb-3">
+                <div class="main_heading title_divider">
+                    <h2>{{pageTitle}}</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="logos_slider">
+                    <div class="band-img"
+                        *ngFor="let brand of [3,4,2,6,11,12]">
+                        <img [lazyLoad]="'/assets/images/other-brands/'+ brand +'.jpg'"
+                            [alt]="brand"
+                            class="brand-partner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->

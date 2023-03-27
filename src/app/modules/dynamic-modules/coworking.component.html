@@ -1,0 +1,463 @@
+<section class="banner">
+    <div class="banner-bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main_heading">
+                    <h1>Choose from <span>25,000+</span><br> Spaces on Rent</h1>
+                </div>
+                <div class="search">
+                    <app-home-city-dropdown [typeLabel]="'Looking For'" [cityLabel]="'Select City'" [isCountryLandingPage]=true [isCoworking]="true" [isCoLiving]="true">
+                    </app-home-city-dropdown>
+                </div>
+                <app-home-cities></app-home-cities>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our_services_sec singapore_service">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div (click)="routeToVerticalPage()" class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/169daf9cedb9b3b61f70c7fda6916a9985ff0bbf.jpg');">
+                    <h4>Coworking <span>Spaces</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div (click)="routeToColivingVerticalPage()" class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f282b4ca2a3b521ce4d7d804a16b7925483baa8f.jpg');">
+                    <h4>Coliving <span>Spaces</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6d614883a0c59958b038886e9400dc15a73c89c7.jpg');">
+                    <h4>Office <span>Spaces</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="banner-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div (click)="routeToVerticalPage()" class="space-facility" style="background-image: url('/assets/images/home/coworking-space.jpg');">
+                    <h4>Coworking <span>Spaces</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div (click)="routeToColivingVerticalPage()" class="space-facility" style="background-image: url('/assets/images/co-living/community.jpg');">
+                    <h4>Coliving <span>Spaces</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="space-facility" style="background-image: url('/assets/images/home/office-space.jpg');">
+                    <h4>Office <span>Spaces</span></h4>
+                </div>
+            </div>
+        </div>
+        
+      <div class="row">
+        <div class="col-md-4">
+          <a routerLink="virtual-office">
+            <div class="space-types space-type-1">
+              <span>Looking For</span>
+              <h3>Virtual Office</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <div class="space-types space-type-3"
+            (click)="openModalWithComponent2('Art Gallery')">
+            <span>Looking For</span>
+            <h3>Art Gallery</h3>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="space-types space-type-3"
+            (click)="openModalWithComponent2('Film Shoot')">
+            <span>Looking For</span>
+            <h3>Film Shoot</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</section> -->
+
+<section class="covid-section hideOnMobile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <img src="../../../assets/images/coworking/cowrking-singapore/singapore-new.png"> -->
+                <div class="covid-content">
+                    <h3>
+                        <span>COVID-19 RESPONSE</span> We are ready for <br>the new normal!
+                    </h3>
+                    <ul>
+                        <li>
+                            <div class="img">
+                                <img lazyLoad="/assets/images/amenities/mask.svg" alt="Free Mask">
+                            </div>
+                            <h4>Free Masks Provided</h4>
+                            <p>Each of our hubs will provide you with free masks whenever you visit.</p>
+                        </li>
+                        <li>
+                            <div class="img">
+                                <img lazyLoad="/assets/images/amenities/sanitizer.svg" alt="Sanitized Spaces">
+                            </div>
+                            <h4>Sanitized Spaces</h4>
+                            <p>All our spaces are sanitized regularly to make sure you have the best experience</p>
+                        </li>
+                        <li>
+                            <div class="img">
+                                <img lazyLoad="/assets/images/amenities/hand-sanitizers.svg" alt="Hand Sanitizers">
+                            </div>
+                            <h4>Hand Sanitizers Provided</h4>
+                            <p>We provide you with sanitizers at each desk so that you have a clean experience.</p>
+                        </li>
+                        <li>
+                            <div class="img">
+                                <img lazyLoad="/assets/images/amenities/social-distancing.svg" alt="Social Distancing">
+                            </div>
+                            <h4>Social Distancing </h4>
+                            <p>Each of our hubs makes sure that we maintain social distancing norms.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="feature hideOnMobile">
+    <div class="feature-half-left"></div>
+    <div class="feature-half-right"></div>
+    <div class="feature-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        <span>25,000+</span> Live Spaces
+                    </h3>
+                    <h3>
+                        <span>700+</span> Locations
+                    </h3>
+                    <h3>
+                        <span>3</span> Countries
+                    </h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="left-content">
+                        <h2>CoFynd is world's fastest growing online discovery platform for searching and booking Coworking and Co-living spaces.</h2>
+                        <div class="divider-line"></div>
+                        <button type="button" class="anchor-text">
+                Search . Book . Work . Live
+              </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="onlyMobile pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2">25000+ Live spaces </span>| <span class="pl-2 pr-2">700+ Locations </span>| <span class="pl-2 pr-2">3 Countries</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="what-you-get">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg" alt="CoFynd">
+            </div>
+            <div class="col-md-6 right-part">
+                <div class="text-center">
+                    <div class="main_heading title_divider">
+                        <h2>What You Get From Us</h2>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <i class="wt-icon wt-icon-price"></i> Exclusive pricing for CoFynd members
+                    </li>
+                    <li>
+                        <i class="wt-icon wt-icon-space"></i> Verified Spaces and Trusted Partners
+                    </li>
+                    <li>
+                        <i class="wt-icon wt-icon-fee"></i> No booking service fee
+                    </li>
+                    <li>
+                        <i class="wt-icon wt-icon-support"></i> 100% offline support
+                    </li>
+                    <li>
+                        <i class="wt-icon wt-icon-Coupon"></i> Exclusive Brand Coupon Codes
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-home-popular-space [isCountryLandingPage]=true></app-home-popular-space>
+
+<!-- <section class="partners">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title remove-side-circle">
+                    <h2>Top Coworking Brands</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mob-hide partner-carousel slider-on-mobile-view">
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/93f7fa099b87eccf93812fbff5d13f83a2cc487a.png" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="Awfis" src="../../../assets/images/found-8-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="Innov8" src="../../../assets/images/just-co-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/the-great-room-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/the-hive-logo.jpg" />
+            </div>
+
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/the-spaces-logo.jpg" />
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="enquiry-section hideOnMobile" style="padding-top: 90px !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" (click)="openAdd()">
+                <img lazyLoad="/assets/images/home/coworking-space-singapore-new.jpg" class="enquiry-box" alt="Co Working Spaces" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="popular-spaces top_cities_slider" *ngIf="popularCoLivingSpaces.length">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Top Coliving in {{title}}</h2>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <!-- <div class="page-title">
+                    <h2>Top Coliving in {{title}}</h2>
+                </div> -->
+
+                <div class="popular-space-carousel">
+                    <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoLivingSpaces" (onMove)="onSliderMove($event)">
+                        <div *nguCarouselDef="let space; let i = index;" class="item">
+                            <div (click)="openWorkSpace(space)" class="top-city-item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
+                                <div class="top-city-img">
+                                    <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                </div>
+                                <div class="top-city-text">
+                                    <h4>{{ removedash(space.address.split(",").pop() | titlecase) }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </ngu-carousel>
+                </div>
+                <button type="button" (click)="goToPrev()" [disabled]="popularSpaceCarousel.isFirst" class="carousel-arrow icon-back fas fa-chevron-left">
+                </button>
+                <button type="button" (click)="goToNext()" [disabled]="popularSpaceCarousel.isLast" class="carousel-arrow icon-next fas fa-chevron-right">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="partners">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title remove-side-circle">
+                    <h2>Top Coliving Brands</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mob-hide partner-carousel slider-on-mobile-view">
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/casa-mia-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="Awfis" src="../../../assets/images/cove-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="Innov8" src="../../../assets/images/dash-living-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/figment-logo.jpg" />
+            </div>
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/hei-homes-logo.jpg" />
+            </div>
+
+            <div class="col-md-2">
+                <img class="img-fluid m-auto d-block" alt="WeWork" src="../../../assets/images/hmlet-logo.jpg" />
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+<section class="enquiry-section hideOnMobile" style="padding-top: 90px !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" (click)="openAdd()">
+                <img lazyLoad="/assets/images/home/coliving-sapce-singapore-new.jpg" class="enquiry-box" alt="Co Working Spaces" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- We are ready for the new normal! -->
+<section class="onlyMobile covid-safety pt-5 pb-5">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-12">
+                <p class="facility-head">We are ready for the new normal!</p>
+            </div>
+            <div class="col-12">
+                <img src="../../../assets/images/co-living/colivingMain/covid-2.png" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <app-home-popular-space [shouldCoLivingVisible]="false" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false">
+</app-home-popular-space> -->
+
+<!-- <app-home-brand-list [shouldCoLivingVisible]="false" pageTitle='Our Coliving Partners' [shouldCoWorkingVisible]="false" *ngIf="coLivingBrands" [coLivingBrands]="coLivingBrands">
+</app-home-brand-list> -->
+
+<!--   
+  <section class="enquiry-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a routerLink="brand/gostops">
+            <img lazyLoad="/assets/images/home/advertisement2.jpg"
+              style="cursor: pointer;"
+              class="enquiry-box"
+              alt="Co Working Spaces" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+<div class="home_client_sec">
+    <app-our-clients></app-our-clients>
+</div>
+
+<!-- <app-home-brand-list [shouldOtherBrandVisible]="true" [shouldCoWorkingVisible]="false"></app-home-brand-list> -->
+
+
+<section class="list_your_space_sec">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                    <p class="mobilehide">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
+                    <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="enquiry-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a routerLink="/list-your-space" target="_blank">
+                    <img src="../../../assets/images/listYourSpace.jpg" style="cursor: pointer; box-shadow: 0px 6px 12px rgba(0,0,0,0.12);" class="enquiry-box forLapT" alt="Co Working Spaces" />
+                    <img src="../../../assets/images/co-living/colivingMain/list-space.png" style="cursor: pointer; box-shadow: 0px 6px 12px rgba(0,0,0,0.2);" class="enquiry-box forMob" alt="Co Working Spaces" />
+                </a>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<app-home-news-list></app-home-news-list>
+
+<section class="cofynd_desk_sec home_cofynd_desk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="/assets/images/about-us/work-desk.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>
+                    <div class="space-btn pb-5">
+                        <p class="live-spaces-button p-2 text-center text-white"><span class="pr-2" routerLink="/coworking">India </span>|
+                            <span class="pl-2 pr-2" routerLink="/singapore">Singapore </span>| <span class="pl-2 pr-2">Dubai</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="search-description" *ngIf="seoData">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>

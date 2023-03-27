@@ -1,0 +1,80 @@
+<app-search-breadcrumb *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
+</app-search-breadcrumb>
+<section class="search-container clearfix">
+    <div class="search-grid-container" [class.search-grid-full]="!isMapView">
+        <div class="search-grid-wrapper">
+
+            <app-brand-title *ngIf="brand" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
+            </app-brand-title>
+
+            <app-search-card-loader *ngIf="loading">
+            </app-search-card-loader>
+
+            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Brand'" [url]="routePageEvent()">
+            </app-search-no-result>
+
+            <div class="row" *ngIf="!loading">
+                <div class="col-md-12">
+                    <div class="row">
+                        <ng-container *ngFor="let space of workSpaces; let i = index">
+                            <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                                <app-search-card *ngIf="!isColiving" [workspace]="space">
+                                </app-search-card>
+                                <app-co-living-card *ngIf="isColiving" [coLiving]="space"></app-co-living-card>
+                            </div>
+
+
+                            <ng-template [ngIf]="isMapView">
+                                <div class="enquire-box col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                                    <div class="box">
+                                        <h3>Not able to find your space ?</h3>
+                                        <a routerLink="/contact-us" class="btn btn-primary">Enquire</a>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template [ngIf]="!isMapView">
+                                <div class="enquire-box col-sm-12" *ngIf="(i + 1) % 6 === 0">
+                                    <div class="box">
+                                        <h3>Not able to find your space ?</h3>
+                                        <a routerLink="/contact-us" class="btn btn-primary">Enquire</a>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4 enquiry_section brand_query_col">
+                    <app-workspace-enquire></app-workspace-enquire>
+                </div> -->
+
+
+
+
+            </div>
+
+            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
+                <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                </pagination>
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="loading && isMapView" class="search-map-container">
+    </div>
+    <div *ngIf="!loading" class="search-map-container" [style.marginTop.px]="'-' + scrollCount" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
+        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [workspaces]="workSpaces" [spaceType]="'coworking'"></app-search-map-view>
+    </div>
+</section>
+
+<section class="search-description" *ngIf="!loading" [class.no-padding]="!(footerTitle || footerDescription)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ footerTitle }}</h2>
+                <div [innerHTML]="footerDescription"></div>
+            </div>
+        </div>
+    </div>
+</section>

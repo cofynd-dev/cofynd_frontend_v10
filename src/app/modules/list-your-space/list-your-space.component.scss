@@ -1,0 +1,663 @@
+@import "base/variable";
+
+// %enquiry-btn {
+//   width: 280px;
+//   max-width: 100%;
+//   font-size: 13px;
+//   padding: 13px;
+//   border-radius: 4px;
+//   font-weight: 600;
+// }
+
+// %pointer-placing {
+//   position: absolute;
+//   top: 50%;
+//   color: $color-primary;
+//   font-size: 20px;
+// }
+
+// .advertise-banner {
+//   min-height: 480px;
+//   padding: 140px 0;
+//   background-color: #ffcc05;
+
+//   @media(max-width:991px) {
+//     min-height: 310px;
+//     padding: 70px 0;
+//     background-size: 300px;
+//   }
+
+//   @media(max-width:479px) {
+//     min-height: 0;
+//     padding: 50px 0;
+//     background-image: none;
+//   }
+
+//   h1 {
+//     color: $color-primary;
+//     font-size: 41px;
+
+//     @media(max-width:991px) {
+//       font-size: 36px;
+//     }
+
+//     @media(max-width:767px) {
+//       font-size: 25px;
+//       line-height: normal;
+//       margin-bottom: 10px;
+//     }
+//   }
+
+//   .your-value-space {
+//     font-size: 28px;
+//     color: #262626;
+//     font-weight: 600;
+//     line-height: normal;
+//     margin: 10px 0 25px;
+
+//     @media(max-width:991px) {
+//       font-size: 22px;
+//     }
+
+//     @media(max-width:767px) {
+//       font-size: 20px;
+//     }
+//   }
+
+//   .btn {
+//     @extend %enquiry-btn;
+
+//     @media(max-width:767px) {
+//       width: 200px;
+//     }
+
+//     @media(max-width:479px) {
+//       width: 170px;
+//     }
+//   }
+// }
+
+// .advertise-banner img {
+// 	width: 70%;
+// 	position: absolute;
+// 	top: -100px !important;
+// 	right: 0px;
+// }
+
+// .benefits-with-cofynd {
+//   background-color: #fff;
+//   padding: 100px 0;
+
+//   @media(max-width:991px) {
+//     padding: 70px 0;
+//   }
+
+//   @media(max-width:599px) {
+//     padding: 70px 0 50px;
+//   }
+
+//   @media(max-width:479px) {
+//     padding: 50px 0 30px;
+//   }
+
+//   .benefits-list-box {
+//     position: relative;
+//     padding-right: 370px;
+
+//     @media(max-width:991px) {
+//       padding-right: 250px;
+//     }
+
+//     @media(max-width:767px) {
+//       padding-right: 0;
+//     }
+
+//     .list-info-graphic {
+//       position: absolute;
+//       right: 0;
+//       top: 0;
+
+//       @media(max-width:991px) {
+//         width: 230px;
+//       }
+
+//       @media(max-width:767px) {
+//         width: 140px;
+//         opacity: 0.6;
+//         right: 0;
+//         top: -140px;
+//       }
+
+//       @media(max-width:479px) {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// .small-container-size {
+//   width: 850px;
+//   margin: 0 auto;
+//   max-width: 100%;
+// }
+
+// .heading-font {
+//   font-size: 27px;
+//   font-weight: 600;
+//   color: #000;
+//   margin: 0;
+
+//   @media(max-width:991px) {
+//     font-size: 22px;
+//   }
+
+//   @media(max-width:767px) {
+//     line-height: normal;
+//   }
+
+//   @media(max-width:479px) {
+//     font-size: 19px;
+//   }
+
+//   &.bottom-gap {
+//     margin-bottom: 70px;
+
+//     @media(max-width:479px) {
+//       margin-bottom: 50px;
+//     }
+//   }
+
+//   &.font-decor {
+//     position: relative;
+//     z-index: 1;
+
+//     &::before {
+//       content: '';
+//       width: 60px;
+//       height: 60px;
+//       background-color: #ffe684;
+//       border-radius: 50%;
+//       position: absolute;
+//       top: -20px;
+//       left: -25px;
+//       z-index: -1;
+//     }
+
+//     &::after {
+//       content: '';
+//       width: 72px;
+//       height: 2px;
+//       background-color: #4343e8;
+//       position: absolute;
+//       bottom: -25px;
+//       left: 0;
+//     }
+//   }
+// }
+
+// .benefit-list-items {
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+
+//   li {
+//     list-style: none;
+//     padding-left: 75px;
+//     position: relative;
+//     margin-bottom: 15px;
+
+//     @media (max-width:599px) {
+//       padding-left: 45px;
+//     }
+
+//     .feature-icon {
+//       width: 42px;
+//       position: absolute;
+//       left: 0;
+//       top: 0;
+
+//       @media (max-width:599px) {
+//         width: 30px;
+//         left: 0;
+//         top: 4px;
+//       }
+//     }
+
+//     h3 {
+//       font-size: 17px;
+//       color: #020202;
+//       font-weight: 600;
+//       margin: 0;
+//     }
+
+//     p {
+//       font-size: 14px;
+//       font-weight: 400;
+//       color: #000;
+//       line-height: 20px;
+//     }
+//   }
+// }
+
+// .listing-steps {
+//   background-color: #f1f1ff;
+//   padding: 70px 0;
+
+//   @media (max-width:767px) {
+//     padding: 70px 0 55px;
+//   }
+
+//   @media (max-width:479px) {
+//     padding: 50px 0 35px;
+//   }
+
+//   .step-box {
+//     position: relative;
+//     padding-right: 50px;
+
+//     @media (max-width:767px) {
+//       padding: 0 15px;
+//       margin-bottom: 20px;
+
+//       &:last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+
+//     &:nth-child(2) {
+//       .icon-first {
+//         @extend %pointer-placing;
+//         left: -35px;
+
+//         @media (max-width:767px) {
+//           display: none;
+//         }
+//       }
+
+//       .icon-second {
+//         @extend %pointer-placing;
+//         right: 20px;
+
+//         @media (max-width:767px) {
+//           display: none;
+//         }
+//       }
+//     }
+
+//     &:last-child {
+//       padding-right: 15px;
+//     }
+
+//     .step-graphic {
+//       img {
+//         height: 40px;
+//         max-width: 100%;
+
+//         @media (max-width:991px) {
+//           height: 30px;
+//         }
+//       }
+//     }
+
+//     h3 {
+//       color: $color-primary;
+//       font-size: 23px;
+//       margin: 10px 0 5px;
+//       font-weight: 600;
+
+//       @media (max-width:991px) {
+//         font-size: 17px;
+//       }
+//     }
+
+//     p {
+//       font-size: 16px;
+//       font-weight: 400;
+//       line-height: 20px;
+
+//       @media (max-width:991px) {
+//         font-size: 14px;
+//       }
+//     }
+//   }
+// }
+
+// .listing-center {
+//   text-align: center;
+
+//   @media (max-width:479px) {
+//     text-align: left;
+//   }
+
+//   .heading-font {
+//     display: inline-block;
+
+//     &::after {
+//       left: 50%;
+//       transform: translateX(-50%);
+
+//       @media (max-width:479px) {
+//         left: 0;
+//         transform: translateX(0);
+//       }
+//     }
+//   }
+// }
+
+// .work-procedure {
+//   background-color: #fff;
+//   padding: 100px 0;
+//   position: relative;
+
+//   .side-info-graphic {
+//     position: absolute;
+//     right: 0;
+//     top: 50%;
+//     transform: translate(0, -50%);
+//     z-index: 0;
+
+//     @media(max-width:910px) {
+//       width: 350px;
+//     }
+
+//     @media(max-width:767px) {
+//       opacity: 0.1;
+//     }
+//   }
+
+//   @media(max-width:991px) {
+//     padding: 70px 0;
+//   }
+
+//   @media(max-width:479px) {
+//     padding: 50px 0;
+//   }
+
+//   .small-container-size {
+//     padding-right: 320px;
+
+//     @media(max-width:767px) {
+//       padding-right: 0;
+//     }
+//   }
+
+//   p {
+//     font-size: 15px;
+//     font-weight: 500;
+//     margin-bottom: 35px;
+
+//     span {
+//       font-weight: 600;
+//     }
+//   }
+
+//   .btn {
+//     @extend %enquiry-btn;
+
+//     @media(max-width:767px) {
+//       width: 200px;
+//     }
+
+//     @media(max-width:479px) {
+//       width: 170px;
+//     }
+//   }
+// }
+
+// .list-with-us {
+//   padding: 75px 0;
+//   background: #fff url("https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/88820a9139e584a119f6e423ae0f0a98b42294ba.png") center 0px/ 1530px;
+
+//   @media (max-width:991px) {
+//     padding: 30px 0;
+//   }
+
+//   @media (max-width:479px) {
+//     background-size: calc(100vw + 200px);
+//   }
+
+//   .action-box {
+//     background: #4343e8 url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5be4cf5d37783ea1bcd6a4e20a74dc8794a7af44.png') 0 0 / cover;
+//     border-radius: 20px;
+//     padding: 65px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+
+//     @media (max-width:991px) {
+//       padding: 30px;
+//     }
+
+//     @media (max-width:599px) {
+//       flex-wrap: wrap;
+//     }
+
+//     .btn {
+//       background-color: #fff;
+//       color: $color-primary;
+//       font-weight: 600;
+//       padding: 13px;
+//       width: 230px;
+//       border-radius: 4px;
+
+//       @media (max-width:991px) {
+//         width: 130px;
+//       }
+
+//       @media (max-width:599px) {
+//         margin: 10px 0 0;
+//       }
+//     }
+
+//     >.action-desc {
+//       flex-basis: 390px;
+//       flex-shrink: 0;
+
+//       @media (max-width:767px) {
+//         flex-basis: 280px;
+//       }
+
+//       @media (max-width:599px) {
+//         margin-right: 20px;
+//         max-width: 100%;
+//       }
+
+//       h3 {
+//         color: #fff;
+//         font-size: 28px;
+//         font-weight: 700;
+//         margin: 0 0 15px;
+
+//         @media (max-width:991px) {
+//           font-size: 22px;
+//           margin-bottom: 5px;
+//         }
+
+//         @media (max-width:479px) {
+//           font-size: 18px;
+//           line-height: normal;
+//           font-weight: 600;
+//         }
+//       }
+
+//       p {
+//         color: #fff;
+//         font-size: 18px;
+//         font-weight: 400;
+//         margin: 0;
+
+//         @media (max-width:991px) {
+//           font-size: 14px;
+//         }
+
+//         span {
+//           font-weight: 600;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .frequently-asked-q {
+//   background-color: #fff;
+//   padding: 75px 0;
+
+//   @media (max-width:479px) {
+//     padding: 50px 0;
+//   }
+
+//   ::ng-deep {
+//     .card {
+//       border: none;
+//       border-radius: 0;
+//     }
+
+//     .card-header {
+//       background: none;
+//       border-width: 0 0 1px;
+//       border-color: #dfdfdf;
+//       border-style: solid;
+//       padding: 13px 0;
+
+//       h4 {
+//         font-size: 17px;
+//         color: #302f2f;
+//         padding-right: 100px;
+//         position: relative;
+
+//         @media (max-width:991px) {
+//           font-size: 14px;
+//         }
+
+//         .icon-arrow-down {
+//           color: #797979;
+//           position: absolute;
+//           right: 0;
+//           top: 8px;
+//           font-size: 12px;
+//           transition: transform 0.5s ease 0s;
+//         }
+//       }
+//     }
+
+//     .panel-open {
+//       .card-header {
+//         .icon-arrow-down {
+//           transform: rotate(-180deg);
+//         }
+//       }
+//     }
+
+//     .panel:not(.card) {
+//       &:last-child {
+//         .card-header {
+//           border: none;
+//         }
+//       }
+//     }
+
+//     .card-body {
+//       padding: 15px 0;
+
+//       p {
+//         font-size: 14px;
+//         color: #575757;
+//         font-weight: 500;
+
+//         @media (max-width:991px) {
+//           font-size: 12px;
+//         }
+
+//         span {
+//           font-weight: 600;
+//         }
+//       }
+//     }
+//   }
+
+// }
+
+
+// @media (max-width: 480px) {
+//   .advertise-banner h1 {
+//     margin-bottom: 0px !important;
+//   }
+//   .advertise-banner {
+//     padding: 30px 0 !important;
+//   }
+//   .advertise-banner .your-value-space {
+//     margin: 2px 0px 6px !important;
+//   }
+//   .advertise-banner img {
+//     top: -18px !important;
+//     right: 23px;
+//     width: 100%;
+//   }
+//   .advertise-banner .btn {
+//     padding: 7px 16px !important;
+//     width: auto !important;
+//     font-weight: 500 !important;
+//     border-radius: 8px !important;
+//     font-size: 11px !important;
+//     transition: all 0.4s;
+//   }
+//   .benefits-with-cofynd {
+//     padding: 35px 0 20px;
+//   }
+//   .benefit-list-items h3 {
+//     font-size: 12px !important;
+//     line-height: 22px;
+//   }
+//   .listing-steps .step-box p {
+//     display: none;
+//   }
+//   .listing-steps .step-box img {
+//     width: 32px;
+//   }
+//   .listing-steps .step-box h3 {
+//     font-size: 12px !important;
+//     line-height: 15px !important;
+//     margin-top: 4px !important;
+//     color: #272828 !important;
+//   }
+//   .listing-steps {
+//     padding: 35px 0 17px;
+//   }
+//   .work-procedure {
+//     padding: 30px 0 10px;
+//   }
+//   .work-procedure .side-info-graphic {
+//     width: 300px;
+//   }
+//   .work-procedure p {
+//     margin-bottom: 10px;
+//   }
+//   .action-desc p {
+//     color: #fff !important;
+//   }
+//   .list-with-us .action-box .btn {
+//     padding: 7px 16px !important;
+//     width: auto !important;
+//     font-weight: 500 !important;
+//     border-radius: 8px !important;
+//     font-size: 11px !important;
+//     transition: all 0.4s;
+//   }
+//   .list-with-us .action-box {
+//     padding: 20px;
+//   }
+//   .list-with-us .action-box > .action-desc h3 {
+//     font-size: 14px;
+//     line-height: 20px !important;
+//   }
+//   .list-with-us {
+//     padding: 20px 0;
+//   }
+//   .action-desc {
+//     flex-basis: 100% !important;
+//     margin-right: 0px !important;
+//   }
+//   .faqs_section {
+//     padding: 30px 0px !important;
+//   }
+// }

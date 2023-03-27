@@ -1,0 +1,90 @@
+<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" (priceFilterChanged)="onFilterPriceChange($event)" (sortTypeChanged)="onSortTypeChange($event)" (onResetFilter)="resetFilter()" (mapViewChanged)="toggleMapView($event)">
+</app-search-breadcrumb>
+<section class="search-container clearfix">
+    <div class="search-grid-container" [class.search-grid-full]="!isMapView">
+        <div class="search-grid-wrapper">
+
+            <h1 class="page-heading" *ngIf="!loading && workSpaces.length">
+                {{ pageTitle ? pageTitle : 'Coworking space in ' + subTitle}}
+            </h1>
+
+            <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length" [cityName]="title" [relativeUrl]="'coworking'" [popularLocationList]="cityWisePopularLocation">
+            </app-search-similar-location>
+
+            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Coworking'" [url]="'/coworking'">
+            </app-search-no-result>
+
+            <app-search-card-loader *ngIf="loading">
+            </app-search-card-loader>
+
+            <div class="row" *ngIf="!loading">
+                <ng-container *ngFor="let space of workSpaces; let i = index">
+                    <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                        <app-search-card [workspace]="space" [city]="title" [locality]="subTitle">
+                        </app-search-card>
+                    </div>
+                    <ng-template [ngIf]="isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coWorking'">
+                            </app-search-contact-us-text>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="!isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coworking in your city</h4>
+                                            <ul class="mobilehide">
+                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle">
+                            </app-search-contact-us-text2>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+                <div class="col-md-4">
+                    <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                </div>
+            </div>
+
+            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
+                <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                </pagination>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="loading" class="search-map-container">
+    </div>
+    <div *ngIf="loading" class="search-map-container">
+    </div>
+    <div *ngIf="!loading && isMapView" class="search-map-container" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
+        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
+    </div>
+</section>
+<section class="search-description" *ngIf="!loading && seoData">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>

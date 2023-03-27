@@ -1,0 +1,604 @@
+<section class="home_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main_heading">
+                    <h1>
+                        Choose from <span>100,000+</span><br /> Spaces on Rent
+                    </h1>
+                </div>
+                <div class="search">
+                    <app-home-city-dropdown [typeLabel]="'Looking For'" [cityLabel]="'Select City'" [isCountryLandingPage]="false" [isCoworking]="true" [isCoLiving]="true"> </app-home-city-dropdown>
+                </div>
+                <app-home-cities></app-home-cities>
+            </div>
+        </div>
+    </div>
+    <div class="innerbanner_img">
+        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7a43d15d2a9cd0f772a52bede9ab214e01c66c06.jpg" alt="" />
+    </div>
+</section>
+
+<section class="our_services_sec mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div routerLink="/coworking/" class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/169daf9cedb9b3b61f70c7fda6916a9985ff0bbf.jpg');">
+                    <h4>Coworking <span>Spaces</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div routerLink="/list-your-space/" class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e83fd0860d9d8d6468109985b6e21c8d4a92551f.jpg');">
+                    <h4>List <span>Property</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div routerLink="/office-space/rent/" class="service_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6d614883a0c59958b038886e9400dc15a73c89c7.jpg');">
+                    <h4>Office <span>Spaces</span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row services_row">
+            <div class="col-md-4">
+                <div routerLink="/virtual-office/" class="service_item service_item2" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/91cf03dcc9c57613082550f34cc45a23f57e2d6b.jpg');">
+                    <h4>Virtual <span>Offices</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div routerLink="/enterprise/" class="service_item service_item2" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/01c29800b50edbddb2caf317168550b74cefd876.jpg');">
+                    <h4>Enterprise <span>Solutions</span></h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div routerLink="/co-living/" class="service_item service_item2" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f282b4ca2a3b521ce4d7d804a16b7925483baa8f.jpg');">
+                    <h4>Coliving <span>Spaces</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="categories_sec desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mb-2">
+                <div class="category_item coworking_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/408a3da31050455b6e7f32f3fa7343e6a57968ee.png');">
+                    <h3>Coworking Office Space</h3>
+                    <a routerLink="/coworking/" class="stretched-link"></a>
+                </div>
+            </div>
+            <div class="col-4 mb-2">
+                <div class="category_item listing_item img-fuild" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bbdedc0732bf4da91e8ca5454169c4bb2fca1dbd.png');">
+                    <h3>List Property</h3>
+                    <a routerLink="/list-your-space/" class="stretched-link"></a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="category_item virtual_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cade2ba04f066b6376f03d1b42deb77de5770da1.png');">
+                    <h3>Virtual Office</h3>
+                    <a routerLink="virtual-office" class="stretched-link"></a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="category_item officespace_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8cdf5bbc0f5edeb499051b51df3fb3126ec79fa0.png');">
+                    <h3>Private office</h3>
+                    <a routerLink="/office-space/rent/" class="stretched-link"></a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="category_item enterprise_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/25e815319a5121f77aa2abae76e05a0c0c0ea695.png');">
+                    <h3>Enterprise Solutions</h3>
+                    <a routerLink="enterprise" class="stretched-link"></a>
+                </div>
+            </div>
+            <!-- <div class="col-4 mb-2">
+                <div class="category_item coworking_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/44b6892625a3151fb4c02e09a09f7f99025a1f97.png');">
+                    <h3>Coliving Space</h3>
+                    <a routerLink="/co-living/" class="stretched-link"></a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<section class="covid-section mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5fe89b1ad0fdf44bbe39c8c7ea4ac8d936a6f730.png" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mobilehide feature">
+    <div class="feature-half-left"></div>
+    <div class="feature-half-right"></div>
+    <div class="feature-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><span>100,000+</span> Live Spaces</h3>
+                    <h3><span>1,000+</span> Locations</h3>
+                    <h3><span>25+</span> Cities</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="left-content">
+                        <h2>
+                            CoFynd is India's fastest growing online discovery platform for searching and booking Coworking and Co-living spaces.
+                        </h2>
+                        <div class="divider-line"></div>
+                        <button type="button" class="anchor-text">
+                            Search . Book . Work . Live
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="what-you-get">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg" alt="CoFynd" />
+            </div>
+            <div class="col-md-6 right-part">
+                <div class="text-center">
+                    <div class="main_heading title_divider">
+                        <h2>What You Get From Us</h2>
+                    </div>
+                </div>
+                <ul>
+                    <li><i class="wt-icon wt-icon-price"></i> Exclusive pricing for CoFynd members</li>
+                    <li><i class="wt-icon wt-icon-space"></i> Verified Spaces and Trusted Partners</li>
+                    <li><i class="wt-icon wt-icon-fee"></i> No booking service fee</li>
+                    <li><i class="wt-icon wt-icon-support"></i> 100% offline support</li>
+                    <li><i class="wt-icon wt-icon-Coupon"></i> Exclusive Brand Coupon Codes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home_popular_space_slider">
+    <app-home-popular-space [isCountryLandingPage]="false"></app-home-popular-space>
+</section>
+
+<section class="curated_section desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <h2>Curated Coworking Spaces</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb5e9207e5f8829905ecf64de5ffb75b01d7e6a4.jpg" alt="Low Cost" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Low Cost</h4>
+                        </div>
+                        <a type="button" (click)="openModal('10,000')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb72b93ba681938b8e3151bae063eb8eaf2faa23.jpg" alt="Affordable" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Affordable</h4>
+                        </div>
+                        <a type="button" (click)="openModal('20,000')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74736bb62b2de3f0a4fb8c41cd07da4aa2ca1a98.jpg" alt="Luxury" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Luxury</h4>
+                        </div>
+                        <a type="button" (click)="openModal('above 20,000')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature_sec partners pb-5 desktophide" *ngIf="coworkingImages && coworkingImages.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Featured Coworking</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="feature_slides partner-carousel slider-on-mobile-view">
+                    <div class="item" *ngFor="let item of coworkingImages">
+                        <a [routerLink]="item.description" target="_blank">
+                            <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="advertisement_sec desktophide" *ngIf="coworkingBrandAdsImages && coworkingBrandAdsImages.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="add-item-list">
+                    <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of coworkingBrandAdsImages">
+                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="form_cta_sec mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cta_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/09ec467fbe0bdb62ed9abe828b5eb220f06fa19d.jpg');">
+                    <div class="form_col">
+                        <div class="form_head">
+                            <h3>Let us find your perfect Property</h3>
+                            <p class="mobilehide">Connect to a CoFynd Space Expert now</p>
+                        </div>
+
+                        <div class="form_body">
+                            <form class="form_dream_ptoperty" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-input">
+                                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp" />
+                                            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['name'].errors['required']">
+                                                    Please enter your name.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-input">
+                                            <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp" />
+                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['email'].errors['required']">
+                                                    Please enter your email id.
+                                                </div>
+                                                <div *ngIf="f['email'].dirty">
+                                                    Please enter valid email id.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-input country_phone">
+                                            <div class="flag-container">
+                                                <div (click)="showcountry = !showcountry" class="selected-flag">
+                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                        <!-- <img [src]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                                        <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                        <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul *ngIf="showcountry" class="country-list">
+                                                    <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                                        <div class="flag-box">
+                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{country?.name}}</span>
+                                                        <span class="dial-code">{{country?.dial_code}}</span>
+                                                    </li>
+
+                                                    <li class="divider"></li>
+
+                                                    <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
+                                                        <div class="flag-box">
+                                                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{inactive?.name}}</span>
+                                                        <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                    </li>
+                                                </ul>
+
+                                                <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" required class="form-control border-light" id="mobilenumber" placeholder="Phone*" aria-describedby="emailHelp" />
+                                                <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['phone_number'].errors['required']">
+                                                        Please enter mobile number.
+                                                    </div>
+                                                    <div *ngIf="f['phone_number'].dirty">
+                                                        Please enter 10 digit mobile number.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
+                                        <div class="form-input">
+                                            <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp" />
+                                            <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['otp'].errors['required']">
+                                                    Please enter 4 digit otp.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <div class="form-input">
+                                            <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
+                                                <option value="" disabled style="display: none;">Type Of Space</option>
+                                                <option value="Coworking">Coworking</option>
+                                                <option value="Coliving">Coliving</option>
+                                                <option value="Office Space">Office Space</option>
+                                                <option value="Virtual Office">Virtual Office</option>
+                                            </select>
+                                            <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['interested_in'].errors['required']">
+                                                    Please select space type.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <div class="form-input">
+                                            <select required class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" aria-label="Default select example">
+                                                <option value="" selected disabled style="display: none;">Select City*</option>
+                                                <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['city'].errors['required']">
+                                                    Please select your city name.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn w-100 site_btn">
+                                            {{btnLabel}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="cta_img">
+                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/97c25bb142eb6cca3d810df493e12701599c5cb0.png" alt="" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="video_sec desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="video">
+                    <video width="100%" loop autoplay playsinline id="videoPlayer" onloadedmetadata="this.muted = true">
+                        <source src="/assets/images/home/cofynd-home.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="">
+    <app-home-popular-space [shouldCoLivingVisible]="true" [pageTitle]="'Top Coliving in India'" [popularCoLivingSpaces]="popularCoLivingSpaces" [shouldCoWorkingVisible]="false"> </app-home-popular-space>
+</div>
+
+<section class="curated_section desktophide">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Curated Coliving Spaces</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008a8663bb6af0890c03005b643c4572a3484388.jpg" alt="Food Available" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Food Available</h4>
+                        </div>
+                        <a type="button" (click)="openModal('Inclusive')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0905b0bd74dc081e5c8bce0c606d6b354c6104bf.jpg" alt="Private Room" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Private Room</h4>
+                        </div>
+                        <a type="button" (click)="openModal('625698d3a91948671a4c590b')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="curated-box">
+                    <div class="curated-item">
+                        <div class="curated-img">
+                            <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/992cb7c6d50bccd39e9f553ebb43d76323ed182b.jpg" alt="Bangalore" class="img-fluid" />
+                        </div>
+                        <div class="curated-content">
+                            <h4>Twin Sharing</h4>
+                        </div>
+                        <a type="button" (click)="openModal('625698e8a91948671a4c590c')" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature_sec partners pb-5 desktophide" *ngIf="colivingImages && colivingImages.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>Featured Coliving</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="feature_slides partner-carousel slider-on-mobile-view">
+                    <div class="item" *ngFor="let item of colivingImages">
+                        <a [routerLink]="item.description" target="_blank">
+                            <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="advertisement_sec desktophide" *ngIf="colivingBrandAdsImages && colivingBrandAdsImages.length > 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="add-item-list">
+                    <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of colivingBrandAdsImages">
+                        <img [src]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="advantages_sec desktophide">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>CoFynd Advantages</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="icon_box">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="" />
+                    <h4>Exclusive Pricing</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="" />
+                    <h4>Verified Spaces</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="" />
+                    <h4>100% Support</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="icon_box mb-0">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="" />
+                    <h4>Zero Brokerage</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="enquiry-section mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" (click)="openAdd()">
+                <img lazyLoad="	https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c1b1c61db7d1f83d0ba1c6ad8537106cc90bf99d.png" class="enquiry-box" alt="Enterprise Banner" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="home_client_sec">
+    <app-our-clients></app-our-clients>
+</div>
+
+<section class="list_your_space_sec">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <div class="cta_content">
+                    <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
+                    <p class="mobilehide">
+                        List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.
+                    </p>
+                    <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-home-news-list></app-home-news-list>
+
+<section class="cofynd_desk_sec home_cofynd_desk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="" />
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">
+                        CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
+                        Climb to their highest in life.
+                    </p>
+                    <p class="link-text text-center title_name">
+                        Atul Gupta, Founder & CEO
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sub-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div [innerHTML]="seoData?.footer_description"></div>
+            </div>
+        </div>
+    </div>
+</section>

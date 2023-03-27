@@ -1,0 +1,175 @@
+<div #enquireBox class="enquire-box" [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
+    <div class="form-section enquire-box-content" [@shake]="shakeTheForm" (@shake.done)="animationChanged($event)" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+        <div class="title" *ngIf="!isColivEnquiry">
+            <h4 class="heading">
+                <button type="button" class="fas fa-close" (click)="onClose()">
+        </button> Yes, I'm Interested!
+            </h4>
+            <p>Know More About this property</p>
+        </div>
+        <div class="title coliving_title_form" *ngIf="isColivEnquiry">
+            <h4 class="heading"><button type="button" class="fas fa-close" (click)="onClose()"></button>Yes, I'm Interested!</h4>
+            <p class="light_blue">Minimum stay 3 months</p>
+        </div>
+
+        <!-- <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS" class="success-box">
+            <app-check-mark-circle></app-check-mark-circle>
+            <h6>Hi! {{ user.name }}</h6>
+            <h3>Thank You for Your Query</h3>
+            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
+            <a href="/coworking">Search More Spaces</a>
+        </div> -->
+
+        <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+
+            <div [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+
+
+
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.name">
+                    </app-input-validation>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="email" placeholder="Email*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.email">
+                    </app-input-validation>
+                </div>
+
+                <div class="form-group country_phone simple_dropdown city_card_phone">
+                    <div class="flag-container">
+                        <div (click)="showcountry = !showcountry" class="selected-flag">
+                            <div class="flag in" *ngIf="activeCountries.length">
+                                <!-- <img [src]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                        <ul *ngIf="showcountry" class="country-list">
+                            <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                <div class="flag-box">
+                                    <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                </div>
+                                <span class="country-name">{{country?.name}}</span>
+                                <span class="dial-code">{{country?.dial_code}}</span>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
+                                <div class="flag-box">
+                                    <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                </div>
+                                <span class="country-name">{{inactive?.name}}</span>
+                                <span class="dial-code">{{inactive?.dial_code}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                    <app-input-validation [control]="enquiryForm.controls.phone_number">
+                    </app-input-validation>
+                </div>
+            </div>
+
+
+            <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                <label>OTP</label>
+                <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
+                <app-input-validation [control]="enquiryForm.controls.otp">
+                </app-input-validation>
+            </div>
+
+            <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="Office Type" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                        </app-input-validation>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="No. of Seats" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.no_of_person">
+                        </app-input-validation>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="type" [clearable]="true" [searchable]="false" [items]="coLivingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                        </app-input-validation>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="Budget" [clearable]="true" [searchable]="false" [items]="Budgets" bindLabel="label" bindValue="value" formControlName="mx_BudgetPrice">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                        </app-input-validation>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.OFFICE">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="Type" [clearable]="true" [searchable]="false" [items]="OfficeType" bindLabel="label" bindValue="value" formControlName="interested_in">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                        </app-input-validation>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="Budget" [clearable]="true" [searchable]="false" [items]="OfficeBudgets" bindLabel="label" bindValue="value" formControlName="mx_BudgetPrice">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                        </app-input-validation>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <ng-select placeholder="Move In" [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">
+                        </ng-select>
+                        <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                        </app-input-validation>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="site_btn border_btn full_width_btn" [appLoadingButton]="loading">{{ btnLabel }} </button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS" class="enquiry-footer">
+        <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
+            <div class="contact-image">
+                <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+            </div>
+            <div class="contact-info">
+                <p class="heading">Get in Touch</p>
+                <p><a *ngIf="phoneflag" class="phone_text" [href]="'tel:' + supportPhone.phone">{{ supportPhone.phone }}</a>
+                    <a style="text-transform: none;" class="email_text" *ngIf="!phoneflag" [href]="'mailto:' + supportPhone.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ supportPhone.email }}</a>
+                </p>
+                <p><a *ngIf="phoneflag" style="text-transform: none;" class="email_text" [href]="'mailto:' + forNoColiving.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ forNoColiving.email }}</a>
+                </p>
+            </div>
+        </div>
+        <p class="term-text">By clicking the above button you agree to our Terms of Service and have read and understood our
+            <a routerLink="/privacy-policy">Privacy Policy</a></p>
+    </div>
+</div>

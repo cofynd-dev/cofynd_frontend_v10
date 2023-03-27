@@ -1,0 +1,51 @@
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.btn {
+  border-radius: 2px;
+  padding: 10px 25px;
+  transition: all 0.4s;
+  font-size: 14px;
+  position: relative;
+  text-transform: capitalize;
+
+  &.btn-primary {
+    background: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &.focus,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:hover {
+    background: darken($color: $color-primary, $amount: 4);
+    border-color: darken($color: $color-primary, $amount: 4);
+  }
+}
+
+.btn-link {
+  font-size: 16.5px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.09;
+  letter-spacing: normal;
+  text-align: right;
+  color: $color-primary;
+
+  &:hover {
+    text-decoration: none;
+    color: darken($color: $color-primary, $amount: 4);
+  }
+}
+
+.btn-secondary {
+  background: $color-yellow;
+  color: #000;
+  border: 0;
+}

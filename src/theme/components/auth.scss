@@ -1,0 +1,77 @@
+@import 'base/variable';
+
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+
+  .bg {
+    background: url('/assets/images/login-bg.jpg') no-repeat top center;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 60%;
+  }
+
+  .logo {
+    margin-bottom: 100px;
+
+    img {
+      width: 210px;
+    }
+  }
+
+  .form-section {
+    width: 40%;
+    float: right;
+    padding: 45px 80px;
+    height: 100%;
+    background: #fff;
+  }
+
+  @media (max-width: 1080px) {
+    .bg {
+      width: 100%;
+    }
+
+    .form-section {
+      width: 92%;
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba($color: #ffffff, $alpha: 0.94);
+      border-radius: 4px;
+      float: none;
+      z-index: 1;
+      padding: 40px;
+    }
+  }
+}
+
+h1 {
+  font-size: 28px;
+  color: $color-primary;
+  line-height: 34px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+
+  span {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #111;
+    display: block;
+    font-weight: 600;
+  }
+
+  &.large-title {
+    font-size: 32px;
+
+    span {
+      font-size: 28px;
+    }
+  }
+
+}

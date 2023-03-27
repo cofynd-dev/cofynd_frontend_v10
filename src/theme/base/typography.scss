@@ -1,0 +1,91 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: #000
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+
+  &.subhead {
+    font-size: 30px;
+    color: $color-additional;
+    line-height: 36px;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 36px;
+
+  &.subhead {
+    font-size: 24px;
+    color: $color-additional;
+    line-height: 32px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+
+  &.subhead {
+    font-size: 18px;
+    color: $color-additional;
+    line-height: 24px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 24px;
+
+  &.subhead {
+    font-size: 12px;
+    color: $color-additional;
+    line-height: 16px;
+  }
+}
+
+h5 {
+  font-size: 14px;
+  line-height: 18px;
+
+  &.subhead {
+    font-size: 10px;
+    color: $color-additional;
+    line-height: 12px;
+  }
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 16px;
+
+  &.subhead {
+    font-size: 8px;
+    color: $color-additional;
+    line-height: 10px;
+  }
+}
+
+blockquote {
+  font-size: 13px;
+  font-style: italic;
+  border-left: 3px solid $color-accent;
+  margin-bottom: 0;
+  padding-left: 10px;
+}
+
+::selection {
+  color: #ffffff;
+  background: $color-primary;
+}

@@ -1,0 +1,7 @@
+<div class="similar-places">
+  <ul class="visible-list">
+    <li *ngFor="let city of cities;">
+      <a [routerLink]="'/coworking/' + city.name">{{ city.name }}</a>
+    </li>
+  </ul>
+</div>

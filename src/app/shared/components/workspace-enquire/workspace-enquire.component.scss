@@ -1,0 +1,183 @@
+@import "base/variable";
+
+.enquire-box {
+
+  @media(max-width:991px) {
+    top: 0;
+    position: static;
+    max-width: 100%;
+
+    &.fixed {
+      position: static;
+    }
+
+    .enquiry-footer  {
+      padding: 10px;
+    }
+  }
+
+  .form-layout-outline {
+
+    .row {
+
+      .col-sm-8 {
+        border-right: 1px solid #e4e4e4;
+        padding: 10px 5px 5px 25px;
+      }
+
+      .col-sm-4 {
+        padding: 10px 5px 5px 10px;
+      }
+      .col-sm-7 {
+        border-right: 1px solid #e4e4e4;
+        padding: 10px 5px 5px 25px;
+      }
+
+      .col-sm-5 {
+        padding: 10px 5px 5px 10px;
+      }
+
+      .col-sm-12 {
+        border-right: 1px solid #e4e4e4;
+        padding: 10px 5px 5px 25px;
+      }
+    }
+
+    .btn-primary {
+      font-size: 16.5px;
+      font-weight: 600;
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border-radius: 0 0 5px 5px;
+    }
+
+  }
+}
+
+
+
+.success-box {
+  text-align: center;
+  padding: 80px 20px 20px;
+
+  h6 {
+    color: #3b3b3b;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 20px 0 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #3b3b3b;
+    margin-bottom: 115px;
+    padding: 0;
+  }
+}
+
+.get-in-content {
+  border: 1px solid #cccccb;
+  padding: 15px;
+  display: flex;
+  border-radius: 5px;
+  margin: 10px 0;
+
+  img {
+    max-width: 60px;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: normal;
+    margin: 0px 0 2px;
+    color: #808080;
+    padding-left: 20px;
+  }
+
+  p {
+    padding-left: 20px;
+    color: #343434;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+
+    a {
+      color: #343434;
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+}
+
+.term-text {
+  font-size: 10px;
+  line-height: 13px;
+  color: #5d5e5e;
+  margin: 0;
+}
+
+@media(max-width:767px) {
+  .enquire-box {
+    padding-bottom: 60px;
+
+    .form-layout-outline {
+      .row {
+        padding: 0;
+
+        .col-sm-8 {
+          border-right: 0;
+          border-bottom: 1px solid #e4e4e4;
+          padding: 10px 20px 6px;
+        }
+
+        .col-sm-4 {
+          padding: 10px 20px 6px;
+        }
+        .col-sm-7 {
+          border-right: 0;
+          border-bottom: 1px solid #e4e4e4;
+          padding: 10px 20px 6px;
+        }
+
+        .col-sm-5 {
+          padding: 10px 20px 6px;
+        }
+      }
+
+      .btn-primary {
+        position: fixed;
+        bottom: 0;
+        border-radius: 0;
+        display: block;
+        margin: 0;
+        left: 0;
+      }
+    }
+
+    .term-text {
+      font-size: 10px;
+      line-height: 14px;
+      margin: 0;
+    }
+
+  }
+
+  .success-message {
+    .term-text {
+      display: none;
+    }
+  }
+}

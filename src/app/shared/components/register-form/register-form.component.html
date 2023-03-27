@@ -1,0 +1,62 @@
+<h1 [class.large-title]="!isDialogModal">
+  Sign Up
+  <span>Fynd The Perfect Space</span>
+</h1>
+<form [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="formElements">
+  <div class="material-form">
+
+    <div class="material-form-field">
+      <input id="name"
+        type="text"
+        formControlName="name"
+        required />
+      <label for="name">Name</label>
+      <span class="underline"></span>
+      <app-input-validation [control]="registerForm.controls.name">
+      </app-input-validation>
+    </div>
+
+    <div class="material-form-field">
+      <input id="email"
+        type="text"
+        formControlName="email"
+        required />
+      <label for="email">Email</label>
+      <span class="underline"></span>
+      <app-input-validation [control]="registerForm.controls.email">
+      </app-input-validation>
+    </div>
+
+    <div class="material-form-field">
+      <ng-select formControlName="gender"
+        [clearable]="false"
+        [searchable]="false"
+        (open)="onOpenDropDown()"
+        (close)="onCloseDropDown()">
+        <ng-option value="male">Male</ng-option>
+        <ng-option value="female">Female</ng-option>
+      </ng-select>
+      <label [class.active]="isGenderDropDownOpen"
+        for="gender">Gender</label>
+      <span class="underline"></span>
+      <app-input-validation [control]="registerForm.controls.gender">
+      </app-input-validation>
+
+      <div *ngIf="responseError"
+        class="error-message">
+        {{ responseError }}
+      </div>
+    </div>
+
+
+  </div>
+
+  <button type="submit"
+    class="btn btn-primary btn-block"
+    [appLoadingButton]="isSubmitting">
+    Sign Up
+  </button>
+
+</form>

@@ -1,0 +1,390 @@
+<section class="banner">
+  <div class="banner-bg"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Find the Right<br>
+          Coworking Space<br>
+          <span>in India</span></h1>
+        <div class="form-layout-outline">
+          <div class="form-group">
+            <ng-select [items]="cities"
+              placeholder="Select City"
+              bindLabel="name"
+              bindValue="id"
+              [searchable]="false"
+              [clearable]="false"
+              (change)="openCityListing($event)"></ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facility">
+  <div class="container">
+    <ul class="row">
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/wifi.svg"
+            class="img-fluid d-block"
+            alt="Wifi">
+          <h5>High Speed WiFi</h5>
+          <p>High-Speed Wifi, regular cleaning, HDTVs everything you need to do your best work.</p>
+        </div>
+      </li>
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/tea.svg"
+            class="img-fluid d-block"
+            alt="Tea & Coffee">
+          <h5>Tea & Coffee</h5>
+          <p>A coffee mug give you more relaxation with working desk and a seating.</p>
+        </div>
+      </li>
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/meeting-room.svg"
+            class="img-fluid d-block"
+            alt="Networking">
+          <h5>Networking</h5>
+          <p>Connect with other people and share your skills for better and quick growth.</p>
+        </div>
+      </li>
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/lounge-area.svg"
+            class="img-fluid d-block"
+            alt="Common Areas">
+          <h5>Common Areas</h5>
+          <p>Keep your eyes on rest for some moment and get a breakthrough to work.</p>
+        </div>
+      </li>
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/printer.svg"
+            class="img-fluid d-block"
+            alt="Printing Facility">
+          <h5>Printing Facility</h5>
+          <p>Printing and scanning facilities available without any extra cost.</p>
+        </div>
+      </li>
+      <li class="col-md-4">
+        <div class="box">
+          <img src="/assets/images/amenities/kitchen.svg"
+            class="img-fluid d-block"
+            alt="Kitchen Facility">
+          <h5>Kitchen Facility</h5>
+          <p>Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact-option">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="space-types space-type-1"
+          routerLink="/coworking"><span>Looking For</span>
+          <h3>Day Pass</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="space-types space-type-2"
+          routerLink="/coworking"><span>Are You A</span>
+          <h3>Entrepreneur, Freelancer <br>or a Small Teams</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="space-types space-type-3"
+          routerLink="/contact-us"><span>Are You</span>
+          <h3>An Enterprise</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="feature">
+  <div class="feature-half-left"></div>
+  <div class="feature-half-right"></div>
+  <div class="feature-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>What is Coworking ?</h4>
+          <p>A coworking space is a new method of working to offer an innovative and collaborative work environment,
+            running without any conventional office limitations. It is based on collaborative workspace infrastructure
+            for efficient use of all facilities of an office space. You just have to pay for what you use.</p>
+          <h3>
+            <span>Search -&nbsp;</span>
+            your nearby location.
+          </h3>
+          <h3>
+            <span>Book -&nbsp;</span>
+            the best-suited workspace.
+          </h3>
+          <h3>
+            <span>Work -&nbsp;</span>
+            with a like-minded community.
+          </h3>
+        </div>
+        <div class="col-md-6">
+          <div class="left-content">
+            <h2>CoFynd is India's fastest growing online discovery platform for searching and booking Coworking and
+              private offices.</h2>
+            <div class="divider-line"></div>
+            <button type="button"
+              class="anchor-text"
+              (click)="openCitySelectorModal()">
+              Search . Book . Work<i class="icon-next"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="covid-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="covid-content">
+          <h3>
+            <span>COVID-19 RESPONSE</span>
+            We are ready for <br>the new normal!
+          </h3>
+          <ul>
+            <li>
+              <div class="img">
+                <img src="/assets/images/amenities/mask.svg"
+                  alt="Free Mask">
+              </div>
+              <h4>Free Masks Provided</h4>
+              <p>Each of our hubs will provide you with free masks whenever you visit.</p>
+            </li>
+            <li>
+              <div class="img">
+                <img src="/assets/images/amenities/sanitizer.svg"
+                  alt="Sanitized Spaces">
+              </div>
+              <h4>Sanitized Spaces</h4>
+              <p>All our Workspaces are sanitized
+                regularly to make sure you have the best experience</p>
+            </li>
+            <li>
+              <div class="img">
+                <img src="/assets/images/amenities/hand-sanitizers.svg"
+                  alt="Hand Sanitizers">
+              </div>
+              <h4>Hand Sanitizers Provided</h4>
+              <p>We provide you with sanitizers at each desk so that you have a clean experience.</p>
+            </li>
+            <li>
+              <div class="img">
+                <img src="/assets/images/amenities/social-distancing.svg"
+                  alt="Social Distancing">
+              </div>
+              <h4>Social Distancing </h4>
+              <p>Each of our hubs makes sure that we maintain social distancing norms.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="city-listing">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title">
+          <h2>Top Coworking Cities in India</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row scroll-on-mobile">
+          <div class="col-md-2"
+            *ngFor="let city of cities">
+            <a [routerLink]="'/coworking/' + city.name">
+              <img [src]="'/assets/images/city/' + city.icon"
+                class="icon"
+                [alt]="city.name">
+              <span>{{ city.name }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <img src="/assets/images/new-mid-curved-image.png"
+          class="img-fluid mt-4 pull-right curved"
+          alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="covid-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="covid-content">
+          <h3>
+            Looking for a Customized Office Solution
+          </h3>
+          <ul>
+            <li>
+              <div class="img">
+                <img src="/assets/images/workspace/hot-desk.svg"
+                  alt="Free Mask">
+              </div>
+              <h4>Office Suite</h4>
+              <p>Office space for larger teams with their own reception.</p>
+            </li>
+            <li>
+              <div class="img">
+                <img src="/assets/images/workspace/dedicated-desk.svg"
+                  alt="CXO's Suite">
+              </div>
+              <h4>CXO's Suite</h4>
+              <p>Customized office spaces for CEO's & CXO's.</p>
+            </li>
+            <li>
+              <div class="img">
+                <img src="/assets/images/workspace/private-cabin.svg"
+                  alt="Custom Buildout">
+              </div>
+              <h4>Custom Buildout</h4>
+              <p>Custom built offices as per your requirements.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="advantages">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title">
+          <h2>CoFynd Advantages</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <img height="40px"
+          src="/assets/images/amenities/no-booking-fee.svg"
+          alt="No Booking Fee">
+        <h5>No Booking Fee</h5>
+        <p>We don't charge additional fees.</p>
+      </div>
+      <div class="col-md-4">
+        <img height="40px"
+          src="/assets/images/amenities/best-price.svg"
+          alt="Best Price">
+        <h5>Best Price</h5>
+        <p>Guaranteed Best price on CoFynd</p>
+      </div>
+      <div class="col-md-4">
+        <img height="40px"
+          src="/assets/images/amenities/payment-protection.svg"
+          alt="Payment Protection">
+        <h5>Payment Protection</h5>
+        <p>We hold payment for 24 hours after you <br>move in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<app-home-popular-space [layout]="'white'"
+  [pageTitle]="'Top Coworking Spaces in India'"></app-home-popular-space>
+<app-home-brand-list [shouldCoWorkingVisible]="true"
+  [pageTitle]="'Top Coworking Companies in India'"
+  [layout]="'grey'">
+</app-home-brand-list>
+<section class="image-section">
+  <div class="container">
+    <div class="book-now-box">
+      <div class="row">
+        <div class="col-md-12">
+          <a routerLink="/coworking/wework-nh8-gurugram/"
+            target="_blank">
+            <img src="/assets/images/co-living/landing/wework-ad.jpg"
+              class="img-fluid m-auto d-block"
+              style="border-radius: 20px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="search-description">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Coworking Space in India</h2>
+        <p>Today, Coworking Spaces in India have become very popular. It is preferred by small businesses & startups and
+          also large organizations prefer coworking office space for smooth operations of their business. In the Asia
+          Pacific, India comes at the second-largest market for flexible workspaces after China.</p>
+        <p>It gives all the opportunities to collaborate, connect & grow which you can't find in the traditional office
+          space setup. CoFynd is a coworking space aggregation platform based in India. We are currently operating in
+          Delhi, Noida, Gurugram and launching soon in Bengaluru, Pune, Hyderabad and Mumbai.</p>
+        <p>CoFynd has partnered with all the top coworking space providers in India - WeWork, Innov8, InstaOffice, 91
+          Springboard, AltF Coworking, Spring House Coworking, The Office Pass, GoHive to name a few. Whether you are an
+          individual or a large team, CoFynd has the office space solution for you.</p>
+        <p>If you need Coworking Space in India for a day, you can choose a Day Pass. For longer periods, you can go
+          with the Hot Desks, Dedicated Desks and Private Cabins. The Best coworking spaces in India are WeWork, AWFIS,
+          ABL Workspaces, 91 Springboard, Innov8 & Instaoffice.</p>
+        <p>Explore the shared office spaces in India by top brands and choose the best option. Be a part of the growing
+          coworking community in India with CoFynd and meet like-minded individuals and entrepreneurs.</p>
+        <h2>Future of Coworking Spaces in India</h2>
+        <p>In the beginning, this concept was created just for the freelancers but now it has become a viable real
+          estate business by covering small businesses, SME's and large organizations also. The growth of the coworking
+          space industry in India is expected to increase at a rapid pace.
+
+        </p>
+        <p>In India, Coworking Spaces are definitely an innovative way to work. As India is becoming a growing place for
+          Start-ups, there is also a growing demand for flexible workspaces.</p>
+        <p>This industry has estimated to reach $2.2 billion by 2022 and the coworking penetration to increase to 5.7%.
+          It has grown tremendously over the world, now it's time for India also.
+
+        </p>
+        <h2>Amenities</h2>
+        <p>In all our centres, CoFynd offers you all the state of the art amenities and features like Blazing Fast
+          Internet, Tea, Coffee, Flexible workstations, Lounges, Pantry, Reprographics area, Meeting Rooms, Conference
+          Rooms and a lot more add-on amenities also.
+
+        </p>
+        <h2>
+          Membership Plans</h2>
+        <p>The seating plan comprises of the Hot Desks, Dedicated Desks, Virtual Offices and Private Cabins also. CoFynd
+          also offers the enterprise services which includes Office Suites for bigger teams, CXO's Suites and the Custom
+          Buildout options as per your requirements.
+
+        </p>
+        <h2>Why choose CoFynd for Coworking Office Space in India?
+
+        </h2>
+        <p>CoFynd is a technology-driven office rental marketplace that makes it simple to rent a workspace globally
+          sitting at your desk. It offers plug and play workspace options to all types of clients for both short and
+          long term periods starting from a day, week or month and going up to several years. Choose from no. of India's
+          best Coworking Spaces, meeting rooms, event spaces, training rooms & conference rooms. Workspace search made
+          simple with CoFynd.
+
+        </p>
+        <h2>How does it work?</h2>
+        <p>Once you are registered on CoFynd, you can choose your choice of workspace - Office Spaces, Meeting Rooms,
+          Conference Rooms, Private Cabins, Training Rooms and Event Spaces.
+
+        </p>
+        <p>After an inquiry is generated on our platform, our sales team connect with the user and understand their
+          needs. Various options matching the client's requirements are shared with them. Sales team assists the client
+          with the site visit of the spaces and choose the best space for his work.</p>
+      </div>
+    </div>
+  </div>
+</section>

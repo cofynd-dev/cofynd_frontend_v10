@@ -1,0 +1,24 @@
+<div class="btn-group social-btn-group"
+  dropdown
+  [isAnimated]="true"
+  >
+  <button id="button-animated"
+    dropdownToggle
+    type="button"
+    class="icon-share fa-solid fa-share-nodes">
+  </button>
+  <ul id="dropdown-animated"
+    *dropdownMenu
+    class="dropdown-menu"
+    role="menu"
+    aria-labelledby="button-animated">
+    <li>
+      <button type="button"
+        (click)="getFbShareUrl()"><i class="icon-facebook"></i>Facebook</button></li>
+    <li><button type="button"
+      (click)="getTwitterShareUrl()"><i class="icon-twitter"></i>Twitter</button></li>
+    <li><button type="button"
+        (click)="getWhatsAppShareUrl()"><i class="icon-whatsapp"></i>WhatsApp</button></li>
+    <li><a [href]="'mailto:?to=&body=Check out this co-working space on CoFynd! ' + url + '&subject=Check out this co-working space on CoFynd!'"><i class="icon-email"></i>Email</a></li>
+  </ul>
+</div>

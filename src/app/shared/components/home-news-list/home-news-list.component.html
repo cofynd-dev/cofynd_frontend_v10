@@ -1,0 +1,19 @@
+<section class="news_brands">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="main_heading title_divider">
+              <h2>{{ pageTitle }}</h2>
+            </div>
+        </div>
+          <div class="col-12 mt-3">
+              <div class="logos_slider">
+                <div class="band-img"
+                *ngFor="let logo of newsMedia">
+                <img [src]="'../../../../assets/images/newsLogo/'+logo+'.png'">
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
