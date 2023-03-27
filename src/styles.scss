@@ -6406,6 +6406,53 @@ h3.site_title {
 .virtual_office_banner .main_heading h1 {
 	margin-bottom: 0px;
 }
+.form_dream_ptoperty .country_phone .form-control, .country_phone .form-control {
+	padding-left: 85px !important;
+}
+.country_phone .selected-flag {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.06);
+	padding: 0px 10px;
+	border-radius: 10px 0 0 10px;
+	height: 42px;
+}
+.country_phone .selected-flag .flag.in {
+	display: flex;
+	align-items: center;
+	height: 42px;
+}
+.country_phone .flag img {
+	margin-right: 5px;
+	width: 18px;
+}
+.country_phone .selected-flag .flag .arrow {
+	font-size: 9px;
+	margin-left: 3px;
+}
+.country_phone .country-list {
+	position: absolute;
+	background-color: #fff;
+	top: 42px;
+	border-radius: 10px;
+	padding: 0px 12px;
+	width: 200px;
+	height: 250px;
+	overflow-y: scroll;
+	z-index: 1;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.country_phone .country-list .country {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	padding: 5px 0px;
+	font-size: 13px;
+}
+.country_phone .country-list .divider {
+	height: 1px;
+	background-color: rgba(0, 0, 0, 0.1);
+	margin: 5px 0px;
+}
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -6490,6 +6537,7 @@ h3.site_title {
       .form_content {
         padding: 40px 70px;
         margin-bottom: 40px;
+        height: 240px;
   
         h2 {
           font-size: 30px;
@@ -6583,6 +6631,7 @@ h3.site_title {
 .cities_query_sec .form_text_area .for_virtual_office {
 	padding: 40px 40px;
 	margin-bottom: 0px;
+    height: 260px;
 }
 
 
