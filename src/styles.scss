@@ -6595,6 +6595,16 @@ h3.site_title {
 	position: absolute;
 	bottom: -22px;
 }
+.cities_query_sec .cities_form_area .message_field img {
+	top: 2px;
+}
+
+.query_from_sec .virtual_query_form .message_field img {
+	top: 9px;
+}
+.query_from_sec .virtual_query_form .message_field .form-control {
+	height: 80px;
+}
 
 
 @media (max-width: 1366px) {
