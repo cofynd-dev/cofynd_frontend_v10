@@ -192,7 +192,6 @@ export class SearchNoResultComponent implements OnInit {
     this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
   }
 
-
   onSubmit() {
     this.submitted = true;
     if (this.enterpriseFormGroup.invalid) {
