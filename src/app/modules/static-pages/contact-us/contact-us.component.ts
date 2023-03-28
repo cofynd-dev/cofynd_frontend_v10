@@ -31,7 +31,7 @@ export enum ENQUIRY_STEPS {
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit, OnDestroy {
-  user: User;
+  user: any;
   contactForm: FormGroup;
   loading: boolean;
   contactInfo = DEFAULT_APP_DATA.contact;
@@ -46,7 +46,10 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   pageUrl: string;
-
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
 
   constructor(
     private configService: ConfigService,
@@ -73,7 +76,24 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
     }
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
+    })
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   ngOnInit() {
@@ -208,6 +228,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;

@@ -50,7 +50,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   enquiryForm: FormGroup;
   loading: boolean;
-  user: User;
+  user: any;
   phoneflag: boolean = true;
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
@@ -119,6 +119,10 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
   pageUrl: string;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -139,7 +143,23 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       this.user = this.authService.getLoggedInUser();
     }
     this.pageUrl = this.router.url;
-    this.pageUrl = `https://cofynd.com${this.pageUrl}`
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
+    })
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   ngOnInit(): void {
@@ -157,6 +177,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       if (this.user) {
         const { name, email, phone_number } = this.user;
         this.enquiryForm.patchValue({ name, email, phone_number });
+        this.selectedCountry['dial_code'] = this.user.dial_code;
       }
     }
 
@@ -251,6 +272,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       this.loading = true;
       const formValues: Enquiry = this.enquiryForm.getRawValue();
       formValues.work_space = this.workSpaceId;
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;

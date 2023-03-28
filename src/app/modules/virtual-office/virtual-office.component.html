@@ -1484,10 +1484,40 @@
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Mobile No.*" required>
-                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
-                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        <div class="form-input country_phone simple_dropdown">
+                                            <div class="flag-container">
+                                                <div (click)="showcountry = !showcountry" class="selected-flag">
+                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                        <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                        <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul *ngIf="showcountry" class="country-list">
+                                                    <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
+                                                        <div class="flag-box">
+                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{country?.name}}</span>
+                                                        <span class="dial-code">{{country?.dial_code}}</span>
+                                                    </li>
+
+                                                    <li class="divider"></li>
+
+                                                    <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
+                                                        <div class="flag-box">
+                                                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{inactive?.name}}</span>
+                                                        <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                    </li>
+                                                </ul>
+
+                                                <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                                <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                                    <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

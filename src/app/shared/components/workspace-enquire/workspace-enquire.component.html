@@ -38,7 +38,35 @@
                     </app-input-validation>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group country_phone simple_dropdown city_card_phone">
+                    <div class="flag-container">
+                        <div (click)="showcountry = !showcountry" class="selected-flag">
+                            <div class="flag in" *ngIf="activeCountries.length">
+                                <!-- <img [src]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                        <ul *ngIf="showcountry" class="country-list">
+                            <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                <div class="flag-box">
+                                    <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                </div>
+                                <span class="country-name">{{country?.name}}</span>
+                                <span class="dial-code">{{country?.dial_code}}</span>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
+                                <div class="flag-box">
+                                    <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                </div>
+                                <span class="country-name">{{inactive?.name}}</span>
+                                <span class="dial-code">{{inactive?.dial_code}}</span>
+                            </li>
+                        </ul>
+                    </div>
                     <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
                     <app-input-validation [control]="enquiryForm.controls.phone_number">
                     </app-input-validation>

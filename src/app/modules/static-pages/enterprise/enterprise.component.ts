@@ -22,6 +22,23 @@ export enum ENQUIRY_STEPS {
 })
 export class EnterpriseComponent implements OnInit {
   pageUrl: string;
+
+  submitted = false;
+  loading: boolean;
+  showSuccessMessage: boolean;
+  contactUserName: string;
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
+  btnLabel = 'submit';
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  user: any;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
+
   constructor(
     private userService: UserService,
     private toastrService: ToastrService,
@@ -40,20 +57,10 @@ export class EnterpriseComponent implements OnInit {
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
     }
+    this.getCountries();
   }
-
-  submitted = false;
-  loading: boolean;
-  showSuccessMessage: boolean;
-  contactUserName: string;
-  coworkingCities: any = [];
-  colivingCities: any = [];
-  finalCities: any = [];
-  btnLabel = 'submit';
-  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
-  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  user: any;
 
 
   ngOnInit() {
@@ -80,6 +87,21 @@ export class EnterpriseComponent implements OnInit {
 
   get mobno() {
     return this.enterpriseFormGroup.controls;
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
+    })
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   getCitiesForCoworking() {
@@ -123,6 +145,7 @@ export class EnterpriseComponent implements OnInit {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;

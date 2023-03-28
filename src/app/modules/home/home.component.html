@@ -296,8 +296,9 @@
                                         <div class="form-input country_phone">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
-                                                    <div class="flag in" *ngIf="countries.length">
-                                                        <img [src]="selectedCountry?.image?.s3_link" width="18px" /> <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                        <!-- <img [src]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                                        <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                         <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                     </div>
                                                 </div>

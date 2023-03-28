@@ -3306,7 +3306,6 @@ h3.site_title {
 //     align-items: center;
 //     margin: 10px 5px;
 // }
-
 // .places-tag-slider {
 //     display: block;
 //     width: 100%;
@@ -3316,7 +3315,6 @@ h3.site_title {
 //     white-space: nowrap;
 //     scrollbar-width: none !important;
 // }
-
 // .places-tag-slider .places-tag-item {
 //     display: inline-block;
 //     margin: 0 5px;
@@ -3390,10 +3388,10 @@ h3.site_title {
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 23px;
-	color: rgba(33, 37, 41, 1);
-	padding: 12px 12px;
+	color: #212529;
+	padding: 9px 12px;
 	border-radius: 10px !important;
-	height: auto;
+	height: 42px;
 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
 	border: none !important;
 	background-color: #fff !important;
@@ -6031,7 +6029,7 @@ h3.site_title {
 	box-shadow: none;
 	border-radius: 10px;
 	padding: 8px 12px;
-	height: 45px;
+	height: 42px;
 	background-color: #fff;
 	font-size: 13px;
 	width: 100%;
@@ -6407,11 +6405,10 @@ h3.site_title {
 	margin-bottom: 0px;
 }
 .form_dream_ptoperty .country_phone .form-control, .country_phone .form-control {
-	padding-left: 85px !important;
+	padding-left: 55px !important;
 }
 .country_phone .selected-flag {
 	position: absolute;
-	background-color: rgba(0, 0, 0, 0.06);
 	padding: 0px 10px;
 	border-radius: 10px 0 0 10px;
 	height: 42px;
@@ -6423,7 +6420,11 @@ h3.site_title {
 }
 .country_phone .flag img {
 	margin-right: 5px;
-	width: 18px;
+	width: 18px !important;
+	position: relative !important;
+	height: auto !important;
+	left: 0 !important;
+	top: 0 !important;
 }
 .country_phone .selected-flag .flag .arrow {
 	font-size: 9px;
@@ -6438,7 +6439,7 @@ h3.site_title {
 	width: 200px;
 	height: 250px;
 	overflow-y: scroll;
-	z-index: 1;
+	z-index: 9;
 	box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
 .country_phone .country-list .country {
@@ -6452,6 +6453,17 @@ h3.site_title {
 	height: 1px;
 	background-color: rgba(0, 0, 0, 0.1);
 	margin: 5px 0px;
+}
+.country_phone.icon_phone_field .selected-flag .flag.in {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	height: 42px;
+	margin-left: 20px;
+}
+.country_phone.icon_phone_field .form-control {
+	padding-left: 74px !important;
 }
 .cities_query_sec {
     padding: 40px 0px;
@@ -9119,7 +9131,6 @@ h3.site_title {
         height: 210px;
         object-fit: cover;
     }
-
     .team_slider {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;

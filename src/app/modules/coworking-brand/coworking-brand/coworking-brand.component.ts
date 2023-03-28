@@ -40,6 +40,10 @@ export class CoworkingBrandComponent implements OnInit {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   pageUrl: string;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
 
 
   constructor(
@@ -62,7 +66,24 @@ export class CoworkingBrandComponent implements OnInit {
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
     }
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
+    })
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   ngOnInit() {
@@ -133,6 +154,7 @@ export class CoworkingBrandComponent implements OnInit {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;

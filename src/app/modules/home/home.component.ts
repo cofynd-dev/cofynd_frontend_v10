@@ -77,12 +77,10 @@ export class HomeComponent implements OnInit {
   showSuccessMessage: boolean;
   user: any;
   pageUrl: string;
-  countries: any = [];
   activeCountries: any = [];
   inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
-  phoneNumber: any;
 
   constructor(
     private _renderer2: Renderer2,
@@ -105,7 +103,6 @@ export class HomeComponent implements OnInit {
     this.getBrandAdsImages();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
-    this.getCountries();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -116,6 +113,7 @@ export class HomeComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
+    this.getCountries();
   }
 
   ngOnInit(): void {
@@ -137,10 +135,11 @@ export class HomeComponent implements OnInit {
 
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      this.countries = res.data;
-      this.activeCountries = this.countries.filter((v) => { return v.for_coWorking === true });
-      this.inActiveCountries = this.countries.filter((v) => { return v.for_coWorking == false });
-      this.selectedCountry = this.activeCountries[0];
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
     })
   }
 
