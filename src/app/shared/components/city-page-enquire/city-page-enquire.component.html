@@ -29,11 +29,10 @@
             </div>
 
             <div class="col-md-12">
-                <div class="form-group country_phone simple_dropdown city_card_phone">
+                <div class="form-group country_phone city_card_phone">
                     <div class="flag-container">
                         <div (click)="showcountry = !showcountry" class="selected-flag">
                             <div class="flag in" *ngIf="activeCountries.length">
-                                <!-- <img [src]="selectedCountry?.image?.s3_link" width="18px" /> -->
                                 <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                 <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                             </div>
