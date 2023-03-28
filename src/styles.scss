@@ -5766,7 +5766,7 @@ h3.site_title {
 }
 
 .query_from_sec .form-control {
-    border: none;
+    border: none !important;
     box-shadow: none;
     border-radius: 0px;
     color: #000;
@@ -5774,7 +5774,7 @@ h3.site_title {
     padding: 10px 10px 10px 0px;
     font-size: 13px;
     width: 100%;
-    background-color: transparent;
+    background-color: transparent !important;
     line-height: 15px !important;
     height: 42px;
 }
@@ -6025,12 +6025,12 @@ h3.site_title {
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 .card_form .form-control, .card_form .form-select {
-	border: none;
+	border: none !important;
 	box-shadow: none;
 	border-radius: 10px;
 	padding: 8px 12px;
 	height: 42px;
-	background-color: #fff;
+	background-color: #fff !important;
 	font-size: 13px;
 	width: 100%;
 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
@@ -6049,6 +6049,7 @@ h3.site_title {
 }
 .card_form .form-group, .card_form .form-select {
 	margin-bottom: 15px;
+	border: none;
 }
 .card_form .form_title h4 {
 	font-size: 20px;
@@ -6413,6 +6414,12 @@ h3.site_title {
 	border-radius: 10px 0 0 10px;
 	height: 42px;
 }
+.country_phone.icon_phone_field .selected-flag {
+	padding: 0px 10px 0px 0px;
+}
+.country_phone.icon_phone_field .form-control {
+	padding-left: 45px !important;
+}
 .country_phone .selected-flag .flag.in {
 	display: flex;
 	align-items: center;
@@ -6436,11 +6443,11 @@ h3.site_title {
 	top: 42px;
 	border-radius: 10px;
 	padding: 0px 12px;
-	width: 200px;
+	width: 89%;
 	height: 250px;
 	overflow-y: scroll;
 	z-index: 9;
-	box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 .country_phone .country-list .country {
 	display: flex;
@@ -6448,6 +6455,12 @@ h3.site_title {
 	align-items: center;
 	padding: 5px 0px;
 	font-size: 13px;
+}
+.country_phone .country-list .country .country-name {
+	font-size: 12px;
+}
+.country_phone .country-list .country .dial-code {
+	margin-left: 5px;
 }
 .country_phone .country-list .divider {
 	height: 1px;
@@ -6460,11 +6473,10 @@ h3.site_title {
 	-webkit-box-align: center;
 	align-items: center;
 	height: 42px;
-	margin-left: 20px;
 }
-.country_phone.icon_phone_field .form-control {
-	padding-left: 74px !important;
-}
+// .country_phone.icon_phone_field .form-control {
+// 	padding-left: 74px !important;
+// }
 .cities_query_sec {
     padding: 40px 0px;
   
@@ -6481,6 +6493,14 @@ h3.site_title {
         font-size: 20px;
         line-height: 24px;
         margin-bottom: 7px;
+      }
+
+      .form {
+        .form-group {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-left: 32px;
+            margin-bottom: 20px;
+        }
       }
       
   
@@ -6501,18 +6521,19 @@ h3.site_title {
         }
   
         .form-control {
-          border-bottom: 1px solid rgba(0,0,0,0.2) !important;
+        //   border-bottom: 1px solid rgba(0,0,0,0.2) !important;
           box-shadow: none;
           border-radius: 0;
           color: #212529;
-          height: auto;
-          padding: 10px 10px 10px 35px;
+        //   height: auto;
+        //   padding: 10px 10px 10px 35px;
           font-size: 13px;
           width: 100%;
           background-color: #fff;
           line-height: 21px !important;
           border: none;
           height: 42px;
+          padding: 0px 0px 0px 5px;
         }
         ::placeholder {
           color: #212529;
@@ -6527,6 +6548,7 @@ h3.site_title {
         color: #212529;
         }
       } 
+      
       .site_btn {
         padding: 8px 45px;
       }
@@ -6569,6 +6591,10 @@ h3.site_title {
     }
   
   }
+  .cities_form_area .invalid-feedback {
+	position: absolute;
+	bottom: -22px;
+}
 
 
 @media (max-width: 1366px) {

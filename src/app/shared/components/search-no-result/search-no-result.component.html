@@ -44,8 +44,7 @@
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-
-                                    <div class="form-input country_phone simple_dropdown icon_phone_field">
+                                    <div class="form-input country_phone icon_phone_field">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
                                                 <div class="flag in" *ngIf="activeCountries.length">
@@ -120,21 +119,24 @@
                                     </div>
                                 </div> -->
 
-                                <div class="col-md-6" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-                                    <div class="form-group align-items-center">
-                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
-                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                                 <!-- <div class="form-group align-items-center">
                                     
                                     
                                 </div> -->
                             </div>
+
+                            <div class="col-md-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                    <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-md-6" *ngIf="title == 'Office'">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
