@@ -1,91 +1,75 @@
 <h1 [class.large-title]="!isDialogModal">
-  Log In/Sign Up
-  <span>Find The Perfect Space</span>
+    Log In/Sign Up
+    <span>Find The Perfect Space</span>
 </h1>
-<form [formGroup]="loginForm"
-  (ngSubmit)="onSubmit()"
-  class="formElements">
-  <div class="material-form login_popup_form" [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
-    <div *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
-      <div class="mobile-text-preview">
-        We have sent you an OTP on
-      </div>
-      <div class="mobile-preview">
-        {{ loginForm.controls.phone_number.value }}
-        <button (click)="resetPhoneField()"
-          type="button"
-          class="icon-edit"></button>
-      </div>
-    </div>
-
-    <div class="country_phone">
-      <div class="flag-container">
-        <div class="selected-flag">
-            <div class="flag in">
-                <span class="dial-code"> +91</span>
-                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formElements">
+    <div class="material-form login_popup_form" [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
+        <div *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
+            <div class="mobile-text-preview">
+                We have sent you an OTP on
+            </div>
+            <div class="mobile-preview">
+                {{ loginForm.controls.phone_number.value }}
+                <button (click)="resetPhoneField()" type="button" class="icon-edit"></button>
             </div>
         </div>
-        <ul class="country-list">
-          <li class="country active" tabindex="-1">
-              <div class="flag-box">
-                  <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
-              </div>
-              <span class="country-name">India</span>
-              <span class="dial-code">+91</span>
-          </li>
 
-          <li class="divider"></li>
+        <div class="country_phone" *ngIf="currentLoginStep === LOGIN_STEPS.PHONE">
+            <div class="flag-container">
+                <div class="selected-flag" (click)="showcountry = !showcountry">
+                    <div class="flag in" *ngIf="activeCountries.length">
+                        <span class="dial-code">{{selectedCountry?.dial_code}}</span>
+                        <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                </div>
+                <ul *ngIf="showcountry" class="country-list">
+                    <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                        <div class="flag-box">
+                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                        </div>
+                        <span class="country-name">{{country?.name}}</span>
+                        <span class="dial-code">{{country?.dial_code}}</span>
+                    </li>
 
-          <li class="country selected">
-              <div class="flag-box">
-                  <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
-              </div>
-              <span class="country-name">India</span>
-              <span class="dial-code">+91</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="material-form-field phone-filed">
-      <input id="phone_number"
-        type="text"
-        formControlName="phone_number"
-        required
-        [appDisableInput]="currentLoginStep === LOGIN_STEPS.OTP" />
-      <label for="phone_number">Mobile Number</label>
-      <span class="underline"></span>
-      <app-input-validation [control]="loginForm.controls.phone_number">
-      </app-input-validation>
-    </div>
+                    <li class="divider"></li>
 
-    <ng-container *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
-      <div class="material-form-field">
-        <input id="otp"
-          #otpField
-          type="password"
-          formControlName="otp"
-          autofocus
-          required />
-        <label for="otp">OTP</label>
-        <span class="underline"></span>
-        <app-input-validation [control]="loginForm.controls.otp">
-        </app-input-validation>
-        <div class="otp-timer">
-          <span *ngIf="showOtpTimer">00 : {{ otpTimer$ | async }}</span>
+                    <li (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries" class="country selected">
+                        <div class="flag-box">
+                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                        </div>
+                        <span class="country-name">{{inactive?.name}}</span>
+                        <span class="dial-code">{{inactive?.dial_code}}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </ng-container>
-    <div *ngIf="responseError"
-      class="error-message">
-      {{ responseError }}
-    </div>
-  </div>
 
-  <button type="submit"
-    class="btn btn-primary btn-block"
-    [appLoadingButton]="isSubmitting">
+        <div class="material-form-field phone-filed">
+            <input id="phone_number" type="text" formControlName="phone_number" required [appDisableInput]="currentLoginStep === LOGIN_STEPS.OTP" />
+            <label for="phone_number">Mobile Number</label>
+            <span class="underline"></span>
+            <app-input-validation [control]="loginForm.controls.phone_number">
+            </app-input-validation>
+        </div>
+
+        <ng-container *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
+            <div class="material-form-field">
+                <input id="otp" #otpField type="password" formControlName="otp" autofocus required />
+                <label for="otp">OTP</label>
+                <span class="underline"></span>
+                <app-input-validation [control]="loginForm.controls.otp">
+                </app-input-validation>
+                <div class="otp-timer">
+                    <span *ngIf="showOtpTimer">00 : {{ otpTimer$ | async }}</span>
+                </div>
+            </div>
+        </ng-container>
+        <div *ngIf="responseError" class="error-message">
+            {{ responseError }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [appLoadingButton]="isSubmitting">
     Login
   </button>
 </form>

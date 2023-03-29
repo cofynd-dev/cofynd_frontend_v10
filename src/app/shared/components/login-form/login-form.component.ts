@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, timer } from 'rxjs';
 import { filter, finalize, map, take } from 'rxjs/operators';
 import { Location } from '@angular/common';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 export enum LOGIN_STEPS {
   PHONE,
@@ -47,6 +48,11 @@ export class LoginFormComponent {
 
   // show server side error message
   responseError: string;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -57,6 +63,7 @@ export class LoginFormComponent {
     private authService: AuthService,
     private toastrService: ToastrService,
     private location: Location,
+    private workSpaceService: WorkSpaceService,
   ) {
     // Create Form
     this.buildForm();
@@ -67,6 +74,22 @@ export class LoginFormComponent {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
+        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.selectedCountry = this.activeCountries[0];
+      }
+    })
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
   }
 
   onSubmit(): void {
@@ -87,8 +110,7 @@ export class LoginFormComponent {
     }
 
     this.isSubmitting = true;
-
-    this.authService.signInWithOtp(phoneControl.value).subscribe(
+    this.authService.signInWithOtp1(phoneControl.value, this.selectedCountry.dial_code).subscribe(
       () => {
         this.currentLoginStep = LOGIN_STEPS.OTP;
         this.toastrService.success(`Verification code sent to ${phoneControl.value}`);

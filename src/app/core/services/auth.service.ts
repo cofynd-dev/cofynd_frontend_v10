@@ -29,7 +29,7 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private modalService: BsModalService,
-  ) {}
+  ) { }
 
   openAuthDialog(authType: AuthType) {
     this.authModalRef = this.modalService.show(AuthDialogComponent, {
@@ -61,6 +61,14 @@ export class AuthService {
   signInWithOtp(phone: string) {
     const params = new FormData();
     params.append('phone_number', phone);
+
+    return this.http.post<any>('/user/login', params).pipe(map((response: any) => response));
+  }
+
+  signInWithOtp1(phone: string, dial_code: string) {
+    const params = new FormData();
+    params.append('phone_number', phone);
+    params.append('dial_code', dial_code)
 
     return this.http.post<any>('/user/login', params).pipe(map((response: any) => response));
   }
