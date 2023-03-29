@@ -6606,6 +6606,35 @@ h3.site_title {
 	height: 80px;
 }
 
+.login_popup_form {
+	display: flex;
+	align-items: center;
+}
+.country_login_form .selected-flag {
+	position: absolute;
+}
+.login_popup_form .selected-flag {
+	position: relative;
+	padding: 0px 10px;
+	border-radius: 0px;
+	height: 42px;
+	border-bottom: 1px solid #ccc;
+}
+.login_popup_form input {
+	height: 42px;
+	line-height: 42px;
+}
+.login_popup_form .material-form-field {
+	margin: 0px 0 0px;
+}
+.login_popup_form .material-form-field label {
+	top: 5px;
+}
+.login_popup_form .error-message {
+	position: absolute;
+	bottom: -20px;
+}
+
 
 @media (max-width: 1366px) {
     .menu li .dropdown-list-menu span {

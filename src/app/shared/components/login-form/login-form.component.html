@@ -5,8 +5,7 @@
 <form [formGroup]="loginForm"
   (ngSubmit)="onSubmit()"
   class="formElements">
-  <div class="material-form"
-    [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
+  <div class="material-form login_popup_form" [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
     <div *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
       <div class="mobile-text-preview">
         We have sent you an OTP on
@@ -19,7 +18,7 @@
       </div>
     </div>
 
-    <div class="country_login_form country_phone">
+    <div class="country_phone">
       <div class="flag-container">
         <div class="selected-flag">
             <div class="flag in">
@@ -28,27 +27,27 @@
             </div>
         </div>
         <ul class="country-list">
-            <li class="country active" tabindex="-1">
-                <div class="flag-box">
-                    <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
-                </div>
-                <span class="country-name">India</span>
-                <span class="dial-code">+91</span>
-            </li>
+          <li class="country active" tabindex="-1">
+              <div class="flag-box">
+                  <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+              </div>
+              <span class="country-name">India</span>
+              <span class="dial-code">+91</span>
+          </li>
 
-            <li class="divider"></li>
+          <li class="divider"></li>
 
-            <li class="country selected">
-                <div class="flag-box">
-                    <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
-                </div>
-                <span class="country-name">India</span>
-                <span class="dial-code">+91</span>
-            </li>
+          <li class="country selected">
+              <div class="flag-box">
+                  <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
+              </div>
+              <span class="country-name">India</span>
+              <span class="dial-code">+91</span>
+          </li>
         </ul>
+      </div>
     </div>
-
-    </div>
+    
     <div class="material-form-field phone-filed">
       <input id="phone_number"
         type="text"
