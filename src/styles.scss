@@ -785,7 +785,7 @@ Amenity Icons
         float: left;
         position: relative;
         width: 65%;
-        padding: 25px 0 0;
+        padding: 0px;
         &.search-grid-full {
             width: 100%;
         }
@@ -2235,11 +2235,6 @@ h3.site_title {
     margin-bottom: 0;
     margin-top: 5px;
     text-transform: capitalize;
-}
-
-.top-right .btn {
-    padding: 10px 15px;
-    border-radius: 10px;
 }
 
 .choosewithcofynd_sec {
@@ -6604,6 +6599,36 @@ h3.site_title {
 }
 .query_from_sec .virtual_query_form .message_field .form-control {
 	height: 80px;
+}
+
+.login_popup_form {
+	display: flex;
+	align-items: center;
+    position: relative;
+}
+.country_login_form .selected-flag {
+	position: absolute;
+}
+.login_popup_form .selected-flag {
+	position: relative;
+	padding: 0px 10px;
+	border-radius: 0px;
+	height: 42px;
+	border-bottom: 1px solid #ccc;
+}
+.login_popup_form input {
+	height: 42px;
+	line-height: 42px;
+}
+.login_popup_form .material-form-field {
+	margin: 0px 0 0px;
+}
+.login_popup_form .material-form-field label {
+	top: 5px;
+}
+.login_popup_form .error-message {
+	position: absolute;
+	bottom: -20px;
 }
 
 

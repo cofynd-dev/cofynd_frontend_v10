@@ -95,10 +95,6 @@ header {
 .top-right {
     flex: 0 0 60%;
     max-width: 60%;
-    .btn {
-        padding: 10px 8px;
-        font-size: 12px;
-    }
     @media(max-width: 1200px) {
         .btn {
             font-size: 11px;
@@ -145,6 +141,9 @@ header {
         }
         &:first-child {
             margin-left: 0;
+        }
+        span:hover {
+            color: #4243e8;
         }
         .icon-search {
             font-size: 20px;
@@ -238,6 +237,10 @@ header {
             }
         }
     }
+}
+
+.menu li .dropdown-list-menu span:hover {
+	color: #4343e8;
 }
 
 a+a {
@@ -661,6 +664,20 @@ a+a {
 
 .navbar-brand .img-fluid {
     width: 250px;
+}
+
+.menu li .login-btn {
+	background-color: transparent !important;
+	color: #4343e8;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 8px 15px;
+}
+
+.menu li .login-btn:hover {
+	background-color: #4343e8 !important;
+	color: #fff;
 }
 
 @media (max-width: 480px) {
