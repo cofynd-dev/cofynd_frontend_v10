@@ -1,1 +1,167 @@
-<p>virtual-office-city-page-enquire works!</p>
+<div class="card_form"
+  style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dee00d307fbd75d50527be8713839ca86c905442.jpg');">
+  <div class="form_title">
+    <h4>Yes, I'm Interested!</h4>
+    <p>Know More About this property</p>
+  </div>
+
+  <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP"
+    class="form"
+    [formGroup]="enquiryForm"
+    (ngSubmit)="onSubmit()">
+    <div class="row"
+      [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input class="form-control"
+            type="text"
+            formControlName="name"
+            placeholder="Name*"
+            appMaterialInput />
+          <app-input-validation [control]="enquiryForm.controls.name">
+          </app-input-validation>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <input class="form-control"
+            type="text"
+            formControlName="email"
+            placeholder="Email*"
+            appMaterialInput />
+          <app-input-validation [control]="enquiryForm.controls.email">
+          </app-input-validation>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group country_phone city_card_phone">
+          <div class="flag-container">
+            <div (click)="showcountry = !showcountry"
+              class="selected-flag">
+              <div class="flag in"
+                *ngIf="activeCountries.length">
+                <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+              </div>
+            </div>
+            <ul *ngIf="showcountry"
+              class="country-list">
+              <li (click)="hideCountry(country)"
+                class="country active"
+                tabindex="-1"
+                *ngFor="let country of activeCountries">
+                <div class="flag-box">
+                  <div class="flag in"><img [src]="country?.image?.s3_link"
+                      width="18px" /></div>
+                </div>
+                <span class="country-name">{{country?.name}}</span>
+                <span class="dial-code">{{country?.dial_code}}</span>
+              </li>
+
+              <li class="divider"></li>
+
+              <li (click)="hideCountry(inactive)"
+                class="country selected"
+                *ngFor="let inactive of inActiveCountries">
+                <div class="flag-box">
+                  <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                </div>
+                <span class="country-name">{{inactive?.name}}</span>
+                <span class="dial-code">{{inactive?.dial_code}}</span>
+              </li>
+            </ul>
+
+
+            <input class="form-control"
+              type="text"
+              formControlName="phone_number"
+              placeholder="Phone*"
+              appMaterialInput />
+            <app-input-validation [control]="enquiryForm.controls.phone_number">
+            </app-input-validation>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group floating-label otp-form"
+      *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+      <label>OTP</label>
+      <input class="form-control"
+        placeholder="Enter Otp"
+        type="password"
+        formControlName="otp"
+        appMaterialInput
+        autofocus />
+      <app-input-validation [control]="enquiryForm.controls.otp">
+      </app-input-validation>
+    </div>
+
+    <div class="row coworking_form_fields">
+      <div class="col-md-6">
+        <div class="form-group">
+          <ng-select placeholder="Office Type"
+            [clearable]="true"
+            [searchable]="false"
+            [items]="virtualType"
+            bindLabel="label"
+            bindValue="value"
+            formControlName="mx_Space_Type">
+          </ng-select>
+          <app-input-validation [control]="enquiryForm.controls.mx_Space_Type">
+          </app-input-validation>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <ng-select placeholder="Plan Type"
+            [clearable]="true"
+            [searchable]="false"
+            [items]="virtualPlans"
+            bindLabel="label"
+            bindValue="value"
+            formControlName="interested_in">
+          </ng-select>
+          <app-input-validation [control]="enquiryForm.controls.interested_in">
+          </app-input-validation>
+        </div>
+      </div>
+      <!-- <div class="col-md-6">
+        <div class="form-group">
+          <ng-select placeholder="No. of Seats"
+            [clearable]="true"
+            [searchable]="false"
+            [items]="coworkingNoOfSeats"
+            bindLabel="label"
+            bindValue="value"
+            formControlName="no_of_person">
+          </ng-select>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <ng-select placeholder="Move In"
+            [clearable]="true"
+            [searchable]="false"
+            [items]="MoveIn"
+            bindLabel="label"
+            bindValue="value"
+            formControlName="mx_Move_In_Date">
+          </ng-select>
+          <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+          </app-input-validation>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <button type="submit"
+          class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+      </div>
+    </div>
+  </form>
+</div>
