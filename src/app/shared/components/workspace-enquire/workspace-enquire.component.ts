@@ -111,7 +111,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ]
 
   OfficeType = [
-    { label: 'Row', value: 'Row' },
+    { label: 'Raw', value: 'Raw' },
     { label: 'Semi-Furnished', value: 'Semi-Furnished' },
     { label: 'Fully-Furnished', value: 'Fully-Furnished' },
     { label: 'Built to Suit/Customized', value: 'Built to Suit/Customized' },
