@@ -107,7 +107,7 @@
 
                             <div class="col-md-6" *ngIf="title == 'Office'">
                                 <div class="form-group align-items-center">
-                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <img src="assets/images/icons/cash-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['mx_BudgetPrice'].errors }" formControlName="mx_BudgetPrice" class="form-control" placeholder="select your city" required aria-label="Default select example">
                                         <option value="" selected  style="display: none;">Select Budget*</option>
                                         <option [value]="budget.value" *ngFor="let budget of OfficeBudgets">{{budget.label}}</option>
