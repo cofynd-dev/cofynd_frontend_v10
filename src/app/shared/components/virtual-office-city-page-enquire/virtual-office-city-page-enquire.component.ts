@@ -5,10 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HelperService } from '@app/core/services/helper.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
-// import { CoLivingService } from '@app/modules/co-living/co-living.service';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { Enquiry } from '@core/models/enquiry.model';
-import { User } from '@core/models/user.model';
 import { AuthService } from '@core/services/auth.service';
 import { UserService } from '@core/services/user.service';
 import { environment } from '@env/environment';
@@ -21,13 +19,6 @@ export enum ENQUIRY_STEPS {
   SUCCESS,
 }
 
-export enum ENQUIRY_TYPES {
-  COWORKING,
-  OFFICE,
-  COLIVING,
-  VIRTUALOFFICE,
-}
-
 declare let ga: any;
 
 @Component({
@@ -38,8 +29,8 @@ declare let ga: any;
     trigger('shake', [state('0', style({})), state('1', style({})), transition('0 => 1', useAnimation(shake))]),
   ],
 })
-export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges {
 
+export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges {
   supportPhone = DEFAULT_APP_DATA.contact;
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
@@ -48,29 +39,17 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
-
   enquiryForm: FormGroup;
   loading: boolean;
   user: any;
   phoneflag: boolean = true;
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
-  ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   btnLabel = 'submit';
-
   minDate = new Date();
-
   // Mat Select
   isActiveLabel: boolean;
   shakeTheForm: boolean;
-  // payementModeOnList: string[] = [
-  //   'day-pass',
-  //   'hot-desk',
-  //   'dedicated-desk',
-  //   'single-sharing',
-  //   'double-sharing',
-  //   'triple-sharing',
-  // ];
 
   virtualType = [
     { label: 'Virtual Office', value: 'virtual-office' },
@@ -83,14 +62,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     { label: `Any Other`, value: 'any-other' },
   ];
 
-  // coworkingNoOfSeats = [
-  //   { label: '1-10', value: '1-10' },
-  //   { label: `11-20`, value: '11-20' },
-  //   { label: '21-50', value: '21-50' },
-  //   { label: '51-100', value: '51-100' },
-  //   { label: '100 +', value: '100 +' },
-  // ];
-
   MoveIn = [
     { label: 'Immediate', value: 'Immediate' },
     { label: 'Within This Month', value: 'Within This Month' },
@@ -99,34 +70,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     { label: 'After 4 Month', value: 'After 4 Month' },
   ]
 
-  // Budgets = [
-  //   { label: '10k to 15k', value: '10k to 15k' },
-  //   { label: `15k to 20k`, value: '15k to 20k' },
-  //   { label: '20k to 30k', value: '20k to 30k' },
-  //   { label: '30k +', value: '30k +' },
-  // ]
-
-  // OfficeBudgets = [
-  //   { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
-  //   { label: `1 Lac - 2 Lac`, value: '1 Lac - 2 Lac' },
-  //   { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
-  //   { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
-  //   { label: '10 Lac +', value: '10 Lac +' },
-  // ]
-
-  // coLivingPlans = [
-  //   { label: `Private Room`, value: 'private-room' },
-  //   { label: `Double Sharing`, value: 'double-sharing' },
-  //   { label: `Triple Sharing`, value: 'triple-sharing' },
-  //   { label: `Any Other`, value: 'any-other' },
-  // ];
-
-  // OfficePlans = [
-  //   { label: `Raw`, value: 'Raw' },
-  //   { label: `Semi-Furnished`, value: 'Semi-Furnished' },
-  //   { label: `Fully-Furnished`, value: 'Fully-Furnished' },
-  //   { label: `Built to Suit/Customized`, value: 'Built to Suit/Customized' },
-  // ]
   pageName: string;
   pageUrl: string;
   city: string;
@@ -142,7 +85,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     private authService: AuthService,
     private toastrService: ToastrService,
     private workSpaceService: WorkSpaceService,
-    // private coLivingService: CoLivingService,
     private helperService: HelperService,
     private router: Router,
   ) {
@@ -160,6 +102,11 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     this.pageName = url[1];
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     this.getCountries();
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enquiryForm.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
+    }
   }
 
   getCountries() {
@@ -179,11 +126,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
 
   ngOnInit(): void {
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
-    // if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
-    //   this.loadWorkSpace(this.workSpaceId);
-    // } else if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-    //   this.loadColiving(this.workSpaceId);
-    // }
   }
 
   ngOnChanges(changes) {
@@ -209,41 +151,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     }
   }
 
-  // loadWorkSpace(id: string) {
-  //   this.workSpaceService.getWorkspace(id).subscribe(workspaceData => {
-  //     let plans = workspaceData.plans.map(x => x.category);
-  //     plans = [...new Set(plans)];
-  //     plans.forEach(plan => {
-  //       this.virtualPlans.push({ label: this.toTitleCase(plan), value: plan['name'] });
-  //     });
-  //     var item_order = [
-  //       'day-pass',
-  //       'hot-desk',
-  //       'dedicated-desk',
-  //       'private-cabin',
-  //       'office-suite',
-  //       'cxo-suite',
-  //       'custom-buildout',
-  //     ];
-
-  //     this.virtualPlans.sort((a, b) => item_order.indexOf(a.value) - item_order.indexOf(b.value));
-  //     this.virtualPlans = [...this.virtualPlans];
-  //   });
-  // }
-
-  // loadColiving(id: string) {
-  //   this.coLivingService.getCoLiving(id).subscribe(coliving => {
-  //     let plans = coliving.coliving_plans.map(x => x.planId);
-  //     plans = [...new Set(plans)];
-  //     plans.forEach(plan => {
-  //       this.coLivingPlans.push({ label: this.toTitleCase(plan), value: plan['name'] });
-  //     });
-  //     var item_order = ['single-sharing', 'double-sharing', 'triple-sharing', 'studio-apartment', 'any-other'];
-  //     this.coLivingPlans.sort((a, b) => item_order.indexOf(a.value) - item_order.indexOf(b.value));
-  //     this.coLivingPlans = [...this.coLivingPlans];
-  //   });
-  // }
-
   toTitleCase = phrase => {
     return phrase.name
       .toLowerCase()
@@ -252,29 +159,27 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
       .join(' ');
   };
 
-  // toTitleCaseForColiving = phrase => {
-  //   return phrase
-  //     .toLowerCase()
-  //     .split('_')
-  //     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-  //     .join(' ');
-  // };
+  toTitleCaseForColiving = phrase => {
+    return phrase
+      .toLowerCase()
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
 
-  // toValueCaseForColiving = phrase => {
-  //   return phrase
-  //     .toLowerCase()
-  //     .split('_')
-  //     .join('-');
-  // };
+  toValueCaseForColiving = phrase => {
+    return phrase
+      .toLowerCase()
+      .split('_')
+      .join('-');
+  };
 
   onSubmit() {
     this.addValidationOnMobileField();
     this.enquiryForm.markAllAsTouched();
-
     if (this.enquiryForm.invalid) {
       return;
     }
-
     if (this.isAuthenticated()) {
       this.createEnquiry();
     } else {
@@ -286,7 +191,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enquiryForm.getRawValue();
-      // formValues.work_space = this.workSpaceId;
       formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
@@ -327,7 +231,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     const formValues: Enquiry = this.enquiryForm.getRawValue();
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
-      formValues['interested_in'] = 'Virtual Office';
     }
     formValues['mx_Page_Url'] = this.pageUrl;
     formValues['city'] = this.city;
@@ -374,28 +277,11 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
       email: ['', Validators.required],
       phone_number: ['', Validators.required],
       otp: [''],
-      mx_Page_Url: ['City Page']
+      mx_Page_Url: ['']
     };
-
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Move_In_Date'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING && this.pageName !== 'virtual-office') {
-      form['interested_in'] = [null, Validators.required];
-      form['mx_Space_Type'] = [null, Validators.required];
-      form['no_of_person'] = [null, Validators.required];
-    }
-    // if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-    //   form['interested_in'] = [null, Validators.required];
-    //   form['mx_Space_Type'] = ['Web Coliving'];
-    //   form['mx_BudgetPrice'] = [null, Validators.required];
-    // }
-    // if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
-    //   form['mx_Space_Type'] = ['Web Office Space'];
-    //   form['mx_Move_In_Date'] = [null, Validators.required];
-    //   form['mx_BudgetPrice'] = [null, Validators.required];
-    //   form['interested_in'] = [null, Validators.required];
-    // }
+    form['mx_Space_Type'] = ['virtual-office', Validators.required];
+    form['mx_Move_In_Date'] = [null, Validators.required];
+    form['interested_in'] = [null, Validators.required];
     this.enquiryForm = this.formBuilder.group(form);
   }
 

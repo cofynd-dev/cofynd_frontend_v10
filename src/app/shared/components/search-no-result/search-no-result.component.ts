@@ -72,6 +72,18 @@ export class SearchNoResultComponent implements OnInit {
     { label: '51-100', value: '51-100' },
     { label: '100+', value: '100+' },
   ];
+
+  virtualType = [
+    { label: 'Virtual Office', value: 'virtual-office' },
+  ];
+
+  virtualPlans = [
+    { label: 'GST Registration', value: 'gst-registration' },
+    { label: 'Business Registration', value: 'business-registration' },
+    { label: 'Mailing Address', value: 'mailing-address' },
+    { label: `Any Other`, value: 'any-other' },
+  ];
+
   user: any;
   btnLabel: string;
 
@@ -150,12 +162,15 @@ export class SearchNoResultComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         name: ['', Validators.required],
         requirements: [''],
-        otp: ['']
-
+        otp: [''],
+        mx_Space_Type: ['virtual-office'],
+        interested_in: ['', Validators.required]
       };
-      // form['mx_Office_Type'] = ['', Validators.required];
-      // form['no_of_person'] = ['', Validators.required];
       this.enterpriseFormGroup = this._formBuilder.group(form);
+    }
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enterpriseFormGroup.patchValue({ name, email, phone_number });
     }
   }
 
@@ -278,10 +293,8 @@ export class SearchNoResultComponent implements OnInit {
           name: this.enterpriseFormGroup.controls['name'].value,
           requirements: this.enterpriseFormGroup.controls['requirements'].value,
         },
-        // mx_Office_Type: this.enterpriseFormGroup.controls['mx_Office_Type'].value,
-        // no_of_person: this.enterpriseFormGroup.controls['no_of_person'].value,
+        interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
         city: this.city,
-        interested_in: 'Virtual Office',
         mx_Page_Url: this.pageUrl,
         mx_Space_Type: 'Web Virtual Office'
       };
