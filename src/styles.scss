@@ -789,12 +789,9 @@ Amenity Icons
         &.search-grid-full {
             width: 100%;
         }
-        &.search-grid-full {
-            width: 100%;
-        }
         .search-grid-wrapper {
             max-width: 94%;
-            padding: 0 2%;
+            padding: 30px 2% 0px;
             margin: 0 auto;
         }
     }
@@ -1012,11 +1009,11 @@ Amenity Icons
     }
 }
 
-@media(max-width: 540px) {
-    #chat-bot-launcher-container {
-        bottom: 165px !important;
-    }
-}
+// @media(max-width: 540px) {
+//     #chat-bot-launcher-container {
+//         bottom: 165px !important;
+//     }
+// }
 
 html,
 body {
@@ -6473,7 +6470,7 @@ h3.site_title {
 // 	padding-left: 74px !important;
 // }
 .cities_query_sec {
-    padding: 40px 0px;
+    padding: 0px 0px 40px;
   
     .cities_page_row {
       box-shadow: 0px 0px 10px rgba(0,0,0,0.1);

@@ -60,9 +60,9 @@
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
                                                 </li>
-    
+
                                                 <li class="divider"></li>
-    
+
                                                 <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
                                                         <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
@@ -71,7 +71,7 @@
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
-    
+
                                             <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
                                             <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
@@ -105,9 +105,36 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6" *ngIf="title == 'Virtual'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Space_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Space_Type">
+                                        <option value="" selected  style="display: none;">Office Type*</option>
+                                        <option [value]="item.value" *ngFor="let item of virtualType">{{item.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['mx_Space_Type'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['mx_Space_Type'].errors['required']">Please select office type.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="title == 'Virtual'">
+                                <div class="form-group align-items-center">
+                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
+                                        <option value="" selected  style="display: none;">Plan Type*</option>
+                                        <option [value]="item.value" *ngFor="let item of virtualPlans">{{item.label}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['interested_in'].errors['required']">Please select plan type.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="col-md-6" *ngIf="title == 'Office'">
                                 <div class="form-group align-items-center">
-                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <img src="assets/images/icons/cash-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['mx_BudgetPrice'].errors }" formControlName="mx_BudgetPrice" class="form-control" placeholder="select your city" required aria-label="Default select example">
                                         <option value="" selected  style="display: none;">Select Budget*</option>
                                         <option [value]="budget.value" *ngFor="let budget of OfficeBudgets">{{budget.label}}</option>
