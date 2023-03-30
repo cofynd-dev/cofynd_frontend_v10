@@ -16,13 +16,13 @@
                     </div>
                 </div>
             </div>
-            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Virtual'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
+            <app-search-no-result *ngIf="!loading && (workSpaces.length == 0 || workSpaces.length == 1)" [title]="'Virtual'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
             </app-search-no-result>
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
 
-            <div class="row" *ngIf="!loading">
+            <div class="row" *ngIf="!loading && workSpaces.length > 1">
                 <ng-container *ngFor="let space of workSpaces; let i = index">
                     <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                         <app-search-card [workspace]="space" [forAll]="false">
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
+            <div *ngIf="!loading && workSpaces.length > 1" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="500" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
