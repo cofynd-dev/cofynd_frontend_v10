@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
     this.loopColivingSliders();
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
-    // this.getCountries();
+    this.getCountries();
   }
 
   getCountries() {
