@@ -33,7 +33,7 @@
                         <li>Get access to a business address for your company in prime locations in India.</li>
                         <li>Attain a business address for mail & courier handling purposes.</li>
                     </ul>
-                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
                 </div>
             </div>
             <div class="col-md-4">
@@ -45,7 +45,7 @@
                         <li>Documentation like signage, electricity bill, NOC, and agreement will be provided.</li>
                         <li>The company will attain a GST number with access to a  virtual office.</li>
                     </ul>
-                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
                 </div>
             </div>
             <div class="col-md-4">
@@ -58,16 +58,16 @@
                         <li>Use this premium address everywhere like websites, business cards, etc</li>
                         <li>We offer comprehensive handling services for all your mail, courier, packages, and more.</li>
                     </ul>
-                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'" #target>
+<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'">
     <div class="container">
-        <div class="row cities_page_row">
+        <div class="row cities_page_row" #target>
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="cities_form_area">
                     <h1>Connect with Cofynd Expert</h1>

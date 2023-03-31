@@ -265,6 +265,12 @@ export class SearchNoResultComponent implements OnInit {
     otpControl.updateValueAndValidity();
   }
 
+  // scrollToElement(element: HTMLElement) {
+  //   console.log(element);
+
+  //   element.scrollIntoView({ behavior: 'smooth' });
+  // }
+
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
@@ -314,7 +320,5 @@ export class SearchNoResultComponent implements OnInit {
     );
   }
 
-  scrollToElement(element: HTMLElement) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+
 }
