@@ -3217,10 +3217,10 @@ h3.site_title {
     top: 20px;
 }
 
-.enquiry_section .form-section .form .form-control.ng-invalid.ng-touched {
-    border-color: transparent;
-    background-color: transparent;
-}
+// .enquiry_section .form-section .form .form-control.ng-invalid.ng-touched {
+//     border-color: transparent;
+//     background-color: transparent;
+// }
 
 .enquiry_section .form-section .form .ng-select.ng-invalid.ng-touched .ng-select-container {
     border-color: transparent;
@@ -3391,12 +3391,12 @@ h3.site_title {
 .details_area .enquire-box .site_btn {
 	height: 45px;
 }
-.enquiry_section .form-section .row {
-	margin: -5px;
-}
-.enquiry_section .form-section .row .col-sm-6, .enquiry_section .form-section .row .col-sm-12 {
-	padding: 0px 5px;
-}
+// .enquiry_section .form-section .row {
+// 	margin: -5px;
+// }
+// .enquiry_section .form-section .row .col-sm-6, .enquiry_section .form-section .row .col-sm-12 {
+// 	padding: 0px 5px;
+// }
 .enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container {
 	height: 45px;
 	border: none;
@@ -6397,25 +6397,109 @@ h3.site_title {
 .virtual_office_banner .main_heading h1 {
 	margin-bottom: 0px;
 }
-.form_dream_ptoperty .country_phone .form-control, .country_phone .form-control {
-	padding-left: 55px !important;
-}
-.country_phone .selected-flag {
-	position: absolute;
-	padding: 0px 10px;
-	border-radius: 10px 0 0 10px;
+// .form_dream_ptoperty .country_phone .form-control, .country_phone .form-control {
+// 	padding-left: 55px !important;
+// }
+.form_dream_ptoperty .country_phone .form-input input {
+    box-shadow: none;
+	border-radius: 0px !important;
+	font-size: 13px !important;
+	// padding: 12px 15px !important;
+	height: auto;
+	// background-color: #fff !important;
+	border: none !important;
+	width: 100%;
+	font-weight: 400 !important;
 	height: 42px;
 }
-.country_phone.icon_phone_field .selected-flag {
-	padding: 0px 10px 0px 0px;
+.form_dream_ptoperty .country_phone .form-input {
+	box-shadow: 0px 0px 5px rgba(33, 37, 41, 0.03);
+	border-radius: 10px !important;
+	// font-size: 13px !important;
+	padding: 0px 15px !important;
+	// height: auto;
+	background-color: #fff !important;
+	// border: none !important;
+	// width: 100%;
+	// font-weight: 400 !important;
+	// height: 42px;
 }
-.country_phone.icon_phone_field .form-control {
-	padding-left: 45px !important;
+
+.card_form .country_phone .city_card_phone {
+	background-color: #fff !important;
+	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+	padding: 0px 12px;
+	border-radius: 10px;
+	height: 42px;
 }
-.country_phone .selected-flag .flag.in {
+
+.card_form .country_phone .form-control {
+	border: none !important;
+	box-shadow: none;
+	padding: 8px 12px;
+	// background-color: #fff !important;
+	font-size: 13px;
+	width: 100%;
+	// box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+}
+
+.enquire-box .country_phone .city_card_phone {
+	background-color: #fff !important;
+	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+	padding: 0px 12px;
+	border-radius: 10px;
+	height: 42px;
+}
+.enquire-box .country_phone input {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 23px;
+	color: #212529;
+	padding: 9px 12px;
+	border-radius: 10px !important;
+	height: 42px;
+	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+	border: none !important;
+	background-color: #fff !important;
+}
+
+
+// .card_form .form-control {
+// 	border: none !important;
+// 	box-shadow: none;
+// 	border-radius: 10px;
+// 	padding: 8px 12px;
+// 	height: 42px;
+// 	background-color: #fff !important;
+// 	font-size: 13px;
+// 	width: 100%;
+// 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+// }
+
+.country_phone .selected-flag .flag {
 	display: flex;
-	align-items: center;
-	height: 42px;
+}
+.country_phone .flag-container {
+	display: flex;
+    align-items: center;
+}
+// .country_phone .selected-flag {
+// 	height: 42px;
+// }
+// .country_phone.icon_phone_field .selected-flag {
+// 	padding: 0px 10px 0px 0px;
+// }
+.country_phone .icon_phone_field .form-control {
+	padding-left: 10px !important;
+}
+.country_phone .input-group {
+	padding-left: 0;
+	border: none;
+}
+.country_phone .form-input.icon_phone_field {
+	padding-left: 30px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 .country_phone .flag img {
 	margin-right: 5px;
