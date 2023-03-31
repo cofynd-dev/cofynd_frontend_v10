@@ -313,4 +313,8 @@ export class SearchNoResultComponent implements OnInit {
       },
     );
   }
+
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }

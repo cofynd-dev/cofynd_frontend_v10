@@ -5,13 +5,67 @@
     <h2 *ngIf="!shouldShowContactForm">
         No {{ title }} Found!
     </h2>
-    <!-- <app-search-contact-us-text *ngIf="shouldShowContactForm" [type]="type" [cities]="availableCities">
-    </app-search-contact-us-text> -->
     <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
 </div>
 
-<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'">
+<section class="virtual_office_service_sec" *ngIf="title == 'Virtual'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Virtual Offices that work for you</h2>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>Take your business everywhere and anywhere with our exclusive virtual office space solutions accompanied by GST registration, mailing address, phone answering service, virtual assistant, etc.  Establish a premium presence for your company in any city across India with our professional business address. </p>
+            </div>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/private-cabin.svg" alt="">
+                    <h4>Business Address</h4>
+                    <p class="virtual_service_tagline">Give your business a Professional Business Address in the prime location of India.</p>
+                    <ul>
+                        <li>Get access to a business address for your company in prime locations in India.</li>
+                        <li>Attain a business address for mail & courier handling purposes.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/hot-desk.svg" alt="">
+                    <h4>GST Registration</h4>
+                    <p class="virtual_service_tagline">Expand or start your own business anywhere in India and get its GST registration in a hassle-free manner.</p>
+                    <ul>
+                        <li>Documentation like signage, electricity bill, NOC, and agreement will be provided.</li>
+                        <li>The company will attain a GST number with access to a  virtual office.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/day-pass.svg" alt="">
+                    <h4>Company Registration</h4>
+                    <p class="virtual_service_tagline">Get your company a Professional business address in any city across India after submitting basic paperwork.</p>
+                    <ul>
+                        <li>Attain a business address for your company in a prime location.</li>
+                        <li>Use this premium address everywhere like websites, business cards, etc</li>
+                        <li>We offer comprehensive handling services for all your mail, courier, packages, and more.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)">Enquire Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'" #target>
     <div class="container">
         <div class="row cities_page_row">
             <div class="col-md-6 col-12 order-1 order-md-2">
