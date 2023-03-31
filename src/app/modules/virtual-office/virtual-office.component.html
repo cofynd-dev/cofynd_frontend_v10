@@ -1512,9 +1512,9 @@
                                                     </li>
                                                 </ul>
 
-                                                <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                                <input type="tel" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
                                                 <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
-                                                    <div *ngIf="f['phone_number'].errors['required']">Please enter mobile number.</div>
+                                                    <div *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">Please enter mobile number.</div>
                                                     <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
                                                 </div>
                                             </div>
