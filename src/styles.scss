@@ -5770,6 +5770,10 @@ h3.site_title {
     line-height: 15px !important;
     height: 42px;
 }
+.query_from_sec .invalid-feedback {
+	position: absolute;
+	top: 38px;
+}
 
 .query_from_sec .form-select {
     border: none;
@@ -6412,6 +6416,10 @@ h3.site_title {
 	font-weight: 400 !important;
 	height: 42px;
 }
+.country_phone .flag-container .invalid-feedback {
+	position: absolute;
+	top: 40px;
+}
 .form_dream_ptoperty .country_phone .form-input {
 	box-shadow: 0px 0px 5px rgba(33, 37, 41, 0.03);
 	border-radius: 10px !important;
@@ -6710,6 +6718,95 @@ h3.site_title {
 .login_popup_form .error-message {
 	position: absolute;
 	bottom: -20px;
+}
+.virtual_office_service_sec {
+	padding-top: 60px;
+	padding-bottom: 80px;
+}
+.virtual_service_item {
+	border: 1px solid rgba(33, 37, 41, 0.1);
+	border-radius: 20px;
+	padding: 35px 25px;
+	position: relative;
+	overflow: hidden;
+}
+.virtual_service_item::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url(https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ebbf8471965d487193fe5623506848cd4a8a8038.png);
+	width: 100%;
+	height: 100%;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.virtual_service_item img {
+	width: 30px;
+	margin-bottom: 10px;
+}
+.virtual_service_item h4 {
+	font-size: 17px;
+	line-height: 28px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+.virtual_service_item p.virtual_service_tagline {
+	font-size: 13px;
+	line-height: 21px;
+	min-height: 70px;
+}
+.virtual_service_item ul {
+	list-style: none;
+	padding: 0px !important;
+	margin: 0px !important;
+	min-height: 180px;
+}
+.virtual_service_item ul li {
+	position: relative;
+	padding-left: 24px;
+	font-size: 13px;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+.virtual_service_item ul li::before {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	width: 18px;
+    height: 18px;
+	content: "";
+	background-image: url('assets/images/icons/check-icon.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.virtual_service_item p.virtual_service_btn {
+	text-align: right;
+	margin-bottom: 0px;
+}
+.virtual_service_item p.virtual_service_btn a {
+	width: 100%;
+	font-size: 12px;
+	font-weight: 500;
+	padding-right: 10px;
+	position: relative;
+	text-decoration: none;
+	color: #4343e8 !important;
+	cursor: pointer;
+}
+.virtual_service_item p.virtual_service_btn a::before {
+	content: "" !important;
+	position: absolute;
+	right: 0;
+	font-family: "Font Awesome 6 Pro" !important;
+	font-weight: 900;
+	font-size: 11px !important;
+	line-height: 17px !important;
+	color: #4343e8 !important;
+	top: 0;
 }
 
 
