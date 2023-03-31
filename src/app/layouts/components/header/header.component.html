@@ -110,6 +110,23 @@
                     <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
+
+                    
+                    <div class="profile_col" *ngIf="isAuthenticated()">
+                        <div class="btn-group user-header-menu" dropdown>
+                            <button dropdownToggle type="button">
+                                <span class="user-name">
+                                    {{ getUserName() }}
+                                </span>
+                            </button>
+                            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                                <li class="divider-line mobile-phone-menu">
+                                    <button type="button" (click)="onLogOut()">Log Out</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!-- <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
                     <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
@@ -185,6 +202,24 @@
                     </li> -->
                 </ul>
             </div>
+
+            <div *ngIf="isAuthenticated()" class="no-tablet">
+                <div class="btn-group user-header-menu" dropdown>
+                    <button dropdownToggle type="button">
+                        <span class="user-name">
+                            {{ getUserName() }}
+                        </span>
+                        <i class="icon-down-arrow"></i>
+                    </button>
+                    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                        <li class="divider-line mobile-phone-menu no-tablet">
+                            <button type="button" (click)="onLogOut()">Log Out</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            
         </nav>
     </div>
 </header>

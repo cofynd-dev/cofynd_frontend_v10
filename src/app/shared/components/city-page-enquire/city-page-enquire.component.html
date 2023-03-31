@@ -28,8 +28,8 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
-                <div class="form-group country_phone city_card_phone">
+            <div class="col-md-12 country_phone">
+                <div class="form-group city_card_phone">
                     <div class="flag-container">
                         <div (click)="showcountry = !showcountry" class="selected-flag">
                             <div class="flag in" *ngIf="activeCountries.length">
@@ -59,9 +59,9 @@
 
 
                         <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
-                        <app-input-validation [control]="enquiryForm.controls.phone_number">
-                        </app-input-validation>
                     </div>
+                    <app-input-validation [control]="enquiryForm.controls.phone_number">
+                    </app-input-validation>
                 </div>
             </div>
         </div>
