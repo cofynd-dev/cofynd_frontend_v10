@@ -4417,6 +4417,10 @@ h3.site_title {
     width: 90%;
 }
 
+.list_space_banner .banner_content {
+	padding-left: 0px;
+}
+
 .list_space_banner .banner_text h1 {
     font-size: 40px;
     line-height: 50px;
@@ -4430,6 +4434,11 @@ h3.site_title {
     line-height: 34px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.list_space_banner .banner_content .site_btn {
+	font-size: 15px;
+	margin-top: 10px;
 }
 
 .flat_counter_sec {
@@ -6704,6 +6713,8 @@ h3.site_title {
 	border-radius: 0px;
 	height: 42px;
 	border-bottom: 1px solid #ccc;
+	align-items: center;
+	display: flex;
 }
 .login_popup_form input {
 	height: 42px;
@@ -6718,6 +6729,9 @@ h3.site_title {
 .login_popup_form .error-message {
 	position: absolute;
 	bottom: -20px;
+}
+.menu li .user-header-menu .user-name {
+	color: #fff !important;
 }
 .virtual_office_service_sec {
 	padding-top: 60px;
