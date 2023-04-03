@@ -326,6 +326,24 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  resendOtp() {
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
   addValidationOnOtpField() {
     const otpControl = this.enterpriseFormGroup.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
@@ -496,4 +514,5 @@ export class HomeComponent implements OnInit {
   openAdd() {
     this.router.navigate([`enterprise`]);
   }
+
 }
