@@ -12,6 +12,7 @@ import { Observable, timer } from 'rxjs';
 import { filter, finalize, map, take } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { UserService } from '@app/core/services/user.service';
 
 export enum LOGIN_STEPS {
   PHONE,
@@ -53,6 +54,12 @@ export class LoginFormComponent {
   showcountry: boolean = false;
   selectedCountry: any = {};
 
+  // OTP Timer
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
+
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -64,6 +71,7 @@ export class LoginFormComponent {
     private toastrService: ToastrService,
     private location: Location,
     private workSpaceService: WorkSpaceService,
+    private userService: UserService,
   ) {
     // Create Form
     this.buildForm();
@@ -121,6 +129,40 @@ export class LoginFormComponent {
       error => {
         this.responseError = error.message;
         this.isSubmitting = false;
+      },
+    );
+  }
+
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    const phoneControl = this.loginForm.get('phone_number');
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = phoneControl.value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.currentLoginStep = LOGIN_STEPS.OTP;
+          this.toastrService.success(`Verification code sent to ${phoneControl.value}`);
+          this.startOtpTimer();
+          this.isSubmitting = false;
+          this.showOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
   }
