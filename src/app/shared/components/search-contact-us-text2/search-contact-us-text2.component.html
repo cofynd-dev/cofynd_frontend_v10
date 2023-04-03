@@ -79,7 +79,7 @@
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                         </div>
                                     </div>
-                                    <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                                    <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                                     <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                                 </div>
                                 <div class="col-md-4 col-6">

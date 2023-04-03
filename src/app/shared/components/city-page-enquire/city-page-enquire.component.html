@@ -71,7 +71,7 @@
             <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
             <app-input-validation [control]="enquiryForm.controls.otp">
             </app-input-validation>
-            <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+            <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
             <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
         </div>
 

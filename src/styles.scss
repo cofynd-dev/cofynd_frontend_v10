@@ -5802,6 +5802,7 @@ h3.site_title {
 .query_from_sec .invalid-feedback {
     position: absolute;
     top: 38px;
+    left: 0px;
 }
 
 .query_from_sec .form-select {
@@ -6812,11 +6813,13 @@ h3.site_title {
 }
 
 .login_popup_form .selected-flag {
-    position: relative;
-    padding: 0px 10px;
-    border-radius: 0px;
-    height: 42px;
-    border-bottom: 1px solid #ccc;
+	position: relative;
+	padding: 0px 10px;
+	border-radius: 0px;
+	height: 42px;
+	border-bottom: 1px solid #ccc;
+	align-items: center;
+	display: flex;
 }
 
 .login_popup_form input {
@@ -7021,6 +7024,15 @@ h3.site_title {
     padding: 40px 40px;
     margin-bottom: 0px;
     height: 260px;
+}
+
+
+.resend_otp {
+	color: #4343e8;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	margin-bottom: 5px;
 }
 
 @media (max-width:480px) {
@@ -9642,8 +9654,4 @@ h3.site_title {
     .category_item h3 {
         font-size: 9px !important;
     }
-}
-
-.my_class {
-    color: blue;
 }
