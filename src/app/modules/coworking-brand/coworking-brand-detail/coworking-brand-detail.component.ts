@@ -74,7 +74,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
     if (this.urlPath.length > 1 && !this.isColiving) {
       this.breadcrumbs = [
         {
-          title: this.brand.name,
+          title: this.brand && this.brand.name,
           url: 'coworking-brand/' + this.brand.name.toLocaleLowerCase().replace(/\s+/g, '-'),
           isActive: false,
         },
@@ -88,7 +88,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
       if (this.urlPath.length > 2) {
         this.breadcrumbs = [
           {
-            title: this.brand.name,
+            title: this.brand && this.brand.name,
             url: 'brand/co-living/' + this.brand.name.toLocaleLowerCase(),
             isActive: false,
           },
@@ -110,7 +110,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
     } else {
       this.breadcrumbs = [
         {
-          title: this.brand.name,
+          title: this.brand && this.brand.name,
           url: '',
           isActive: true,
         },

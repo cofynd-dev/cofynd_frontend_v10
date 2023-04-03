@@ -22,4 +22,4 @@ import { HomeMenuModalComponent } from './home-menu-modal/home-menu-modal.compon
   exports: [HomeMenuModalComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule],
 })
-export class HomeModule {}
+export class HomeModule { }

@@ -124,6 +124,10 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   showcountry: boolean = false;
   selectedCountry: any = {};
 
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private formBuilder: FormBuilder,
@@ -227,6 +231,37 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       this.coLivingPlans.sort((a, b) => item_order.indexOf(a.value) - item_order.indexOf(b.value));
       this.coLivingPlans = [...this.coLivingPlans];
     });
+  }
+
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enquiryForm.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
   }
 
   toTitleCase = phrase => {

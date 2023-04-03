@@ -341,8 +341,9 @@
                                                     Please enter 4 digit otp.
                                                 </div>
                                             </div>
-                                            <button style="color: blue; cursor: pointer;" (click)="resendOtp()">Resent Otp</button>
                                         </div>
+                                        <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                                        <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-input">
