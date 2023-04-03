@@ -61,9 +61,11 @@
                 <span class="underline"></span>
                 <app-input-validation [control]="loginForm.controls.otp">
                 </app-input-validation>
-                <div class="otp-timer">
+                <!-- <div class="otp-timer">
                     <span *ngIf="showOtpTimer">00 : {{ otpTimer$ | async }}</span>
-                </div>
+                </div> -->
+                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
             </div>
         </ng-container>
         <div *ngIf="responseError" class="error-message">
