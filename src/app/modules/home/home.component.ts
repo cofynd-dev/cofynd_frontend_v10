@@ -18,6 +18,7 @@ import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { log } from 'console';
 
 interface PopularSpace {
   name: string;
@@ -37,7 +38,7 @@ export enum ENQUIRY_STEPS {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   menuModalRef: BsModalRef;
@@ -81,6 +82,11 @@ export class HomeComponent implements OnInit {
   inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
+
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
+
 
   constructor(
     private _renderer2: Renderer2,
@@ -188,9 +194,11 @@ export class HomeComponent implements OnInit {
   openCoLivingSpace(slug: string) {
     this.router.navigate([`/co-living/${slug}`]);
   }
+
   openWorkSpace(slug: string) {
     this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
   }
+
   popularCoLivingSpaces = [
     {
       name: 'Bangalore',
@@ -326,6 +334,41 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      console.log("HIi");
+
+      // Decrement the counter every second
+      this.resendCounter--;
+      console.log(this.resendCounter);
+
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
   addValidationOnOtpField() {
     const otpControl = this.enterpriseFormGroup.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
@@ -383,6 +426,7 @@ export class HomeComponent implements OnInit {
     }
     this.popularCoLivingSpaces = [].concat.apply([], combinedArray);
   }
+
   loopCoworkingSliders() {
     let combinedArray = [];
     for (let index = 0; index < this.popularCoWorkingSpaces.length * 4; index++) {
@@ -390,24 +434,28 @@ export class HomeComponent implements OnInit {
     }
     this.popularCoWorkingSpaces = [].concat.apply([], combinedArray);
   }
+
   getFeaturedImages() {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
       this.coworkingImages = res.filter(city => city.for_coWorking === true);
       this.colivingImages = res.filter(city => city.for_coLiving === true);
     });
   }
+
   getBrandAdsImages() {
     this.brandService.getBrandAdsImages().subscribe((res: any) => {
       this.coworkingBrandAdsImages = res.filter(city => city.for_coWorking === true);
       this.colivingBrandAdsImages = res.filter(city => city.for_coLiving === true);
     });
   }
+
   getPopularCoworkingSpace() {
     this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
       this.popularCoWorkingSpaces = spaces;
       this.loopCoworkingSliders();
     });
   }
+
   setScript() {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
@@ -435,6 +483,7 @@ export class HomeComponent implements OnInit {
     }`;
     this._renderer2.appendChild(this._document.body, script);
   }
+
   openModal(price) {
     this.bsModalService.show(CuratedCityPopupComponent, {
       class: 'modal-dialog-centered',
@@ -496,4 +545,5 @@ export class HomeComponent implements OnInit {
   openAdd() {
     this.router.navigate([`enterprise`]);
   }
+
 }

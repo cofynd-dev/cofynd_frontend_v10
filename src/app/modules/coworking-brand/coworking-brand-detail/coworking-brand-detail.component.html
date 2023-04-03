@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="enquiry_section brand_query_col">
+                    <div class="enquiry_section brand_query_col" *ngIf="workSpaces.length">
                         <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                     </div>
                 </div>

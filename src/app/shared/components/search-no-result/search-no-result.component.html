@@ -18,7 +18,8 @@
                 </div>
             </div>
             <div class="col-md-12 text-center">
-                <p>Take your business everywhere and anywhere with our exclusive virtual office space solutions accompanied by GST registration, mailing address, phone answering service, virtual assistant, etc.  Establish a premium presence for your company in any city across India with our professional business address. </p>
+                <p>Take your business everywhere and anywhere with our exclusive virtual office space solutions accompanied by GST registration, mailing address, phone answering service, virtual assistant, etc.  Establish a premium presence for your company
+                    in any city across India with our professional business address. </p>
             </div>
         </div>
 
@@ -33,7 +34,7 @@
                         <li>Get access to a business address for your company in prime locations in India.</li>
                         <li>Attain a business address for mail & courier handling purposes.</li>
                     </ul>
-                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
+                    <p (click)="scrollToElement(target)" class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -45,7 +46,7 @@
                         <li>Documentation like signage, electricity bill, NOC, and agreement will be provided.</li>
                         <li>The company will attain a GST number with access to a  virtual office.</li>
                     </ul>
-                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -58,16 +59,16 @@
                         <li>Use this premium address everywhere like websites, business cards, etc</li>
                         <li>We offer comprehensive handling services for all your mail, courier, packages, and more.</li>
                     </ul>
-                    <!-- <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p> -->
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="cities_query_sec" *ngIf="title == 'Office' || 'Virtual'">
+<section class="cities_query_sec" #target [style.display]="title == 'Virtual' || title == 'Office' ? 'block' : 'none'">
     <div class="container">
-        <div class="row cities_page_row" #target>
+        <div class="row cities_page_row">
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="cities_form_area">
                     <h1>Connect with Cofynd Expert</h1>
@@ -144,15 +145,17 @@
                                         <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                     </div>
                                 </div>
+                                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                             </div>
 
                             <div class="col-md-6" *ngIf="title == 'Office'">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Furnishing_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Furnishing_Type">
-                                        <option value="" selected  style="display: none;">Office Type*</option>
-                                        <option [value]="item.value" *ngFor="let item of OfficeType">{{item.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">Office Type*</option>
+                                            <option [value]="item.value" *ngFor="let item of OfficeType">{{item.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['mx_Furnishing_Type'].errors" class="invalid-feedback">
                                         <div *ngIf="f['mx_Furnishing_Type'].errors['required']">Please select office type.</div>
                                     </div>
@@ -163,9 +166,9 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Space_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Space_Type">
-                                        <option value="" selected  style="display: none;">Office Type*</option>
-                                        <option [value]="item.value" *ngFor="let item of virtualType">{{item.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">Office Type*</option>
+                                            <option [value]="item.value" *ngFor="let item of virtualType">{{item.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['mx_Space_Type'].errors" class="invalid-feedback">
                                         <div *ngIf="f['mx_Space_Type'].errors['required']">Please select office type.</div>
                                     </div>
@@ -176,9 +179,9 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
-                                        <option value="" selected  style="display: none;">Plan Type*</option>
-                                        <option [value]="item.value" *ngFor="let item of virtualPlans">{{item.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">Plan Type*</option>
+                                            <option [value]="item.value" *ngFor="let item of virtualPlans">{{item.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['interested_in'].errors" class="invalid-feedback">
                                         <div *ngIf="f['interested_in'].errors['required']">Please select plan type.</div>
                                     </div>
@@ -190,9 +193,9 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/cash-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['mx_BudgetPrice'].errors }" formControlName="mx_BudgetPrice" class="form-control" placeholder="select your city" required aria-label="Default select example">
-                                        <option value="" selected  style="display: none;">Select Budget*</option>
-                                        <option [value]="budget.value" *ngFor="let budget of OfficeBudgets">{{budget.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">Select Budget*</option>
+                                            <option [value]="budget.value" *ngFor="let budget of OfficeBudgets">{{budget.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['mx_BudgetPrice'].errors" class="invalid-feedback">
                                         <div *ngIf="f['mx_BudgetPrice'].errors['required']">Please select budget.</div>
                                     </div>
@@ -203,9 +206,9 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Office_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Office_Type">
-                                        <option value="" selected  style="display: none;">Office Type*</option>
-                                        <option [value]="item.value" *ngFor="let item of VirtualOfficeType">{{item.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">Office Type*</option>
+                                            <option [value]="item.value" *ngFor="let item of VirtualOfficeType">{{item.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['mx_Office_Type'].errors" class="invalid-feedback">
                                         <div *ngIf="f['mx_Office_Type'].errors['required']">Please select office type.</div>
                                     </div>
@@ -216,9 +219,9 @@
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                     <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['no_of_person'].errors }" formControlName="no_of_person" class="form-control" placeholder="select your city" required aria-label="Default select example">
-                                        <option value="" selected  style="display: none;">No. Of Seats*</option>
-                                        <option [value]="item.value" *ngFor="let item of coworkingNoOfSeats">{{item.label}}</option>
-                                    </select>
+                                            <option value="" selected  style="display: none;">No. Of Seats*</option>
+                                            <option [value]="item.value" *ngFor="let item of coworkingNoOfSeats">{{item.label}}</option>
+                                        </select>
                                     <div *ngIf="submitted && f['no_of_person'].errors" class="invalid-feedback">
                                         <div *ngIf="f['no_of_person'].errors['required']">Please select no. of seats.</div>
                                     </div>
