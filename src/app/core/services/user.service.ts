@@ -18,6 +18,10 @@ export class UserService {
     return this.http.get<ApiResponse<User>>('/user/profile').pipe(map(user => user.data));
   }
 
+  resendOtp(userPayload: any) {
+    return this.http.post<ApiResponse<User>>('/user/resendOTP', userPayload);
+  }
+
   updateUser(user: User) {
     return this.http.put<User>('/user/update', user);
   }

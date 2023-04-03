@@ -41,6 +41,9 @@ export class SearchNoResultComponent implements OnInit {
   selectedCountry: any = {};
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
 
   OfficeBudgets = [
     { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
@@ -201,6 +204,37 @@ export class SearchNoResultComponent implements OnInit {
     })
   }
 
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
@@ -265,11 +299,9 @@ export class SearchNoResultComponent implements OnInit {
     otpControl.updateValueAndValidity();
   }
 
-  // scrollToElement(element: HTMLElement) {
-  //   console.log(element);
-
-  //   element.scrollIntoView({ behavior: 'smooth' });
-  // }
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 
   createEnquiry() {
     this.loading = true;
