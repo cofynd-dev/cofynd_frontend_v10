@@ -77,6 +77,9 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -117,6 +120,37 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
         this.selectedCountry = this.activeCountries[0];
       }
     })
+  }
+
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enquiryForm.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
   }
 
   hideCountry(country: any) {
