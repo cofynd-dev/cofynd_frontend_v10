@@ -69,15 +69,15 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-                                <div class="form-group align-items-center">
+                            <div class="col-md-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <div class="form-group align-items-center otp_field">
                                     <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
                                     <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                     <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                         <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
                                     </div>
                                 </div>
-                                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                                 <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                             </div>
 
