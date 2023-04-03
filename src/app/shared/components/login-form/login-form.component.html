@@ -64,7 +64,7 @@
                 <!-- <div class="otp-timer">
                     <span *ngIf="showOtpTimer">00 : {{ otpTimer$ | async }}</span>
                 </div> -->
-                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                 <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
             </div>
         </ng-container>
