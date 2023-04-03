@@ -4430,6 +4430,10 @@ h3.site_title {
     width: 90%;
 }
 
+.list_space_banner .banner_content {
+	padding-left: 0px;
+}
+
 .list_space_banner .banner_text h1 {
     font-size: 40px;
     line-height: 50px;
@@ -4443,6 +4447,11 @@ h3.site_title {
     line-height: 34px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.list_space_banner .banner_content .site_btn {
+	font-size: 15px;
+	margin-top: 10px;
 }
 
 .flat_counter_sec {
@@ -5793,6 +5802,7 @@ h3.site_title {
 .query_from_sec .invalid-feedback {
     position: absolute;
     top: 38px;
+    left: 0px;
 }
 
 .query_from_sec .form-select {
@@ -6778,6 +6788,7 @@ h3.site_title {
 .cities_form_area .invalid-feedback {
     position: absolute;
     bottom: -22px;
+    left: 0px;
 }
 
 .cities_query_sec .cities_form_area .message_field img {
@@ -6803,11 +6814,13 @@ h3.site_title {
 }
 
 .login_popup_form .selected-flag {
-    position: relative;
-    padding: 0px 10px;
-    border-radius: 0px;
-    height: 42px;
-    border-bottom: 1px solid #ccc;
+	position: relative;
+	padding: 0px 10px;
+	border-radius: 0px;
+	height: 42px;
+	border-bottom: 1px solid #ccc;
+	align-items: center;
+	display: flex;
 }
 
 .login_popup_form input {
@@ -7012,6 +7025,19 @@ h3.site_title {
     padding: 40px 40px;
     margin-bottom: 0px;
     height: 260px;
+}
+
+
+.resend_otp {
+	color: #4343e8;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	margin-bottom: 5px;
+}
+
+.otp_field {
+    margin-bottom: 0px !important;
 }
 
 @media (max-width:480px) {
@@ -9633,8 +9659,4 @@ h3.site_title {
     .category_item h3 {
         font-size: 9px !important;
     }
-}
-
-.my_class {
-    color: blue;
 }

@@ -1521,17 +1521,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-                                    <div class="input-group align-items-center">
-                                        <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
-                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
-                                        </div>
-                                    </div>
-                                    <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
-                                    <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
-                                </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
@@ -1544,6 +1533,17 @@
                                             <div *ngIf="f['city'].errors['required']">Please select your city.</div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-12 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                    <div class="input-group align-items-center">
+                                        <img src="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
+                                    </div>
+                                    <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                    <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group message_field align-items-center">

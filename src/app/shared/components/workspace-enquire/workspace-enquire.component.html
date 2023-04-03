@@ -70,7 +70,7 @@
                                     <span class="dial-code">{{inactive?.dial_code}}</span>
                                 </li>
                             </ul>
-                            <input class="form-control" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                            <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
                         </div>
                         <app-input-validation [control]="enquiryForm.controls.phone_number">
                         </app-input-validation>
@@ -84,7 +84,7 @@
                 <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
                 <app-input-validation [control]="enquiryForm.controls.otp">
                 </app-input-validation>
-                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                 <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
             </div>
 

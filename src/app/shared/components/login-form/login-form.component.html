@@ -3,7 +3,7 @@
     <span>Find The Perfect Space</span>
 </h1>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formElements">
-    <div class="material-form login_popup_form" [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
+    <div class="material-form" [class.otp-sent]="currentLoginStep === LOGIN_STEPS.OTP">
         <div *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
             <div class="mobile-text-preview">
                 We have sent you an OTP on
@@ -14,42 +14,44 @@
             </div>
         </div>
 
-        <div class="country_phone" *ngIf="currentLoginStep === LOGIN_STEPS.PHONE">
-            <div class="flag-container">
-                <div class="selected-flag" (click)="showcountry = !showcountry">
-                    <div class="flag in" *ngIf="activeCountries.length">
-                        <span class="dial-code">{{selectedCountry?.dial_code}}</span>
-                        <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+        <div class="login_popup_form">
+            <div class="country_phone" *ngIf="currentLoginStep === LOGIN_STEPS.PHONE">
+                <div class="flag-container">
+                    <div class="selected-flag" (click)="showcountry = !showcountry">
+                        <div class="flag in" *ngIf="activeCountries.length">
+                            <span class="dial-code">{{selectedCountry?.dial_code}}</span>
+                            <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                        </div>
                     </div>
+                    <ul *ngIf="showcountry" class="country-list">
+                        <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                            <div class="flag-box">
+                                <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                            </div>
+                            <span class="country-name">{{country?.name}}</span>
+                            <span class="dial-code">{{country?.dial_code}}</span>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries" class="country selected">
+                            <div class="flag-box">
+                                <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                            </div>
+                            <span class="country-name">{{inactive?.name}}</span>
+                            <span class="dial-code">{{inactive?.dial_code}}</span>
+                        </li>
+                    </ul>
                 </div>
-                <ul *ngIf="showcountry" class="country-list">
-                    <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
-                        <div class="flag-box">
-                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
-                        </div>
-                        <span class="country-name">{{country?.name}}</span>
-                        <span class="dial-code">{{country?.dial_code}}</span>
-                    </li>
-
-                    <li class="divider"></li>
-
-                    <li (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries" class="country selected">
-                        <div class="flag-box">
-                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
-                        </div>
-                        <span class="country-name">{{inactive?.name}}</span>
-                        <span class="dial-code">{{inactive?.dial_code}}</span>
-                    </li>
-                </ul>
             </div>
-        </div>
 
-        <div class="material-form-field phone-filed">
-            <input id="phone_number" type="text" formControlName="phone_number" required [appDisableInput]="currentLoginStep === LOGIN_STEPS.OTP" />
-            <label for="phone_number">Mobile Number</label>
-            <span class="underline"></span>
-            <app-input-validation [control]="loginForm.controls.phone_number">
-            </app-input-validation>
+            <div class="material-form-field phone-filed">
+                <input id="phone_number" type="text" formControlName="phone_number" required [appDisableInput]="currentLoginStep === LOGIN_STEPS.OTP" />
+                <label for="phone_number">Mobile Number</label>
+                <span class="underline"></span>
+                <app-input-validation [control]="loginForm.controls.phone_number">
+                </app-input-validation>
+            </div>
         </div>
 
         <ng-container *ngIf="currentLoginStep === LOGIN_STEPS.OTP">
@@ -62,7 +64,7 @@
                 <!-- <div class="otp-timer">
                     <span *ngIf="showOtpTimer">00 : {{ otpTimer$ | async }}</span>
                 </div> -->
-                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'my_class': resendDisabled === false}">Resend OTP</button>
+                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                 <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
             </div>
         </ng-container>
