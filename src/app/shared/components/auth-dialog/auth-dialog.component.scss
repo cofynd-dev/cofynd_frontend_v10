@@ -1,11 +1,10 @@
 .auth-dialog {
-  padding: 100px 50px;
-  background: url('/assets/images/auth-icon.svg') no-repeat 90% 40px;
-  background-size: 80px auto;
-  overflow: hidden;
-
-  @media (max-width: 600px) {
-    background-size: 60px auto;
-    padding: 100px 25px;
-  }
+    padding: 100px 50px;
+    background: url('/assets/images/auth-icon.svg') no-repeat 90% 40px;
+    background-size: 80px auto;
+    overflow: hidden;
+    @media (max-width: 600px) {
+        background-size: 60px auto;
+        padding: 100px 25px;
+    }
 }
