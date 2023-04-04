@@ -63,7 +63,7 @@
     </div>
 </section>
 
-<section class="search-description" *ngIf="!loading" [class.no-padding]="!(footerTitle || footerDescription)">
+<section class="search-description" *ngIf="!loading && footerTitle" [class.no-padding]="!(footerTitle || footerDescription)">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

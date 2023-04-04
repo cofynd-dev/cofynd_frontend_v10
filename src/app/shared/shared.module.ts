@@ -62,6 +62,7 @@ import { SearchContactUsText1Component } from './components/search-contact-us-te
 import { SearchContactUsText2Component } from './components/search-contact-us-text2/search-contact-us-text2.component';
 import { CityPageEnquireComponent } from './components/city-page-enquire/city-page-enquire.component';
 import { VirtualOfficeCityPageEnquireComponent } from './components/virtual-office-city-page-enquire/virtual-office-city-page-enquire.component';
+import { BrandSearchNoResultComponent } from './components/brand-search-no-result/brand-search-no-result.component';
 
 const MODULES = [
   CommonModule,
@@ -108,7 +109,8 @@ const COMPONENTS = [
   CuratedCityPopupComponent,
   CarouselItemComponent,
   OurClientsComponent,
-  VirtualOfficeCityPageEnquireComponent
+  VirtualOfficeCityPageEnquireComponent,
+  BrandSearchNoResultComponent
 ];
 const DIRECTIVES = [
   LoadingButtonDirective,
@@ -134,7 +136,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent, VirtualOfficeCityPageEnquireComponent],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent, VirtualOfficeCityPageEnquireComponent, BrandSearchNoResultComponent],
   imports: [
     CommonModule,
     RouterModule,
