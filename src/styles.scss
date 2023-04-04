@@ -6622,7 +6622,7 @@ h3.site_title {
 
 .country_phone .form-input.icon_phone_field {
     padding-left: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .country_phone .flag img {
@@ -7321,8 +7321,18 @@ h3.site_title {
     .top_cities_slider .top-city-img img {
         height: 240px;
     }
+    .city_page_title {
+        padding: 0px 0px 0px 8px !important;
+    }
     .city_page_title h1 {
         margin-bottom: 0px !important;
+        font-size: 13px !important;
+    }
+    .city_page_title h1::before {
+        width: 26px;
+        height: 26px;
+        left: -8px;
+        top: -6px;
     }
     .filters_popup .filder_area h3 {
         font-size: 12px;
@@ -9596,8 +9606,12 @@ h3.site_title {
         border-radius: 7px;
         width: 100%;
     }
-    .filter_col {
-        margin-top: 11px;
+    // .filter_col {
+    //     margin-top: 11px;
+    // }
+    .filter_title {
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
     .cities_query_sec .cities_form_area {
         padding: 20px 0px;
@@ -9652,6 +9666,36 @@ h3.site_title {
     }
     .details_area .enquire-box .site_btn {
         height: 38px;
+    }
+    .form_dream_ptoperty .country_phone .form-input input {
+        margin-bottom: 0;
+        font-size: 11px !important;
+    }
+    .form_dream_ptoperty .country_phone .form-input {
+        box-shadow: none;
+        border-radius: 0px !important;
+        background-color: transparent !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        margin-bottom: 10px;
+    }
+    .coworking_brand_list .item {
+        padding: 0 10px !important;
+    }
+    .coworking_brand_list .col-12.mt-3 {
+        margin-top: 0px !important;
+    }
+    .country_phone .form-input.icon_phone_field {
+        width: 100%;
+    }
+    .property_item .property-foot .price span {
+        font-size: 8px;
+    }
+    .listing_card .carousel-arrow {
+        width: 22px;
+        height: 22px;
+    }
+    .card_form .site_btn {
+        height: 30px;
     }
 }
 
