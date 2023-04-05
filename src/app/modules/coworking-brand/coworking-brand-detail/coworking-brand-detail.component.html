@@ -1,4 +1,4 @@
-<app-search-breadcrumb *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
+<app-search-breadcrumb [spaceLength]="workSpaces.length" *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
 </app-search-breadcrumb>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
@@ -10,8 +10,7 @@
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
 
-            <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Brand'" [url]="routePageEvent()">
-            </app-search-no-result>
+            <app-brand-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Brand'" [url]="routePageEvent()"></app-brand-search-no-result>
 
             <div class="row" *ngIf="!loading">
                 <div class="col-md-8">
