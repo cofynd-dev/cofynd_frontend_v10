@@ -144,7 +144,7 @@
                 </ng-container>
 
                 <div class="col-md-4">
-                    <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                    <app-city-page-enquire *ngIf="workSpaces.length" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                 </div>
             </div>
 

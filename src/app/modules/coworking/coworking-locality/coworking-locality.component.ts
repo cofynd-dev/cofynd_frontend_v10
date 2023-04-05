@@ -49,7 +49,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   totalRecords: number;
 
   // popularLocation = POPULAR_COWORKING_LOCALITY.city;
-  cityWisePopularLocation = ['Near Me'];
+  cityWisePopularLocation = [];
   IMAGE_STATIC_ALT = [];
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
@@ -222,6 +222,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
         });
+        this.cityWisePopularLocation.push('Near Me')
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {

@@ -160,12 +160,12 @@
                 </ng-container>
 
                 <div class="col-md-4">
-                    <app-city-page-enquire [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
+                    <app-city-page-enquire *ngIf="!loading && coLivings.length" [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                 </div>
 
             </div>
 
-            <div *ngIf="!loading" class="pagination-container">
+            <div *ngIf="!loading && coLivings.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="number_record" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
