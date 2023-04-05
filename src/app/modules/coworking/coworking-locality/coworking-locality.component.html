@@ -4,10 +4,13 @@
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
-
-            <h1 class="page-heading" *ngIf="!loading && workSpaces.length">
-                {{ pageTitle ? pageTitle : 'Coworking space in ' + subTitle}}
-            </h1>
+            <div class="row align-items-center filter_title">
+                <div class="col-12">
+                    <div class="page-title city_page_title">
+                        <h1 *ngIf="!loading && workSpaces.length">{{ pageTitle ? pageTitle : 'Coworking space in ' + subTitle}}</h1>
+                    </div>
+                </div>
+            </div>
 
             <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length" [cityName]="title" [relativeUrl]="'coworking'" [popularLocationList]="cityWisePopularLocation">
             </app-search-similar-location>
