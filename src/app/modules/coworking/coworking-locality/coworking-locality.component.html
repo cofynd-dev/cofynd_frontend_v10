@@ -63,7 +63,7 @@
                 </ng-container>
 
                 <div class="col-md-4">
-                    <app-city-page-enquire [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                    <app-city-page-enquire *ngIf="workSpaces.length" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@
         <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
     </div>
 </section>
-<section class="search-description" *ngIf="!loading && seoData">
+<section class="search-description" *ngIf="!loading && seoData.footer_description">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
