@@ -75,7 +75,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
       this.breadcrumbs = [
         {
           title: this.brand && this.brand.name,
-          url: 'coworking-brand/' + this.brand.name.toLocaleLowerCase().replace(/\s+/g, '-'),
+          url: 'coworking-brand/' + this.brand && this.brand.name.toLocaleLowerCase().replace(/\s+/g, '-'),
           isActive: false,
         },
         {
@@ -209,7 +209,10 @@ export class CoworkingBrandDetailComponent implements OnInit {
 
   changeMapPosition() {
     const searchDescriptionEl = this.el.nativeElement.querySelector('.search-description');
-    const searchDescriptionElOffset = searchDescriptionEl.offsetTop - 800;
+    let searchDescriptionElOffset;
+    if (searchDescriptionEl) {
+      searchDescriptionElOffset = searchDescriptionEl.offsetTop - 800;
+    }
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
     if (scrollPosition > searchDescriptionElOffset) {
       this.isSearchFooterVisible = true;
@@ -291,7 +294,7 @@ export class CoworkingBrandDetailComponent implements OnInit {
        */
       return `/`;
     }
-    return `/brand/${this.urlPath[0]}`;
+    return `/coworking-brand/${this.urlPath[0]}`;
   }
 
   getQueryParam() {
@@ -340,10 +343,10 @@ export class CoworkingBrandDetailComponent implements OnInit {
     this.selectedCity = city;
   }
 
-  ngOnDestroy() {
-    this.configService.setDefaultConfigs();
-    this.pageScrollSubject.next();
-    this.pageScrollSubject.complete();
-  }
+  // ngOnDestroy() {
+  //   this.configService.setDefaultConfigs();
+  //   this.pageScrollSubject.next();
+  //   this.pageScrollSubject.complete();
+  // }
 
 }

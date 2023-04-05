@@ -31,7 +31,7 @@ import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspac
 })
 export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY;
-  loading: boolean;
+  loading: boolean = true;
   offices: OfficeSpace[];
   isMapView: boolean = false;
   queryParams: { [key: string]: string | number };

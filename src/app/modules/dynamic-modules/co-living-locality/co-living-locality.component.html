@@ -1,5 +1,5 @@
-<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [isSortFilter]="true" breadcumbType='coliving' (onResetFilter)="resetFilter()" (priceFilterChanged)="onFilterPriceChange($event)" (sortTypeChanged)="onSortTypeChange($event)" [isPageScrolled]="isScrolled"
-    [breadcrumbs]="breadcrumbs" (mapViewChanged)="toggleMapView($event)" (filterChanged)="filterMapView($event)" [priceFilters]="price_filters">
+<app-search-breadcrumb *ngIf="!loading" [spaceLength]="coLivings.length" [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [isSortFilter]="true" breadcumbType='coliving' (onResetFilter)="resetFilter()" (priceFilterChanged)="onFilterPriceChange($event)"
+    (sortTypeChanged)="onSortTypeChange($event)" [isPageScrolled]="isScrolled" [breadcrumbs]="breadcrumbs" (mapViewChanged)="toggleMapView($event)" (filterChanged)="filterMapView($event)" [priceFilters]="price_filters">
 </app-search-breadcrumb>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
