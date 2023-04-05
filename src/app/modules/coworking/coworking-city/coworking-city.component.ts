@@ -431,6 +431,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.configService.setDefaultConfigs();
+    // this.configService.setDefaultConfigs();
   }
 }

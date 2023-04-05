@@ -1,5 +1,5 @@
-<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [priceFilters]="price_filters" [isSortFilter]="true" breadcumbType='coliving' (priceFilterChanged)="onFilterPriceChange($event)" (sortTypeChanged)="onSortTypeChange($event)" (onResetFilter)="resetFilter()"
-    [isPageScrolled]="false" [breadcrumbs]="breadcrumbs" (filterChanged)="filterMapView($event)" (mapViewChanged)="toggleMapView($event)">
+<app-search-breadcrumb *ngIf="!loading" [spaceLength]="coLivings.length" [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [priceFilters]="price_filters" [isSortFilter]="true" breadcumbType='coliving' (priceFilterChanged)="onFilterPriceChange($event)"
+    (sortTypeChanged)="onSortTypeChange($event)" (onResetFilter)="resetFilter()" [isPageScrolled]="false" [breadcrumbs]="breadcrumbs" (filterChanged)="filterMapView($event)" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 
 <section class="search-container clearfix">
@@ -11,7 +11,7 @@
                         <h1 *ngIf="!loading">{{ pageTitle ? pageTitle : 'Co Living in ' + title }}</h1>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3" *ngIf="!loading">
                     <div class="filter_col">
                         <!-- <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
                         <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters

@@ -9,6 +9,7 @@ import { AppConstant } from '@app/shared/constants/app.constant';
   styleUrls: ['./search-breadcrumb.component.scss'],
 })
 export class SearchBreadcrumbComponent implements OnChanges {
+  loading = true;
   @Input() isPageScrolled: boolean;
   @Input() isOfficeListing: boolean;
   @Input() isPriceFilter = true;
@@ -21,6 +22,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   @Input() priceFilters: any[] = [];
   @Input() resetButton: boolean = true;
   @Input() filter: boolean = false;
+  @Input() spaceLength: any = 0;
 
   @Output() priceFilterChanged: EventEmitter<PriceFilter> = new EventEmitter<PriceFilter>();
   @Output() sizeFilterChanged: EventEmitter<SizeFilter> = new EventEmitter<SizeFilter>();
@@ -86,6 +88,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
+    this.loading = true;
     this.mobileView = window.screen.width < 500;
     if (!this.priceFilter || !this.priceFilter.length) {
       this.priceFilter = this.getPriceFilter();
@@ -101,6 +104,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
       queryParam = JSON.parse(localStorage.getItem(AppConstant.LS_COLIVING_FILTER_KEY));
     }
     this.getQueryParam(queryParam);
+    this.loading = false;
   }
 
   onPriceChange(priceRange: PriceFilter) {

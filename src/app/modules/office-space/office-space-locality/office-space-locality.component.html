@@ -1,5 +1,5 @@
-<app-search-breadcrumb [breadcrumbs]="breadcrumbs" [isOfficeListing]="true" [isSizeFilter]="true" [isTypeFilter]="true" breadcumbType='office' (priceFilterChanged)="onFilterPriceChange($event)" (sizeFilterChanged)="onFilterSizeChange($event)" (typeFilterChanged)="onFilterTypeChange($event)"
-    (onResetFilter)="resetFilter()" [isPageScrolled]="isScrolled" [priceFilter]="priceFilter" [sizeFilter]="sizeFilter" [typeFilter]="typeFilter" (mapViewChanged)="toggleMapView($event)">
+<app-search-breadcrumb *ngIf="!loading" [spaceLength]="offices.length" [breadcrumbs]="breadcrumbs" [isOfficeListing]="true" [isSizeFilter]="true" [isTypeFilter]="true" breadcumbType='office' (priceFilterChanged)="onFilterPriceChange($event)" (sizeFilterChanged)="onFilterSizeChange($event)"
+    (typeFilterChanged)="onFilterTypeChange($event)" (onResetFilter)="resetFilter()" [isPageScrolled]="isScrolled" [priceFilter]="priceFilter" [sizeFilter]="sizeFilter" [typeFilter]="typeFilter" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 
 <section class="search-container clearfix">

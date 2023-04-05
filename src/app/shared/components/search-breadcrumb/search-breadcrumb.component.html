@@ -1,4 +1,4 @@
-<section class="breadcrumb-wrapper">
+<section class="breadcrumb-wrapper" *ngIf="!loading">
     <div class="container-fluid">
         <div class="row">
             <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
@@ -96,7 +96,7 @@
             <div class="col-md-1">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="mapToggleSwitch" (change)="toggleMapView($event)">
-                    <label class="custom-control-label" for="mapToggleSwitch">Map</label>
+                    <label *ngIf="spaceLength > 0" class="custom-control-label" for="mapToggleSwitch">Map</label>
                 </div>
             </div>
         </div>

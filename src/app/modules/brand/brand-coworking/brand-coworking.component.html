@@ -1,4 +1,4 @@
-<app-search-breadcrumb *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
+<app-search-breadcrumb [spaceLength]="workSpaces.length" *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
 </app-search-breadcrumb>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
