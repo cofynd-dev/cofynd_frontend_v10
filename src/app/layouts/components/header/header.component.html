@@ -10,7 +10,7 @@
             <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
                 <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
                 </button>
-                <app-search-autocomplete [placeholder]="'Start typing location'" (locationSelected)="closeMobileSearch()">
+                <app-search-autocomplete [placeholder]="'Start typing'" (locationSelected)="closeMobileSearch()">
                 </app-search-autocomplete>
             </div>
             <button (click)="openMobileMenu()" class="hamburger">
@@ -28,6 +28,13 @@
                 <li class="no-tablet">
                     <app-dropdown-item [relativeUrl]="'/co-living/'" [title]="'Coliving'" [cities]="menuPopularCoLiving">
                     </app-dropdown-item>
+                </li>
+                <li class="no-tablet">
+                    <div class="btn-group dropdown-list-menu" dropdown>
+                        <button dropdownToggle type="button">
+                            <span routerLink="/virtual-office">Virtual Office</span>
+                        </button>
+                    </div>
                 </li>
                 <!-- <li class="no-tablet">
                     <a routerLink="/enterprise">Enterprise Solutions</a>
@@ -57,7 +64,7 @@
                 <li class="no-tablet">
                     <div class="btn-group dropdown-list-menu" dropdown>
                         <button dropdownToggle type="button">
-                            <span routerLink="/list-your-space">List Your Property<i class="fa-solid"></i></span>
+                            <span routerLink="/list-your-space">List Property<i class="fa-solid"></i></span>
                         </button>
                     </div>
                 </li>

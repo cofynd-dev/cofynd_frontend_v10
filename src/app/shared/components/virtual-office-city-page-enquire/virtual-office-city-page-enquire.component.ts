@@ -59,7 +59,7 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     { label: 'GST Registration', value: 'gst-registration' },
     { label: 'Business Registration', value: 'business-registration' },
     { label: 'Mailing Address', value: 'mailing-address' },
-    { label: `Any Other`, value: 'any-other' },
+    { label: `Any/All`, value: 'any/all' },
   ];
 
   MoveIn = [
