@@ -82,7 +82,7 @@
         <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
     </div>
 </section>
-<section class="search-description" *ngIf="!loading && seoData.footer_description">
+<section class="search-description" *ngIf="!loading && seoData && seoData.footer_description">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
