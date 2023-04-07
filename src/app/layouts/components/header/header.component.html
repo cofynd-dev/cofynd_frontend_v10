@@ -76,8 +76,7 @@
                 </li>
                 <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
-                            Signup</button>
+                        <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
                     </div>
                 </li>
                 <li *ngIf="isAuthenticated()" class="no-tablet">
@@ -118,7 +117,11 @@
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
 
-                    
+                    <div *ngIf="!isAuthenticated()" class="mobile_login">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
+                        </div>
+                    </div>
                     <div class="profile_col" *ngIf="isAuthenticated()">
                         <div class="btn-group user-header-menu" dropdown>
                             <button dropdownToggle type="button">

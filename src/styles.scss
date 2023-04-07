@@ -6999,13 +6999,13 @@ h3.site_title {
 }
 
 .filter_col .form-select {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    font-size: 15px;
-    background-color: transparent;
-    line-height: 20px !important;
-    padding: 12px 14px;
-    display: inline-block;
-    border-radius: 10px;
+	border: 1px solid rgba(0,0,0,.2);
+	font-size: 12px;
+	background-color: transparent;
+	line-height: 20px !important;
+	padding: 10px 10px;
+	display: inline-block;
+	border-radius: 10px;
 }
 
 .form_content .amenities_row {
@@ -9738,6 +9738,14 @@ h3.site_title {
     }
     .cities_query_sec .cities_page_row {
         margin: 0 !important;
+    }
+    .mobile_login .login-btn {
+        padding: 4px 11px;
+        background-color: transparent;
+        color: #4343e8;
+        font-weight: 500;
+        border-radius: 5px;
+        font-size: 10px;
     }
 }
 
