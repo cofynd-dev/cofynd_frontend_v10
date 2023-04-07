@@ -202,7 +202,7 @@ export class WorkSpaceComponent implements OnInit {
             zoom: 13,
             attributionControl: false,
             scrollWheelZoom: false,
-            dragging: false,
+            dragging: true,
             center: latLng(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]),
           };
           this.addMarker(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
