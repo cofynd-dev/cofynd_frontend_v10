@@ -54,7 +54,7 @@ export class SearchMapViewComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: any,
     // private mapsAPILoader: MapsAPILoader,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.workspaces && this.workspaces.length) {
@@ -73,7 +73,7 @@ export class SearchMapViewComponent implements OnInit {
       ],
       zoom: 12,
       attributionControl: false,
-      dragging: false,
+      dragging: true,
       center: latLng(workspaces[0].geometry.coordinates[1], workspaces[0].geometry.coordinates[0]),
     };
     for (const workspace of workspaces) {
@@ -92,7 +92,7 @@ export class SearchMapViewComponent implements OnInit {
         // shadowUrl: 'assets/images/marker-icon.png'
       }),
     });
-    this.newMarker.on('click', function() {
+    this.newMarker.on('click', function () {
       if (
         workspace.country_dbname &&
         workspace.country_dbname !== 'india' &&
