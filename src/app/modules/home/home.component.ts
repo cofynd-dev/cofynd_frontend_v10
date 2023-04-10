@@ -338,12 +338,8 @@ export class HomeComponent implements OnInit {
     // Disable the resend button and start the counter
     this.resendDisabled = true;
     this.resendIntervalId = setInterval(() => {
-      console.log("HIi");
-
       // Decrement the counter every second
       this.resendCounter--;
-      console.log(this.resendCounter);
-
       if (this.resendCounter === 0) {
         // If the counter reaches zero, enable the resend button
         clearInterval(this.resendIntervalId);

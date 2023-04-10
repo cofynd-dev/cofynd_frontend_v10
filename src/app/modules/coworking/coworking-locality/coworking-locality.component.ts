@@ -53,8 +53,10 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   IMAGE_STATIC_ALT = [];
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
-  minPrice: string;
-  maxPrice: string;
+  minPrice: any;
+  maxPrice: any;
+  selectedValue: any = 'Select Price';
+  roomType: any;
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
 
 
@@ -213,6 +215,55 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     });
   }
 
+  onPriceSelect(value) {
+    this.selectedValue = value;
+    if (value === 'Select Price') {
+      this.minPrice = null;
+      this.maxPrice = null;
+    }
+    if (value === 'Less than ₹10,000') {
+      this.minPrice = 0;
+      this.maxPrice = 10000;
+      localStorage.setItem('minPrice', '0');
+      localStorage.setItem('maxPrice', '10000');
+    }
+    if (value === '₹10,000 - ₹20,000') {
+      this.minPrice = 10000;
+      this.maxPrice = 20000;
+      localStorage.setItem('minPrice', '10000');
+      localStorage.setItem('maxPrice', '20000');
+    }
+    if (value === '₹20,000 - ₹30,000') {
+      this.minPrice = 20000;
+      this.maxPrice = 30000;
+      localStorage.setItem('minPrice', '20000');
+      localStorage.setItem('maxPrice', '30000');
+    }
+    if (value === 'More than ₹30,000') {
+      this.minPrice = 30000;
+      this.maxPrice = 300000;
+      localStorage.setItem('minPrice', '30000');
+      localStorage.setItem('maxPrice', '300000');
+    }
+    this.apply();
+  }
+
+  selectRoomType(value) {
+    if (value === this.roomType) {
+      this.roomType = null;
+    } else {
+      this.roomType = value;
+    }
+  }
+
+  apply() {
+    this.queryParams['minPrice'] = this.minPrice;
+    this.queryParams['maxPrice'] = this.maxPrice;
+    this.queryParams['space_type'] = this.roomType;
+    this.loadWorkSpaces(this.queryParams);
+    // $('#coworking_filters_popup').modal('hide');
+  }
+
   loadWorkSpaces(param: {}) {
     this.loading = true;
     this.workSpaceService.getWorSpacesByAddress(sanitizeParams(param)).subscribe(allWorkSpaces => {
@@ -222,7 +273,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
         });
-        this.cityWisePopularLocation.push('Near Me')
+        // this.cityWisePopularLocation.push('Near Me')
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {

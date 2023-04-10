@@ -50,7 +50,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   totalRecords: number;
   pageTitle: string;
 
-  cityWisePopularLocation = ['Near Me'];
+  cityWisePopularLocation = [];
   breadcrumbs: BreadCrumb[];
   priceFilter = PriceFilterData;
   sizeFilter = SizeFilterData;
