@@ -56,6 +56,19 @@
     }
 }
 
+
+@media (max-width: 991px) {
+    .our_client_sec .carousel-arrow.icon-back {
+        left: 20px;
+    }
+    .our_client_sec .carousel-arrow.icon-next {
+        right: 20px !important;
+    }
+    .our_client_sec .our-client-carousel {
+        padding: 0px 30px;
+    }
+}
+
 @media (max-width: 480px) {
     
 //   .col-md-12.text-center {

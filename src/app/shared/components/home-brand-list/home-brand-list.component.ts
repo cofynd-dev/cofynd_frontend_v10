@@ -33,7 +33,7 @@ export class HomeBrandListComponent implements OnInit {
   popularSpaceCarousel: NguCarousel<coworkingBrandsList>;
   active = 0;
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 3, sm: 4, md: 5, lg: 6, all: 0 },
+    grid: { xs: 3, sm: 5, md: 5, lg: 6, all: 0 },
     slide: 1,
     speed: 250,
     point: {
