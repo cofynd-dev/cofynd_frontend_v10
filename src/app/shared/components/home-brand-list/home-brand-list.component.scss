@@ -93,6 +93,18 @@ margin-top: 0px !important;
   cursor: pointer;
 }
 
+@media (max-width: 991px) {
+  .coworking_brand_list .carousel-arrow.icon-back {
+    left: 20px;
+  }
+  .coworking_brand_list .carousel-arrow.icon-next {
+      right: 20px !important;
+  }
+  .coworking_brand_list .our-client-carousel {
+      padding: 0px 30px;
+  }
+}
+
 @media (max-width: 480px) {
   .col-md-12.text-center {
     text-align: left !important;

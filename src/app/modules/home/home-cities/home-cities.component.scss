@@ -1,7 +1,7 @@
 .city-list {
   max-width: 530px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     max-width: 100%;
     white-space: nowrap;
     overflow-y: hidden;
