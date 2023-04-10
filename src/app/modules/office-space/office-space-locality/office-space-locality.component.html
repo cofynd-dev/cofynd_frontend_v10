@@ -29,9 +29,35 @@
                         </app-office-card>
                     </div>
                     <ng-template [ngIf]="isMapView">
-                        <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
                             <app-search-contact-us-text [cities]="availableCities" [type]="'for_office'">
                             </app-search-contact-us-text>
+                        </div> -->
+
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ba23d2df5adce219c36d8cad262aefdfe186dacf.jpg');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Office Space in Your City</h4>
+                                            <ul class="mobilehide">
+                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle">
+                            </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
