@@ -3268,11 +3268,11 @@ h3.site_title {
     display: block;
     width: 100%;
     height: auto;
-    overflow-x: scroll;
+    // overflow-x: scroll;
     padding: 0px;
     margin: 0;
     white-space: nowrap;
-    scrollbar-width: none !important;
+    // scrollbar-width: none !important;
 }
 
 .places-tag-slider .places-tag-item {
@@ -6055,7 +6055,7 @@ h3.site_title {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
-    padding: 30px 25px;
+    padding: 35px 25px;
     border-radius: 20px;
     border: 1px solid rgba(33, 37, 41, 0.1);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -7808,7 +7808,8 @@ h3.site_title {
     .top_cities_carousel,
     .office_top_properties_slider,
     .places-tag-slider,
-    .visible-list {
+    .visible-list,
+    .places-tag-slider {
         -webkit-overflow-scrolling: touch !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -7827,7 +7828,8 @@ h3.site_title {
     .top_cities_carousel::-webkit-scrollbar,
     .office_top_properties_slider::-webkit-scrollbar,
     .places-tag-slider::-webkit-scrollbar,
-    .visible-list::-webkit-scrollbar {
+    .visible-list::-webkit-scrollbar,
+    .places-tag-slider::-webkit-scrollbar {
         display: none !important;
         height: 0 !important;
         width: 0 !important;
