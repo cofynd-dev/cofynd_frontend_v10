@@ -151,6 +151,15 @@
   z-index: 1;
 }
 
+@media (max-width: 991px) {
+  .popular-spaces .carousel-arrow.icon-back {
+    left: 0px;
+  }
+  .popular-spaces .carousel-arrow.icon-next {
+    right: 0;
+  }
+}
+
 @media (max-width:480px) {
   .col-md-12.text-center {
     text-align: left !important;

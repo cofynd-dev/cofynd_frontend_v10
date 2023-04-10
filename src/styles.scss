@@ -6999,13 +6999,13 @@ h3.site_title {
 }
 
 .filter_col .form-select {
-	border: 1px solid rgba(0,0,0,.2);
+	border: 1px solid rgba(0, 0, 0, 0.2);
 	font-size: 12px;
 	background-color: transparent;
 	line-height: 20px !important;
-	padding: 10px 10px;
+	padding: 8px 10px;
 	display: inline-block;
-	border-radius: 10px;
+	border-radius: 6px;
 }
 
 .form_content .amenities_row {
@@ -7053,6 +7053,319 @@ h3.site_title {
 }
 .search-container .search-grid-container {
 	padding: 25px 0 25px !important;
+}
+
+@media (max-width:991px) {
+    
+    .mobile_login .login-btn {
+        padding: 4px 11px;
+        background-color: transparent;
+        color: #4343e8;
+        font-weight: 500;
+        border-radius: 5px;
+        font-size: 10px;
+    }
+    .main_heading h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    .main_heading::before {
+        width: 50px;
+        height: 50px;
+        left: -12px;
+        top: -18px;
+    }
+    main {
+        padding-top: 57px !important;
+    }
+    .our_services_sec .service_item {
+        padding: 40px 30px;
+    }
+    .our_services_sec h4 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .our_services_sec .service_item2 {
+        margin-top: 40px;
+        min-height: 120px;
+        padding: 35px 30px;
+    }
+    .city-list button img, .city-list a img {
+        max-height: 25px !important;
+        max-width: 34px !important;
+        margin-bottom: 2px;
+    }
+    .city-list button, .city-list a {
+        width: 66px !important;
+        height: 66px !important;
+        font-size: 9px !important;
+    }
+    .home_banner .ng-select-container {
+        min-height: 28px !important;
+        height: 28px !important;
+    }
+    .home_banner .form-layout-outline .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+        font-size: 12px;
+    }
+    .home_banner .innerbanner_img {
+        height: 550px;
+    }
+    .home_banner .innerbanner_img img {
+        height: 560px;
+    }
+    .home_banner {
+        padding-bottom: 40px;
+    }
+    .our_services_sec {
+        padding: 40px 0 60px;
+    }
+    .feature-content {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .feature-content h3 span {
+        font-size: 36px;
+        line-height: 42px;
+    }
+    .feature-content h3 {
+        line-height: 34px;
+        margin-bottom: 55px;
+        font-size: 20px !important;
+    }
+    .feature .left-content h2 {
+        font-size: 24px !important;
+        line-height: 35px !important;
+        padding: 0px 55px;
+    }
+    .feature .left-content {
+        border-radius: 50px !important;
+    }
+    .what-you-get ul li {
+        font-size: 17px !important;
+        padding-left: 47px !important;
+        margin-bottom: 40px !important;
+    }
+    .what-you-get ul li .wt-icon {
+        width: 35px !important;
+        height: 35px !important;
+        top: -8px !important;
+    }
+    .what-you-get .main_heading {
+        margin-bottom: 40px !important;
+    }
+    .our_client_sec {
+        padding-top: 40px !important;
+        padding-bottom: 30px !important;
+    }
+    .logos_slider .band-img {
+        margin: 0px 20px !important;
+    }
+    .list_your_space_sec .cta_content h4 {
+        font-size: 22px;
+        line-height: 32px;
+    }
+    .footer_about {
+        padding-left: 0 !important;
+        padding-bottom: 15px;
+        padding-top: 20px;
+    }
+    .footer_bottom {
+        padding-top: 10px;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    .popular-spaces .popular-space-carousel {
+        padding: 0px 25px;
+    }
+    .popular-spaces .carousel-arrow.icon-back {
+        left: 10px;
+    }
+    .popular-spaces .carousel-arrow.icon-next {
+        right: 10px;
+    }
+    .coworking_banner .innerbanner_img {
+        height: 500px;
+    }
+    .coworking_banner .innerbanner_img img {
+        height: 500px;
+    }
+    .cofynd_advantage_area h3 {
+        font-weight: 700;
+        line-height: 32px;
+        font-size: 23px;
+        padding-top: 60px;
+    }
+    .gradient_cta_sec .row {
+        margin: 0 10px;
+    }
+    .gradient_cta_sec .cta_content {
+        padding: 45px 20px;
+    }
+    .left_icon_box2 img {
+        width: 45px;
+        height: 45px;
+    }
+    .left_icon_box2 .icon {
+        width: 55px;
+        margin-right: 10px;
+    }
+    .coliving_banner {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+    .facilities_sec {
+        padding: 80px 0px 50px;
+    }
+    h2.site_title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .site_title::before {
+        width: 45px;
+        height: 45px;
+        left: -10px;
+        top: -10px;
+    }
+    .banner_content h5 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .list_now_sec .cta_content {
+        padding: 10px 70px 10px 0px !important;
+    }
+    .office_space_banner .innerbanner_img {
+        height: 480px;
+    }
+    .office_space_banner .innerbanner_img img {
+        height: 480px;
+    }
+    .office_space_banner {
+        padding-top: 90px;
+    }
+    .listing_card .property-img {
+        height: 200px;
+    }
+    .listing_card .property-img .item {
+        height: 200px !important;
+    }
+    .listing_card .property-img .item img {
+        height: 200px !important;
+    }
+    .listing_card .property-dis h4 {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .micro-location-cta .cta_content ul li {
+        margin-bottom: 3px;
+    }
+    .card_form .form-control, .card_form .form-select {
+        padding: 8px 12px;
+        height: 36px;
+        font-size: 12px;
+    }
+    .card_form .country_phone .form-control {
+        font-size: 12px;
+        width: 100%;
+    }
+    .country_phone .selected-flag .flag {
+        font-size: 12px;
+    }
+    .card_form .country_phone .city_card_phone {
+        height: 36px;
+    }
+    .card_form .form_title h4 {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        margin-bottom: 1px;
+    }
+    .card_form .form_title p {
+        font-size: 12px;
+        line-height: 17px;
+    }
+    .card_form {
+        padding: 25px 25px;
+    }
+    .card_form .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+        font-size: 12px;
+    }
+    .card_form .site_btn {
+        height: 43px;
+    }
+    .listing_card .property-foot .price {
+        font-size: 14px !important;
+        line-height: 21px !important;
+    }
+    .space_head.fixed-header h1 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .space_head.fixed-header .price {
+        font-size: 18px;
+    }
+    .enquiry_section .form-section {
+        padding: 30px 20px;
+    }
+    .enquiry_section .form-section .form .form-group {
+        margin-bottom: 15px;
+    }
+    .banner_content {
+        padding: 0px 40px 10px 40px;
+    }
+    .query_from_sec h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .more_about_sec {
+        padding: 50px 20px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home_banner .innerbanner_img {
+        display: none;
+    }
+    .banner_content h1 {
+        font-size: 20px !important;
+        line-height: 30px !important;
+        margin-bottom: 10px;
+    }
+    .our_services_sec .service_item {
+        padding: 28px 18px;
+    }
+    .our_services_sec h4 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .our_services_sec {
+        padding: 10px 0 60px;
+    }
+    .our_services_sec .service_item2 {
+        margin-top: 20px;
+        min-height: 80px;
+        padding: 28px 18px;
+    }
+    .feature-content h3 span {
+        font-size: 35px !important;
+        line-height: 40px !important;
+    }
+    .feature .left-content h2 {
+        font-size: 19px !important;
+        line-height: 27px !important;
+        padding: 0px 55px;
+    }
+    .feature .left-content .anchor-text {
+        font-size: 22px !important;
+        line-height: 30px !important;
+    }
+    .feature .left-content .divider-line {
+        margin: 30px auto !important;
+    }
+    
 }
 
 @media (max-width:480px) {
@@ -7308,14 +7621,6 @@ h3.site_title {
     .home_banner {
         padding-top: 40px;
         padding-bottom: 30px;
-    }
-    .home_banner .innerbanner_img {
-        display: none;
-    }
-    .banner_content h1 {
-        font-size: 20px !important;
-        line-height: 30px !important;
-        margin-bottom: 10px;
     }
     .main_heading {
         padding-left: 14px;
@@ -8648,14 +8953,25 @@ h3.site_title {
     .similar-workspaces {
         margin-top: 10px;
     }
-    .form_dream_ptoperty .form-input input,
-    .form_dream_ptoperty .form-input select {
+    .form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
         font-size: 11px !important;
-        padding: 11px 15px !important;
+        padding: 7px 5px !important;
         background-color: transparent !important;
         box-shadow: none;
-        border-bottom: 1px solid rgba(0, 0, 0, .1) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
         border-radius: 0px !important;
+    }
+    .form_dream_ptoperty .country_phone .form-input {
+        padding: 0px 5px !important;
+    }
+    .enquire-box {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .enquire-box .enquiry-footer {
+        padding: 0;
     }
     .space_title_area h1 {
         font-size: 16px !important;
@@ -9741,13 +10057,8 @@ h3.site_title {
     .cities_query_sec .cities_page_row {
         margin: 0 !important;
     }
-    .mobile_login .login-btn {
-        padding: 4px 11px;
-        background-color: transparent;
-        color: #4343e8;
-        font-weight: 500;
-        border-radius: 5px;
-        font-size: 10px;
+    .virtual_choose_sec .col-md-12.text-center {
+        text-align: left !important;
     }
 }
 

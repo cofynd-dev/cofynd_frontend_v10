@@ -37,7 +37,7 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
   active = 0;
 
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1.4, sm: 1.4, md: 3, lg: 4, all: 0 },
+    grid: { xs: 1.4, sm: 2.4, md: 3, lg: 4, all: 0 },
     slide: 1,
     speed: 250,
     point: {

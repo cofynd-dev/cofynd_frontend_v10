@@ -534,13 +534,13 @@ a+a {
 //css for new mobile menu
 .onlyMobile {
     display: none;
-    @media (max-width: 480px) {
+    @media (max-width: 1080px) {
         display: block;
     }
 }
 
 .hideOnMobile {
-    @media (max-width: 480px) {
+    @media (max-width: 1080px) {
         display: none !important;
     }
 }
@@ -684,10 +684,13 @@ a+a {
 	color: #fff;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 991px) {
     header {
         height: auto;
         padding: 4px 0px;
+    }
+    .main_header .row {
+        width: 100%;
     }
     .navbar .row {
         width: 100%;
