@@ -1370,7 +1370,11 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     });
   }
 
-  locateMyLocation() { }
+  searchCoworking() {
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
+    });
+  }
 
   ngAfterViewInit() {
     this.cdr.detectChanges();

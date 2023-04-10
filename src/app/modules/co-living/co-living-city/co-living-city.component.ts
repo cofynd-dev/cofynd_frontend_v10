@@ -131,10 +131,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     });
 
     if (this.title) {
-      console.log(this.title);
-
-      console.log(script.coliving.bangalore);
-
       for (let scrt of script.coliving[this.title]) {
         this.setHeaderScript(scrt);
       }
@@ -219,7 +215,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
-        this.popularLocation.push('Near Me')
+        // this.popularLocation.push('Near Me')
         if (filteredLocations && filteredLocations.length) {
           this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
             for (let index = 0; index < mlocations.data.length; index++) {

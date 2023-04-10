@@ -293,7 +293,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         }
       });
       if (allWorkSpaces.data.length) {
-        this.cityWisePopularLocation.push('Near Me')
+        // this.cityWisePopularLocation.push('Near Me')
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.workSpaceService.microLocationByCityAndSpaceType(this.filteredCity[0].id).subscribe((mlocations: any) => {
