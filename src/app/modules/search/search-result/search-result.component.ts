@@ -14,6 +14,7 @@ import { map, takeUntil } from 'rxjs/operators';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
 
+
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',

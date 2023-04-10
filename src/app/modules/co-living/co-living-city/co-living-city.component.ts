@@ -131,10 +131,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     });
 
     if (this.title) {
-      console.log(this.title);
-
-      console.log(script.coliving.bangalore);
-
       for (let scrt of script.coliving[this.title]) {
         this.setHeaderScript(scrt);
       }

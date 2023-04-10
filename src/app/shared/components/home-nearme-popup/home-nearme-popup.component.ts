@@ -17,9 +17,10 @@ export class HomeNearmePopupComponent implements OnInit {
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
     private bsModalRef: BsModalRef,
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
   getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {
       if (navigator.geolocation) {
@@ -42,6 +43,7 @@ export class HomeNearmePopupComponent implements OnInit {
       this.bsModalRef.hide();
     });
   }
+
   searchColiving() {
     this.getCurrentPosition().subscribe((position: any) => {
       this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);

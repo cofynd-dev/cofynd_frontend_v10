@@ -22,7 +22,7 @@ export class HomeCitiesComponent {
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
-  ) {}
+  ) { }
 
   locateMyLocation() {
     this.bsModalService.show(HomeNearmePopupComponent, {

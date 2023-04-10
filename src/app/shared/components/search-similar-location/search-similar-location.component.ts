@@ -83,15 +83,16 @@ export class SearchSimilarLocationComponent implements OnChanges {
         this.getCurrentPosition().subscribe((position: any) => {
           this.router.navigateByUrl(`/search?coliving-latitude=${position.latitude}&longitude=${position.longitude}`);
         });
+      } else {
+        const url =
+          '/' +
+          this.relativeUrl +
+          '/' +
+          this.cityName.toLowerCase().trim() +
+          '/' +
+          generateSlug(location.toLowerCase().trim());
+        this.router.navigate([url]);
       }
-      const url =
-        '/' +
-        this.relativeUrl +
-        '/' +
-        this.cityName.toLowerCase().trim() +
-        '/' +
-        generateSlug(location.toLowerCase().trim());
-      this.router.navigate([url]);
     }
     if (this.relativeUrl === 'office-space/rent') {
       const url =
@@ -113,15 +114,16 @@ export class SearchSimilarLocationComponent implements OnChanges {
         this.getCurrentPosition().subscribe((position: any) => {
           this.router.navigateByUrl(`/search?coworking-latitude=${position.latitude}&longitude=${position.longitude}`);
         });
+      } else {
+        const url =
+          '/' +
+          this.relativeUrl +
+          '/' +
+          this.cityName.toLowerCase().trim() +
+          '/' +
+          generateSlug(location.toLowerCase().trim());
+        this.router.navigate([url]);
       }
-      const url =
-        '/' +
-        this.relativeUrl +
-        '/' +
-        this.cityName.toLowerCase().trim() +
-        '/' +
-        generateSlug(location.toLowerCase().trim());
-      this.router.navigate([url]);
     }
     if (this.relativeUrl === 'coworking' && this.country != 'india' && this.country != 'India' && this.country != 'INDIA') {
       const url = `/${this.country}/coworking/${this.cityName.toLowerCase().trim()}/${generateSlug(

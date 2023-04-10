@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, Input, OnChanges, Output } from 
 import { PriceFilter, SizeFilter } from '@core/models/workspace.model';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { AppConstant } from '@app/shared/constants/app.constant';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-search-breadcrumb',
@@ -46,8 +47,16 @@ export class SearchBreadcrumbComponent implements OnChanges {
   selectedType: any;
   selectedSort: any;
   mobileView: boolean;
+  isChecked: boolean = false;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    this.route.url.subscribe((segments: UrlSegment[]) => {
+      if (segments.length > 0) {
+        this.isChecked = false;
+      } else {
+        this.isChecked = true;
+      }
+    });
   }
 
   @HostListener('window:resize', [])
@@ -73,6 +82,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
       this.selectedSizeRange = this.sizeFilter.find(x => x.minSize == minSize && x.maxSize == maxSize);
     }
   }
+
   removedash(name: string) {
     if (name) {
       return name.replace(/-/, ' ');

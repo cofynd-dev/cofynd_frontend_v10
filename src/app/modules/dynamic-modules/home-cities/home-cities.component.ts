@@ -50,6 +50,7 @@ export class HomeCitiesComponent implements OnInit {
   removedash(name: string) {
     return name.replace(/-/, ' ');
   }
+
   openModal(city, country) {
     this.bsModalService.show(HomeCityPopupComponent, {
       class: 'modal-dialog-centered',
