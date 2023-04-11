@@ -114,9 +114,43 @@
 
 
                     <ng-template [ngIf]="isMapView">
-                        <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
+                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
                             <app-search-contact-us-text [cities]="availableCities" [type]="'for_coLiving'">
                             </app-search-contact-us-text>
+                        </div> -->
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9a0e263d79da3f58c4edfeb944679aab35c178ee.jpg');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coliving in Your City</h4>
+                                            <ul class="mobilehide">
+                                                <ng-container *ngFor="let item of popularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3102eee22751ef1d6fb45f6060217a954903d087.jpg');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Looking for Coworking Office in Your City</h4>
+                                            <p>Select from thousands of options, without brokerage.</p>
+                                            <a routerLink="/coworking" class="btn site_btn border_btn">Enquire Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle">
+                            </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
