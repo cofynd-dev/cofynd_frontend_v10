@@ -30,6 +30,17 @@
   }
 }
 
+@media (max-width: 767px) {
+.working-days {
+    display: flex;
+    flex-direction: row;
+}
+.working-days .day {
+    flex: 0 0 33.33% !important;
+    display: flex;
+}
+}
+
 @media (max-width: 480px) {  
   .working-days {
     margin-top: 10px;
