@@ -13,7 +13,7 @@
                     <div class="form_body">
                         <form class="form_dream_ptoperty" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 col-sm-4 mb-3">
                                     <div class="form-input">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" required class="form-control border-light" id="name" placeholder="Name*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
@@ -21,7 +21,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-4">
                                     <div class="form-input">
                                         <input [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" required type="email" class="form-control border-light" id="exampleInputEmail1" placeholder="Email*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
@@ -30,7 +30,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 country_phone">
+                                <div class="col-md-4 col-sm-4 country_phone">
                                     <div class="form-input">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <div class="col-md-4 col-sm-4" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="form-input">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
@@ -82,7 +82,7 @@
                                     <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                                     <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                                 </div>
-                                <div class="col-md-4 col-6">
+                                <div class="col-md-4 col-sm-4 col-6">
                                     <div class="form-input">
                                         <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" formControlName="interested_in" required aria-label="Default select example">
                                             <option value="" disabled style="display: none;">Type Of Space</option>
@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-6">
+                                <div class="col-md-4 col-sm-4 col-6">
                                     <div class="form-input">
                                         <select required class="form-select" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-4">
                                     <button type="submit" class="btn w-100 site_btn">{{btnLabel}}</button>
                                 </div>
                             </div>
