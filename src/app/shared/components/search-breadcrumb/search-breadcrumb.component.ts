@@ -136,6 +136,7 @@ export class SearchBreadcrumbComponent implements OnChanges {
     this.selectedSort = type;
     this.sortTypeChanged.emit(type);
   }
+
   removeLocalStorage() {
     localStorage.removeItem('minPrice');
     localStorage.removeItem('maxPrice');

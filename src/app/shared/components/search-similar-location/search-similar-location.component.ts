@@ -71,6 +71,7 @@ export class SearchSimilarLocationComponent implements OnChanges {
   }
 
   reRoute(location) {
+    this.removeLocalStorage();
     this.country = localStorage.getItem('country_name') ? localStorage.getItem('country_name') : this.country_names;
     if (this.relativeUrl === 'co-living' && this.country != 'india' && this.country != 'India' && this.country != 'INDIA') {
       const url = `/${this.country}/co-living/${this.cityName.toLowerCase().trim()}/${generateSlug(
@@ -138,6 +139,13 @@ export class SearchSimilarLocationComponent implements OnChanges {
     script.type = `application/ld+json`;
     script.text = `${cityScript} `;
     this._renderer2.appendChild(this._document.head, script);
+  }
+
+  removeLocalStorage() {
+    localStorage.removeItem('minPrice');
+    localStorage.removeItem('maxPrice');
+    localStorage.removeItem('featuredColiving');
+    localStorage.removeItem('officeType');
   }
 
   ngOnChanges(): void { }

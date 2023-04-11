@@ -55,6 +55,11 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   number_record: number;
   featuredColiving: string;
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
+  minPrice: any;
+  maxPrice: any;
+  roomType: any;
+  filterValue: any;
+  selectedValue: any = 'Select Price';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -160,6 +165,56 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         isActive: true,
       },
     ];
+  }
+
+  onPriceSelect(value) {
+    this.selectedValue = value;
+    if (value === 'Select Price') {
+      this.minPrice = null;
+      this.maxPrice = null;
+    }
+    if (value === 'Less than ₹15,000') {
+      this.minPrice = 0;
+      this.maxPrice = 15000;
+      this.filterValue = 15000;
+    }
+    if (value === '₹15,000 - ₹30,000') {
+      this.minPrice = 15000;
+      this.maxPrice = 30000;
+      this.filterValue = 29999;
+    }
+    if (value === 'More than ₹30,000') {
+      this.minPrice = 30000;
+      this.maxPrice = 200000;
+      this.filterValue = 30000;
+    }
+    this.apply();
+  }
+
+  selectRoomType(value) {
+    if (value === this.roomType) {
+      this.roomType = null;
+    } else {
+      this.roomType = value;
+    }
+  }
+
+  apply() {
+    this.queryParams['minPrice'] = this.minPrice;
+    this.queryParams['maxPrice'] = this.maxPrice;
+    this.queryParams['room_type'] = this.roomType;
+    if (this.maxPrice && this.roomType) {
+      this.getOfficeList(this.queryParams);
+      // $('#coliving_filter').modal('hide');
+    }
+    if (this.roomType && this.maxPrice == null) {
+      this.getOfficeList(this.queryParams);
+      // $('#coliving_filter').modal('hide');
+    }
+    if (this.maxPrice && this.roomType == null) {
+      this.filterMapView(this.filterValue);
+      // $('#coliving_filter').modal('hide');
+    }
   }
 
   getOfficeList(param: {}) {
