@@ -10552,6 +10552,9 @@ h3.site_title {
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    .partners .partner-carousel img {
+        width: 100% !important;
+    }
     .about_image_sec {
         padding: 20px 0px;
     }
@@ -10748,6 +10751,30 @@ h3.site_title {
     }
     .virtual_choose_sec .col-md-12.text-center {
         text-align: left !important;
+    }
+    .our_client_sec .carousel-arrow {
+        display: none;
+    }
+    .our_client_sec .our-client-carousel {
+        padding: 0px 0px !important;
+    }
+    .coworking-brands-carousel .ngucarousel-items {
+      scrollbar-width: none !important;
+      transform: none !important;
+      overflow-x: scroll;
+      transition: none !important;
+    }
+    .filter_options {
+        padding-left: 0px;
+    }
+    .filter_options .filter_col {
+        margin-left: 2px;
+    }
+    .filter_options .filter_col:first-child {
+        margin-left: 0px;
+    }
+    .form_dream_ptoperty .col-md-4 {
+        margin-bottom: 0px !important;
     }
 }
 
