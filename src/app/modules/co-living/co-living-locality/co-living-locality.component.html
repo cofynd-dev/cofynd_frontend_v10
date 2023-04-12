@@ -10,7 +10,7 @@
                         <h1 *ngIf="!loading">{{ pageTitle ? pageTitle : 'Coliving space in ' + subTitle + ' ' + title }}</h1>
                     </div>
                 </div>
-                <div class="col-md-3 col-4" *ngIf="!loading">
+                <div class="col-md-3 col-4 filter_options" *ngIf="!loading">
                     <div class="filter_col">
                         <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
                             <option value="Select Price">Select Price</option>

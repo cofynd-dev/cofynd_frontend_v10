@@ -11,7 +11,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-4" *ngIf="!loading">
+                <div class="col-md-3 col-4 filter_options" *ngIf="!loading">
                     <div class="filter_col">
                         <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" aria-label="Default select example" (change)="onPriceSelect($event.target.value)">
                             <option value="Select Price">Select Price</option>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="filter_col">
                         <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedOption" aria-label="Default select example" (change)="sortByHighLow($event.target.value)">
-                            <option value="SortBy" disabled selected>SortBy</option>
+                            <option value="SortBy" disabled selected>Sort By</option>
                             <option value="Low to High">Low to High</option>
                             <option value="High to Low">High to Low</option>
                         </select>
