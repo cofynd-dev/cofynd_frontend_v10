@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="innerbanner_img">
+    <div class="innerbanner_img tabhide">
         <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg" alt="">
     </div>
 
@@ -118,7 +118,7 @@
             <div class="col-md-4" *ngFor="let data of chooseCoworking">
                 <div class="left_icon_box2">
                     <div class="icon">
-                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        <img [src]="'assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
                         <h4>{{data.title}}</h4>
@@ -227,7 +227,7 @@
 
 
 <!-- top Spaces -->
-<section class="virtualSpace coworking_top_city mobilehide">
+<section class="virtualSpace coworking_top_city tabhide">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -298,7 +298,7 @@
 </app-carousel-item>
 
 
-<section class="cofynd_advantage_area coworking_advantage_area mobilehide">
+<section class="cofynd_advantage_area coworking_advantage_area tabhide">
     <div class="container">
         <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
             <div class="col-md-3">
@@ -400,21 +400,21 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 col-12 mb-4">
+            <div class="col-md-4 col-sm-4 col-12 mb-4">
                 <div class="feature_img" routerLink="quest-offices" style="cursor: pointer;">
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/108f0a7431a67d92cb2050674a4a822624092519.png" alt="Quest Coworks Mumbai" class="img-fluid mobilehide">
 
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc75ca129b0975c09053254fa7ff48ecc81f46c4.png" alt="Quest Coworks Mumbai" class="img-fluid desktophide">
                 </div>
             </div>
-            <div class="col-md-4 col-12 mb-4">
+            <div class="col-md-4 col-sm-4 col-12 mb-4">
                 <div class="feature_img" routerLink="wework-mg-road-gurugram" style="cursor: pointer;">
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/118929f10bf3365e7272ce5ecf4f98f9a0d744d0.png" alt="Wework Gurgaon Feature" class="img-fluid mobilehide">
 
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/feed75fe04bfee81e97a3c83c56df9c4da19bce7.png" alt="Wework Gurgaon Feature" class="img-fluid desktophide">
                 </div>
             </div>
-            <div class="col-md-4 col-12">
+            <div class="col-md-4 col-sm-4 col-12">
                 <div class="feature_img" routerLink="hustlehub-hsr-layout" style="cursor: pointer;">
                     <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b82b3277466b4205541dae6ea865f385d8c4a6b0.png" alt="Hustlehub Banglore" class="img-fluid mobilehide">
 
@@ -427,7 +427,7 @@
 
 <section class="query_from_sec coworking_query" #target>
     <div class="container">
-        <div class="row mobilehide">
+        <div class="row tabhide">
             <div class="col-md-12 text-center">
                 <div class="main_heading title_divider">
                     <h2>Yes, I'm interested in Coworking Space</h2>
@@ -436,7 +436,7 @@
         </div>
 
         <div class="row align-items-center">
-            <div class="col-md-6 mobilehide">
+            <div class="col-md-6 tabhide">
                 <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
             </div>
 
