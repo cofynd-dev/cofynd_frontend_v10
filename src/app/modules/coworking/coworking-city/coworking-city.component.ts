@@ -66,6 +66,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   filteredCity: any = [];
   mySubscription: any;
   shouldReloadEnquiryForm: boolean;
+  selectedOption: any = 'SortBy'
 
 
 
@@ -254,7 +255,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['space_type'] = this.roomType;
     this.loadWorkSpaces(this.queryParams);
-    // $('#coworking_filters_popup').modal('hide');
   }
 
   addSeoTags(city: string) {
@@ -284,6 +284,18 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     this._renderer2.appendChild(this._document.head, script);
   }
 
+  sortByHighLow(sortByLowToHigh) {
+    this.loading = true;
+    this.selectedOption = sortByLowToHigh;
+    if (sortByLowToHigh === 'Low to High') {
+      this.workSpaces = this.workSpaces.sort((a, b) => a.starting_price - b.starting_price);
+      this.loading = false;
+    } if (sortByLowToHigh === 'High to Low') {
+      this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
+      this.loading = false;
+    }
+  }
+
   loadWorkSpaces(param: {}) {
     this.loading = true;
     this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
@@ -292,8 +304,8 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           return a.priority.location.order > b.priority.location.order ? 1 : -1;
         }
       });
+      this.sortByHighLow(this.selectedOption);
       if (allWorkSpaces.data.length) {
-        // this.cityWisePopularLocation.push('Near Me')
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.workSpaceService.microLocationByCityAndSpaceType(this.filteredCity[0].id).subscribe((mlocations: any) => {
@@ -340,7 +352,8 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       queryParams: { page: this.page },
       queryParamsHandling: 'merge',
     });
-
+    localStorage.removeItem('minPrice');
+    localStorage.removeItem('maxPrice');
     // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;

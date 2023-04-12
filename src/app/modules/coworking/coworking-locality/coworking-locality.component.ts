@@ -48,7 +48,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   maxSize = 10;
   totalRecords: number;
 
-  // popularLocation = POPULAR_COWORKING_LOCALITY.city;
   cityWisePopularLocation = [];
   IMAGE_STATIC_ALT = [];
   pageTitle: string;
@@ -58,6 +57,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   selectedValue: any = 'Select Price';
   roomType: any;
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
+  selectedOption: any = 'SortBy'
+
 
 
   constructor(
@@ -261,7 +262,18 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['space_type'] = this.roomType;
     this.loadWorkSpaces(this.queryParams);
-    // $('#coworking_filters_popup').modal('hide');
+  }
+
+  sortByHighLow(sortByLowToHigh) {
+    this.loading = true;
+    this.selectedOption = sortByLowToHigh;
+    if (sortByLowToHigh === 'Low to High') {
+      this.workSpaces = this.workSpaces.sort((a, b) => a.starting_price - b.starting_price);
+      this.loading = false;
+    } if (sortByLowToHigh === 'High to Low') {
+      this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
+      this.loading = false;
+    }
   }
 
   loadWorkSpaces(param: {}) {
@@ -269,11 +281,11 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     this.workSpaceService.getWorSpacesByAddress(sanitizeParams(param)).subscribe(allWorkSpaces => {
       allWorkSpaces.data = uniqBy(allWorkSpaces.data, 'id');
       this.workSpaces = allWorkSpaces.data;
+      this.sortByHighLow(this.selectedOption);
       if (allWorkSpaces.data.length) {
         this.workSpaces[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
         });
-        // this.cityWisePopularLocation.push('Near Me')
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
           this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
