@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="innerbanner_img">
+    <div class="innerbanner_img tabhide">
         <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="">
     </div>
 
@@ -132,7 +132,7 @@
 </section>
 
 <!-- top Spaces -->
-<section class="top_coliving_cities mobilehide">
+<section class="top_coliving_cities mobilehide tabhide">
     <div class="container">
         <div class="page-title pt-3">
             <h2>Top Coliving Cities in India</h2>
@@ -215,26 +215,28 @@
 <app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="noidaSpaces">
 </app-carousel-item>
 
-<section class="cofynd_advantage_area coworking_advantage_area mobilehide">
+<app-search-contact-us-text1></app-search-contact-us-text1>
+
+<!-- <section class="cofynd_advantage_area coworking_advantage_area mobilehide">
     <div class="container">
         <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
-            <div class="col-md-3">
+            <div class="col-md-3 col-12">
                 <h3>CoFynd Advantages</h3>
             </div>
-            <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
+            <div class="col-md-3 col-4" *ngFor="let data of coFyndAdvantages">
                 <div class="advantage_item">
                     <div class="icon">
                         <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
                         <h4>{{data.title}}</h4>
-                        <p>{{data.description}}</p>
+                        <p class="tabhide">{{data.description}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
 </app-carousel-item>
