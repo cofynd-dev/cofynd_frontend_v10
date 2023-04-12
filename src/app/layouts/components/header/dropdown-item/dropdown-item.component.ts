@@ -2,6 +2,9 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { WorkSpaceService } from '@core/services/workspace.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
+import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
+
+
 
 @Component({
   selector: 'app-dropdown-item',
@@ -9,6 +12,7 @@ import { AVAILABLE_CITY } from '@app/core/config/cities';
   styleUrls: ['./dropdown-item.component.scss'],
 })
 export class DropdownItemComponent {
+  virtualOfficeCities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   cities12: any[] = AVAILABLE_CITY;
   open: boolean = false;
   open1: boolean = false;
@@ -69,6 +73,15 @@ export class DropdownItemComponent {
     if (this.relativeUrl == '/office-space/rent/') {
       this.open = !this.open;
       this.cities = this.cities12.filter(city => city.for_office === true);
+      if (this.cities.length > 6) {
+        this.isSingle = false;
+      } else {
+        this.isSingle = true;
+      }
+    }
+    if (this.relativeUrl == '/virtual-office') {
+      this.open = !this.open;
+      this.cities = this.virtualOfficeCities.filter(city => city.for_virtualOffice === true);
       if (this.cities.length > 6) {
         this.isSingle = false;
       } else {
