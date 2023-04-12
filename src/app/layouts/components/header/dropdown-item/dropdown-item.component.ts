@@ -79,9 +79,9 @@ export class DropdownItemComponent {
         this.isSingle = true;
       }
     }
-    if (this.relativeUrl == '/virtual-office') {
+    if (this.relativeUrl == '/virtual-office/') {
       this.open = !this.open;
-      this.cities = this.virtualOfficeCities.filter(city => city.for_virtualOffice === true);
+      this.cities = this.virtualOfficeCities.slice(0, 17);
       if (this.cities.length > 6) {
         this.isSingle = false;
       } else {
