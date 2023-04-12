@@ -7054,6 +7054,13 @@ h3.site_title {
 .search-container .search-grid-container {
 	padding: 25px 0 25px !important;
 }
+.filter_options {
+	display: flex;
+	justify-content: right;
+}
+.filter_options .filter_col {
+	margin-left: 10px;
+}
 
 @media (max-width:991px) {
     
