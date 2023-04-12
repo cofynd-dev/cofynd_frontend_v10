@@ -30,11 +30,13 @@
                     </app-dropdown-item>
                 </li>
                 <li class="no-tablet">
-                    <div class="btn-group dropdown-list-menu" dropdown>
+                    <app-dropdown-item [relativeUrl]="'/virtual-office'" [title]="'Virtual Office'" [cities]="virtualOfficeCities" [isSingle]="true">
+                    </app-dropdown-item>
+                    <!-- <div class="btn-group dropdown-list-menu" dropdown>
                         <button dropdownToggle type="button">
                             <span routerLink="/virtual-office">Virtual Office</span>
                         </button>
-                    </div>
+                    </div> -->
                 </li>
                 <!-- <li class="no-tablet">
                     <a routerLink="/enterprise">Enterprise Solutions</a>
@@ -136,7 +138,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                 </div>
                 <!-- <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
                     <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
@@ -229,7 +231,7 @@
                 </div>
             </div>
 
-            
+
         </nav>
     </div>
 </header>

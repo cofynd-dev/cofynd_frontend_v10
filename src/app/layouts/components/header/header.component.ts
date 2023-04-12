@@ -12,6 +12,8 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AppConfig } from '@core/interface/config.interface';
 import { ConfigService } from '@core/services/config.service';
 import { environment } from '@env/environment';
+import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
+
 declare var $: any;
 
 @Component({
@@ -21,6 +23,7 @@ declare var $: any;
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
 })
 export class HeaderComponent implements AfterViewInit {
+  virtualOfficeCities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   userNameInitial: string;
   contactInfo = DEFAULT_APP_DATA.header_contact;
   phoneflag: boolean = true;
@@ -177,7 +180,7 @@ export class HeaderComponent implements AfterViewInit {
     // ------------------------------------------------------- //
     // Multi Level dropdowns
     // ------------------------------------------------------ //
-    $("ul.dropdown-menu [data-toggle='dropdown']").on('click', function(event) {
+    $("ul.dropdown-menu [data-toggle='dropdown']").on('click', function (event) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -198,7 +201,7 @@ export class HeaderComponent implements AfterViewInit {
       }
       $(this)
         .parents('li.nav-item.dropdown.show')
-        .on('hidden.bs.dropdown', function(e) {
+        .on('hidden.bs.dropdown', function (e) {
           $('.dropdown-submenu .show').removeClass('show');
         });
     });
