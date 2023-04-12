@@ -57,6 +57,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   filterValue: any;
   selectedValue: any = 'Select Price';
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
+  selectedOption: any = 'SortBy'
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -147,18 +149,22 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.minPrice = 0;
       this.maxPrice = 15000;
       this.filterValue = 15000;
+      this.apply();
     }
     if (value === '₹15,000 - ₹30,000') {
       this.minPrice = 15000;
       this.maxPrice = 30000;
       this.filterValue = 29999;
+      this.apply();
+
     }
     if (value === 'More than ₹30,000') {
       this.minPrice = 30000;
       this.maxPrice = 200000;
       this.filterValue = 30000;
+      this.apply();
+
     }
-    this.apply();
   }
 
   selectRoomType(value) {
@@ -173,17 +179,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     this.queryParams['minPrice'] = this.minPrice;
     this.queryParams['maxPrice'] = this.maxPrice;
     this.queryParams['room_type'] = this.roomType;
-    if (this.maxPrice && this.roomType) {
-      this.getOfficeList(this.queryParams);
-      // $('#coliving_filter').modal('hide');
-    }
-    if (this.roomType && this.maxPrice == null) {
-      this.getOfficeList(this.queryParams);
-      // $('#coliving_filter').modal('hide');
-    }
     if (this.maxPrice && this.roomType == null) {
       this.filterMapView(this.filterValue);
-      // $('#coliving_filter').modal('hide');
     }
   }
 
@@ -202,6 +199,18 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     ];
   }
 
+  sortByHighLow(sortByLowToHigh) {
+    this.loading = true;
+    this.selectedOption = sortByLowToHigh;
+    if (sortByLowToHigh === 'Low to High') {
+      this.coLivings = this.coLivings.sort((a, b) => a.starting_price - b.starting_price);
+      this.loading = false;
+    } if (sortByLowToHigh === 'High to Low') {
+      this.coLivings = this.coLivings.sort((a, b) => b.starting_price - a.starting_price);
+      this.loading = false;
+    }
+  }
+
   getOfficeList(param: any = {}) {
     this.price_filters.length = 0;
     this.number_record = 20;
@@ -215,7 +224,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
-        // this.popularLocation.push('Near Me')
         if (filteredLocations && filteredLocations.length) {
           this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
             for (let index = 0; index < mlocations.data.length; index++) {
@@ -245,6 +253,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       if (found2) {
         this.price_filters.push({ id: '30000', value: 'More than 30,000' });
       }
+
       this.totalRecords = allOffices.totalRecords;
       this.loading = false;
       const totalPageCount = Math.round(allOffices.totalRecords / AppConstant.DEFAULT_PAGE_LIMIT);
@@ -344,6 +353,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         if (data == '') {
           this.coLivings = coLivings;
         }
+        this.sortByHighLow(this.selectedOption);
         this.loading = false;
         if (allOffices.data.length) {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
@@ -361,9 +371,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
             'Rented Co Living Space in ' + altCity,
             'Shared Co Living Space in ' + altCity,
           ];
-          this.coLivings[0].images.map((image, index) => {
-            image.image.alt = IMAGE_STATIC_ALT[index];
-          });
+          if (this.coLivings.length) {
+            this.coLivings[0].images.map((image, index) => {
+              image.image.alt = IMAGE_STATIC_ALT[index];
+            });
+          }
         }
         this.totalRecords = coLivings.length;
         this.number_record = coLivings.length;

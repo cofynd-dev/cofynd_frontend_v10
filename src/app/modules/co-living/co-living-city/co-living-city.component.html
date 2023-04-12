@@ -13,14 +13,18 @@
                 </div>
                 <div class="col-md-3 col-4" *ngIf="!loading">
                     <div class="filter_col">
-                        <!-- <button type="button" class="btn site_btn filter_btn" data-toggle="modal" data-target="#coliving_filter">
-                        <img src="../../../assets/images/icons/filter-button.svg" alt="Filters"> Filters
-                        </button> -->
                         <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedValue" (change)="onPriceSelect($event.target.value)" aria-label="Default select example">
                             <option value="Select Price">Select Price</option>
                             <option value="Less than ₹15,000">Less than ₹15,000</option>
                             <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
                             <option value="More than ₹30,000">More than ₹30,000</option>
+                        </select>
+                    </div>
+                    <div class="filter_col">
+                        <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedOption" aria-label="Default select example" (change)="sortByHighLow($event.target.value)">
+                            <option value="SortBy" disabled selected>SortBy</option>
+                            <option value="Low to High">Low to High</option>
+                            <option value="High to Low">High to Low</option>
                         </select>
                     </div>
                 </div>
@@ -115,11 +119,6 @@
                         <app-co-living-card [coLiving]="coLiving"></app-co-living-card>
                     </div>
                     <ng-template [ngIf]="isMapView">
-                        <!-- <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">
-                            <app-search-contact-us-text [cities]="availableCities" [type]="'for_coLiving'">
-                            </app-search-contact-us-text>
-                        </div> -->
-
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9a0e263d79da3f58c4edfeb944679aab35c178ee.jpg');">
@@ -154,7 +153,7 @@
                             <app-search-contact-us-text2 [pageNo]="'city page'">
                             </app-search-contact-us-text2>
                         </div>
-                        
+
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
