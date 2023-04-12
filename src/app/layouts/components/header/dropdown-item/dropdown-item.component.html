@@ -16,7 +16,7 @@
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
-                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office"' [routerLink]="relativeUrl + city.name" target="_blank">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
@@ -34,7 +34,7 @@
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
-                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office"' [routerLink]="relativeUrl + city.name" target="_blank">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
@@ -52,7 +52,7 @@
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
-                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office"' [routerLink]="relativeUrl + city.name" target="_blank">
+                        <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name" target="_blank">
                             <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
@@ -61,7 +61,7 @@
                     
           View All
         </a>
-                <a class="view-link" *ngIf='relativeUrl == "/virtual-office"' (click)="open = false" [routerLink]="relativeUrl"> View All</a>
+                <a class="view-link" *ngIf='relativeUrl == "/virtual-office/"' (click)="open = false" [routerLink]="relativeUrl"> View All</a>
             </div>
         </div>
     </div>
