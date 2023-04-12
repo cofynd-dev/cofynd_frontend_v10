@@ -5,7 +5,7 @@
                 <img [src]="plan?.category?.icons?.s3_link" alt="">
             </div>
             <h4 class="text-capitalize">{{ plan.category?.name }}</h4>
-            <p class="hideOnMobile">{{ plan?.category?.description }}</p>
+            <p class="hideOnMobile tabhide">{{ plan?.category?.description }}</p>
             <div class="action-box" *ngIf="plan.category.name === 'Day Pass'">
                 <div class="price" *ngIf="!currency_code">
                     <i class="icon-rupee"></i>{{ plan.price }}<small>/day</small>
@@ -13,12 +13,12 @@
                 <div class="price" *ngIf="currency_code">
                     {{ plan.price | currency: currency_code : 'symbol' : '1.0-0'}}<small>/day</small>
                 </div>
-                <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile">Enquire<small class="icon-next fas fa-angle-right"></small></button>
+                <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile tabhide">Enquire<small class="icon-next fas fa-angle-right"></small></button>
             </div>
             <ng-template [ngIf]="plan.category.name !== 'Virtual Office'">
                 <div class="action-box" *ngIf="plan.category.name !== 'Day Pass'">
                     <div class="price">
-                        <span class="hideOnMobile">starting from</span>
+                        <span class="hideOnMobile tabhide">starting from</span>
                         <div *ngIf="plan.should_show && !currency_code">
                             <i class="icon-rupee"></i>{{ plan.price }}<small><span class="hideOnweb">/Seat</span></small>
                             <!-- <i class="icon-rupee"></i>{{ plan.price }}<small *ngIf="plan.category.name != 'Private Cabin'"><span class="hideOnMobile">/month</span><span class="hideOnweb">/Seat</span></small><small *ngIf="plan.category.name === 'Private Cabin'">/per seat</small> -->
@@ -31,7 +31,7 @@
                             on request
                         </div>
                     </div>
-                    <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile">Enquire<small class="icon-next fas fa-angle-right"></small></button>
+                    <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile tabhide">Enquire<small class="icon-next fas fa-angle-right"></small></button>
                 </div>
             </ng-template>
             <div class="action-box" *ngIf="plan.category.name === 'Virtual Office'">
@@ -39,7 +39,7 @@
                     {{ plan.price | currency: currency_code : 'symbol' : '1.0-0'}}<small>/
             Year</small>
                 </div>
-                <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile">Enquire<small class="icon-next fas fa-angle-right"></small></button>
+                <button type="button" (click)="onEnquire()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link hideOnMobile tabhide">Enquire<small class="icon-next fas fa-angle-right"></small></button>
             </div>
         </div>
     </div>

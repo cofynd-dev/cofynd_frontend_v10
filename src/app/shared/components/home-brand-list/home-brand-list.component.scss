@@ -17,9 +17,9 @@
       &[disabled] {
           opacity: 0.4;
       }
-      @media (max-width: 767px) {
-          display: none;
-      }
+      // @media (max-width: 767px) {
+      //     display: none;
+      // }
   }
   .item {
       padding: 0 25px;
@@ -103,6 +103,12 @@ margin-top: 0px !important;
   .coworking_brand_list .our-client-carousel {
       padding: 0px 30px;
   }
+}
+
+@media (max-width: 767px) {
+  .coliving_brand_list .band-img {
+    margin: 0px 30px !important;
+}
 }
 
 @media (max-width: 480px) {

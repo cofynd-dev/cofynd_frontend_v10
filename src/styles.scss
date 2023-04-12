@@ -7054,6 +7054,13 @@ h3.site_title {
 .search-container .search-grid-container {
 	padding: 25px 0 25px !important;
 }
+.filter_options {
+	display: flex;
+	justify-content: right;
+}
+.filter_options .filter_col {
+	margin-left: 10px;
+}
 
 @media (max-width:991px) {
     
@@ -7370,6 +7377,7 @@ h3.site_title {
     }
     .our_services_sec .service_item {
         padding: 28px 18px;
+        border-radius: 10px;
     }
     .our_services_sec h4 {
         font-size: 16px;
@@ -7384,23 +7392,38 @@ h3.site_title {
         padding: 28px 18px;
     }
     .feature-content h3 span {
-        font-size: 35px !important;
-        line-height: 40px !important;
+        font-size: 30px !important;
+        line-height: 35px !important;
     }
     .feature .left-content h2 {
         font-size: 19px !important;
         line-height: 27px !important;
         padding: 0px 55px;
     }
+    .feature .left-content {
+        border-radius: 30px !important;
+    }
     .feature .left-content .anchor-text {
-        font-size: 22px !important;
-        line-height: 30px !important;
+        font-size: 20px !important;
+        line-height: 22px !important;
     }
     .feature .left-content .divider-line {
         margin: 30px auto !important;
     }
+    .feature-content h3 {
+        line-height: 34px !important;
+        margin-bottom: 45px !important;
+        font-size: 16px !important;
+        margin-top: 0px !important;
+    }
     .tabhide {
         display: none;
+    }
+    .cta_form .form_col h3 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 3px;
+        font-weight: 600;
     }
     .cta_form .form_col {
         flex: 0 0 100%;
@@ -7491,6 +7514,7 @@ h3.site_title {
         text-align: center;
         margin-bottom: 20px;
         padding-top: 0px;
+        font-size: 18px;
     }
     .cta_form {
         padding: 20px 30px;
@@ -7833,7 +7857,153 @@ h3.site_title {
         font-size: 12px;
         line-height: 20px;
     }
+    .top_cities_slider .carousel-arrow.icon-back {
+        left: 15px !important;
+    }
+    .top_cities_slider .carousel-arrow.icon-next {
+        right: 15px !important;
+    }
+    .properties_space_sec .carousel-arrow.icon-back {
+        left: 5px !important;
+    }
+    .properties_space_sec .carousel-arrow.icon-next {
+        right: 5px !important;
+    }
+    .micro-location-cta .cta_content ul li {
+        margin-left: 20px;
+    }
+    .micro-location-cta .cta_content ul li::before {
+        left: -13px;
+    }
+    .facilities_sec .icon_item img {
+        height: 30px;
+    }
+    .facilities_sec .icon_item h4 {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .advantage_item h4 {
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .advantage_item img {
+        width: 30px;
+        height: 30px;
+    }
+    .city_page_title h1 {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        line-height: 22px !important;
+    }
+    .form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
+        font-size: 12px !important;
+    }
+    .form_dream_ptoperty .country_phone .form-input input {
+        font-size: 12px !important;
+    }
+    .top_cities_slider .main_heading {
+        margin-bottom: 30px !important;
+    }
+    .heading-info h1 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .heading-info .price {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .details_area h2, .details_area h3 {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .plan-list .action-box .price span {
+        font-size: 11px;
+        color: #010101;
+        font-weight: 500;
+    }
+    .cofynd_advantage_area .row {
+        margin: 0 15px;
+    }
+    .cofynd-desk h4 {
+        font-size: 18px;
+        line-height: 24px;
+    }
     
+    
+}
+
+@media (max-width: 576px) {
+    .facilities_sec .icon_item p {
+        font-size: 11px;
+        line-height: 15px;
+    }
+    .popular-spaces .carousel-arrow {
+        font-size: 16px !important;
+    }
+    body, p {
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .featured_space_sec .feature_img img {
+        margin: 0 auto;
+    }
+    .coworking_brand_list .carousel-arrow {
+        font-size: 16px !important;
+    }
+    .our_client_sec .carousel-arrow {
+        font-size: 16px !important;
+    }
+    .card_form .form-control, .card_form .form-select {
+        height: 42px;
+    }
+    .card_form .country_phone .city_card_phone {
+        height: 42px;
+    }
+    .form_dream_ptoperty .col-md-4 {
+        margin-bottom: 14px !important;
+    }
+    h2.site_title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .site_title::before {
+        width: 34px;
+        height: 34px;
+        top: -13px;
+    }
+    .banner_content h5 {
+        font-size: 12px;
+        line-height: 17px;
+        margin-bottom: 10px;
+    }
+    .list_space_banner .banner_content .site_btn {
+        font-size: 10px;
+        margin-top: 0px;
+        padding: 4px 12px;
+        border-radius: 5px;
+    }
+    .flat_counter_row {
+        padding: 20px 10px;
+    }
+    .flat_counter_row .counter_item .number {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .flat_counter_row .counter_item h4 {
+        font-size: 10px;
+        line-height: 11px;
+    }
+    .main_heading h2 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .main_heading::before {
+        width: 34px;
+        height: 34px;
+        top: -13px;
+    }
 }
 
 @media (max-width:480px) {
