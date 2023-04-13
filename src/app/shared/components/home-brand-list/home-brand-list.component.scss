@@ -112,6 +112,12 @@ margin-top: 0px !important;
 }
 
 @media (max-width: 480px) {
+  .coworking_brand_list .carousel-arrow {
+    display: none;
+  }
+  .coworking_brands_item .brands-log {
+    height: 45px;
+  }
   .col-md-12.text-center {
     text-align: left !important;
   }
