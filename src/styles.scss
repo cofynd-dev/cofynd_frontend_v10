@@ -4416,6 +4416,17 @@ h3.site_title {
     padding-top: 50px !important;
     padding-bottom: 50px !important;
 }
+.more_cities_btn img {
+	width: 26px;
+	height: 32px;
+}
+.all_cities_popup .modal-dialog {
+	max-width: 770px;
+}
+.all_cities_popup .city-list {
+	max-width: 720px !important;
+    margin: 0 auto;
+}
 
 .list_space_banner {
     padding-top: 30px;
