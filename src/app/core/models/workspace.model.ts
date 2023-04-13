@@ -59,6 +59,7 @@ export class Location {
   address1: string;
   address2: string;
   city: City;
+  micro_location: MicroLocation;
   state: string;
   country: string;
   postal_code: string;
@@ -77,6 +78,16 @@ export class Location {
     name: string;
   };
 }
+
+export class MicroLocation {
+  id: string;
+  icon: string;
+  name: string;
+  for_coWorking: boolean;
+  for_office: boolean;
+  for_coLiving: boolean;
+}
+
 
 export class Facility {
   desks: number;
