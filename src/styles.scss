@@ -7999,6 +7999,14 @@ h3.site_title {
         object-fit: cover;
         width: 100%;
     }
+    .virtual_no_result_banner .banner_content h2 {
+        text-align: center;
+    }
+    .virtual_no_result_banner .banner_content h2 span {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
     
     
     
@@ -8113,6 +8121,11 @@ h3.site_title {
     }
     .virtual_service_item ul {
         min-height: auto;
+    }
+    .virtual_no_result_banner .banner_content h2 {
+        text-align: center;
+        font-size: 28px !important;
+        line-height: 38px !important;
     }
     
 }
@@ -10842,6 +10855,9 @@ h3.site_title {
     }
     .form_dream_ptoperty .col-md-4 {
         margin-bottom: 0px !important;
+    }
+    .virtual_office_service_sec .col-md-12.text-center {
+        text-align: left !important;
     }
 }
 
