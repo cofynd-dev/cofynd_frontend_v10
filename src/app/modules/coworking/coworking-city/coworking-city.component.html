@@ -1,7 +1,7 @@
 <app-search-breadcrumb *ngIf="!loading" [spaceLength]="workSpaces.length" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" (priceFilterChanged)="onFilterPriceChange($event)" (onResetFilter)="resetFilter()" (sortTypeChanged)="onSortTypeChange($event)"
     (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
-<section class="search-container clearfix">
+<section class="search-container clearfix cities_page_listing">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
             <div class="row align-items-center filter_title">
