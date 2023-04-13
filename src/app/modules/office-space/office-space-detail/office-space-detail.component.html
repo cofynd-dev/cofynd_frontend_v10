@@ -169,7 +169,7 @@
                                 <h2>Building Amenities</h2>
                             </div>
                             <div class="col-md-12 mobilehide" id="amenities-icons">
-                                <div class="basic-icons" *ngIf="workspace && workspace.amenities">
+                                <div class="basic-icons" *ngIf="workspace && workspace.amenties">
                                     <ng-container *ngFor="let amenity of workspace.amenties">
                                         <p><i [class]="'amn-' + addSpecialCharacter(amenity.name)"></i> {{ removeSpecialCharacter(amenity.name) }}</p>
                                     </ng-container>
