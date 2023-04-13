@@ -287,7 +287,8 @@
 
             <div class="col-md-4">
                 <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
-                    <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" [isColivEnquiry]="true" (backButtonClick)="closeEnquireModal()">
+                    <app-workspace-enquire [cityName]="workspace?.location?.city?.name" [microlocationName]="workspace?.location?.micro_location?.name" [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id"
+                        [isColivEnquiry]="true" (backButtonClick)="closeEnquireModal()">
                     </app-workspace-enquire>
                 </div>
             </div>

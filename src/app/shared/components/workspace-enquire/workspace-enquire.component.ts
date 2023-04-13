@@ -47,6 +47,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
+  @Input() cityName: string;
+  @Input() microlocationName: string;
+
 
   enquiryForm: FormGroup;
   loading: boolean;
@@ -73,7 +76,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
 
   coworkingPlans = [
     { label: 'Office Suite', value: 'office-suite' },
-    // { label: `CXO's Suite`, value: 'cxo-suite' },
     { label: 'Custom Buildout', value: 'custom-buildout' },
   ];
 
@@ -83,8 +85,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     { label: '21-50', value: '21-50' },
     { label: '51-100', value: '51-100' },
     { label: '100+', value: '100+' },
-    // { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
-    // { label: 'Customised solutions', value: 'Customised_solutions' },
   ];
 
   MoveIn = [
@@ -173,6 +173,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     } else if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       this.loadColiving(this.workSpaceId);
     }
+    console.log(this.cityName, this.microlocationName);
   }
 
   ngOnChanges(changes) {
@@ -356,10 +357,18 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
         formValues.living_space = this.workSpaceId;
         break;
     }
-    if (formValues['interested_in'] == 'Virtual Office') {
-      formValues['mx_Space_Type'] = 'Web Virtual Office';
+    if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+      if (formValues['interested_in'] == 'Virtual Office') {
+        formValues['mx_Space_Type'] = 'Web Virtual Office';
+      }
     }
     formValues['mx_Page_Url'] = this.pageUrl;
+    if (this.cityName) {
+      formValues['city'] = this.cityName;
+    }
+    if (this.microlocationName) {
+      formValues['microlocation'] = this.microlocationName
+    }
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
