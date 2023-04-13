@@ -160,6 +160,7 @@ export class HeaderComponent implements AfterViewInit {
       this.cdr.detectChanges();
     });
   }
+
   logoClick() {
     localStorage.removeItem('minPrice');
     localStorage.removeItem('maxPrice');

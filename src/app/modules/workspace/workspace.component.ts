@@ -69,6 +69,7 @@ export class WorkSpaceComponent implements OnInit {
   limit: any = 250;
   isContentToggled: boolean;
   nonEditedContent: string;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
@@ -139,13 +140,16 @@ export class WorkSpaceComponent implements OnInit {
       this.isMobileResolution = false;
     }
   }
+
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
     // this.getScreenWidth = window.innerWidth;
     // this.getScreenHeight = window.innerHeight;
   }
+
   ngAfterViewInit() { }
+
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
       icon: icon({
@@ -153,16 +157,17 @@ export class WorkSpaceComponent implements OnInit {
         iconAnchor: [13, 41],
         iconUrl: 'assets/images/marker-icon.png',
         iconRetinaUrl: 'assets/images/marker-icon.png',
-        // shadowUrl: 'assets/images/marker-icon.png1'
       }),
     });
     this.markers.push(newMarker);
   }
 
   seeMore: boolean = true;
+
   toggleAboutMore() {
     this.seeMore = !this.seeMore;
   }
+
   getWorkSpace(workspaceId: string) {
     this.loading = true;
     this.workSpaceService.getWorkspace(workspaceId).subscribe(
@@ -223,10 +228,8 @@ export class WorkSpaceComponent implements OnInit {
           } else if (city == 'coworking') {
             this.router.navigate(['/coworking']);
           } else {
-            // this.router.navigate(['/coworking/' + city]);
             this.router.navigateByUrl('/');
           }
-          // this.router.navigate(['/404'], { skipLocationChange: true });
         }
       },
     );
@@ -249,6 +252,7 @@ export class WorkSpaceComponent implements OnInit {
     };
     this.seoService.setData(seoData);
   }
+
   routetoCountryPage() {
     if (this.country_name === 'India' || this.country_name === 'india' || this.country_name === 'INDIA') {
       this.router.navigate(['/coworking']);

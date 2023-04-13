@@ -43,21 +43,11 @@
                         </ng-container>
                     </div>
                 </div>
-
-                <!-- <div class="col-md-4 enquiry_section brand_query_col">
-                    <app-workspace-enquire></app-workspace-enquire>
-                </div> -->
-
-
-
-
             </div>
-
             <div *ngIf="!loading && workSpaces.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
-
         </div>
     </div>
 
