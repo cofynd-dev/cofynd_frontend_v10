@@ -21,10 +21,10 @@
             <div class="relative" *ngIf="!loading">
                 <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
                 </app-social-share>
-        
+
                 <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
                 </app-workspace-banner>
-        
+
                 <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
                 </app-workspace-banner-blank>
             </div>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <hr class="divider_line desktophide">
 
                         <div class="facilities-points desktophide">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <hr class="divider_line">
 
                         <div class="row about-area" *ngIf="workspace.description">
@@ -117,15 +117,15 @@
                                 <p (click)="toggleAboutMore()" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
                         </div>
-        
+
                         <hr class="divider_line">
 
                         <div class="row">
                             <div class="col-md-12">
                                 <app-workspace-timing [workingDays]="workspace.hours_of_operation"></app-workspace-timing>
-                            </div>                            
+                            </div>
                         </div>
-        
+
                         <hr class="divider_line">
 
                         <div class="row membership_plan_area">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <hr class="divider_line">
 
                         <div class="row">
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <hr class="divider_line">
 
                         <div class="row amenities_section">
@@ -189,7 +189,7 @@
                                         <p><i class="amn-air-conditioning"></i>Air Conditioning</p>
                                     </div>
                                 </div>
-            
+
                                 <div class="desktophide">
                                     <h2>Amenities</h2>
                                     <div class="basic-icons">
@@ -237,18 +237,20 @@
                                     <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper" [class.enquiry-modal]="isEnquireModal">
-                    <app-workspace-enquire [isSticky]="isSticky" [enquiryType]="ENQUIRY_TYPE" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id" (backButtonClick)="closeEnquireModal()">
+                    <app-workspace-enquire [cityName]="workspace?.location?.city?.name" [microlocationName]="workspace?.location?.micro_location?.name" [isSticky]="isSticky" [enquiryType]="ENQUIRY_TYPE" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id"
+                        (backButtonClick)="closeEnquireModal()">
                     </app-workspace-enquire>
                 </div>
             </div>
         </div>
+
 
         <hr class="divider_line">
 
