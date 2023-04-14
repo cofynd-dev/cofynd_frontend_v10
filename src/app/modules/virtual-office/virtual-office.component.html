@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="city-list">
-                    <a *ngFor="let city of cities | slice:0:18" [routerLink]="city.name">
+                    <a *ngFor="let city of cities | slice:0:17" [routerLink]="city.name">
                         <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                     </a>
                     <button type="button" class="btn btn-primary more_cities_btn" data-toggle="modal" data-target="#exampleModal">
@@ -37,7 +37,7 @@
             </div>
             <div class="modal-body">
                 <div class="city-list">
-                    <a *ngFor="let city of cities" [routerLink]="city.name">
+                    <a *ngFor="let city of cities" [routerLink]="city.name" data-dismiss="modal">
                         <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                     </a>
                 </div>
