@@ -1,21 +1,11 @@
-<!-- <div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
-    <div class="img">
-        <img src="/assets/images/blank/no-listing.svg" alt="">
-    </div>
-    <h2 *ngIf="!shouldShowContactForm">
-        No {{ title }} Found!
-    </h2>
-    <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
-    <a [routerLink]="url">Explore More {{ title }} Spaces</a>
-</div> -->
-
 <section class="page_banner no_result_banner">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-md-6 col-12 order-2 order-md-1">
                 <div class="banner_content">
-                    <h2 class="site_title">Coworking Spaces in <span style="color: #1313E6;">{{ title }}</span></h2>
-                    <p class="mobilehide tabhide">{{ title }} offers coworking spaces that provide entrepreneurs, freelancers, corporate teams, and professionals with a productive and collaborative environment to work in. The coworking space is designed to cater to your specific needs, whether you require a private office, dedicated desk, or a hot desk in an open area.</p>
+                    <h2 class="site_title">Coworking Spaces in <span style="color: #1313E6;">{{ brand.name }}</span></h2>
+                    <p class="mobilehide tabhide">{{ brand.name }} offers coworking spaces that provide entrepreneurs, freelancers, corporate teams, and professionals with a productive and collaborative environment to work in. The coworking space is designed to cater to your specific
+                        needs, whether you require a private office, dedicated desk, or a hot desk in an open area.</p>
                     <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn tabhide">Enquire Now</a>
                 </div>
             </div>
@@ -26,9 +16,9 @@
             </div>
         </div>
     </div>
-  </section>
-  
-  <section class="virtual_office_service_sec coworking_brands_services">
+</section>
+
+<section class="virtual_office_service_sec coworking_brands_services">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -37,8 +27,8 @@
                 </div>
             </div>
         </div>
-  
-  
+
+
         <div class="row mt-3">
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
@@ -108,9 +98,9 @@
             </div>
         </div>
     </div>
-  </section>
+</section>
 
-  
+
 <section class="query_from_sec" #target>
     <div class="container">
         <div class="row tabhide">
@@ -135,18 +125,25 @@
                     </div>
 
                     <div class="form_body">
-                        <form action="">
+                        <form action="" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
-                                        <input type="text" class="form-control" placeholder="Name*" required>
+                                        <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
-                                        <input type="email" formControlName="email" class="form-control" placeholder="Email*" required>
+                                        <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12 country_phone">
@@ -155,7 +152,7 @@
 
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
-                                                <!-- <div (click)="showcountry = !showcountry" class="selected-flag">
+                                                <div (click)="showcountry = !showcountry" class="selected-flag">
                                                     <div class="flag in" *ngIf="activeCountries.length">
                                                         <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                         <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
@@ -179,9 +176,13 @@
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
                                                     </li>
-                                                </ul> -->
+                                                </ul>
 
-                                                <input type="tel" maxlength="10" class="form-control" placeholder="Phone*" required>
+                                                <input type="tel" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                                <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">Please enter mobile number.</div>
+                                                    <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -189,23 +190,31 @@
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                        <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
+                                        <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
+                                            <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
                                             <option value="Other">Other</option>
                                         </select>
+                                        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-12">
+                                <div class="col-md-12 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
                                         <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                        <input type="tel" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
                                     </div>
-                                    <button>Resend OTP</button>
+                                    <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                    <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group message_field align-items-center">
                                         <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
-                                        <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                        <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12">
