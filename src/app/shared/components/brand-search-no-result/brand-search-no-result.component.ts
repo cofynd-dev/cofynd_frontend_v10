@@ -18,4 +18,8 @@ export class BrandSearchNoResultComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+
 }
