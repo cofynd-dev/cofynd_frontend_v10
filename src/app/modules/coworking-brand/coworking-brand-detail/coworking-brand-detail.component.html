@@ -4,13 +4,13 @@
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
 
-            <app-coworking-brand-title *ngIf="brand && workSpaces.length" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
+            <app-coworking-brand-title *ngIf="brand && workSpaces && workSpaces.length" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
             </app-coworking-brand-title>
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
 
-            <app-brand-search-no-result *ngIf="!loading && !workSpaces.length" [brand]="brand" [title]="'Brand'" [url]="routePageEvent()"></app-brand-search-no-result>
+            <app-brand-search-no-result *ngIf="!loading && !workSpaces.length" [brandName]="brand.name" [title]="'Brand'" [url]="routePageEvent()"></app-brand-search-no-result>
 
             <div class="row" *ngIf="!loading">
                 <div class="col-md-8">
