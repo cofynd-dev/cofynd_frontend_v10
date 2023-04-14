@@ -9,6 +9,25 @@
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
 </div>
 
+<section class="page_banner virtual_no_result_banner" *ngIf="title == 'Virtual'">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h2 class="site_title">Virtual Office in <span style="color: #1313E6;">{{ city }}</span></h2>
+                    <p class="mobilehide tabhide">Build your company's presence with a virtual office with cofynd. Expand your business presence by opting for a virtual office, anywhere in India, with services like GST registration, Business Registration, mail forwarding and call answering, access to meeting rooms and desk space whenever you need it.</p>
+                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn tabhide">Enquire Now</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/aeea176108292fec50e013b85efed4aec7304230.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="virtual_office_service_sec" *ngIf="title == 'Virtual'">
     <div class="container">
         <div class="row">
@@ -17,47 +36,76 @@
                     <h2>Virtual Offices that work for you</h2>
                 </div>
             </div>
-            <div class="col-md-12 text-center">
+            <!-- <div class="col-md-12 text-center">
                 <p>Take your business everywhere and anywhere with our exclusive virtual office space solutions accompanied by GST registration, mailing address, phone answering service, virtual assistant, etc.  Establish a premium presence for your company
                     in any city across India with our professional business address. </p>
-            </div>
+            </div> -->
         </div>
 
 
         <div class="row mt-3">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/private-cabin.svg" alt="">
-                    <h4>Business Address</h4>
-                    <p class="virtual_service_tagline">Give your business a Professional Business Address in the prime location of India.</p>
-                    <ul>
-                        <li>Get access to a business address for your company in prime locations in India.</li>
-                        <li>Attain a business address for mail & courier handling purposes.</li>
-                    </ul>
-                    <p (click)="scrollToElement(target)" class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="virtual_service_item">
-                    <img src="assets/images/icons/hot-desk.svg" alt="">
+                    <img src="assets/images/workspace/hot-desk.svg" alt="">
                     <h4>GST Registration</h4>
-                    <p class="virtual_service_tagline">Expand or start your own business anywhere in India and get its GST registration in a hassle-free manner.</p>
                     <ul>
                         <li>Documentation like signage, electricity bill, NOC, and agreement will be provided.</li>
                         <li>The company will attain a GST number with access to a  virtual office.</li>
                     </ul>
+                    <p (click)="scrollToElement(target)" class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/private-cabin.svg" alt="">
+                    <h4>Business Address</h4>
+                    <ul>
+                        <li>Get access to a business address for your company in prime locations in India like Delhi, Hyderabad, Pune, Chennai, etc.</li>
+                        <li>Attain a business address for mail & courier handling purposes</li>
+                    </ul>
                     <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/day-pass.svg" alt="">
+                    <img src="assets/images/workspace/day-pass.svg" alt="">
                     <h4>Company Registration</h4>
-                    <p class="virtual_service_tagline">Get your company a Professional business address in any city across India after submitting basic paperwork.</p>
                     <ul>
                         <li>Attain a business address for your company in a prime location.</li>
-                        <li>Use this premium address everywhere like websites, business cards, etc</li>
-                        <li>We offer comprehensive handling services for all your mail, courier, packages, and more.</li>
+                        <li>Use this premium address everywhere, like websites, business cards, etc.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/dedicated-desk.svg" alt="">
+                    <h4>Mailing Address</h4>
+                    <ul>
+                        <li>A mailing address will provide your business with a professional image in a prime location in India.</li>
+                        <li>This service provides secure & reliable locations for your business-related packages.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/dedicated-desk.svg" alt="">
+                    <h4>Reception Services</h4>
+                    <ul>
+                        <li>A receptionist also greets your clients & visitors for your business and notifies you of their arrival.</li>
+                        <li>It also provides administrative support to your business, like faxing, printing & copying services.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/amenities/meeting-room.svg" alt="">
+                    <h4>Meeting Room Access</h4>
+                    <ul>
+                        <li>The service gives your business a meeting room access to conduct your client meetings, seminars, etc.</li>
+                        <li>Meeting room offers a variety of facilities such as Video Conferencing facilities,  projector, and more. .</li>
                     </ul>
                     <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
                 </div>
@@ -65,6 +113,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="cities_query_sec" #target [style.display]="title == 'Virtual' || title == 'Office' ? 'block' : 'none'">
     <div class="container">
@@ -299,6 +348,96 @@
                     </div>
                 </div>
                 <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="home_client_sec" *ngIf="title == 'Virtual'">
+    <app-our-clients></app-our-clients>
+</div>
+
+<section class="cofynd_desk_sec home_cofynd_desk" *ngIf="title == 'Virtual'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faqs_area virtual_office_faqs" *ngIf="title == 'Virtual'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <p class="pt-3">Here are the frequently asked questions that people enquired online before choosing a virtual office. We have gathered the most crucial ones and answer here to help you in making the right decision.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <accordion [isAnimated]="true" class="faqs_accordion">
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What is a virtual office?
+                        </h4>
+                        <p>A virtual office is a popular remote workspace model which offers a professional business address. It comes with various office-related facilities and services. From mail handling to reception facilities and access to meeting rooms,
+                            various office facilities are provided without having a physical office setup.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the types of virtual offices?
+                        </h4>
+                        <p>There are mainly three types of Virtual Offices-<br><br> Virtual Office for Company Registration
+                            <br> Virtual Office for Mail Handling<br> Virtual Office for GST Registration
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What are the advantages of having a virtual office address?
+                        </h4>
+                        <p>There are so many advantages of having a virtual office in this city, some of them are listed below-
+                            <br><br> Zero furniture required<br> Access to Global Talent<br> Increased Productivity
+                            <br> No daily commuting to an office for work<br> Zero Utility Payments<br> Zero hardware cost<br> No hefty office leases<br> Liberty and Flexibility in work style etc.<br>
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What type of businesses opt for virtual offices?
+                        </h4>
+                        <p>From a real estate business, boutique, courier company to legal firm, and creative agencies etc. Several types of businesses use a virtual office space including freelancers, business owners, young entrepreneurs, SMEs etc.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What facilities do you get when you book a virtual office?
+                        </h4>
+                        <p>Following are the state-of-the-art facilities offered by a virtual office in this city-
+                            <br><br> Envelope Opening Service<br> Mailing Address<br> Video Conferencing Facilities
+                            <br> Meeting Space <br> Business Telephone Number<br> Scanning Service<br> Administrative Staff<br> Phone Answering Services<br> Professional Business Address etc.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>
+                            What documents are required while booking a virtual office space?
+                        </h4>
+                        <p>Following are the required documents to be submitted by the companies which are incorporated-
+                            <br><br> Director’s or Trustees ID Proof<br> Organization Incorporation Certificate<br> PAN Card<br> GST Number (if any) <br><br> Following are the required documents to be submitted by the companies which are not incorporated-
+                            <br><br> Director’s or Trustees ID Proof<br> Planned Organization’s Name (for agreement)
+                        </p>
+                    </accordion-group>
+                </accordion>
             </div>
         </div>
     </div>
