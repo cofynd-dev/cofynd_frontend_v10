@@ -65,6 +65,7 @@ import { VirtualOfficeCityPageEnquireComponent } from './components/virtual-offi
 import { BrandSearchNoResultComponent } from './components/brand-search-no-result/brand-search-no-result.component';
 import { CoworkingSearchNoResultComponent } from './components/coworking-search-no-result/coworking-search-no-result.component';
 import { ColivingSearchNoResultComponent } from './components/coliving-search-no-result/coliving-search-no-result.component';
+import { OfficeSearchNoResultComponent } from './components/office-search-no-result/office-search-no-result.component';
 
 const MODULES = [
   CommonModule,
@@ -114,7 +115,8 @@ const COMPONENTS = [
   VirtualOfficeCityPageEnquireComponent,
   BrandSearchNoResultComponent,
   CoworkingSearchNoResultComponent,
-  ColivingSearchNoResultComponent
+  ColivingSearchNoResultComponent,
+  OfficeSearchNoResultComponent
 ];
 const DIRECTIVES = [
   LoadingButtonDirective,
@@ -140,7 +142,7 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent, VirtualOfficeCityPageEnquireComponent, BrandSearchNoResultComponent, CoworkingSearchNoResultComponent, ColivingSearchNoResultComponent],
+  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent, VirtualOfficeCityPageEnquireComponent, BrandSearchNoResultComponent, CoworkingSearchNoResultComponent, ColivingSearchNoResultComponent, OfficeSearchNoResultComponent],
   imports: [
     CommonModule,
     RouterModule,
