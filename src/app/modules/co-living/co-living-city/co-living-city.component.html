@@ -1,4 +1,4 @@
-<app-search-breadcrumb *ngIf="!loading" [spaceLength]="coLivings.length" [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [priceFilters]="price_filters" [isSortFilter]="true" breadcumbType='coliving' (priceFilterChanged)="onFilterPriceChange($event)"
+<app-search-breadcrumb *ngIf="!loading && coLivings.length" [spaceLength]="coLivings.length" [breadcrumbs]="breadcrumbs" [isPriceFilter]="true" [priceFilters]="price_filters" [isSortFilter]="true" breadcumbType='coliving' (priceFilterChanged)="onFilterPriceChange($event)"
     (sortTypeChanged)="onSortTypeChange($event)" (onResetFilter)="resetFilter()" [isPageScrolled]="false" [breadcrumbs]="breadcrumbs" (filterChanged)="filterMapView($event)" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 

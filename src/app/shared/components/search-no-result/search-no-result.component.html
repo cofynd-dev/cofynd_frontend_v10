@@ -37,13 +37,7 @@
                     <h2>Virtual Offices that work for you</h2>
                 </div>
             </div>
-            <!-- <div class="col-md-12 text-center">
-                <p>Take your business everywhere and anywhere with our exclusive virtual office space solutions accompanied by GST registration, mailing address, phone answering service, virtual assistant, etc.  Establish a premium presence for your company
-                    in any city across India with our professional business address. </p>
-            </div> -->
         </div>
-
-
         <div class="row mt-3">
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
@@ -115,8 +109,7 @@
     </div>
 </section>
 
-
-<section class="cities_query_sec" #target [style.display]="title == 'Virtual' || title == 'Office' ? 'block' : 'none'">
+<section class="cities_query_sec" #target [style.display]="title == 'Virtual' ? 'block' : 'none'">
     <div class="container">
         <div class="row cities_page_row">
             <div class="col-md-6 col-12 order-1 order-md-2">
@@ -252,39 +245,12 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
-                                <div class="form-group align-items-center">
-                                    <img src="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
-                                    <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mx_Office_Type'].errors }" placeholder="I am interested in*" formControlName="mx_Office_Type">
-                                            <option value="" selected  style="display: none;">Office Type*</option>
-                                            <option [value]="item.value" *ngFor="let item of VirtualOfficeType">{{item.label}}</option>
-                                        </select>
-                                    <div *ngIf="submitted && f['mx_Office_Type'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['mx_Office_Type'].errors['required']">Please select office type.</div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="col-md-6" *ngIf="title !== 'Virtual' && title !== 'Office'">
-                                <div class="form-group align-items-center">
-                                    <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
-                                    <select class="form-select" [ngClass]="{ 'is-invalid': submitted && f['no_of_person'].errors }" formControlName="no_of_person" class="form-control" placeholder="select your city" required aria-label="Default select example">
-                                            <option value="" selected  style="display: none;">No. Of Seats*</option>
-                                            <option [value]="item.value" *ngFor="let item of coworkingNoOfSeats">{{item.label}}</option>
-                                        </select>
-                                    <div *ngIf="submitted && f['no_of_person'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['no_of_person'].errors['required']">Please select no. of seats.</div>
-                                    </div>
-                                </div>
-                            </div> -->
-
                             <div class="col-md-12">
                                 <div class="form-group message_field">
                                     <img src="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
                                     <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                 </div>
                             </div>
-
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="site_btn border_btn">Submit</button>
                             </div>
@@ -298,15 +264,7 @@
                 </div>
             </div>
 
-
             <div class="col-md-6 col-12 form_text_area order-2 order-md-1">
-                <div class="form_content text-center for_office_space" *ngIf="title == 'Office'">
-                    <h2>Office Space for Rent<br> in {{city | titlecase }}</h2>
-                    <div class="location">
-                        <!-- <p>Andheri | BKC | Bandra | Borivali | <br>Churchgate | Dadar | Goregaon and More.</p> -->
-                    </div>
-                </div>
-
                 <div class="form_content text-center for_virtual_office" *ngIf="title == 'Virtual'">
                     <h2>Virtual Office in {{city | titlecase }}</h2>
                     <div class="row amenities_row">
@@ -353,7 +311,6 @@
         </div>
     </div>
 </section>
-
 
 <div class="home_client_sec" *ngIf="title == 'Virtual'">
     <app-our-clients></app-our-clients>

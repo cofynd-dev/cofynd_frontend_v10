@@ -1,5 +1,5 @@
-<app-search-breadcrumb *ngIf="!loading" [spaceLength]="offices.length" [breadcrumbs]="breadcrumbs" [isOfficeListing]="true" [isSizeFilter]="true" [isTypeFilter]="true" breadcumbType='office' (priceFilterChanged)="onFilterPriceChange($event)" (sizeFilterChanged)="onFilterSizeChange($event)"
-    (typeFilterChanged)="onFilterTypeChange($event)" (onResetFilter)="resetFilter()" [isPageScrolled]="isScrolled" [priceFilter]="priceFilter" [sizeFilter]="sizeFilter" [typeFilter]="typeFilter" (mapViewChanged)="toggleMapView($event)">
+<app-search-breadcrumb *ngIf="!loading && offices.length" [spaceLength]="offices.length" [breadcrumbs]="breadcrumbs" [isOfficeListing]="true" [isSizeFilter]="true" [isTypeFilter]="true" breadcumbType='office' (priceFilterChanged)="onFilterPriceChange($event)"
+    (sizeFilterChanged)="onFilterSizeChange($event)" (typeFilterChanged)="onFilterTypeChange($event)" (onResetFilter)="resetFilter()" [isPageScrolled]="isScrolled" [priceFilter]="priceFilter" [sizeFilter]="sizeFilter" [typeFilter]="typeFilter" (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 
 <section class="search-container clearfix">
@@ -20,8 +20,8 @@
             <app-search-similar-location *ngIf="!loading && offices.length" [relativeUrl]="'office-space/rent'" [cityName]="title" [popularLocationList]="cityWisePopularLocation">
             </app-search-similar-location>
 
-            <app-search-no-result *ngIf="!loading && !offices.length" [title]="'Office'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
-            </app-search-no-result>
+            <app-office-search-no-result *ngIf="!loading && !offices.length" [title]="'Office'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
+            </app-office-search-no-result>
 
             <app-search-card-loader *ngIf="loading">
             </app-search-card-loader>
