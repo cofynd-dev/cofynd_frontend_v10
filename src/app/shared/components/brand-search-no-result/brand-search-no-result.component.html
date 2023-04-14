@@ -1,4 +1,4 @@
-<div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
+<!-- <div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
     <div class="img">
         <img src="/assets/images/blank/no-listing.svg" alt="">
     </div>
@@ -7,4 +7,106 @@
     </h2>
     <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
-</div>
+</div> -->
+
+<section class="page_banner no_result_banner">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h2 class="site_title">Virtual Office in <span style="color: #1313E6;">{{ city }}</span></h2>
+                    <p class="mobilehide tabhide">Build your company's presence with a virtual office with cofynd. Expand your business presence by opting for a virtual office, anywhere in India, with services like GST registration, Business Registration, mail forwarding and call
+                        answering, access to meeting rooms and desk space whenever you need it.</p>
+                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn tabhide">Enquire Now</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/aeea176108292fec50e013b85efed4aec7304230.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <section class="virtual_office_service_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Virtual Offices that work for you</h2>
+                </div>
+            </div>
+        </div>
+  
+  
+        <div class="row mt-3">
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/hot-desk.svg" alt="">
+                    <h4>GST Registration</h4>
+                    <ul>
+                        <li>Documentation like signage, electricity bill, NOC, and agreement will be provided.</li>
+                        <li>The company will attain a GST number with access to a  virtual office.</li>
+                    </ul>
+                    <p (click)="scrollToElement(target)" class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/private-cabin.svg" alt="">
+                    <h4>Business Address</h4>
+                    <ul>
+                        <li>Get access to a business address for your company in prime locations in India like Delhi, Hyderabad, Pune, Chennai, etc.</li>
+                        <li>Attain a business address for mail & courier handling purposes</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/day-pass.svg" alt="">
+                    <h4>Company Registration</h4>
+                    <ul>
+                        <li>Attain a business address for your company in a prime location.</li>
+                        <li>Use this premium address everywhere, like websites, business cards, etc.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/dedicated-desk.svg" alt="">
+                    <h4>Mailing Address</h4>
+                    <ul>
+                        <li>A mailing address will provide your business with a professional image in a prime location in India.</li>
+                        <li>This service provides secure & reliable locations for your business-related packages.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/workspace/dedicated-desk.svg" alt="">
+                    <h4>Reception Services</h4>
+                    <ul>
+                        <li>A receptionist also greets your clients & visitors for your business and notifies you of their arrival.</li>
+                        <li>It also provides administrative support to your business, like faxing, printing & copying services.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/amenities/meeting-room.svg" alt="">
+                    <h4>Meeting Room Access</h4>
+                    <ul>
+                        <li>The service gives your business a meeting room access to conduct your client meetings, seminars, etc.</li>
+                        <li>Meeting room offers a variety of facilities such as Video Conferencing facilities, projector, and more. .</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
