@@ -24,7 +24,7 @@ export enum ENQUIRY_STEPS {
 export class BrandSearchNoResultComponent implements OnInit {
   @Input() title: string;
   @Input() url: string;
-  @Input() brand: object;
+  @Input() brand: object = { 'name': '' };
   @Input() shouldShowContactForm: boolean = false;
   @Input() type: string = 'for_office';
 
