@@ -1,10 +1,10 @@
-<app-search-breadcrumb [spaceLength]="workSpaces.length" *ngIf="!loading" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
+<app-search-breadcrumb [spaceLength]="workSpaces.length" *ngIf="!loading && workSpaces.length" [breadcrumbs]="breadcrumbs" [isPageScrolled]="isScrolled" [isPriceFilter]="false" (mapViewChanged)="toggleMapView($event)" [resetButton]="false">
 </app-search-breadcrumb>
 <section class="search-container clearfix">
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
 
-            <app-coworking-brand-title *ngIf="brand" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
+            <app-coworking-brand-title *ngIf="brand && workSpaces.length" [url]="urlPath" [isColiving]="isColiving" [pageTitle]="pageTitle" [selectedCity]="selectedCity" (onCityEvent)="onCityChanged($event)" [brand]="brand">
             </app-coworking-brand-title>
 
             <app-search-card-loader *ngIf="loading">
