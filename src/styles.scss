@@ -1985,7 +1985,7 @@ h3.site_title {
 
 .virtual_office_banner {
     padding-top: 70px;
-    padding-bottom: 80px;
+    padding-bottom: 180px;
 }
 
 .innerpage_banner .innerbanner_img {
@@ -7079,10 +7079,14 @@ h3.site_title {
 .choose_item_slider .step_item h4 {
 	font-size: 13px;
 }
-.virtual_office_city .virtual_no_result_banner {
-	margin-left: -46px;
-	margin-right: -46px;
+.no_result_banner {
+	margin-left: -77px;
+	margin-right: -77px;
 	margin-top: -25px;
+    position: relative;
+}
+.coworking_brands_services .virtual_service_item ul {
+	min-height: 210px;
 }
 
 @media (max-width:991px) {

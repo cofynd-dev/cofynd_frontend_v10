@@ -1,4 +1,4 @@
-<div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
+<!-- <div class="blank-screen" *ngIf="title != 'Office' && title != 'Virtual'">
     <div class="img">
         <img src="/assets/images/blank/no-listing.svg" alt="">
     </div>
@@ -7,4 +7,276 @@
     </h2>
     <p>Check out our listings to find the perfect {{ title }} space for yourself.</p>
     <a [routerLink]="url">Explore More {{ title }} Spaces</a>
+</div> -->
+
+<section class="page_banner no_result_banner">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h2 class="site_title">Coworking Spaces in <span style="color: #1313E6;">{{ title }}</span></h2>
+                    <p class="mobilehide tabhide">{{ title }} offers coworking spaces that provide entrepreneurs, freelancers, corporate teams, and professionals with a productive and collaborative environment to work in. The coworking space is designed to cater to your specific needs, whether you require a private office, dedicated desk, or a hot desk in an open area.</p>
+                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn tabhide">Enquire Now</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/16e15e3a96492db32a0f71e76ef9286820cc0e29.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <section class="virtual_office_service_sec coworking_brands_services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Coworking Spaces that work for you</h2>
+                </div>
+            </div>
+        </div>
+  
+  
+        <div class="row mt-3">
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/hot-desk.svg" alt="">
+                    <h4>Hot Desk</h4>
+                    <ul>
+                        <li>Hot desks allow clients to work in an open area or reserve a private desk for privacy as needed by your requirements.</li>
+                        <li>This arrangement is available in a variety of packages, such as daily, weekly, or monthly passes.</li>
+                    </ul>
+                    <p (click)="scrollToElement(target)" class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/dedicated-desk.svg" alt="">
+                    <h4>Dedicated Desk</h4>
+                    <ul>
+                        <li>This workspace provides an assigned desk to the client which he/she may personalize with their own belongings, equipment, etc.</li>
+                        <li>Dedicated desks offer additional services like locking drawers, filing cabinets, bookshelves, and more for the convenience of its clients.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/private-cabin.svg" alt="">
+                    <h4>Private Cabin</h4>
+                    <ul>
+                        <li>A private cabin is an ideal workspace for those who need a private space with added security and it is equipped with all modern facilities.</li>
+                        <li>Private cabins offer additional amenities such as adjustable lighting, soundproofing walls, customizable furniture, etc.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/meeting-room.svg" alt="">
+                    <h4>Meeting Rooms</h4>
+                    <ul>
+                        <li>A meeting room may vary in size & style depending on the size of the group and the type of meeting, discussion, training session, etc.</li>
+                        <li>This workspace provides additional amenities needed in every type of meeting such as comfortable seating, AV equipment, wi-fi, etc.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/office-fully-furnished.svg" alt="">
+                    <h4>Office Suite</h4>
+                    <ul>
+                        <li>This workspace is ideal for individuals and companies who need a permanent and private space to work without any distractions.</li>
+                        <li>Office Suite provides additional benefits such as full IT support, administrative support, 24*7 security, ergonomic furniture, and more.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="virtual_service_item">
+                    <img src="assets/images/icons/custom-build-icon.svg" alt="">
+                    <h4>Custum Buildout</h4>
+                    <ul>
+                        <li>This is an exclusive workspace as it allows the clients to create their space from scratch which best fits their needs & preferences.</li>
+                        <li>Custom Buildout workspace is highly beneficial for individuals or companies who need a unique layout & a private zone in their office space.</li>
+                    </ul>
+                    <p class="virtual_service_btn"><a (click)="scrollToElement(target)" style="cursor: pointer;">Enquire Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  
+<section class="query_from_sec" #target>
+    <div class="container">
+        <div class="row tabhide">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Yes, I'm interested in Coworking Space</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-md-6 tabhide">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="virtual_query_form">
+                    <div class="form_head">
+                        <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
+                        <h3 class="mobilehide">Answers to your Coworking Space query</h3>
+                        <p class="mobilehide">Our team is ready to answer your questions.</p>
+                    </div>
+
+                    <div class="form_body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <input type="text" class="form-control" placeholder="Name*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <input type="email" formControlName="email" class="form-control" placeholder="Email*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 country_phone">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+
+                                        <div class="form-input icon_phone_field">
+                                            <div class="flag-container">
+                                                <!-- <div (click)="showcountry = !showcountry" class="selected-flag">
+                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                        <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                        <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                                    </div>
+                                                </div>
+                                                <ul *ngIf="showcountry" class="country-list">
+                                                    <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
+                                                        <div class="flag-box">
+                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{country?.name}}</span>
+                                                        <span class="dial-code">{{country?.dial_code}}</span>
+                                                    </li>
+
+                                                    <li class="divider"></li>
+
+                                                    <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
+                                                        <div class="flag-box">
+                                                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                        </div>
+                                                        <span class="country-name">{{inactive?.name}}</span>
+                                                        <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                    </li>
+                                                </ul> -->
+
+                                                <input type="tel" maxlength="10" class="form-control" placeholder="Phone*" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                        <select class="form-select" class="form-control" placeholder="select your city" required aria-label="Default select example">
+                                            <option value="" selected disabled style="display: none;">Select City*</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="input-group align-items-center">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <input type="tel" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                    </div>
+                                    <button>Resend OTP</button>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="input-group message_field align-items-center">
+                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <textarea type="textarea" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <button class="site_btn border_btn" type="submit">Submit</button>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <p class="form_query_text">Need Assistance? Call Now : <span><a
+                                                href="tel:+91-9599509999">+91-9599509999</a></span></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="home_client_sec">
+    <app-our-clients></app-our-clients>
 </div>
+
+<section class="cofynd_desk_sec home_cofynd_desk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cofynd-desk text-center">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <h4>What's the CoFynd Desk ?</h4>
+                    <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
+                        to their highest in life.</p>
+                    <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faqs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center mb-4">
+                    <h3 class="site_title title_divider">Frequently Asked Questions</h3>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <accordion [isAnimated]="true" class="faqs_accordion">
+                    <accordion-group>
+                        <h4 accordion-heading>What are the various types of membership plans offered by various coworking brands in India?</h4>
+                        <p>A variety of membership plans are offered by well-known coworking brands in India such as hot desks, dedicated desks, private cabins, meeting/ conference rooms, event spaces, and more all available at cost-effective prices.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>Name some of the top coworking space brands in India.</h4>
+                        <p>Some of the top coworking space companies in India are - Awfis, IndiQube, Workafella, Cowrks, ABL workspaces, and more.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>What is the starting price of dedicated desk space for coworking spaces in India?</h4>
+                        <p>All the coworking brands offer dedicated desk seating arrangements at a starting price of ₹6,000/seat.</p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>Does the Workafella coworking space have its brand center in Mumbai?</h4>
+                        <p>Yes, Workafella has a beautifully designed and youth-centric coworking space center located in Mumbai.
+                        </p>
+                    </accordion-group>
+                    <accordion-group>
+                        <h4 accordion-heading>Do all these coworking brands also offer private offices for small/large businesses?</h4>
+                        <p>Yes, majorly all the coworking brands in India offer exquisite and professional private offices for all types & sizes of businesses.</p>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+</section>
