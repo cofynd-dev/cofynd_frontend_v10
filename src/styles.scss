@@ -93,7 +93,8 @@ option {
     border-radius: 0;
     .breadcrumb-item {
         font-size: 14px;
-        color: #908f8f;
+        color: #222;
+        font-weight: 500;
         a {
             color: #222;
             font-weight: 500;
@@ -3008,6 +3009,60 @@ h3.site_title {
     left: 0;
     background-size: contain;
 }
+.tab_area {
+	display: flex;
+	margin-bottom: 20px;
+}
+.tab_area .tab_item {
+	padding: 0px 5px;
+}
+.tab_area .tab_item button {
+	border: 1px solid #4343E8;
+	padding: 4px 15px;
+	border-radius: 15px;
+	font-weight: 500;
+	font-size: 13px;
+    transition: all 0.5s;
+}
+.tab_area .tab_item.active button, .tab_area .tab_item:hover button {
+    background-color: #4343E8;
+	border: 1px solid #4343E8;
+    color: #fff;
+}
+.configuration_list {
+	display: flex;
+}
+.configuration_item {
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	overflow: hidden;
+	-webkit-box-flex: 0;
+	flex: 0 0 36%;
+	margin-right: 20px;
+}
+.configuration_item p {
+	margin-bottom: 0px;
+}
+.configuration_item:last-child {
+	margin-right: 0px;
+}
+.configuration_item .configuration_head {
+	background-color: #F9F9F9;
+	padding: 10px 15px;
+}
+.configuration_body {
+	display: flex;
+	padding: 10px 15px;
+	align-items: center;
+}
+.configuration_body .price_box {
+	flex: 0 0 79%;
+}
+.configuration_item .configuration_head h4 {
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 4px;
+}
 
 .plans_slider {
     margin-bottom: 0px;
@@ -3268,11 +3323,11 @@ h3.site_title {
     display: block;
     width: 100%;
     height: auto;
-    // overflow-x: scroll;
+    overflow-x: scroll;
     padding: 0px;
     margin: 0;
     white-space: nowrap;
-    // scrollbar-width: none !important;
+    scrollbar-width: none !important;
 }
 
 .places-tag-slider .places-tag-item {
