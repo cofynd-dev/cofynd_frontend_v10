@@ -31,6 +31,13 @@ import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-sp
 import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
 import { FlatSpaceSimilarComponent } from './flat-space/flat-space-similar/flat-space-similar.component';
 import { FlatSpaceComponent } from './flat-space/flat-space.component';
+import { BuilderComponent } from './builder/builder/builder.component';
+import { BuilderDetailComponent } from './builder/builder-detail/builder-detail.component';
+import { ResidentialBuilderComponent } from './builder/residential-builder/residential-builder.component';
+import { CommercialBuilderComponent } from './builder/commercial-builder/commercial-builder.component';
+import { SubBuilderDetailComponent } from './builder/sub-builder-detail/sub-builder-detail.component';
+import { SubBuilderSaleComponent } from './builder/sub-builder-sale/sub-builder-sale.component';
+import { SubBuilderRentComponent } from './builder/sub-builder-rent/sub-builder-rent.component';
 
 @NgModule({
   declarations: [
@@ -61,8 +68,15 @@ import { FlatSpaceComponent } from './flat-space/flat-space.component';
     FlatSpaceLocalityComponent,
     FlatSpaceSimilarComponent,
     FlatSpaceComponent,
+    BuilderComponent,
+    BuilderDetailComponent,
+    ResidentialBuilderComponent,
+    CommercialBuilderComponent,
+    SubBuilderDetailComponent,
+    SubBuilderSaleComponent,
+    SubBuilderRentComponent,
   ],
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
 })
-export class CoworkingModule {}
+export class CoworkingModule { }
