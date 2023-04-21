@@ -3570,7 +3570,7 @@ h3.site_title {
     border-radius: 20px;
     padding: 14px 14px;
     white-space: normal;
-    padding: 20px 15px;
+    padding: 15px 15px;
     -webkit-box-align: center;
     align-items: center;
 }
@@ -3790,7 +3790,10 @@ h3.site_title {
     line-height: 20px;
     font-weight: 600;
     color: #4343e8;
-    flex: 0 0 60%;
+    flex: 0 0 50%;
+}
+.property_item .property-foot .price.sale_price {
+	text-align: right;
 }
 
 .property_item .property-foot .price .rent_title {
@@ -3805,6 +3808,9 @@ h3.site_title {
     color: #212529;
     font-size: 12px;
     font-weight: 600;
+}
+.property_item .property-foot .price .disable_price {
+	color: #AFAFAF !important;
 }
 
 .property_item .property-foot .button {
@@ -6514,7 +6520,7 @@ h3.site_title {
 
 .about_details .building_experience {
     -webkit-box-flex: 0;
-    flex: 0 0 15%;
+    flex: 0 0 20%;
     margin-right: 20px;
 }
 
