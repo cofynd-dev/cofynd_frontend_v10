@@ -87,8 +87,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: '21-50', value: '21-50' },
     { label: '51-100', value: '51-100' },
     { label: '100 +', value: '100 +' },
-    // { label: 'Enterprise Solutions', value: 'Enterprise_Solutions' },
-    // { label: 'Customised solutions', value: 'Customised_solutions' },
   ];
 
   MoveIn = [
@@ -184,11 +182,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
-    // if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
-    //   this.loadWorkSpace(this.workSpaceId);
-    // } else if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-    //   this.loadColiving(this.workSpaceId);
-    // }
   }
 
   ngOnChanges(changes) {
@@ -364,6 +357,19 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
       formValues['interested_in'] = 'Virtual Office';
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+      if (formValues['interested_in'] == 'Virtual Office') {
+        formValues['mx_Space_Type'] = 'Web Virtual Office';
+      } else {
+        formValues['mx_Space_Type'] = 'Web Coworking';
+      }
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      formValues['mx_Space_Type'] = 'Web Coliving';
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      formValues['mx_Space_Type'] = 'Web Office Space';
     }
     formValues['mx_Page_Url'] = this.pageUrl;
     formValues['city'] = this.city;

@@ -151,6 +151,38 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     this.getCountries();
   }
 
+  private buildForm() {
+    const form = {
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone_number: ['', Validators.required],
+      otp: [''],
+      mx_Page_Url: ['Space Detail Page']
+    };
+
+    if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['mx_Move_In_Date'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
+      form['mx_Space_Type'] = ['Web Coworking'];
+      form['no_of_person'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['mx_Space_Type'] = ['Web Coliving'];
+      form['mx_BudgetPrice'] = [null, Validators.required];
+      form['interested_in'] = [null, Validators.required];
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      form['mx_Space_Type'] = ['Web Office Space'];
+      form['interested_in'] = [null, Validators.required];
+      form['mx_Move_In_Date'] = [null, Validators.required];
+      form['mx_BudgetPrice'] = [null, Validators.required];
+    }
+    this.enquiryForm = this.formBuilder.group(form);
+  }
+
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
@@ -357,10 +389,19 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
         formValues.living_space = this.workSpaceId;
         break;
     }
+
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
       if (formValues['interested_in'] == 'Virtual Office') {
         formValues['mx_Space_Type'] = 'Web Virtual Office';
+      } else {
+        formValues['mx_Space_Type'] = 'Web Coworking';
       }
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      formValues['mx_Space_Type'] = 'Web Coliving';
+    }
+    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
+      formValues['mx_Space_Type'] = 'Web Office Space';
     }
     formValues['mx_Page_Url'] = this.pageUrl;
     if (this.cityName) {
@@ -369,6 +410,8 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     if (this.microlocationName) {
       formValues['microlocation'] = this.microlocationName
     }
+    console.log(formValues);
+
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {
@@ -404,38 +447,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     const otpControl = this.enquiryForm.get('phone_number');
     otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
     otpControl.updateValueAndValidity();
-  }
-
-  private buildForm() {
-    const form = {
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      otp: [''],
-      mx_Page_Url: ['Space Detail Page']
-    };
-
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Move_In_Date'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
-      form['mx_Space_Type'] = ['Web Coworking'];
-      form['no_of_person'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Space_Type'] = ['Web Coliving'];
-      form['mx_BudgetPrice'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-    }
-    if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
-      form['mx_Space_Type'] = ['Web Office Space'];
-      form['interested_in'] = [null, Validators.required];
-      form['mx_Move_In_Date'] = [null, Validators.required];
-      form['mx_BudgetPrice'] = [null, Validators.required];
-    }
-    this.enquiryForm = this.formBuilder.group(form);
   }
 
   private resetForm() {

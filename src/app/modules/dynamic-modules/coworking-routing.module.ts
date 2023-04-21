@@ -17,6 +17,13 @@ import { FlatSpaceComponent } from './flat-space/flat-space.component';
 import { FlatSpaceCityComponent } from './flat-space/flat-space-city/flat-space-city.component';
 import { FlatSpaceLocalityComponent } from './flat-space/flat-space-locality/flat-space-locality.component';
 import { FlatSpaceDetailComponent } from './flat-space/flat-space-detail/flat-space-detail.component';
+import { BuilderComponent } from './builder/builder/builder.component';
+import { BuilderDetailComponent } from './builder/builder-detail/builder-detail.component';
+import { ResidentialBuilderComponent } from './builder/residential-builder/residential-builder.component';
+import { CommercialBuilderComponent } from './builder/commercial-builder/commercial-builder.component';
+import { SubBuilderDetailComponent } from './builder/sub-builder-detail/sub-builder-detail.component';
+import { SubBuilderRentComponent } from './builder/sub-builder-rent/sub-builder-rent.component';
+import { SubBuilderSaleComponent } from './builder/sub-builder-sale/sub-builder-sale.component';
 
 
 const routes: Routes = [
@@ -90,6 +97,37 @@ const routes: Routes = [
     path: 'near-metro',
     component: CoworkingNearMetroComponent,
   },
+
+  //builder module routing...
+
+  {
+    path: 'builder',
+    component: BuilderComponent
+  },
+  {
+    path: 'builder/:buildername',
+    component: BuilderDetailComponent
+  },
+  {
+    path: ':buildername/residential',
+    component: ResidentialBuilderComponent
+  },
+  {
+    path: ':buildername/commercial',
+    component: CommercialBuilderComponent
+  },
+  {
+    path: ':buildername/:subuildername',
+    component: SubBuilderDetailComponent
+  },
+  {
+    path: ':buildername/:subuildername/rent',
+    component: SubBuilderRentComponent
+  },
+  {
+    path: ':buildername/:subuildername/sale',
+    component: SubBuilderSaleComponent
+  }
 ];
 
 @NgModule({
