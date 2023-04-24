@@ -29,6 +29,7 @@ import { Location } from '@angular/common';
 import { Review } from '@app/core/models/review.model';
 import { AuthType } from '@app/core/enum/auth-type.enum';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+
 @Component({
   selector: 'app-co-living-detail',
   templateUrl: './co-living-detail.component.html',

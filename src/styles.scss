@@ -93,7 +93,8 @@ option {
     border-radius: 0;
     .breadcrumb-item {
         font-size: 14px;
-        color: #908f8f;
+        color: #222;
+        font-weight: 500;
         a {
             color: #222;
             font-weight: 500;
@@ -3008,6 +3009,65 @@ h3.site_title {
     left: 0;
     background-size: contain;
 }
+.tab_area {
+	display: flex;
+	margin-bottom: 20px;
+}
+.tab_area .tab_item {
+	padding: 0px 5px;
+}
+.tab_area .tab_item button {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 4px 15px;
+	border-radius: 15px;
+	font-weight: 500;
+	font-size: 13px;
+    transition: all 0.5s;
+}
+.tab_area .tab_item.active button, .tab_area .tab_item:hover button {
+    background-color: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.configuration_list {
+	display: flex;
+}
+.configuration_item {
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	overflow: hidden;
+	-webkit-box-flex: 0;
+	flex: 0 0 36%;
+	margin-right: 20px;
+}
+.configuration_item p {
+	margin-bottom: 0px;
+	font-size: 12px;
+	color: rgba(33, 37, 41, 0.5);
+}
+.configuration_item:last-child {
+	margin-right: 0px;
+}
+.configuration_item .configuration_head {
+	background-color: #F9F9F9;
+	padding: 15px 15px;
+}
+.configuration_body {
+	display: flex;
+	padding: 10px 15px;
+	align-items: center;
+}
+.configuration_body .price_box {
+	flex: 0 0 79%;
+}
+.configuration_body .price_box h5 {
+	font-size: 13px;
+	line-height: 16px;
+}
+.configuration_item .configuration_head h4 {
+	font-size: 13px;
+	line-height: 20px;
+	margin-bottom: 0px;
+}
 
 .plans_slider {
     margin-bottom: 0px;
@@ -3045,7 +3105,7 @@ h3.site_title {
     font-size: 13px;
     font-weight: 600;
     line-height: 21px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .plan_item .floor-plan-img {
@@ -3268,11 +3328,11 @@ h3.site_title {
     display: block;
     width: 100%;
     height: auto;
-    // overflow-x: scroll;
+    overflow-x: scroll;
     padding: 0px;
     margin: 0;
     white-space: nowrap;
-    // scrollbar-width: none !important;
+    scrollbar-width: none !important;
 }
 
 .places-tag-slider .places-tag-item {
@@ -3570,7 +3630,7 @@ h3.site_title {
     border-radius: 20px;
     padding: 14px 14px;
     white-space: normal;
-    padding: 20px 15px;
+    padding: 15px 15px;
     -webkit-box-align: center;
     align-items: center;
 }
@@ -3790,7 +3850,10 @@ h3.site_title {
     line-height: 20px;
     font-weight: 600;
     color: #4343e8;
-    flex: 0 0 60%;
+    flex: 0 0 50%;
+}
+.property_item .property-foot .price.sale_price {
+	text-align: right;
 }
 
 .property_item .property-foot .price .rent_title {
@@ -3805,6 +3868,9 @@ h3.site_title {
     color: #212529;
     font-size: 12px;
     font-weight: 600;
+}
+.property_item .property-foot .price .disable_price {
+	color: #AFAFAF !important;
 }
 
 .property_item .property-foot .button {
@@ -6406,9 +6472,9 @@ h3.site_title {
     margin-bottom: 10px;
 }
 
-.about_image_sec .site_title::before {
-    display: none;
-}
+// .about_image_sec .site_title::before {
+//     display: none;
+// }
 
 .about_image_sec {
     padding: 50px 0px;
@@ -6514,7 +6580,7 @@ h3.site_title {
 
 .about_details .building_experience {
     -webkit-box-flex: 0;
-    flex: 0 0 15%;
+    flex: 0 0 20%;
     margin-right: 20px;
 }
 
@@ -7089,6 +7155,74 @@ h3.site_title {
 	min-height: 210px;
 }
 
+.park_and_benefits_sec {
+	background-color: #F9F9F9;
+	padding-top: 80px;
+	padding-bottom: 60px;
+}
+.park_and_benefits_item {
+	background: #FFFFFF;
+	box-shadow: 0px 20px 50px rgba(217, 217, 241, 0.3);
+	border-radius: 20px;
+	padding: 28px 30px;
+	min-height: 230px;
+	margin-bottom: 40px;
+}
+.park_and_benefits_item img {
+	width: 35px;
+	margin-bottom: 12px;
+}
+.park_and_benefits_item h4 {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+.park_and_benefits_item p {
+	margin-bottom: 0px !important;
+}
+.career_desk_sec {
+	padding-top: 50px;
+}
+.breadcrumb-wrapper {
+	padding-top: 10px;
+	padding-bottom: 10px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.breadcrumb-wrapper .breadcrumb {
+	margin-bottom: 0px;
+}
+.title_city_filter {
+	padding: 20px 0px 20px;
+}
+.title_city_filter h1 {
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: capitalize;
+	line-height: 30px;
+}
+.city-dropdown .form-select {
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+	padding: 10px 15px;
+	border-radius: 10px;
+	font-size: 13px !important;
+	cursor: pointer !important;
+	width: 170px;
+}
+.listing_container {
+	max-width: 94%;
+	padding: 0 2%;
+}
+
+.listing_area .property_item {
+	margin-bottom: 50px;
+}
+.builder_query_col {
+	margin-bottom: 50px;
+}
+
 @media (max-width:991px) {
     
     .mobile_login .login-btn {
@@ -7386,6 +7520,12 @@ h3.site_title {
     }
     .virtual_query_form .form_body {
         padding: 20px 20px;
+    }
+    .no_result_banner {
+        margin-left: -17px;
+        margin-right: -17px;
+        margin-top: -25px;
+        position: relative;
     }
     
 }
@@ -7958,37 +8098,37 @@ h3.site_title {
         line-height: 24px;
     }
 
-    .virtual_no_result_banner .banner_content {
+    .no_result_banner .banner_content {
         padding: 30px 15px 30px 15px;
         position: absolute;
-        top: -210px;
+        top: -170px;
         text-align: center;
         width: 100%;
     }
-    .virtual_no_result_banner .banner_content h2, .virtual_no_result_banner .banner_content h2 span {
+    .no_result_banner .banner_content h2, .no_result_banner .banner_content h2 span {
         margin-bottom: 3px;
         text-align: left;
         color: #fff !important;
     }
-    .virtual_no_result_banner .banner_content .site_title::before {
+    .no_result_banner .banner_content .site_title::before {
         display: none;
     }
-    .virtual_no_result_banner .banner_content h5 {
+    .no_result_banner .banner_content h5 {
         margin-bottom: 5px;
         font-size: 14px;
         line-height: 22px;
         color: #fff !important;
     }
-    .virtual_no_result_banner .banner_content .border_btn {
+    .no_result_banner .banner_content .border_btn {
         color: #fff !important;
         border-color: #fff !important;
     }
-    .virtual_no_result_banner .banner_img {
-        height: 270px;
+    .no_result_banner .banner_img {
+        height: 240px;
         border-radius: 0px;
         position: relative;
     }
-    .virtual_no_result_banner .banner_img::before {
+    .no_result_banner .banner_img::before {
         position: absolute;
         top: 0px;
         content: "";
@@ -7997,21 +8137,51 @@ h3.site_title {
         width: 100%;
         height: 100%;
     }
-    .virtual_no_result_banner .banner_img img {
+    .no_result_banner .banner_img img {
         height: 270px;
         -o-object-fit: cover;
         object-fit: cover;
         width: 100%;
     }
-    .virtual_no_result_banner .banner_content h2 {
+    .no_result_banner .banner_content h2 {
         text-align: center;
     }
-    .virtual_no_result_banner .banner_content h2 span {
+    .no_result_banner .banner_content h2 span {
         display: inline-block;
         width: 100%;
         text-align: center;
     }
-    
+    .career_banner .about_content_col {
+        position: absolute;
+        top: 125px;
+        z-index: 9;
+        padding: 0 15px;
+        text-align: center;
+    }
+    .career_banner .banner_content h2 {
+        margin-bottom: 5px;
+        text-align: left;
+        color: #fff !important;
+    }
+    .career_banner .banner_img {
+        border-radius: 0px;
+        height: 200px;
+    }
+    .career_banner .banner_img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+    }
+    .career_banner .banner_img img {
+        height: 200px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+    }
     
     
 }
@@ -10863,7 +11033,7 @@ h3.site_title {
     .virtual_office_service_sec .col-md-12.text-center {
         text-align: left !important;
     }
-    .virtual_no_result_banner .banner_content h2 {
+    .no_result_banner .banner_content h2 {
         font-size: 24px !important;
         line-height: 34px !important;
     }

@@ -41,6 +41,7 @@ export const routes: Routes = [
     path: 'co-living-brand',
     loadChildren: () => import('./coliving-brand/coliving-brand.module').then(m => m.ColivingBrandModule)
   },
+
   {
     path: 'career',
     loadChildren: () => import('./career/career.module').then(m => m.CareerModule)

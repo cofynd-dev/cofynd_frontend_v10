@@ -1,0 +1,16 @@
+<div class="property_item" *ngIf="subbuilder">
+    <div class="property-img">
+        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="">
+    </div>
+    <div class="space_details" style="cursor: pointer;">
+        <div class="property-dis">
+            <h4>{{subbuilder?.name}}</h4>
+            <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{subbuilder?.location?.address}}</p>
+            <p class="capacity"><img src="/assets/images/icons/bhk-icon.svg" alt="wifi" class="img-fluid"> {{subbuilder?.starting_plan}}</p>
+        </div>
+        <div class="property-foot align-items-end">
+            <div class="price"><span class="rent_title">Starting from</span>₹{{subbuilder?.starting_price}}/- <span>{{subbuilder?.starting_duration}}</span></div>
+            <div class="price sale_price"><span class="rent_title">Sale Price</span><span class="disable_price">₹{{subbuilder?.starting_sale_price}}</span></div>
+        </div>
+    </div>
+</div>
