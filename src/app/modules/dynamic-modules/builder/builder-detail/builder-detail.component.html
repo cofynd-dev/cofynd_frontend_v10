@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <nav>
+                <nav *ngIf="!loading && builder &&  builder.location">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item text-overflow">India</li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">M3M India</li>
+                        <li class="breadcrumb-item text-overflow">{{builder?.location?.country?.name | titlecase}}</li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{builder?.name | titlecase}}</li>
                     </ol>
                 </nav>
             </div>
@@ -17,24 +17,13 @@
 <section class="details_page_gallery">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="banner-image-item first-img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5b6cfdc338062a60ca47c214f0e51239e2838318.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-md-3 image_space">
-                <div class="banner-image-item">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f9093e6a6cd17530b4ee827460e1141485ac39c6.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="banner-image-item mb-0">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9736117ef06e4197e19ff5e6f9d506cf2739685f.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="banner-image-item last-img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0e35e69acccd6dc6e4051bfbca2f589a70b399bf.jpg" alt="" class="img-fluid">
-                </div>
-                <button class="all_photon_btn"><i class="fa-solid fa-layer-group"></i> View All Photos</button>
+            <div class="relative" *ngIf="!loading">
+                <app-social-share class="hideOnMobile" *ngIf="builder" [title]="builder.name" [description]="builder.description" [image]="shareImageUrl">
+                </app-social-share>
+                <app-workspace-banner *ngIf="builder && builder.images.length" [images]="builder.images" [isFavorite]="builder.is_favorite" [workspaceId]="builder.id" [title]="builder.name" [favoriteOption]="false">
+                </app-workspace-banner>
+                <app-workspace-banner-blank *ngIf="builder && !builder.images.length" [isFavorite]="builder.is_favorite" [workspaceId]="builder.id" [title]="builder.name">
+                </app-workspace-banner-blank>
             </div>
         </div>
     </div>
@@ -61,26 +50,26 @@
                     <div class="col-md-12">
                         <div class="about_details">
                             <div class="logo_col">
-                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/24ad04d5511f297cba1000c65310fcb4a9303b33.png" alt="M3M">
+                                <img [src]="builder?.builder_logo?.s3_link" alt="M3M">
                             </div>
                             <div class="building_experience">
-                                <h4>M3M India Pvt. Ltd.</h4>
-                                <p>1998 Year Estd.</p>
+                                <h4>{{builder?.name | titlecase}} {{builder?.location?.country?.name | titlecase}} Pvt. Ltd</h4>
+                                <p>{{builder?.establish_year}}</p>
                             </div>
                             <div class="building_totle_project">
                                 <h4>Projects</h4>
-                                <p>43</p>
+                                <p>{{builder?.projects}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <p>M3M group is a renowned real estate developer with over 2000 acres of land bank in the high-growth corridors of NCR with presence in all real estate verticals i.e. residential, commercial, education institutions, IT SEZ, entertainment & hospitality. We are a 100% debt free company with seasoned and professional senior management team. Our function heads and team members bring-in a wealth of experience and expertise from some of the most reputable names in Real Estate, Financial Services and Consultancy sectors.</p>
+                        <p>{{builder?.description}}</p>
                     </div>
                 </div>
 
                 <hr class="divider_line">
 
-                <div class="row overview_area">
+                <div class="row overview_area" *ngIf="builder?.overview">
                     <div class="col-md-12">
                         <h3>Overview</h3>
                         <div class="row">
@@ -91,7 +80,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Starting Price</h5>
-                                        <p>2.25 cr</p>
+                                        <p>{{builder?.overview?.starting_price}} cr</p>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +91,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Configuration</h5>
-                                        <p>2BHK-3BHK-4BHK-5BHK</p>
+                                        <p>{{builder?.overview?.configuration}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +102,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Area</h5>
-                                        <p>2200 Acres</p>
+                                        <p>{{builder?.overview?.area}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +124,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Comercial Projects</h5>
-                                        <p>13 Lucrative</p>
+                                        <p>{{builder?.overview?.comercial_projects}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +135,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Residential Projects</h5>
-                                        <p>16 Premium</p>
+                                        <p>{{builder?.overview?.residential_projects}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -156,10 +145,10 @@
 
                 <hr class="divider_line">
 
-                <div class="row">
+                <div class="row" *ngIf="builder?.video_link">
                     <div class="col-md-12">
                         <div class="video_area">
-                            <iframe width="100%" height="402" src="https://www.youtube.com/embed/MhF-NxiT2LU" title="M3M India - Brand Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="100%" height="402" [src]="builder?.video_link" title="M3M India - Brand Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -169,17 +158,67 @@
                     <div class="form-section enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
                         <h2 class="heading">Yes, I'm Interested!</h2>
                         <p>Know More About <span class="light_blue" style="font-weight: 600;">M3M Merlin</span></p>
-                        <form class="form">
+                        <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Name" aria-describedby="emailHelp">
+                                <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" id="name" placeholder="Name" aria-describedby="emailHelp">
+                                <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                                <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                    <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="mobilenumber" placeholder="Mobile Number" aria-describedby="emailHelp">
+                            <div class="col-md-12 country_phone">
+                                <div class="form-group city_card_phone">
+                                    <div class="flag-container">
+                                        <div (click)="showcountry = !showcountry" class="selected-flag">
+                                            <div class="flag in" *ngIf="activeCountries.length">
+                                                <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                            </div>
+                                        </div>
+                                        <ul *ngIf="showcountry" class="country-list">
+                                            <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                                <div class="flag-box">
+                                                    <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                </div>
+                                                <span class="country-name">{{country?.name}}</span>
+                                                <span class="dial-code">{{country?.dial_code}}</span>
+                                            </li>
+
+                                            <li class="divider"></li>
+
+                                            <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
+                                                <div class="flag-box">
+                                                    <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                </div>
+                                                <span class="country-name">{{inactive?.name}}</span>
+                                                <span class="dial-code">{{inactive?.dial_code}}</span>
+                                            </li>
+                                        </ul>
+                                        <input type="tel" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                        <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">Please enter mobile number.</div>
+                                            <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            <button type="button" class="site_btn border_btn full_width_btn">Send</button>
+                            <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                </div>
+                                <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                            </div>
+                            <button type="submit" class="site_btn border_btn full_width_btn">Send</button>
                         </form>
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
