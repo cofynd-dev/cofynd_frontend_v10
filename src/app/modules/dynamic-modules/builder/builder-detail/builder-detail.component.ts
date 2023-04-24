@@ -188,7 +188,7 @@ export class BuilderDetailComponent implements OnInit {
         if (this.builder) {
           this.addSeoTags(this.builder);
         }
-        if (this.builder.geometry) {
+        if (this.builder && this.builder.geometry) {
           this.options = {
             layers: [
               tileLayer(
@@ -205,7 +205,7 @@ export class BuilderDetailComponent implements OnInit {
           this.addMarker(this.builder.geometry.coordinates[1], this.builder.geometry.coordinates[0]);
         }
 
-        if (this.builder.images.length) {
+        if (this.builder && this.builder.images.length) {
           this.shareImageUrl = this.builder.images[0].image.s3_link;
         }
       },
