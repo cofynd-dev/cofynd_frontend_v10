@@ -52,7 +52,7 @@ export class Location {
   city: any;
   micro_location: any;
   state: string;
-  country: string;
+  country: any;
   postal_code: string;
   landmark: string;
   landmark_distance: string;
