@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-builder-resi-com-card',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./builder-resi-com-card.component.scss']
 })
 export class BuilderResiComCardComponent implements OnInit {
+  @Input() subbuilder: any;
 
   constructor() { }
 

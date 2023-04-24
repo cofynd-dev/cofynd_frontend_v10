@@ -19,6 +19,15 @@ export class BuilderService {
     );
   }
 
+  getBuilderComResiProjects(params: {}): Observable<ApiResponse<any[]>> {
+    return this.http.get<ApiResponse<any[]>>(`/user/builder_com_resi_projects?${params}`).pipe(
+      map((builders: any) => {
+        builders.data.subbuilders.map(builder => this.setStartingPrice(builder));
+        return builders;
+      }),
+    );
+  }
+
   getBuilder(slug: string) {
     return this.http.get<{ data: Builder }>(`/user/builders/${slug}`).pipe(
       map(builder => {
@@ -36,37 +45,35 @@ export class BuilderService {
   }
 
   setStartingPrice(coLiving) {
-    let prices = [];
-    let miniPriceDuration = [];
+    let prices: any = [];
     const updatedWorkspace = coLiving;
-    if (coLiving.coliving_plans) {
-      let data = coLiving.coliving_plans;
+    if (coLiving.plans) {
+      let data = coLiving.plans;
       if (data.length > 0) {
-        data.map(v => {
-          prices.push(v.price);
-        });
-      } else {
-        prices = Object.values(coLiving.price);
-      }
-    } else {
-      prices = Object.values(coLiving.price);
-    }
-    coLiving.starting_price = Math.min(...prices.filter(Boolean));
-    let miniPrice = Math.min(...prices.filter(Boolean));
-    if (coLiving.coliving_plans) {
-      let data = coLiving.coliving_plans;
-      if (data.length > 0) {
-        data.map(v => {
-          if (v.price === miniPrice) {
-            miniPriceDuration.push(v);
+        for (let index = 0; index < data.length; index++) {
+          const lowestPriceItem = data[index].floor_plans.reduce((lowest, item) => {
+            if (item.rent_price < lowest.rent_price) {
+              return item;
+            } else {
+              return lowest;
+            }
+          });
+          lowestPriceItem['plan'] = data[index]['planId']['name'];
+          prices.push(lowestPriceItem);
+        }
+        prices = prices.reduce((lowest, item) => {
+          if (item.rent_price < lowest.rent_price) {
+            return item;
+          } else {
+            return lowest;
           }
         });
+        coLiving.starting_name = prices.name
+        coLiving.starting_plan = prices.plan;
+        coLiving.starting_price = prices.rent_price;
+        coLiving.starting_sale_price = prices.sale_price;
+        coLiving.starting_duration = 'month';
       }
-    }
-    coLiving.price_type = 'bed';
-    coLiving.duration = 'month';
-    if (miniPriceDuration.length) {
-      coLiving.duration = miniPriceDuration[0]['duration'];
     }
     return updatedWorkspace;
   }

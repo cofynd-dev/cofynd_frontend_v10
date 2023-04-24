@@ -1,44 +1,29 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {
   Component,
-  Output,
-  EventEmitter,
-  ElementRef,
-  HostListener,
-  Inject,
   OnInit,
-  PLATFORM_ID,
-  ViewChild,
 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
-import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from '@app/core/services/auth.service';
-import { HelperService } from '@app/core/services/helper.service';
-import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
-import { VisibilityState } from '@core/enum/visibility-state.enum';
 import { SeoSocialShareData } from '@core/models/seo.model';
-import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
-import { appAnimations } from '@shared/animations/animation';
 import { Builder } from '../builder.model';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-import { Location } from '@angular/common';
-import { Review } from '@app/core/models/review.model';
-import { AuthType } from '@app/core/enum/auth-type.enum';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { BuilderService } from '../builder.services';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { sanitizeParams } from '@app/shared/utils';
+import { AppConstant } from '@shared/constants/app.constant';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
   OTP,
   SUCCESS,
 }
-
 
 @Component({
   selector: 'app-builder-detail',
@@ -72,6 +57,14 @@ export class BuilderDetailComponent implements OnInit {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  sanitizedUrl: any;
+  videoUrl: string;
+  safeVideoUrl: SafeResourceUrl;
+  commQueryParams: { [key: string]: string | number | boolean };
+  resiQueryParams: { [key: string]: string | number | boolean };
+  allCommProjects: any = [];
+  allResiProjects: any = [];
+  seoData: SeoSocialShareData;
 
   constructor(private builderService: BuilderService,
     private activatedRoute: ActivatedRoute,
@@ -82,6 +75,7 @@ export class BuilderDetailComponent implements OnInit {
     private toastrService: ToastrService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
+    private sanitizer: DomSanitizer
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeBuilderId = param.buildername;
@@ -158,6 +152,22 @@ export class BuilderDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  getBuilderComProjects(param) {
+    this.loading = true;
+    this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
+      this.allCommProjects = allCommProjects.data.subbuilders;
+      this.loading = false;
+    })
+  }
+
+  getBuilderResiProjects(param) {
+    this.loading = true;
+    this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allResiProjects: any) => {
+      this.allResiProjects = allResiProjects.data.subbuilders;
+      this.loading = false;
+    })
+  }
+
   addValidationOnOtpField() {
     const otpControl = this.enterpriseFormGroup.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
@@ -186,7 +196,23 @@ export class BuilderDetailComponent implements OnInit {
         this.builder = workspaceDetail.data;
         this.loading = false;
         if (this.builder) {
+          this.videoUrl = this.builder.video_link;
           this.addSeoTags(this.builder);
+          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl.replace('watch?v=', 'embed/'));
+          this.commQueryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            findKey: 'commercial',
+            builder: this.builder.id,
+            shouldApprove: true
+          };
+          this.resiQueryParams = {
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
+            findKey: 'residential',
+            builder: this.builder.id,
+            shouldApprove: true
+          };
+          this.getBuilderComProjects(this.commQueryParams);
+          this.getBuilderResiProjects(this.resiQueryParams);
         }
         if (this.builder && this.builder.geometry) {
           this.options = {
@@ -204,7 +230,6 @@ export class BuilderDetailComponent implements OnInit {
           };
           this.addMarker(this.builder.geometry.coordinates[1], this.builder.geometry.coordinates[0]);
         }
-
         if (this.builder && this.builder.images.length) {
           this.shareImageUrl = this.builder.images[0].image.s3_link;
         }
@@ -231,15 +256,15 @@ export class BuilderDetailComponent implements OnInit {
   }
 
   addSeoTags(builder: Builder) {
-    const seoData: SeoSocialShareData = {
+    this.seoData = {
       title: builder.seo.title ? builder.seo.title : 'CoFynd - ' + builder.name,
       description: builder.seo.description ? builder.seo.description : builder.description,
       keywords: builder.seo.keywords ? builder.seo.keywords : '',
-      url: environment.appUrl + '/co-living/' + builder.slug,
+      url: environment.appUrl + '/india/builder/' + builder.slug,
       image: this.shareImageUrl,
       type: 'website',
     };
-    this.seoService.setData(seoData);
+    this.seoService.setData(this.seoData);
   }
 
   onSubmit() {
