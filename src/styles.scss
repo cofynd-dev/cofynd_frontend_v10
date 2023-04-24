@@ -3017,7 +3017,7 @@ h3.site_title {
 	padding: 0px 5px;
 }
 .tab_area .tab_item button {
-	border: 1px solid #4343E8;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 4px 15px;
 	border-radius: 15px;
 	font-weight: 500;
@@ -3025,9 +3025,8 @@ h3.site_title {
     transition: all 0.5s;
 }
 .tab_area .tab_item.active button, .tab_area .tab_item:hover button {
-    background-color: #4343E8;
-	border: 1px solid #4343E8;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .configuration_list {
 	display: flex;
@@ -3042,13 +3041,15 @@ h3.site_title {
 }
 .configuration_item p {
 	margin-bottom: 0px;
+	font-size: 12px;
+	color: rgba(33, 37, 41, 0.5);
 }
 .configuration_item:last-child {
 	margin-right: 0px;
 }
 .configuration_item .configuration_head {
 	background-color: #F9F9F9;
-	padding: 10px 15px;
+	padding: 15px 15px;
 }
 .configuration_body {
 	display: flex;
@@ -3058,10 +3059,14 @@ h3.site_title {
 .configuration_body .price_box {
 	flex: 0 0 79%;
 }
+.configuration_body .price_box h5 {
+	font-size: 13px;
+	line-height: 16px;
+}
 .configuration_item .configuration_head h4 {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 20px;
-	margin-bottom: 4px;
+	margin-bottom: 0px;
 }
 
 .plans_slider {
@@ -3100,7 +3105,7 @@ h3.site_title {
     font-size: 13px;
     font-weight: 600;
     line-height: 21px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .plan_item .floor-plan-img {
