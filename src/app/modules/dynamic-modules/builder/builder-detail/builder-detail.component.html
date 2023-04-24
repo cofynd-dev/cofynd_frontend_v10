@@ -20,9 +20,9 @@
             <div class="relative" *ngIf="!loading">
                 <app-social-share class="hideOnMobile" *ngIf="builder" [title]="builder.name" [description]="builder.description" [image]="shareImageUrl">
                 </app-social-share>
-                <app-workspace-banner *ngIf="builder && builder.images.length" [images]="builder.images" [isFavorite]="builder.is_favorite" [workspaceId]="builder.id" [title]="builder.name" [favoriteOption]="false">
+                <app-workspace-banner *ngIf="builder && builder.images.length" [images]="builder.images" [workspaceId]="builder.id" [title]="builder.name" [favoriteOption]="false">
                 </app-workspace-banner>
-                <app-workspace-banner-blank *ngIf="builder && !builder.images.length" [isFavorite]="builder.is_favorite" [workspaceId]="builder.id" [title]="builder.name">
+                <app-workspace-banner-blank *ngIf="builder && !builder.images.length" [workspaceId]="builder.id" [title]="builder.name">
                 </app-workspace-banner-blank>
             </div>
         </div>
