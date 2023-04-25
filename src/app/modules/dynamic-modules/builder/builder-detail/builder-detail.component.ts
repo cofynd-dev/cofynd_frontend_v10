@@ -194,6 +194,9 @@ export class BuilderDetailComponent implements OnInit {
     this.builderService.getBuilderByName(builderId).subscribe(
       workspaceDetail => {
         this.builder = workspaceDetail.data;
+        if (!this.builder) {
+          this.router.navigate(['/404'], { skipLocationChange: true });
+        }
         this.loading = false;
         if (this.builder) {
           this.videoUrl = this.builder.video_link;
