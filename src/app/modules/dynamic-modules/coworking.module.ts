@@ -39,7 +39,6 @@ import { SubBuilderDetailComponent } from './builder/sub-builder-detail/sub-buil
 import { SubBuilderSaleComponent } from './builder/sub-builder-sale/sub-builder-sale.component';
 import { SubBuilderRentComponent } from './builder/sub-builder-rent/sub-builder-rent.component';
 import { BuilderResiComCardComponent } from './builder/builder-resi-com-card/builder-resi-com-card.component';
-import { SubbuilderApartRentSaleCardComponent } from './builder/subbuilder-apart-rent-sale-card/subbuilder-apart-rent-sale-card.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +77,6 @@ import { SubbuilderApartRentSaleCardComponent } from './builder/subbuilder-apart
     SubBuilderSaleComponent,
     SubBuilderRentComponent,
     BuilderResiComCardComponent,
-    SubbuilderApartRentSaleCardComponent,
   ],
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
