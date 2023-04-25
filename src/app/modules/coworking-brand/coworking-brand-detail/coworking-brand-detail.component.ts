@@ -203,7 +203,6 @@ export class CoworkingBrandDetailComponent implements OnInit {
       let data = url[url.length - 1].path;
       if (url.length > 1 && data == 'colive') {
         this.router.navigate(['/co-living/bangalore']);
-        // this.router.navigate['co-living/bangalore']
       } else {
         this.urlPath = url.map(x => x.path);
         let cityName = url.length > 1 ? url[1].path : null;
@@ -302,11 +301,15 @@ export class CoworkingBrandDetailComponent implements OnInit {
       this.workSpaces[0].images.map((image, index) => {
         image.image.alt = IMAGE_STATIC_ALT[index];
       });
+      this.addSeoTags();
       if (this.urlPath.length <= 1) {
         this.addSeoTags();
       } else if (this.isColiving && this.urlPath.length <= 2) {
         this.addSeoTags();
       }
+    } else {
+      this.addSeoTags();
+
     }
     this.createBreadcrumb();
     this.count = this.workSpaces.length;
