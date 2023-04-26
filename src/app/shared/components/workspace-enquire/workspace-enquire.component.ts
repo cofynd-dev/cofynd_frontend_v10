@@ -205,7 +205,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     } else if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       this.loadColiving(this.workSpaceId);
     }
-    console.log(this.cityName, this.microlocationName);
   }
 
   ngOnChanges(changes) {
@@ -410,8 +409,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     if (this.microlocationName) {
       formValues['microlocation'] = this.microlocationName
     }
-    console.log(formValues);
-
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {

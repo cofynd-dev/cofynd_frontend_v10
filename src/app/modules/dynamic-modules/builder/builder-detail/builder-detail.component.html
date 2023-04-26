@@ -133,7 +133,7 @@
                 <div class="enquiry_section">
                     <div class="form-section card_form enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
                         <h2 class="heading">Yes, I'm Interested!</h2>
-                        <p>Know More About <span class="light_blue" style="font-weight: 600;">M3M Merlin</span></p>
+                        <p>Know More About <span class="light_blue" style="font-weight: 600;">{{builder?.name}}</span></p>
                         <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
                             <div class="row">
                                 <div class="col-md-12">
@@ -241,7 +241,7 @@
             <div class="col-md-12">
                 <div class="properties_slider">
                     <ng-container *ngFor="let resiProjects of allResiProjects">
-                        <app-builder-resi-com-card [subbuilder]="resiProjects"></app-builder-resi-com-card>
+                        <app-builder-resi-com-card [buildername]="builder?.name" [subbuilder]="resiProjects"></app-builder-resi-com-card>
                     </ng-container>
                 </div>
             </div>
@@ -266,7 +266,7 @@
             <div class="col-md-12">
                 <div class="properties_slider">
                     <ng-container *ngFor="let resiProjects of allCommProjects">
-                        <app-builder-resi-com-card [subbuilder]="resiProjects"></app-builder-resi-com-card>
+                        <app-builder-resi-com-card [buildername]="builder?.name" [subbuilder]="resiProjects"></app-builder-resi-com-card>
                     </ng-container>
                 </div>
             </div>
