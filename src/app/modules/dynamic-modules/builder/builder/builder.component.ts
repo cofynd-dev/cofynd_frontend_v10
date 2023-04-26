@@ -12,4 +12,8 @@ export class BuilderComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+
 }
