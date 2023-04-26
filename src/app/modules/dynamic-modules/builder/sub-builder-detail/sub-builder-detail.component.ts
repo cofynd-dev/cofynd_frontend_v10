@@ -8,7 +8,6 @@ import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
 import { SubBuilder } from '../subbuilder.model';
-import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
@@ -18,6 +17,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
 import { SubBuilderService } from '../subbuilder.service'
+import { BuilderService } from '../builder.services';
+import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -41,6 +43,7 @@ export class SubBuilderDetailComponent implements OnInit {
   options: any;
   markers: Layer[] = [];
 
+
   pageUrl: string;
   submitted = false;
   showSuccessMessage: boolean;
@@ -63,9 +66,12 @@ export class SubBuilderDetailComponent implements OnInit {
   safeVideoUrl: SafeResourceUrl;
   commQueryParams: { [key: string]: string | number | boolean };
   resiQueryParams: { [key: string]: string | number | boolean };
-  allCommProjects: any = [];
-  allResiProjects: any = [];
+  moreProjects: any = [];
   seoData: SeoSocialShareData;
+  planId: any;
+  floorPlan: any = [];
+  builderLogoUrl: string;
+  builderId: any;
 
   constructor(private SubBuilderService: SubBuilderService,
     private activatedRoute: ActivatedRoute,
@@ -76,7 +82,8 @@ export class SubBuilderDetailComponent implements OnInit {
     private toastrService: ToastrService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private builderService: BuilderService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeSubBuilderId = param.subuildername;
@@ -153,18 +160,10 @@ export class SubBuilderDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  getSubBuilderComProjects(param) {
+  getMorePropertiesByBuilder(param) {
     this.loading = true;
-    this.SubBuilderService.getSubBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
-      this.allCommProjects = allCommProjects.data.subbuilders;
-      this.loading = false;
-    })
-  }
-
-  getSubBuilderResiProjects(param) {
-    this.loading = true;
-    this.SubBuilderService.getSubBuilderComResiProjects(sanitizeParams(param)).subscribe((allResiProjects: any) => {
-      this.allResiProjects = allResiProjects.data.subbuilders;
+    this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
+      this.moreProjects = allCommProjects.data.subbuilders;
       this.loading = false;
     })
   }
@@ -195,32 +194,31 @@ export class SubBuilderDetailComponent implements OnInit {
     this.SubBuilderService.getSubBuilderByName(SubBuilderId).subscribe(
       workspaceDetail => {
         this.SubBuilder = workspaceDetail.data;
-        console.log(this.SubBuilder);
-
+        this.builderId = this.SubBuilder.builder.id;
+        this.builderService.getBuilderByName(this.builderId).subscribe(
+          workspaceDetail => {
+            this.builderLogoUrl = workspaceDetail.data.builder_logo.s3_link;
+          })
         if (!this.SubBuilder) {
           this.router.navigate(['/404'], { skipLocationChange: true });
         }
         this.loading = false;
         if (this.SubBuilder) {
-          // this.videoUrl = this.SubBuilder.video_link;
+          this.videoUrl = this.SubBuilder.builder.video_link ? this.SubBuilder.builder.video_link : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
+          if (this.SubBuilder.plans.length > 0) {
+            this.planId = this.SubBuilder.plans[0].planId['id'];
+            this.floorPlanClick(this.planId)
+          }
           this.addSeoTags(this.SubBuilder);
-          // this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl.replace('watch?v=', 'embed/'));
+          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl.replace('watch?v=', 'embed/'));
           this.commQueryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
-            findKey: 'commercial',
-            SubBuilder: this.SubBuilder.id,
+            builder: this.SubBuilder.builder.id,
             shouldApprove: true
           };
-          this.resiQueryParams = {
-            ...AppConstant.DEFAULT_SEARCH_PARAMS,
-            findKey: 'residential',
-            SubBuilder: this.SubBuilder.id,
-            shouldApprove: true
-          };
-          // this.getSubBuilderComProjects(this.commQueryParams);
-          // this.getSubBuilderResiProjects(this.resiQueryParams);
+          this.getMorePropertiesByBuilder(this.commQueryParams);
         }
-        if (this.SubBuilder && this.SubBuilder.geometry) {
+        if (this.SubBuilder.geometry) {
           this.options = {
             layers: [
               tileLayer(
@@ -261,6 +259,37 @@ export class SubBuilderDetailComponent implements OnInit {
       }),
     });
     this.markers.push(newMarker);
+  }
+
+  floorPlanClick(plan) {
+    this.planId = plan;
+    this.floorPlan = this.SubBuilder.plans.filter((x: any) => x.planId.id == plan);
+    if (this.floorPlan.length > 0) {
+      this.floorPlan = this.floorPlan[0]['floor_plans'];
+    }
+  }
+
+  addSpecialCharacter(text: string) {
+    if (text == 'Veg & Non-Veg') {
+      return 'veg-non-veg';
+    }
+    if (text == 'Netflix/Amazon') {
+      return 'ott-subscription';
+    }
+    return text
+      .toLocaleLowerCase()
+      .split(' ')
+      .join('-');
+  }
+
+  removeSpecialCharacter(text: string) {
+    return text.replace('-', ' ');
+  }
+
+  haftAmenities: boolean = true;
+
+  toggleAmenitiesDiv() {
+    this.haftAmenities = !this.haftAmenities;
   }
 
   addSeoTags(SubBuilder: SubBuilder) {

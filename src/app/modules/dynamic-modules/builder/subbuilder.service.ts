@@ -19,15 +19,6 @@ export class SubBuilderService {
     );
   }
 
-  getSubBuilderComResiProjects(params: {}): Observable<ApiResponse<any[]>> {
-    return this.http.get<ApiResponse<any[]>>(`/user/SubBuilder_com_resi_projects?${params}`).pipe(
-      map((SubBuilders: any) => {
-        SubBuilders.data.subSubBuilders.map(SubBuilder => this.setStartingPrice(SubBuilder));
-        return SubBuilders;
-      }),
-    );
-  }
-
   getSubBuilder(slug: string) {
     return this.http.get<{ data: SubBuilder }>(`/user/subbuilders/${slug}`).pipe(
       map(SubBuilder => {
