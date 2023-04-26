@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-builder-resi-com-card',
@@ -7,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BuilderResiComCardComponent implements OnInit {
   @Input() subbuilder: any;
+  @Input() buildername: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToDetail() {
+    this.router.navigate([`/${this.subbuilder.location.country.name.toLowerCase()}/${this.buildername.toLocaleLowerCase().replace(/ /g, "-").split('.').join("")}/${this.subbuilder.slug}`])
+  }
 }

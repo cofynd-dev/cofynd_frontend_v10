@@ -241,7 +241,7 @@
             <div class="col-md-12">
                 <div class="properties_slider">
                     <ng-container *ngFor="let resiProjects of allResiProjects">
-                        <app-builder-resi-com-card [subbuilder]="resiProjects"></app-builder-resi-com-card>
+                        <app-builder-resi-com-card [buildername]="builder?.name" [subbuilder]="resiProjects"></app-builder-resi-com-card>
                     </ng-container>
                 </div>
             </div>
@@ -266,7 +266,7 @@
             <div class="col-md-12">
                 <div class="properties_slider">
                     <ng-container *ngFor="let resiProjects of allCommProjects">
-                        <app-builder-resi-com-card [subbuilder]="resiProjects"></app-builder-resi-com-card>
+                        <app-builder-resi-com-card [buildername]="builder?.name" [subbuilder]="resiProjects"></app-builder-resi-com-card>
                     </ng-container>
                 </div>
             </div>
