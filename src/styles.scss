@@ -7611,6 +7611,9 @@ h3.site_title {
 
 
 @media (max-width: 768px) {
+    .desktophide {
+        display: block;
+    }
     .home_banner .innerbanner_img {
         display: none;
     }
@@ -8304,7 +8307,131 @@ h3.site_title {
         background-color: #fff !important;
         color: #4343e8 !important;
     }
-    
+    .cities_carousel,
+    .feature_slides,
+    .space_carousel,
+    .ngucarousel-items,
+    .top-coliving-spaces,
+    .inspiration,
+    .partners .slider-on-mobile-view,
+    .logos_slider,
+    .step_scroller,
+    .virtual_cities_carousel,
+    .choose_item_slider,
+    .top_cities_carousel,
+    .office_top_properties_slider,
+    .places-tag-slider,
+    .visible-list,
+    .places-tag-slider,
+    .tab_slider {
+        -webkit-overflow-scrolling: touch !important;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+    .cities_carousel::-webkit-scrollbar,
+    .feature_slides::-webkit-scrollbar,
+    .space_carousel::-webkit-scrollbar,
+    .ngucarousel-items::-webkit-scrollbar,
+    .top-coliving-spaces::-webkit-scrollbar,
+    .inspiration::-webkit-scrollbar,
+    .partners .slider-on-mobile-view::-webkit-scrollbar,
+    .logos_slider::-webkit-scrollbar,
+    .step_scroller::-webkit-scrollbar,
+    .virtual_cities_carousel::-webkit-scrollbar,
+    .choose_item_slider::-webkit-scrollbar,
+    .top_cities_carousel::-webkit-scrollbar,
+    .office_top_properties_slider::-webkit-scrollbar,
+    .places-tag-slider::-webkit-scrollbar,
+    .visible-list::-webkit-scrollbar,
+    .places-tag-slider::-webkit-scrollbar,
+    .tab_slider::-webkit-scrollbar {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+    .virtual_cities_carousel {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    .virtual_cities_carousel .top-city-item {
+        display: inline-block;
+        margin: 0 5px;
+        flex: 0 0 71.42857142857143%;
+        width: 38%;
+        overflow: hidden;
+        position: relative !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+    }
+    .virtual_cities_carousel .top-city-img {
+        height: 260px;
+    }
+    .virtual_cities_carousel .top-city-img img {
+        height: 260px;
+    }
+    .builder_by_city_list {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .feature_builders_sec {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    .tab_slider {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        padding: 0px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    .tab_slider .col-md-4 {
+        display: inline-block;
+        margin: 0 5px;
+        flex: 0 0 71.42857142857143%;
+        width: 38%;
+        overflow: hidden;
+        position: relative !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+    }
+    .builder_item .builder_img {
+        height: 150px;
+    }
+    .builder_item .builder_img img {
+        height: 150px;
+    }
+    .builder_item .brand_content .title_img img {
+        width: 70px;
+    }
+    .builder_item .brand_content {
+        margin-top: 10px;
+        padding: 10px 0px;
+    }
+    .builder_item {
+        margin: 9px 0px;
+        min-height: 240px;
+    }
+    .builder_banner_area {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .top_builder_form {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+    .builder_banner_area .cta_content {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
     
 }
 
@@ -9161,46 +9288,7 @@ h3.site_title {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-    .cities_carousel,
-    .feature_slides,
-    .space_carousel,
-    .ngucarousel-items,
-    .top-coliving-spaces,
-    .inspiration,
-    .partners .slider-on-mobile-view,
-    .logos_slider,
-    .step_scroller,
-    .virtual_cities_carousel,
-    .choose_item_slider,
-    .top_cities_carousel,
-    .office_top_properties_slider,
-    .places-tag-slider,
-    .visible-list,
-    .places-tag-slider {
-        -webkit-overflow-scrolling: touch !important;
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
-    }
-    .cities_carousel::-webkit-scrollbar,
-    .feature_slides::-webkit-scrollbar,
-    .space_carousel::-webkit-scrollbar,
-    .ngucarousel-items::-webkit-scrollbar,
-    .top-coliving-spaces::-webkit-scrollbar,
-    .inspiration::-webkit-scrollbar,
-    .partners .slider-on-mobile-view::-webkit-scrollbar,
-    .logos_slider::-webkit-scrollbar,
-    .step_scroller::-webkit-scrollbar,
-    .virtual_cities_carousel::-webkit-scrollbar,
-    .choose_item_slider::-webkit-scrollbar,
-    .top_cities_carousel::-webkit-scrollbar,
-    .office_top_properties_slider::-webkit-scrollbar,
-    .places-tag-slider::-webkit-scrollbar,
-    .visible-list::-webkit-scrollbar,
-    .places-tag-slider::-webkit-scrollbar {
-        display: none !important;
-        height: 0 !important;
-        width: 0 !important;
-    }
+    
     .cofynd-desk {
         padding-bottom: 0px;
     }
@@ -11158,6 +11246,23 @@ h3.site_title {
     .no_result_banner .banner_content h2 {
         font-size: 24px !important;
         line-height: 34px !important;
+    }
+    .feature_builders_sec {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+    .tab_slider .col-md-4 {
+        width: 74% !important;
+        max-width: 74%;
+    }
+    .builder_banner .banner_img {
+        height: 200px;
+    }
+    .builder_banner .banner_img img {
+        height: 200px;
+    }
+    .builder_banner .banner_content {
+        top: -170px;
     }
 }
 
