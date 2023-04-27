@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class BuilderResiComCardComponent implements OnInit {
   @Input() subbuilder: any;
   @Input() buildername: string;
+  url: any;
 
   constructor(private router: Router) { }
 
@@ -16,6 +17,7 @@ export class BuilderResiComCardComponent implements OnInit {
   }
 
   goToDetail() {
-    this.router.navigate([`/${this.subbuilder.location.country.name.toLowerCase()}/${this.buildername.toLocaleLowerCase().replace(/ /g, "-").split('.').join("")}/${this.subbuilder.slug}`])
+    this.url = `/${this.subbuilder.location.country.name.toLowerCase()}/${this.buildername.toLocaleLowerCase().replace(/ /g, "-").split('.').join("")}/${this.subbuilder.slug}`;
+    window.open(this.url, '_blank');
   }
 }
