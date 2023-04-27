@@ -29,7 +29,7 @@
     </div>
 </section>
 
-<section class="details_area content">
+<section class="details_area content" *ngIf="!loading">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -226,7 +226,7 @@
 
 <hr class="divider_line">
 
-<section class="simlar_builders" *ngIf="builder && allResiProjects.length">
+<section class="simlar_builders" *ngIf="!loading && builder && allResiProjects.length">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8">
@@ -251,7 +251,7 @@
 
 <hr class="divider_line">
 
-<section class="simlar_builders" *ngIf="builder && allCommProjects.length">
+<section class="simlar_builders" *ngIf="!loading && builder && allCommProjects.length">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8">

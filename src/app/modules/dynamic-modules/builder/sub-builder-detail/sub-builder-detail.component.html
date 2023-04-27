@@ -1,4 +1,4 @@
-<section class="breadcrumbs_sec">
+<section class="breadcrumbs_sec" *ngIf="!loading && SubBuilder">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<section class="details_page_gallery">
+<section class="details_page_gallery" *ngIf="!loading && SubBuilder">
     <div class="container">
         <div class="row">
             <div class="relative" *ngIf="!loading">
@@ -30,7 +30,7 @@
     </div>
 </section>
 
-<section class="details_area content">
+<section class="details_area content" *ngIf="!loading && SubBuilder">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -275,12 +275,15 @@
 
                 <div class="row map-location">
                     <div class="col-md-12">
-                        <h3>Location of {{SubBuilder?.name}}</h3>
-                        <p class="location-icon"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{SubBuilder?.location?.address}}</p>
-                    </div>
-                    <div class="col-md-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4384.02468179727!2d77.06513306638949!3d28.400970259413807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d226f6c6b9b99%3A0x959ab1d7af7ad1c5!2sM3M%20Golf%20Estate!5e0!3m2!1sen!2sin!4v1664284150955!5m2!1sen!2sin"
-                            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <h2>Location of {{SubBuilder?.name}}</h2>
+                        <p class="location-icon" *ngIf="SubBuilder">
+                            <img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ SubBuilder.location.address }}
+                        </p>
+                        <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
+                        </div>
+                        <div class="desktophide">
+                            <p style="font-weight: 300;">Prime location with 24*7 surveillance</p>
+                        </div>
                     </div>
                 </div>
 
@@ -476,7 +479,7 @@
 
 <hr class="divider_line"> -->
 
-<section class="main_builder_about">
+<section class="main_builder_about" *ngIf="!loading && SubBuilder">
     <div class="container">
         <div class="row about-area">
             <div class="col-md-12">
@@ -503,7 +506,7 @@
 
 <hr class="divider_line">
 
-<section class="more_builders" *ngIf="moreProjects.length > 0">
+<section class="more_builders" *ngIf="!loading && moreProjects.length > 0">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
