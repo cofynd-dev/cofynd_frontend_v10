@@ -217,7 +217,7 @@ export class HomeComponent implements OnInit {
     {
       name: 'Gurugram',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8bca176f399f5a9323ba86cd37a0466e81e74b49.jpg',
       slug: 'gurugram',
       address: 'A Millennium City',
     },
