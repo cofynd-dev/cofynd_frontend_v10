@@ -300,6 +300,8 @@ export class SubBuilderDetailComponent implements OnInit {
       url: environment.appUrl + '/india/SubBuilder/' + SubBuilder.slug,
       image: this.shareImageUrl,
       type: 'website',
+      footer_title: SubBuilder.seo.footer_title ? SubBuilder.seo.footer_title : '',
+      footer_description: SubBuilder.seo.footer_description ? SubBuilder.seo.footer_description : '',
     };
     this.seoService.setData(this.seoData);
   }

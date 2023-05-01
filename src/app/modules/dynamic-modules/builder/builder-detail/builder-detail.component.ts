@@ -266,6 +266,8 @@ export class BuilderDetailComponent implements OnInit {
       url: environment.appUrl + '/india/builder/' + builder.slug,
       image: this.shareImageUrl,
       type: 'website',
+      footer_title: builder.seo.footer_title ? builder.seo.footer_title : '',
+      footer_description: builder.seo.footer_description ? builder.seo.footer_description : '',
     };
     this.seoService.setData(this.seoData);
   }
