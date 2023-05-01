@@ -82,12 +82,12 @@ export class HomePopularSpaceComponent implements OnInit, AfterViewInit {
     if (this.shouldCoLivingVisible && !this.popularCoLivingSpaces.length) {
       this.popularCoLivingSpaces = [
         {
-          address: 'Sector 69, Gurgaon',
+          address: 'Sector 15 Part 2, Gurugram',
           id: '5fa393a6c2502350f2500ff0',
           image:
-            'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0801ecc67c7d1f30fde3a58ba65f2919236f28a.jpg',
-          name: 'Housr Tulip Purple',
-          slug: 'housr-tulip-purple-gurgaon',
+            'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8bca176f399f5a9323ba86cd37a0466e81e74b49.jpg',
+          name: 'Flock Sector 15',
+          slug: 'flock-sector-15',
         },
         {
           address: '2nd Main Rd, Arekere, Bengaluru',
