@@ -274,12 +274,12 @@
     </div>
 </section>
 
-<section class="search-description" *ngIf="!loading && seoData">
+<section class="search-description" *ngIf="!loading && seoData && seoData.footer_description">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>{{ seoData?.title }}</h2>
-                <div [innerHTML]="seoData?.description"></div>
+                <h2>{{ seoData?.footer_title }}</h2>
+                <div [innerHTML]="seoData?.footer_description"></div>
             </div>
         </div>
     </div>
