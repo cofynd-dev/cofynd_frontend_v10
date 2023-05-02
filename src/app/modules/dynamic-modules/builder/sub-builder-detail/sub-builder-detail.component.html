@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.project_size">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/area-icon.svg" />
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/area-icon.svg" />
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.configuration">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/configuration-icon.svg" />
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.apartment_design">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/building-icon.svg" />
@@ -160,7 +160,7 @@
                 <hr class="divider_line">
 
 
-                <div class="row about-area">
+                <div class="row about-area" *ngIf="SubBuilder.description">
                     <div class="col-md-12">
                         <h3>About {{SubBuilder?.name}}</h3>
                     </div>
@@ -255,12 +255,12 @@
                                     <div class="floor_plan_title">
                                         <h4>{{item?.name}}</h4>
                                     </div>
-                                    <div class="floor-plan-details">
-                                        <div class="price">
+                                    <div class="floor-plan-details" *ngIf="item.rent_price || item.sale_price">
+                                        <div class="price" *ngIf="item.rent_price">
                                             <h5>Rent Price</h5>
                                             <p>₹ {{item?.rent_price}}/month</p>
                                         </div>
-                                        <div class="square-ft">
+                                        <div class="square-ft" *ngIf="item.sale_price">
                                             <h5>Sale Price</h5>
                                             <p>₹ {{item?.sale_price}}</p>
                                         </div>

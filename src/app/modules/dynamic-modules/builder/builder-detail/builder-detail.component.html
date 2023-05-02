@@ -43,7 +43,7 @@
                                 <h4>{{builder?.name | titlecase}}</h4>
                                 <p>{{builder?.establish_year}}</p>
                             </div>
-                            <div class="building_totle_project">
+                            <div class="building_totle_project" *ngIf="builder.projects">
                                 <h4>Projects</h4>
                                 <p>{{builder?.projects}}</p>
                             </div>
@@ -67,11 +67,11 @@
                                     </div>
                                     <div class="info">
                                         <h5>Starting Price</h5>
-                                        <p>{{builder?.overview?.starting_price}} cr</p>
+                                        <p>{{builder?.overview?.starting_price}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="builder.overview.configuration">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/configuration-icon.svg" />
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="builder.overview.area">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/area-icon.svg" />
@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="builder.overview.comercial_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/comercial-icon.svg" />
@@ -104,7 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6">
+                            <div class="col-md-4 col-6" *ngIf="builder.overview.residential_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/residential-icon.svg" />
