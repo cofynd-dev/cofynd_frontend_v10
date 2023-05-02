@@ -194,6 +194,8 @@ export class SubBuilderDetailComponent implements OnInit {
     this.SubBuilderService.getSubBuilderByName(SubBuilderId).subscribe(
       workspaceDetail => {
         this.SubBuilder = workspaceDetail.data;
+        console.log(this.SubBuilder);
+
         this.builderId = this.SubBuilder.builder.id;
         this.builderService.getBuilderByName(this.builderId).subscribe(
           workspaceDetail => {
@@ -236,7 +238,7 @@ export class SubBuilderDetailComponent implements OnInit {
             this.addMarker(this.SubBuilder.geometry.coordinates[1], this.SubBuilder.geometry.coordinates[0]);
           }
         }
-        if (this.SubBuilder && this.SubBuilder.images.length) {
+        if (this.SubBuilder && this.SubBuilder.images.length > 3) {
           this.shareImageUrl = this.SubBuilder.images[0].image.s3_link;
         }
       },
