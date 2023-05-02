@@ -1,4 +1,29 @@
-<section class="innerpage_banner virtual_office_banner hideOnMobile">
+<section class="page_banner virtual_banner mobilehide">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Virtual Office</span> in India</h1>
+                    <div class="city-list">
+                        <a *ngFor="let city of cities | slice:0:17" [routerLink]="city.name">
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                        </a>
+                        <button type="button" class="btn btn-primary more_cities_btn" data-toggle="modal" data-target="#exampleModal">
+                            <img src="assets/images/icons/more-icon.svg" alt="View All" /> View All
+                          </button>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="innerpage_banner virtual_office_banner hideOnMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -6,7 +31,6 @@
                     <div class="main_heading">
                         <h1>Find the Best<br /><span>Virtual Office</span> in India</h1>
                     </div>
-                    <!-- <p>Cofynd provides Virtual Office solutions across India. Virtual Office help you for GST Registration & expansion of your business across India at minimal cost with no fuss.</p> -->
                 </div>
 
                 <div class="city-list">
@@ -23,7 +47,7 @@
     <div class="innerbanner_img tabhide">
         <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg" alt="">
     </div>
-</section>
+</section> -->
 
 <!-- Modal -->
 <div class="all_cities_popup modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1479,7 +1503,6 @@
                     <div class="form_head">
                         <h3 class="desktophide">Yes, I'm interested in Virtual Office</h3>
                         <h3 class="mobilehide">Answers to your Virtual Office query</h3>
-                        <p class="mobilehide">Our team is ready to answer your questions.</p>
                     </div>
 
                     <div class="form_body">
@@ -1578,7 +1601,7 @@
                                     <button class="site_btn border_btn" type="submit">Submit</button>
                                 </div>
                                 <div class="col-md-12 col-12">
-                                    <p class="form_query_text">Need Assistance for Query? Call Now : <span><a href="tel:+919311328042">+91 93113 28042</a></span></p>
+                                    <p class="form_query_text">Need Assistance for Query? Call Now : <span><a href="tel:+919999108078">+91 9999 10 8078</a></span></p>
                                 </div>
                             </div>
                         </form>

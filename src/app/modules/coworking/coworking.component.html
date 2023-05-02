@@ -1,4 +1,32 @@
-<section class="innerpage_banner coworking_banner mobilehide">
+<section class="page_banner coworking_banner mobilehide">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coworking Spaces</span> in India</h1>
+                    
+                    <div class="city-list">
+                        <button (click)="searchCoworking()" type="button">
+                        <img src="/assets/images/home/near-me.svg"
+                            alt="'Office Space for Rent near me" />
+                        Near Me
+                        </button>
+                        <a *ngFor="let city of cities" [routerLink]="city.name">
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="innerpage_banner coworking_banner mobilehide">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -24,7 +52,7 @@
         <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg" alt="">
     </div>
 
-</section>
+</section> -->
 
 <!--------------------- Mobile Banner -------------------->
 
@@ -445,7 +473,6 @@
                     <div class="form_head">
                         <h3 class="desktophide">Yes, I'm interested in Coworking Space</h3>
                         <h3 class="mobilehide">Answers to your Coworking Space query</h3>
-                        <p class="mobilehide">Our team is ready to answer your questions.</p>
                     </div>
 
                     <div class="form_body">
