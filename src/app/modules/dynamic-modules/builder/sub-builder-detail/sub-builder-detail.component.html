@@ -5,8 +5,8 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item text-overflow">{{SubBuilder?.country_dbname | titlecase}}</li>
-                        <li class="breadcrumb-item text-overflow"><a [routerLink]="'/'+SubBuilder?.country_dbname.toLowerCase() + '/builder/' + SubBuilder?.builder.slug">{{SubBuilder?.builder?.name | titlecase}}</a></li>
+                        <li class="breadcrumb-item text-overflow">{{SubBuilder?.location?.country.name | titlecase}}</li>
+                        <li class="breadcrumb-item text-overflow"><a [routerLink]="'/'+SubBuilder?.location?.country.name.toLowerCase() + '/builder/' + SubBuilder?.builder.slug">{{SubBuilder?.builder?.name | titlecase}}</a></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{SubBuilder?.name | titlecase}}</li>
                     </ol>
                 </nav>
@@ -15,16 +15,16 @@
     </div>
 </section>
 
-<section class="details_page_gallery" *ngIf="!loading && SubBuilder">
+<section class="details_page_gallery" *ngIf="!loading && SubBuilder && SubBuilder.images.length > 3">
     <div class="container">
         <div class="row">
             <div class="relative" *ngIf="!loading">
                 <app-social-share class="hideOnMobile" *ngIf="SubBuilder" [title]="SubBuilder.name" [description]="SubBuilder.description" [image]="shareImageUrl">
                 </app-social-share>
-                <app-workspace-banner *ngIf="SubBuilder && SubBuilder.images.length" [images]="SubBuilder.images" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name" [favoriteOption]="false">
+                <app-workspace-banner *ngIf="SubBuilder && SubBuilder.images.length > 3" [images]="SubBuilder.images" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name" [favoriteOption]="false">
                 </app-workspace-banner>
-                <app-workspace-banner-blank *ngIf="SubBuilder && !SubBuilder.images.length" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name">
-                </app-workspace-banner-blank>
+                <!-- <app-workspace-banner-blank *ngIf="SubBuilder && !SubBuilder.images.length < 3" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name">
+                </app-workspace-banner-blank> -->
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
 
                 <hr class="divider_line">
 
-                <div class="row overview_area">
+                <div class="row overview_area" *ngIf="SubBuilder.overview">
                     <div class="col-md-12">
                         <h3>Overview</h3>
                         <div class="row">
@@ -103,7 +103,7 @@
                                     <div class="icon">
                                         <img src="assets/images/icons/project-type-icon.svg" />
                                     </div>
-                                    <div class="info">
+                                    <div class="info" *ngIf="SubBuilder.overview.project_type">
                                         <h5>Project Type</h5>
                                         <p>{{SubBuilder?.overview?.project_type | titlecase}}</p>
                                     </div>
@@ -171,7 +171,7 @@
 
                 <hr class="divider_line">
 
-                <div class="row amenities_section" *ngIf="SubBuilder?.amenties.length">
+                <div class="row amenities_section" *ngIf="SubBuilder?.amenties.length > 0">
                     <div class="col-md-12">
                         <h3>{{SubBuilder?.name}} Amenities</h3>
                     </div>
@@ -203,7 +203,7 @@
 
                 <hr class="divider_line">
 
-                <div class="row floor-plan" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
+                <div class="row floor-plan" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
                     <div class="col-md-12">
                         <h3>{{SubBuilder?.name}} Configuration</h3>
                     </div>
@@ -235,7 +235,7 @@
 
                 <hr class="divider_line">
 
-                <div class="row floor-plan">
+                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0">
                     <div class="col-md-12">
                         <h3>Floor Plans {{SubBuilder?.name}}</h3>
                     </div>
@@ -487,17 +487,17 @@
                     <div class="logo_col">
                         <img [src]="builderLogoUrl" alt="M3M">
                     </div>
-                    <div class="building_experience">
-                        <h4>{{SubBuilder?.builder?.name | titlecase}}</h4>
-                        <p>{{SubBuilder?.builder?.establish_year}}</p>
+                    <div class="building_experience" *ngIf="SubBuilder?.builder">
+                        <h4 *ngIf="SubBuilder?.builder?.name">{{SubBuilder?.builder?.name | titlecase}}</h4>
+                        <p *ngIf="SubBuilder?.builder?.establish_year">{{SubBuilder?.builder?.establish_year}}</p>
                     </div>
-                    <div class="building_totle_project">
+                    <div class="building_totle_project" *ngIf="SubBuilder?.builder?.projects">
                         <h4>Projects</h4>
                         <p>{{SubBuilder?.builder?.projects}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="SubBuilder?.builder?.description">
                 <p>{{SubBuilder?.builder?.description}}</p>
             </div>
         </div>
