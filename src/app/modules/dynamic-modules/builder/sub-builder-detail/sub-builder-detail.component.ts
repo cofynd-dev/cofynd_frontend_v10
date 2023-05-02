@@ -194,8 +194,6 @@ export class SubBuilderDetailComponent implements OnInit {
     this.SubBuilderService.getSubBuilderByName(SubBuilderId).subscribe(
       workspaceDetail => {
         this.SubBuilder = workspaceDetail.data;
-        console.log(this.SubBuilder);
-
         this.builderId = this.SubBuilder.builder.id;
         this.builderService.getBuilderByName(this.builderId).subscribe(
           workspaceDetail => {
