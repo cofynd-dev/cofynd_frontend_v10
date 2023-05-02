@@ -1,4 +1,27 @@
-<section class="innerpage_banner coliving_banner mobilehide">
+<section class="page_banner coliving_banner mobilehide">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12 order-2 order-md-1">
+                <div class="banner_content">
+                    <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coliving Spaces</span> in India</h1>
+                    
+                    <div class="city-list">
+                        <a *ngFor="let city of cities" [routerLink]="city.name">
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                        </a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="banner_img">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="innerpage_banner coliving_banner mobilehide">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -19,7 +42,7 @@
         <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="">
     </div>
 
-</section>
+</section> -->
 
 <!--------------------- Mobile Banner -------------------->
 
