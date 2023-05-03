@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<section class="details_page_gallery" *ngIf="!loading && SubBuilder && SubBuilder.images.length > 3">
+<section class="details_page_gallery" *ngIf="!loading && SubBuilder">
     <div class="container">
         <div class="row">
             <div class="relative" *ngIf="!loading">
@@ -23,8 +23,8 @@
                 </app-social-share>
                 <app-workspace-banner *ngIf="SubBuilder && SubBuilder.images.length > 3" [images]="SubBuilder.images" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name" [favoriteOption]="false">
                 </app-workspace-banner>
-                <!-- <app-workspace-banner-blank *ngIf="SubBuilder && !SubBuilder.images.length < 3" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name">
-                </app-workspace-banner-blank> -->
+                <app-workspace-banner-blank *ngIf="SubBuilder && SubBuilder.images.length < 3" [workspaceId]="SubBuilder.id" [title]="SubBuilder.name">
+                </app-workspace-banner-blank>
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
                     </div>
                 </div> -->
 
-                <hr class="divider_line"  *ngIf="SubBuilder.overview">
+                <hr class="divider_line" *ngIf="SubBuilder.overview">
 
                 <div class="row overview_area" *ngIf="SubBuilder.overview">
                     <div class="col-md-12">
@@ -395,56 +395,26 @@
                     </div>
                 </div>
 
-                <!-- <hr class="divider_line"> -->
+                <hr class="divider_line">
 
-                <!-- <div class="row near_places">
+                <div class="row near_places" *ngIf="SubBuilder?.location?.near_by_places.length > 0">
                     <div class="col-md-12 places-nearby">
                         <h3 class="heading">Nearby</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="places-tag-slider">
-                            <div class="places-tag-item">
+                            <div class="places-tag-item" *ngFor="let near of SubBuilder.location.near_by_places">
                                 <div class="tag-icon">
-                                    <img class="img-fluid" src="../../../../assets/images/icons/metro-icon.svg" />
+                                    <img class="img-fluid" [src]="near?.image?.s3_link" />
                                 </div>
                                 <div class="tag-text">
-                                    <h5>Sector 55-56 Metro Station</h5>
-                                    <p>2.6 Km</p>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="tag-icon">
-                                    <img class="img-fluid" src="../../../../assets/images/icons/airport-icon.svg">
-                                </div>
-                                <div class="tag-text">
-                                    <h5>IGI Airport</h5>
-                                    <p>4.6 Km</p>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="tag-icon">
-                                    <img class="img-fluid" src="../../../../assets/images/icons/school-icon.svg">
-                                </div>
-                                <div class="tag-text">
-                                    <h5>DPS International School</h5>
-                                    <p>4.9 Km</p>
-                                </div>
-                            </div>
-
-                            <div class="places-tag-item">
-                                <div class="tag-icon">
-                                    <img class="img-fluid" src="../../../../assets/images/icons/mall-icon.svg">
-                                </div>
-                                <div class="tag-text">
-                                    <h5>Raheja Mall</h5>
-                                    <p>4.9 Km</p>
+                                    <h5>{{near?.lankmark}}</h5>
+                                    <p>{{near?.distance}} Km</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="enquiry_section">
