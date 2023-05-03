@@ -3061,7 +3061,11 @@ h3.site_title {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .configuration_list {
+	display: -webkit-box;
 	display: flex;
+	overflow: hidden;
+	overflow-x: scroll;
+	padding: 20px 0px;
 }
 .configuration_item {
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -4460,13 +4464,13 @@ h3.site_title {
     margin-bottom: 0px;
 }
 
-.visible-list {
+.visible-list, .configuration_list {
     -webkit-overflow-scrolling: touch !important;
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
 }
 
-.visible-list::-webkit-scrollbar {
+.visible-list::-webkit-scrollbar, .configuration_list::-webkit-scrollbar {
     display: none !important;
     height: 0 !important;
     width: 0 !important;
