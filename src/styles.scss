@@ -3904,6 +3904,9 @@ h3.site_title {
 .property_item .property-foot .price .disable_price {
 	color: #AFAFAF !important;
 }
+.property_item .property-foot.align-items-not-end .sale_price {
+	text-align: left;
+}
 
 .property_item .property-foot .button {
     width: 100%;
