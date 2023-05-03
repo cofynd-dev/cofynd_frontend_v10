@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line"  *ngIf="SubBuilder.overview">
 
                 <div class="row overview_area" *ngIf="SubBuilder.overview">
                     <div class="col-md-12">
@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder.description">
 
 
                 <div class="row about-area" *ngIf="SubBuilder.description">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder?.amenties.length > 0">
 
                 <div class="row amenities_section" *ngIf="SubBuilder?.amenties.length > 0">
                     <div class="col-md-12">
@@ -201,7 +201,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
                     <div class="col-md-12">
@@ -433,51 +433,7 @@
     </div>
 </section>
 
-<hr class="divider_line">
-
-<!-- <section class="similar_spaces_sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="h3_heading">Office Space For Rent in Emaar Capital Tower</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="properties_slider">
-                    <app-flat-space-card></app-flat-space-card>
-                    <app-flat-space-card></app-flat-space-card>
-                    <app-flat-space-card></app-flat-space-card>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<hr class="divider_line">
-
-<section class="simlar_builders">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="h3_heading">Similar Builders Projects</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="properties_slider">
-                    <app-flat-space-card></app-flat-space-card>
-                    <app-flat-space-card></app-flat-space-card>
-                    <app-flat-space-card></app-flat-space-card>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<hr class="divider_line"> -->
+<hr class="divider_line" *ngIf="!loading && SubBuilder">
 
 <section class="main_builder_about" *ngIf="!loading && SubBuilder">
     <div class="container">
@@ -504,7 +460,7 @@
     </div>
 </section>
 
-<hr class="divider_line">
+<hr class="divider_line" *ngIf="!loading && moreProjects.length > 0">
 
 <section class="more_builders" *ngIf="!loading && moreProjects.length > 0">
     <div class="container">
