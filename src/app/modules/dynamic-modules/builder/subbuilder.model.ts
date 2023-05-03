@@ -88,6 +88,13 @@ export class Location {
   metro_detail: MetroDetail = new MetroDetail();
   address: string;
   shuttle_point: ShuttlePoint = new ShuttlePoint();
+  near_by_places: NearBYPlaces[] = [];
+}
+
+export class NearBYPlaces {
+  lankmark: String;
+  distance: String;
+  image: any
 }
 
 export class MetroDetail {
