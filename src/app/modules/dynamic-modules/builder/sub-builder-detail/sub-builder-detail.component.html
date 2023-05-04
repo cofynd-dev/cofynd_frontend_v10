@@ -38,7 +38,6 @@
                 <div class="row">
 
                     <div class="col-md-12">
-
                         <div class="space_head">
                             <div class="heading-info">
                                 <h2>{{SubBuilder?.name | titlecase}}</h2>
@@ -48,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-2">
+                <!-- <div class="row mt-2">
                     <div class="col-md-12">
                         <div class="flat-properties">
                             <div class="flat-icons-box">
@@ -90,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <hr class="divider_line" *ngIf="SubBuilder.overview">
 
@@ -131,7 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.configuration">
+                            <!-- <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.configuration">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/configuration-icon.svg" />
@@ -152,8 +151,117 @@
                                         <p>{{SubBuilder?.overview?.apartment_design | titlecase}}</p>
                                     </div>
                                 </div>
+                            </div> -->
+                        </div>
+
+                        <!----------------- For residential --------------->
+
+                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/ready-to-move.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Ready To Move</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>RERA Approved</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Zero Brokerage</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <!----------------- For commercial --------------->
+
+                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'commercial'">
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/ready-to-move.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Ready To Move</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/flexible-lease-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Flexible Lease</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Zero Brokerage</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!----------------- For residential/commercial --------------->
+
+                        <!-- <div class="row">
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/flexible-lease-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Flexible Lease</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>RERA Approved</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Zero Brokerage</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
                     </div>
                 </div>
 
