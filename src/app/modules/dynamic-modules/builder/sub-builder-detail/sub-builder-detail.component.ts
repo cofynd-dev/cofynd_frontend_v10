@@ -72,6 +72,12 @@ export class SubBuilderDetailComponent implements OnInit {
   floorPlan: any = [];
   builderLogoUrl: string;
   builderId: any;
+  residentailPlans: any = [];
+  commercialPlans: any = [];
+  residentailFloorPlan: any = [];
+  commercialFloorPlan: any = [];
+  resiPlanId: any;
+  commPlanId: any;
 
   constructor(private SubBuilderService: SubBuilderService,
     private activatedRoute: ActivatedRoute,
@@ -206,6 +212,14 @@ export class SubBuilderDetailComponent implements OnInit {
         if (this.SubBuilder) {
           this.videoUrl = this.SubBuilder.builder.video_link ? this.SubBuilder.builder.video_link : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
           if (this.SubBuilder.plans.length > 0) {
+            this.residentailPlans = this.SubBuilder.plans.filter((item: any) => { return item.project_type == 'residential' });
+            this.commercialPlans = this.SubBuilder.plans.filter((item: any) => { return item.project_type == 'commercial' });
+            if (this.residentailPlans.length > 0) {
+              this.residentailFloorPlanClick(this.residentailPlans[0].planId['id'])
+            }
+            if (this.commercialPlans.length > 0) {
+              this.commercialFloorPlanClick(this.commercialPlans[0].planId['id'])
+            }
             this.planId = this.SubBuilder.plans[0].planId['id'];
             this.floorPlanClick(this.planId)
           }
@@ -266,6 +280,22 @@ export class SubBuilderDetailComponent implements OnInit {
     this.floorPlan = this.SubBuilder.plans.filter((x: any) => x.planId.id == plan);
     if (this.floorPlan.length > 0) {
       this.floorPlan = this.floorPlan[0]['floor_plans'];
+    }
+  }
+
+  residentailFloorPlanClick(plan) {
+    this.resiPlanId = plan;
+    this.residentailFloorPlan = this.residentailPlans.filter((x: any) => x.planId.id == plan);
+    if (this.residentailFloorPlan.length > 0) {
+      this.residentailFloorPlan = this.residentailFloorPlan[0]['floor_plans'];
+    }
+  }
+
+  commercialFloorPlanClick(plan) {
+    this.commPlanId = plan;
+    this.commercialFloorPlan = this.commercialPlans.filter((x: any) => x.planId.id == plan);
+    if (this.commercialFloorPlan.length > 0) {
+      this.commercialFloorPlan = this.commercialFloorPlan[0]['floor_plans'];
     }
   }
 
