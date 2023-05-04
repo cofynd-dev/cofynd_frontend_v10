@@ -47,50 +47,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="row mt-2">
-                    <div class="col-md-12">
-                        <div class="flat-properties">
-                            <div class="flat-icons-box">
-                                <div class="flat-properties-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/ready-to-move.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Ready To Move</span>
-                                    </div>
-                                </div>
-
-                                <div class="flat-properties-icons" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>RERA Approved</span>
-                                    </div>
-                                </div>
-
-                                <div class="flat-properties-icons" *ngIf="SubBuilder?.overview?.project_type === 'commercial'">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="../../../../assets/images/icons/furnished-status-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Fully Furnished</span>
-                                    </div>
-                                </div>
-
-                                <div class="flat-properties-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <span>Zero Brokerage</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
                 <hr class="divider_line" *ngIf="SubBuilder.overview">
 
                 <div class="row overview_area" *ngIf="SubBuilder.overview">
@@ -104,7 +60,8 @@
                                     </div>
                                     <div class="info" *ngIf="SubBuilder.overview.project_type">
                                         <h5>Project Type</h5>
-                                        <p>{{SubBuilder?.overview?.project_type | titlecase}}</p>
+                                        <p *ngIf="SubBuilder?.overview?.project_type !== 'both'">{{SubBuilder?.overview?.project_type | titlecase}}</p>
+                                        <p *ngIf="SubBuilder?.overview?.project_type == 'both'">Residential-Commercial</p>
                                     </div>
                                 </div>
                             </div>
@@ -130,28 +87,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.configuration">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="assets/images/icons/configuration-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Configuration</h5>
-                                        <p>{{SubBuilder?.overview?.configuration | titlecase}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.apartment_design">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img src="assets/images/icons/building-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Apartment Design</h5>
-                                        <p>{{SubBuilder?.overview?.apartment_design | titlecase}}</p>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
 
                         <!----------------- For residential --------------->
@@ -228,7 +163,7 @@
 
                         <!----------------- For residential/commercial --------------->
 
-                        <!-- <div class="row">
+                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'both'">
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
@@ -259,9 +194,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-
-
+                        </div>
                     </div>
                 </div>
 
@@ -343,7 +276,7 @@
 
                 <hr class="divider_line">
 
-                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0">
+                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
                     <div class="col-md-12">
                         <h3>Floor Plans {{SubBuilder?.name}}</h3>
                     </div>
@@ -357,8 +290,91 @@
                         <div class="properties_item_slider">
                             <div class="plans_slider">
                                 <div class="plan_item" *ngFor="let item of floorPlan">
-                                    <div class="floor-plan-img">
+                                    <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
                                         <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
+                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor_plan_title">
+                                        <h4>{{item?.name}}</h4>
+                                    </div>
+                                    <div class="floor-plan-details" *ngIf="item.rent_price || item.sale_price">
+                                        <div class="price" *ngIf="item.rent_price">
+                                            <h5>Rent Price</h5>
+                                            <p>₹ {{item?.rent_price}}/month</p>
+                                        </div>
+                                        <div class="square-ft" *ngIf="item.sale_price">
+                                            <h5>Sale Price</h5>
+                                            <p>₹ {{item?.sale_price}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && residentailPlans.length > 0">
+                    <div class="col-md-12">
+                        <h3>Residential Floor Plans {{SubBuilder?.name}}</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="tab_area">
+                            <ng-container *ngFor="let item of residentailPlans">
+                                <div class="tab_item" (click)="residentailFloorPlanClick(item?.planId?.id)" [ngClass]="{'active': resiPlanId === item?.planId?.id }"><button>{{item?.planId?.name}} Floor Plan</button></div>
+                            </ng-container>
+                        </div>
+
+                        <div class="properties_item_slider">
+                            <div class="plans_slider">
+                                <div class="plan_item" *ngFor="let item of residentailFloorPlan">
+                                    <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
+                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor_plan_title">
+                                        <h4>{{item?.name}}</h4>
+                                    </div>
+                                    <div class="floor-plan-details" *ngIf="item.rent_price || item.sale_price">
+                                        <div class="price" *ngIf="item.rent_price">
+                                            <h5>Rent Price</h5>
+                                            <p>₹ {{item?.rent_price}}/month</p>
+                                        </div>
+                                        <div class="square-ft" *ngIf="item.sale_price">
+                                            <h5>Sale Price</h5>
+                                            <p>₹ {{item?.sale_price}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
+                    <div class="col-md-12">
+                        <h3>Commercial Floor Plans {{SubBuilder?.name}}</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="tab_area">
+                            <ng-container *ngFor="let item of commercialPlans">
+                                <div class="tab_item" (click)="commercialFloorPlanClick(item?.planId?.id)" [ngClass]="{'active': commPlanId === item?.planId?.id }"><button>{{item?.planId?.name}} Floor Plan</button></div>
+                            </ng-container>
+                        </div>
+
+                        <div class="properties_item_slider">
+                            <div class="plans_slider">
+                                <div class="plan_item" *ngFor="let item of commercialFloorPlan">
+                                    <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                    </div>
+                                    <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
+                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
                                     </div>
                                     <div class="floor_plan_title">
                                         <h4>{{item?.name}}</h4>
