@@ -5,9 +5,9 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item text-overflow">{{SubBuilder?.location?.country.name | titlecase}}</li>
-                        <li class="breadcrumb-item text-overflow"><a [routerLink]="'/'+SubBuilder?.location?.country.name.toLowerCase() + '/builder/' + SubBuilder?.builder.slug">{{SubBuilder?.builder?.name | titlecase}}</a></li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{SubBuilder?.name | titlecase}}</li>
+                        <li class="breadcrumb-item text-overflow">{{SubBuilder?.location?.country.name}}</li>
+                        <li class="breadcrumb-item text-overflow"><a [routerLink]="'/'+SubBuilder?.location?.country.name.toLowerCase() + '/builder/' + SubBuilder?.builder.slug">{{SubBuilder?.builder?.name}}</a></li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{SubBuilder?.name}}</li>
                     </ol>
                 </nav>
             </div>
@@ -40,7 +40,7 @@
                     <div class="col-md-12">
                         <div class="space_head">
                             <div class="heading-info">
-                                <h2>{{SubBuilder?.name | titlecase}}</h2>
+                                <h2>{{SubBuilder?.name}}</h2>
                                 <p><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{SubBuilder?.location?.address}}</p>
                             </div>
                         </div>
@@ -274,7 +274,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
                     <div class="col-md-12">
@@ -291,7 +291,7 @@
                             <div class="plans_slider">
                                 <div class="plan_item" *ngFor="let item of floorPlan">
                                     <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b514199eb59c37cc4e1a72983059a86e8407e5e.png" alt="9.jpg" />
                                     </div>
                                     <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
                                         <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
