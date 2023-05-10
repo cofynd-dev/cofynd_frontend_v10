@@ -57,6 +57,12 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   typeFilter = TypeFilter;
   officeType: string;
   enquiryType: number = ENQUIRY_TYPES.OFFICE;
+  minPrice: any;
+  maxPrice: any;
+  roomType: any;
+  filterValue: any;
+  selectedValue: any = 'Select Price';
+  selectedOption: any = 'SortBy'
 
 
   constructor(
@@ -130,6 +136,19 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
       }
     }
   }
+
+  sortByHighLow(sortByLowToHigh) {
+    this.loading = true;
+    this.selectedOption = sortByLowToHigh;
+    if (sortByLowToHigh === 'Low to High') {
+      this.offices = this.offices.sort((a, b) => a.starting_price - b.starting_price);
+      this.loading = false;
+    } if (sortByLowToHigh === 'High to Low') {
+      this.offices = this.offices.sort((a, b) => b.starting_price - a.starting_price);
+      this.loading = false;
+    }
+  }
+
   setHeaderScript(cityScript) {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
@@ -151,6 +170,46 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     ];
   }
 
+  onPriceSelect(value) {
+    this.selectedValue = value;
+    if (value === 'Select Price') {
+      this.minPrice = null;
+      this.maxPrice = null;
+    }
+    if (value === 'Less than ₹10,000') {
+      this.minPrice = 0;
+      this.maxPrice = 10000;
+      localStorage.setItem('minPrice', '0');
+      localStorage.setItem('maxPrice', '10000');
+    }
+    if (value === '₹10,000 - ₹20,000') {
+      this.minPrice = 10000;
+      this.maxPrice = 20000;
+      localStorage.setItem('minPrice', '10000');
+      localStorage.setItem('maxPrice', '20000');
+    }
+    if (value === '₹20,000 - ₹30,000') {
+      this.minPrice = 20000;
+      this.maxPrice = 30000;
+      localStorage.setItem('minPrice', '20000');
+      localStorage.setItem('maxPrice', '30000');
+    }
+    if (value === 'More than ₹30,000') {
+      this.minPrice = 30000;
+      this.maxPrice = 300000;
+      localStorage.setItem('minPrice', '30000');
+      localStorage.setItem('maxPrice', '300000');
+    }
+    this.apply();
+  }
+
+  apply() {
+    this.queryParams['minPrice'] = this.minPrice;
+    this.queryParams['maxPrice'] = this.maxPrice;
+    this.queryParams['space_type'] = this.roomType;
+    this.getOfficeList(this.queryParams);
+  }
+
   getOfficeList(param: {}) {
     this.loading = true;
     this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allOffices => {
@@ -159,7 +218,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         office =>
           (office.starting_price = office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft),
       );
-
+      this.sortByHighLow(this.selectedOption);
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
 

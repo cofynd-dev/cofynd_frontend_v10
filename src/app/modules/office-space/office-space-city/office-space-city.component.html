@@ -13,6 +13,11 @@
                 </div>
                 <div class="col-3">
                     <div class="filter_col">
+                        <select class="form-select" style="cursor: pointer;" name="price" [(ngModel)]="selectedOption" aria-label="Default select example" (change)="sortByHighLow($event.target.value)">
+                            <option value="SortBy" disabled>Sort By</option>
+                            <option value="Low to High">Low to High</option>
+                            <option value="High to Low">High to Low</option>
+                        </select>
                     </div>
                 </div>
             </div>

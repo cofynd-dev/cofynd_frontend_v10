@@ -61,6 +61,8 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
   priceFilter = PriceFilterData;
   sizeFilter = SizeFilterData;
   typeFilter = TypeFilter;
+  selectedOption: any = 'SortBy'
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -120,6 +122,19 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
       });
   }
 
+  sortByHighLow(sortByLowToHigh) {
+
+    this.loading = true;
+    this.selectedOption = sortByLowToHigh;
+    if (sortByLowToHigh === 'Low to High') {
+      this.offices = this.offices.sort((a, b) => a.starting_price - b.starting_price);
+      this.loading = false;
+    } if (sortByLowToHigh === 'High to Low') {
+      this.offices = this.offices.sort((a, b) => b.starting_price - a.starting_price);
+      this.loading = false;
+    }
+  }
+
   createBreadcrumb() {
     this.breadcrumbs = [
       {
@@ -142,9 +157,13 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
 
   getOfficeList(param: {}) {
     this.loading = true;
-    this.officeSpaceService.getPopularOffices(sanitizeParams(param)).subscribe(allOffices => {
+    this.officeSpaceService.getPopularOffices(sanitizeParams(param)).subscribe((allOffices: any) => {
       this.offices = allOffices.data;
-
+      this.offices.map(
+        office =>
+          (office.starting_price = office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft),
+      );
+      this.sortByHighLow(this.selectedOption);
       if (allOffices.data.length) {
         this.offices[0].images.map((image, index) => {
           image.image.alt = this.IMAGE_STATIC_ALT[index];
