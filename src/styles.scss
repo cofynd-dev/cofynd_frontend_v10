@@ -4677,9 +4677,10 @@ h3.site_title {
 }
 
 .flat-properties {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 25px 20px;
-    border-radius: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 25px 20px;
+	border-radius: 20px;
+	margin-top: 20px;
 }
 
 .flat-icons-box {
@@ -4713,7 +4714,14 @@ h3.site_title {
 .flat_page_banner .banner_content p {
 	margin-bottom: 40px;
 }
-
+.more_apartments_sec {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.more_apartments_near_sec {
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
 .how_to_start_sec {
     padding-top: 150px;
     padding-bottom: 50px;

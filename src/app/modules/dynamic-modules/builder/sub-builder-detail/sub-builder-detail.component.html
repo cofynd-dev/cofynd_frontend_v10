@@ -354,7 +354,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
                     <div class="col-md-12">
@@ -411,7 +411,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="SubBuilder?.location?.near_by_places.length > 0">
 
                 <div class="row near_places" *ngIf="SubBuilder?.location?.near_by_places.length > 0">
                     <div class="col-md-12 places-nearby">
