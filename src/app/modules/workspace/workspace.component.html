@@ -18,15 +18,17 @@
 <section class="details_page_gallery">
     <div class="container">
         <div class="row">
-            <div class="relative" *ngIf="!loading">
-                <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
-                </app-social-share>
+            <div class="col-md-12">
+                <div class="relative" *ngIf="!loading">
+                    <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                    </app-social-share>
 
-                <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
-                </app-workspace-banner>
+                    <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                    </app-workspace-banner>
 
-                <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
-                </app-workspace-banner-blank>
+                    <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                    </app-workspace-banner-blank>
+                </div>
             </div>
         </div>
     </div>

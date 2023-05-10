@@ -15,7 +15,7 @@
             <ng-container *ngIf="subbuilder.plans.length > 0">
                 <p class="capacity"><img src="/assets/images/icons/bhk-icon.svg" alt="wifi" class="img-fluid">
                     <ng-container *ngFor="let plan of subbuilder.plans; let i = index">
-                        <span *ngIf="i > 0">-</span> {{plan.planId.name}}
+                        <span *ngIf="i > 0">, </span> {{plan.planId.name}}
                     </ng-container>
                 </p>
             </ng-container>

@@ -5,8 +5,8 @@
                 <nav *ngIf="!loading && builder &&  builder.location">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item text-overflow">{{builder?.location?.country?.name | titlecase}}</li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{builder?.name | titlecase}}</li>
+                        <li class="breadcrumb-item text-overflow">{{builder?.location?.country?.name}}</li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{builder?.name}}</li>
                     </ol>
                 </nav>
             </div>
@@ -40,7 +40,7 @@
                                 <img [src]="builder?.builder_logo?.s3_link" alt="M3M">
                             </div>
                             <div class="building_experience">
-                                <h4>{{builder?.name | titlecase}}</h4>
+                                <h4>{{builder?.name}}</h4>
                                 <p>{{builder?.establish_year}}</p>
                             </div>
                             <div class="building_totle_project" *ngIf="builder.projects">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="builder?.overview">
 
                 <div class="row overview_area" *ngIf="builder?.overview">
                     <div class="col-md-12">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <hr class="divider_line">
+                <hr class="divider_line" *ngIf="builder?.video_link && safeVideoUrl">
 
                 <div class="row" *ngIf="builder?.video_link && safeVideoUrl">
                     <div class="col-md-12">

@@ -16,7 +16,7 @@
 </section>
 
 <section class="city_title_area">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="city_page_title">
@@ -84,7 +84,7 @@
               <select class="form-select"
                 aria-label="Default select example">
                 <option selected
-                  disabled>All</option>
+                  disabled>Any Price</option>
                 <option value="Less Than ₹10,000">Less Than ₹10,000</option>
                 <option value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</option>
                 <option value="₹20,000 - ₹30,000">₹20,000 - ₹30,000</option>
@@ -97,7 +97,7 @@
               <select class="form-select"
                 aria-label="Default select example">
                 <option selected
-                  disabled>Select Type</option>
+                  disabled>Select BHK Type</option>
                 <option value="1 BHK">1 BHK</option>
                 <option value="2 BHK">2 BHK</option>
                 <option value="3 BHK">3 BHK</option>
@@ -110,14 +110,8 @@
               <h4>Property Status</h4>
               <div class="check-group">
                 <div class="form-check form-check-inline">
-                  <input type="radio"
-                    name="property_status"
-                    id="property_status1"
-                    value="Semi-Furnished"
-                    formcontrolname="property_status"
-                    class="form-check-input ng-untouched ng-pristine ng-invalid">
-                  <label for="property_status1"
-                    class="form-check-label">Semi-Furnished</label>
+                  <input type="radio" name="property_status" id="property_status1" value="Semi-Furnished" formcontrolname="property_status" class="form-check-input ng-untouched ng-pristine ng-invalid">
+                  <label for="property_status1" class="form-check-label">Semi-Furnished</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input type="radio"
@@ -193,11 +187,11 @@
           <div class="filter_footer">
             <div class="row">
               <div class="col-md-6 text-center">
-                <a class="btn site_btn">Apply</a>
+                <a class="btn site_btn">Clear All</a>
               </div>
               <div class="col-md-6 text-center">
                 <button class="btn site_btn border_btn"
-                  type="button">Cancel</button>
+                  type="button">Apply</button>
               </div>
             </div>
           </div>
