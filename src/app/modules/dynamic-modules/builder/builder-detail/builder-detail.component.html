@@ -224,7 +224,7 @@
     </div>
 </section>
 
-<hr class="divider_line">
+<hr class="divider_line" *ngIf="!loading && builder && allResiProjects.length">
 
 <section class="simlar_builders" *ngIf="!loading && builder && allResiProjects.length">
     <div class="container">
@@ -249,7 +249,7 @@
     </div>
 </section>
 
-<hr class="divider_line">
+<hr class="divider_line" *ngIf="!loading && builder && allCommProjects.length">
 
 <section class="simlar_builders" *ngIf="!loading && builder && allCommProjects.length">
     <div class="container">

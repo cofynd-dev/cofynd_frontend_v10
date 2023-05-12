@@ -334,7 +334,7 @@ export class BuilderDetailComponent implements OnInit {
         name: this.enterpriseFormGroup.controls['name'].value,
       },
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Builder Space'
+      mx_Space_Type: 'Web Builder'
     };
     this.userService.createLead(object).subscribe(
       () => {
