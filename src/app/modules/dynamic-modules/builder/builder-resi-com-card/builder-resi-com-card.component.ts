@@ -17,7 +17,7 @@ export class BuilderResiComCardComponent implements OnInit {
   }
 
   goToDetail() {
-    this.url = `/${this.subbuilder.location.country.name.toLowerCase()}/${this.buildername.toLocaleLowerCase().replace(/ /g, "-").split('.').join("")}/${this.subbuilder.slug}`;
+    this.url = `/${this.subbuilder.location.country.name.toLowerCase()}/${this.subbuilder.builder.slug}/${this.subbuilder.slug}`;
     window.open(this.url, '_blank');
   }
 }
