@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
+                            <!-- <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
                                 <div class="overview-icons">
                                     <div class="icon">
                                         <img src="assets/images/icons/area-icon.svg" />
@@ -86,12 +86,53 @@
                                         <p>{{SubBuilder?.overview?.build_up_area | titlecase}}</p>
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img src="assets/images/icons/area-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Project Status</h5>
+                                        <p>Ready To Move</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Sale & Rent</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>RERA Approved</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="overview-icons">
+                                    <div class="icon">
+                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
+                                    </div>
+                                    <div class="info">
+                                        <h5>Zero Brokerage</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!----------------- For residential --------------->
 
-                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
+                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
@@ -122,11 +163,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!----------------- For commercial --------------->
 
-                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'commercial'">
+                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'commercial'">
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
@@ -157,13 +198,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
                         <!----------------- For residential/commercial --------------->
 
-                        <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'both'">
+                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'both'">
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
@@ -194,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -435,8 +476,8 @@
             <div class="col-md-4">
                 <div class="enquiry_section">
                     <div class="form-section card_form enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
-                        <h2 class="heading">Yes, I'm Interested!</h2>
-                        <p>Know More About <span class="light_blue" style="font-weight: 600;">{{SubBuilder?.name}}</span></p>
+                        <h2 class="heading">Yes, I'm Interested !</h2>
+                        <p>in <span class="light_blue" style="font-weight: 600;">{{SubBuilder?.name}}</span></p>
                         <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
                             <div class="row">
                                 <div class="col-md-12">
