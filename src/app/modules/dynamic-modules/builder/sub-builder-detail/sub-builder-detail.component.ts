@@ -398,7 +398,7 @@ export class SubBuilderDetailComponent implements OnInit {
         name: this.enterpriseFormGroup.controls['name'].value,
       },
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web SubBuilder Space'
+      mx_Space_Type: 'Web Project'
     };
     this.userService.createLead(object).subscribe(
       () => {
