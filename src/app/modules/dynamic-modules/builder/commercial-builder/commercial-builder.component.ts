@@ -51,6 +51,7 @@ export class CommercialBuilderComponent implements OnInit {
   builder: Builder;
   count = 0;
   page = 1;
+  maxSize = 5;
   isScrolled: boolean;
   isSearchFooterVisible: boolean;
   scrollCount: number;
