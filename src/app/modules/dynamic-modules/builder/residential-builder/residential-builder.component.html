@@ -1,171 +1,155 @@
-<section class="breadcrumb-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">home</a></li>
-            <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">India</span></li>
-            <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">M3M India</span></li>
-            <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">M3M Residential Projects</span></li>
-          </ol>
-        </nav>
-      </div>
+<section class="breadcrumb-wrapper" *ngIf="!loading && builder && allResiProjects.length">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">home</a></li>
+                        <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">{{builder?.location?.country?.name}}</span></li>
+                        <li class="breadcrumb-item active ng-star-inserted"><a [routerLink]="'/'+ builder?.location?.country.name.toLowerCase() + '/builder/' + builder?.slug"><span
+                                    class="ng-star-inserted">{{builder?.name}}</span></a></li>
+                        <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">{{builder?.name}} Residential Projects</span></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="title_city_filter">
-  <div class="container listing_container">
-    <div class="row align-items-center">
-      <div class="col-8">
-        <h1>M3M Residential Projects</h1>
-      </div>
-      <div class="col-4 d-flex justify-content-end">
-        <div class="city-dropdown">
-          <select class="form-select"
-            aria-label="Default select example">
+<section class="title_city_filter" *ngIf="!loading && builder && allResiProjects.length">
+    <div class="container listing_container">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h1>{{builder?.name}} Residential Projects</h1>
+            </div>
+            <!-- <div class="col-4 d-flex justify-content-end">
+                <div class="city-dropdown">
+                    <select class="form-select" aria-label="Default select example">
             <option selected
               disabled>Choose City</option>
             <option value="1">Gurugram</option>
             <option value="2">Delhi</option>
             <option value="3">Noida</option>
           </select>
+                </div>
+            </div> -->
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="listing_area">
-  <div class="container listing_container">
-    <div class="row">
-      <div class="col-md-8">
+    <div class="container listing_container">
         <div class="row">
-          <div class="col-sm-6">
-            <app-builder-resi-com-card></app-builder-resi-com-card>
-          </div>
-          <div class="col-sm-6">
-            <app-builder-resi-com-card></app-builder-resi-com-card>
-          </div>
-          <div class="col-sm-6">
-            <app-builder-resi-com-card></app-builder-resi-com-card>
-          </div>
-          <div class="col-sm-6">
-            <app-builder-resi-com-card></app-builder-resi-com-card>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="enquiry_section builder_query_col">
-          <div class="card_form"
-            style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dee00d307fbd75d50527be8713839ca86c905442.jpg');">
-            <div class="form_title">
-              <h4>Yes, I'm Interested!</h4>
-              <p>Zero Brokerage <span></span> Verified Spaces</p>
+            <div class="col-md-8" *ngIf="!loading && builder && allResiProjects.length">
+                <div class="row">
+                    <div class="col-sm-6" *ngFor="let resiProjects of allResiProjects">
+                        <ng-container>
+                            <app-builder-resi-com-card [buildername]="builder?.name" [subbuilder]="resiProjects"></app-builder-resi-com-card>
+                        </ng-container>
+                    </div>
+                </div>
+                <div *ngIf="!loading && allResiProjects.length" class="pagination-container">
+                    <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                    </pagination>
+                </div>
             </div>
 
-            <form class="form">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Name*" />
-                  </div>
-                </div>
+            <div class="col-md-4" *ngIf="!loading && builder && allResiProjects.length">
+                <div class="enquiry_section">
+                    <div class="form-section card_form enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                        <h2 class="heading">Yes, I'm Interested !</h2>
+                        <p>in <span class="light_blue" style="font-weight: 600;">{{builder?.name}}</span></p>
+                        <form class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" id="name" placeholder="Name" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 country_phone">
+                                    <div class="form-group city_card_phone">
+                                        <div class="flag-container">
+                                            <div (click)="showcountry = !showcountry" class="selected-flag">
+                                                <div class="flag in" *ngIf="activeCountries.length">
+                                                    <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <span class="arrow arrow-up"><i
+                                                            class="fa-solid fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                            <ul *ngIf="showcountry" class="country-list">
+                                                <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{country?.name}}</span>
+                                                    <span class="dial-code">{{country?.dial_code}}</span>
+                                                </li>
 
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Email*" />
-                  </div>
-                </div>
+                                                <li class="divider"></li>
 
-                <div class="col-md-12 country_phone">
-                  <div class="form-group city_card_phone">
-                    <div class="flag-container">
-                      <div class="selected-flag">
-                        <div class="flag in">
-                          <span class="dial-code"> +91</span>
-                          <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
-                        </div>
-                      </div>
-                      <ul class="country-list" style="display: none;">
-                        <li class="country active">
-                          <div class="flag-box">
-                            <div class="flag in"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
-                          </div>
-                          <span class="country-name">India</span>
-                          <span class="dial-code">+91</span>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li class="country selected" >
-                          <div class="flag-box">
-                            <div class="flag af"><img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" /></div>
-                          </div>
-                          <span class="country-name">India</span>
-                          <span class="dial-code">+91</span>
-                        </li>
-                      </ul>
-                      <input class="form-control" type="text" placeholder="Phone*" />
+                                                <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag af"><img [src]="inactive?.image?.s3_link" />
+                                                        </div>
+                                                    </div>
+                                                    <span class="country-name">{{inactive?.name}}</span>
+                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                </li>
+                                            </ul>
+                                            <input type="tel" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }" formControlName="phone_number" class="form-control" placeholder="Phone*" required>
+                                            <div *ngIf="submitted && f['phone_number'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">
+                                                    Please enter mobile number.</div>
+                                                <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group floating-label otp-form" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
+                                        <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                        </div>
+                                        <button [disabled]="resendDisabled" (click)="resendOTP()" [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                        <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="site_btn border_btn full_width_btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                  </div>
+                    <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
+                        <div class="contact-image">
+                            <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+                        </div>
+                        <div class="contact-info">
+                            <p class="heading">Get in Touch</p>
+                            <p><a href="tel:+919999108078">+91 9999 10 8078</a></p>
+                        </div>
+                    </div>
+                    <div class="policy">
+                        <p>By clicking the above button you agree to our Terms of service and have read and understood our <span><a class="text-decoration-none"
+                                    routerLink="/privacy-policy">Privacy Policy</a></span>
+                        </p>
+                    </div>
                 </div>
-              </div>
-
-              <div class="form-group floating-label otp-form">
-                <label>OTP</label>
-                <input class="form-control" placeholder="Enter Otp" type="password" />
-                <button Class="resend_otp">Resend OTP</button>
-                <p>OTP will be resent in 5 seconds</p>
-              </div>
-
-              <div class="row builder_fields">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected disabled>Configuration</option>
-                      <option value="1 BHK">1 BHK</option>
-                      <option value="2 BHK">2 BHK</option>
-                      <option value="3 BHK">3 BHK</option>
-                      <option value="4 BHK">4 BHK</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected disabled>Interested in</option>
-                      <option value="Rent">Rent</option>
-                      <option value="Sale">Sale</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected disabled>Requirement</option>
-                      <option value="Immediate">Immediate</option>
-                      <option value="Within This Month">Within This Month</option>
-                      <option value="1-2 Month">1-2 Month</option>
-                      <option value="3-4 Month">3-4 Month</option>
-                      <option value="After 4 Month">After 4 Month</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <button type="submit"
-                    class="site_btn border_btn full_width_btn">Submit</button>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
