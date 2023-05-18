@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 col-12 order-2 order-md-1">
                 <div class="banner_content">
-                    <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coworking Spaces</span> in India</h1>
+                    <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coworking Offices</span> in India</h1>
                     
                     <div class="city-list">
                         <button (click)="searchCoworking()" type="button">
@@ -61,7 +61,7 @@
         <div class="row align-items-center">
             <div class="col-12">
                 <div class="banner_content">
-                    <h1 class="text-light text-center">Find the Best<br />Coworking Spaces in India</h1>
+                    <h1 class="text-light text-center">Find the Best<br />Coworking Offices in India</h1>
                     <div class="search-bar">
                         <ng-select [items]="cities" placeholder="Select City" bindLabel="name" bindValue="id" [searchable]="false" [clearable]="false" (change)="openCityListing($event)">
                         </ng-select>
@@ -133,30 +133,6 @@
     </div>
 </section>
 
-<section class="choosewithcofynd_sec coworking_choose_sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="main_heading title_divider">
-                    <h2>Choose a Coworking Space With CoFynd</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row choose_item_slider mt-2">
-            <div class="col-md-4" *ngFor="let data of chooseCoworking">
-                <div class="left_icon_box2">
-                    <div class="icon">
-                        <img [src]="'assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                    </div>
-                    <div class="content">
-                        <h4>{{data.title}}</h4>
-                        <p class="mobilehide">{{data.description}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!------------------- Mobile Best Coworking Near You ---------------->
 <section class="near-coworking-space desktophide">
@@ -287,6 +263,31 @@
                                 <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="choosewithcofynd_sec coworking_choose_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="main_heading title_divider">
+                    <h2>Choose a Coworking Space With CoFynd</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row choose_item_slider mt-2">
+            <div class="col-md-4" *ngFor="let data of chooseCoworking">
+                <div class="left_icon_box2">
+                    <div class="icon">
+                        <img [src]="'assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    </div>
+                    <div class="content">
+                        <h4>{{data.title}}</h4>
+                        <p class="mobilehide">{{data.description}}</p>
                     </div>
                 </div>
             </div>
