@@ -4568,10 +4568,13 @@ h3.site_title {
     margin-bottom: 0px;
 }
 
-.visible-list, .configuration_list {
+.configuration_list {
     -webkit-overflow-scrolling: touch !important;
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
+}
+.similar-places .visible-list {
+	margin-bottom: 10px;
 }
 
 .visible-list::-webkit-scrollbar, .configuration_list::-webkit-scrollbar {
