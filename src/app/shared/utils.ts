@@ -30,7 +30,7 @@ export function isEmptyObject(obj: any) {
   return obj && Object.keys(obj).length === 0;
 }
 
-export function sanitizeParams(params: { [key: string]: string | number }) {
+export function sanitizeParams(params: { [key: string]: string | number | boolean }) {
   const newParam = Object.entries(params).map(param => {
     if (isDefinedAndNotNull(param['1'])) {
       return param.join('=');

@@ -233,7 +233,7 @@
                 <h3 class="h3_heading">Residential Projects by {{builder?.name}} </h3>
             </div>
             <div class="col-md-4">
-                <p class="text-right"><a class="btn_text">View All</a></p>
+                <p class="text-right"><a class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/residential'">View All</a></p>
             </div>
         </div>
 
@@ -258,7 +258,7 @@
                 <h3 class="h3_heading">Commercial Projects by {{builder?.name}}</h3>
             </div>
             <div class="col-md-4">
-                <p class="text-right"><a class="btn_text">View All</a></p>
+                <p class="text-right"><a class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/commercial'">View All</a></p>
             </div>
         </div>
 
