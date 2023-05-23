@@ -24,6 +24,7 @@ import { CommercialBuilderComponent } from './builder/commercial-builder/commerc
 import { SubBuilderDetailComponent } from './builder/sub-builder-detail/sub-builder-detail.component';
 import { SubBuilderRentComponent } from './builder/sub-builder-rent/sub-builder-rent.component';
 import { SubBuilderSaleComponent } from './builder/sub-builder-sale/sub-builder-sale.component';
+import { BuiderCityComponent } from './builder/buider-city/buider-city.component';
 
 
 const routes: Routes = [
@@ -109,6 +110,10 @@ const routes: Routes = [
     component: BuilderDetailComponent
   },
   {
+    path: 'builder/city/:city',
+    component: BuiderCityComponent
+  },
+  {
     path: ':buildername/residential',
     component: ResidentialBuilderComponent
   },
@@ -127,7 +132,8 @@ const routes: Routes = [
   {
     path: ':buildername/:subuildername/sale',
     component: SubBuilderSaleComponent
-  }
+  },
+
 ];
 
 @NgModule({

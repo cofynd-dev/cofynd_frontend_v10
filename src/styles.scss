@@ -7461,6 +7461,10 @@ h3.site_title {
 .gradient_cta_sec .cta_content {
 	padding: 90px 70px;
 }
+.builder_listing .builder_item {
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
 
 @media (max-width:991px) {
     
@@ -7765,6 +7769,12 @@ h3.site_title {
         margin-right: -17px;
         margin-top: -25px;
         position: relative;
+    }
+    .details_page_gallery .banner-image-item {
+        height: 175px;
+    }
+    .details_page_gallery .banner-image-item.first-img, .banner-image-item.last-img {
+        height: 360px;
     }
     
 }
