@@ -7770,6 +7770,12 @@ h3.site_title {
         margin-top: -25px;
         position: relative;
     }
+    .details_page_gallery .banner-image-item {
+        height: 175px;
+    }
+    .details_page_gallery .banner-image-item.first-img, .banner-image-item.last-img {
+        height: 360px;
+    }
     
 }
 
