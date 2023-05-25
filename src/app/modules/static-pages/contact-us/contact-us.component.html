@@ -1,10 +1,9 @@
-<section class="contact_page_area">
+<section class="contact_page_area cities_query_sec">
     <div class="container">
-        <div class="row contact_page_row">
-            <div class="col-md-6 col-12">
-                <div class="contact_form_area">
+        <div class="row contact_page_row cities_page_row">
+            <div class="col-md-6 col-12 order-1 order-md-2">
+                <div class="contact_form_area cities_form_area">
                     <h1>Connect with Cofynd Expert</h1>
-                    <p>Our team is ready to assist you</p>
                     <form *ngIf="!showSuccessMessage" class="form" [formGroup]="enterpriseFormGroup" (ngSubmit)="onSubmit1()" appScrollToInvalidField>
                         <div class="row">
                             <div class="col-md-12">
@@ -28,10 +27,10 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 country_phone">
+                            <div class="col-md-6">
                                 <div class="form-group align-items-center">
                                     <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
-                                    <div class="form-input icon_phone_field">
+                                    <div class="form-input country_phone icon_phone_field">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
                                                 <div class="flag in" *ngIf="activeCountries.length">
@@ -137,7 +136,7 @@
             </div>
 
 
-            <div class="col-md-6 col-12 form_text_area">
+            <div class="col-md-6 col-12 form_text_area order-2 order-md-1">
                 <div class="form_content text-center">
                     <h2>Find Your Dream Space in India</h2>
                     <div class="location">
