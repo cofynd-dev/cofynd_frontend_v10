@@ -7488,6 +7488,42 @@ h3.site_title {
 .news_brands .logos_slider {
     margin-top: 10px;
 }
+.for_email_sec .container, .for_email_sec .container-fluid {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 20px;
+	padding: 30px 35px;
+	margin-bottom: 40px;
+}
+.for_email_sec .mail_page_email .container {
+	margin-bottom: 80px;
+}
+.for_email_sec h3 {
+	font-size: 22px;
+	line-height: 32px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.for_email_sec .email_id {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 0px;
+}
+.for_email_sec .email_id img {
+	width: 20px;
+	margin-right: 5px;
+}
+.for_email_sec .for_email_img {
+	text-align: center;
+}
+.for_email_sec .for_email_img img {
+	width: 30%;
+}
+.for_email_sec .email_id a {
+	color: #000;
+}
 
 @media (max-width:991px) {
     
@@ -8516,7 +8552,6 @@ h3.site_title {
     .top_cities_carousel,
     .office_top_properties_slider,
     .places-tag-slider,
-    .visible-list,
     .places-tag-slider,
     .tab_slider {
         -webkit-overflow-scrolling: touch !important;
@@ -8537,7 +8572,6 @@ h3.site_title {
     .top_cities_carousel::-webkit-scrollbar,
     .office_top_properties_slider::-webkit-scrollbar,
     .places-tag-slider::-webkit-scrollbar,
-    .visible-list::-webkit-scrollbar,
     .places-tag-slider::-webkit-scrollbar,
     .tab_slider::-webkit-scrollbar {
         display: none !important;
