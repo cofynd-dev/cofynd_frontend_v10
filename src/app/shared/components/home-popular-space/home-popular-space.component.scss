@@ -125,3 +125,9 @@
     content: "";
     display: inline-block;
 }
+
+@media (max-width: 480px) {
+    .popular-spaces .carousel-arrow {
+        display: none;
+    }
+}
