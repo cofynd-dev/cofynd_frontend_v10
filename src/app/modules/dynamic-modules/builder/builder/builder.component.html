@@ -9,7 +9,8 @@
             Cofynd offers top coworking brands in India to choose the perfect workspace for startups, growing
             organizations, and top MNCs. We assist you to find the perfect coworking office space for rent in India.</p>
           <a style="cursor: pointer;"
-            class="site_btn border_btn">Enquire Now</a>
+            class="site_btn border_btn"
+            (click)="scrollToElement(target)">Enquire Now</a>
         </div>
       </div>
       <div class="col-md-6 col-12 order-1 order-md-2">
@@ -24,8 +25,8 @@
   </div>
 </section>
 
-
-<section class="feature_builders_sec desktophide">
+<section class="feature_builders_sec desktophide"
+  *ngIf="!loading && featuredBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -37,84 +38,28 @@
     <div class="row">
       <div class="col-12">
         <div class="virtual_cities_carousel">
-          <div class="top-city-item" style="cursor: pointer;">
-            <div class="top-city-img">
-              <img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59d13a91ae36e4d83072c367dac75a2fdab0c7ee.jpg">
+          <ng-container (click)="routeToBuilder(builder.slug)"
+            *ngFor="let builder of featuredBuilders | slice:0:7">
+            <div class="top-city-item"
+              style="cursor: pointer;">
+              <div class="top-city-img">
+                <img class="img-fluid d-block m-auto"
+                  [src]="builder?.images[0]?.image?.s3_link">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"
+                    aria-hidden="true"></i> {{builder.name}}</h4>
+              </div>
             </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> M3M</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img">
-              <img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1866076b4b76715292600e5cb4767b82aa67e367.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> DLF</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c3a55378818e07485c0cc4d1e028de83922e473c.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> Ashiana Housing</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6b39a0c72e28c29f04411658c4ccde45397c8014.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> Godrej</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8a01fd434f5450010f9ed32fec8d3d9babb0d553.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> Ireo</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/784c4c32a1fee499de9841fee79251f439b306cc.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> TATA Housing</h4>
-            </div>
-          </div>
-          <div class="top-city-item"
-            style="cursor: pointer;">
-            <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b5c66202899383f8c93fd609d08981ca28782b22.jpg">
-            </div>
-            <div class="top-city-text">
-              <h4><i class="fas fa-map-marker-alt"
-                  aria-hidden="true"></i> Tulip</h4>
-            </div>
-          </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="feature_builders tabhide">
+<section class="feature_builders tabhide"
+  *ngIf="!loading && featuredBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -124,91 +69,35 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 pt-2">
+      <div class="col-md-4 pt-2"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of featuredBuilders | slice:0:1">
         <div class="top-city-item"
           style="cursor: pointer;">
           <div class="top-city-img main_city">
             <img class="img-fluid d-block m-auto"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59d13a91ae36e4d83072c367dac75a2fdab0c7ee.jpg">
+              [src]="builder?.images[0]?.image?.s3_link">
           </div>
           <div class="top-city-text">
             <h4><i class="fas fa-map-marker-alt"
-                aria-hidden="true"></i> M3M</h4>
+                aria-hidden="true"></i> {{builder.name}}</h4>
           </div>
         </div>
       </div>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-4 p-2">
+          <div class="col-md-4 p-2"
+            (click)="routeToBuilder(builder.slug)"
+            *ngFor="let builder of featuredBuilders | slice:1:7">
             <div class="top-city-item"
               style="cursor: pointer;">
               <div class="top-city-img">
                 <img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1866076b4b76715292600e5cb4767b82aa67e367.jpg">
+                  [src]="builder?.images[0]?.image?.s3_link">
               </div>
               <div class="top-city-text">
                 <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> DLF</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="top-city-item"
-              style="cursor: pointer;">
-              <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c3a55378818e07485c0cc4d1e028de83922e473c.jpg">
-              </div>
-              <div class="top-city-text">
-                <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> Ashiana Housing</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="top-city-item"
-              style="cursor: pointer;">
-              <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6b39a0c72e28c29f04411658c4ccde45397c8014.jpg">
-              </div>
-              <div class="top-city-text">
-                <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> Godrej</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="top-city-item"
-              style="cursor: pointer;">
-              <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8a01fd434f5450010f9ed32fec8d3d9babb0d553.jpg">
-              </div>
-              <div class="top-city-text">
-                <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> Ireo</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="top-city-item"
-              style="cursor: pointer;">
-              <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/784c4c32a1fee499de9841fee79251f439b306cc.jpg">
-              </div>
-              <div class="top-city-text">
-                <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> TATA Housing</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="top-city-item"
-              style="cursor: pointer;">
-              <div class="top-city-img"><img class="img-fluid d-block m-auto"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b5c66202899383f8c93fd609d08981ca28782b22.jpg">
-              </div>
-              <div class="top-city-text">
-                <h4><i class="fas fa-map-marker-alt"
-                    aria-hidden="true"></i> Tulip</h4>
+                    aria-hidden="true"></i> {{builder.name}}</h4>
               </div>
             </div>
           </div>
@@ -218,9 +107,8 @@
   </div>
 </section>
 
-
-
-<section class="builder_by_city_list">
+<section class="builder_by_city_list"
+  *ngIf="!loading && mumbaiBuilders && mumbaiBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -230,73 +118,27 @@
       </div>
     </div>
     <div class="row builder_slider mt-2">
-      <div class="col-md-4 col-6">
+      <div class="col-md-4 col-6"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of mumbaiBuilders | slice:0:3">
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c4baed52206448d18f6b845e9093c7e5e19ebf39.jpg"
+              [src]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecc36dc033e03bd3f8378e89714799d3afd263c3.jpg"
+                  [src]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
             <div class="col-md-6 col-6">
               <div class="project_count">
                 <h5>Projects</h5>
-                <p>43</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ad3e704664b05d4446d3a97b04d2456966ae4f3.jpg"
-              alt="Mahindra Lifespaces">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c8607139484a7c21ccaf049642d279e64d2fb0c0.png"
-                  alt="Mahindra Lifespaces">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>129</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fc5b0e9786db7406d4283a901f97df0da7605dd3.jpg"
-              alt="Lodha Logo">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a19a3c042332ee5430fe2e8a9c91b1d675b7aba7.png"
-                  alt="Lodha Logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>361</p>
+                <p>{{builder?.projects}}</p>
               </div>
             </div>
           </div>
@@ -320,8 +162,8 @@
   </div>
 </section>
 
-
-<section class="builder_by_city_list">
+<section class="builder_by_city_list"
+  *ngIf="!loading && bangloreBuilders && bangloreBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -331,73 +173,27 @@
       </div>
     </div>
     <div class="row mt-2 tab_slider">
-      <div class="col-md-4 col-6">
+      <div class="col-md-4 col-6"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of bangloreBuilders | slice:0:3">
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c4baed52206448d18f6b845e9093c7e5e19ebf39.jpg"
+              [src]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecc36dc033e03bd3f8378e89714799d3afd263c3.jpg"
+                  [src]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
             <div class="col-md-6 col-6">
               <div class="project_count">
                 <h5>Projects</h5>
-                <p>43</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ad3e704664b05d4446d3a97b04d2456966ae4f3.jpg"
-              alt="Mahindra Lifespaces">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c8607139484a7c21ccaf049642d279e64d2fb0c0.png"
-                  alt="Mahindra Lifespaces">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>129</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fc5b0e9786db7406d4283a901f97df0da7605dd3.jpg"
-              alt="Lodha Logo">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a19a3c042332ee5430fe2e8a9c91b1d675b7aba7.png"
-                  alt="Lodha Logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>361</p>
+                <p>{{builder?.projects}}</p>
               </div>
             </div>
           </div>
@@ -406,7 +202,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="gradient_cta_sec builder_banner_area">
   <div class="container">
@@ -422,8 +217,8 @@
   </div>
 </section>
 
-
-<section class="builder_by_city_list">
+<section class="builder_by_city_list"
+  *ngIf="!loading && gurugramBuilders && gurugramBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -433,73 +228,27 @@
       </div>
     </div>
     <div class="row mt-2 tab_slider">
-      <div class="col-md-4 col-6">
+      <div class="col-md-4 col-6"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of gurugramBuilders | slice:0:3">
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c4baed52206448d18f6b845e9093c7e5e19ebf39.jpg"
+              [src]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecc36dc033e03bd3f8378e89714799d3afd263c3.jpg"
+                  [src]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
             <div class="col-md-6 col-6">
               <div class="project_count">
                 <h5>Projects</h5>
-                <p>43</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ad3e704664b05d4446d3a97b04d2456966ae4f3.jpg"
-              alt="Mahindra Lifespaces">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c8607139484a7c21ccaf049642d279e64d2fb0c0.png"
-                  alt="Mahindra Lifespaces">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>129</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fc5b0e9786db7406d4283a901f97df0da7605dd3.jpg"
-              alt="Lodha Logo">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a19a3c042332ee5430fe2e8a9c91b1d675b7aba7.png"
-                  alt="Lodha Logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>361</p>
+                <p>{{builder?.projects}}</p>
               </div>
             </div>
           </div>
@@ -508,7 +257,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="gradient_cta_sec builder_banner_area">
   <div class="container">
@@ -524,8 +272,8 @@
   </div>
 </section>
 
-
-<section class="builder_by_city_list">
+<section class="builder_by_city_list"
+  *ngIf="!loading && ahmedabadBuilders && ahmedabadBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -535,73 +283,27 @@
       </div>
     </div>
     <div class="row mt-2 tab_slider">
-      <div class="col-md-4 col-6">
+      <div class="col-md-4 col-6"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of ahmedabadBuilders | slice:0:3">
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c4baed52206448d18f6b845e9093c7e5e19ebf39.jpg"
+              [src]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecc36dc033e03bd3f8378e89714799d3afd263c3.jpg"
+                  [src]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
             <div class="col-md-6 col-6">
               <div class="project_count">
                 <h5>Projects</h5>
-                <p>43</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ad3e704664b05d4446d3a97b04d2456966ae4f3.jpg"
-              alt="Mahindra Lifespaces">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c8607139484a7c21ccaf049642d279e64d2fb0c0.png"
-                  alt="Mahindra Lifespaces">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>129</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fc5b0e9786db7406d4283a901f97df0da7605dd3.jpg"
-              alt="Lodha Logo">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a19a3c042332ee5430fe2e8a9c91b1d675b7aba7.png"
-                  alt="Lodha Logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>361</p>
+                <p>{{builder?.projects}}</p>
               </div>
             </div>
           </div>
@@ -610,7 +312,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="gradient_cta_sec builder_banner_area">
   <div class="container">
@@ -626,8 +327,8 @@
   </div>
 </section>
 
-
-<section class="builder_by_city_list">
+<section class="builder_by_city_list"
+  *ngIf="!loading && puneBuilders && puneBuilders.length">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -637,73 +338,27 @@
       </div>
     </div>
     <div class="row mt-2 tab_slider">
-      <div class="col-md-4 col-6">
+      <div class="col-md-4 col-6"
+        (click)="routeToBuilder(builder.slug)"
+        *ngFor="let builder of puneBuilders | slice:0:3">
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c4baed52206448d18f6b845e9093c7e5e19ebf39.jpg"
+              [src]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecc36dc033e03bd3f8378e89714799d3afd263c3.jpg"
+                  [src]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
             <div class="col-md-6 col-6">
               <div class="project_count">
                 <h5>Projects</h5>
-                <p>43</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ad3e704664b05d4446d3a97b04d2456966ae4f3.jpg"
-              alt="Mahindra Lifespaces">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c8607139484a7c21ccaf049642d279e64d2fb0c0.png"
-                  alt="Mahindra Lifespaces">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>129</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-6">
-        <div class="builder_item">
-          <div class="builder_img">
-            <img class="img-fluid"
-              src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fc5b0e9786db7406d4283a901f97df0da7605dd3.jpg"
-              alt="Lodha Logo">
-          </div>
-          <div class="row brand_content align-items-center">
-            <div class="col-m d-6 col-6">
-              <div class="title_img">
-                <img class="img-fluid"
-                  src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a19a3c042332ee5430fe2e8a9c91b1d675b7aba7.png"
-                  alt="Lodha Logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-6">
-              <div class="project_count">
-                <h5>Projects</h5>
-                <p>361</p>
+                <p>{{builder?.projects}}</p>
               </div>
             </div>
           </div>
@@ -713,8 +368,8 @@
   </div>
 </section>
 
-
-<section class="query_from_sec top_builder_form">
+<section class="query_from_sec top_builder_form"
+  #target>
   <div class="container">
     <div class="row tabhide">
       <div class="col-md-12 text-center">
@@ -738,96 +393,164 @@
           </div>
           <div class="form_body">
             <form action=""
-              class="ng-untouched ng-pristine ng-invalid">
+              [formGroup]="enterpriseFormGroup"
+              (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img alt=""
+                    <img src="assets/images/icons/user-icon.svg"
                       class="img-fluid"
-                      src="assets/images/icons/user-icon.svg">
-                    <input class="form-control"
+                      alt="">
+                    <input type="text"
+                      [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                      formControlName="name"
+                      class="form-control"
                       placeholder="Name*"
-                      required=""
-                      type="text">
+                      required>
+                    <div *ngIf="submitted && f['name'].errors"
+                      class="invalid-feedback">
+                      <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img alt=""
+                    <img src="assets/images/icons/email-icon.svg"
                       class="img-fluid"
-                      src="assets/images/icons/email-icon.svg">
-                    <input class="form-control"
+                      alt="">
+                    <input type="email"
+                      [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                      formControlName="email"
+                      class="form-control"
                       placeholder="Email*"
-                      required=""
-                      type="email">
+                      required>
+                    <div *ngIf="submitted && f['email'].errors"
+                      class="invalid-feedback">
+                      <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                      <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-12 country_phone">
                   <div class="input-group align-items-center">
-                    <img alt=""
+                    <img src="assets/images/icons/phone-icon.svg"
                       class="img-fluid"
-                      src="assets/images/icons/phone-icon.svg">
+                      alt="">
+
                     <div class="form-input icon_phone_field">
                       <div class="flag-container">
-                        <div class="selected-flag">
-                          <div class="flag in">
-                            <span class="dial-code"> +91</span><span class="arrow arrow-up"><i
-                                class="fa-solid fa-angle-down"></i></span>
+                        <div (click)="showcountry = !showcountry"
+                          class="selected-flag">
+                          <div class="flag in"
+                            *ngIf="activeCountries.length">
+                            <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                            <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                           </div>
                         </div>
-                        <input class="form-control"
+                        <ul *ngIf="showcountry"
+                          class="country-list">
+                          <li (click)="hideCountry(country)"
+                            *ngFor="let country of activeCountries"
+                            class="country active"
+                            tabindex="-1">
+                            <div class="flag-box">
+                              <div class="flag in"><img [src]="country?.image?.s3_link"
+                                  width="18px" /></div>
+                            </div>
+                            <span class="country-name">{{country?.name}}</span>
+                            <span class="dial-code">{{country?.dial_code}}</span>
+                          </li>
+
+                          <li class="divider"></li>
+
+                          <li class="country selected"
+                            (click)="hideCountry(inactive)"
+                            *ngFor="let inactive of inActiveCountries">
+                            <div class="flag-box">
+                              <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                            </div>
+                            <span class="country-name">{{inactive?.name}}</span>
+                            <span class="dial-code">{{inactive?.dial_code}}</span>
+                          </li>
+                        </ul>
+
+                        <input type="tel"
                           maxlength="10"
+                          [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }"
+                          formControlName="phone_number"
+                          class="form-control"
                           placeholder="Phone*"
-                          required="">
+                          required>
+                        <div *ngIf="submitted && f['phone_number'].errors"
+                          class="invalid-feedback">
+                          <div *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">Please enter
+                            mobile number.</div>
+                          <div *ngIf="f['phone_number'].dirty">Please enter 10 digit mobile number.</div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img alt=""
+                    <img src="assets/images/icons/location-icon.svg"
                       class="img-fluid"
-                      src="assets/images/icons/location-icon.svg">
-                    <select aria-label="Default select example"
+                      alt="">
+                    <select class="form-select"
                       class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+                      formControlName="city"
                       placeholder="select your city"
-                      required="">
-                      <option disabled
+                      required
+                      aria-label="Default select example">
+                      <option value=""
                         selected
-                        style="display: none;"
-                        value="">Select City*</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Noida">Noida</option>
-                      <option value="Pune">Pune</option>
-                      <option value="Gurugram">Gurugram</option>
-                      <option value="Bangalore">Bangalore</option>
-                      <option value="Hyderabad">Hyderabad</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Indore">Indore</option>
-                      <option value="Chennai">Chennai</option>
-                      <option value="Ahmedabad">Ahmedabad</option>
-                      <option value="Jaipur">Jaipur</option>
-                      <option value="Lucknow">Lucknow</option>
-                      <option value="Chandigarh">Chandigarh</option>
-                      <option value="Goa">Goa</option>
-                      <option value="Coimbatore">Coimbatore</option>
-                      <option value="Dehradun">Dehradun</option>
-                      <option value="Patna">Patna</option>
-                      <option value="Bhubaneswar">Bhubaneswar</option>
-                      <option value="Hubballi">Hubballi</option>
+                        disabled
+                        style="display: none;">Select City*</option>
+                      <option [value]="city.name"
+                        *ngFor="let city of finalCities">{{city.name}}</option>
                       <option value="Other">Other</option>
                     </select>
+                    <div *ngIf="submitted && f['city'].errors"
+                      class="invalid-feedback">
+                      <div *ngIf="f['city'].errors['required']">Please select your city.</div>
+                    </div>
                   </div>
                 </div>
-
+                <div class="col-md-12 col-12"
+                  *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                  <div class="input-group align-items-center">
+                    <img src="assets/images/icons/phone-icon.svg"
+                      class="img-fluid"
+                      alt="">
+                    <input type="tel"
+                      [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }"
+                      formControlName="otp"
+                      required
+                      class="form-control border-light"
+                      id="mobilenumber"
+                      placeholder="Otp*"
+                      aria-describedby="emailHelp">
+                    <div *ngIf="submitted && f['otp'].errors"
+                      class="invalid-feedback">
+                      <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                    </div>
+                  </div>
+                  <button [disabled]="resendDisabled"
+                    (click)="resendOTP()"
+                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                  <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                </div>
                 <div class="col-md-12 col-12">
                   <div class="input-group message_field align-items-center">
-                    <img alt=""
+                    <img src="assets/images/icons/message-icon.svg"
                       class="img-fluid"
-                      src="assets/images/icons/message-icon.svg">
-                    <textarea class="form-control"
-                      placeholder="Requirements"
-                      type="textarea"></textarea>
+                      alt="">
+                    <textarea type="textarea"
+                      [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }"
+                      formControlName="requirements"
+                      class="form-control"
+                      placeholder="Requirements"></textarea>
                   </div>
                 </div>
                 <div class="col-md-12 col-12">
@@ -847,9 +570,6 @@
   </div>
 </section>
 
-
-
-
 <section class="gradient_cta_sec builder_banner_area">
   <div class="container">
     <div class="row align-items-center"
@@ -863,7 +583,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="cofynd_desk_sec coworking_cofynd_desk">
   <div class="container">
@@ -912,11 +631,10 @@
             <p>Renting with CoFynd means you don't need to worry about any documents. We have a team of real estate
               experts to handle approved building plans, layout plans, ownership documents, etc.</p>
           </accordion-group>
-
-          
           <accordion-group>
             <h4 accordion-heading>Which real estate builder offers lavish residential properties in Gurgaon?</h4>
-            <p>Top real estate builder like; Godrej, DLF, Sobha, Emaar, & M3M offers lavish residential properties in Gurgaon.</p>
+            <p>Top real estate builder like; Godrej, DLF, Sobha, Emaar, & M3M offers lavish residential properties in
+              Gurgaon.</p>
           </accordion-group>
           <accordion-group>
             <h4 accordion-heading>How many real estate builders are available in India?</h4>
@@ -924,11 +642,13 @@
           </accordion-group>
           <accordion-group>
             <h4 accordion-heading>Who is India’s No.1 real estate builder?</h4>
-            <p>DLF Group is the No.1 real estate builder in India. This group delivers several iconic & economical residential, commercial, & retail projects.</p>
+            <p>DLF Group is the No.1 real estate builder in India. This group delivers several iconic & economical
+              residential, commercial, & retail projects.</p>
           </accordion-group>
           <accordion-group>
             <h4 accordion-heading>Which real estate company owns the foremost land in Gurgaon?</h4>
-            <p>DLF Group, or the chairman & CEO of DLF, Kushal Pal Singh owns the foremost land in Gurgaon. This is the largest private entity with 4000+ acres of land bank.</p>
+            <p>DLF Group, or the chairman & CEO of DLF, Kushal Pal Singh owns the foremost land in Gurgaon. This is the
+              largest private entity with 4000+ acres of land bank.</p>
           </accordion-group>
         </accordion>
       </div>
