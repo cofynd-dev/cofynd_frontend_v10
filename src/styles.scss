@@ -11330,10 +11330,11 @@ h3.site_title {
         margin-bottom: 5px;
     }
     .filter_col .form-select {
-        font-size: 10px;
-        padding: 8px 8px;
-        border-radius: 7px;
+        font-size: 8px;
+        padding: 6px 5px;
+        border-radius: 4px;
         width: 100%;
+        color: #000;
     }
     // .filter_col {
     //     margin-top: 11px;
@@ -11541,6 +11542,23 @@ h3.site_title {
     }
     .news_brands .logos_slider .band-img  img {
         transform: skewY(6deg);
+    }
+    .for_email_sec h3 {
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 7px;
+    }
+    .for_email_sec p {
+        font-size: 11px !important;
+        line-height: 17px !important;
+    }
+    .for_email_sec .email_id img {
+        width: 15px;
+        margin-right: 5px;
+    }
+    .for_email_sec .container, .for_email_sec .container-fluid {
+        border-radius: 12px;
+        padding: 20px 20px;
     }
 }
 
