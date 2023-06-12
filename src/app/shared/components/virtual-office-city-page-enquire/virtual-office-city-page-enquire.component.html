@@ -1,7 +1,7 @@
 <div class="card_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dee00d307fbd75d50527be8713839ca86c905442.jpg');">
     <div class="form_title">
         <h4>Yes, I'm Interested!</h4>
-        <p>Know More About this property</p>
+        <p>In virtual office {{city.split("-").join(" ")}}</p>
     </div>
 
     <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
