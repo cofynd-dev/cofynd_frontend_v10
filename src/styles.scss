@@ -7450,6 +7450,13 @@ h3.site_title {
 	height: 70px;
 	object-fit: contain;
 }
+select.form-control{
+    -webkit-appearance: menulist !important;
+    -moz-appearance: menulist !important;
+    -ms-appearance: menulist !important;
+    -o-appearance: menulist !important;
+    appearance: menulist !important;
+}
 .builder_item .brand_content .project_count {
 	text-align: center;
 }
@@ -11337,6 +11344,7 @@ h3.site_title {
         border-radius: 4px;
         width: 100%;
         color: #000;
+        height: auto;
     }
     // .filter_col {
     //     margin-top: 11px;
