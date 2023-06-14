@@ -11645,6 +11645,43 @@ select.form-control{
         border-radius: 12px;
         padding: 20px 20px;
     }
+    .home_city_popup .modal-header .popup_icon {
+        top: -14px;
+        width: 70px;
+        height: 70px;
+        line-height: 60px;
+    }
+    .home_city_popup .modal-header h5 {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .home_city_popup .cat_box {
+        width: 85px;
+        height: 85px;
+    }
+    .home_city_popup .cat_box .img-box {
+        height: 44px;
+    }
+    .home_city_popup .cat_box .title-box p {
+        font-size: 10px !important;
+        line-height: 13px !important;
+        font-weight: 600 !important;
+        margin-top: 5px;
+    }
+    .home_city_popup .modal-header {
+        padding: 0px 20px 0px;
+    }
+    .home_city_popup .modal-body {
+        padding: 10px 10px 20px !important;
+    }
+    .home_city_popup .cat_box .img-box img {
+        width: 30px;
+        height: 30px;
+    }
+    .home_city_popup .cat_box.coworking-space-box .img-box img {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 @media (max-width: 390px) {
