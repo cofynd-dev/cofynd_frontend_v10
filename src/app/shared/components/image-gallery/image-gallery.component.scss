@@ -180,7 +180,7 @@
 .onlyMobile {
     display: none !important;
     @media (max-width: 480px) {
-        display: block !important;
+        display: flex !important;
     }
 }
 

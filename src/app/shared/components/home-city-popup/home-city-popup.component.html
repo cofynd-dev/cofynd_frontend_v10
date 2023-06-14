@@ -1,34 +1,56 @@
-<div class="modal-content cities_popup_option">
-  <div class="modal-header">
-    <h5 class="modal-title text-center">Find the Best Spaces in {{city.toUpperCase()}}<br><span>Choose
-        from 100,000+ Sanitized &amp; Verified Spaces</span></h5>
+<div class="home_city_popup">
+  <div class="modal-header text-center">
+    <div class="popup_icon">
+      <img src="assets/images/icons/coworking-desk-icon.svg"
+        class="img-fluid"
+        alt="Coworking Desk">
+    </div>
+    <h5>Find the Best Spaces in {{city.toUpperCase()}}</h5>
+    <p>Choose from 100,000+ Sanitized and Verified Spaces</p>
   </div>
   <div class="modal-body pb-4">
     <div class="row">
-      <div class="col-md-5 offset-md-1 col-6">
+      <div class="col-4">
         <a [routerLink]="'/coworking/' + city"
           (click)="closeModal()">
-          <div class="coworking-space-box mt-2 mb-2">
+          <div class="cat_box coworking-space-box">
             <div class="img-box">
-              <img src="/assets/images/icons/coworking-space-icon.svg"
+              <img src="/assets/images/icons/cowork-icon.svg"
                 class="img-fluid d-block m-auto icon"
                 alt="">
-              <p class="text-center">
-                Co-Working<br>Space</p>
+            </div>
+            <div class="title-box">
+              <p>Coworking<br> Space</p>
             </div>
           </div>
         </a>
       </div>
-      <div class="col-6">
+      <div class="col-4">
+        <a [routerLink]="'/virtual-office/' + city"
+          (click)="closeModal()">
+          <div class="cat_box virtual-office-box">
+            <div class="img-box">
+              <img src="/assets/images/icons/virtual-offices.svg"
+                class="img-fluid d-block m-auto"
+                alt="">
+            </div>
+            <div class="title-box">
+              <p>Virtual<br> Office</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-4">
         <a [routerLink]="'/co-living/' + city"
           (click)="closeModal()">
-          <div class="coworking-space-box mt-2 mb-2">
+          <div class="cat_box coliving-space-box">
             <div class="img-box">
               <img src="/assets/images/icons/double-sharing-icon.svg"
                 class="img-fluid d-block m-auto"
                 alt="">
-              <p class="text-center">
-                Co-Living<br>Space</p>
+            </div>
+            <div class="title-box">
+              <p>Coliving<br> Space</p>
             </div>
           </div>
         </a>

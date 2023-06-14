@@ -1,109 +1,113 @@
 .modal-content {
-  border-radius: 12px;
-  background-image: url(http://officegenics.com/cofynd/new-cofynd/new-bg-5.jpg);
-  background-size: cover;
-
-  .modal-header {
-    justify-content: center;
-
-    .modal-title {
-      margin-bottom: 0;
-      line-height: 1.5;
-      font-size: 1.25rem;
-
-      span {
-        font-size: 14px;
-        color: #4343e8;
-      }
-    }
-  }
-
-  .modal-body {
-    .coworking-space-box {
-      height: 150px;
-      width: 150px;
-      border-radius: 100%;
-      box-shadow: 0px 6px 10px rgba(67, 67, 232, 0.4);
-      background-color: rgba(255, 204, 5, 0.08)
-    }
-
-    .img-box {
-      position: relative;
-      top: 35px;
-
-      img {
-        height: 50px;
-        // 60px on mobile
-        widows: auto;
-      }
-
-      p {
-        margin-top: 14px;
-        font-weight: 500;
-        font-size: 15px;
-        // 13px on mob
-        line-height: 16px;
-        // 14px line-height: ;
-      }
-    }
-  }
+	border-radius: 20px !important;
+	border: none !important;
 }
-.coworking-space-box .icon {
-  height: 38px !important;
-  margin-bottom: 19px !important;
-  margin-top: 15px !important;
-}
+// .modal-content {
+//   border-radius: 12px;
+//   background-image: url(http://officegenics.com/cofynd/new-cofynd/new-bg-5.jpg);
+//   background-size: cover;
+
+//   .modal-header {
+//     justify-content: center;
+
+//     .modal-title {
+//       margin-bottom: 0;
+//       line-height: 1.5;
+//       font-size: 1.25rem;
+
+//       span {
+//         font-size: 14px;
+//         color: #4343e8;
+//       }
+//     }
+//   }
+
+//   .modal-body {
+//     .coworking-space-box {
+//       height: 150px;
+//       width: 150px;
+//       border-radius: 100%;
+//       box-shadow: 0px 6px 10px rgba(67, 67, 232, 0.4);
+//       background-color: rgba(255, 204, 5, 0.08)
+//     }
+
+//     .img-box {
+//       position: relative;
+//       top: 35px;
+
+//       img {
+//         height: 50px;
+//         // 60px on mobile
+//         widows: auto;
+//       }
+
+//       p {
+//         margin-top: 14px;
+//         font-weight: 500;
+//         font-size: 15px;
+//         // 13px on mob
+//         line-height: 16px;
+//         // 14px line-height: ;
+//       }
+//     }
+//   }
+// }
+// .coworking-space-box .icon {
+//   height: 38px !important;
+//   margin-bottom: 19px !important;
+//   margin-top: 15px !important;
+// }
 
 
-@media only screen and (max-width: 600px) {
-  .img-box {
+// @media only screen and (max-width: 600px) {
+//   .img-box {
 
-    img {
-      height: 50px;
-    }
+//     img {
+//       height: 50px;
+//     }
 
-    p {
+//     p {
 
-      font-size: 13px;
-      line-height: 14px;
+//       font-size: 13px;
+//       line-height: 14px;
 
-    }
-  }
-}
+//     }
+//   }
+// }
 
 
 @media (max-width: 480px) {
-  .cities_popup_option {
-    border-radius: 10px !important;
-    overflow: hidden;
-    background-image: none !important;
-  }
-  .cities_popup_option .modal-title {
-    font-size: 15px !important;
-    font-weight: 600;
-    line-height: 24px !important;
-  }
-  .cities_popup_option .modal-title span {
-    display: none;
-  }
-  .cities_popup_option .modal-body .coworking-space-box {
-    height: 150px;
-    width: 150px;
-    border-radius: 100%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.14);
-    background-color: #F8F8F8;
-    margin: 0px auto !important;
-  }
-  .cities_popup_option .modal-body .img-box p {
-    margin-top: 10px !important;
-    font-size: 11px !important;
-    line-height: 15px !important;
-    font-weight: 600 !important;
-    margin-bottom: 10px !important;
-  }
-  .coworking-space-box .icon {
-    height: 38px !important;
-    margin-bottom: 22px !important;
-    margin-top: 0px !important;
-  }
+  // .cities_popup_option {
+  //   border-radius: 10px !important;
+  //   overflow: hidden;
+  //   background-image: none !important;
+  // }
+  // .cities_popup_option .modal-title {
+  //   font-size: 15px !important;
+  //   font-weight: 600;
+  //   line-height: 24px !important;
+  // }
+  // .cities_popup_option .modal-title span {
+  //   display: none;
+  // }
+  // .cities_popup_option .modal-body .coworking-space-box {
+  //   height: 150px;
+  //   width: 150px;
+  //   border-radius: 100%;
+  //   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.14);
+  //   background-color: #F8F8F8;
+  //   margin: 0px auto !important;
+  // }
+  // .cities_popup_option .modal-body .img-box p {
+  //   margin-top: 10px !important;
+  //   font-size: 11px !important;
+  //   line-height: 15px !important;
+  //   font-weight: 600 !important;
+  //   margin-bottom: 10px !important;
+  // }
+  // .coworking-space-box .icon {
+  //   height: 38px !important;
+  //   margin-bottom: 22px !important;
+  //   margin-top: 0px !important;
+  // }
 }

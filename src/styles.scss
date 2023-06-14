@@ -3850,7 +3850,7 @@ h3.site_title {
 
 .listing_card .property-img .item img {
     height: 250px !important;
-    border-radius: 20px;
+    // border-radius: 20px;
 }
 
 .listing_card .carousel-arrow {
@@ -3890,11 +3890,13 @@ h3.site_title {
 
 .listing_card .property-dis h4 {
     font-size: 17px;
-    line-height: 25px;
     font-weight: 600;
     margin-bottom: 0px;
+    line-height: 25px;
 }
-
+.slider-outer .next-item, .slider-outer .prev-item {
+	opacity: 1;
+}
 .property_item .property-dis h4 .builder_name {
     color: #4343E8;
     font-size: 12px;
@@ -7537,8 +7539,80 @@ select.form-control{
 .for_email_sec .email_id a {
 	color: #000;
 }
+.home_city_popup .modal-header {
+	display: block;
+	padding: 0px 20px 20px;
+	border-bottom: none;
+}
+.home_city_popup .modal-header .popup_icon {
+	display: inline-block;
+	background-color: #FEF7EA;
+	border-radius: 50%;
+	margin-top: -30px;
+	position: relative;
+	top: -24px;
+	width: 100px;
+	height: 100px;
+	line-height: 85px;
+}
+.home_city_popup .modal-header .popup_icon img {
+	width: 52%;
+}
+.home_city_popup .modal-header h5 {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+.home_city_popup .modal-header p {
+	margin-bottom: 0px;
+	font-weight: 500;
+	color: #4343E8;
+	font-size: 13px;
+	line-height: 20px;
+}
+.home_city_popup .cat_box {
+	-webkit-filter: drop-shadow(0px 4px 4px #FFF9EA);
+	filter: drop-shadow(0px 4px 4px #FFF9EA);
+	background-color: #fff;
+	border-radius: 50%;
+	width: 110px;
+	height: 110px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.home_city_popup .cat_box .img-box {
+	background-color: #FEF7EA;
+	height: 55px;
+	display: flex;
+}
+.home_city_popup .cat_box .img-box img {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+}
+.home_city_popup .cat_box .title-box {
+	text-align: center;
+}
+.home_city_popup .cat_box .title-box p {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.home_city_popup .cat_box.coworking-space-box .img-box img {
+	width: 30px;
+	height: 30px;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
 
 @media (max-width:991px) {
+
+    .details_page_gallery .container {
+        padding: 0px;
+    }
     
     .mobile_login .login-btn {
         padding: 4px 11px;
@@ -10270,27 +10344,27 @@ select.form-control{
     .listing_card .property-img {
         height: auto !important;
         border-radius: 15px !important;
-        width: 45% !important;
+        width: 40% !important;
         overflow: hidden !important;
         margin-bottom: 0px;
     }
     .listing_card .property-img .item {
-        height: 170px !important;
+        height: 140px !important;
     }
     .listing_card .property-img .item img {
-        height: 170px !important;
+        height: 140px !important;
     }
     .listing_card .space_details {
         border: none !important;
         box-shadow: none !important;
         padding: 10px 15px !important;
-        width: 55% !important;
+        width: 60% !important;
     }
     .listing_card .space_details h4 {
         font-size: 13px !important;
         color: #272828 !important;
         white-space: normal;
-        margin-bottom: 2px !important;
+        margin-bottom: 4px !important;
         line-height: 17px;
     }
     .listing_card .property-dis p {
@@ -10303,6 +10377,7 @@ select.form-control{
     .listing_card .property-foot .price {
         font-size: 11px !important;
         line-height: 20px !important;
+        flex: 0 0 60% !important;
     }
     .listing_card .property-foot .price .rent_duration {
         font-size: 9px;
@@ -10381,7 +10456,7 @@ select.form-control{
         padding: 0 6px !important;
     }
     .property_item {
-        padding: 8px 8px !important;
+        padding: 0px !important;
         border-radius: 10px;
     }
     .property_item .property-img {
