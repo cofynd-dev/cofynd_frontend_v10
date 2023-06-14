@@ -3850,7 +3850,7 @@ h3.site_title {
 
 .listing_card .property-img .item img {
     height: 250px !important;
-    border-radius: 20px;
+    // border-radius: 20px;
 }
 
 .listing_card .carousel-arrow {
@@ -3890,11 +3890,13 @@ h3.site_title {
 
 .listing_card .property-dis h4 {
     font-size: 17px;
-    line-height: 25px;
     font-weight: 600;
     margin-bottom: 0px;
+    line-height: 25px;
 }
-
+.slider-outer .next-item, .slider-outer .prev-item {
+	opacity: 1;
+}
 .property_item .property-dis h4 .builder_name {
     color: #4343E8;
     font-size: 12px;
@@ -7450,6 +7452,13 @@ h3.site_title {
 	height: 70px;
 	object-fit: contain;
 }
+select.form-control{
+    -webkit-appearance: menulist !important;
+    -moz-appearance: menulist !important;
+    -ms-appearance: menulist !important;
+    -o-appearance: menulist !important;
+    appearance: menulist !important;
+}
 .builder_item .brand_content .project_count {
 	text-align: center;
 }
@@ -7530,8 +7539,80 @@ h3.site_title {
 .for_email_sec .email_id a {
 	color: #000;
 }
+.home_city_popup .modal-header {
+	display: block;
+	padding: 0px 20px 20px;
+	border-bottom: none;
+}
+.home_city_popup .modal-header .popup_icon {
+	display: inline-block;
+	background-color: #FEF7EA;
+	border-radius: 50%;
+	margin-top: -30px;
+	position: relative;
+	top: -24px;
+	width: 100px;
+	height: 100px;
+	line-height: 85px;
+}
+.home_city_popup .modal-header .popup_icon img {
+	width: 52%;
+}
+.home_city_popup .modal-header h5 {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+.home_city_popup .modal-header p {
+	margin-bottom: 0px;
+	font-weight: 500;
+	color: #4343E8;
+	font-size: 13px;
+	line-height: 20px;
+}
+.home_city_popup .cat_box {
+	-webkit-filter: drop-shadow(0px 4px 4px #FFF9EA);
+	filter: drop-shadow(0px 4px 4px #FFF9EA);
+	background-color: #fff;
+	border-radius: 50%;
+	width: 110px;
+	height: 110px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.home_city_popup .cat_box .img-box {
+	background-color: #FEF7EA;
+	height: 55px;
+	display: flex;
+}
+.home_city_popup .cat_box .img-box img {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+}
+.home_city_popup .cat_box .title-box {
+	text-align: center;
+}
+.home_city_popup .cat_box .title-box p {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.home_city_popup .cat_box.coworking-space-box .img-box img {
+	width: 30px;
+	height: 30px;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
 
 @media (max-width:991px) {
+
+    .details_page_gallery .container {
+        padding: 0px;
+    }
     
     .mobile_login .login-btn {
         padding: 4px 11px;
@@ -10263,27 +10344,27 @@ h3.site_title {
     .listing_card .property-img {
         height: auto !important;
         border-radius: 15px !important;
-        width: 45% !important;
+        width: 40% !important;
         overflow: hidden !important;
         margin-bottom: 0px;
     }
     .listing_card .property-img .item {
-        height: 170px !important;
+        height: 140px !important;
     }
     .listing_card .property-img .item img {
-        height: 170px !important;
+        height: 140px !important;
     }
     .listing_card .space_details {
         border: none !important;
         box-shadow: none !important;
         padding: 10px 15px !important;
-        width: 55% !important;
+        width: 60% !important;
     }
     .listing_card .space_details h4 {
         font-size: 13px !important;
         color: #272828 !important;
         white-space: normal;
-        margin-bottom: 2px !important;
+        margin-bottom: 4px !important;
         line-height: 17px;
     }
     .listing_card .property-dis p {
@@ -10296,6 +10377,7 @@ h3.site_title {
     .listing_card .property-foot .price {
         font-size: 11px !important;
         line-height: 20px !important;
+        flex: 0 0 60% !important;
     }
     .listing_card .property-foot .price .rent_duration {
         font-size: 9px;
@@ -10345,6 +10427,9 @@ h3.site_title {
     .similar-workspaces {
         margin-top: 10px;
     }
+    .form_dream_ptoperty .col-sm-4.mb-3 {
+        margin-bottom: 0px !important;
+    }
     .form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
         font-size: 11px !important;
         padding: 7px 5px !important;
@@ -10374,7 +10459,7 @@ h3.site_title {
         padding: 0 6px !important;
     }
     .property_item {
-        padding: 8px 8px !important;
+        padding: 8px !important;
         border-radius: 10px;
     }
     .property_item .property-img {
@@ -10398,7 +10483,7 @@ h3.site_title {
         text-overflow: ellipsis !important;
         overflow: hidden !important;
         padding-bottom: 5px;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .amenities_card {
         display: flex;
@@ -10694,71 +10779,6 @@ h3.site_title {
         padding-top: 40px;
         padding-bottom: 40px;
     }
-    // .choose_item_slider {
-    //     -webkit-overflow-scrolling: touch;
-    //     -ms-overflow-style: none !important;
-    //     scrollbar-width: none !important;
-    //     display: block;
-    //     width: 100%;
-    //     height: auto;
-    //     overflow-x: scroll;
-    //     padding: 0;
-    //     margin: 0;
-    //     white-space: nowrap;
-    //     margin-top: 0px !important;
-    // }
-    // .choose_item_slider .step_item {
-    //     display: -webkit-inline-box;
-    //     display: inline-flex;
-    //     -webkit-box-flex: 0;
-    //     width: 55.429%;
-    //     position: relative;
-    //     border-radius: 10px;
-    //     overflow: hidden;
-    //     padding: 10px;
-    //     -webkit-box-align: center;
-    //     align-items: center;
-    //     background: #FFFFFF;
-    //     margin: 0px 5px;
-    // }
-    // .choose_item_slider .step_item .icon {
-    //     width: 45px;
-    //     margin-right: 10px;
-    //     background-color: #f8f8f8;
-    //     border-radius: 10px;
-    // }
-    // .choose_item_slider .step_item img {
-    //     width: 45px;
-    //     height: 45px;
-    //     text-align: center;
-    //     padding: 5px;
-    //     border-radius: 10px;
-    // }
-    // .choose_item_slider .step_item .content {
-    //     width: 80%;
-    //     white-space: normal;
-    // }
-    // .choose_item_slider .step_item h4 {
-    //     font-size: 10px;
-    //     margin-left: 0;
-    //     line-height: 12px;
-    //     margin-bottom: 1px;
-    // }
-    // .how_to_start_sec .step_item p {
-    //     margin-bottom: 4px;
-    //     font-size: 10px !important;
-    //     line-height: 13px !important;
-    //     margin-top: 3px;
-    // }
-    // .choose_item_slider .col-md-4 {
-    //     display: inline-block;
-    //     -webkit-box-flex: 0;
-    //     width: 75.429%;
-    //     position: relative;
-    //     border-radius: 20px;
-    //     overflow: hidden;
-    //     padding: 0 10px;
-    // }
     .choosewithcofynd_sec .left_icon_box2 .content {
         width: 80%;
         white-space: normal;
@@ -11088,8 +11108,9 @@ h3.site_title {
         font-weight: 500 !important;
     }
     .cofynd_advantage_area .row {
-        padding: 30px 15px;
+        padding: 20px 15px;
         border-radius: 10px;
+        margin: 0px;
     }
     .cofynd_advantage_area .col-4 {
         padding: 0px 5px;
@@ -11337,6 +11358,7 @@ h3.site_title {
         border-radius: 4px;
         width: 100%;
         color: #000;
+        height: auto;
     }
     // .filter_col {
     //     margin-top: 11px;
@@ -11553,6 +11575,7 @@ h3.site_title {
     .for_email_sec p {
         font-size: 11px !important;
         line-height: 17px !important;
+        margin-bottom: 8px;
     }
     .for_email_sec .email_id img {
         width: 15px;
@@ -11561,6 +11584,46 @@ h3.site_title {
     .for_email_sec .container, .for_email_sec .container-fluid {
         border-radius: 12px;
         padding: 20px 20px;
+    }
+    .home_city_popup .modal-header .popup_icon {
+        top: -14px;
+        width: 70px;
+        height: 70px;
+        line-height: 60px;
+    }
+    .home_city_popup .modal-header h5 {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .home_city_popup .cat_box {
+        width: 85px;
+        height: 85px;
+    }
+    .home_city_popup .cat_box .img-box {
+        height: 44px;
+    }
+    .home_city_popup .cat_box .title-box p {
+        font-size: 10px !important;
+        line-height: 13px !important;
+        font-weight: 600 !important;
+        margin-top: 5px;
+    }
+    .home_city_popup .modal-header {
+        padding: 0px 20px 0px;
+    }
+    .home_city_popup .modal-body {
+        padding: 10px 10px 20px !important;
+    }
+    .home_city_popup .cat_box .img-box img {
+        width: 30px;
+        height: 30px;
+    }
+    .home_city_popup .cat_box.coworking-space-box .img-box img {
+        width: 25px;
+        height: 25px;
+    }
+    .listing_card {
+        padding: 0px !important;
     }
 }
 
