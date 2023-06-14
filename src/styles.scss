@@ -10427,6 +10427,9 @@ select.form-control{
     .similar-workspaces {
         margin-top: 10px;
     }
+    .form_dream_ptoperty .col-sm-4.mb-3 {
+        margin-bottom: 0px !important;
+    }
     .form_dream_ptoperty .form-input input, .form_dream_ptoperty .form-input select {
         font-size: 11px !important;
         padding: 7px 5px !important;
@@ -10456,7 +10459,7 @@ select.form-control{
         padding: 0 6px !important;
     }
     .property_item {
-        padding: 0px !important;
+        padding: 8px !important;
         border-radius: 10px;
     }
     .property_item .property-img {
@@ -10480,7 +10483,7 @@ select.form-control{
         text-overflow: ellipsis !important;
         overflow: hidden !important;
         padding-bottom: 5px;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .amenities_card {
         display: flex;
@@ -10776,71 +10779,6 @@ select.form-control{
         padding-top: 40px;
         padding-bottom: 40px;
     }
-    // .choose_item_slider {
-    //     -webkit-overflow-scrolling: touch;
-    //     -ms-overflow-style: none !important;
-    //     scrollbar-width: none !important;
-    //     display: block;
-    //     width: 100%;
-    //     height: auto;
-    //     overflow-x: scroll;
-    //     padding: 0;
-    //     margin: 0;
-    //     white-space: nowrap;
-    //     margin-top: 0px !important;
-    // }
-    // .choose_item_slider .step_item {
-    //     display: -webkit-inline-box;
-    //     display: inline-flex;
-    //     -webkit-box-flex: 0;
-    //     width: 55.429%;
-    //     position: relative;
-    //     border-radius: 10px;
-    //     overflow: hidden;
-    //     padding: 10px;
-    //     -webkit-box-align: center;
-    //     align-items: center;
-    //     background: #FFFFFF;
-    //     margin: 0px 5px;
-    // }
-    // .choose_item_slider .step_item .icon {
-    //     width: 45px;
-    //     margin-right: 10px;
-    //     background-color: #f8f8f8;
-    //     border-radius: 10px;
-    // }
-    // .choose_item_slider .step_item img {
-    //     width: 45px;
-    //     height: 45px;
-    //     text-align: center;
-    //     padding: 5px;
-    //     border-radius: 10px;
-    // }
-    // .choose_item_slider .step_item .content {
-    //     width: 80%;
-    //     white-space: normal;
-    // }
-    // .choose_item_slider .step_item h4 {
-    //     font-size: 10px;
-    //     margin-left: 0;
-    //     line-height: 12px;
-    //     margin-bottom: 1px;
-    // }
-    // .how_to_start_sec .step_item p {
-    //     margin-bottom: 4px;
-    //     font-size: 10px !important;
-    //     line-height: 13px !important;
-    //     margin-top: 3px;
-    // }
-    // .choose_item_slider .col-md-4 {
-    //     display: inline-block;
-    //     -webkit-box-flex: 0;
-    //     width: 75.429%;
-    //     position: relative;
-    //     border-radius: 20px;
-    //     overflow: hidden;
-    //     padding: 0 10px;
-    // }
     .choosewithcofynd_sec .left_icon_box2 .content {
         width: 80%;
         white-space: normal;
@@ -11637,6 +11575,7 @@ select.form-control{
     .for_email_sec p {
         font-size: 11px !important;
         line-height: 17px !important;
+        margin-bottom: 8px;
     }
     .for_email_sec .email_id img {
         width: 15px;
@@ -11682,6 +11621,9 @@ select.form-control{
     .home_city_popup .cat_box.coworking-space-box .img-box img {
         width: 25px;
         height: 25px;
+    }
+    .listing_card {
+        padding: 0px !important;
     }
 }
 
