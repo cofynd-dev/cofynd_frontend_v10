@@ -19,8 +19,6 @@ import { Location } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
-
-
 @Component({
   selector: 'app-coworking-locality',
   templateUrl: './coworking-locality.component.html',
@@ -57,9 +55,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   selectedValue: any = 'Select Price';
   roomType: any;
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
-  selectedOption: any = 'SortBy'
-
-
+  selectedOption: any = 'SortBy';
+  footerScriptAdded = false;
 
   constructor(
     @Inject(DOCUMENT) private _document: Document,
@@ -136,7 +133,9 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   }
 
   routeToMicro(item) {
-    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item)
+      .toLowerCase()
+      .trim()}`;
     this.router.navigate([url]);
   }
 
@@ -212,8 +211,20 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         };
         this.pageTitle = seoMeta.page_title;
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          this.addScriptToFooter(seoMeta.script);
+        }
       }
     });
+  }
+
+  addScriptToFooter(footerScript) {
+    console.log(footerScript);
+    const script = this._renderer2.createElement('script');
+    script.src = footerScript;
+    const footerElement = this.el.nativeElement.querySelector('.footer');
+    this._renderer2.appendChild(footerElement, script);
+    this.footerScriptAdded = true;
   }
 
   onPriceSelect(value) {
@@ -270,7 +281,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     if (sortByLowToHigh === 'Low to High') {
       this.workSpaces = this.workSpaces.sort((a, b) => a.starting_price - b.starting_price);
       this.loading = false;
-    } if (sortByLowToHigh === 'High to Low') {
+    }
+    if (sortByLowToHigh === 'High to Low') {
       this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
@@ -288,11 +300,13 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         });
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-            for (let index = 0; index < mlocations.data.length; index++) {
-              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
-            }
-          })
+          this.workSpaceService
+            .microLocationByCityAndSpaceType(filteredLocations[0].id)
+            .subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+              }
+            });
         }
       }
 
