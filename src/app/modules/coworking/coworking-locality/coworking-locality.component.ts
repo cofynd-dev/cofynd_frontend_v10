@@ -212,19 +212,21 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         this.pageTitle = seoMeta.page_title;
         this.seoService.setData(this.seoData);
         if (seoMeta && seoMeta.script) {
-          this.addScriptToFooter(seoMeta.script);
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScriptOfLocality(scrt);
+          }
         }
       }
     });
   }
 
-  addScriptToFooter(footerScript) {
-    console.log(footerScript);
-    const script = this._renderer2.createElement('script');
-    script.src = footerScript;
-    const footerElement = this.el.nativeElement.querySelector('.footer');
-    this._renderer2.appendChild(footerElement, script);
-    this.footerScriptAdded = true;
+  setHeaderScriptOfLocality(localityScript) {
+    let script = this._renderer2.createElement('script');
+    script.type = `application/ld+json`;
+    script.text = `${localityScript}`;
+    this._renderer2.appendChild(this._document.head, script);
   }
 
   onPriceSelect(value) {
