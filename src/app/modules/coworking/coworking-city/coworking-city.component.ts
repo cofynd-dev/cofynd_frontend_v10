@@ -21,7 +21,6 @@ import { generateSlug } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
-
 declare var $: any;
 
 @Component({
@@ -66,9 +65,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   filteredCity: any = [];
   mySubscription: any;
   shouldReloadEnquiryForm: boolean;
-  selectedOption: any = 'SortBy'
-
-
+  selectedOption: any = 'SortBy';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -172,16 +169,17 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           this.loadWorkSpaces(this.queryParams);
         });
       });
-
-    if (this.title) {
-      for (let scrt of script.coworking[this.title]) {
-        this.setHeaderScript(scrt);
-      }
-    }
+    // if (this.title) {
+    //   // for (let scrt of script.coworking[this.title]) {
+    //   //   this.setHeaderScript(scrt);
+    //   // }
+    // }
   }
 
   routeToMicro(item) {
-    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    const url = `/coworking/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item)
+      .toLowerCase()
+      .trim()}`;
     this.router.navigate([url]);
   }
 
@@ -271,6 +269,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       } else {
         this.seoData = null;
       }
@@ -280,7 +285,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   setHeaderScript(cityScript) {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
-    script.text = `${cityScript} `;
+    script.text = `${cityScript}`;
     this._renderer2.appendChild(this._document.head, script);
   }
 
@@ -290,7 +295,8 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     if (sortByLowToHigh === 'Low to High') {
       this.workSpaces = this.workSpaces.sort((a, b) => a.starting_price - b.starting_price);
       this.loading = false;
-    } if (sortByLowToHigh === 'High to Low') {
+    }
+    if (sortByLowToHigh === 'High to Low') {
       this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
@@ -308,11 +314,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       if (allWorkSpaces.data.length) {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.workSpaceService.microLocationByCityAndSpaceType(this.filteredCity[0].id).subscribe((mlocations: any) => {
-            for (let index = 0; index < mlocations.data.length; index++) {
-              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
-            }
-          })
+          this.workSpaceService
+            .microLocationByCityAndSpaceType(this.filteredCity[0].id)
+            .subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+              }
+            });
         }
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         this.workSpaces[0].images.map((image, index) => {
