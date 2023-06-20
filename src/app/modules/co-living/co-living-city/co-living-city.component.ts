@@ -25,7 +25,6 @@ declare var $: any;
   templateUrl: './co-living-city.component.html',
   styleUrls: ['./co-living-city.component.scss'],
 })
-
 export class CoLivingCityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY_CO_LIVING;
   loading: boolean = true;
@@ -57,8 +56,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   filterValue: any;
   selectedValue: any = 'Select Price';
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
-  selectedOption: any = 'SortBy'
-
+  selectedOption: any = 'SortBy';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -156,14 +154,12 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
       this.maxPrice = 30000;
       this.filterValue = 29999;
       this.apply();
-
     }
     if (value === 'More than ₹30,000') {
       this.minPrice = 30000;
       this.maxPrice = 200000;
       this.filterValue = 30000;
       this.apply();
-
     }
   }
 
@@ -205,7 +201,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     if (sortByLowToHigh === 'Low to High') {
       this.coLivings = this.coLivings.sort((a, b) => a.starting_price - b.starting_price);
       this.loading = false;
-    } if (sortByLowToHigh === 'High to Low') {
+    }
+    if (sortByLowToHigh === 'High to Low') {
       this.coLivings = this.coLivings.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
@@ -229,7 +226,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
             for (let index = 0; index < mlocations.data.length; index++) {
               this.popularLocation.push(mlocations.data[index]['name']);
             }
-          })
+          });
         }
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
@@ -262,7 +259,9 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   routeToMicro(item) {
-    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item)
+      .toLowerCase()
+      .trim()}`;
     this.router.navigate([url]);
   }
 
@@ -359,11 +358,13 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-              for (let index = 0; index < mlocations.data.length; index++) {
-                this.popularLocation.push(mlocations.data[index]['name']);
-              }
-            })
+            this.coLivingService
+              .microLocationByCityAndSpaceType(filteredLocations[0].id)
+              .subscribe((mlocations: any) => {
+                for (let index = 0; index < mlocations.data.length; index++) {
+                  this.popularLocation.push(mlocations.data[index]['name']);
+                }
+              });
           }
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,
@@ -442,7 +443,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // this.configService.setDefaultConfigs();
   }
-
 }
 function ViewChild(arg0: string) {
   throw new Error('Function not implemented.');
