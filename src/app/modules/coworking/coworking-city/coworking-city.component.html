@@ -150,6 +150,14 @@
                     </div>
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <app-search-contact-us-text2 [pageNo]="'city page'">
+                            </app-search-contact-us-text2>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18cdea27a9a3be653904081b3bb0223ed6e8b6c4.jpg');">
                                     <div class="col-8">
@@ -165,18 +173,18 @@
                                     </div>
                                 </div>
                             </section>
-                        </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
-                            <app-search-contact-us-text1>
-                            </app-search-contact-us-text1>
-                        </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
-                            <app-search-contact-us-text2 [pageNo]="'city page'">
-                            </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
+                            <app-search-contact-us-text2 [pageNo]="'city page'">
+                            </app-search-contact-us-text2>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18cdea27a9a3be653904081b3bb0223ed6e8b6c4.jpg');">
                                     <div class="col-8">
@@ -193,18 +201,10 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
-                            <app-search-contact-us-text1>
-                            </app-search-contact-us-text1>
-                        </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
-                            <app-search-contact-us-text2 [pageNo]="'city page'">
-                            </app-search-contact-us-text2>
-                        </div>
                     </ng-template>
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-city-page-enquire *ngIf="workSpaces.length" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                 </div>
             </div>

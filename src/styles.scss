@@ -4269,8 +4269,8 @@ h3.site_title {
 }
 
 .form_dream_ptoperty .site_btn {
-    background-color: #EAE6FF;
-    border-color: #EAE6FF !important;
+    background-color: #FFE785;
+    border-color: #FFE785 !important;
     height: 42px;
     width: 100%;
     color: #000 !important;
@@ -4278,7 +4278,7 @@ h3.site_title {
 
 .form_dream_ptoperty .site_btn:hover {
     background-color: #cdc3ff;
-    border-color: #EAE6FF;
+    border-color: #EAE6FF !important;
     color: #000 !important;
 }
 
@@ -8954,9 +8954,9 @@ select.form-control{
         top: -8px;
     }
     .site_btn {
-        padding: 2px 10px !important;
+        padding: 4px 10px !important;
         font-size: 9px !important;
-        border-radius: 6px;
+        border-radius: 5px !important;
     }
     .categories_sec .col-8,
     .categories_sec .col-4,
@@ -10203,7 +10203,7 @@ select.form-control{
         padding-bottom: 50px;
     }
     .how_to_start_sec .step_item .icon {
-        width: 30px;
+        width: 50px;
         margin-right: 20px;
     }
     .how_to_start_sec .step_item h4 {
@@ -10213,9 +10213,9 @@ select.form-control{
     .title_divider {
         padding-bottom: 0px;
     }
-    .how_to_start_sec .step_item {
-        margin-bottom: 20px;
-    }
+    // .how_to_start_sec .step_item {
+    //     margin-bottom: 20px;
+    // }
     .why_list_sec {
         padding-top: 50px;
         padding-bottom: 40px;
@@ -10224,9 +10224,11 @@ select.form-control{
         margin-top: 0px !important;
     }
     .why_list_sec .why_list_item .icon {
-        margin-right: 0px;
         width: 25px;
-        margin-bottom: 6px;
+        margin: 0px auto 10px;
+    }
+    .why_list_sec .why_list_item .content {
+        text-align: center;
     }
     .why_list_sec .why_list_item h4 {
         font-size: 10px;
@@ -10306,7 +10308,7 @@ select.form-control{
     }
     .list_your_space_sec .cta_content h4 {
         margin-bottom: 5px !important;
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     .map-location .leaflet-container.leaflet-touch {
         position: relative;
@@ -10923,6 +10925,14 @@ select.form-control{
     .list_your_space_sec .row {
         border-radius: 10px;
     }
+    .list_now_sec .row::before {
+        background: none;
+    }
+    .list_now_sec .row {
+        text-align: center;
+        box-shadow: none;
+        padding-top: 40px;
+    }
     .faqs_area p {
         font-size: 10px !important;
         line-height: 16px !important;
@@ -11211,12 +11221,38 @@ select.form-control{
     .list-property-img img {
         width: 100%;
     }
-    .list-property-img {
-        padding-left: 0;
+    .list_space_banner .banner_content {
+        text-align: center;
+        padding: 40px 15px 20px 15px !important;
+    }
+    .list_space_banner .banner_content h2 {
+        font-size: 22px !important;
+    }
+    .list_space_banner .banner_content h5 {
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 15px !important;
     }
     .list_space_banner {
         padding-top: 35px;
         padding-bottom: 35px;
+    }
+    .how_to_start_sec {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .how_to_start_sec .choose_item_slider {
+        display: inline-block;
+        overflow: initial !important;
+        scrollbar-width: none !important;
+        white-space: normal;
+        text-align: center;
+    }
+    .how_to_start_sec .step_item {
+        margin-bottom: 20px;
+        width: 75%;
+        margin: 0px auto 12px;
+        text-align: left;
     }
     .testimonials_video iframe {
         height: 210px;
