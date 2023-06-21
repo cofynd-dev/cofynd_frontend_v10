@@ -105,11 +105,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           });
         });
       });
-    if (this.title) {
-      for (let scrt of script.coliving[this.title]) {
-        this.setHeaderScript(scrt);
-      }
-    }
+    // if (this.title) {
+    //   for (let scrt of script.coliving[this.title]) {
+    //     this.setHeaderScript(scrt);
+    //   }
+    // }
   }
 
   createBreadcrumb() {
@@ -168,7 +168,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
             for (let index = 0; index < mlocations.data.length; index++) {
               this.popularLocation.push(mlocations.data[index]['name']);
             }
-          })
+          });
         }
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
@@ -202,6 +202,13 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }
@@ -339,11 +346,13 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
 
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-              for (let index = 0; index < mlocations.data.length; index++) {
-                this.popularLocation.push(mlocations.data[index]['name']);
-              }
-            })
+            this.coLivingService
+              .microLocationByCityAndSpaceType(filteredLocations[0].id)
+              .subscribe((mlocations: any) => {
+                for (let index = 0; index < mlocations.data.length; index++) {
+                  this.popularLocation.push(mlocations.data[index]['name']);
+                }
+              });
           }
 
           const IMAGE_STATIC_ALT = [

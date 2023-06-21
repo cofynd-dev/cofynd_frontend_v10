@@ -23,7 +23,6 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
   templateUrl: './co-living-locality.component.html',
   styleUrls: ['./co-living-locality.component.scss'],
 })
-
 export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   availableCities: any = [];
   loading: boolean;
@@ -105,7 +104,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
           if (results.routeParams[1].path && script.coliving.microLocation[results.routeParams[1].path]) {
             for (let scrt of script.coliving.microLocation[results.routeParams[1].path]) {
-              this.setHeaderScript(scrt);
+              // this.setHeaderScript(scrt);
             }
           }
         });
@@ -166,7 +165,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             for (let index = 0; index < mlocations.data.length; index++) {
               this.popularLocation.push(mlocations.data[index]['name']);
             }
-          })
+          });
         }
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
@@ -200,6 +199,13 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }
@@ -332,11 +338,13 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-              for (let index = 0; index < mlocations.data.length; index++) {
-                this.popularLocation.push(mlocations.data[index]['name']);
-              }
-            })
+            this.coLivingService
+              .microLocationByCityAndSpaceType(filteredLocations[0].id)
+              .subscribe((mlocations: any) => {
+                for (let index = 0; index < mlocations.data.length; index++) {
+                  this.popularLocation.push(mlocations.data[index]['name']);
+                }
+              });
           }
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,

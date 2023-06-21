@@ -19,7 +19,6 @@ import { virtual_Office_SeoData } from './virtual-office-SEO-data';
 import { script } from '@app/core/config/script';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
-
 @Component({
   selector: 'app-virtual-office-city',
   templateUrl: './virtual-office-city.component.html',
@@ -55,7 +54,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
-
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -118,12 +116,11 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         this.createBreadcrumb();
         this.loadWorkSpaces(this.queryParams);
       });
-
-    if (this.title) {
-      for (let scrt of script.virtualOffice[this.title]) {
-        this.setHeaderScript(scrt);
-      }
-    }
+    // if (this.title) {
+    //   for (let scrt of script.virtualOffice[this.title]) {
+    //     this.setHeaderScript(scrt);
+    //   }
+    // }
   }
 
   createBreadcrumb() {
@@ -173,6 +170,13 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }
