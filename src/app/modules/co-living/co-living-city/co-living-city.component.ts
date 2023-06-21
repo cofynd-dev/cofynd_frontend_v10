@@ -130,11 +130,11 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         });
     });
 
-    if (this.title) {
-      for (let scrt of script.coliving[this.title]) {
-        this.setHeaderScript(scrt);
-      }
-    }
+    // if (this.title) {
+    //   for (let scrt of script.coliving[this.title]) {
+    //     this.setHeaderScript(scrt);
+    //   }
+    // }
   }
 
   onPriceSelect(value) {
@@ -279,6 +279,13 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }

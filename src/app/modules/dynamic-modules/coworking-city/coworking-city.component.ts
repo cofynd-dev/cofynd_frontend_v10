@@ -110,10 +110,10 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
               this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
               this.addSeoTags(
                 results.routeParams[1].path.toLowerCase() +
-                '-' +
-                results.routeParams[0].path.toLowerCase() +
-                '-' +
-                this.country_name.toLowerCase(),
+                  '-' +
+                  results.routeParams[0].path.toLowerCase() +
+                  '-' +
+                  this.country_name.toLowerCase(),
               );
               this.queryParams = {
                 ...AppConstant.DEFAULT_SEARCH_PARAMS,
@@ -130,13 +130,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         });
       });
 
-    if (this.title) {
-      if (this.title.length > 0) {
-        for (let scrt of script.coworking[this.title]) {
-          this.setHeaderScript(scrt);
-        }
-      }
-    }
+    // if (this.title) {
+    //   if (this.title.length > 0) {
+    //     for (let scrt of script.coworking[this.title]) {
+    //       this.setHeaderScript(scrt);
+    //     }
+    //   }
+    // }
   }
 
   createBreadcrumb() {
@@ -173,16 +173,25 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       } else {
         this.seoData = null;
       }
     });
   }
+
   removedash(name: string) {
     if (name) {
       return name.replace(/-/, ' ');
     }
   }
+
   setHeaderScript(cityScript) {
     let script = this._renderer2.createElement('script');
     script.type = `application/ld+json`;
@@ -203,11 +212,13 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           city => city.name.toLowerCase().trim() === this.title.toLowerCase().trim(),
         );
         if (filteredLocations && filteredLocations.length) {
-          this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-            for (let index = 0; index < mlocations.data.length; index++) {
-              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
-            }
-          })
+          this.workSpaceService
+            .microLocationByCityAndSpaceType(filteredLocations[0].id)
+            .subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+              }
+            });
         }
 
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;

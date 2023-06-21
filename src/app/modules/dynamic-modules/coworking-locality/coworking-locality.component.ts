@@ -192,8 +192,22 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         };
         this.pageTitle = seoMeta.page_title;
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScriptOfLocality(scrt);
+          }
+        }
       }
     });
+  }
+
+  setHeaderScriptOfLocality(localityScript) {
+    let script = this._renderer2.createElement('script');
+    script.type = `application/ld+json`;
+    script.text = `${localityScript}`;
+    this._renderer2.appendChild(this._document.head, script);
   }
 
   loadWorkSpaces(param: {}) {
@@ -212,11 +226,13 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         });
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.workSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-            for (let index = 0; index < mlocations.data.length; index++) {
-              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
-            }
-          })
+          this.workSpaceService
+            .microLocationByCityAndSpaceType(filteredLocations[0].id)
+            .subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+              }
+            });
         }
       }
 
