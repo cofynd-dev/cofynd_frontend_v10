@@ -15,7 +15,6 @@ import { environment } from '@env/environment';
 import { shake } from '@shared/animations/animation';
 import { ToastrService } from 'ngx-toastr';
 
-
 export enum ENQUIRY_STEPS {
   ENQUIRY,
   OTP,
@@ -39,7 +38,6 @@ declare let ga: any;
   ],
 })
 export class CityPageEnquireComponent implements OnInit, OnChanges {
-
   supportPhone = DEFAULT_APP_DATA.contact;
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
@@ -95,14 +93,14 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: '1-2 Month', value: '1-2 Month' },
     { label: '3-4 Month', value: '3-4 Month' },
     { label: 'After 4 Month', value: 'After 4 Month' },
-  ]
+  ];
 
   Budgets = [
     { label: '10k to 15k', value: '10k to 15k' },
     { label: `15k to 20k`, value: '15k to 20k' },
     { label: '20k to 30k', value: '20k to 30k' },
     { label: '30k +', value: '30k +' },
-  ]
+  ];
 
   OfficeBudgets = [
     { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
@@ -110,7 +108,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
     { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
     { label: '10 Lac +', value: '10 Lac +' },
-  ]
+  ];
 
   coLivingPlans = [
     { label: `Private Room`, value: 'private-room' },
@@ -124,7 +122,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: `Semi-Furnished`, value: 'Semi-Furnished' },
     { label: `Fully-Furnished`, value: 'Fully-Furnished' },
     { label: `Built to Suit/Customized`, value: 'Built to Suit/Customized' },
-  ]
+  ];
   pageName: string;
   pageUrl: string;
   city: string;
@@ -136,7 +134,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
-
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -168,11 +165,15 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -354,6 +355,8 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   createEnquiry() {
     this.loading = true;
     const formValues: Enquiry = this.enquiryForm.getRawValue();
+    const phone = this.enquiryForm.get('phone_number').value;
+    formValues['phone_number'] = `${this.selectedCountry.dial_code}${phone}`;
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
       formValues['interested_in'] = 'Virtual Office';
@@ -416,7 +419,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
       email: ['', Validators.required],
       phone_number: ['', Validators.required],
       otp: [''],
-      mx_Page_Url: ['City Page']
+      mx_Page_Url: ['City Page'],
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
@@ -458,5 +461,4 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
       ga('send', 'event', category, action, label);
     }
   }
-
 }

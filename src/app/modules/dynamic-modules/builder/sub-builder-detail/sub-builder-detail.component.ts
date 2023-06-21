@@ -1,7 +1,4 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from '@app/core/services/auth.service';
 import { SeoSocialShareData } from '@core/models/seo.model';
@@ -16,10 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
-import { SubBuilderService } from '../subbuilder.service'
+import { SubBuilderService } from '../subbuilder.service';
 import { BuilderService } from '../builder.services';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -30,9 +26,8 @@ export enum ENQUIRY_STEPS {
 @Component({
   selector: 'app-sub-builder-detail',
   templateUrl: './sub-builder-detail.component.html',
-  styleUrls: ['./sub-builder-detail.component.scss']
+  styleUrls: ['./sub-builder-detail.component.scss'],
 })
-
 export class SubBuilderDetailComponent implements OnInit {
   activeSubBuilderId: any;
   loading: boolean;
@@ -42,7 +37,6 @@ export class SubBuilderDetailComponent implements OnInit {
   //locationIq Map code
   options: any;
   markers: Layer[] = [];
-
 
   pageUrl: string;
   submitted = false;
@@ -57,7 +51,7 @@ export class SubBuilderDetailComponent implements OnInit {
   showcountry: boolean = false;
   selectedCountry: any = {};
 
-  // resend otp 
+  // resend otp
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
@@ -79,7 +73,8 @@ export class SubBuilderDetailComponent implements OnInit {
   resiPlanId: any;
   commPlanId: any;
 
-  constructor(private SubBuilderService: SubBuilderService,
+  constructor(
+    private SubBuilderService: SubBuilderService,
     private activatedRoute: ActivatedRoute,
     private seoService: SeoService,
     private router: Router,
@@ -101,7 +96,7 @@ export class SubBuilderDetailComponent implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -113,7 +108,7 @@ export class SubBuilderDetailComponent implements OnInit {
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -163,15 +158,14 @@ export class SubBuilderDetailComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getMorePropertiesByBuilder(param) {
     this.loading = true;
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
       this.moreProjects = allCommProjects.data.subbuilders;
       this.loading = false;
-    })
+    });
   }
 
   addValidationOnOtpField() {
@@ -183,11 +177,15 @@ export class SubBuilderDetailComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -201,34 +199,41 @@ export class SubBuilderDetailComponent implements OnInit {
       workspaceDetail => {
         this.SubBuilder = workspaceDetail.data;
         this.builderId = this.SubBuilder.builder.id;
-        this.builderService.getBuilderByName(this.builderId).subscribe(
-          workspaceDetail => {
-            this.builderLogoUrl = workspaceDetail.data.builder_logo.s3_link;
-          })
+        this.builderService.getBuilderByName(this.builderId).subscribe(workspaceDetail => {
+          this.builderLogoUrl = workspaceDetail.data.builder_logo.s3_link;
+        });
         if (!this.SubBuilder) {
           this.router.navigate(['/404'], { skipLocationChange: true });
         }
         this.loading = false;
         if (this.SubBuilder) {
-          this.videoUrl = this.SubBuilder.builder.video_link ? this.SubBuilder.builder.video_link : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
+          this.videoUrl = this.SubBuilder.builder.video_link
+            ? this.SubBuilder.builder.video_link
+            : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
           if (this.SubBuilder.plans.length > 0) {
-            this.residentailPlans = this.SubBuilder.plans.filter((item: any) => { return item.project_type == 'residential' });
-            this.commercialPlans = this.SubBuilder.plans.filter((item: any) => { return item.project_type == 'commercial' });
+            this.residentailPlans = this.SubBuilder.plans.filter((item: any) => {
+              return item.project_type == 'residential';
+            });
+            this.commercialPlans = this.SubBuilder.plans.filter((item: any) => {
+              return item.project_type == 'commercial';
+            });
             if (this.residentailPlans.length > 0) {
-              this.residentailFloorPlanClick(this.residentailPlans[0].planId['id'])
+              this.residentailFloorPlanClick(this.residentailPlans[0].planId['id']);
             }
             if (this.commercialPlans.length > 0) {
-              this.commercialFloorPlanClick(this.commercialPlans[0].planId['id'])
+              this.commercialFloorPlanClick(this.commercialPlans[0].planId['id']);
             }
             this.planId = this.SubBuilder.plans[0].planId['id'];
-            this.floorPlanClick(this.planId)
+            this.floorPlanClick(this.planId);
           }
           this.addSeoTags(this.SubBuilder);
-          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl.replace('watch?v=', 'embed/'));
+          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.videoUrl.replace('watch?v=', 'embed/'),
+          );
           this.commQueryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             builder: this.SubBuilder.builder.id,
-            shouldApprove: true
+            shouldApprove: true,
           };
           this.getMorePropertiesByBuilder(this.commQueryParams);
         }
@@ -391,14 +396,16 @@ export class SubBuilderDetailComponent implements OnInit {
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
       },
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Project'
+      mx_Space_Type: 'Web Project',
     };
     this.userService.createLead(object).subscribe(
       () => {

@@ -1,7 +1,4 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from '@app/core/services/auth.service';
 import { SeoSocialShareData } from '@core/models/seo.model';
@@ -28,7 +25,7 @@ export enum ENQUIRY_STEPS {
 @Component({
   selector: 'app-builder-detail',
   templateUrl: './builder-detail.component.html',
-  styleUrls: ['./builder-detail.component.scss']
+  styleUrls: ['./builder-detail.component.scss'],
 })
 export class BuilderDetailComponent implements OnInit {
   activeBuilderId: any;
@@ -53,7 +50,7 @@ export class BuilderDetailComponent implements OnInit {
   showcountry: boolean = false;
   selectedCountry: any = {};
 
-  // resend otp 
+  // resend otp
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
@@ -66,7 +63,8 @@ export class BuilderDetailComponent implements OnInit {
   allResiProjects: any = [];
   seoData: SeoSocialShareData;
 
-  constructor(private builderService: BuilderService,
+  constructor(
+    private builderService: BuilderService,
     private activatedRoute: ActivatedRoute,
     private seoService: SeoService,
     private router: Router,
@@ -75,7 +73,7 @@ export class BuilderDetailComponent implements OnInit {
     private toastrService: ToastrService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeBuilderId = param.buildername;
@@ -87,7 +85,7 @@ export class BuilderDetailComponent implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -99,7 +97,7 @@ export class BuilderDetailComponent implements OnInit {
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
     name: ['', Validators.required],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -149,15 +147,14 @@ export class BuilderDetailComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getBuilderComProjects(param) {
     this.loading = true;
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
       this.allCommProjects = allCommProjects.data.subbuilders;
       this.loading = false;
-    })
+    });
   }
 
   getBuilderResiProjects(param) {
@@ -165,7 +162,7 @@ export class BuilderDetailComponent implements OnInit {
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allResiProjects: any) => {
       this.allResiProjects = allResiProjects.data.subbuilders;
       this.loading = false;
-    })
+    });
   }
 
   addValidationOnOtpField() {
@@ -177,11 +174,15 @@ export class BuilderDetailComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -201,18 +202,20 @@ export class BuilderDetailComponent implements OnInit {
         if (this.builder) {
           this.videoUrl = this.builder.video_link;
           this.addSeoTags(this.builder);
-          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl.replace('watch?v=', 'embed/'));
+          this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.videoUrl.replace('watch?v=', 'embed/'),
+          );
           this.commQueryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             findKey: 'commercial',
             builder: this.builder.id,
-            shouldApprove: true
+            shouldApprove: true,
           };
           this.resiQueryParams = {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             findKey: 'residential',
             builder: this.builder.id,
-            shouldApprove: true
+            shouldApprove: true,
           };
           this.getBuilderComProjects(this.commQueryParams);
           this.getBuilderResiProjects(this.resiQueryParams);
@@ -327,14 +330,16 @@ export class BuilderDetailComponent implements OnInit {
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
       },
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Builder'
+      mx_Space_Type: 'Web Builder',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -350,5 +355,4 @@ export class BuilderDetailComponent implements OnInit {
       },
     );
   }
-
 }

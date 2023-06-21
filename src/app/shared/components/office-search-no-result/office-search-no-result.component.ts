@@ -18,7 +18,7 @@ export enum ENQUIRY_STEPS {
 @Component({
   selector: 'app-office-search-no-result',
   templateUrl: './office-search-no-result.component.html',
-  styleUrls: ['./office-search-no-result.component.scss']
+  styleUrls: ['./office-search-no-result.component.scss'],
 })
 export class OfficeSearchNoResultComponent implements OnInit {
   @Input() title: string;
@@ -51,14 +51,14 @@ export class OfficeSearchNoResultComponent implements OnInit {
     { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
     { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
     { label: '10 Lac +', value: '10 Lac +' },
-  ]
+  ];
 
   OfficeType = [
     { label: 'Raw', value: 'Raw' },
     { label: 'Semi-Furnished', value: 'Semi-Furnished' },
     { label: 'Fully-Furnished', value: 'Fully-Furnished' },
     { label: 'Built to Suit/Customized', value: 'Built to Suit/Customized' },
-  ]
+  ];
 
   VirtualOfficeType = [
     { label: 'Dedicated Desk', value: 'Dedicated-Desk' },
@@ -66,7 +66,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
     { label: 'Virtual Office', value: 'Virtual-Office' },
     { label: 'Office Suite', value: 'Office-Suite' },
     { label: 'Custom Buildout', value: 'Custom-Buildout' },
-  ]
+  ];
 
   coworkingNoOfSeats = [
     { label: '1-10', value: '1-10' },
@@ -76,9 +76,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
     { label: '100+', value: '100+' },
   ];
 
-  virtualType = [
-    { label: 'Virtual Office', value: 'virtual-office' },
-  ];
+  virtualType = [{ label: 'Virtual Office', value: 'virtual-office' }];
 
   virtualPlans = [
     { label: 'GST Registration', value: 'gst-registration' },
@@ -90,7 +88,6 @@ export class OfficeSearchNoResultComponent implements OnInit {
   user: any;
   btnLabel: string;
 
-
   constructor(
     private router: Router,
     private userService: UserService,
@@ -101,14 +98,14 @@ export class OfficeSearchNoResultComponent implements OnInit {
   ) {
     let url = this.router.url;
     this.pageUrl = `https://cofynd.com${url}`;
-    var parts = url.split("/");
+    var parts = url.split('/');
     this.city = parts[parts.length - 1];
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.loading = false;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -120,11 +117,15 @@ export class OfficeSearchNoResultComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -152,8 +153,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         name: ['', Validators.required],
         requirements: [''],
-        otp: ['']
-
+        otp: [''],
       };
       form['mx_BudgetPrice'] = ['', Validators.required];
       form['mx_Furnishing_Type'] = ['', Validators.required];
@@ -167,7 +167,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
         requirements: [''],
         otp: [''],
         mx_Space_Type: ['virtual-office'],
-        interested_in: ['', Validators.required]
+        interested_in: ['', Validators.required],
       };
       this.enterpriseFormGroup = this._formBuilder.group(form);
     }
@@ -192,8 +192,8 @@ export class OfficeSearchNoResultComponent implements OnInit {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -201,7 +201,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   resendOTP() {
@@ -238,7 +238,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {
@@ -306,11 +306,13 @@ export class OfficeSearchNoResultComponent implements OnInit {
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     let object = {};
     if (this.title == 'Office') {
       object = {
         user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          phone_number: phoneWithDialCode,
           email: this.enterpriseFormGroup.controls['email'].value,
           name: this.enterpriseFormGroup.controls['name'].value,
           requirements: this.enterpriseFormGroup.controls['requirements'].value,
@@ -320,13 +322,13 @@ export class OfficeSearchNoResultComponent implements OnInit {
         city: this.city,
         interested_in: 'Office Space',
         mx_Page_Url: this.pageUrl,
-        mx_Space_Type: 'Web Office Space'
+        mx_Space_Type: 'Web Office Space',
       };
     }
     if (this.title == 'Virtual') {
       object = {
         user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          phone_number: phoneWithDialCode,
           email: this.enterpriseFormGroup.controls['email'].value,
           name: this.enterpriseFormGroup.controls['name'].value,
           requirements: this.enterpriseFormGroup.controls['requirements'].value,
@@ -334,12 +336,12 @@ export class OfficeSearchNoResultComponent implements OnInit {
         interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
         city: this.city,
         mx_Page_Url: this.pageUrl,
-        mx_Space_Type: 'Web Virtual Office'
+        mx_Space_Type: 'Web Virtual Office',
       };
     }
     this.userService.createLead(object).subscribe(
       () => {
-        this.router.navigate(['/thank-you'])
+        this.router.navigate(['/thank-you']);
         this.loading = false;
         this.showSuccessMessage = true;
         this.enterpriseFormGroup.reset();
