@@ -29,7 +29,6 @@ declare let ga: any;
     trigger('shake', [state('0', style({})), state('1', style({})), transition('0 => 1', useAnimation(shake))]),
   ],
 })
-
 export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges {
   supportPhone = DEFAULT_APP_DATA.contact;
   @Input() isSticky: boolean;
@@ -51,9 +50,7 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   isActiveLabel: boolean;
   shakeTheForm: boolean;
 
-  virtualType = [
-    { label: 'Virtual Office', value: 'virtual-office' },
-  ];
+  virtualType = [{ label: 'Virtual Office', value: 'virtual-office' }];
 
   virtualPlans = [
     { label: 'GST Registration', value: 'gst-registration' },
@@ -68,7 +65,7 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     { label: '1-2 Month', value: '1-2 Month' },
     { label: '3-4 Month', value: '3-4 Month' },
     { label: 'After 4 Month', value: 'After 4 Month' },
-  ]
+  ];
 
   pageName: string;
   pageUrl: string;
@@ -115,11 +112,15 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   resendOTP() {
@@ -263,6 +264,9 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   createEnquiry() {
     this.loading = true;
     const formValues: Enquiry = this.enquiryForm.getRawValue();
+    const phone = this.enquiryForm.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    formValues['phone_number'] = phoneWithDialCode;
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
     }
@@ -311,7 +315,7 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
       email: ['', Validators.required],
       phone_number: ['', Validators.required],
       otp: [''],
-      mx_Page_Url: ['']
+      mx_Page_Url: [''],
     };
     form['mx_Space_Type'] = ['virtual-office', Validators.required];
     form['mx_Move_In_Date'] = [null, Validators.required];
@@ -336,5 +340,4 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
       ga('send', 'event', category, action, label);
     }
   }
-
 }

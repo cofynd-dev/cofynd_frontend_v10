@@ -204,7 +204,7 @@ export class VirtualOfficeComponent implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.queryFormGroup.patchValue({ name, email, phone_number });
@@ -219,7 +219,7 @@ export class VirtualOfficeComponent implements OnInit {
     name: ['', Validators.required],
     city: ['', Validators.required],
     requirements: [''],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -268,11 +268,15 @@ export class VirtualOfficeComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -298,8 +302,8 @@ export class VirtualOfficeComponent implements OnInit {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -307,13 +311,13 @@ export class VirtualOfficeComponent implements OnInit {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   getCurrentPosition(): any {
@@ -405,16 +409,18 @@ export class VirtualOfficeComponent implements OnInit {
   }
 
   createEnquiry() {
+    const phone = this.queryFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.queryFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.queryFormGroup.controls['email'].value,
         name: this.queryFormGroup.controls['name'].value,
         requirements: this.queryFormGroup.controls['requirements'].value,
       },
       city: this.queryFormGroup.controls['city'].value,
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Virtual Office'
+      mx_Space_Type: 'Web Virtual Office',
     };
     this.userService.createLead(object).subscribe(
       () => {

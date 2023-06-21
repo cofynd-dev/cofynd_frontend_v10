@@ -50,7 +50,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   @Input() cityName: string;
   @Input() microlocationName: string;
 
-
   enquiryForm: FormGroup;
   loading: boolean;
   user: any;
@@ -93,14 +92,14 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     { label: '1-2 Month', value: '1-2 Month' },
     { label: '3-4 Month', value: '3-4 Month' },
     { label: 'After 4 Month', value: 'After 4 Month' },
-  ]
+  ];
 
   Budgets = [
     { label: '10k to 15k', value: '10k to 15k' },
     { label: '15k to 20k', value: '15k to 20k' },
     { label: '20k to 30k', value: '20k to 30k' },
     { label: '30k', value: '30k' },
-  ]
+  ];
 
   OfficeBudgets = [
     { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
@@ -108,14 +107,14 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
     { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
     { label: '10 Lac +', value: '10 Lac +' },
-  ]
+  ];
 
   OfficeType = [
     { label: 'Raw', value: 'Raw' },
     { label: 'Semi-Furnished', value: 'Semi-Furnished' },
     { label: 'Fully-Furnished', value: 'Fully-Furnished' },
     { label: 'Built to Suit/Customized', value: 'Built to Suit/Customized' },
-  ]
+  ];
 
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
   pageUrl: string;
@@ -157,7 +156,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       email: ['', Validators.required],
       phone_number: ['', Validators.required],
       otp: [''],
-      mx_Page_Url: ['Space Detail Page']
+      mx_Page_Url: ['Space Detail Page'],
     };
 
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
@@ -186,11 +185,15 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -407,8 +410,11 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       formValues['city'] = this.cityName;
     }
     if (this.microlocationName) {
-      formValues['microlocation'] = this.microlocationName
+      formValues['microlocation'] = this.microlocationName;
     }
+    const phone = this.enquiryForm.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    formValues['phone_number'] = phoneWithDialCode;
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(
       () => {

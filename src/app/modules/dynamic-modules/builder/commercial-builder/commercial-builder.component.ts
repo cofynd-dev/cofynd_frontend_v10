@@ -1,23 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import { BuilderService } from "../builder.services";
-import { sanitizeParams } from "@app/shared/utils";
-import { AppConstant } from "@shared/constants/app.constant";
-import { combineLatest } from "rxjs";
-import { map } from "rxjs/operators";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { Builder } from "../builder.model";
-import { SeoService } from "@app/core/services/seo.service";
-import { environment } from "@env/environment";
-import { AuthService } from "@app/core/services/auth.service";
-import { UserService } from "@app/core/services/user.service";
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-} from "@angular/forms";
-import { WorkSpaceService } from "@app/core/services/workspace.service";
-import { Enquiry } from "@app/core/models/enquiry.model";
+import { Component, OnInit } from '@angular/core';
+import { BuilderService } from '../builder.services';
+import { sanitizeParams } from '@app/shared/utils';
+import { AppConstant } from '@shared/constants/app.constant';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Builder } from '../builder.model';
+import { SeoService } from '@app/core/services/seo.service';
+import { environment } from '@env/environment';
+import { AuthService } from '@app/core/services/auth.service';
+import { UserService } from '@app/core/services/user.service';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { Enquiry } from '@app/core/models/enquiry.model';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -28,7 +23,7 @@ export enum ENQUIRY_STEPS {
 @Component({
   selector: 'app-commercial-builder',
   templateUrl: './commercial-builder.component.html',
-  styleUrls: ['./commercial-builder.component.scss']
+  styleUrls: ['./commercial-builder.component.scss'],
 })
 export class CommercialBuilderComponent implements OnInit {
   constructor(
@@ -39,7 +34,7 @@ export class CommercialBuilderComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private _formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService
+    private workSpaceService: WorkSpaceService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
   }
@@ -60,7 +55,7 @@ export class CommercialBuilderComponent implements OnInit {
   submitted = false;
   showSuccessMessage: boolean;
   contactUserName: string;
-  btnLabel = "submit";
+  btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
@@ -76,24 +71,20 @@ export class CommercialBuilderComponent implements OnInit {
 
   ngOnInit() {
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
-      .pipe(
-        map((results) => ({ routeParams: results[0], queryParams: results[1] }))
-      )
-      .subscribe((results) => {
+      .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
+      .subscribe(results => {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
           this.title = results.routeParams[0].path;
-          this.builderService
-            .getBuilderByName(this.title)
-            .subscribe((workspaceDetail) => {
-              this.builder = workspaceDetail.data;
-              if (!this.builder) {
-                this.router.navigate(["/404"], { skipLocationChange: true });
-              }
-              this.loading = false;
-              if (this.builder) {
-                this.getBuilderCommProjects();
-              }
-            });
+          this.builderService.getBuilderByName(this.title).subscribe(workspaceDetail => {
+            this.builder = workspaceDetail.data;
+            if (!this.builder) {
+              this.router.navigate(['/404'], { skipLocationChange: true });
+            }
+            this.loading = false;
+            if (this.builder) {
+              this.getBuilderCommProjects();
+            }
+          });
         });
       });
     this.pageUrl = this.router.url;
@@ -104,19 +95,16 @@ export class CommercialBuilderComponent implements OnInit {
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
-      this.selectedCountry["dial_code"] = this.user.dial_code;
+      this.selectedCountry['dial_code'] = this.user.dial_code;
     }
     this.getCountries();
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
-    phone_number: [
-      "",
-      [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
-    ],
-    email: ["", [Validators.required, Validators.email]],
-    name: ["", Validators.required],
-    otp: [""],
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -150,31 +138,29 @@ export class CommercialBuilderComponent implements OnInit {
     }, 1000);
     // TODO: Implement OTP resend logic here
     let obj = {};
-    obj["dial_code"] = this.selectedCountry.dial_code;
-    obj["phone_number"] = this.enterpriseFormGroup.controls[
-      "phone_number"
-    ].value;
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
     this.userService.resendOtp(obj).subscribe(
       (data: any) => {
         if (data) {
           this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
-          this.btnLabel = "Verify OTP";
+          this.btnLabel = 'Verify OTP';
           this.addValidationOnOtpField();
         }
       },
-      (error) => {
+      error => {
         // this.toastrService.error(error.message || 'Something broke the server, Please try latter');
-      }
+      },
     );
   }
 
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => {
+        this.activeCountries = res.data.filter(v => {
           return v.for_coWorking === true;
         });
-        this.inActiveCountries = res.data.filter((v) => {
+        this.inActiveCountries = res.data.filter(v => {
           return v.for_coWorking == false;
         });
         this.selectedCountry = this.activeCountries[0];
@@ -188,12 +174,8 @@ export class CommercialBuilderComponent implements OnInit {
   }
 
   addValidationOnOtpField() {
-    const otpControl = this.enterpriseFormGroup.get("otp");
-    otpControl.setValidators([
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(4),
-    ]);
+    const otpControl = this.enterpriseFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
     otpControl.updateValueAndValidity();
   }
 
@@ -213,18 +195,18 @@ export class CommercialBuilderComponent implements OnInit {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
       this.loading = true;
       const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
-      formValues["dial_code"] = this.selectedCountry.dial_code;
+      formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
           this.loading = false;
-          this.btnLabel = "Verify OTP";
+          this.btnLabel = 'Verify OTP';
           this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
           this.addValidationOnOtpField();
         },
-        (error) => {
+        error => {
           this.loading = false;
           // this.toastrService.error(error.message || 'Something broke the server, Please try latter');
-        }
+        },
       );
     } else {
       this.validateOtp();
@@ -232,34 +214,36 @@ export class CommercialBuilderComponent implements OnInit {
   }
 
   validateOtp() {
-    const phone = this.enterpriseFormGroup.get("phone_number").value;
-    const otp = this.enterpriseFormGroup.get("otp").value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    const otp = this.enterpriseFormGroup.get('otp').value;
     this.loading = true;
     this.authService.verifyOtp(phone, otp).subscribe(
       () => {
-        this.btnLabel = "Verify OTP";
+        this.btnLabel = 'Verify OTP';
         this.loading = false;
         this.user = this.authService.getLoggedInUser();
         this.createEnquiry();
       },
-      (error) => {
+      error => {
         this.loading = false;
         // this.toastrService.error(error.message || 'Something broke the server, Please try latter');
-      }
+      },
     );
   }
 
   createEnquiry() {
     this.loading = true;
-    this.contactUserName = this.enterpriseFormGroup.controls["name"].value;
+    this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls["phone_number"].value,
-        email: this.enterpriseFormGroup.controls["email"].value,
-        name: this.enterpriseFormGroup.controls["name"].value,
+        phone_number: phoneWithDialCode,
+        email: this.enterpriseFormGroup.controls['email'].value,
+        name: this.enterpriseFormGroup.controls['name'].value,
       },
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: "Web Builder",
+      mx_Space_Type: 'Web Builder',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -267,19 +251,19 @@ export class CommercialBuilderComponent implements OnInit {
         this.showSuccessMessage = true;
         this.enterpriseFormGroup.reset();
         this.submitted = false;
-        this.router.navigate(["/thank-you"]);
+        this.router.navigate(['/thank-you']);
       },
-      (error) => {
+      error => {
         this.loading = false;
         // this.toastrService.error(error.message);
-      }
+      },
     );
   }
 
   getBuilderCommProjects() {
     this.queryParams = {
       ...AppConstant.DEFAULT_SEARCH_PARAMS,
-      findKey: "commercial",
+      findKey: 'commercial',
       builder: this.builder.id,
       shouldApprove: true,
     };
@@ -291,16 +275,13 @@ export class CommercialBuilderComponent implements OnInit {
         this.loading = false;
         this.totalRecords = allCommProjects.data.count;
         this.loading = false;
-        const totalPageCount = Math.round(
-          allCommProjects.data.count / AppConstant.DEFAULT_PAGE_LIMIT
-        );
+        const totalPageCount = Math.round(allCommProjects.data.count / AppConstant.DEFAULT_PAGE_LIMIT);
         this.setRelationCanonical(this.page, totalPageCount);
       });
   }
 
   setRelationCanonical(currentPage: number, totalCount: number) {
-    const currentUrl =
-      environment.appUrl + this.router.url.split("?")[0] + "?page=";
+    const currentUrl = environment.appUrl + this.router.url.split('?')[0] + '?page=';
     const prevPage = currentPage - 1;
     const nextPage = currentPage + 1;
 
@@ -322,12 +303,11 @@ export class CommercialBuilderComponent implements OnInit {
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
       queryParams: { page: this.page },
-      queryParamsHandling: "merge",
+      queryParamsHandling: 'merge',
     });
     // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;
     this.isSearchFooterVisible = false;
   }
-
 }

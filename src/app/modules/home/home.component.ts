@@ -87,7 +87,6 @@ export class HomeComponent implements OnInit {
   resendCounter = 30;
   resendIntervalId: any;
 
-
   constructor(
     private _renderer2: Renderer2,
     @Inject(DOCUMENT) private _document: Document,
@@ -113,7 +112,7 @@ export class HomeComponent implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -142,11 +141,15 @@ export class HomeComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -157,8 +160,8 @@ export class HomeComponent implements OnInit {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -166,13 +169,13 @@ export class HomeComponent implements OnInit {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSliderMove(slideData: NguCarouselStore) {
@@ -260,7 +263,7 @@ export class HomeComponent implements OnInit {
     name: ['', Validators.required],
     interested_in: ['', Validators.required],
     city: ['', Validators.required],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -282,8 +285,7 @@ export class HomeComponent implements OnInit {
     }
     if (this.isAuthenticated()) {
       this.createEnquiry();
-    }
-    else {
+    } else {
       this.getOtp();
     }
   }
@@ -377,27 +379,29 @@ export class HomeComponent implements OnInit {
     this.btnLabel = 'Submitting...';
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking') {
-      mx_Space_Type = 'Web Coworking'
+      mx_Space_Type = 'Web Coworking';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
-      mx_Space_Type = 'Web Coliving'
+      mx_Space_Type = 'Web Coliving';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Office Space') {
-      mx_Space_Type = 'Web Office Space'
+      mx_Space_Type = 'Web Office Space';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Virtual Office') {
-      mx_Space_Type = 'Web Virtual Office'
+      mx_Space_Type = 'Web Virtual Office';
     }
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
       },
       city: this.enterpriseFormGroup.controls['city'].value,
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: mx_Space_Type
+      mx_Space_Type: mx_Space_Type,
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -541,5 +545,4 @@ export class HomeComponent implements OnInit {
   openAdd() {
     this.router.navigate([`enterprise`]);
   }
-
 }
