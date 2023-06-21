@@ -50,20 +50,28 @@
                     </div>
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
-                            <app-search-contact-us-text1 *ngIf="workSpaces.length">
-                            </app-search-contact-us-text1>
+                            <app-search-contact-us-text2 *ngIf="workSpaces.length">
+                            </app-search-contact-us-text2>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12" #target>
+                            <app-search-contact-us-text2 *ngIf="workSpaces.length">
+                            </app-search-contact-us-text2>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
                             <app-search-contact-us-text2 *ngIf="workSpaces.length">
                             </app-search-contact-us-text2>
                         </div>
                     </ng-template>
                     <ng-template [ngIf]="!isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
-                            <app-search-contact-us-text1 *ngIf="workSpaces.length">
-                            </app-search-contact-us-text1>
+                            <app-search-contact-us-text2 *ngIf="workSpaces.length">
+                            </app-search-contact-us-text2>
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 12" #target>
+                            <app-search-contact-us-text2 *ngIf="workSpaces.length">
+                            </app-search-contact-us-text2>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18" #target>
                             <app-search-contact-us-text2 *ngIf="workSpaces.length">
                             </app-search-contact-us-text2>
                         </div>
@@ -76,7 +84,7 @@
             </div>
 
             <div *ngIf="!loading && workSpaces.length > 1" class="pagination-container">
-                <pagination [totalItems]="totalRecords" [itemsPerPage]="500" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
+                <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
 
