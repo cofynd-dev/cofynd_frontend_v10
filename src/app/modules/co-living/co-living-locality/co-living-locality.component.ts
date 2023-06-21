@@ -19,14 +19,11 @@ import { script } from '@app/core/config/script';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
-
-
 @Component({
   selector: 'app-co-living-locality',
   templateUrl: './co-living-locality.component.html',
   styleUrls: ['./co-living-locality.component.scss'],
 })
-
 export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   availableCities: City[] = AVAILABLE_CITY_CO_LIVING;
   loading: boolean;
@@ -60,8 +57,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   roomType: any;
   filterValue: any;
   selectedValue: any = 'Select Price';
-  selectedOption: any = 'SortBy'
-
+  selectedOption: any = 'SortBy';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -143,7 +139,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
         if (results.routeParams[1].path && script.coliving.microLocation[results.routeParams[1].path]) {
           for (let scrt of script.coliving.microLocation[results.routeParams[1].path]) {
-            this.setHeaderScript(scrt);
+            // this.setHeaderScript(scrt);
           }
         }
       });
@@ -199,7 +195,8 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     if (sortByLowToHigh === 'Low to High') {
       this.coLivings = this.coLivings.sort((a, b) => a.starting_price - b.starting_price);
       this.loading = false;
-    } if (sortByLowToHigh === 'High to Low') {
+    }
+    if (sortByLowToHigh === 'High to Low') {
       this.coLivings = this.coLivings.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
@@ -238,7 +235,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
             for (let index = 0; index < mlocations.data.length; index++) {
               this.popularLocation.push(mlocations.data[index]['name']);
             }
-          })
+          });
         }
         const IMAGE_STATIC_ALT = [
           'Co Living Space in ' + altCity,
@@ -283,6 +280,13 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }
@@ -419,11 +423,13 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
           const filteredLocations = AVAILABLE_CITY_CO_LIVING.filter(city => city.name === this.title);
           if (filteredLocations && filteredLocations.length) {
-            this.coLivingService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-              for (let index = 0; index < mlocations.data.length; index++) {
-                this.popularLocation.push(mlocations.data[index]['name']);
-              }
-            })
+            this.coLivingService
+              .microLocationByCityAndSpaceType(filteredLocations[0].id)
+              .subscribe((mlocations: any) => {
+                for (let index = 0; index < mlocations.data.length; index++) {
+                  this.popularLocation.push(mlocations.data[index]['name']);
+                }
+              });
           }
           const IMAGE_STATIC_ALT = [
             'Co Living Space in ' + altCity,
@@ -444,7 +450,9 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   routeToMicro(item) {
-    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    const url = `/co-living/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item)
+      .toLowerCase()
+      .trim()}`;
     this.router.navigate([url]);
   }
 

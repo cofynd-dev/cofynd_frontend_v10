@@ -23,7 +23,6 @@ import { script } from '../../../core/config/script';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
-
 @Component({
   selector: 'app-office-space-city',
   templateUrl: './office-space-city.component.html',
@@ -62,8 +61,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   roomType: any;
   filterValue: any;
   selectedValue: any = 'Select Price';
-  selectedOption: any = 'SortBy'
-
+  selectedOption: any = 'SortBy';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -130,11 +128,11 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.addSeoTags('rent');
       }
     });
-    if (this.title) {
-      for (let scrt of script.officespace[this.title]) {
-        this.setHeaderScript(scrt);
-      }
-    }
+    // if (this.title) {
+    //   for (let scrt of script.officespace[this.title]) {
+    //     this.setHeaderScript(scrt);
+    //   }
+    // }
   }
 
   sortByHighLow(sortByLowToHigh) {
@@ -143,7 +141,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     if (sortByLowToHigh === 'Low to High') {
       this.offices = this.offices.sort((a, b) => a.starting_price - b.starting_price);
       this.loading = false;
-    } if (sortByLowToHigh === 'High to Low') {
+    }
+    if (sortByLowToHigh === 'High to Low') {
       this.offices = this.offices.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
@@ -155,6 +154,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     script.text = `${cityScript} `;
     this._renderer2.appendChild(this._document.head, script);
   }
+
   createBreadcrumb() {
     this.breadcrumbs = [
       {
@@ -224,11 +224,13 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
 
         const filteredLocations = AVAILABLE_CITY.filter(city => city.name === this.title);
         if (filteredLocations && filteredLocations.length) {
-          this.officeSpaceService.microLocationByCityAndSpaceType(filteredLocations[0].id).subscribe((mlocations: any) => {
-            for (let index = 0; index < mlocations.data.length; index++) {
-              this.cityWisePopularLocation.push(mlocations.data[index]['name']);
-            }
-          })
+          this.officeSpaceService
+            .microLocationByCityAndSpaceType(filteredLocations[0].id)
+            .subscribe((mlocations: any) => {
+              for (let index = 0; index < mlocations.data.length; index++) {
+                this.cityWisePopularLocation.push(mlocations.data[index]['name']);
+              }
+            });
         }
 
         const IMAGE_STATIC_ALT = [
@@ -291,7 +293,9 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   }
 
   routeToMicro(item) {
-    const url = `/office-space/rent/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item).toLowerCase().trim()}`
+    const url = `/office-space/rent/${this.title.toLocaleLowerCase().trim()}/${generateSlug(item)
+      .toLowerCase()
+      .trim()}`;
     this.router.navigate([url]);
   }
 
@@ -321,6 +325,13 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script && this.title) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
     });
   }
