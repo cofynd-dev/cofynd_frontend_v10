@@ -16,7 +16,7 @@ export enum ENQUIRY_STEPS {
 @Component({
   selector: 'app-search-contact-us-text2',
   templateUrl: './search-contact-us-text2.component.html',
-  styleUrls: ['./search-contact-us-text2.component.scss']
+  styleUrls: ['./search-contact-us-text2.component.scss'],
 })
 export class SearchContactUsText2Component implements OnInit {
   @Input() pageNo: any;
@@ -34,8 +34,8 @@ export class SearchContactUsText2Component implements OnInit {
   resendCounter = 30;
   resendIntervalId: any;
 
-
-  constructor(private _formBuilder: FormBuilder,
+  constructor(
+    private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
     private workSpaceService: WorkSpaceService,
@@ -48,7 +48,7 @@ export class SearchContactUsText2Component implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -76,7 +76,7 @@ export class SearchContactUsText2Component implements OnInit {
     name: ['', Validators.required],
     city: ['', Validators.required],
     interested_in: ['', Validators.required],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -94,11 +94,15 @@ export class SearchContactUsText2Component implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -109,8 +113,8 @@ export class SearchContactUsText2Component implements OnInit {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -118,7 +122,7 @@ export class SearchContactUsText2Component implements OnInit {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   resendOTP() {
@@ -155,7 +159,7 @@ export class SearchContactUsText2Component implements OnInit {
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {
@@ -226,20 +230,22 @@ export class SearchContactUsText2Component implements OnInit {
     let mx_Space_Type = '';
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking') {
-      mx_Space_Type = 'Web Coworking'
+      mx_Space_Type = 'Web Coworking';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
-      mx_Space_Type = 'Web Coliving'
+      mx_Space_Type = 'Web Coliving';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Office Space') {
-      mx_Space_Type = 'Web Office Space'
+      mx_Space_Type = 'Web Office Space';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Virtual Office') {
-      mx_Space_Type = 'Web Virtual Office'
+      mx_Space_Type = 'Web Virtual Office';
     }
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
       },
@@ -247,7 +253,7 @@ export class SearchContactUsText2Component implements OnInit {
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
       mx_Page_Url: this.pageUrl,
       microlocation: this.microlocation,
-      mx_Space_Type: mx_Space_Type
+      mx_Space_Type: mx_Space_Type,
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -264,5 +270,4 @@ export class SearchContactUsText2Component implements OnInit {
       },
     );
   }
-
 }

@@ -55,7 +55,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   resendCounter = 30;
   resendIntervalId: any;
 
-
   constructor(
     private configService: ConfigService,
     private workSpaceService: WorkSpaceService,
@@ -77,7 +76,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -89,11 +88,15 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -109,8 +112,8 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -118,13 +121,13 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   resendOTP() {
@@ -229,7 +232,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     city: ['', Validators.required],
     interested_in: ['', Validators.required],
     requirements: [''],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -311,32 +314,34 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
     let mx_Space_Type = '';
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking Space') {
-      mx_Space_Type = 'Web Coworking'
+      mx_Space_Type = 'Web Coworking';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
-      mx_Space_Type = 'Web Coliving'
+      mx_Space_Type = 'Web Coliving';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Private Office') {
-      mx_Space_Type = 'Web Office Space'
+      mx_Space_Type = 'Web Office Space';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Customise Office') {
-      mx_Space_Type = 'Web Office Space'
+      mx_Space_Type = 'Web Office Space';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'CoFynd of Landlords') {
-      mx_Space_Type = 'List Coliving'
+      mx_Space_Type = 'List Coliving';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Broker Partnership Program') {
-      mx_Space_Type = 'Web Coworking'
+      mx_Space_Type = 'Web Coworking';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'List Your Property') {
-      mx_Space_Type = 'List Coliving'
+      mx_Space_Type = 'List Coliving';
     }
     if (this.enterpriseFormGroup.controls['interested_in'].value === 'Any/Other Query') {
-      mx_Space_Type = 'Web Coworking'
+      mx_Space_Type = 'Web Coworking';
     }
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
         requirements: this.enterpriseFormGroup.controls['requirements'].value,
@@ -344,7 +349,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
       city: this.enterpriseFormGroup.controls['city'].value,
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: mx_Space_Type
+      mx_Space_Type: mx_Space_Type,
     };
     this.userService.createLead(object).subscribe(
       () => {

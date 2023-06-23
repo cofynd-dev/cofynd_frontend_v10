@@ -18,12 +18,11 @@ import { ToastrService } from 'ngx-toastr';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { Observable, Subscriber } from 'rxjs';
 import { WorkSpace } from '@core/models/workspace.model';
-import { forkJoin } from "rxjs";
+import { forkJoin } from 'rxjs';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
-
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -42,9 +41,8 @@ interface PopularSpace {
 @Component({
   selector: 'app-coworking',
   templateUrl: './coworking.component.html',
-  styleUrls: ['./coworking.component.scss',],
+  styleUrls: ['./coworking.component.scss'],
 })
-
 export class CoworkingComponent implements OnInit, OnDestroy {
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -137,7 +135,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       seat: '14',
     },
   ];
-
 
   resendOTP() {
     // Disable the resend button and start the counter
@@ -958,20 +955,22 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     {
       icon: 'home/work-spaces.svg',
       title: '100,000+ Spaces',
-      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+      description:
+        'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
       icon: 'icons/brokerage-icon.svg',
       title: 'Zero Brokerage',
-      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+      description:
+        'CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.',
     },
     {
       icon: 'home/support.svg',
       title: '100% Offline Support',
-      description: 'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
+      description:
+        'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
     },
   ];
-
 
   gurugramSpaces: any = [];
   bangloreSpaces: any = [];
@@ -995,7 +994,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
-
 
   constructor(
     private brandService: BrandService,
@@ -1034,7 +1032,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
@@ -1049,7 +1047,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     name: ['', Validators.required],
     city: ['', Validators.required],
     requirements: [''],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -1067,11 +1065,15 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -1089,43 +1091,43 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     this.getPopularWorSpacesAsCountry();
     let gurugramQueryParams = {
       limit: 8,
-      city: '5e3eb83c18c88277e81427d9'
+      city: '5e3eb83c18c88277e81427d9',
     };
     let bangaloreQueryParams = {
       limit: 8,
-      city: '5f2a4210ecdb5a5d67f0bbbc'
+      city: '5f2a4210ecdb5a5d67f0bbbc',
     };
     let hyderabadQueryParams = {
       limit: 8,
-      city: '5f338a5f59d5584617676837'
+      city: '5f338a5f59d5584617676837',
     };
     let puneQueryParams = {
       limit: 8,
-      city: '5e3eb83c18c88277e8142795'
+      city: '5e3eb83c18c88277e8142795',
     };
     let mumbaiQueryParams = {
       limit: 8,
-      city: '5f5b1f728bbbb85328976417'
+      city: '5f5b1f728bbbb85328976417',
     };
     let noidaQueryParams = {
       limit: 8,
-      city: '5e3e77de936bc06de1f9a5e2'
+      city: '5e3e77de936bc06de1f9a5e2',
     };
     let delhiQueryParams = {
       limit: 8,
-      city: '5e3e77c6936bc06de1f9a2d9'
+      city: '5e3e77c6936bc06de1f9a2d9',
     };
     let ahmedabadQueryParams = {
       limit: 8,
-      city: '5f7af1c48c4e6961990e620e'
+      city: '5f7af1c48c4e6961990e620e',
     };
     let chennaiQueryParams = {
       limit: 8,
-      city: '5f7410348c4e6961990e5a21'
+      city: '5f7410348c4e6961990e5a21',
     };
     let indoreQueryParams = {
       limit: 8,
-      city: '5f60926926e9e64d7b61b41b'
+      city: '5f60926926e9e64d7b61b41b',
     };
     const observables = [
       this.workSpaceService.getWorkspaces(sanitizeParams(gurugramQueryParams)),
@@ -1160,17 +1162,16 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.ahmedaSpaces = this.formatSpaces(ahmedaData);
       this.chennaiSpaces = this.formatSpaces(chennaiData);
       this.indoreSpaces = this.formatSpaces(indoreData);
-    })
+    });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
 
-
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -1178,13 +1179,13 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {
@@ -1252,16 +1253,18 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   createEnquiry() {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.enterpriseFormGroup.controls['email'].value,
         name: this.enterpriseFormGroup.controls['name'].value,
         requirements: this.enterpriseFormGroup.controls['requirements'].value,
       },
       city: this.enterpriseFormGroup.controls['city'].value,
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Coworking'
+      mx_Space_Type: 'Web Coworking',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -1287,8 +1290,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
         image: data[index]['images'][0]['image']['s3_link'],
         slug: data[index]['slug'],
         starting: data[index]['starting_price'],
-      }
-      formattedData.push(obj)
+      };
+      formattedData.push(obj);
     }
     return formattedData;
   }
@@ -1414,5 +1417,4 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   scrollToElement(element: HTMLElement) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
-
 }

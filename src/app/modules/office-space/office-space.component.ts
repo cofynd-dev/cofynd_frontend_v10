@@ -89,7 +89,7 @@ export class OfficeSpaceComponent implements OnInit {
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
-    };
+    }
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.queryFormGroup.patchValue({ name, email, phone_number });
@@ -104,7 +104,7 @@ export class OfficeSpaceComponent implements OnInit {
     name: ['', Validators.required],
     city: ['', Validators.required],
     requirements: [''],
-    otp: ['']
+    otp: [''],
   });
 
   get f(): { [key: string]: AbstractControl } {
@@ -153,11 +153,15 @@ export class OfficeSpaceComponent implements OnInit {
   getCountries() {
     this.workSpaceService.getCountry({}).subscribe((res: any) => {
       if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {
@@ -223,11 +227,11 @@ export class OfficeSpaceComponent implements OnInit {
   //   },
   // ];
 
-
   service = [
     {
       title: 'Fully Furnished',
-      description: 'Get all the comforts of a fully furnished office space available for rent equipped with all the amenities.',
+      description:
+        'Get all the comforts of a fully furnished office space available for rent equipped with all the amenities.',
       icon: 'office-space/icons8-armchair-100 copy.png',
     },
     {
@@ -248,12 +252,14 @@ export class OfficeSpaceComponent implements OnInit {
     },
     {
       title: 'Professional Host',
-      description: 'Our office spaces come with a professional host to greet your guests and ensure a smooth, welcoming.',
+      description:
+        'Our office spaces come with a professional host to greet your guests and ensure a smooth, welcoming.',
       icon: 'icons/day-pass.svg',
     },
     {
       title: 'Amazing Community',
-      description: "Join a community of professionals in office spaces. Network and collaborate with like-minded individuals.",
+      description:
+        'Join a community of professionals in office spaces. Network and collaborate with like-minded individuals.',
       icon: 'icons/community-icon.svg',
     },
   ];
@@ -280,17 +286,20 @@ export class OfficeSpaceComponent implements OnInit {
     {
       icon: 'home/work-spaces.svg',
       title: '100,000+ Spaces',
-      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+      description:
+        'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
       icon: 'icons/brokerage-icon.svg',
       title: 'Zero Brokerage',
-      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+      description:
+        'CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.',
     },
     {
       icon: 'home/support.svg',
       title: '100% Offline Support',
-      description: 'We provide complete offline support from choosing the best space, scheduling site visits, bookings and after sales.',
+      description:
+        'We provide complete offline support from choosing the best space, scheduling site visits, bookings and after sales.',
     },
   ];
 
@@ -536,8 +545,8 @@ export class OfficeSpaceComponent implements OnInit {
   getCitiesForCoworking() {
     this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.coworkingCities = res.data;
-    })
-  };
+    });
+  }
 
   getCitiesForColiving() {
     this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
@@ -545,13 +554,13 @@ export class OfficeSpaceComponent implements OnInit {
       if (this.colivingCities.length) {
         this.removeDuplicateCities();
       }
-    })
+    });
   }
 
   removeDuplicateCities() {
     const key = 'name';
     let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()]
+    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {
@@ -617,16 +626,18 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   createEnquiry() {
+    const phone = this.queryFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
     const object = {
       user: {
-        phone_number: this.queryFormGroup.controls['phone_number'].value,
+        phone_number: phoneWithDialCode,
         email: this.queryFormGroup.controls['email'].value,
         name: this.queryFormGroup.controls['name'].value,
         requirements: this.queryFormGroup.controls['requirements'].value,
       },
       city: this.queryFormGroup.controls['city'].value,
       mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Office Space'
+      mx_Space_Type: 'Web Office Space',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -695,7 +706,6 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   goToLink(url: string) {
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   }
-
 }
