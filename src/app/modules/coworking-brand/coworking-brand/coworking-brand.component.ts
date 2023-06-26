@@ -236,7 +236,7 @@ export class CoworkingBrandComponent implements OnInit {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
     const phone = this.enterpriseFormGroup.get('phone_number').value;
-    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
     const object = {
       user: {
         phone_number: phoneWithDialCode,

@@ -338,7 +338,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       mx_Space_Type = 'Web Coworking';
     }
     const phone = this.enterpriseFormGroup.get('phone_number').value;
-    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
     const object = {
       user: {
         phone_number: phoneWithDialCode,
