@@ -192,7 +192,7 @@
 
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-city-page-enquire *ngIf="!loading && coLivings.length" [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                 </div>
             </div>

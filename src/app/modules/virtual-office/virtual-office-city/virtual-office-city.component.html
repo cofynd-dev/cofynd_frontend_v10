@@ -78,12 +78,12 @@
                     </ng-template>
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-virtual-office-city-page-enquire *ngIf="workSpaces.length"></app-virtual-office-city-page-enquire>
                 </div>
             </div>
 
-            <div *ngIf="!loading && workSpaces.length > 1" class="pagination-container">
+            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>
