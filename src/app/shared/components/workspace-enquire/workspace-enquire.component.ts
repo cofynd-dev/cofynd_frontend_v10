@@ -413,7 +413,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       formValues['microlocation'] = this.microlocationName;
     }
     const phone = this.enquiryForm.get('phone_number').value;
-    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
     formValues['phone_number'] = phoneWithDialCode;
     this.btnLabel = 'Submitting...';
     this.userService.createEnquiry(formValues).subscribe(

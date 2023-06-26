@@ -307,7 +307,7 @@ export class SearchNoResultComponent implements OnInit {
     this.loading = true;
     this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
     const phone = this.enterpriseFormGroup.get('phone_number').value;
-    let phoneWithDialCode = `${this.selectedCountry.dial_code}${phone}`;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
     let object = {};
     if (this.title == 'Office') {
       object = {
@@ -328,7 +328,7 @@ export class SearchNoResultComponent implements OnInit {
     if (this.title == 'Virtual') {
       object = {
         user: {
-          phone_number: this.enterpriseFormGroup.controls['phone_number'].value,
+          phone_number: phoneWithDialCode,
           email: this.enterpriseFormGroup.controls['email'].value,
           name: this.enterpriseFormGroup.controls['name'].value,
           requirements: this.enterpriseFormGroup.controls['requirements'].value,
