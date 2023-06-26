@@ -356,7 +356,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     this.loading = true;
     const formValues: Enquiry = this.enquiryForm.getRawValue();
     const phone = this.enquiryForm.get('phone_number').value;
-    formValues['phone_number'] = `${this.selectedCountry.dial_code}${phone}`;
+    formValues['phone_number'] = `${this.selectedCountry.dial_code}-${phone}`;
     if (this.pageName == 'virtual-office') {
       formValues['mx_Space_Type'] = 'Web Virtual Office';
       formValues['interested_in'] = 'Virtual Office';
