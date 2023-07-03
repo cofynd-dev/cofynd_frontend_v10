@@ -48,11 +48,11 @@
             <div class="col-md-4 col-6" *ngFor="let data of coworkingBrand">
                 <div class="brant_item" [routerLink]="data.url">
                     <div class="brand_logo mobilehide">
-                        <img [src]="data.image" class="img-fluid" [alt]="data.title">
+                        <img [lazyLoad]="data.image" class="img-fluid" [alt]="data.title">
                     </div>
                     <div class="brand_content text-center">
                       <div class="title_img">
-                        <img [src]="data.titleImg" class="img-fluid" [alt]="data.title">
+                        <img [lazyLoad]="data.titleImg" class="img-fluid" [alt]="data.title">
                       </div>
                       <div class="brandCounter row">
                         <div class="cityNum col-md-6 col-6">

@@ -8,16 +8,16 @@
                 <ng-container *ngFor="let city of cities; let i = index">
                     <h5 *ngIf="i < 6">
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworking/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name" target="_blank">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name" target="_blank">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>
@@ -26,16 +26,16 @@
                 <ng-container *ngFor="let city of cities; let i = index">
                     <h5 *ngIf="i >= 6 && i < 12">
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworkingNew/" || relativeUrl == "/coworking/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>
@@ -44,16 +44,16 @@
                 <ng-container *ngFor="let city of cities; let i = index">
                     <h5 *ngIf="i >= 12">
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/coworkingNew/" || relativeUrl == "/coworking/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/co-living/"'>
-                            <img [src]="city.flag_image" alt="">{{ city.name }}
+                            <img [lazyLoad]="city.flag_image" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/office-space/rent/"' [routerLink]="relativeUrl + city.name">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name">
-                            <img [src]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>
@@ -73,7 +73,7 @@
             <ng-container *ngFor="let city of cities1; let i = index">
                 <h5 *ngIf="i < 6">
                     <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
-                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                        <img [lazyLoad]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
                     </a>
                 </h5>
             </ng-container>
@@ -82,7 +82,7 @@
             <ng-container *ngFor="let city of cities1; let i = index">
                 <h5 *ngIf="i >= 6 && i < 12">
                     <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
-                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                        <img [lazyLoad]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
                     </a>
                 </h5>
             </ng-container>
@@ -91,7 +91,7 @@
             <ng-container *ngFor="let city of cities1; let i = index">
                 <h5 *ngIf="i >= 12">
                     <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
-                        <img [src]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
+                        <img [lazyLoad]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
                     </a>
                 </h5>
             </ng-container>

@@ -153,7 +153,7 @@
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coworking</a>
                         <ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
                             <li *ngFor="let city of cities" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city?.image?.s3_link">{{city.name}}</a>
+                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name" [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                         </ul>
                     </li>
@@ -162,7 +162,7 @@
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coliving</a>
                         <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
                             <li *ngFor="let city of colivingCities" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [src]="city?.image?.s3_link">{{city.name}}</a>
+                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                         </ul>
                     </li>
@@ -182,36 +182,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" routerLink="/contact-us">Contact Us</a>
                     </li>
-
-                    <!-- <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Offices</a>
-                        <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-                            <li *ngFor="let office of menuPopularOffices" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/office-space/rent/' + office.name.toLowerCase()"><img [src]="'/assets/images/city/' + office.icon">{{office.name}}</a>
-                            </li>
-                        </ul>
-                    </li> -->
-
-                    <!-- <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Knowledge</a>
-                        <ul class="dropdown-menu border-0 shadow">
-                            <li><a class="dropdown-item" routerLink="/enterprise">Enterprise Solutions</a></li>
-                            <li><a class="dropdown-item" routerLink="/about-us">About Us</a></li>
-                            <li><a class="dropdown-item" routerLink="/contact-us">Contact Us</a></li>
-                        </ul>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List Your Property</a>
                     </li>
                     <li class="divider-line mobile-phone-menu ">
                         <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>
                     </li>
-                    <!-- <li class="login_btn">
-                        <div class="btn-group">
-                            <button class="btn btn-primary login-btn" type="button" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>Login/
-                                Signup</button>
-                        </div>
-                    </li> -->
                 </ul>
             </div>
 
