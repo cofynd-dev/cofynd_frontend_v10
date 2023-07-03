@@ -1389,6 +1389,7 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.cdr.detectChanges();
     });
   }
+
   getPopularWorSpacesAsCountry() {
     this.workSpaceService
       .popularWorkSpacesCountryWise({ countryId: localStorage.getItem('country_id') })

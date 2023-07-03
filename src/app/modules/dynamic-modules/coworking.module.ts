@@ -53,7 +53,7 @@ import { BuiderCityComponent } from './builder/buider-city/buider-city.component
     CoworkingHomeComponent,
     CitySelectorModalComponent,
     CountryVerticalPageComponent,
-    //register dynamic coliving component
+    //register dynamic component
     CoLivingCardComponent,
     CoLivingCityComponent,
     CoLivingLocalityComponent,
@@ -83,4 +83,4 @@ import { BuiderCityComponent } from './builder/buider-city/buider-city.component
   entryComponents: [HomeCitiesComponent, CitySelectorModalComponent, HomeCityPopupComponent],
   imports: [CommonModule, SharedModule, CoworkingRoutingModule, LeafletModule],
 })
-export class CoworkingModule { }
+export class CoworkingModule {}

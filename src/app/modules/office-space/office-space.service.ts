@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class OfficeSpaceService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getOffices(params: {}): Observable<ApiResponse<OfficeSpace[]>> {
     return this.http.get<ApiResponse<OfficeSpace[]>>(`/user/officeSpaces?${params}`).pipe(map(offices => offices));
@@ -30,11 +30,21 @@ export class OfficeSpaceService {
       .pipe(map(offices => offices));
   }
 
-  microLocationByCityAndSpaceType(cityId: any) {
-    return this.http.get<ApiResponse<any[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_office=${true}`).pipe(
-      map(microlocations => {
-        return microlocations;
+  getPopularOfficeSpaceCities() {
+    return this.http.get<ApiResponse<{ popularSpaces: OfficeSpace[] }>>(`/user/popularOfficeSpaces`).pipe(
+      map(response => {
+        return response;
       }),
     );
+  }
+
+  microLocationByCityAndSpaceType(cityId: any) {
+    return this.http
+      .get<ApiResponse<any[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_office=${true}`)
+      .pipe(
+        map(microlocations => {
+          return microlocations;
+        }),
+      );
   }
 }
