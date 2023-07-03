@@ -390,7 +390,7 @@
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
-                        <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1"
+                        <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
                     </div>
                 </div>
@@ -463,7 +463,7 @@
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
-                        <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1"
+                        <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
                     </div>
                 </div>
@@ -536,7 +536,7 @@
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
-                        <div class="button"><a routerLink="/office-space/rent/1421-sqft-fully-furnished-jmd-megapolis-1"
+                        <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
                     </div>
                 </div>
@@ -546,7 +546,7 @@
 
         <div class="col-md-12">
             <div class="all_properties_show"
-                routerLink="/office-space/rent/delhi"><button class="text_btn">Show More</button></div>
+                routerLink="/office-space/rent/noida"><button class="text_btn">Show More</button></div>
         </div>
     </div>
 </section>
