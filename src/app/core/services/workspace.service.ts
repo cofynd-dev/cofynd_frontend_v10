@@ -18,7 +18,7 @@ export class WorkSpaceService {
   readonly searchAddress$ = this.searchAddress.asObservable();
   private profileReviewByUser$: BehaviorSubject<Review> = new BehaviorSubject(null);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getWorkspaces(params: {}): Observable<ApiResponse<WorkSpace[]>> {
     return this.http.get<ApiResponse<WorkSpace[]>>(`/user/workSpaces?${params}`).pipe(
@@ -93,6 +93,14 @@ export class WorkSpaceService {
           return citys;
         }),
       );
+  }
+
+  getCitiesForOfficeSpace(countryId: string) {
+    return this.http.get<ApiResponse<City[]>>(`/user/getCitiesBySpaceType?countryId=${countryId}&for_office=true`).pipe(
+      map(citys => {
+        return citys;
+      }),
+    );
   }
 
   getByCity_name(params: any): Observable<ApiResponse<any[]>> {
@@ -295,11 +303,12 @@ export class WorkSpaceService {
   }
 
   microLocationByCityAndSpaceType(cityId: any) {
-    return this.http.get<ApiResponse<City[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coworking=${true}`).pipe(
-      map(microlocations => {
-        return microlocations;
-      }),
-    );
+    return this.http
+      .get<ApiResponse<City[]>>(`/user/microLocationByCitySpaceType?cityId=${cityId}&for_coworking=${true}`)
+      .pipe(
+        map(microlocations => {
+          return microlocations;
+        }),
+      );
   }
-
 }
