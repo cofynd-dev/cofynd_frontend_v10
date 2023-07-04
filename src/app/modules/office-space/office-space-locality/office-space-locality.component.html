@@ -6,12 +6,12 @@
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
             <div class="row align-items-center filter_title">
-                <div class="col-9">
+                <div class="col-md-9 col-8">
                     <div class="page-title city_page_title">
                         <h1 *ngIf="!loading">{{ pageTitle ? pageTitle : 'Office Space in ' + subTitle + ', ' + this.title }}</h1>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3 col-4 filter_options">
                     <div class="filter_col">
                         <select class="form-select form-control" style="cursor: pointer;" name="price" [(ngModel)]="selectedOption" aria-label="Default select example" (change)="sortByHighLow($event.target.value)">
                             <option value="SortBy" disabled>Sort By</option>
@@ -98,7 +98,7 @@
                     </ng-template>
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-city-page-enquire *ngIf="offices.length" [enquiryType]="enquiryType" [isOfficeEnquiry]="true"></app-city-page-enquire>
                 </div>
 
