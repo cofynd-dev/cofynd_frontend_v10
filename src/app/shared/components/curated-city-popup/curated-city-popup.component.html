@@ -10,7 +10,7 @@
             <div class="city-left-box" *ngFor="let city of cities">
                 <div class="cities-icon-item">
                     <div class="cities-img">
-                        <img [src]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
+                        <img [lazyLoad]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
                     </div>
                     <div class="cities-icon-content">
                         <h4>{{ removedash(city.name) | titlecase}}</h4>
@@ -34,7 +34,7 @@
             <div class="city-left-box" *ngFor="let city of cities">
                 <div class="cities-icon-item">
                     <div class="cities-img">
-                        <img [src]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
+                        <img [lazyLoad]="city?.image?.s3_link" [alt]="city.name" class="img-fluid">
                     </div>
                     <div class="cities-icon-content">
                         <h4>{{ removedash(city.name) | titlecase}}</h4>
@@ -60,7 +60,7 @@
             <div class="city-left-box" *ngFor="let city of virtualcities">
                 <div class="cities-icon-item">
                     <div class="cities-img">
-                        <img [src]="city?.image" [alt]="city.name" class="img-fluid">
+                        <img [lazyLoad]="city?.image" [alt]="city.name" class="img-fluid">
                     </div>
                     <div class="cities-icon-content">
                         <h4>{{ removedash(city.name) | titlecase}}</h4>

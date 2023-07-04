@@ -1,19 +1,19 @@
 <div class="property_item" *ngIf="subbuilder" style="cursor: pointer;" (click)="goToDetail()">
     <div class="property-img" *ngIf="subbuilder.images.length > 0">
-        <img [src]="subbuilder.images[0].image.s3_link" alt="">
+        <img [lazyLoad]="subbuilder.images[0].image.s3_link" alt="">
     </div>
     <ng-container *ngIf="!subbuilder.images.length">
         <div class="property-img">
-            <img src="../../../../../assets/images/dummyimage.png" alt="">
+            <img [lazyLoad]="'../../../../../assets/images/dummyimage.png'" alt="">
         </div>
     </ng-container>
 
     <div class="space_details" style="cursor: pointer;">
         <div class="property-dis">
             <h4>{{subbuilder?.name}}</h4>
-            <p class="address"><img src="/assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{subbuilder?.location?.address}}</p>
+            <p class="address"><img [lazyLoad]="'/assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{subbuilder?.location?.address}}</p>
             <ng-container *ngIf="subbuilder.plans.length > 0">
-                <p class="capacity"><img src="/assets/images/icons/bhk-icon.svg" alt="wifi" class="img-fluid">
+                <p class="capacity"><img [lazyLoad]="'/assets/images/icons/bhk-icon.svg'" alt="wifi" class="img-fluid">
                     <ng-container *ngFor="let plan of subbuilder.plans; let i = index">
                         <span *ngIf="i > 0">, </span> {{plan.planId.name}}
                     </ng-container>

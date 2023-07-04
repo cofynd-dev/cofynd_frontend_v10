@@ -23,37 +23,27 @@
             <div class="workspace-banner-container">
                 <div class="workspace-banner-half">
                     <div class="workspace-banner">
-                        <img [src]="centerData.images.img1">
+                        <img [lazyLoad]="centerData.images.img1">
                     </div>
                 </div>
                 <div class="workspace-banner-one-third">
                     <div class="workspace-banner">
-                        <img [src]="centerData.images.img2">
+                        <img [lazyLoad]="centerData.images.img2">
                     </div>
                     <div class="workspace-banner">
-                        <img [src]="centerData.images.img3">
+                        <img [lazyLoad]="centerData.images.img3">
                     </div>
                 </div>
                 <div class="workspace-banner-one-third">
                     <div class="workspace-banner">
-                        <img [src]="centerData.images.img4">
+                        <img [lazyLoad]="centerData.images.img4">
                     </div>
                     <div class="workspace-banner">
-                        <img [src]="centerData.images.img5">
+                        <img [lazyLoad]="centerData.images.img5">
                     </div>
                 </div>
             </div>
-
-            <!-- Property Image Carousel -->
-            <!-- <app-image-gallery *ngIf="showImageGallery"
-        [images]="images"
-        [title]="title"
-        [isMobileMode]="isMobileMode"
-        [isSliderMode]="isSliderMode"
-        (closeImageGallery)="closeImageGallery()">
-      </app-image-gallery> -->
         </section>
-        <!-- banner img end -->
     </div>
     <div class="container">
         <div class="row">
@@ -64,15 +54,11 @@
                         <p class="address">
                             <i class="icon-location-outline fal fa-map-marker-alt"></i> {{centerData.location.address}}
                         </p>
-                        <!-- <div *ngIf="false"
-              class="price"><span>Monthly Rent*</span><small class="icon-rupee"></small>{{
-              (workspace?.starting_price).toLocaleString('en-IN') }}<small>/{{ workspace?.price_type }}</small>
-            </div> -->
                     </div>
                     <div class="covid-info">
-                        <p><img alt="Sanitized Spaces" src="/assets/images/amenities/sanitizer.svg" width="35"> Fully sanitized</p>
-                        <p><img alt="CoFynd Zero Brokerage" src="/assets/images/amenities/cash.svg" width="30"> zero brokerage </p>
-                        <p><img alt="CoFynd Trusted Partner" src="/assets/images/amenities/trusted.svg" width="30"> Trusted space</p>
+                        <p><img alt="Sanitized Spaces" lazyLoad="/assets/images/amenities/sanitizer.svg" width="35"> Fully sanitized</p>
+                        <p><img alt="CoFynd Zero Brokerage" lazyLoad="/assets/images/amenities/cash.svg" width="30"> zero brokerage </p>
+                        <p><img alt="CoFynd Trusted Partner" lazyLoad="/assets/images/amenities/trusted.svg" width="30"> Trusted space</p>
                     </div>
                     <div class="facility-list">
                         <ul class="row">
@@ -107,7 +93,7 @@
                             <li>
                                 <div class="box">
                                     <div class="img">
-                                        <img [src]="'/assets/images/amenities/single-sharing.svg'" alt="">
+                                        <img lazyLoad="/assets/images/amenities/single-sharing.svg" alt="">
                                     </div>
                                     <h4 class="text-capitalize">Bed Mix Drom Ensuite</h4>
                                     <p>Spacious and comfortable room with a cosy bed.</p>
@@ -147,7 +133,7 @@
                             <li>
                                 <div class="box">
                                     <div class="img">
-                                        <img [src]="'/assets/images/amenities/double-sharing.svg'" alt="">
+                                        <img [lazyLoad]="'/assets/images/amenities/double-sharing.svg'" alt="">
                                     </div>
                                     <h4 class="text-capitalize">Deluxe Double Ensuite Room</h4>
                                     <p>Comfortable and elegant room with twin beds.</p>
@@ -202,12 +188,6 @@
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="sections">
-          <h2>Location</h2>
-          <div #workspaceMap
-            class="map-container">
-          </div>
-        </div> -->
             </div>
         </div>
     </div>

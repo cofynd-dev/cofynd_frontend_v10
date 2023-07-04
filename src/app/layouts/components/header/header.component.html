@@ -4,7 +4,7 @@
             <button type="button" (click)="openMobileSearch()" class="far fa-search mobile-search">
             </button>
             <a (click)="logoClick()" class="logo" routerLink="/">
-                <img src="/assets/images/logo.svg" alt="">
+                <img [lazyLoad]="'/assets/images/logo.svg'" alt="">
             </a>
 
             <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
@@ -112,7 +112,7 @@
                     </button>
                 </div> -->
                 <div class="col-9 logo_col">
-                    <a class="navbar-brand mobile_space" routerLink="/"><img src="../../../../assets/images/logo.svg" alt="Cofynd" class="img-fluid"></a>
+                    <a class="navbar-brand mobile_space" routerLink="/"><img [lazyLoad]="'../../../../assets/images/logo.svg'" alt="Cofynd" class="img-fluid"></a>
                 </div>
                 <div class="col-3 toggle_col">
                     <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">

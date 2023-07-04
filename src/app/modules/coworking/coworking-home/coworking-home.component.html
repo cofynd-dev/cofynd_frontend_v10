@@ -26,7 +26,7 @@
     <ul class="row">
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/wifi.svg"
+          <img [lazyLoad]="'/assets/images/amenities/wifi.svg'"
             class="img-fluid d-block"
             alt="Wifi">
           <h5>High Speed WiFi</h5>
@@ -35,7 +35,7 @@
       </li>
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/tea.svg"
+          <img [lazyLoad]="'/assets/images/amenities/tea.svg'"
             class="img-fluid d-block"
             alt="Tea & Coffee">
           <h5>Tea & Coffee</h5>
@@ -44,7 +44,7 @@
       </li>
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/meeting-room.svg"
+          <img [lazyLoad]="'/assets/images/amenities/meeting-room.svg'"
             class="img-fluid d-block"
             alt="Networking">
           <h5>Networking</h5>
@@ -53,7 +53,7 @@
       </li>
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/lounge-area.svg"
+          <img [lazyLoad]="'/assets/images/amenities/lounge-area.svg'"
             class="img-fluid d-block"
             alt="Common Areas">
           <h5>Common Areas</h5>
@@ -62,7 +62,7 @@
       </li>
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/printer.svg"
+          <img [lazyLoad]="'/assets/images/amenities/printer.svg'"
             class="img-fluid d-block"
             alt="Printing Facility">
           <h5>Printing Facility</h5>
@@ -71,7 +71,7 @@
       </li>
       <li class="col-md-4">
         <div class="box">
-          <img src="/assets/images/amenities/kitchen.svg"
+          <img [lazyLoad]="'/assets/images/amenities/kitchen.svg'"
             class="img-fluid d-block"
             alt="Kitchen Facility">
           <h5>Kitchen Facility</h5>
@@ -157,7 +157,7 @@
           <ul>
             <li>
               <div class="img">
-                <img src="/assets/images/amenities/mask.svg"
+                <img [lazyLoad]="'/assets/images/amenities/mask.svg'"
                   alt="Free Mask">
               </div>
               <h4>Free Masks Provided</h4>
@@ -165,7 +165,7 @@
             </li>
             <li>
               <div class="img">
-                <img src="/assets/images/amenities/sanitizer.svg"
+                <img [lazyLoad]="'/assets/images/amenities/sanitizer.svg'"
                   alt="Sanitized Spaces">
               </div>
               <h4>Sanitized Spaces</h4>
@@ -174,7 +174,7 @@
             </li>
             <li>
               <div class="img">
-                <img src="/assets/images/amenities/hand-sanitizers.svg"
+                <img [lazyLoad]="'/assets/images/amenities/hand-sanitizers.svg'"
                   alt="Hand Sanitizers">
               </div>
               <h4>Hand Sanitizers Provided</h4>
@@ -182,7 +182,7 @@
             </li>
             <li>
               <div class="img">
-                <img src="/assets/images/amenities/social-distancing.svg"
+                <img [lazyLoad]="'/assets/images/amenities/social-distancing.svg'"
                   alt="Social Distancing">
               </div>
               <h4>Social Distancing </h4>
@@ -209,7 +209,7 @@
           <div class="col-md-2"
             *ngFor="let city of cities">
             <a [routerLink]="'/coworking/' + city.name">
-              <img [src]="'/assets/images/city/' + city.icon"
+              <img [lazyLoad]="'/assets/images/city/' + city.icon"
                 class="icon"
                 [alt]="city.name">
               <span>{{ city.name }}</span>
@@ -218,7 +218,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <img src="/assets/images/new-mid-curved-image.png"
+        <img [lazyLoad]="'/assets/images/new-mid-curved-image.png'"
           class="img-fluid mt-4 pull-right curved"
           alt="">
       </div>
@@ -236,7 +236,7 @@
           <ul>
             <li>
               <div class="img">
-                <img src="/assets/images/workspace/hot-desk.svg"
+                <img [lazyLoad]="'/assets/images/workspace/hot-desk.svg'"
                   alt="Free Mask">
               </div>
               <h4>Office Suite</h4>
@@ -244,7 +244,7 @@
             </li>
             <li>
               <div class="img">
-                <img src="/assets/images/workspace/dedicated-desk.svg"
+                <img [lazyLoad]="'/assets/images/workspace/dedicated-desk.svg'"
                   alt="CXO's Suite">
               </div>
               <h4>CXO's Suite</h4>
@@ -252,7 +252,7 @@
             </li>
             <li>
               <div class="img">
-                <img src="/assets/images/workspace/private-cabin.svg"
+                <img [lazyLoad]="'/assets/images/workspace/private-cabin.svg'"
                   alt="Custom Buildout">
               </div>
               <h4>Custom Buildout</h4>
@@ -276,21 +276,21 @@
     <div class="row">
       <div class="col-md-4">
         <img height="40px"
-          src="/assets/images/amenities/no-booking-fee.svg"
+        [lazyLoad]="'/assets/images/amenities/no-booking-fee.svg'"
           alt="No Booking Fee">
         <h5>No Booking Fee</h5>
         <p>We don't charge additional fees.</p>
       </div>
       <div class="col-md-4">
         <img height="40px"
-          src="/assets/images/amenities/best-price.svg"
+        [lazyLoad]="'/assets/images/amenities/best-price.svg'"
           alt="Best Price">
         <h5>Best Price</h5>
         <p>Guaranteed Best price on CoFynd</p>
       </div>
       <div class="col-md-4">
         <img height="40px"
-          src="/assets/images/amenities/payment-protection.svg"
+        [lazyLoad]="'/assets/images/amenities/payment-protection.svg'"
           alt="Payment Protection">
         <h5>Payment Protection</h5>
         <p>We hold payment for 24 hours after you <br>move in.</p>
@@ -311,7 +311,7 @@
         <div class="col-md-12">
           <a routerLink="/coworking/wework-nh8-gurugram/"
             target="_blank">
-            <img src="/assets/images/co-living/landing/wework-ad.jpg"
+            <img [lazyLoad]="'/assets/images/co-living/landing/wework-ad.jpg'"
               class="img-fluid m-auto d-block"
               style="border-radius: 20px;">
           </a>

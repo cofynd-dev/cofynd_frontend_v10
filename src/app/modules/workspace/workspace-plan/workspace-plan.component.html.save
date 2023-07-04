@@ -2,7 +2,7 @@ es<div class="plan-list row">
   <div class="pt-3 col-md-12 col-6" *ngFor="let plan of plans">
     <div class="box">
       <div class="img">
-        <img [src]="'/assets/images/workspace/' + plan.category + '.svg'"
+        <img [lazyLoad]="'/assets/images/workspace/' + plan.category + '.svg'"
           alt="">
       </div>
       <h4 class="text-capitalize">{{ planCategory[plan.category] }}</h4>

@@ -13,7 +13,7 @@
   <li *ngFor="let enquiry of enquires">
     <div class="box">
       <div class="workspace-img">
-        <img [src]="enquiry.work_space.images[0]?.image?.s3_link"
+        <img [lazyLoad]="enquiry.work_space.images[0]?.image?.s3_link"
           alt="">
       </div>
       <div class="workspace-detail">

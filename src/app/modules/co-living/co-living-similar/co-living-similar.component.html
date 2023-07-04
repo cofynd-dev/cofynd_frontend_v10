@@ -8,9 +8,9 @@
                 </div>
                 <div class="property-dis">
                     <h4>{{ office.name }}</h4>
-                    <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
-                    <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-                    <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                    <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                    <p class="capacity"><img class="img-fluid" alt="" [lazyLoad]="'../../../../assets/images/amenities/save-money.svg'"> Best Price</p>
+                    <p class="capacity light_blue"><img class="img-fluid" alt="" [lazyLoad]="'../../../../assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
                 </div>
                 <div class="property-foot align-items-end">
                     <div class="price"><span class="rent_title">Starting from</span>₹{{office.starting_price}} <span>/ month</span></div>
@@ -46,7 +46,7 @@
                 <div class="space_carousel">
                     <div class="property-item" [routerLink]="['/co-living/', _centerCity.slug]" *ngFor=" let _centerCity of workSpaces">
                         <div class="property-img">
-                            <img [src]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
+                            <img [lazyLoad]="_centerCity.images[0].image.s3_link" alt="Plus Offices Sector 67" class="img-fluid">
                         </div>
                         <div class="properties-content">
                             <h4>{{_centerCity.name}}</h4>

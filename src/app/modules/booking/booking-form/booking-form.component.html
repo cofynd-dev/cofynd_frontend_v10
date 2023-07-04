@@ -233,7 +233,7 @@
       <div class="col-lg-4 d-none d-md-none d-lg-block">
         <div class="workspace-thumbnail"
           *ngIf="workSpace">
-          <img src="/assets/images/02.jpg"
+          <img [lazyLoad]="'/assets/images/02.jpg'"
             alt="">
           <h4>{{ workSpace.name }}</h4>
           <p>{{ workSpace.location.address1 || workSpace.location.address}}</p>

@@ -8,7 +8,7 @@
     <div class="form-group col-md-6">
         <ng-select [searchable]="false" [clearable]="false" placeholder="Select City" [notFoundText]="'Select Type First'" (change)="onCityChange($event)">
             <ng-option *ngFor="let city of cities" [value]="city.name">
-                <img src="/assets/images/city/{{city.icon}}" width="20px" height="20px" /> {{ city.name }}
+                <img lazyLoad="/assets/images/city/{{city.icon}}" width="20px" height="20px" /> {{ city.name }}
             </ng-option>
         </ng-select>
     </div>

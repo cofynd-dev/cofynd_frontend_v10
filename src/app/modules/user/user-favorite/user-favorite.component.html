@@ -13,7 +13,7 @@
   <li *ngFor="let workspace of userWorkspaces">
     <div class="box">
       <div class="workspace-img">
-        <img [src]="workspace.images[0]?.image?.s3_link"
+        <img [lazyLoad]="workspace.images[0]?.image?.s3_link"
           alt="">
       </div>
       <div class="workspace-detail">

@@ -21,17 +21,6 @@
             <div class="col-8">
                 <h1>{{builder?.name}} Commercial Projects</h1>
             </div>
-            <!-- <div class="col-4 d-flex justify-content-end">
-                <div class="city-dropdown">
-                    <select class="form-select" aria-label="Default select example">
-            <option selected
-              disabled>Choose City</option>
-            <option value="1">Gurugram</option>
-            <option value="2">Delhi</option>
-            <option value="3">Noida</option>
-          </select>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -90,7 +79,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -100,7 +89,7 @@
 
                                                 <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [src]="inactive?.image?.s3_link" />
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" />
                                                         </div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
@@ -135,7 +124,7 @@
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
                         <div class="contact-image">
-                            <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+                            <img class="img-fluid" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
                         </div>
                         <div class="contact-info">
                             <p class="heading">Get in Touch</p>
