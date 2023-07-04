@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { Brand } from '@app/core/models/brand.model';
@@ -44,6 +44,7 @@ export class OfficeSpaceComponent implements OnInit {
   submitted = false;
   coworkingCities: any = [];
   colivingCities: any = [];
+  officeCities: any = [];
   finalCities: any = [];
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -58,6 +59,10 @@ export class OfficeSpaceComponent implements OnInit {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  popularOfficeSpaces: any = [];
+  gurugramSpaces: any = [];
+  noidaSpaces: any = [];
+  delhiSpaces: any = [];
 
   constructor(
     private seoService: SeoService,
@@ -70,6 +75,7 @@ export class OfficeSpaceComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private toastrService: ToastrService,
+    private cdr: ChangeDetectorRef,
   ) {
     this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
     this.loading = true;
@@ -96,6 +102,7 @@ export class OfficeSpaceComponent implements OnInit {
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
     this.getCountries();
+    this.getCitiesForOfficeSpace();
   }
 
   queryFormGroup: FormGroup = this._formBuilder.group({
@@ -192,40 +199,6 @@ export class OfficeSpaceComponent implements OnInit {
       this.loading = false;
     });
   }
-
-  // service = [
-  //   {
-  //     title: 'Fully Furnished',
-  //     description: 'Working in a fully-furnished office space is a privilege which can save you a lot of bucks.',
-  //     icon: 'office-space/icons8-armchair-100 copy.png',
-  //   },
-  //   {
-  //     title: 'Long Lease',
-  //     description: 'We want to support your business for a long run and that’s why we offer long lease office spaces.',
-  //     icon: 'office-space/icons8-term-100.png',
-  //   },
-  //   {
-  //     title: 'Fixed Rental',
-  //     description: 'We ensure the most reasonable price offered after a good negotiation done by our space experts.',
-  //     icon: 'office-space/no-booking-fee.svg',
-  //   },
-  //   {
-  //     title: 'Approved space',
-  //     description:
-  //       'Our dedicated team visits each and every space and inspect thoroughly to provide you with the best.',
-  //     icon: 'office-space/security.svg',
-  //   },
-  //   {
-  //     title: 'Flexible Terms',
-  //     description: 'We have all flexible terms to grow your business in every possible way.',
-  //     icon: 'office-space/icons8-terms-and-conditions-100 copy.png',
-  //   },
-  //   {
-  //     title: '24/7 Support',
-  //     description: "CoFynd's Expert team is available 24*7 for your any doubts or queries.",
-  //     icon: 'office-space/icons8-online-support-100.png',
-  //   },
-  // ];
 
   service = [
     {
@@ -366,99 +339,6 @@ export class OfficeSpaceComponent implements OnInit {
       name: 'Noida',
       slug: 'noida',
     },
-    // {
-    //   address: `India's Silicon Valley`,
-    //   id: '5fbc9ffcc2502350f250363f',
-    //   image: '../../../assets/images/co-living/bangalore-ofcc.jpg',
-    //   name: 'Bangalore',
-    //   slug: 'bangalore',
-    // },
-    // {
-    //   address: 'A City of Nawabs',
-    //   id: '5fbc9ffcc2502350f250363f',
-    //   image: '../../../assets/images/co-living/hyderbad.jpg',
-    //   name: 'Hyderabad',
-    //   slug: 'hyderabad',
-    // },
-    // {
-    //   address: 'A City of Dreams',
-    //   id: '5fbc9ffcc2502350f250363f',
-    //   image: '../../../assets/images/co-living/mumbai2.jpg',
-    //   name: 'Mumbai',
-    //   slug: 'mumbai',
-    // },
-    // {
-    //   address: 'Queen of the Deccan',
-    //   id: '5fbc9ffcc2502350f250363f',
-    //   image: '../../../assets/images/co-living/pune.jpg',
-    //   name: 'Pune',
-    //   slug: 'pune',
-    // },
-    // {
-    //   address: 'Paradise of South Asia',
-    //   id: '5fbc9ffcc2502350f250363f',
-    //   image: '../../../assets/images/co-living/goa.jpg',
-    //   name: 'Goa',
-    //   slug: 'goa',
-    // },
-  ];
-
-  popularOfficeSpaces = [
-    {
-      name: 'Fully Furnished office space in DLF towers',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a40e94aae9b15ed91b0b90d38075e92a3ccf97ad.jpg',
-      address: 'Jasola, Delhi',
-      slug: '1821-sqft-fully-furnished-dlf-towers',
-    },
-    {
-      name: 'JMD Megapolis',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/58c9f6a1f91e5191820119042d38b03d49b6ca0b.jpg',
-      address: 'Sector 48, Gurugram',
-      slug: '1421-sqft-fully-furnished-jmd-megapolis-1',
-    },
-    {
-      name: 'Advant Navis Business Park',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9bbab82feaa4fd65641aa17a3f8278f9f6be4330.jpg',
-      address: 'Sector 142, Noida',
-      slug: '6619-sqft-fully-furnished-advant-navis-business-park',
-    },
-    {
-      name: 'Helenzys Inc',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/649f39dfec289e6f4a43534d21ce13dc5ac92ec7.jpg',
-      address: 'HSR Layout, Bangalore',
-      slug: '5506-sqft-fully-furnished-helenzys-inc',
-    },
-    {
-      name: 'Blue Dawn',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6f2ea4e6750559b61186628611435aaa41385182.jpg',
-      address: 'Gachibowli, Hyderabad',
-      slug: '12000-sqft-raw-blue-dawn',
-    },
-    {
-      name: ' ',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fd3a8f2496cb5c4089e5ad62b9b36d8b968d34d.jpg',
-      address: 'Mumbai',
-      slug: ' ',
-    },
-    {
-      name: 'Fortaleza Complex',
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/17f5e274721d14ee70cc94d9c5f5fe0082c4440c.jpg',
-      address: 'Kalyani Nagar, Pune',
-      slug: '4200-sqft-fully-furnished-fortaleza-complex',
-    },
-    // {
-    //   name: ' ',
-    //   image: ' ',
-    //   address: ' ',
-    //   slug: ' ',
-    // },
   ];
 
   footer_title = 'Office Spaces for Rent in India';
@@ -525,10 +405,32 @@ export class OfficeSpaceComponent implements OnInit {
   <p>All in all, our rental office spaces in India allow companies to reach employees distributed across the world and bring all the crucial resources together. With all the budget-friendly pricing schemes, we serve spaces such that businesses can reduce their costs and gain higher efficiency.&nbsp;</p>`;
 
   ngOnInit() {
+    this.getPopularOfficeSpaces();
     if (this.seoData) {
       this.addSeoTags(this.seoData);
     }
-
+    let gurugramQueryParams = {
+      limit: 8,
+      city: '5e3eb83c18c88277e81427d9',
+    };
+    let noidaQueryParams = {
+      limit: 8,
+      city: '5e3e77de936bc06de1f9a5e2',
+    };
+    let delhiQueryParams = {
+      limit: 8,
+      city: '5e3e77c6936bc06de1f9a2d9',
+    };
+    const observables = [
+      this.officeSpaceService.getOffices(sanitizeParams(gurugramQueryParams)),
+      this.officeSpaceService.getOffices(sanitizeParams(noidaQueryParams)),
+      this.officeSpaceService.getOffices(sanitizeParams(delhiQueryParams)),
+    ];
+    forkJoin(observables).subscribe((res: any) => {
+      this.gurugramSpaces = res[0].data;
+      this.noidaSpaces = res[1].data;
+      this.delhiSpaces = res[2].data;
+    });
     forkJoin([
       this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
       this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
@@ -557,9 +459,18 @@ export class OfficeSpaceComponent implements OnInit {
     });
   }
 
+  getCitiesForOfficeSpace() {
+    this.workSpaceService.getCitiesForOfficeSpace('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.officeCities = res.data;
+      if (this.officeCities.length) {
+        this.removeDuplicateCities();
+      }
+    });
+  }
+
   removeDuplicateCities() {
     const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
+    let allCities = [...this.coworkingCities, ...this.colivingCities, ...this.officeCities];
     this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
@@ -599,6 +510,13 @@ export class OfficeSpaceComponent implements OnInit {
     } else {
       this.validateOtp();
     }
+  }
+
+  getPopularOfficeSpaces() {
+    this.officeSpaceService.getPopularOfficeSpaceCities().subscribe(spaces => {
+      this.popularOfficeSpaces = spaces.data.popularSpaces;
+      this.cdr.detectChanges();
+    });
   }
 
   validateOtp() {
@@ -645,7 +563,6 @@ export class OfficeSpaceComponent implements OnInit {
         this.queryFormGroup.reset();
         this.submitted = false;
         this.router.navigate(['/thank-you']);
-        // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
       },
       error => {
         this.loading = false;
@@ -659,7 +576,6 @@ export class OfficeSpaceComponent implements OnInit {
 
   addSeoTags(seoMeta) {
     if (seoMeta) {
-      // this.pageTitle = seoMeta.page_title;
       this.seoData = {
         title: seoMeta.title,
         image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
@@ -689,9 +605,11 @@ export class OfficeSpaceComponent implements OnInit {
     this.router.navigate([`/office-space/rent/${city.toLowerCase().trim()}`]);
     localStorage.removeItem('officeType');
   }
+
   onClick(spaceType: string) {
     localStorage.setItem('officeType', spaceType);
   }
+
   openWorkSpace(slug: string) {
     this.router.navigate([`/office-space/rent/${slug.toLowerCase().trim()}`]);
     $('#curated_coliving').modal('hide');
@@ -706,6 +624,7 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   goToLink(url: string) {
+    url = `/office-space/rent/${url}`;
     window.open(url, '_blank');
   }
 }
