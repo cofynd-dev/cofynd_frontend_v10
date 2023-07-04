@@ -62,25 +62,25 @@
                                         </div>
                                         <div class="col-6 mb-2" (click)="selectRoomType('625698d3a91948671a4c590b')">
                                             <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '625698d3a91948671a4c590b'">
-                                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a7c0ae9208c669202defb4d1dfa7e9c1812b3398.png" alt="">
+                                                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a7c0ae9208c669202defb4d1dfa7e9c1812b3398.png'" alt="">
                                                 <h4>Private Room</h4>
                                             </div>
                                         </div>
                                         <div class="col-6 mb-2" (click)="selectRoomType('625698e8a91948671a4c590c')">
                                             <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '625698e8a91948671a4c590c'">
-                                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b0f637488b54590d18d10c0561a501f092a83c21.png" alt="">
+                                                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b0f637488b54590d18d10c0561a501f092a83c21.png'" alt="">
                                                 <h4>Twin Sharing</h4>
                                             </div>
                                         </div>
                                         <div class="col-6" (click)="selectRoomType('625698f4a91948671a4c590d')">
                                             <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '625698f4a91948671a4c590d'">
-                                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/42b163b66386968583772e219073d984a73e9c5a.png" alt="">
+                                                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/42b163b66386968583772e219073d984a73e9c5a.png'" alt="">
                                                 <h4>Triple Sharing</h4>
                                             </div>
                                         </div>
                                         <div class="col-6" (click)="selectRoomType('625698fea91948671a4c590e')">
                                             <div class="icon_box mb-0" style="cursor: pointer;" [class.active]="roomType === '625698fea91948671a4c590e'">
-                                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/578f261abe7ce8e14c106fea5ccbb49297ac7d19.png" alt="">
+                                                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/578f261abe7ce8e14c106fea5ccbb49297ac7d19.png'" alt="">
                                                 <h4>Studio Apartment</h4>
                                             </div>
                                         </div>
@@ -194,7 +194,7 @@
                     </ng-template>
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-city-page-enquire *ngIf="!loading && coLivings.length" [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                 </div>
 

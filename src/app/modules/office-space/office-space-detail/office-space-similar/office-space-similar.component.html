@@ -8,9 +8,9 @@
                 </div>
                 <div class="property-dis">
                     <h4>{{ office.name }}</h4>
-                    <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
-                    <p class="capacity"><img src="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
-                    <p class="capacity"><img class="img-fluid" src="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
+                    <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                    <p class="capacity"><img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
+                    <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> Flexible Lease</p>
                 </div>
                 <div class="property-foot align-items-end">
                     <div class="price"><span class="rent_title">Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }} <span>/ month</span></div>

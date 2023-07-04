@@ -15,9 +15,9 @@
     <div class="space_details" (click)="openWorkSpace(coLiving.slug)" style="cursor: pointer;">
         <div class="property-dis">
             <h4>{{ coLiving.name }}</h4>
-            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ coLiving.location.address }}</p>
-            <p class="capacity"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-        <p class="capacity light_blue"><img class="img-fluid" alt="" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+            <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ coLiving.location.address }}</p>
+            <p class="capacity"><img class="img-fluid" alt="" [lazyLoad]="'../../../../assets/images/amenities/save-money.svg'"> Best Price</p>
+        <p class="capacity light_blue"><img class="img-fluid" alt="" [lazyLoad]="'../../../../assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
         </div>
         <div class="property-foot align-items-end">
             <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }} <span class="rent_duration">/ {{ coLiving.duration }}</span></div>

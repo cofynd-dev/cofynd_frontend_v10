@@ -2,7 +2,7 @@
     <div (click)="onEnquire()" class="col-md-12 col-6" *ngFor="let plan of plans">
         <div class="box price_box">
             <div class="img">
-                <img [src]="plan?.category?.icons?.s3_link" alt="">
+                <img [lazyLoad]="plan?.category?.icons?.s3_link" alt="">
             </div>
             <h4 class="text-capitalize">{{ plan.category?.name }}</h4>
             <p class="hideOnMobile tabhide">{{ plan?.category?.description }}</p>

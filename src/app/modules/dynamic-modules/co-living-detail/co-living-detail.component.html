@@ -90,7 +90,7 @@
                     <div class="facilities-points mt-2 onlyMobile">
                         <div class="row">
                             <div class="col-2">
-                                <img src="../../../../assets/images/housekeeping-Icon.png" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/housekeeping-Icon.png'" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Regular Cleaning</p>
@@ -99,7 +99,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img src="../../../../assets/images/wi-fi-high.png" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/wi-fi-high.png'" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">High Speed WiFi</p>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img src="../../../../assets/images/comfy-Bed.png" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/comfy-Bed.png'" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Comfy Beds</p>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img src="../../../../assets/images/heart-Icon.png" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/heart-Icon.png'" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Amazing Community</p>
@@ -128,9 +128,9 @@
 
                     <!-- hide on mobile view -->
                     <div class="covid-info hideOnMobile">
-                        <p><img alt="Sanitized Spaces" src="/assets/images/amenities/sanitizer.svg" width="35"> Fully sanitized</p>
-                        <p><img alt="CoFynd Zero Brokerage" src="/assets/images/amenities/cash.svg" width="30"> zero brokerage </p>
-                        <p><img alt="CoFynd Trusted Partner" src="/assets/images/amenities/trusted.svg" width="30"> Trusted space</p>
+                        <p><img alt="Sanitized Spaces" [lazyLoad]="'/assets/images/amenities/sanitizer.svg'" width="35"> Fully sanitized</p>
+                        <p><img alt="CoFynd Zero Brokerage" [lazyLoad]="'/assets/images/amenities/cash.svg'" width="30"> zero brokerage </p>
+                        <p><img alt="CoFynd Trusted Partner" [lazyLoad]="'/assets/images/amenities/trusted.svg'" width="30"> Trusted space</p>
                     </div>
 
                     <!-- hide on mobile view -->
@@ -191,7 +191,7 @@
                                 <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
                                     <div class="box" (click)="openEnquireModal()">
                                         <div class="img">
-                                            <img [src]="plan.planId.icons.s3_link" alt="">
+                                            <img [lazyLoad]="plan.planId.icons.s3_link" alt="">
                                         </div>
                                         <h4 class="text-capitalize">{{plan.planId.name}}</h4>
                                         <p class="hideOnMobile">{{plan.planId.description}}</p>
@@ -238,7 +238,7 @@
                             <h2>Where you'll sleep</h2>
                         </div>
                         <div class="col-7">
-                            <img [src]="workspace.images[1].image.s3_link" class="img-fluid d-block" style="border-radius: 10px;">
+                            <img [lazyLoad]="workspace.images[1].image.s3_link" class="img-fluid d-block" style="border-radius: 10px;">
                             <p class="mb-0 mt-2" style="color:#000;font-weight: 500;">Bedroom</p>
                             <p class="mb-0" style="font-weight: 300;">Twin/Single Bed</p>
                         </div>

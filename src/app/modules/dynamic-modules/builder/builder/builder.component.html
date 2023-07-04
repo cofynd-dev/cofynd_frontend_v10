@@ -16,7 +16,7 @@
       <div class="col-md-6 col-12 order-1 order-md-2">
         <div class="banner_img">
           <img
-            src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/80a37b29bf1855a660804865b5fe205483f3deba.jpg"
+          [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/80a37b29bf1855a660804865b5fe205483f3deba.jpg'"
             alt=""
             class="img-fluid">
         </div>
@@ -44,7 +44,7 @@
               style="cursor: pointer;">
               <div class="top-city-img">
                 <img class="img-fluid d-block m-auto"
-                  [src]="builder?.images[0]?.image?.s3_link">
+                  [lazyLoad]="builder?.images[0]?.image?.s3_link">
               </div>
               <div class="top-city-text">
                 <h4><i class="fas fa-map-marker-alt"
@@ -76,7 +76,7 @@
           style="cursor: pointer;">
           <div class="top-city-img main_city">
             <img class="img-fluid d-block m-auto"
-              [src]="builder?.images[0]?.image?.s3_link">
+              [lazyLoad]="builder?.images[0]?.image?.s3_link">
           </div>
           <div class="top-city-text">
             <h4><i class="fas fa-map-marker-alt"
@@ -93,7 +93,7 @@
               style="cursor: pointer;">
               <div class="top-city-img">
                 <img class="img-fluid d-block m-auto"
-                  [src]="builder?.images[0]?.image?.s3_link">
+                  [lazyLoad]="builder?.images[0]?.image?.s3_link">
               </div>
               <div class="top-city-text">
                 <h4><i class="fas fa-map-marker-alt"
@@ -124,14 +124,14 @@
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              [src]="builder?.images[0]?.image?.s3_link"
+              [lazyLoad]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  [src]="builder?.builder_logo?.s3_link"
+                  [lazyLoad]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
@@ -179,14 +179,14 @@
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              [src]="builder?.images[0]?.image?.s3_link"
+              [lazyLoad]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  [src]="builder?.builder_logo?.s3_link"
+                  [lazyLoad]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
@@ -234,14 +234,14 @@
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              [src]="builder?.images[0]?.image?.s3_link"
+              [lazyLoad]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  [src]="builder?.builder_logo?.s3_link"
+                  [lazyLoad]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
@@ -289,14 +289,14 @@
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              [src]="builder?.images[0]?.image?.s3_link"
+              [lazyLoad]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  [src]="builder?.builder_logo?.s3_link"
+                  [lazyLoad]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
@@ -344,14 +344,14 @@
         <div class="builder_item">
           <div class="builder_img">
             <img class="img-fluid"
-              [src]="builder?.images[0]?.image?.s3_link"
+              [lazyLoad]="builder?.images[0]?.image?.s3_link"
               alt="indiabulls">
           </div>
           <div class="row brand_content align-items-center">
             <div class="col-m d-6 col-6">
               <div class="title_img">
                 <img class="img-fluid"
-                  [src]="builder?.builder_logo?.s3_link"
+                  [lazyLoad]="builder?.builder_logo?.s3_link"
                   alt="indiabulls">
               </div>
             </div>
@@ -382,7 +382,7 @@
       <div class="col-md-6 tabhide">
         <img alt=""
           class="img-fluid"
-          src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/573637d053bf699f82147cddbf6ef8818803fd0f.png">
+          [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/573637d053bf699f82147cddbf6ef8818803fd0f.png'">
       </div>
       <div class="col-md-6 col-12">
         <div class="virtual_query_form">
@@ -398,7 +398,7 @@
               <div class="row">
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img src="assets/images/icons/user-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/user-icon.svg'"
                       class="img-fluid"
                       alt="">
                     <input type="text"
@@ -415,7 +415,7 @@
                 </div>
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img src="assets/images/icons/email-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/email-icon.svg'"
                       class="img-fluid"
                       alt="">
                     <input type="email"
@@ -433,7 +433,7 @@
                 </div>
                 <div class="col-md-6 col-12 country_phone">
                   <div class="input-group align-items-center">
-                    <img src="assets/images/icons/phone-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/phone-icon.svg'"
                       class="img-fluid"
                       alt="">
 
@@ -454,7 +454,7 @@
                             class="country active"
                             tabindex="-1">
                             <div class="flag-box">
-                              <div class="flag in"><img [src]="country?.image?.s3_link"
+                              <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
                                   width="18px" /></div>
                             </div>
                             <span class="country-name">{{country?.name}}</span>
@@ -467,7 +467,7 @@
                             (click)="hideCountry(inactive)"
                             *ngFor="let inactive of inActiveCountries">
                             <div class="flag-box">
-                              <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                              <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
                             </div>
                             <span class="country-name">{{inactive?.name}}</span>
                             <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -493,7 +493,7 @@
                 </div>
                 <div class="col-md-6 col-12">
                   <div class="input-group align-items-center">
-                    <img src="assets/images/icons/location-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/location-icon.svg'"
                       class="img-fluid"
                       alt="">
                     <select class="form-select"
@@ -520,7 +520,7 @@
                 <div class="col-md-12 col-12"
                   *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                   <div class="input-group align-items-center">
-                    <img src="assets/images/icons/phone-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/phone-icon.svg'"
                       class="img-fluid"
                       alt="">
                     <input type="tel"
@@ -543,7 +543,7 @@
                 </div>
                 <div class="col-md-12 col-12">
                   <div class="input-group message_field align-items-center">
-                    <img src="assets/images/icons/message-icon.svg"
+                    <img [lazyLoad]="'assets/images/icons/message-icon.svg'"
                       class="img-fluid"
                       alt="">
                     <textarea type="textarea"
@@ -590,7 +590,7 @@
       <div class="col-md-12">
         <div class="cofynd-desk text-center">
           <img style="max-height: 200px;"
-            src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
+          [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'"
             alt="">
           <h4>What's the CoFynd Desk ?</h4>
           <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything

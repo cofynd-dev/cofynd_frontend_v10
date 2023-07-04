@@ -24,12 +24,12 @@
                             <div class="for_email_content">
                                 <h3>Find your Office Space with Cofynd</h3>
                                 <p>Just drop us an email with your Office Space requirements – Number of Seat, Location, Start Date … and our team will connect back with you within 24 Hrs with the best possible options.</p>
-                                <p class="email_id align-items-center"><img src="assets/images/icons/email_id.svg" alt="Email Icon"> <a href="mailto:hello@cofynd.com">hello@cofynd.com</a></p>
+                                <p class="email_id align-items-center"><img lazyLoad="assets/images/icons/email_id.svg" alt="Email Icon"> <a href="mailto:hello@cofynd.com">hello@cofynd.com</a></p>
                             </div>
                         </div>
                         <div class="col-md-4 mobilehide">
                             <div class="for_email_img">
-                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png" alt="Email Image">
+                                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png" alt="Email Image">
                             </div>
                         </div>
                     </div>
@@ -78,12 +78,12 @@
                     </ng-template>
                 </ng-container>
 
-                <div class="col-md-4">
+                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
                     <app-virtual-office-city-page-enquire *ngIf="workSpaces.length"></app-virtual-office-city-page-enquire>
                 </div>
             </div>
 
-            <div *ngIf="!loading && workSpaces.length > 1" class="pagination-container">
+            <div *ngIf="!loading && workSpaces.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
                 </pagination>
             </div>

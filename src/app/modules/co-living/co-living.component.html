@@ -14,7 +14,7 @@
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="" class="img-fluid">
+                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="innerbanner_img tabhide">
-        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg" alt="">
+        <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="">
     </div>
 
 </section> -->
@@ -113,10 +113,10 @@
             </div>
             <br />
             <div class="col-6">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg" class="img-fluid m-auto d-block offer-img">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg'" class="img-fluid m-auto d-block offer-img">
             </div>
             <div class="col-6">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg" class="img-fluid m-auto d-block offer-img">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg'" class="img-fluid m-auto d-block offer-img">
             </div>
         </div>
     </div>
@@ -135,7 +135,7 @@
         <div class="row amenities_row">
             <div class="col-md-4 col-4" *ngFor="let data of service">
                 <div class="icon_item mb-5">
-                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     <h4>{{data.title}}</h4>
                     <p class="mobilehide">{{data.description}}</p>
                 </div>
@@ -148,7 +148,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png" alt="" class="img-fluid">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png'" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -164,7 +164,7 @@
             <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoLivingSpaces | slice:0:1">
                 <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                     <div class="top-city-img main_city">
-                        <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
                     </div>
                     <div class="top-city-text">
                         <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
@@ -176,7 +176,7 @@
                     <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoLivingSpaces | slice:1:7">
                         <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                             <div class="top-city-img">
-                                <img [src]="_centerCity.image" class="img-fluid d-block m-auto">
+                                <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
                             </div>
                             <div class="top-city-text">
                                 <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
@@ -200,7 +200,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png'" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
             </div>
         </div>
     </div>
@@ -223,7 +223,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" (click)="goToBrand()">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png" alt="" class="img-fluid">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png'" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -249,7 +249,7 @@
             <div class="col-md-3 col-4" *ngFor="let data of coFyndAdvantages">
                 <div class="advantage_item">
                     <div class="icon">
-                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
                         <h4>{{data.title}}</h4>
@@ -332,7 +332,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img src="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -343,7 +343,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
                     <h4>What's the CoFynd Desk ?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>

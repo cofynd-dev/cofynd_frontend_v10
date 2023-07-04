@@ -9,7 +9,7 @@
         <div class="col-12 mt-3">
             <div class="logos_slider">
               <div class="band-img" *ngFor="let logo of newsMedia">
-                <img [src]="'../../../../assets/images/newsLogo/'+logo+'.png'">
+                <img [lazyLoad]="'../../../../assets/images/newsLogo/'+logo+'.png'">
               </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
           <ngu-carousel #myCarousel [inputs]="carouselTile" [dataSource]="carouselTileItems">
             <div *nguCarouselDef="let item; let i = index;" class="item">
               <div class="band-img" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                <img [src]="'../../../../assets/images/newsLogo/'+newsMedia[i]+'.png'" />
+                <img [lazyLoad]="'../../../../assets/images/newsLogo/'+newsMedia[i]+'.png'" />
               </div>
             </div>
             <!-- <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>

@@ -20,10 +20,10 @@
                 <ng-select [searchable]="false" [clearable]="false" [placeholder]="cityLabel" [notFoundText]="'Select Type First'" (change)="onCityChange($event)">
                     <ng-option *ngFor="let city of cities" [value]="city">
                         <ng-container *ngIf="isCountryLandingPage == false">
-                            <img src="/assets/images/city/{{city.icon}}" width="20px" height="20px" />
+                            <img lazyLoad="/assets/images/city/{{city.icon}}" width="20px" height="20px" />
                         </ng-container>
                         <ng-container *ngIf="isCountryLandingPage == true">
-                            <img [src]="city?.icon?.s3_link" width="20px" height="20px" [alt]="city.name">
+                            <img [lazyLoad]="city?.icon?.s3_link" width="20px" height="20px" [alt]="city.name">
                         </ng-container>
                         {{ removedash(city.name) }}
                     </ng-option>

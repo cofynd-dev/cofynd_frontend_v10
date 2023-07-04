@@ -14,7 +14,7 @@
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coworkingBrandsList.length-1)?'last-slide':null">
                             <div class="coworking_brands_item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <div class="brands-log">
-                                    <img [routerLink]="space.url" [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                    <img [routerLink]="space.url" [lazyLoad]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
                                 </div>
                             </div>
                         </div>

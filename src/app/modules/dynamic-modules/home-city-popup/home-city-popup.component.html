@@ -11,7 +11,7 @@
                 <a (click)="closeModal()" style="cursor: pointer;">
                     <div class="coworking-space-box mt-2 mb-2">
                         <div class="img-box">
-                            <img src="/assets/images/coworking/system.png" class="img-fluid d-block m-auto" alt="">
+                            <img [lazyLoad]="'/assets/images/coworking/system.png'" class="img-fluid d-block m-auto" alt="">
                             <p class="text-center">
                                 Co-Working<br>Space</p>
                         </div>
@@ -23,7 +23,7 @@
                 <a (click)="closeModal1()" style="cursor: pointer;">
                     <div class="coworking-space-box mt-2 mb-2">
                         <div class="img-box">
-                            <img src="https://cofynd.com/assets/images/amenities/double-sharing.svg" class="img-fluid d-block m-auto" alt="">
+                            <img [lazyLoad]="'https://cofynd.com/assets/images/amenities/double-sharing.svg'" class="img-fluid d-block m-auto" alt="">
                             <p class="text-center">
                                 Co-Living<br>Space</p>
                         </div>

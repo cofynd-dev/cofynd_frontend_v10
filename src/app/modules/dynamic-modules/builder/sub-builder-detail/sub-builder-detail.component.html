@@ -41,7 +41,7 @@
                         <div class="space_head">
                             <div class="heading-info">
                                 <h2>{{SubBuilder?.name}}</h2>
-                                <p><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{SubBuilder?.location?.address}}</p>
+                                <p><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{SubBuilder?.location?.address}}</p>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/project-type-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/project-type-icon.svg'" />
                                     </div>
                                     <div class="info" *ngIf="SubBuilder.overview.project_type">
                                         <h5>Project Type</h5>
@@ -68,7 +68,7 @@
                             <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.project_size">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/area-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Project Size</h5>
@@ -79,7 +79,7 @@
                             <!-- <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/area-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Built-up Area</h5>
@@ -90,7 +90,7 @@
                             <div class="col-md-4 col-6" *ngIf="SubBuilder.overview.build_up_area">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/area-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Project Status</h5>
@@ -101,7 +101,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/pricing-tag-icon.svg" />
+                                        <img class="bhk img-fluid" [lazyLoad]="'assets/images/icons/pricing-tag-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Sale & Rent</h5>
@@ -111,7 +111,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
+                                        <img class="bhk img-fluid" [lazyLoad]="'assets/images/icons/verified-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>RERA Approved</h5>
@@ -121,7 +121,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
+                                        <img class="bhk img-fluid" [lazyLoad]="'assets/images/icons/brokerage-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Zero Brokerage</h5>
@@ -129,113 +129,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!----------------- For residential --------------->
-
-                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'residential'">
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/ready-to-move.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Ready To Move</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>RERA Approved</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Zero Brokerage</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!----------------- For commercial --------------->
-
-                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'commercial'">
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/ready-to-move.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Ready To Move</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/flexible-lease-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Flexible Lease</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Zero Brokerage</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-
-                        <!----------------- For residential/commercial --------------->
-
-                        <!-- <div class="row" *ngIf="SubBuilder?.overview?.project_type === 'both'">
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/flexible-lease-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Flexible Lease</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/verified-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>RERA Approved</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6">
-                                <div class="overview-icons">
-                                    <div class="icon">
-                                        <img class="bhk img-fluid" src="assets/images/icons/brokerage-icon.svg" />
-                                    </div>
-                                    <div class="info">
-                                        <h5>Zero Brokerage</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -307,7 +200,7 @@
                                         <p>₹{{plan?.price}} Onwards </p>
                                     </div>
                                     <div class="configuration_img">
-                                        <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9107d41c7468dec04eaffb1447d917893a60b3dc.png" alt="Configuration">
+                                        <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9107d41c7468dec04eaffb1447d917893a60b3dc.png'" alt="Configuration">
                                     </div>
                                 </div>
                             </div>
@@ -332,10 +225,10 @@
                             <div class="plans_slider">
                                 <div class="plan_item" *ngFor="let item of floorPlan">
                                     <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b514199eb59c37cc4e1a72983059a86e8407e5e.png" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3b514199eb59c37cc4e1a72983059a86e8407e5e.png'" alt="9.jpg" />
                                     </div>
                                     <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="item?.image?.s3_link" alt="9.jpg" />
                                     </div>
                                     <div class="floor_plan_title">
                                         <h4>{{item?.name}}</h4>
@@ -371,10 +264,10 @@
                             <div class="plans_slider">
                                 <div class="plan_item" *ngFor="let item of residentailFloorPlan">
                                     <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg'" alt="9.jpg" />
                                     </div>
                                     <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="item?.image?.s3_link" alt="9.jpg" />
                                     </div>
                                     <div class="floor_plan_title">
                                         <h4>{{item?.name}}</h4>
@@ -412,10 +305,10 @@
                             <div class="plans_slider">
                                 <div class="plan_item" *ngFor="let item of commercialFloorPlan">
                                     <div class="floor-plan-img" *ngIf="!item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/61d5cda4fe5ba5490f8da97c8389d480293ae2b8.jpg'" alt="9.jpg" />
                                     </div>
                                     <div class="floor-plan-img" *ngIf="item?.image?.s3_link">
-                                        <img class="img-fluid floor-plan-img" [src]="item?.image?.s3_link" alt="9.jpg" />
+                                        <img class="img-fluid floor-plan-img" [lazyLoad]="item?.image?.s3_link" alt="9.jpg" />
                                     </div>
                                     <div class="floor_plan_title">
                                         <h4>{{item?.name}}</h4>
@@ -442,7 +335,7 @@
                     <div class="col-md-12">
                         <h2>Location of {{SubBuilder?.name}}</h2>
                         <p class="location-icon" *ngIf="SubBuilder">
-                            <img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ SubBuilder.location.address }}
+                            <img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ SubBuilder.location.address }}
                         </p>
                         <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                         </div>
@@ -462,7 +355,7 @@
                         <div class="places-tag-slider">
                             <div class="places-tag-item" *ngFor="let near of SubBuilder.location.near_by_places">
                                 <div class="tag-icon">
-                                    <img class="img-fluid" [src]="near?.image?.s3_link" />
+                                    <img class="img-fluid" [lazyLoad]="near?.image?.s3_link" />
                                 </div>
                                 <div class="tag-text">
                                     <h5>{{near?.lankmark}}</h5>
@@ -509,7 +402,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -519,7 +412,7 @@
 
                                                 <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -551,7 +444,7 @@
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
                         <div class="contact-image">
-                            <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+                            <img class="img-fluid" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png'" />
                         </div>
                         <div class="contact-info">
                             <p class="heading">Get in Touch</p>
@@ -576,7 +469,7 @@
             <div class="col-md-12">
                 <div class="about_details">
                     <div class="logo_col">
-                        <img [src]="builderLogoUrl" alt="M3M">
+                        <img [lazyLoad]="builderLogoUrl" alt="M3M">
                     </div>
                     <div class="building_experience" *ngIf="SubBuilder?.builder">
                         <h4 *ngIf="SubBuilder?.builder?.name">{{SubBuilder?.builder?.name | titlecase}}</h4>

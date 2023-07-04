@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="about_details">
                             <div class="logo_col">
-                                <img [src]="builder?.builder_logo?.s3_link" alt="M3M">
+                                <img [lazyLoad]="builder?.builder_logo?.s3_link" alt="M3M">
                             </div>
                             <div class="building_experience">
                                 <h4>{{builder?.name}}</h4>
@@ -63,7 +63,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/pricing-tag-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/pricing-tag-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Starting Price</h5>
@@ -74,7 +74,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.configuration">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/configuration-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/configuration-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Configuration</h5>
@@ -85,7 +85,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.area">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/area-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Area</h5>
@@ -96,7 +96,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.comercial_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/comercial-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/comercial-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Comercial Projects</h5>
@@ -107,7 +107,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.residential_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img src="assets/images/icons/residential-icon.svg" />
+                                        <img [lazyLoad]="'assets/images/icons/residential-icon.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Residential Projects</h5>
@@ -124,7 +124,7 @@
                 <div class="row" *ngIf="builder?.video_link && safeVideoUrl">
                     <div class="col-md-12">
                         <div class="video_area">
-                            <iframe width="100%" height="402" [src]="safeVideoUrl" title="M3M India - Brand Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="100%" height="402" [lazyLoad]="safeVideoUrl" title="M3M India - Brand Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -175,7 +175,7 @@
 
                                                 <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
                         <div class="contact-image">
-                            <img class="img-fluid" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+                            <img class="img-fluid" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png'" />
                         </div>
                         <div class="contact-info">
                             <p class="heading">Get in Touch</p>

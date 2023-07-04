@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/16e15e3a96492db32a0f71e76ef9286820cc0e29.jpg" alt="" class="img-fluid">
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/16e15e3a96492db32a0f71e76ef9286820cc0e29.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="row mt-3">
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/hot-desk.svg" alt="">
+                    <img lazyLoad="assets/images/icons/hot-desk.svg" alt="">
                     <h4>Hot Desk</h4>
                     <ul>
                         <li>Hot desks allow clients to work in an open area or reserve a private desk for privacy as needed by your requirements.</li>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/dedicated-desk.svg" alt="">
+                    <img lazyLoad="assets/images/icons/dedicated-desk.svg" alt="">
                     <h4>Dedicated Desk</h4>
                     <ul>
                         <li>This workspace provides an assigned desk to the client which he/she may personalize with their own belongings, equipment, etc.</li>
@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/private-cabin.svg" alt="">
+                    <img lazyLoad="assets/images/icons/private-cabin.svg" alt="">
                     <h4>Private Cabin</h4>
                     <ul>
                         <li>A private cabin is an ideal workspace for those who need a private space with added security and it is equipped with all modern facilities.</li>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/meeting-room.svg" alt="">
+                    <img lazyLoad="assets/images/icons/meeting-room.svg" alt="">
                     <h4>Meeting Rooms</h4>
                     <ul>
                         <li>A meeting room may vary in size & style depending on the size of the group and the type of meeting, discussion, training session, etc.</li>
@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/office-fully-furnished.svg" alt="">
+                    <img lazyLoad="assets/images/icons/office-fully-furnished.svg" alt="">
                     <h4>Office Suite</h4>
                     <ul>
                         <li>This workspace is ideal for individuals and companies who need a permanent and private space to work without any distractions.</li>
@@ -87,7 +87,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="virtual_service_item">
-                    <img src="assets/images/icons/custom-build-icon.svg" alt="">
+                    <img lazyLoad="assets/images/icons/custom-build-icon.svg" alt="">
                     <h4>Custum Buildout</h4>
                     <ul>
                         <li>This is an exclusive workspace as it allows the clients to create their space from scratch which best fits their needs & preferences.</li>
@@ -113,7 +113,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 tabhide">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
             </div>
 
             <div class="col-md-6 col-12">
@@ -129,7 +129,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                             <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
                                         <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                             <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-md-6 col-12 country_phone">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
 
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
@@ -161,7 +161,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -171,7 +171,7 @@
 
                                                     <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                         </div>
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
                                         <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
                                             <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
@@ -202,7 +202,7 @@
                                 </div>
                                 <div class="col-md-12 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group message_field align-items-center">
-                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
                                         <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
                     <h4>What's the CoFynd Desk ?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>

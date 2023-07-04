@@ -2,23 +2,23 @@
     <div class="row" *ngIf="!this.hideBannerView" (click)="openGallery()">
       <div class="col-md-6">
         <div class="banner-image-item first-img">
-          <img [src]="mainImg ? mainImg.image.s3_link : ''"
+          <img [lazyLoad]="mainImg ? mainImg.image.s3_link : ''"
             [alt]="mainImg.image.title ? mainImg.image.title : ''">
         </div>
       </div>
       <div class="col-md-3 image_space">
         <div class="banner-image-item">
-          <img [src]="imgTL ? imgTL.image.s3_link : ''"
+          <img [lazyLoad]="imgTL ? imgTL.image.s3_link : ''"
             [alt]="imgTL ? imgTL.image.title : ''">
         </div>
         <div class="banner-image-item mb-0">
-          <img [src]="imgTR ? imgTR.image.s3_link : ''"
+          <img [lazyLoad]="imgTR ? imgTR.image.s3_link : ''"
             [alt]="imgTR.image.title  ? imgTR.image.title : ''">
         </div>
       </div>
       <div class="col-md-3">
         <div class="banner-image-item last-img">
-          <img [src]="imgBL ? imgBL.image.s3_link : ''"
+          <img [lazyLoad]="imgBL ? imgBL.image.s3_link : ''"
             [alt]="imgBL ? imgBL.image.title : ''">
         </div>
         <button type="button"

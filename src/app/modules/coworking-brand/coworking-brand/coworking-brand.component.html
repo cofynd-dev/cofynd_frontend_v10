@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <img src=" https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c21495cf7574047b16f9cad1ce40e36ce7109a2e.png" alt="Coworking Brand" class="img-fluid">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c21495cf7574047b16f9cad1ce40e36ce7109a2e.png'" alt="Coworking Brand" class="img-fluid">
             </div>
         </div>
     </div>
@@ -49,11 +49,11 @@
             <div class="col-md-4 col-6" *ngFor="let data of coworkingBrand|slice:0:show; let i=index">
                 <div class="brant_item" (click)="goToLink(data.url)">
                     <div class="brand_img mobilehide">
-                        <img [src]="data.image" class="img-fluid" [alt]="data.title">
+                        <img [lazyLoad]="data.image" class="img-fluid" [alt]="data.title">
                     </div>
                     <div class="brand_content text-center">
                         <div class="title_img">
-                            <img [src]="data.titleImg" class="img-fluid" [alt]="data.title">
+                            <img [lazyLoad]="data.titleImg" class="img-fluid" [alt]="data.title">
                         </div>
                         <div class="brandCounter row">
                             <div class="cityNum col-md-6 col-6">
@@ -92,7 +92,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 mobilehide">
-                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png" class="img-fluid" alt="">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png'" class="img-fluid" alt="">
             </div>
 
             <div class="col-md-6 col-12">
@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/user-icon.svg'" class="img-fluid" alt="">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                             <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/email-icon.svg'" class="img-fluid" alt="">
                                         <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                             <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="">
                                         <div class="form-input country_phone simple_dropdown">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
@@ -139,7 +139,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
+                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -149,7 +149,7 @@
 
                                                     <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag af"><img [src]="inactive?.image?.s3_link" /></div>
+                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                         </div>
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/location-icon.svg'" class="img-fluid" alt="">
                                         <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
                                             <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/message-icon.svg'" class="img-fluid" alt="">
                                         <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
@@ -226,7 +226,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img src="assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                <img [lazyLoad]="'assets/images/list-your-space-img.svg'" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
+                    <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'" alt="">
                     <h4>What's the CoFynd Desk ?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>

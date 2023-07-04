@@ -4579,11 +4579,11 @@ h3.site_title {
 	margin-bottom: 10px;
 }
 
-.visible-list::-webkit-scrollbar, .configuration_list::-webkit-scrollbar {
-    display: none !important;
-    height: 0 !important;
-    width: 0 !important;
-}
+// .visible-list::-webkit-scrollbar, .configuration_list::-webkit-scrollbar {
+//     display: none !important;
+//     height: 0 !important;
+//     width: 0 !important;
+// }
 
 .seo_content {
     padding-top: 50px;
@@ -9245,6 +9245,10 @@ select.form-control{
     .cta_form .cta_img {
         display: none;
     }
+    ::selection {
+        color: #fff !important;
+        background: transparent !important;
+    }
     .cta_form .form_col {
         -webkit-box-flex: 0;
         flex: 0 0 100%;
@@ -9256,6 +9260,7 @@ select.form-control{
     }
     .form_cta_sec .form_body {
         padding: 14px 15px;
+        background-color: #fff;
     }
     .form_cta_sec .cta_form {
         padding: 0px;
@@ -10324,6 +10329,7 @@ select.form-control{
     .faqs_list .accordion-header .accordion-button {
         font-size: 11px;
         line-height: 16px;
+        color: #000;
     }
     .faqs_list .accordion-item .accordion-body,
     .faqs_list .accordion-item .accordion-body p {
