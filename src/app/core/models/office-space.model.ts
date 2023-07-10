@@ -9,6 +9,7 @@ export class OfficeSpaceOtherDetail {
   how_to_reach: string;
   rent_in_sq_ft: number;
   office_type: string;
+  security_deposit: string;
   facilities: [
     {
       name: string;

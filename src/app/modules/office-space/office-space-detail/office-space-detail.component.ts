@@ -7,7 +7,6 @@ import { VisibilityState } from '@core/enum/visibility-state.enum';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
-import { WorkSpaceService } from '@core/services/workspace.service';
 import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { OfficeSpace } from '@core/models/office-space.model';
@@ -57,12 +56,13 @@ export class OfficeSpaceDetailComponent implements OnInit {
   enquiryType: number = ENQUIRY_TYPES.OFFICE;
   shouldReloadEnquiryForm: boolean;
   mySubscription: any;
+  spaceName: any;
+  security_deposit: any = 'No';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
     private activatedRoute: ActivatedRoute,
-    private workSpaceService: WorkSpaceService,
     private officeSpaceService: OfficeSpaceService,
     // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
@@ -89,13 +89,51 @@ export class OfficeSpaceDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;
     this.officeSpaceService.getOffice(workspaceId).subscribe(
       workspaceDetail => {
         this.workspace = workspaceDetail;
+        console.log(this.workspace);
+        if (this.workspace.location && this.workspace.location.city && this.workspace.location.city.name) {
+          this.spaceName = `Office Space for Rent in ${this.workspace.location.city.name}`;
+        }
+        if (
+          this.workspace.location &&
+          this.workspace.location.micro_location &&
+          this.workspace.location.micro_location.name &&
+          this.workspace.location.city &&
+          this.workspace.location.city.name
+        ) {
+          this.spaceName = `Office Space for Rent in ${this.workspace.location.micro_location.name}, ${this.workspace.location.city.name}`;
+        }
+        if (this.workspace.other_detail.security_deposit) {
+          if (this.workspace.other_detail.security_deposit === 'NoMaintainance') {
+            this.security_deposit = 'No';
+          }
+          if (this.workspace.other_detail.security_deposit === '1 Month') {
+            this.security_deposit =
+              this.workspace.other_detail.rent_in_sq_ft * this.workspace.other_detail.area_for_lease_in_sq_ft;
+          }
+          if (this.workspace.other_detail.security_deposit === '2 Month') {
+            this.security_deposit =
+              this.workspace.other_detail.rent_in_sq_ft * this.workspace.other_detail.area_for_lease_in_sq_ft * 2;
+          }
+          if (this.workspace.other_detail.security_deposit === '3 Month') {
+            this.security_deposit =
+              this.workspace.other_detail.rent_in_sq_ft * this.workspace.other_detail.area_for_lease_in_sq_ft * 3;
+          }
+          if (this.workspace.other_detail.security_deposit === '6 Month') {
+            this.security_deposit =
+              this.workspace.other_detail.rent_in_sq_ft * this.workspace.other_detail.area_for_lease_in_sq_ft * 6;
+          }
+          if (this.workspace.other_detail.security_deposit === '1 Year') {
+            this.security_deposit =
+              this.workspace.other_detail.rent_in_sq_ft * this.workspace.other_detail.area_for_lease_in_sq_ft * 12;
+          }
+        }
         this.loading = false;
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
