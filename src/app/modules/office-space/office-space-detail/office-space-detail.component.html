@@ -9,7 +9,7 @@
                         <li class="breadcrumb-item">
                             <a [routerLink]="['/office-space/rent/']">Office Space</a>
                         </li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
+                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{spaceName}}</li>
                     </ol>
                 </nav>
             </div>
@@ -22,13 +22,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="relative" *ngIf="!loading">
-                    <app-social-share *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                    <app-social-share *ngIf="workspace" [title]="spaceName" [description]="workspace.description" [image]="shareImageUrl">
                     </app-social-share>
 
-                    <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                    <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="spaceName">
                     </app-workspace-banner>
 
-                    <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                    <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="spaceName">
                     </app-workspace-banner-blank>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                             <div class="col-md-12">
                                 <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
                                     <div class="heading-info">
-                                        <h1>{{ workspace.name }} <br><span class="builder_name">{{workspace?.other_detail?.building_name}}</span></h1>
+                                        <h1>{{spaceName}}<br><span class="builder_name">{{workspace?.other_detail?.building_name}}</span></h1>
                                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}</p>
                                         <p class="price"><span class="rent_title">Monthly Rent</span>₹{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p>
                                     </div>
@@ -95,7 +95,8 @@
                                             </div>
                                             <div class="info">
                                                 <h5>Security Deposit</h5>
-                                                <p>{{ checkAmenityIsAvailable('Deposit') ? 'Yes' : 'No' }}</p>
+                                                <p *ngIf="security_deposit == 'No'">No</p>
+                                                <p *ngIf="security_deposit !== 'No'">₹{{ security_deposit.toLocaleString('en-IN') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -147,20 +148,20 @@
                         <hr class="divider_line">
 
                         <div class="row about-area" *ngIf="workspace.description">
-                            <div class="col-md-12">
-                                <h2 class="mobilehide">About this property</h2>
+                            <div class="col-md-12 mobilehide">
+                                <h2>About this property</h2>
                             </div>
-                            <div class="col-md-12">
-                                <p *ngIf="seeMore; else hide">
-                                    {{ workspace.description |slice:0:270 }} ...
+                            <div class="col-md-12 mobilehide">
+                                <p [innerHTML]="workspace.description"></p>
+                            </div>
+                            <div class="col-md-12 desktophide">
+                                <p class="mobileabout" [innerHTML]="(workspace.description)" *ngIf="seeMore; else hide">
                                 </p>
                                 <ng-template #hide>
-                                    <p>
-                                        {{ workspace.description }}
-                                    </p>
+                                    <p [innerHTML]="workspace.description"> </p>
                                 </ng-template>
 
-                                <p class="moreless-button mt-1" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
+                                <p (click)="toggleAboutMore()" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
                         </div>
 

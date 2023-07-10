@@ -390,8 +390,8 @@
                             class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4>{{space?.name}} <br><span class="builder_name">{{space?.other_detail?.building_name}}</span>
-                        </h4>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
@@ -402,7 +402,7 @@
                             </p>
                             <p class="capacity"><img alt="Flexible Lease"
                                     class="img-fluid"
-                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
                         </div>
                     </div>
                     <div class="property-foot align-items-end">
@@ -463,8 +463,8 @@
                             class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4>{{space?.name}} <br><span class="builder_name">{{space?.other_detail?.building_name}}</span>
-                        </h4>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
@@ -475,7 +475,7 @@
                             </p>
                             <p class="capacity"><img alt="Flexible Lease"
                                     class="img-fluid"
-                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
                         </div>
                     </div>
                     <div class="property-foot align-items-end">
@@ -536,8 +536,8 @@
                             class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4>{{space?.name}} <br><span class="builder_name">{{space?.other_detail?.building_name}}</span>
-                        </h4>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
@@ -548,7 +548,7 @@
                             </p>
                             <p class="capacity"><img alt="Flexible Lease"
                                     class="img-fluid"
-                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
+                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
                         </div>
                     </div>
                     <div class="property-foot align-items-end">
