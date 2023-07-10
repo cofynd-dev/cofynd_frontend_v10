@@ -1,4 +1,13 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { OfficeSpace } from '@core/models/office-space.model';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
@@ -18,7 +27,7 @@ interface ImageGallery {
   templateUrl: './office-card.component.html',
   styleUrls: ['./office-card.component.scss'],
 })
-export class OfficeCardComponent implements OnInit, AfterViewInit {
+export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
   isMobileResolution: boolean;
@@ -39,6 +48,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
     loop: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
+  spaceName: string;
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
@@ -52,6 +62,22 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
       this.isMobileResolution = false;
     }
   }
+
+  ngOnChanges(): void {
+    if (this.office.location && this.office.location.city && this.office.location.city.name) {
+      this.spaceName = `Office Space for Rent in ${this.office.location.city.name}`;
+    }
+    if (
+      this.office.location &&
+      this.office.location.micro_location &&
+      this.office.location.micro_location.name &&
+      this.office.location.city &&
+      this.office.location.city.name
+    ) {
+      this.spaceName = `Office Space for Rent in ${this.office.location.micro_location.name}, ${this.office.location.city.name}`;
+    }
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
@@ -59,7 +85,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
     // this.getScreenHeight = window.innerHeight;
   }
 
-  openWorkSpace(slug: string) {
+  openoffice(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/office-space/rent/${slug}`]));
     // window.open(url, '_blank');
     if (this.isMobileResolution) {
@@ -72,6 +98,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit {
   getFloorSuffix(floor: number) {
     return !isNaN(floor) ? intToOrdinalNumberString(floor) : floor;
   }
+
   getoffceType(type: string) {
     let stringToReplace = type;
     var desired = stringToReplace.replace(/[^\w\s]/gi, ' ');
