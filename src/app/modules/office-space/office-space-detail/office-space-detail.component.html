@@ -151,8 +151,8 @@
                                 <h2 class="mobilehide">About this property</h2>
                             </div>
                             <div class="col-md-12">
-                                <p *ngIf="seeMore; else hide">
-                                    {{ workspace.description |slice:0:270 }} ...
+                                <p *ngIf="seeMore || workspace.description.length <= 500; else hide">
+                                    {{ workspace.description | slice:0:500 }}
                                 </p>
                                 <ng-template #hide>
                                     <p>
@@ -160,7 +160,7 @@
                                     </p>
                                 </ng-template>
 
-                                <p class="moreless-button mt-1" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
+                                <p class="moreless-button mt-1" *ngIf="workspace.description.length > 500" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
                         </div>
 
