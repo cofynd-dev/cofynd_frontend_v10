@@ -2750,15 +2750,32 @@ h3.site_title {
 }
 
 .heading-info h1 {
-    font-size: 22px;
-    line-height: 32px;
-    margin-bottom: 3px;
-    font-weight: 600;
+	font-size: 22px;
+	line-height: 28px;
+	margin-bottom: 5px;
+	font-weight: 600;
+	color: #212529;
 }
 .heading-info h1 .builder_name {
-	color: #4343E8;
+	color: #7373FF;
 	font-size: 15px;
 	line-height: 18px;
+}
+.main_overview {
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 20px;
+	margin-top: 25px;
+	padding: 10px 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.main_overview .overview-icons {
+	margin-bottom: 0px;
+}
+.main_overview .col-md-4 {
+	justify-content: center;
+	display: flex;
 }
 
 .heading-info .address {
@@ -2998,14 +3015,17 @@ h3.site_title {
 }
 
 .overview-icons .info h5 {
-    font-size: 13px;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    color: #333;
-    line-height: 16px;
-    text-transform: capitalize;
-    margin-bottom: 4px;
+	font-size: 13px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	color: #212529b5;
+	line-height: 14px;
+	text-transform: capitalize;
+	margin-bottom: 4px;
+}
+.main_overview .overview-icons .icon {
+	background-color: #fff;
 }
 
 .details_area h2,
@@ -3046,8 +3066,11 @@ h3.site_title {
 }
 
 .overview-icons .info p {
-    font-size: 13px;
-    margin-bottom: 0px;
+	font-size: 15px;
+	margin-bottom: 0px;
+	line-height: 20px;
+	font-weight: 600;
+	color: #212529;
 }
 
 .moretext {
@@ -3271,9 +3294,9 @@ h3.site_title {
     margin-right: 30px;
 }
 
-.about_details .building_experience {
-    flex: 0 0 25%;
-}
+// .about_details .building_experience {
+//     flex: 0 0 25%;
+// }
 
 .about_details h4 {
     font-size: 14px;
@@ -3887,10 +3910,13 @@ h3.site_title {
 }
 
 .property_item .property-dis h4 {
-    font-size: 15px;
-    line-height: 20px;
-    font-weight: 600;
-    margin-bottom: 0px;
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: 600;
+	margin-bottom: 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .listing_card .property-dis h4 {
@@ -6750,11 +6776,126 @@ h3.site_title {
     padding: 0px 0px 0px 0px;
     margin-right: 30px;
 }
+.property_item2 {
+	padding: 10px 10px 0px;
+}
+.property_item2 .property-img {
+	margin-bottom: 0;
+}
+.property_item2 .property-dis {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.property_item2 .property-dis h4 {
+	margin-bottom: 5px;
+}
+.property_item2 .property-dis .price {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 600;
+	color: #4343e8;
+}
+.property_item2 .property-dis .price span {
+	color: #212529;
+	font-size: 12px;
+	font-weight: 600;
+}
+.property_item2 .property-dis .price .rent_title {
+	display: block;
+	font-size: 11px;
+	line-height: 11px;
+	font-weight: 600;
+}
+.property_item2 .property-dis .price span {
+	color: #212529;
+	font-size: 12px;
+	font-weight: 600;
+}
+.property_item2 .property-dis .address {
+	margin-bottom: 10px !important;
+	padding-bottom: 10px !important;
+}
+.property_item2 .property-foot {
+	padding: 0px 0px 0px;
+	margin: 0px -15px 0px;
+}
+.property_item2 .property-foot .button {
+	text-align: center;
+	background-color: #FAF9FF;
+	position: relative;
+}
+.property_item2 .property-foot .button:first-child::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.05);
+	right: 0px;
+}
+.property_item2 .property-foot .button a {
+	display: inline-block;
+	padding: 14px 20px;
+	color: #212529 !important;
+	font-size: 14px;
+}
+.property_item2 .property-foot .button a::before {
+	display: none;
+}
+.office_card_popup .modal-content .modal-body {
+	padding: 30px 25px;
+	background-size: cover;
+}
+.office_card_popup .modal-content {
+	border-radius: 20px;
+	overflow: hidden;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+.office_card_popup .form-select {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 23px;
+    color: #212529;
+    padding: 9px 12px;
+    border-radius: 10px !important;
+    height: 42px;
+    // box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
+    border: none !important;
+    background-color: #fff !important;
+    width: 100%;
+}
+
+.office_card_popup ::placeholder {
+    color: #000;
+    opacity: 1;
+    /* Firefox */
+}
+
+.office_card_popup :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+
+.office_card_popup ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+}
+
+.office_card_popup .title {
+	position: relative;
+}
+
+.office_card_popup .title button {
+	position: absolute;
+	top: 3px;
+	right: 0px;
+	font-size: 20px;
+}
 
 .about_details .building_experience {
-    -webkit-box-flex: 0;
-    flex: 0 0 20%;
-    margin-right: 20px;
+    // -webkit-box-flex: 0;
+    // flex: 0 0 20%;
+    margin-right: 50px;
 }
 
 .virtual_office_banner .main_heading h1 {
