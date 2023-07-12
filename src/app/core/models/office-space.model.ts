@@ -10,6 +10,9 @@ export class OfficeSpaceOtherDetail {
   rent_in_sq_ft: number;
   office_type: string;
   security_deposit: string;
+  floor: string;
+  monthly_maintenance: string;
+  monthly_maintenance_amount: string;
   facilities: [
     {
       name: string;

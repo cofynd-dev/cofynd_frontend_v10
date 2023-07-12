@@ -1,6 +1,12 @@
-<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
-    <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
-        <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
+<div class="similar-workspaces"
+    *ngIf="!loading && workSpaces.length">
+    <ngu-carousel #similarCarousel
+        [inputs]="carouselConfig"
+        [dataSource]="workSpaces"
+        (onMove)="onSliderMove($event)">
+        <div *nguCarouselDef="let office;let i = index;"
+            class="item"
+            [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
 
             <!-- <div class="property_item" [routerLink]="['/office-space/rent/', office.slug]" style="cursor: pointer;">
                 <div *ngIf="office.images[0]?.image.s3_link" class="property-img">
@@ -20,151 +26,239 @@
             </div> -->
 
             <div class="property_item property_item2">
-                <div *ngIf="office.images[0]?.image.s3_link" class="property-img" [routerLink]="['/office-space/rent/', office.slug]" style="cursor: pointer;">
-                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
+                <div *ngIf="office.images[0]?.image.s3_link"
+                    class="property-img"
+                    [routerLink]="['/office-space/rent/', office.slug]"
+                    style="cursor: pointer;">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link"
+                        alt=""
+                        class="img-fluid">
                 </div>
-                <div class="property-dis" [routerLink]="['/office-space/rent/', office.slug]" style="cursor: pointer;">
-                    <h4 *ngIf="office.location.micro_location && office.location.city">Office Space for Rent in {{ office?.location?.micro_location?.name }}, {{ office?.location?.city?.name }}  <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
-                    <h4 *ngIf="!office.location.micro_location">Office Space for Rent in {{ office?.location?.city?.name }}  <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
-                    <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                <div class="property-dis"
+                    [routerLink]="['/office-space/rent/', office.slug]"
+                    style="cursor: pointer;">
+                    <h4 *ngIf="office.location.micro_location && office.location.city">Office Space for Rent in {{
+                        office?.location?.micro_location?.name }}, {{ office?.location?.city?.name }} <br><span
+                            class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
+                    <h4 *ngIf="!office.location.micro_location">Office Space for Rent in {{ office?.location?.city?.name
+                        }} <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
+                    <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
+                            alt=""
+                            class="img-fluid"> {{ office.location.address }}</p>
 
                     <div class="row align-items-center">
-                        <div class="col-md-6 col-6">
-                            <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/icons/area-icon.svg" alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
-                            <p class="capacity mb-0"><img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
+                        <div class="col-md-6">
+                            <p class="capacity"><img class="img-fluid"
+                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"
+                                    alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                            <p class="capacity mb-0"><img lazyLoad="/assets/images/icons/furnished-status-icon.svg"
+                                    alt="wifi"
+                                    class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}
+                            </p>
                         </div>
-                        <div class="col-md-6 col-6 justify-content-end d-flex">
-                            <div class="price"><span class="rent_title">Monthly Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
+                        <div class="col-md-6 justify-content-end d-flex">
+                            <div class="price"><span class="rent_title">Monthly Rent</span>₹{{
+                                (office.other_detail.area_for_lease_in_sq_ft *
+                                office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
                         </div>
                     </div>
                 </div>
                 <div class="property-foot align-items-end">
-                    <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]" tabindex="0">Explore More</a></div>
-                    <div class="button"><a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a></div>
+                    <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]"
+                            tabindex="0">Explore More</a></div>
+                    <div class="button"><a type="button"
+                            (click)="getQuote(office)"
+                            data-toggle="modal"
+                            data-target="#exampleModal">Get Quote</a></div>
                 </div>
             </div>
         </div>
 
     </ngu-carousel>
 
-    <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left">
-  </button>
-    <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right">
-  </button>
+    <button type="button"
+        (click)="goToPrev()"
+        [disabled]="similarCarousel.isFirst"
+        class="carousel-arrow icon-back fas fa-angle-left">
+    </button>
+    <button type="button"
+        (click)="goToNext()"
+        [disabled]="similarCarousel.isLast"
+        class="carousel-arrow icon-next fas fa-angle-right">
+    </button>
 </div>
 
 <!-- Modal -->
-<div class="modal fade office_card_popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade office_card_popup"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    #myModal>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+            <div class="modal-body"
+                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
                 <div class="enquire-box">
                     <div class="form-section enquire-box-content">
                         <div class="title">
                             <h4 class="heading">
-                                <button type="button" class="fas fa-close"></button> Yes, I'm Interested!
+                                <button type="button"
+                                    class="fas fa-close"></button> Yes, I'm Interested!
                             </h4>
                             <p>Know More About this property</p>
 
-                            <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                            <button type="button"
+                                data-dismiss="modal"
+                                aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
-                
-                        <form class="form">
+
+                        <form class="form"
+                            [formGroup]="enquiryForm"
+                            (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="name"
+                                            placeholder="Name*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.name">
+                                        </app-input-validation>
                                     </div>
                                 </div>
-                
+
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" formControlName="email" placeholder="Email*" appMaterialInput />
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="email"
+                                            placeholder="Email*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.email">
+                                        </app-input-validation>
                                     </div>
                                 </div>
-                
+
                                 <div class="col-md-12 country_phone">
                                     <div class="form-group city_card_phone">
                                         <div class="flag-container">
-                                            <div class="selected-flag">
-                                                <div class="flag in">
-                                                    <span class="dial-code"> +91</span>
-                                                    <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                            <div (click)="showcountry = !showcountry"
+                                                class="selected-flag">
+                                                <div class="flag in"
+                                                    *ngIf="activeCountries.length">
+                                                    <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <span class="arrow arrow-up"><i
+                                                            class="fa-solid fa-angle-down"></i></span>
                                                 </div>
                                             </div>
-                                            <ul class="country-list" style="display: none;">
-                                                <li class="country active" tabindex="-1">
+                                            <ul *ngIf="showcountry"
+                                                class="country-list">
+                                                <li (click)="hideCountry(country)"
+                                                    class="country active"
+                                                    tabindex="-1"
+                                                    *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                                width="18px" /></div>
                                                     </div>
-                                                    <span class="country-name">India</span>
-                                                    <span class="dial-code">+91</span>
+                                                    <span class="country-name">{{country?.name}}</span>
+                                                    <span class="dial-code">{{country?.dial_code}}</span>
                                                 </li>
-                
+
                                                 <li class="divider"></li>
-                
-                                                <li class="country selected">
+
+                                                <li (click)="hideCountry(inactive)"
+                                                    class="country selected"
+                                                    *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                                        <div class="flag af"><img
+                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                     </div>
-                                                    <span class="country-name">India</span>
-                                                    <span class="dial-code">+91</span>
+                                                    <span class="country-name">{{inactive?.name}}</span>
+                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
-                                            <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                                            <input class="form-control"
+                                                maxlength="10"
+                                                type="text"
+                                                formControlName="phone_number"
+                                                placeholder="Phone*"
+                                                appMaterialInput />
                                         </div>
+                                        <app-input-validation [control]="enquiryForm.controls.phone_number">
+                                        </app-input-validation>
                                     </div>
                                 </div>
                             </div>
-                
-                
-                            <div class="form-group otp-form">
-                                <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" appMaterialInput autofocus />
-                                <button>Resend OTP</button>
-                                <p>OTP will be resent in 5 seconds</p>
+
+
+                            <div class="form-group otp-form"
+                                *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <input class="form-control"
+                                    placeholder="Enter Otp"
+                                    type="password"
+                                    formControlName="otp"
+                                    appMaterialInput
+                                    autofocus />
+                                <app-input-validation [control]="enquiryForm.controls.otp">
+                                </app-input-validation>
+                                <button [disabled]="resendDisabled"
+                                    (click)="resendOTP()"
+                                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                             </div>
-                
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Type</option>
-                                            <option value="Raw">Raw</option>
-                                            <option value="Semi-Furnished">Semi-Furnished</option>
-                                            <option value="Fully-Furnished">Fully-Furnished</option>
-                                            <option value="Built to Suit/Customized">Built to Suit/Customized</option>
-                                        </select>
+                                        <ng-select placeholder="Type" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficePlans"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="interested_in">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                                        </app-input-validation>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Budget</option>
-                                            <option value="Upto 1 Lac">Upto 1 Lac</option>
-                                            <option value="1 Lac - 2 Lac">1 Lac - 2 Lac</option>
-                                            <option value="2 Lac - 5 Lac">2 Lac - 5 Lac</option>
-                                            <option value="5 Lac - 10 Lac">5 Lac - 10 Lac</option>
-                                            <option value="10 Lac +">10 Lac +</option>
-                                        </select>
+                                        <ng-select placeholder="Budget" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficeBudgets"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_BudgetPrice">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                                        </app-input-validation>
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Move In</option>
-                                            <option value="Immediate">Immediate</option>
-                                            <option value="Within This Month">Within This Month</option>
-                                            <option value="1-2 Month">1-2 Month</option>
-                                            <option value="3-4 Month">3-4 Month</option>
-                                            <option value="After 4 Month">After 4 Month</option>
-                                        </select>
+                                        <ng-select placeholder="Move In" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="MoveIn"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_Move_In_Date">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                                        </app-input-validation>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <button type="submit" class="site_btn border_btn full_width_btn">Submit</button>
+                                    <button type="submit"
+                                        class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
                                 </div>
                             </div>
                         </form>
@@ -174,4 +268,3 @@
         </div>
     </div>
 </div>
-  
