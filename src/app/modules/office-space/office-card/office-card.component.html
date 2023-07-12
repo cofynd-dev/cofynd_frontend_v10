@@ -54,6 +54,7 @@
     </div>
     <div class="image"
         *ngIf="!office.images.length"></div>
+        <div class="space_details">
     <div class="property-dis"
         [routerLink]="['/office-space/rent/', office.slug]"
         style="cursor: pointer;">
@@ -92,6 +93,7 @@
                 data-toggle="modal"
                 data-target="#exampleModal">Get Quote</a></div>
     </div>
+</div>
 </div>
 
 
