@@ -3920,10 +3920,10 @@ h3.site_title {
 }
 
 .listing_card .property-dis h4 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 0px;
-    line-height: 25px;
+	font-size: 17px;
+	font-weight: 600;
+	margin-bottom: 5px;
+	line-height: 25px;
 }
 .slider-outer .next-item, .slider-outer .prev-item {
 	opacity: 1;
@@ -6791,7 +6791,7 @@ h3.site_title {
 	margin-bottom: 5px;
 }
 .property_item2 .property-dis .price {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 20px;
 	font-weight: 600;
 	color: #4343e8;
@@ -6803,8 +6803,8 @@ h3.site_title {
 }
 .property_item2 .property-dis .price .rent_title {
 	display: block;
-	font-size: 11px;
-	line-height: 11px;
+	font-size: 10px;
+	line-height: 10px;
 	font-weight: 600;
 }
 .property_item2 .property-dis .price span {
@@ -10675,6 +10675,35 @@ select.form-control{
     .property_item .property-foot .button a::before {
         font-size: 6px !important;
         line-height: 12px !important;
+    }
+    .property_item2.listing_card {
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        border-radius: 20px !important;
+    }
+    .property_item2.listing_card .space_details {
+        padding-bottom: 0px !important;
+        height: 180px;
+        padding-top: 0px !important;
+    }
+    .property_item2.listing_card .property-dis h4 {
+        white-space: break-spaces;
+        line-height: 17px;
+    }
+    .property_item2.listing_card .property-img {
+        margin-bottom: 0px;
+        border-radius: 20px 0px 0px 20px !important;
+    }
+    .property_item2.listing_card .property-img .item, .property_item2.listing_card .property-img .item img {
+        height: 180px !important;
+    }
+    .property_item2.listing_card .property-foot a {
+        padding: 7px 15px;
+        font-size: 11px;
+    }
+    .property_item2.listing_card .property-foot {
+        margin-top: 0px;
+        padding-top: 0px !important;
+        border-top: 0px;
     }
     .populer_slider_area .property_item .property-img::after,
     .similar-workspaces .property_item .property-img::after {
