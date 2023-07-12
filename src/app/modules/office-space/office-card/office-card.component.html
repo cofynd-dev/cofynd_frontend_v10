@@ -1,4 +1,4 @@
-<div class="property_item listing_card">
+<!-- <div class="property_item listing_card">
     <div *ngIf="office.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="office.images">
             <div *nguCarouselDef="let images; let i = index;" class="item">
@@ -23,5 +23,41 @@
             <div class="price"><span class="rent_title">Monthly Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span></div>
             <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]" tabindex="0">Explore More</a></div>
         </div>
+    </div>
+</div> -->
+
+
+<div class="property_item property_item2 listing_card">
+    <div *ngIf="office.images.length" class="property-img">
+        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="office.images">
+            <div *nguCarouselDef="let images; let i = index;" class="item">
+                <img [lazyLoad]="images?.image?.s3_link" (click)="openoffice(office.slug)" style="cursor: pointer; display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
+            </div>
+            <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
+            <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
+            <ul class="myPoint onlyMobile" NguCarouselPoint>
+                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+            </ul>
+        </ngu-carousel>
+    </div>
+    <div class="image" *ngIf="!office.images.length"></div>
+    <div class="property-dis" [routerLink]="['/office-space/rent/', office.slug]" style="cursor: pointer;">
+        <h4 *ngIf="office.location.micro_location && office.location.city">Office Space for Rent in {{ office?.location?.micro_location?.name }}, {{ office?.location?.city?.name }}  <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
+        <h4 *ngIf="!office.location.micro_location">Office Space for Rent in {{ office?.location?.city?.name }}  <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
+        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ office.location.address }}</p>
+
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                <p class="capacity mb-0"><img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
+            </div>
+            <div class="col-md-6 justify-content-end d-flex">
+                <div class="price"><span class="rent_title">Monthly Rent</span>₹{{ (office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="property-foot align-items-end">
+        <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]" target="_blank" tabindex="0">Explore More</a></div>
+        <div class="button"><a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a></div>
     </div>
 </div>
