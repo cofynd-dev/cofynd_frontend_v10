@@ -116,7 +116,7 @@ const COMPONENTS = [
   BrandSearchNoResultComponent,
   CoworkingSearchNoResultComponent,
   ColivingSearchNoResultComponent,
-  OfficeSearchNoResultComponent
+  OfficeSearchNoResultComponent,
 ];
 const DIRECTIVES = [
   LoadingButtonDirective,
@@ -142,7 +142,22 @@ export function getDatepickerConfig(): BsDatepickerConfig {
 }
 
 @NgModule({
-  declarations: [AuthDialogComponent, DIRECTIVES, COMPONENTS, HomeNearmePopupComponent, CuratedCityPopupComponent, OurClientsComponent, SearchContactUsText1Component, SearchContactUsText2Component, CityPageEnquireComponent, VirtualOfficeCityPageEnquireComponent, BrandSearchNoResultComponent, CoworkingSearchNoResultComponent, ColivingSearchNoResultComponent, OfficeSearchNoResultComponent],
+  declarations: [
+    AuthDialogComponent,
+    DIRECTIVES,
+    COMPONENTS,
+    HomeNearmePopupComponent,
+    CuratedCityPopupComponent,
+    OurClientsComponent,
+    SearchContactUsText1Component,
+    SearchContactUsText2Component,
+    CityPageEnquireComponent,
+    VirtualOfficeCityPageEnquireComponent,
+    BrandSearchNoResultComponent,
+    CoworkingSearchNoResultComponent,
+    ColivingSearchNoResultComponent,
+    OfficeSearchNoResultComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -174,4 +189,4 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     },
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

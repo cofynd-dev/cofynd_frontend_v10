@@ -8,7 +8,6 @@ import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { Enquiry } from '@core/models/enquiry.model';
-import { User } from '@core/models/user.model';
 import { AuthService } from '@core/services/auth.service';
 import { UserService } from '@core/services/user.service';
 import { environment } from '@env/environment';
@@ -123,6 +122,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     { label: `Fully-Furnished`, value: 'Fully-Furnished' },
     { label: `Built to Suit/Customized`, value: 'Built to Suit/Customized' },
   ];
+
   pageName: string;
   pageUrl: string;
   city: string;
