@@ -16,7 +16,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 250,
+    speed: 600,
     point: {
       visible: true,
     },
@@ -27,7 +27,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     if (window.innerWidth < 768) {

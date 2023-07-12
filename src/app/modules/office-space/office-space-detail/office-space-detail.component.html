@@ -9,6 +9,9 @@
                         <li class="breadcrumb-item">
                             <a [routerLink]="['/office-space/rent/']">Office Space</a>
                         </li>
+                        <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/', workspace.location.city.name.toLowerCase()]">{{workspace.location.city.name}}</a>
+                        </li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{spaceName}}</li>
                     </ol>
                 </nav>
@@ -44,6 +47,9 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
                         <li class="breadcrumb-item">
+                            <a [routerLink]="['/office-space/rent/', workspace.location.city.name.toLowerCase()]">{{workspace.location.city.name}}</a>
+                        </li>
+                        <li class="breadcrumb-item">
                             <a [routerLink]="['/office-space/rent/']">Office Space</a>
                         </li>
                     </ol>
@@ -62,11 +68,50 @@
                     <div class=" col-md-12">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
+                                <!-- <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible"> -->
+                                <div class="space_head">
                                     <div class="heading-info">
                                         <h1>{{spaceName}}<br><span class="builder_name">{{workspace?.other_detail?.building_name}}</span></h1>
-                                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}</p>
-                                        <p class="price"><span class="rent_title">Monthly Rent</span>₹{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p>
+                                        <p class="address"><img lazyLoad="assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}</p>
+                                        <!-- <p class="price"><span class="rent_title">Monthly Rent</span>₹{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main_overview" style="background-image: url(assets/images/main-overview-bg.svg);">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/pricing-tag-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Rent</h5>
+                                            <p>₹{{ (workspace.other_detail.rent_in_sq_ft * workspace.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/area-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Area</h5>
+                                            <p>{{ workspace.other_detail.area_for_lease_in_sq_ft }} Sq. Ft.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/space-status-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Status</h5>
+                                            <p>{{workspace.other_detail.office_type}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,21 +122,24 @@
                         <div class="row overview_area">
                             <div class="col-md-12">
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>Overview</h2>
+                                    </div>
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="../../../../assets/images/icons/area-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/building-icon-black.svg" />
                                             </div>
                                             <div class="info">
-                                                <h5>Area</h5>
-                                                <p>{{ workspace.other_detail.area_for_lease_in_sq_ft }} Sq. Ft.</p>
+                                                <h5>Floor</h5>
+                                                <p>3rd</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="../../../../assets/images/icons/security-deposit-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/security-deposit-black-icon.svg" />
                                             </div>
                                             <div class="info">
                                                 <h5>Security Deposit</h5>
@@ -103,41 +151,41 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="../../../../assets/images/icons/space-status-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/mainteance-black-icon.svg" />
                                             </div>
                                             <div class="info">
-                                                <h5>Status</h5>
-                                                <p>{{workspace.other_detail.office_type}}</p>
+                                                <h5>Maintenance</h5>
+                                                <p>6000</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/brokerage-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/ready-to-move-black.svg" />
                                             </div>
                                             <div class="info">
-                                                <h5>Zero Brokerage</h5>
+                                                <p>Ready To Move</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/verify-thumb-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/flexible-lease-black-icon.svg" />
                                             </div>
                                             <div class="info">
-                                                <h5>Verified Spaces</h5>
+                                                <p>Flexible Lease</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/flexible-lease-icon.svg" />
+                                                <img lazyLoad="assets/images/icons/brokerage-black-icon.svg" />
                                             </div>
                                             <div class="info">
-                                                <h5>Flexible Lease</h5>
+                                                <p>Value for Money</p>
                                             </div>
                                         </div>
                                     </div>
@@ -151,17 +199,17 @@
                             <div class="col-md-12 mobilehide">
                                 <h2>About this property</h2>
                             </div>
-                            <div class="col-md-12 mobilehide">
-                                <p [innerHTML]="workspace.description"></p>
-                            </div>
-                            <div class="col-md-12 desktophide">
-                                <p class="mobileabout" [innerHTML]="(workspace.description)" *ngIf="seeMore; else hide">
+                            <!-- <div class="col-md-12 mobilehide">
+                                <p [innerHTML]="(workspace.description.slice(0,500) + '...')" *ngIf="seeMore; else hide"></p>
+                            </div> -->
+                            <div class="col-md-12">
+                                <p class="mobileabout" [innerHTML]="(workspace.description.slice(0,580) + '...')" *ngIf="seeMore; else hide">
                                 </p>
                                 <ng-template #hide>
                                     <p [innerHTML]="workspace.description"> </p>
                                 </ng-template>
 
-                                <p (click)="toggleAboutMore()" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
+                                <p (click)="toggleAboutMore()" *ngIf="workspace.description.length > 580" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
                         </div>
 
@@ -201,7 +249,7 @@
 
                         <div class="row map-location">
                             <div class="col-md-12">
-                                <h2>You'll work here</h2>
+                                <h2>Building Location</h2>
                                 <p class="location-icon" *ngIf="workspace">
                                     <img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}
                                 </p>
@@ -213,7 +261,7 @@
                             </div>
                         </div>
 
-                        <hr class="divider_line">
+                        <hr class="divider_line" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
 
                         <div class="row near_places" *ngIf="workspace && workspace.location && workspace.location.metro_detail.name">
                             <div class="col-md-12 places-nearby">
@@ -246,6 +294,33 @@
                     <app-workspace-enquire [cityName]="workspace?.location?.city?.name" [microlocationName]="workspace?.location?.micro_location?.name" [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id"
                         [isOfficeEnquiry]="true" (backButtonClick)="closeEnquireModal()">
                     </app-workspace-enquire>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider_line">
+
+        <div class="main_builder_about">
+            <div class="container">
+                <div class="row about-area">
+                    <div class="col-md-12">
+                        <div class="about_details">
+                            <div class="logo_col">
+                                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/455e1023e1d67e5101548b3a059d6ec4e8291594.png" alt="Emaar">
+                            </div>
+                            <div class="building_experience">
+                                <h4>Emaar</h4>
+                                <p>1997</p>
+                            </div>
+                            <div class="building_totle_project">
+                                <h4>Projects</h4>
+                                <p>47</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Emaar India is the biggest real estate developer in India which was earlier a subsidiary of Emaar Properties which is a Dubai-based real estate company. This company is involved in various segments like construction, residential, commercial, retail properties, etc. Emaar India has its projects spread across various prime locations in India such as Delhi, Gurgaon, Jaipur, Indore, Lucknow, Chennai, Mohali etc. This company has won several awards & accolades as it has given its massive contribution to the real estate industry.</p>
+                    </div>
                 </div>
             </div>
         </div>
