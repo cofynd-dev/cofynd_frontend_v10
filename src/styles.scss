@@ -3963,14 +3963,15 @@ h3.site_title {
     text-overflow: ellipsis !important;
 }
 
-.property_item .property-dis img,
-.property_item .property-dis .furnish_type img {
-    width: 15px;
-    margin-right: 3px;
+.property_item .property-dis img, .property_item .property-dis .furnish_type img {
+	width: 20px;
+	margin-right: 8px;
 }
 
 .property_item .property-dis p {
-    margin-bottom: 0px;
+	margin-bottom: 6px;
+	display: flex;
+	align-items: center;
 }
 
 .property_item .property-foot {
