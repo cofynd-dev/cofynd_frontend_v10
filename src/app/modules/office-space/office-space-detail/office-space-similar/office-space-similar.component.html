@@ -46,8 +46,8 @@
                             alt=""
                             class="img-fluid"> {{ office.location.address }}</p>
 
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 col-6">
                             <p class="capacity"><img class="img-fluid"
                                     lazyLoad="assets/images/icons/flexible-lease-icon.svg"
                                     alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
@@ -56,8 +56,8 @@
                                     class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}
                             </p>
                         </div>
-                        <div class="col-md-6 justify-content-end d-flex">
-                            <div class="price"><span class="rent_title">Monthly Rent</span>₹{{
+                        <div class="col-md-6 col-6 justify-content-end d-flex">
+                            <div class="price"><span class="rent_title">Rent</span>₹{{
                                 (office.other_detail.area_for_lease_in_sq_ft *
                                 office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
                         </div>

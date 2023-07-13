@@ -147,7 +147,7 @@
                         <h2>About this property</h2>
                     </div>
                     <div class="col-md-12">
-                        <p [innerHTML]="(workspace.description.slice(0,500) + '...')" *ngIf="seeMore; else hide">
+                        <p [innerHTML]="(workspace.description.length > 500? workspace.description.slice(0,500) + '...' : workspace.description)" *ngIf="seeMore; else hide">
                         </p>
                         <ng-template #hide>
                             <p [innerHTML]="workspace.description">
