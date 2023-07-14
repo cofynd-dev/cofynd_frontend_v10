@@ -9,7 +9,7 @@ import { Builder } from './builder.model';
   providedIn: 'root',
 })
 export class BuilderService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBuilders(params: {}): Observable<ApiResponse<Builder[]>> {
     return this.http.get<ApiResponse<Builder[]>>(`/user/builders?${params}`).pipe(
@@ -51,24 +51,28 @@ export class BuilderService {
       let data = coLiving.plans;
       if (data.length > 0) {
         for (let index = 0; index < data.length; index++) {
-          const lowestPriceItem = data[index].floor_plans.reduce((lowest, item) => {
+          if (data[index].floor_plans.length > 0) {
+            const lowestPriceItem = data[index].floor_plans.reduce((lowest, item) => {
+              if (item.rent_price < lowest.rent_price) {
+                return item;
+              } else {
+                return lowest;
+              }
+            });
+            lowestPriceItem['plan'] = data[index]['planId']['name'];
+            prices.push(lowestPriceItem);
+          }
+        }
+        if (prices.length > 0) {
+          prices = prices.reduce((lowest, item) => {
             if (item.rent_price < lowest.rent_price) {
               return item;
             } else {
               return lowest;
             }
           });
-          lowestPriceItem['plan'] = data[index]['planId']['name'];
-          prices.push(lowestPriceItem);
         }
-        prices = prices.reduce((lowest, item) => {
-          if (item.rent_price < lowest.rent_price) {
-            return item;
-          } else {
-            return lowest;
-          }
-        });
-        coLiving.starting_name = prices.name
+        coLiving.starting_name = prices.name;
         coLiving.starting_plan = prices.plan;
         coLiving.starting_price = prices.rent_price;
         coLiving.starting_sale_price = prices.sale_price;
