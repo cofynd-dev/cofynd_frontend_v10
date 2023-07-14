@@ -39,7 +39,7 @@
     </div>
 </section>
 
-<section class="breadcrumbs_sec desktophide">
+<!-- <section class="breadcrumbs_sec desktophide">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="details_area content" *ngIf="!loading && workspace">
     <div class="container">
@@ -77,9 +77,9 @@
                             </div>
                         </div>
 
-                        <div class="main_overview" style="background-image: url(assets/images/main-overview-bg.svg);">
+                        <div class="main_overview mobile_view_overview" style="background-image: url(assets/images/main-overview-bg.svg);">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
                                             <img lazyLoad="assets/images/icons/pricing-tag-icon.svg" />
@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
                                             <img lazyLoad="assets/images/icons/area-icon.svg" />
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
                                             <img lazyLoad="assets/images/icons/space-status-icon.svg" />
@@ -112,12 +112,47 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4 col-6 desktophide">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/building-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Floor</h5>
+                                            <p>{{workspace?.other_detail?.floor}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 desktophide">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/security-deposit-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Security Deposit</h5>
+                                            <p *ngIf="security_deposit == 'No'">No</p>
+                                            <p *ngIf="security_deposit !== 'No'">₹{{ security_deposit.toLocaleString('en-IN') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 desktophide">
+                                    <div class="overview-icons">
+                                        <div class="icon">
+                                            <img lazyLoad="assets/images/icons/mainteance-icon.svg" />
+                                        </div>
+                                        <div class="info">
+                                            <h5>Maintenance</h5>
+                                            <p *ngIf="workspace?.other_detail?.monthly_maintenance === 'Yes'">{{workspace?.other_detail?.monthly_maintenance_amount}}</p>
+                                            <p *ngIf="workspace?.other_detail?.monthly_maintenance === 'No'">{{workspace?.other_detail?.monthly_maintenance}}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <hr class="divider_line">
+                        <hr class="divider_line mobilehide">
 
-                        <div class="row overview_area">
+                        <div class="row overview_area mobilehide">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -199,6 +234,17 @@
                                 <h2>About this property</h2>
                             </div>
                             <div class="col-md-12">
+                                <p [innerHTML]="(workspace.description.length > 580? workspace.description.slice(0,580) + '...' : workspace.description)" *ngIf="seeMore; else hide">
+                                </p>
+                                <ng-template #hide>
+                                    <p [innerHTML]="workspace.description">
+                                    </p>
+                                </ng-template>
+        
+                                <p class="moreless-button mt-1" *ngIf="workspace.description.length > 580" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
+                            </div>
+
+                            <!-- <div class="col-md-12">
                                 <p class="mobileabout" [innerHTML]="(workspace.description.slice(0,580) + '...')" *ngIf="seeMore; else hide">
                                 </p>
                                 <ng-template #hide>
@@ -206,7 +252,7 @@
                                 </ng-template>
 
                                 <p (click)="toggleAboutMore()" *ngIf="workspace.description.length > 580" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
-                            </div>
+                            </div> -->
                         </div>
 
                         <hr class="divider_line">
@@ -250,9 +296,6 @@
                                     <img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address }}
                                 </p>
                                 <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
-                                </div>
-                                <div class="desktophide">
-                                    <p style="font-weight: 300;">Located at the most prime location with 24*7 surveillance</p>
                                 </div>
                             </div>
                         </div>
