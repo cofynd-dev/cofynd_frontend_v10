@@ -421,4 +421,9 @@ export class SubBuilderDetailComponent implements OnInit {
       },
     );
   }
+
+  seeMore: boolean = true;
+  toggleAboutMore() {
+    this.seeMore = !this.seeMore;
+  }
 }

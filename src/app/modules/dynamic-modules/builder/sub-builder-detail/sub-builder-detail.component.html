@@ -138,10 +138,22 @@
                 <div class="row about-area" *ngIf="SubBuilder.description">
                     <div class="col-md-12">
                         <h3>About {{SubBuilder?.name}}</h3>
-                    </div>
+                    </div>                    
+
                     <div class="col-md-12">
-                        <p>{{SubBuilder?.description}}</p>
+                        <p [innerHTML]="(SubBuilder?.description.length > 580? SubBuilder?.description.slice(0,580) + '...' : SubBuilder?.description)" *ngIf="seeMore; else hide">
+                        </p>
+                        <ng-template #hide>
+                            <p [innerHTML]="SubBuilder?.description">
+                            </p>
+                        </ng-template>
+
+                        <p class="moreless-button mt-1" *ngIf="SubBuilder?.description.length > 580" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                     </div>
+
+                    <!-- <div class="col-md-12">
+                        <p>{{SubBuilder?.description}}</p>
+                    </div> -->
                 </div>
 
                 <hr class="divider_line" *ngIf="SubBuilder?.amenties.length > 0">
@@ -482,7 +494,9 @@
                 </div>
             </div>
             <div class="col-md-12" *ngIf="SubBuilder?.builder?.description">
-                <p>{{SubBuilder?.builder?.description}}</p>
+                <p [innerHTML]="(SubBuilder?.builder?.description)">
+                </p>
+                <!-- <p>{{SubBuilder?.builder?.description}}</p> -->
             </div>
         </div>
     </div>

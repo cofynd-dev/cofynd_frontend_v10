@@ -49,9 +49,21 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
-                        <p>{{builder?.description}}</p>
+                        <p [innerHTML]="(builder?.description.length > 580? builder?.description.slice(0,580) + '...' : builder?.description)" *ngIf="seeMore; else hide">
+                        </p>
+                        <ng-template #hide>
+                            <p [innerHTML]="builder?.description">
+                            </p>
+                        </ng-template>
+
+                        <p class="moreless-button mt-1" *ngIf="builder?.description.length > 580" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                     </div>
+
+                    <!-- <div class="col-md-12">
+                        <p>{{builder?.description}}</p>
+                    </div> -->
                 </div>
 
                 <hr class="divider_line" *ngIf="builder?.overview">

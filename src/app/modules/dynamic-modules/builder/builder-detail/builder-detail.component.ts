@@ -355,4 +355,9 @@ export class BuilderDetailComponent implements OnInit {
       },
     );
   }
+
+  seeMore: boolean = true;
+  toggleAboutMore() {
+    this.seeMore = !this.seeMore;
+  }
 }
