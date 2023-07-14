@@ -95,6 +95,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             key: this.title + '-' + 'india',
             city: filteredCity[0].id,
+            micro_location: 'enabled',
             ...results.queryParams,
             ...prevParam,
           };
@@ -103,6 +104,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
             ...AppConstant.DEFAULT_SEARCH_PARAMS,
             key: results.routeParams[1].path + '-' + this.title,
             city: filteredCity[0].id,
+            micro_location: 'enabled',
             ...results.queryParams,
             ...prevParam,
           };
