@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
 
@@ -200,6 +200,9 @@ export class BuilderDetailComponent implements OnInit {
         }
         this.loading = false;
         if (this.builder) {
+          if (this.builder.description) {
+            this.sanitizeHTML(this.builder.description);
+          }
           this.videoUrl = this.builder.video_link;
           this.addSeoTags(this.builder);
           this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -246,6 +249,10 @@ export class BuilderDetailComponent implements OnInit {
         }
       },
     );
+  }
+
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   addMarker(latitute, longitute) {
