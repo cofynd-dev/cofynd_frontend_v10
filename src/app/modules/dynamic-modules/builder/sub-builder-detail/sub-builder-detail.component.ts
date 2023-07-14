@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-browser';
 import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
 import { SubBuilderService } from '../subbuilder.service';
@@ -30,7 +30,7 @@ export enum ENQUIRY_STEPS {
 })
 export class SubBuilderDetailComponent implements OnInit {
   activeSubBuilderId: any;
-  loading: boolean;
+  loading: boolean = false;
   SubBuilder: SubBuilder;
   shareImageUrl: string;
 
@@ -161,10 +161,8 @@ export class SubBuilderDetailComponent implements OnInit {
   ngOnInit() {}
 
   getMorePropertiesByBuilder(param) {
-    this.loading = true;
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
       this.moreProjects = allCommProjects.data.subbuilders;
-      this.loading = false;
     });
   }
 
@@ -201,12 +199,15 @@ export class SubBuilderDetailComponent implements OnInit {
         this.builderId = this.SubBuilder.builder.id;
         this.builderService.getBuilderByName(this.builderId).subscribe(workspaceDetail => {
           this.builderLogoUrl = workspaceDetail.data.builder_logo.s3_link;
+          this.loading = false;
         });
         if (!this.SubBuilder) {
           this.router.navigate(['/404'], { skipLocationChange: true });
         }
-        this.loading = false;
         if (this.SubBuilder) {
+          if (this.SubBuilder.description) {
+            this.sanitizeHTML(this.SubBuilder.description);
+          }
           this.videoUrl = this.SubBuilder.builder.video_link
             ? this.SubBuilder.builder.video_link
             : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
@@ -265,6 +266,10 @@ export class SubBuilderDetailComponent implements OnInit {
         }
       },
     );
+  }
+
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   addMarker(latitute, longitute) {
