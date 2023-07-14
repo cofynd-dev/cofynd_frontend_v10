@@ -153,8 +153,6 @@ export class BuilderDetailComponent implements OnInit {
     this.loading = true;
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {
       this.allCommProjects = allCommProjects.data.subbuilders;
-      console.log(this.allCommProjects);
-
       this.loading = false;
     });
   }
@@ -163,8 +161,6 @@ export class BuilderDetailComponent implements OnInit {
     this.loading = true;
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allResiProjects: any) => {
       this.allResiProjects = allResiProjects.data.subbuilders;
-      console.log(this.allResiProjects);
-
       this.loading = false;
     });
   }
