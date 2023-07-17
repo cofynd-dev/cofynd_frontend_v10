@@ -181,7 +181,7 @@ export class HeaderComponent implements AfterViewInit {
     // ------------------------------------------------------- //
     // Multi Level dropdowns
     // ------------------------------------------------------ //
-    $("ul.dropdown-menu [data-toggle='dropdown']").on('click', function (event) {
+    $("ul.dropdown-menu [data-toggle='dropdown']").on('click', function(event) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -202,7 +202,7 @@ export class HeaderComponent implements AfterViewInit {
       }
       $(this)
         .parents('li.nav-item.dropdown.show')
-        .on('hidden.bs.dropdown', function (e) {
+        .on('hidden.bs.dropdown', function(e) {
           $('.dropdown-submenu .show').removeClass('show');
         });
     });
