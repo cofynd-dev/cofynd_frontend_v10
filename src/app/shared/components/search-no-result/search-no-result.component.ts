@@ -44,6 +44,7 @@ export class SearchNoResultComponent implements OnInit {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  // pageTitle: string;
 
   OfficeBudgets = [
     { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
@@ -302,6 +303,25 @@ export class SearchNoResultComponent implements OnInit {
   scrollToElement(element: HTMLElement) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
+
+  // setSubName() {
+  //   let name = 'Virtual Office in ';
+  //   if (this.title === 'gurugram') {
+  //     name += ' ' + this.capitalize('gurgaon');
+  //   } else {
+  //     name += ' ' + this.capitalize(this.title);
+  //   }
+  //   return name;
+  // }
+
+  // capitalize = str => {
+  //   if (typeof str !== 'string') return '';
+  //   str = str.split(' ');
+  //   for (let i = 0, x = str.length; i < x; i++) {
+  //     str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+  //   }
+  //   return str.join(' ');
+  // };
 
   createEnquiry() {
     this.loading = true;

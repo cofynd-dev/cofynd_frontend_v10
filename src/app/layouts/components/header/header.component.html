@@ -60,8 +60,8 @@
                 </li> -->
 
                 <li class="mobile-phone-menu no-tablet">
-                    <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#exampleModal">
-                        Request a call back
+                    <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#requestCallBack">
+                        Request call back
                     </button>                      
                 </li>
 
@@ -91,14 +91,14 @@
 </header>
 
 <!-- Modal -->
-<div class="modal fade request_call_form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade request_call_form" id="requestCallBack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
                 <div class="enquire-box">
                     <div class="form-section enquire-box-content">
                         <div class="title">
-                            <h4 class="heading">Request a call back</h4>
+                            <h4 class="heading">Request Call Back</h4>
                             <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
@@ -152,14 +152,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group otp-form">
+                            <!-- <div class="form-group otp-form">
                                 <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" />
                                 <button>Resend OTP</button>
                                 <p>OTP will be resent in 15 seconds</p>
-                            </div>
+                            </div> -->
 
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <select class="form-select" required aria-label="Type Of Space">
                                             <option value="" selected disabled>Type Of Space</option>
@@ -167,6 +167,16 @@
                                             <option value="Coliving">Coliving</option>
                                             <option value="Office Space">Office Space</option>
                                             <option value="Virtual Office">Virtual Office</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <select class="form-select" required aria-label="Select City">
+                                            <option value="" selected disabled>Select City</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Gurugram">Gurugram</option>
+                                            <option value="Noida">Noida</option>
                                         </select>
                                     </div>
                                 </div>
