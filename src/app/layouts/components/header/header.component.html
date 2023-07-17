@@ -1,19 +1,32 @@
-<header class="{{ settings?.headerClass }} hideOnMobile" [class.mobile-menu-open]="isMobileMenuOpen">
+<header class="{{ settings?.headerClass }} hideOnMobile"
+    [class.mobile-menu-open]="isMobileMenuOpen">
     <div class="header-wrapper">
         <div class="top-left">
-            <button type="button" (click)="openMobileSearch()" class="far fa-search mobile-search">
+            <button type="button"
+                (click)="openMobileSearch()"
+                class="far fa-search mobile-search">
             </button>
-            <a (click)="logoClick()" class="logo" routerLink="/">
-                <img [lazyLoad]="'/assets/images/logo.svg'" alt="">
+            <a (click)="logoClick()"
+                class="logo"
+                routerLink="/">
+                <img [lazyLoad]="'/assets/images/logo.svg'"
+                    alt="">
             </a>
 
-            <div class="search" *ngIf="showSearch || isSearchModal" [class.search-modal]="isSearchModal">
-                <button *ngIf="isSearchModal" type="button" (click)="isSearchModal = !isSearchModal" class="icon-close new-close far fa-times-circle">
+            <div class="search"
+                *ngIf="showSearch || isSearchModal"
+                [class.search-modal]="isSearchModal">
+                <button *ngIf="isSearchModal"
+                    type="button"
+                    (click)="isSearchModal = !isSearchModal"
+                    class="icon-close new-close far fa-times-circle">
                 </button>
-                <app-search-autocomplete [placeholder]="'Start typing'" (locationSelected)="closeMobileSearch()">
+                <app-search-autocomplete [placeholder]="'Start typing'"
+                    (locationSelected)="closeMobileSearch()">
                 </app-search-autocomplete>
             </div>
-            <button (click)="openMobileMenu()" class="hamburger">
+            <button (click)="openMobileMenu()"
+                class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -22,23 +35,35 @@
         <div class="top-right">
             <ul class="menu">
                 <li class="no-tablet">
-                    <app-dropdown-item [relativeUrl]="'/coworking/'" [title]="'coworking'" [cities]="menuPopularCoWorkings">
+                    <app-dropdown-item [relativeUrl]="'/coworking/'"
+                        [title]="'coworking'"
+                        [cities]="menuPopularCoWorkings">
                     </app-dropdown-item>
                 </li>
                 <li class="no-tablet">
-                    <app-dropdown-item [relativeUrl]="'/co-living/'" [title]="'Coliving'" [cities]="menuPopularCoLiving">
+                    <app-dropdown-item [relativeUrl]="'/co-living/'"
+                        [title]="'Coliving'"
+                        [cities]="menuPopularCoLiving">
                     </app-dropdown-item>
                 </li>
                 <li class="no-tablet">
-                    <app-dropdown-item [relativeUrl]="'/virtual-office/'" [title]="'Virtual Office'" [cities]="virtualOfficeCities" [isSingle]="true">
+                    <app-dropdown-item [relativeUrl]="'/virtual-office/'"
+                        [title]="'Virtual Office'"
+                        [cities]="virtualOfficeCities"
+                        [isSingle]="true">
                     </app-dropdown-item>
                 </li>
                 <li class="menu_dropdown no-tablet">
-                    <div class="btn-group dropdown-list-menu" dropdown>
-                        <button dropdownToggle type="button" class="dropdown-link">
+                    <div class="btn-group dropdown-list-menu"
+                        dropdown>
+                        <button dropdownToggle
+                            type="button"
+                            class="dropdown-link">
                             Knowledge <i class="fa-solid fa-angle-down"></i>
                         </button>
-                        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                        <ul id="dropdown-animated"
+                            *dropdownMenu
+                            class="dropdown-menu">
                             <li><a routerLink="/enterprise">Enterprise Solutions</a></li>
                             <li><a routerLink="/about-us">About Us</a></li>
                             <li><a routerLink="/contact-us">Contact Us</a></li>
@@ -46,8 +71,10 @@
                     </div>
                 </li>
                 <li class="no-tablet">
-                    <div class="btn-group dropdown-list-menu" dropdown>
-                        <button dropdownToggle type="button">
+                    <div class="btn-group dropdown-list-menu"
+                        dropdown>
+                        <button dropdownToggle
+                            type="button">
                             <span routerLink="/list-your-space">List Property<i class="fa-solid"></i></span>
                         </button>
                     </div>
@@ -60,27 +87,40 @@
                 </li> -->
 
                 <li class="mobile-phone-menu no-tablet">
-                    <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#requestCallBack">
+                    <button type="button"
+                        class="btn btn-primary login-btn"
+                        data-toggle="modal"
+                        data-target="#requestCallBack">
                         Request call back
-                    </button>                      
+                    </button>
                 </li>
 
-                <li *ngIf="!isAuthenticated()" class="no-tablet">
+                <li *ngIf="!isAuthenticated()"
+                    class="no-tablet">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
+                        <button type="button"
+                            class="btn btn-primary login-btn"
+                            (click)="openLoginModal()"
+                            [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
                     </div>
                 </li>
-                <li *ngIf="isAuthenticated()" class="no-tablet">
-                    <div class="btn-group user-header-menu" dropdown>
-                        <button dropdownToggle type="button">
+                <li *ngIf="isAuthenticated()"
+                    class="no-tablet">
+                    <div class="btn-group user-header-menu"
+                        dropdown>
+                        <button dropdownToggle
+                            type="button">
                             <span class="user-name">
                                 {{ getUserName() }}
                             </span>
                             <i class="icon-down-arrow"></i>
                         </button>
-                        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                        <ul id="dropdown-animated"
+                            *dropdownMenu
+                            class="dropdown-menu">
                             <li class="divider-line mobile-phone-menu no-tablet">
-                                <button type="button" (click)="onLogOut()">Log Out</button>
+                                <button type="button"
+                                    (click)="onLogOut()">Log Out</button>
                             </li>
                         </ul>
                     </div>
@@ -91,42 +131,76 @@
 </header>
 
 <!-- Modal -->
-<div class="modal fade request_call_form" id="requestCallBack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade request_call_form"
+    id="requestCallBack"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+            <div class="modal-body"
+                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
                 <div class="enquire-box">
                     <div class="form-section enquire-box-content">
                         <div class="title">
                             <h4 class="heading">Request Call Back</h4>
-                            <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                            <button type="button"
+                                data-dismiss="modal"
+                                aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
-                        <form class="form">
+                        <form class="form"
+                            [formGroup]="enterpriseFormGroup"
+                            (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" formControlName="name" placeholder="Name*" />
+                                        <input class="form-control"
+                                            type="text"
+                                            [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                                            formControlName="name"
+                                            placeholder="Name*" />
+                                        <div *ngIf="submitted && f['name'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" formControlName="email" placeholder="Email*" />
+                                        <input class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                                            formControlName="email"
+                                            required
+                                            placeholder="Email*" />
+                                        <div *ngIf="submitted && f['email'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
+                                            <div *ngIf="f['email'].dirty">Please enter valid email id.</div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 country_phone">
                                     <div class="form-group city_card_phone">
                                         <div class="flag-container">
-                                            <div class="selected-flag">
-                                                <div class="flag in">
-                                                    <span class="dial-code"> +91</span>
-                                                    <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                            <div (click)="showcountry = !showcountry"
+                                                class="selected-flag">
+                                                <div class="flag in"
+                                                    *ngIf="activeCountries.length">
+                                                    <!-- <img [lazyLoad]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                                    <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <span class="arrow arrow-up"><i
+                                                            class="fa-solid fa-angle-down"></i></span>
                                                 </div>
                                             </div>
-                                            <ul class="country-list" style="display: none;">
-                                                <li class="country active" tabindex="-1">
+                                            <ul *ngIf="showcountry"
+                                                class="country-list">
+                                                <li (click)="hideCountry(country)"
+                                                    class="country active"
+                                                    tabindex="-1"
+                                                    *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
                                                                 width="18px" /></div>
@@ -137,54 +211,128 @@
 
                                                 <li class="divider"></li>
 
-                                                <li class="country selected"
+                                                <li (click)="hideCountry(inactive)"
+                                                    class="country selected"
                                                     *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                        <div class="flag af"><img
+                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
-                                            <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" />
+
+                                            <input type="tel"
+                                                maxlength="10"
+                                                [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }"
+                                                formControlName="phone_number"
+                                                required
+                                                class="form-control border-light"
+                                                id="mobilenumber"
+                                                placeholder="Phone*"
+                                                aria-describedby="emailHelp" />
+                                            <div *ngIf="submitted && f['phone_number'].errors"
+                                                class="invalid-feedback">
+                                                <div
+                                                    *ngIf="f['phone_number'].errors['required'] && !f['phone_number'].dirty">
+                                                    Please enter mobile number.
+                                                </div>
+                                                <div *ngIf="f['phone_number'].dirty">
+                                                    Please enter 10 digit mobile number.
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group otp-form">
-                                <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" />
-                                <button>Resend OTP</button>
-                                <p>OTP will be resent in 15 seconds</p>
-                            </div> -->
+                            <div class="form-group otp-form"
+                                *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <input type="tel"
+                                    [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }"
+                                    formControlName="otp"
+                                    required
+                                    class="form-control border-light"
+                                    id="mobilenumber"
+                                    placeholder="Otp*"
+                                    aria-describedby="emailHelp">
+                                <div *ngIf="submitted && f['otp'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
+                                </div>
+                                <button [disabled]="resendDisabled"
+                                    (click)="resendOTP()"
+                                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                            </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select class="form-select" required aria-label="Type Of Space">
-                                            <option value="" selected disabled>Type Of Space</option>
+                                        <select class="form-select"
+                                            [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }"
+                                            formControlName="interested_in"
+                                            required
+                                            aria-label="Type Of Space">
+                                            <option value=""
+                                                disabled
+                                                style="display: none;">Type Of Space</option>
                                             <option value="Coworking">Coworking</option>
                                             <option value="Coliving">Coliving</option>
                                             <option value="Office Space">Office Space</option>
                                             <option value="Virtual Office">Virtual Office</option>
                                         </select>
+                                        <div *ngIf="submitted && f['interested_in'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['interested_in'].errors['required']">Please select space type.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select class="form-select" required aria-label="Select City">
-                                            <option value="" selected disabled>Select City</option>
-                                            <option value="Delhi">Delhi</option>
-                                            <option value="Gurugram">Gurugram</option>
-                                            <option value="Noida">Noida</option>
+                                        <select required
+                                            class="form-select"
+                                            [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+                                            formControlName="city"
+                                            aria-label="Default select example">
+                                            <option value=""
+                                                selected
+                                                disabled
+                                                style="display: none;">Select City*</option>
+                                            <option [value]="city.name"
+                                                *ngFor="let city of finalCities">{{city.name}}</option>
+                                            <option value="Other">Other</option>
                                         </select>
+                                        <div *ngIf="submitted && f['city'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['city'].errors['required']">Please select your city.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="checkbox-container">
+                                <input type="checkbox"
+                                    id="vehicle1"
+                                    name="vehicle1"
+                                    value="Bike" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" formControlName="privacy" >
+                                <label for="vehicle1"
+                                    class="bold-text"> Send me alerts for all property launches</label><br>
+                            </div>
+                            <div *ngIf="submitted && f['privacy'].errors"
+                            class="error-message">
+                            <div *ngIf="f['privacy'].errors['required']">Please check privacy & policy.
+                            </div>
+                        </div>
+                            <div class="privacy-policy-container">
+                                <p class="privacy-policy-text">Please visit the <a  data-dismiss="modal" [routerLink]="['/privacy-policy']">privacy policy</a> to understand how Cofynd handles your personal data.</p>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="site_btn border_btn full_width_btn">Send</button>
+                                    <button type="submit"
+                                        class="site_btn border_btn full_width_btn" >Send</button>
                                 </div>
                             </div>
                         </form>
@@ -194,7 +342,7 @@
         </div>
     </div>
 </div>
-  
+
 
 
 <!---------------------- new mobile menu ------------------------>
@@ -207,28 +355,48 @@
                     </button>
                 </div> -->
                 <div class="col-9 logo_col">
-                    <a class="navbar-brand mobile_space" routerLink="/"><img [lazyLoad]="'../../../../assets/images/logo.svg'" alt="Cofynd" class="img-fluid"></a>
+                    <a class="navbar-brand mobile_space"
+                        routerLink="/"><img [lazyLoad]="'../../../../assets/images/logo.svg'"
+                            alt="Cofynd"
+                            class="img-fluid"></a>
                 </div>
                 <div class="col-3 toggle_col">
-                    <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    <button type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarContent"
+                        aria-controls="navbars"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        class="navbar-toggler">
+                        <i class="fa fa-bars"
+                            aria-hidden="true"></i>
                     </button>
 
-                    <div *ngIf="!isAuthenticated()" class="mobile_login">
+                    <div *ngIf="!isAuthenticated()"
+                        class="mobile_login">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
+                            <button type="button"
+                                class="btn btn-primary login-btn"
+                                (click)="openLoginModal()"
+                                [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
                         </div>
                     </div>
-                    <div class="profile_col" *ngIf="isAuthenticated()">
-                        <div class="btn-group user-header-menu" dropdown>
-                            <button dropdownToggle type="button">
+                    <div class="profile_col"
+                        *ngIf="isAuthenticated()">
+                        <div class="btn-group user-header-menu"
+                            dropdown>
+                            <button dropdownToggle
+                                type="button">
                                 <span class="user-name">
                                     {{ getUserName() }}
                                 </span>
                             </button>
-                            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                            <ul id="dropdown-animated"
+                                *dropdownMenu
+                                class="dropdown-menu">
                                 <li class="divider-line mobile-phone-menu">
-                                    <button type="button" (click)="onLogOut()">Log Out</button>
+                                    <button type="button"
+                                        (click)="onLogOut()">Log Out</button>
                                 </li>
                             </ul>
                         </div>
@@ -242,43 +410,71 @@
                     </app-search-autocomplete>
                 </div> -->
             </div>
-            <div id="navbarContent" class="collapse navbar-collapse">
+            <div id="navbarContent"
+                class="collapse navbar-collapse">
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coworking</a>
-                        <ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
-                            <li *ngFor="let city of cities" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name" [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                        <a id="dropdownMenu1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            class="nav-link dropdown-toggle">Coworking</a>
+                        <ul aria-labelledby="dropdownMenu3"
+                            class="dropdown-menu border-0 shadow">
+                            <li *ngFor="let city of cities"
+                                class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name"
+                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Coliving</a>
-                        <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-                            <li *ngFor="let city of colivingCities" class="cities-list">
-                                <a tabindex="-1" class="dropdown-item" [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name" [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                        <a id="dropdownMenu1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            class="nav-link dropdown-toggle">Coliving</a>
+                        <ul aria-labelledby="dropdownMenu2"
+                            class="dropdown-menu border-0 shadow">
+                            <li *ngFor="let city of colivingCities"
+                                class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name"
+                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" routerLink="/virtual-office">Virtual Office</a>
+                        <a class="nav-link"
+                            routerLink="/virtual-office">Virtual Office</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" routerLink="/enterprise">Enterprise Solutions</a>
+                        <a class="nav-link"
+                            routerLink="/enterprise">Enterprise Solutions</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" routerLink="/about-us">About Us</a>
+                        <a class="nav-link"
+                            routerLink="/about-us">About Us</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+                        <a class="nav-link"
+                            routerLink="/contact-us">Contact Us</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List Your Property</a>
+                        <a id="dropdownMenu1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            routerLink="/list-your-space"
+                            class="nav-link">List Your Property</a>
                     </li>
                     <!-- <li class="divider-line mobile-phone-menu ">
                         <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>
@@ -286,17 +482,23 @@
                 </ul>
             </div>
 
-            <div *ngIf="isAuthenticated()" class="no-tablet">
-                <div class="btn-group user-header-menu" dropdown>
-                    <button dropdownToggle type="button">
+            <div *ngIf="isAuthenticated()"
+                class="no-tablet">
+                <div class="btn-group user-header-menu"
+                    dropdown>
+                    <button dropdownToggle
+                        type="button">
                         <span class="user-name">
                             {{ getUserName() }}
                         </span>
                         <i class="icon-down-arrow"></i>
                     </button>
-                    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu">
+                    <ul id="dropdown-animated"
+                        *dropdownMenu
+                        class="dropdown-menu">
                         <li class="divider-line mobile-phone-menu no-tablet">
-                            <button type="button" (click)="onLogOut()">Log Out</button>
+                            <button type="button"
+                                (click)="onLogOut()">Log Out</button>
                         </li>
                     </ul>
                 </div>
