@@ -75,7 +75,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   };
   spaceName: string;
   pageName: string;
-  pageUrl: any;
   city: string;
   activeCountries: any = [];
   inActiveCountries: any = [];
@@ -163,9 +162,8 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
     return this.authService.getToken();
   }
 
-  async getQuote(slug: any) {
-    this.pageUrl = await `https://cofynd.com/office-space/rent/${slug}`;
-    console.log(this.pageUrl);
+  getQuote(slug: any) {
+    localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${slug}`);
   }
 
   getCountries() {
@@ -288,14 +286,12 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
 
   async createEnquiry() {
     try {
-      console.log(this.pageUrl);
-      console.log('hiii sachin');
       this.loading = true;
       const formValues: Enquiry = this.enquiryForm.getRawValue();
       const phone = this.enquiryForm.get('phone_number').value;
       formValues['phone_number'] = `${this.selectedCountry.dial_code}-${phone}`;
       formValues['mx_Space_Type'] = 'Web Office Space';
-      formValues['mx_Page_Url'] = this.pageUrl;
+      formValues['mx_Page_Url'] = localStorage.getItem('property_url');
       formValues['city'] = this.city;
       this.btnLabel = 'Submitting...';
       this.userService.createEnquiry(formValues).subscribe(
@@ -314,6 +310,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
         */
           this.resetForm();
           this.dismissModal();
+          localStorage.removeItem('property_url');
           this.router.navigate(['/thank-you']);
         },
         error => {

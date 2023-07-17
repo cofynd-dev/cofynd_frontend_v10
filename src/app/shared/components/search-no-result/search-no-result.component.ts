@@ -22,6 +22,7 @@ export enum ENQUIRY_STEPS {
 })
 export class SearchNoResultComponent implements OnInit {
   @Input() title: string;
+  @Input() pageTitle: string;
   @Input() url: string;
   @Input() shouldShowContactForm: boolean = false;
   availableCities: City[] = AVAILABLE_CITY;
@@ -373,4 +374,23 @@ export class SearchNoResultComponent implements OnInit {
       },
     );
   }
+
+  setSubName() {
+    let name = 'Virtual Office in ';
+    if (this.title === 'gurugram') {
+      name += ' ' + this.capitalize('gurgaon');
+    } else {
+      name += ' ' + this.capitalize(this.city);
+    }
+    return name;
+  }
+
+  capitalize = str => {
+    if (typeof str !== 'string') return '';
+    str = str.split(' ');
+    for (let i = 0, x = str.length; i < x; i++) {
+      str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+    return str.join(' ');
+  };
 }

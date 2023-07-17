@@ -32,7 +32,7 @@
                 </div>
             </section> -->
 
-            <app-search-no-result *ngIf="!loading && (workSpaces.length == 0 || workSpaces.length == 1)" [title]="'Virtual'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
+            <app-search-no-result *ngIf="!loading && (workSpaces.length == 0 || workSpaces.length == 1)" [pageTitle]="pageTitle" [title]="'Virtual'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
             </app-search-no-result>
 
             <app-search-card-loader *ngIf="loading">
