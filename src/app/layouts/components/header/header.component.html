@@ -32,25 +32,7 @@
                 <li class="no-tablet">
                     <app-dropdown-item [relativeUrl]="'/virtual-office/'" [title]="'Virtual Office'" [cities]="virtualOfficeCities" [isSingle]="true">
                     </app-dropdown-item>
-                    <!-- <div class="btn-group dropdown-list-menu" dropdown>
-                        <button dropdownToggle type="button">
-                            <span routerLink="/virtual-office">Virtual Office</span>
-                        </button>
-                    </div> -->
                 </li>
-                <!-- <li class="no-tablet">
-                    <a routerLink="/enterprise">Enterprise Solutions</a>
-                </li>
-                <li class="no-tablet">
-                    <a routerLink="/about-us">About Us</a>
-                </li>
-                <li class="no-tablet">
-                    <a routerLink="/contact-us">Contact Us</a>
-                </li> -->
-                <!-- <li class="no-tablet">
-                    <app-dropdown-item [relativeUrl]="'/office-space/rent/'" [title]="'Offices'" [cities]="menuPopularOffices" [isSingle]="true">
-                    </app-dropdown-item>
-                </li> -->
                 <li class="menu_dropdown no-tablet">
                     <div class="btn-group dropdown-list-menu" dropdown>
                         <button dropdownToggle type="button" class="dropdown-link">
@@ -70,12 +52,19 @@
                         </button>
                     </div>
                 </li>
-                <li class="divider-line mobile-phone-menu no-tablet">
+                <!-- <li class="divider-line mobile-phone-menu no-tablet">
 
                     <a *ngIf="phoneflag" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}'>{{ contactInfo.phone }}</a>
                     <a style="text-transform: none;" *ngIf="!phoneflag" [href]="'mailto:' + contactInfo.email " [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ contactInfo.email}}</a>
 
+                </li> -->
+
+                <li class="mobile-phone-menu no-tablet">
+                    <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#requestCallBack">
+                        Request call back
+                    </button>                      
                 </li>
+
                 <li *ngIf="!isAuthenticated()" class="no-tablet">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary login-btn" (click)="openLoginModal()" [appCustomEventAnalytics]='{"category":"OPEN_LOGIN_FORM","action":"click", "label": "LOGIN_FORM"}'>LogIn</button>
@@ -100,6 +89,112 @@
         </div>
     </div>
 </header>
+
+<!-- Modal -->
+<div class="modal fade request_call_form" id="requestCallBack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                <div class="enquire-box">
+                    <div class="form-section enquire-box-content">
+                        <div class="title">
+                            <h4 class="heading">Request Call Back</h4>
+                            <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" formControlName="name" placeholder="Name*" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" formControlName="email" placeholder="Email*" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 country_phone">
+                                    <div class="form-group city_card_phone">
+                                        <div class="flag-container">
+                                            <div class="selected-flag">
+                                                <div class="flag in">
+                                                    <span class="dial-code"> +91</span>
+                                                    <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                            <ul class="country-list" style="display: none;">
+                                                <li class="country active" tabindex="-1">
+                                                    <div class="flag-box">
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                                width="18px" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{country?.name}}</span>
+                                                    <span class="dial-code">{{country?.dial_code}}</span>
+                                                </li>
+
+                                                <li class="divider"></li>
+
+                                                <li class="country selected"
+                                                    *ngFor="let inactive of inActiveCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{inactive?.name}}</span>
+                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                </li>
+                                            </ul>
+                                            <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group otp-form">
+                                <input class="form-control" placeholder="Enter Otp" type="password" formControlName="otp" />
+                                <button>Resend OTP</button>
+                                <p>OTP will be resent in 15 seconds</p>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <select class="form-select" required aria-label="Type Of Space">
+                                            <option value="" selected disabled>Type Of Space</option>
+                                            <option value="Coworking">Coworking</option>
+                                            <option value="Coliving">Coliving</option>
+                                            <option value="Office Space">Office Space</option>
+                                            <option value="Virtual Office">Virtual Office</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <select class="form-select" required aria-label="Select City">
+                                            <option value="" selected disabled>Select City</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Gurugram">Gurugram</option>
+                                            <option value="Noida">Noida</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="site_btn border_btn full_width_btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
 
 
 <!---------------------- new mobile menu ------------------------>
@@ -185,9 +280,9 @@
                     <li class="nav-item dropdown">
                         <a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/list-your-space" class="nav-link">List Your Property</a>
                     </li>
-                    <li class="divider-line mobile-phone-menu ">
+                    <!-- <li class="divider-line mobile-phone-menu ">
                         <a (click)="closeMobileMenu()" [href]="'tel:' + contactInfo.phone " [appCustomEventAnalytics]='{"category":"INITIATED_PHONE_CALL","action":"click", "label": "PHONE_CALL"}' class="nav-link">+91 9999 10 8078 </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 

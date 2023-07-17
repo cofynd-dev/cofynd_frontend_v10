@@ -97,7 +97,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8d5c421e7cb218a73798507ddaeb27964e7e3df9.jpg',
       name: 'Delhi',
-      price: '15,500',
+      price: '15,000',
       slug: 'virtual-office/delhi',
     },
     {
@@ -105,7 +105,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e38aba6f636873daba5d3562f2705583cba27839.jpg',
       name: 'Gurugram',
-      price: '18,000',
+      price: '14,000',
       slug: 'virtual-office/gurugram',
     },
     {
@@ -113,7 +113,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8dffaef4e7bc6d43b24af2ce95def9ac5769631.jpg',
       name: 'Noida',
-      price: '15,500',
+      price: '15,000',
       slug: 'virtual-office/noida',
     },
     {
@@ -121,7 +121,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6fc88348b18f4e1ccd4c276f339fcd34db5760ad.jpg',
       name: 'Bangalore',
-      price: '12,000',
+      price: '15,000',
       slug: 'virtual-office/bangalore',
     },
     {
@@ -129,7 +129,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3bb526e232c21916cbe79664eb0acc86ef2a83c0.jpg',
       name: 'Hyderabad',
-      price: '18,000',
+      price: '16,000',
       slug: 'virtual-office/hyderabad',
     },
     {
@@ -137,7 +137,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8069d9d3d68c32e73896f3c40b62ab34c87f5a9d.jpg',
       name: 'Mumbai',
-      price: '11,988',
+      price: '24,000',
       slug: 'virtual-office/mumbai',
     },
     {
@@ -145,7 +145,7 @@ export class VirtualOfficeComponent implements OnInit {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59fc8cbecde3c4a14320ab01a12b1c43945a7dea.jpg',
       name: 'Chennai',
-      price: '12,000',
+      price: '16,000',
       slug: 'virtual-office/chennai',
     },
     // {

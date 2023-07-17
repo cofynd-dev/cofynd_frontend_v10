@@ -6,13 +6,9 @@
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
             <div class="row align-items-center filter_title" *ngIf="workSpaces && workSpaces.length > 1">
-                <div class="col-9">
+                <div class="col-12">
                     <div class="page-title city_page_title">
                         <h1 class="page-heading" *ngIf="!loading && workSpaces.length">{{ pageTitle ? pageTitle : setSubName()}}</h1>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="filter_col">
                     </div>
                 </div>
             </div>
