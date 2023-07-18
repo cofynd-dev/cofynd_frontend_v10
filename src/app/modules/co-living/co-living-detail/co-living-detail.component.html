@@ -23,8 +23,8 @@
                     <app-social-share class="hideOnMobile" *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
                     </app-social-share>
 
-                    <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name" [favoriteOption]="false">
-                    </app-workspace-banner>
+                    <!-- <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name" [favoriteOption]="false">
+                    </app-workspace-banner> -->
 
                     <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
                     </app-workspace-banner-blank>
@@ -311,7 +311,7 @@
     </div>
 </section>
 
-<section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile mobile_footer">
+<!-- <section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile mobile_footer">
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
             <div class="col-6 bottomPrize">
@@ -325,7 +325,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- <div class="affix-action-btn">

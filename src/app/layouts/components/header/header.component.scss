@@ -993,12 +993,14 @@ border-bottom: 1px solid rgba(0,0,0,0.1) !important;
 }
 
 .privacy-policy-container {
-    margin-top: 20px;
+    margin-top: 10px;
     /* Adjust the value as needed to add space between rows */
 }
 
 .privacy-policy-text {
     color: gray;
+    font-size: 13px;
+    line-height: 18px;
 }
 
 .privacy-policy-container a {

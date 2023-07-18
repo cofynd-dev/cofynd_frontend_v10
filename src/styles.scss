@@ -6671,6 +6671,9 @@ h3.site_title {
     font-weight: 600;
     margin-bottom: 10px;
 }
+.about_image_sec .site_title::before {
+	display: none;
+}
 
 // .about_image_sec .site_title::before {
 //     display: none;
@@ -7832,6 +7835,12 @@ select.form-control{
 	background-color: #4343E8;
 	padding: 6px 13px !important;
 	border: none;
+}
+.request_call_form .form-group {
+	margin-bottom: 15px;
+}
+.request_call_form .checkbox-container input {
+	height: auto;
 }
 
 

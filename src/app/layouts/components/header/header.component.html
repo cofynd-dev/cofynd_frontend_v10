@@ -95,8 +95,7 @@
                     </button>
                 </li>
 
-                <li *ngIf="!isAuthenticated()"
-                    class="no-tablet">
+                <li *ngIf="!isAuthenticated()" class="no-tablet d-none">
                     <div class="btn-group">
                         <button type="button"
                             class="btn btn-primary login-btn"
@@ -314,15 +313,10 @@
                                 </div>
                             </div>
                             <div class="checkbox-container">
-                                <input type="checkbox"
-                                    id="vehicle1"
-                                    name="vehicle1"
-                                    value="Bike" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" formControlName="privacy" >
-                                <label for="vehicle1"
-                                    class="bold-text"> Send me alerts for all property launches</label><br>
+                                <input type="checkbox" id="vehicle1" name="vehicle1 check_box" value="Bike" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" formControlName="privacy" >
+                                <label for="vehicle1" class="bold-text"> Send me alerts for all property launches</label><br>
                             </div>
-                            <div *ngIf="submitted && f['privacy'].errors"
-                            class="error-message">
+                            <div *ngIf="submitted && f['privacy'].errors" class="error-message">
                             <div *ngIf="f['privacy'].errors['required']">Please check privacy & policy.
                             </div>
                         </div>
