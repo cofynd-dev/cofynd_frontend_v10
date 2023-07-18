@@ -33,6 +33,7 @@ declare let ga: any;
   styleUrls: ['./header.component.scss'],
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
 })
+
 export class HeaderComponent implements AfterViewInit {
   virtualOfficeCities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   userNameInitial: string;
@@ -475,3 +476,5 @@ export class HeaderComponent implements AfterViewInit {
     );
   }
 }
+
+

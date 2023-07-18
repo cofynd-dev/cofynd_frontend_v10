@@ -49,8 +49,7 @@
                 <li class="no-tablet">
                     <app-dropdown-item [relativeUrl]="'/virtual-office/'"
                         [title]="'Virtual Office'"
-                        [cities]="virtualOfficeCities"
-                        [isSingle]="true">
+                        [cities]="virtualOfficeCities">
                     </app-dropdown-item>
                 </li>
                 <li class="menu_dropdown no-tablet">
@@ -422,6 +421,11 @@
                                     [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name"
                                         [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
+                            <li class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/coworking/'">View All</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -440,13 +444,41 @@
                                     [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name"
                                         [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
+                            <li class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/co-living/'">View All</a>
+                            </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
+                        <a id="dropdownMenu1"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            class="nav-link dropdown-toggle">Virtual Office</a>
+                        <ul aria-labelledby="dropdownMenu2"
+                            class="dropdown-menu border-0 shadow">
+                            <li *ngFor="let city of virtualOfficeCities | slice:0:18"
+                                class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/virtual-office/' + city.name.toLowerCase()"><img [alt]="city.name"
+                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                            </li>
+                            <li class="cities-list">
+                                <a tabindex="-1"
+                                    class="dropdown-item"
+                                    [routerLink]="'/virtual-office/'">View All</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link"
                             routerLink="/virtual-office">Virtual Office</a>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item dropdown">
                         <a class="nav-link"
