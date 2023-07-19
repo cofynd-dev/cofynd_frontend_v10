@@ -15,6 +15,9 @@ import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspac
 import { AuthService } from '@app/core/services/auth.service';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
 import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+// import { AuthType } from '@app/core/enum/auth-type.enum';
+// import { Review } from '@app/core/models/review.model';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-office-space-detail',
@@ -69,6 +72,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
     private seoService: SeoService,
     private router: Router,
     private authService: AuthService,
+    private workSpaceService: WorkSpaceService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
@@ -222,6 +226,23 @@ export class OfficeSpaceDetailComponent implements OnInit {
       scrollWheel: false,
     };
   }
+
+  // isAuthenticated() {
+  //   return this.authService.getToken() ? true : false;
+  // }
+
+  // openModal(dialogType = AuthType.LOGIN, openAuthDialog = false) {
+  //   if (this.isAuthenticated()) {
+  //     dialogType = AuthType.REVIEW;
+  //   }
+  //   const param = Object.assign({
+  //     space: this.workspace,
+  //     review: new Review(),
+  //     authType: dialogType,
+  //     shouldOpenReviewModal: dialogType == AuthType.LOGIN,
+  //   });
+  //   this.authService.openReviewDialog(param);
+  // }
 
   openEnquireModal() {
     this.isEnquireModal = true;

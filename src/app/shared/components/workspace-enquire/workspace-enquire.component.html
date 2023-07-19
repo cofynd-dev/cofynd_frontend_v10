@@ -169,10 +169,10 @@
             </div>
             <div class="contact-info">
                 <p class="heading">Get in Touch</p>
-                <p><a *ngIf="phoneflag" class="phone_text" [href]="'tel:' + supportPhone.phone">{{ supportPhone.phone }}</a>
-                    <a style="text-transform: none;" class="email_text" *ngIf="!phoneflag" [href]="'mailto:' + supportPhone.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ supportPhone.email }}</a>
+                <!-- <a *ngIf="phoneflag" class="phone_text" [href]="'tel:' + supportPhone.phone">{{ supportPhone.phone }}</a> -->
+                <p style="text-transform: none;" class="email_text" *ngIf="!phoneflag" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ supportPhone.email }}
                 </p>
-                <p><a *ngIf="phoneflag" style="text-transform: none;" class="email_text" [href]="'mailto:' + forNoColiving.email" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ forNoColiving.email }}</a>
+                <p *ngIf="phoneflag" style="text-transform: none;" class="email_text" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ forNoColiving.email }}
                 </p>
             </div>
         </div>
