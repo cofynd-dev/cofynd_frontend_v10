@@ -350,18 +350,22 @@
 </section>
 
 <section class="for_email_sec mail_page_email">
-    <div class="container" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/397ce79a0f1dffa12d81542041292a85b8758ad0.png');">
+    <div class="container"
+        style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/397ce79a0f1dffa12d81542041292a85b8758ad0.png');">
         <div class="row align-items-center">
             <div class="col-md-8 col-12">
                 <div class="for_email_content">
                     <h3>Find your Office Space with Cofynd</h3>
-                    <p>Send us an email with your Office Space requirements – Area, Team Size, Location, Start Date … and our office space experts will connect back within 24 Hrs with the best options.</p>
-                    <p class="email_id align-items-center"><img [lazyLoad]="'assets/images/icons/email_id.svg'" alt="Email Icon"> hello@cofynd.com</p>
+                    <p>Send us an email with your Office Space requirements – Area, Team Size, Location, Start Date …
+                        and our office space experts will connect back within 24 Hrs with the best options.</p>
+                    <p class="email_id align-items-center"><img [lazyLoad]="'assets/images/icons/email_id.svg'"
+                            alt="Email Icon"> hello@cofynd.com</p>
                 </div>
             </div>
             <div class="col-md-4 mobilehide">
                 <div class="for_email_img">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png'" alt="Email Image">
+                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png'"
+                        alt="Email Image">
                 </div>
             </div>
         </div>
@@ -383,20 +387,31 @@
                 *ngFor="let space of gurugramSpaces | slice:0:6">
                 <div class="property_item property_item2">
                     <div class="property-img">
-                        <img [lazyLoad]="space?.images[0].image?.s3_link" alt="" class="img-fluid">
+                        <img [lazyLoad]="space?.images[0].image?.s3_link"
+                            alt=""
+                            class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space?.location?.address}}</p>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{
+                            space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
+                            space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
+                                alt=""
+                                class="img-fluid"> {{space?.location?.address}}</p>
 
                         <div class="row align-items-end">
                             <div class="col-md-6 col-6">
                                 <p class="capacity">
-                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                    <img class="img-fluid"
+                                        lazyLoad="assets/images/icons/flexible-lease-icon.svg"
+                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
-                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <img lazyLoad="assets/images/amenities/wifi.svg"
+                                        alt="wifi"> High speed WiFi
                                     <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
                                 </p>
                             </div>
@@ -423,10 +438,15 @@
                     </div> -->
                     <div class="property-foot align-items-end">
                         <div class="button">
-                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                            <a (click)="goToLink(space?.slug)"
+                                target="_blank"
+                                tabindex="0">Explore More</a>
                         </div>
                         <div class="button">
-                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                            <a type="button"
+                                (click)="getQuote(space)"
+                                data-toggle="modal"
+                                data-target="#exampleModal">Get Quote</a>
                         </div>
                     </div>
                 </div>
@@ -478,8 +498,12 @@
                             class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{
+                            space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
+                            space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
@@ -487,10 +511,13 @@
                         <div class="row align-items-end">
                             <div class="col-md-6 col-6">
                                 <p class="capacity">
-                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                    <img class="img-fluid"
+                                        lazyLoad="assets/images/icons/flexible-lease-icon.svg"
+                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
-                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <img lazyLoad="assets/images/amenities/wifi.svg"
+                                        alt="wifi"> High speed WiFi
                                     <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
                                 </p>
                             </div>
@@ -520,10 +547,15 @@
                     </div> -->
                     <div class="property-foot align-items-end">
                         <div class="button">
-                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                            <a (click)="goToLink(space?.slug)"
+                                target="_blank"
+                                tabindex="0">Explore More</a>
                         </div>
                         <div class="button">
-                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                            <a type="button"
+                                (click)="getQuote(space)"
+                                data-toggle="modal"
+                                data-target="#exampleModal">Get Quote</a>
                         </div>
                     </div>
                 </div>
@@ -575,18 +607,25 @@
                             class="img-fluid">
                     </div>
                     <div class="property-dis">
-                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{
+                            space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
+                        <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
+                            space?.location?.city?.name }} <br><span
+                                class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
                         <div class="row align-items-end">
                             <div class="col-md-6 col-6">
                                 <p class="capacity">
-                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                    <img class="img-fluid"
+                                        lazyLoad="assets/images/icons/flexible-lease-icon.svg"
+                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
-                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <img lazyLoad="assets/images/amenities/wifi.svg"
+                                        alt="wifi"> High speed WiFi
                                     <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
                                 </p>
                             </div>
@@ -615,10 +654,15 @@
                     </div> -->
                     <div class="property-foot align-items-end">
                         <div class="button">
-                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                            <a (click)="goToLink(space?.slug)"
+                                target="_blank"
+                                tabindex="0">Explore More</a>
                         </div>
                         <div class="button">
-                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                            <a type="button"
+                                (click)="getQuote(space)"
+                                data-toggle="modal"
+                                data-target="#exampleModal">Get Quote</a>
                         </div>
                     </div>
                 </div>
@@ -753,7 +797,8 @@
                                                         class="country active"
                                                         tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                            <div class="flag in"><img
+                                                                    [lazyLoad]="country?.image?.s3_link"
                                                                     width="18px" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
@@ -860,7 +905,8 @@
                                         type="submit">Submit</button>
                                 </div>
                                 <div class="col-md-12 col-12">
-                                    <p class="form_query_text">Need Assistance? Email : <span>hello@cofynd.com</span></p>
+                                    <p class="form_query_text">Need Assistance? Email : <span>hello@cofynd.com</span>
+                                    </p>
                                 </div>
                             </div>
                         </form>
@@ -902,7 +948,7 @@
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
                     <img style="max-height: 200px;"
-                    lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
+                        lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
                         alt="">
                     <h4>What's the CoFynd Desk?</h4>
                     <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in
@@ -981,3 +1027,188 @@
         </div>
     </div>
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade office_card_popup"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    #myModal>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body"
+                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                <div class="enquire-box">
+                    <div class="form-section enquire-box-content">
+                        <div class="title">
+                            <h4 class="heading">
+                                <button type="button"
+                                    class="fas fa-close"></button> Yes, I'm Interested!
+                            </h4>
+                            <p>Know More About this property</p>
+
+                            <button type="button"
+                                data-dismiss="modal"
+                                aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+
+                        <form class="form"
+                            [formGroup]="enquiryForm"
+                            (ngSubmit)="onOfficeQuoteSubmit()">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="name"
+                                            placeholder="Name*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.name">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="email"
+                                            placeholder="Email*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.email">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 country_phone">
+                                    <div class="form-group city_card_phone">
+                                        <div class="flag-container">
+                                            <div (click)="showcountry = !showcountry"
+                                                class="selected-flag">
+                                                <div class="flag in"
+                                                    *ngIf="activeCountries.length">
+                                                    <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <span class="arrow arrow-up"><i
+                                                            class="fa-solid fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                            <ul *ngIf="showcountry"
+                                                class="country-list">
+                                                <li (click)="hideCountry(country)"
+                                                    class="country active"
+                                                    tabindex="-1"
+                                                    *ngFor="let country of activeCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                                width="18px" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{country?.name}}</span>
+                                                    <span class="dial-code">{{country?.dial_code}}</span>
+                                                </li>
+
+                                                <li class="divider"></li>
+
+                                                <li (click)="hideCountry(inactive)"
+                                                    class="country selected"
+                                                    *ngFor="let inactive of inActiveCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag af"><img
+                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{inactive?.name}}</span>
+                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                </li>
+                                            </ul>
+                                            <input class="form-control"
+                                                maxlength="10"
+                                                type="text"
+                                                formControlName="phone_number"
+                                                placeholder="Phone*"
+                                                appMaterialInput />
+                                        </div>
+                                        <app-input-validation [control]="enquiryForm.controls.phone_number">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group otp-form"
+                                *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <input class="form-control"
+                                    placeholder="Enter Otp"
+                                    type="password"
+                                    formControlName="otp"
+                                    appMaterialInput
+                                    autofocus />
+                                <app-input-validation [control]="enquiryForm.controls.otp">
+                                </app-input-validation>
+                                <button [disabled]="resendDisabled"
+                                    (click)="resendOTP()"
+                                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Type"
+                                            appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficePlans"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="interested_in">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Budget"
+                                            appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficeBudgets"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_BudgetPrice">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Move In"
+                                            appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="MoveIn"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_Move_In_Date">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit"
+                                        class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

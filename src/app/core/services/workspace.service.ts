@@ -95,6 +95,16 @@ export class WorkSpaceService {
       );
   }
 
+  getCityForVirtualOffice(countryId: string) {
+    return this.http
+      .get<ApiResponse<City[]>>(`/user/getCitiesBySpaceType?countryId=${countryId}&for_virtual=true`)
+      .pipe(
+        map(citys => {
+          return citys;
+        }),
+      );
+  }
+
   getCitiesForOfficeSpace(countryId: string) {
     return this.http.get<ApiResponse<City[]>>(`/user/getCitiesBySpaceType?countryId=${countryId}&for_office=true`).pipe(
       map(citys => {

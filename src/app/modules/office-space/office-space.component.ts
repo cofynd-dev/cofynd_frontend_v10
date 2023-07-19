@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { Brand } from '@app/core/models/brand.model';
@@ -19,7 +19,10 @@ import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { ToastrService } from 'ngx-toastr';
+import { isPlatformBrowser } from '@angular/common';
+import { environment } from '@env/environment';
 declare var $: any;
+declare let ga: any;
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -63,8 +66,35 @@ export class OfficeSpaceComponent implements OnInit {
   gurugramSpaces: any = [];
   noidaSpaces: any = [];
   delhiSpaces: any = [];
+  isgetQuote: boolean = false;
+  enquiryForm: FormGroup;
+  city: any;
+
+  OfficePlans = [
+    { label: `Raw`, value: 'Raw' },
+    { label: `Semi-Furnished`, value: 'Semi-Furnished' },
+    { label: `Fully-Furnished`, value: 'Fully-Furnished' },
+    { label: `Built to Suit/Customized`, value: 'Built to Suit/Customized' },
+  ];
+
+  OfficeBudgets = [
+    { label: 'Upto 1 Lac', value: 'Upto 1 Lac' },
+    { label: `1 Lac - 2 Lac`, value: '1 Lac - 2 Lac' },
+    { label: '2 Lac - 5 Lac', value: '2 Lac - 5 Lac' },
+    { label: '5 Lac - 10 Lac', value: '5 Lac - 10 Lac' },
+    { label: '10 Lac +', value: '10 Lac +' },
+  ];
+
+  MoveIn = [
+    { label: 'Immediate', value: 'Immediate' },
+    { label: 'Within This Month', value: 'Within This Month' },
+    { label: '1-2 Month', value: '1-2 Month' },
+    { label: '3-4 Month', value: '3-4 Month' },
+    { label: 'After 4 Month', value: 'After 4 Month' },
+  ];
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     private seoService: SeoService,
     private router: Router,
     private bsModalService: BsModalService,
@@ -77,6 +107,7 @@ export class OfficeSpaceComponent implements OnInit {
     private toastrService: ToastrService,
     private cdr: ChangeDetectorRef,
   ) {
+    this.buildForm();
     this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
     this.loading = true;
     this.getCurrentPosition().subscribe((position: any) => {
@@ -105,6 +136,41 @@ export class OfficeSpaceComponent implements OnInit {
     this.getCitiesForOfficeSpace();
   }
 
+  dismissModal(): void {
+    $('#exampleModal').modal('hide');
+  }
+
+  private resetForm() {
+    this.queryFormGroup.reset();
+  }
+
+  getQuote(item: any) {
+    this.isgetQuote = true;
+    localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${item.slug}`);
+    this.city = item.location.city.name;
+    this.buildForm();
+  }
+
+  private buildForm() {
+    const form = {
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone_number: ['', Validators.required],
+      otp: [''],
+      mx_Page_Url: ['City Page'],
+    };
+    form['mx_Space_Type'] = ['Web Office Space'];
+    form['mx_Move_In_Date'] = [null, Validators.required];
+    form['mx_BudgetPrice'] = [null, Validators.required];
+    form['interested_in'] = [null, Validators.required];
+    this.enquiryForm = this._formBuilder.group(form);
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enquiryForm.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
+    }
+  }
+
   queryFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     email: ['', [Validators.required, Validators.email]],
@@ -127,6 +193,12 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   resendOTP() {
+    let phoneNumber;
+    if (this.isgetQuote) {
+      phoneNumber = this.enquiryForm.controls['phone_number'].value;
+    } else {
+      phoneNumber = this.queryFormGroup.controls['phone_number'].value;
+    }
     // Disable the resend button and start the counter
     this.resendDisabled = true;
     this.resendIntervalId = setInterval(() => {
@@ -142,7 +214,7 @@ export class OfficeSpaceComponent implements OnInit {
     // TODO: Implement OTP resend logic here
     let obj = {};
     obj['dial_code'] = this.selectedCountry.dial_code;
-    obj['phone_number'] = this.queryFormGroup.controls['phone_number'].value;
+    obj['phone_number'] = phoneNumber;
     this.userService.resendOtp(obj).subscribe(
       (data: any) => {
         if (data) {
@@ -474,7 +546,27 @@ export class OfficeSpaceComponent implements OnInit {
     this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
+  onOfficeQuoteSubmit() {
+    this.addValidationOnMobileField();
+    this.enquiryForm.markAllAsTouched();
+    if (this.enquiryForm.invalid) {
+      return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
+    } else {
+      this.getOtp();
+    }
+  }
+
+  addValidationOnMobileField() {
+    const otpControl = this.enquiryForm.get('phone_number');
+    otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
+    otpControl.updateValueAndValidity();
+  }
+
   onSubmit() {
+    this.addValidationOnCityField();
     this.submitted = true;
     if (this.queryFormGroup.invalid) {
       return;
@@ -492,8 +584,13 @@ export class OfficeSpaceComponent implements OnInit {
 
   getOtp() {
     if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
+      let formValues;
+      if (this.isgetQuote) {
+        formValues = this.enquiryForm.getRawValue();
+      } else {
+        formValues = this.queryFormGroup.getRawValue();
+      }
       this.loading = true;
-      const formValues: Enquiry = this.queryFormGroup.getRawValue();
       formValues['dial_code'] = this.selectedCountry.dial_code;
       this.userService.addUserEnquiry(formValues).subscribe(
         () => {
@@ -520,8 +617,15 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   validateOtp() {
-    const phone = this.queryFormGroup.get('phone_number').value;
-    const otp = this.queryFormGroup.get('otp').value;
+    let phone;
+    let otp;
+    if (this.isgetQuote) {
+      phone = this.enquiryForm.get('phone_number').value;
+      otp = this.enquiryForm.get('otp').value;
+    } else {
+      phone = this.queryFormGroup.get('phone_number').value;
+      otp = this.queryFormGroup.get('otp').value;
+    }
     this.loading = true;
     this.authService.verifyOtp(phone, otp).subscribe(
       () => {
@@ -538,36 +642,88 @@ export class OfficeSpaceComponent implements OnInit {
   }
 
   addValidationOnOtpField() {
-    const otpControl = this.queryFormGroup.get('otp');
+    let otpControl;
+    if (this.isgetQuote) {
+      otpControl = this.enquiryForm.get('otp');
+    } else {
+      otpControl = this.queryFormGroup.get('otp');
+    }
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
     otpControl.updateValueAndValidity();
   }
 
+  addValidationOnCityField() {
+    const cityControl = this.queryFormGroup.get('city');
+    cityControl.setValidators([Validators.required]);
+    cityControl.updateValueAndValidity();
+  }
+
   createEnquiry() {
-    const phone = this.queryFormGroup.get('phone_number').value;
-    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
-    const object = {
-      user: {
-        phone_number: phoneWithDialCode,
-        email: this.queryFormGroup.controls['email'].value,
-        name: this.queryFormGroup.controls['name'].value,
-        requirements: this.queryFormGroup.controls['requirements'].value,
-      },
-      city: this.queryFormGroup.controls['city'].value,
-      mx_Page_Url: this.pageUrl,
-      mx_Space_Type: 'Web Office Space',
-    };
-    this.userService.createLead(object).subscribe(
-      () => {
-        this.loading = false;
-        this.queryFormGroup.reset();
-        this.submitted = false;
-        this.router.navigate(['/thank-you']);
-      },
-      error => {
-        this.loading = false;
-      },
-    );
+    if (this.isgetQuote) {
+      this.loading = true;
+      const formValues: Enquiry = this.enquiryForm.getRawValue();
+      const phone = this.enquiryForm.get('phone_number').value;
+      formValues['phone_number'] = `${this.selectedCountry.dial_code}-${phone}`;
+      formValues['mx_Space_Type'] = 'Web Office Space';
+      formValues['mx_Page_Url'] = localStorage.getItem('property_url');
+      formValues['city'] = this.city;
+      this.btnLabel = 'Submitting...';
+      this.userService.createEnquiry(formValues).subscribe(
+        () => {
+          this.loading = false;
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
+          this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
+          /** 
+          Will open it after discussion 
+          const interestedIn = this.queryFormGroup.get('interested_in').value;
+          if (this.payementModeOnList.indexOf(interestedIn) >= 0) {
+            this.router.navigate(['/booking'], {
+              queryParams: { workspace: this.workSpaceId, interestedIn },
+            });
+          }
+        */
+          this.resetForm();
+          this.dismissModal();
+          localStorage.removeItem('property_url');
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+        },
+      );
+    } else {
+      const phone = this.queryFormGroup.get('phone_number').value;
+      let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
+      const object = {
+        user: {
+          phone_number: phoneWithDialCode,
+          email: this.queryFormGroup.controls['email'].value,
+          name: this.queryFormGroup.controls['name'].value,
+          requirements: this.queryFormGroup.controls['requirements'].value,
+        },
+        city: this.queryFormGroup.controls['city'].value,
+        mx_Page_Url: this.pageUrl,
+        mx_Space_Type: 'Web Office Space',
+      };
+      this.userService.createLead(object).subscribe(
+        () => {
+          this.loading = false;
+          this.queryFormGroup.reset();
+          this.submitted = false;
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+        },
+      );
+    }
+  }
+
+  sendGaEvent(category: string, action: string, label: string) {
+    if (environment.options.GA_ENABLED && isPlatformBrowser(this.platformId)) {
+      ga('send', 'event', category, action, label);
+    }
   }
 
   removedash(name: string) {
