@@ -1,5 +1,4 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { HttpBackend } from '@angular/common/http';
 import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
@@ -9,7 +8,6 @@ import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -20,7 +18,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import axios from 'axios';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 
 @Component({
   selector: 'app-work-space',
@@ -36,7 +34,7 @@ export class WorkSpaceComponent implements OnInit {
   isSticky: boolean;
   stickyElementOffset: number;
   userReview: Review;
-  isEnquireModal: boolean;
+  isEnquireModal: boolean = false;
 
   //locationIq Map code
   options: any;
@@ -75,7 +73,6 @@ export class WorkSpaceComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
-    // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
     private seoService: SeoService,
     private authService: AuthService,
@@ -144,11 +141,9 @@ export class WorkSpaceComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
   }
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
 
   addMarker(latitute, longitute) {
     const newMarker = marker([latitute, longitute], {
@@ -194,8 +189,6 @@ export class WorkSpaceComponent implements OnInit {
         }
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
-          // lng , lat from api
-          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
               tileLayer(
@@ -267,7 +260,7 @@ export class WorkSpaceComponent implements OnInit {
         `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
         {},
       )
-      .then(function (response) { });
+      .then(function(response) {});
   }
 
   setMarker(position: google.maps.LatLng) {

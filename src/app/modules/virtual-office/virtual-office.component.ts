@@ -12,7 +12,7 @@ import { forkJoin } from 'rxjs';
 import { VirtualOfficeModalComponent } from './virtual-office-modal/virtual-office-modal.component';
 import { Observable, Subscriber } from 'rxjs';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
-import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
+import { WorkSpace } from '@core/models/workspace.model';
 import { environment } from '@env/environment';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
@@ -93,7 +93,6 @@ export class VirtualOfficeComponent implements OnInit {
 
   popularVirtualOffice = [
     {
-      // address: 'Delhi',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8d5c421e7cb218a73798507ddaeb27964e7e3df9.jpg',
       name: 'Delhi',
@@ -101,7 +100,6 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/delhi',
     },
     {
-      // address: 'Gurugram',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e38aba6f636873daba5d3562f2705583cba27839.jpg',
       name: 'Gurugram',
@@ -109,7 +107,6 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/gurugram',
     },
     {
-      // address: `Noida`,
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8dffaef4e7bc6d43b24af2ce95def9ac5769631.jpg',
       name: 'Noida',
@@ -117,7 +114,6 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/noida',
     },
     {
-      // address: 'Bangalore',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/6fc88348b18f4e1ccd4c276f339fcd34db5760ad.jpg',
       name: 'Bangalore',
@@ -125,7 +121,6 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/bangalore',
     },
     {
-      // address: 'Hyderabad',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3bb526e232c21916cbe79664eb0acc86ef2a83c0.jpg',
       name: 'Hyderabad',
@@ -133,7 +128,6 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/hyderabad',
     },
     {
-      // address: 'Mumbai',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8069d9d3d68c32e73896f3c40b62ab34c87f5a9d.jpg',
       name: 'Mumbai',
@@ -141,20 +135,14 @@ export class VirtualOfficeComponent implements OnInit {
       slug: 'virtual-office/mumbai',
     },
     {
-      // address: 'Chennai',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/59fc8cbecde3c4a14320ab01a12b1c43945a7dea.jpg',
       name: 'Chennai',
       price: '16,000',
       slug: 'virtual-office/chennai',
     },
-    // {
-    //   address: ' ',
-    //   image: ' ',
-    //   name: ' ',
-    //   price: ' ',
-    // },
   ];
+
   latitute: any;
   longitute: any;
   workSpaces: WorkSpace[];
@@ -428,7 +416,6 @@ export class VirtualOfficeComponent implements OnInit {
         this.queryFormGroup.reset();
         this.submitted = false;
         this.router.navigate(['/thank-you']);
-        // this.toastrService.success('Your query submitted successfully, we connect with you soon..');
       },
       error => {
         this.loading = false;
@@ -443,9 +430,11 @@ export class VirtualOfficeComponent implements OnInit {
   openOfficeSpace(slug: string) {
     this.router.navigate([`/office-space/rent/${slug}`]);
   }
+
   openWithFreeSlug(slug: string) {
     this.router.navigate([`${slug}`]);
   }
+
   routeTodetail(slug: string) {
     this.router.navigate([`/coworking/${slug}`]);
   }
@@ -458,25 +447,6 @@ export class VirtualOfficeComponent implements OnInit {
       },
     });
   }
-
-  // addSeoTags() {
-  //   let seoMeta = {
-  //     title: 'Virtual Office in India - Space for GST & Business Registration',
-  //     description:
-  //       'Virtual Office in India starting ₹1,000 per month offering in 10 Indian cities - Delhi, Noida, Gurgaon, Bangalore, Hyderabad, Pune, Mumbai, Indore, Ahmedabad, Chennai.',
-  //   };
-  //   if (seoMeta) {
-  //     this.seoData = {
-  //       title: seoMeta.title,
-  //       image: 'https://cofynd.com/assets/images/meta/cofynd-facebook.jpg',
-  //       description: seoMeta.description,
-  //       type: 'website',
-  //     };
-  //     this.seoService.setData(this.seoData);
-  //   } else {
-  //     this.seoData = null;
-  //   }
-  // }
 
   addSeoTags() {
     this.loading = true;

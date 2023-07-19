@@ -6,7 +6,6 @@ import {
   SizeFilter as SizeFilterData,
   TypeFilter,
 } from '@app/core/config/office-filter-data';
-import { Location } from '@angular/common';
 import { PriceFilter, SizeFilter } from '@app/core/models/workspace.model';
 import { sanitizeParams } from '@app/shared/utils';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
@@ -19,7 +18,6 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
-import { script } from '../../../core/config/script';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 
@@ -67,7 +65,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
     private _renderer2: Renderer2,
-    private location: Location,
     private officeSpaceService: OfficeSpaceService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -76,7 +73,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private el: ElementRef,
   ) {
     // Handle header position on scroll
-    // this.configService.updateConfig({ headerClass: 'search-listing' });
+    this.configService.updateConfig({ headerClass: 'search-listing' });
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
@@ -393,6 +390,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.configService.setDefaultConfigs();
+    if (this.configService) {
+      this.configService.setDefaultConfigs();
+    }
   }
 }

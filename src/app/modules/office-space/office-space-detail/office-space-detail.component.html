@@ -328,9 +328,9 @@
             </div>
 
             <div class="col-md-4">
-                <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper office_space_query_form" [class.enquiry-modal]="isEnquireModal">
-                    <app-workspace-enquire [cityName]="workspace?.location?.city?.name" [microlocationName]="workspace?.location?.micro_location?.name" [isSticky]="isSticky" [enquiryType]="enquiryType" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id"
-                        [isOfficeEnquiry]="true" (backButtonClick)="closeEnquireModal()">
+                <div *ngIf="!loading && workspace" class="enquiry_section enquiry-box-wrapper hide" [class.enquiry-modal]="isEnquireModal">
+                    <app-workspace-enquire [cityName]="workspace?.location?.city?.name" [microlocationName]="workspace?.location?.micro_location?.name" [isSticky]="isSticky" [enquiryType]="ENQUIRY_TYPE" [shouldReload]="shouldReloadEnquiryForm" [workSpaceId]="workspace.id"
+                         (backButtonClick)="closeEnquireModal()">
                     </app-workspace-enquire>
                 </div>
             </div>
@@ -384,7 +384,7 @@
                 <p class="price"><span class="rent_title">Rent</span>₹{{ (workspace?.other_detail?.rent_in_sq_ft * workspace?.other_detail?.area_for_lease_in_sq_ft).toLocaleString('en-IN') }}</p>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <button class="btn site_btn" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>Enquire Now</button>
+                <button class="btn site_btn" (click)="openEnquireModal()" >Enquire Now</button>
             </div>
         </div>
     </div>
