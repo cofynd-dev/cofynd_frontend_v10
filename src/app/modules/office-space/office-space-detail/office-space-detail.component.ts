@@ -3,7 +3,6 @@ import { Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewC
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { HelperService } from '@app/core/services/helper.service';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -14,10 +13,7 @@ import { OfficeSpaceService } from './../office-space.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { AuthService } from '@app/core/services/auth.service';
 import { DEFAULT_APP_DATA } from '@app/core/config/app-data';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-// import { AuthType } from '@app/core/enum/auth-type.enum';
-// import { Review } from '@app/core/models/review.model';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 
 @Component({
   selector: 'app-office-space-detail',
@@ -33,7 +29,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
   isSticky: boolean;
   stickyElementOffset: number;
 
-  isEnquireModal: boolean;
+  isEnquireModal: boolean = false;
   supportPhone = DEFAULT_APP_DATA.contact.phone;
 
   //locationIq Map code
@@ -56,7 +52,7 @@ export class OfficeSpaceDetailComponent implements OnInit {
   visibilityState = VisibilityState;
 
   shareImageUrl: string;
-  enquiryType: number = ENQUIRY_TYPES.OFFICE;
+  ENQUIRY_TYPE: number = ENQUIRY_TYPES.OFFICE;
   shouldReloadEnquiryForm: boolean;
   mySubscription: any;
   spaceName: any;
@@ -67,12 +63,10 @@ export class OfficeSpaceDetailComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private activatedRoute: ActivatedRoute,
     private officeSpaceService: OfficeSpaceService,
-    // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
     private seoService: SeoService,
     private router: Router,
     private authService: AuthService,
-    private workSpaceService: WorkSpaceService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
@@ -100,7 +94,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
     this.officeSpaceService.getOffice(workspaceId).subscribe(
       workspaceDetail => {
         this.workspace = workspaceDetail;
-        console.log(this.workspace);
         if (this.workspace.location && this.workspace.location.city && this.workspace.location.city.name) {
           this.spaceName = `Office Space for Rent in ${this.workspace.location.city.name}`;
         }
@@ -141,8 +134,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
         this.loading = false;
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
-          // lng , lat from api
-          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
               tileLayer(
@@ -190,11 +181,11 @@ export class OfficeSpaceDetailComponent implements OnInit {
         iconAnchor: [13, 41],
         iconUrl: 'assets/images/marker-icon.png',
         iconRetinaUrl: 'assets/images/marker-icon.png',
-        // shadowUrl: 'assets/images/marker-icon.png1'
       }),
     });
     this.markers.push(newMarker);
   }
+
   setMarker(position: google.maps.LatLng) {
     const infoWindowText = `<div id="map-title"><h4>${this.workspace.other_detail.building_name}</h4><p>${this.workspace.location.address}</p></div>`;
 
@@ -227,23 +218,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
     };
   }
 
-  // isAuthenticated() {
-  //   return this.authService.getToken() ? true : false;
-  // }
-
-  // openModal(dialogType = AuthType.LOGIN, openAuthDialog = false) {
-  //   if (this.isAuthenticated()) {
-  //     dialogType = AuthType.REVIEW;
-  //   }
-  //   const param = Object.assign({
-  //     space: this.workspace,
-  //     review: new Review(),
-  //     authType: dialogType,
-  //     shouldOpenReviewModal: dialogType == AuthType.LOGIN,
-  //   });
-  //   this.authService.openReviewDialog(param);
-  // }
-
   openEnquireModal() {
     this.isEnquireModal = true;
     this.helperService.notifyEnquiryFormToAnimate();
@@ -264,7 +238,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
     if (isPlatformBrowser(this.platformId) && !this.helperService.getIsMobileMode()) {
       const body = this.document.body;
       const html = this.document.documentElement;
-
       const documentHeight = Math.max(
         body.scrollHeight,
         body.offsetHeight,
@@ -272,7 +245,6 @@ export class OfficeSpaceDetailComponent implements OnInit {
         html.scrollHeight,
         html.offsetHeight,
       );
-
       const scrollFinishOffset = documentHeight - (590 + 800);
       const windowOffsetTop =
         window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;

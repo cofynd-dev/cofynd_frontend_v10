@@ -294,26 +294,26 @@
 //     }
 // }
 
-// @media(max-width:991px) {
-//     .enquiry-box-wrapper {
-//         display: none;
-//         &.enquiry-modal {
-//             display: block;
-//             position: fixed;
-//             top: 0;
-//             left: 0;
-//             right: 0;
-//             bottom: 0;
-//             background: #fff;
-//             z-index: 999;
-//             padding: 0;
-//             width: 100%;
-//             height: 100%;
-//             overflow-y: auto;
-//             overflow-x: hidden;
-//         }
-//     }
-// }
+@media(max-width:991px) {
+    .enquiry-box-wrapper {
+        display: none;
+        &.enquiry-modal {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            z-index: 999;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    }
+}
 
 // .affix-action-btn {
 //     display: none;
