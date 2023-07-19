@@ -17,7 +17,7 @@
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name" target="_blank">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="city?.image?.s3_link" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>
@@ -35,7 +35,7 @@
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="city?.image?.s3_link" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>
@@ -53,7 +53,7 @@
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
                         </a>
                         <a class="city-link" (click)="open_menu(city ,title)" *ngIf='relativeUrl == "/virtual-office/"' [routerLink]="relativeUrl + city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" alt="">{{ city.name }}
+                            <img [lazyLoad]="city?.image?.s3_link" alt="">{{ city.name }}
                         </a>
                     </h5>
                 </ng-container>

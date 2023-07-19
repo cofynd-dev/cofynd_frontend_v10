@@ -4,8 +4,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
 
-
-
 @Component({
   selector: 'app-dropdown-item',
   templateUrl: './dropdown-item.component.html',
@@ -25,7 +23,7 @@ export class DropdownItemComponent {
   country_id: any;
   image_url: string = 'http://localhost:8081/img/';
   countryNameGloble: string;
-  constructor(private workSpaceService: WorkSpaceService, private Router: Router) { }
+  constructor(private workSpaceService: WorkSpaceService, private Router: Router) {}
 
   open_menu(data: any, type: any) {
     if (this.relativeUrl == '/coworking/') {
@@ -80,13 +78,16 @@ export class DropdownItemComponent {
       }
     }
     if (this.relativeUrl == '/virtual-office/') {
-      this.open = !this.open;
-      this.cities = this.virtualOfficeCities.slice(0, 17);
-      if (this.cities.length > 6) {
-        this.isSingle = false;
-      } else {
-        this.isSingle = true;
-      }
+      this.workSpaceService.getCityForVirtualOffice('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+        this.virtualOfficeCities = res.data;
+        this.open = !this.open;
+        this.cities = this.virtualOfficeCities.slice(0, 17);
+        if (this.cities.length > 6) {
+          this.isSingle = false;
+        } else {
+          this.isSingle = true;
+        }
+      });
     }
     if (this.relativeUrl == '/co-living/') {
       this.workSpaceService.getCountry({ for_coLiving: true }).subscribe((res: any) => {
