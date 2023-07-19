@@ -171,22 +171,22 @@ export class DropdownItemComponent {
       this.countryNameGloble === 'INDIA'
     ) {
       this.Router.navigate([url.toLowerCase().trim()]);
-    }
-    if (
+    } else if (
       this.countryNameGloble !== 'india' &&
       this.countryNameGloble !== 'India' &&
       this.countryNameGloble !== 'INDIA' &&
       this.relativeUrl === '/coworking/'
     ) {
       this.Router.navigate([`/${this.countryNameGloble.toLowerCase().trim()}/coworking/${city.toLowerCase().trim()}`]);
-    }
-    if (
+    } else if (
       this.countryNameGloble !== 'india' &&
       this.countryNameGloble !== 'India' &&
       this.countryNameGloble !== 'INDIA' &&
       this.relativeUrl === '/co-living/'
     ) {
       this.Router.navigate([`/${this.countryNameGloble.toLowerCase().trim()}/co-living/${city.toLowerCase().trim()}`]);
+    } else {
+      this.Router.navigate([url.toLowerCase().trim()]);
     }
   }
   removedash(name: string) {
