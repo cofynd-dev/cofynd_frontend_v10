@@ -381,36 +381,53 @@
         <div class="row office_top_properties_slider">
             <div class="col-lg-4 col-md-4 col-sm-6"
                 *ngFor="let space of gurugramSpaces | slice:0:6">
-                <div class="property_item"
-                    style="cursor: pointer;"
-                    (click)="goToLink(space?.slug)">
+                <div class="property_item property_item2">
                     <div class="property-img">
-                        <img [lazyLoad]="space?.images[0].image?.s3_link"
-                            alt=""
-                            class="img-fluid">
+                        <img [lazyLoad]="space?.images[0].image?.s3_link" alt="" class="img-fluid">
                     </div>
                     <div class="property-dis">
                         <h4 *ngIf="space.location.micro_location && space.location.city">Office Space for Rent in {{ space?.location?.micro_location?.name }}, {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{ space?.location?.city?.name }}  <br><span class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                                alt=""
-                                class="img-fluid"> {{space?.location?.address}}</p>
-                        <div class="amenities_card">
-                            <p class="capacity">
-                                <img lazyLoad="assets/images/amenities/wifi.svg"
-                                    alt="wifi"> High speed WiFi
-                            </p>
-                            <p class="capacity"><img alt="Flexible Lease"
-                                    class="img-fluid"
-                                    lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{space?.location?.address}}</p>
+
+                        <div class="row align-items-end">
+                            <div class="col-md-6 col-6">
+                                <p class="capacity">
+                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                </p>
+                                <p class="capacity mb-0">
+                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
+                                </p>
+                            </div>
+                            <div class="col-md-6 col-6 justify-content-end d-flex">
+                                <div class="price"><span class="rent_title">Rent</span>₹{{
+                                    (space.other_detail.area_for_lease_in_sq_ft *
+                                    space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
+                            </div>
                         </div>
+                        <!-- <div class="amenities_card">
+                            <p class="capacity">
+                                <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                            </p>
+                            <p class="capacity">
+                                <img alt="Flexible Lease" class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                        </div> -->
                     </div>
-                    <div class="property-foot align-items-end">
+                    <!-- <div class="property-foot align-items-end">
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
                         <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
+                    </div> -->
+                    <div class="property-foot align-items-end">
+                        <div class="button">
+                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                        </div>
+                        <div class="button">
+                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -454,9 +471,7 @@
         <div class="row office_top_properties_slider">
             <div class="col-lg-4 col-md-4 col-sm-6"
                 *ngFor="let space of delhiSpaces | slice:0:6">
-                <div class="property_item"
-                    style="cursor: pointer;"
-                    (click)="goToLink(space?.slug)">
+                <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
                             alt=""
@@ -468,7 +483,25 @@
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
-                        <div class="amenities_card">
+
+                        <div class="row align-items-end">
+                            <div class="col-md-6 col-6">
+                                <p class="capacity">
+                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                </p>
+                                <p class="capacity mb-0">
+                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
+                                </p>
+                            </div>
+                            <div class="col-md-6 col-6 justify-content-end d-flex">
+                                <div class="price"><span class="rent_title">Rent</span>₹{{
+                                    (space.other_detail.area_for_lease_in_sq_ft *
+                                    space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="amenities_card">
                             <p class="capacity">
                                 <img lazyLoad="assets/images/amenities/wifi.svg"
                                     alt="wifi"> High speed WiFi
@@ -476,14 +509,22 @@
                             <p class="capacity"><img alt="Flexible Lease"
                                     class="img-fluid"
                                     lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="property-foot align-items-end">
+                    <!-- <div class="property-foot align-items-end">
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
                         <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
+                    </div> -->
+                    <div class="property-foot align-items-end">
+                        <div class="button">
+                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                        </div>
+                        <div class="button">
+                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -527,9 +568,7 @@
         <div class="row office_top_properties_slider">
             <div class="col-lg-4 col-md-4 col-sm-6"
                 *ngFor="let space of noidaSpaces | slice:0:6">
-                <div class="property_item"
-                    style="cursor: pointer;"
-                    (click)="goToLink(space?.slug)">
+                <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
                             alt=""
@@ -541,7 +580,23 @@
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
                                 alt=""
                                 class="img-fluid"> {{space?.location?.address}}</p>
-                        <div class="amenities_card">
+                        <div class="row align-items-end">
+                            <div class="col-md-6 col-6">
+                                <p class="capacity">
+                                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                </p>
+                                <p class="capacity mb-0">
+                                    <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
+                                    <!-- <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}} -->
+                                </p>
+                            </div>
+                            <div class="col-md-6 col-6 justify-content-end d-flex">
+                                <div class="price"><span class="rent_title">Rent</span>₹{{
+                                    (space.other_detail.area_for_lease_in_sq_ft *
+                                    space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
+                            </div>
+                        </div>
+                        <!-- <div class="amenities_card">
                             <p class="capacity">
                                 <img lazyLoad="assets/images/amenities/wifi.svg"
                                     alt="wifi"> High speed WiFi
@@ -549,14 +604,22 @@
                             <p class="capacity"><img alt="Flexible Lease"
                                     class="img-fluid"
                                     lazyLoad="assets/images/icons/flexible-lease-icon.svg"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="property-foot align-items-end">
+                    <!-- <div class="property-foot align-items-end">
                         <div class="price"><span class="rent_title">Rent</span>₹{{
                             (space.other_detail.area_for_lease_in_sq_ft *
                             space.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span> month</span></div>
                         <div class="button"><a (click)="goToLink(space?.slug)"
                                 tabindex="0">Explore More</a></div>
+                    </div> -->
+                    <div class="property-foot align-items-end">
+                        <div class="button">
+                            <a  (click)="goToLink(space?.slug)" target="_blank" tabindex="0">Explore More</a>
+                        </div>
+                        <div class="button">
+                            <a type="button" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        </div>
                     </div>
                 </div>
             </div>
