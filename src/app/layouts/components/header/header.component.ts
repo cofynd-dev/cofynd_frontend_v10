@@ -33,7 +33,6 @@ declare let ga: any;
   styleUrls: ['./header.component.scss'],
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
 })
-
 export class HeaderComponent implements AfterViewInit {
   virtualOfficeCities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   userNameInitial: string;
@@ -96,6 +95,7 @@ export class HeaderComponent implements AfterViewInit {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.getCitiesForOfficeSpace();
+    this.getVirtualOfficeCities();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -142,6 +142,12 @@ export class HeaderComponent implements AfterViewInit {
       this.countries = res.data.filter(city => city.for_coWorking === true);
       this.colivingCountries = res.data.filter(city => city.for_coLiving === true);
       this.OnCountryClick('6231ae062a52af3ddaa73a39');
+    });
+  }
+
+  getVirtualOfficeCities() {
+    this.workSpaceService.getCityForVirtualOffice('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.virtualOfficeCities = res.data;
     });
   }
 
@@ -476,5 +482,3 @@ export class HeaderComponent implements AfterViewInit {
     );
   }
 }
-
-
