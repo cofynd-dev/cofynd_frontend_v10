@@ -116,7 +116,7 @@
             <div class="row" *ngIf="!loading">
                 <ng-container *ngFor="let coLiving of coLivings; let i = index">
                     <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
-                        <app-co-living-card [coLiving]="coLiving"></app-co-living-card>
+                        <app-co-living-card [coLiving]="coLiving" [carouselId]="'propertyCarousel_' + i"></app-co-living-card>
                     </div>
                     <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">

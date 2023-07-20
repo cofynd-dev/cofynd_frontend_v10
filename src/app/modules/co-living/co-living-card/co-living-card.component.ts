@@ -21,6 +21,7 @@ interface ImageGallery {
 export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @Input() coLiving: CoLiving;
   @Input() loading: boolean;
+  @Input() carouselId: string;
   isMobileResolution: boolean;
   activeSliderItem: number;
 
@@ -67,6 +68,10 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     }
   }
 
+  // generateCarouselId(index: number): string {
+  //   return 'propertyCarousel' + index;
+  // }
+
   getFloorSuffix(floor: number) {
     return !isNaN(floor) ? intToOrdinalNumberString(floor) : floor;
   }
@@ -88,5 +93,12 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
+  }
+
+  activeSlide = 0;
+
+  nextSlide() {
+    // Increment the activeSlide to show the next slide
+    this.activeSlide = (this.activeSlide + 1) % this.coLiving.images.length;
   }
 }

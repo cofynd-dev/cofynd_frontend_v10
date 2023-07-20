@@ -3599,7 +3599,7 @@ h3.site_title {
 // .enquiry_section .form-section .row .col-sm-6, .enquiry_section .form-section .row .col-sm-12 {
 // 	padding: 0px 5px;
 // }
-.enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container {
+.enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container, .office_card_popup .form-section .form .ng-select-container {
     height: 45px;
     border: none;
     border-radius: 10px;
@@ -3608,6 +3608,18 @@ h3.site_title {
     font-weight: 400;
     background-color: #fff !important;
 }
+
+.office_card_popup .ng-select span.ng-value-label {
+    top: 12px !important;
+    left: 10px;
+}
+// .ng-select .ng-select-container {
+// 	border-radius: 4px;
+// 	min-height: 45px;
+// 	box-shadow: none;
+// 	text-transform: capitalize;
+// 	border: none;
+// }
 
 .form .form-check {
     margin: 15px 0px;
@@ -3849,13 +3861,13 @@ h3.site_title {
 	width: 16px;
 }
 
-.property_item .property-img .item {
-    height: 200px;
+.property_item .property-img .item, .property_item .property-img .carousel-inner {
+    height: 250px;
     width: 100%;
 }
 
 .property_item .property-img img {
-    height: 200px !important;
+    height: 250px !important;
     object-fit: cover;
     width: 100% !important;
     transition: all 0.5s !important;
@@ -3885,26 +3897,25 @@ h3.site_title {
     // border-radius: 20px;
 }
 
-.listing_card .carousel-arrow {
+.listing_card .carousel-arrow, .property_item .carousel-control-next, .property_item .carousel-control-prev {
     position: absolute;
     top: 50%;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
     color: #888;
     font-size: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
     background-color: rgba(255, 255, 255, .9);
     width: 28px;
     height: 28px;
-    margin-top: -14px;
     border-radius: 100%;
     z-index: 1;
+    opacity: 1;
 }
 
-.listing_card .carousel-arrow.icon-back {
+.listing_card .carousel-arrow.icon-back, .property_item .carousel-control-prev {
     left: 10px;
 }
 
-.listing_card .carousel-arrow.icon-next {
+.listing_card .carousel-arrow.icon-next, .property_item .carousel-control-next {
     right: 10px;
 }
 
@@ -7855,6 +7866,28 @@ select.form-control{
     height: 350px;
     object-fit: cover;
 }
+.property_item .property-img .carousel-indicators {
+	bottom: 6px;
+}
+.property_item .property-img .carousel-indicators li {
+	box-sizing: content-box;
+	-webkit-box-flex: 0;
+	flex: 0 1 auto;
+	text-indent: -999px;
+	cursor: pointer;
+	opacity: .5;
+	display: inline-block;
+	border-radius: 50%;
+	border: none;
+	margin: 0 2px;
+	transition: none;
+	background: #fff;
+	width: 6px;
+	height: 6px;
+}
+.property_item .property-img .carousel-indicators .active {
+	opacity: 1;
+}
 
 
 @media (max-width:991px) {
@@ -10720,14 +10753,19 @@ select.form-control{
         padding: 8px !important;
         border-radius: 10px;
     }
-    .property_item .property-img {
+    .property_item .property-img, .property_item .property-img .carousel-inner {
         height: 130px;
         margin-bottom: 5px;
         border-radius: 10px;
     }
+    // .property_item .property-img .item, .property_item .property-img .carousel-inner {
+    //     height: 130px;
+    //     width: 100%;
+    // }
     .property_item .property-img img {
         height: 130px !important;
     }
+    
     .property_item .property-dis h4 {
         font-size: 13px;
         line-height: 18px;
