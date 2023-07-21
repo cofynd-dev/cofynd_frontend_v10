@@ -1,10 +1,6 @@
 <div class="property_item listing_card">
     <div class="property-img">
         <div *ngIf="coLiving.images.length" [attr.id]="carouselId" class="carousel slide" data-ride="carousel" data-interval="false">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li *ngFor="let image of coLiving.images | slice:0:5; let i = index" [attr.data-target]="'#' + carouselId" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
-            </ol>
         
             <!-- Slides -->
             <div class="carousel-inner">
@@ -12,6 +8,11 @@
                     <img [lazyLoad]="image?.image?.s3_link" class="d-block w-100" [src]="image?.image?.s3_link" [alt]="image?.image?.alt ? image?.image?.alt : ''">
                 </div>
             </div>
+            
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li *ngFor="let image of coLiving.images | slice:0:5; let i = index" [attr.data-target]="'#' + carouselId" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+            </ol>
         
             <!-- Controls -->
             <a class="carousel-control-prev hideOnMobile" [attr.href]="'#' + carouselId" role="button" data-slide="prev">

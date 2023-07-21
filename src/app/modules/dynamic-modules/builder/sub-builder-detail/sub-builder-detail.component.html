@@ -188,18 +188,13 @@
                     </div>
                 </div>
 
-                <hr class="divider_line" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
+                <!-- <hr class="divider_line" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.overview?.project_type === 'residential' && SubBuilder?.plans.length > 0">
                     <div class="col-md-12">
                         <h3>{{SubBuilder?.name}} Configuration</h3>
                     </div>
                     <div class="col-md-12">
-                        <!-- <div class="tab_area">
-                            <div class="tab_item active"><button>Rent</button></div>
-                            <div class="tab_item"><button>Sale</button></div>
-                        </div> -->
-
                         <div class="configuration_list">
                             <div class="configuration_item" *ngFor="let plan of SubBuilder?.plans">
                                 <div class="configuration_head">
@@ -218,13 +213,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
+                <!-- <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type !== 'both'">
                     <div class="col-md-12">
-                        <h3>Floor Plans {{SubBuilder?.name}}</h3>
+                        <h3>{{SubBuilder?.name}} Floor Plans</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="tab_area">
@@ -259,11 +254,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && residentailPlans.length > 0">
+                <!-- <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && residentailPlans.length > 0">
                     <div class="col-md-12">
-                        <h3>Residential Floor Plans {{SubBuilder?.name}}</h3>
+                        <h3>{{SubBuilder?.name}} Residential Floor Plans</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="tab_area">
@@ -298,13 +293,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
+                <!-- <hr class="divider_line" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
 
                 <div class="row floor-plan" *ngIf="SubBuilder?.plans.length > 0 && SubBuilder?.overview?.project_type == 'both' && commercialPlans.length > 0">
                     <div class="col-md-12">
-                        <h3>Commercial Floor Plans {{SubBuilder?.name}}</h3>
+                        <h3>{{SubBuilder?.name}} Commercial Floor Plans</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="tab_area">
@@ -339,13 +334,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <hr class="divider_line">
 
                 <div class="row map-location">
                     <div class="col-md-12">
-                        <h2>Location of {{SubBuilder?.name}}</h2>
+                        <h2>{{SubBuilder?.name}} Location</h2>
                         <p class="location-icon" *ngIf="SubBuilder">
                             <img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ SubBuilder.location.address }}
                         </p>
