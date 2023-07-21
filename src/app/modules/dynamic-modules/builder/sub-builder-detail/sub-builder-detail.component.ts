@@ -15,7 +15,7 @@ import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
 import { SubBuilderService } from '../subbuilder.service';
 import { BuilderService } from '../builder.services';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
