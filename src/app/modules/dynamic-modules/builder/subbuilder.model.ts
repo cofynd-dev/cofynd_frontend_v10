@@ -42,6 +42,10 @@ export class Overview {
   project_type: string;
   project_size: string;
   apartment_design: string;
+  is_sale: boolean;
+  is_rent: boolean;
+  is_rera_approved: boolean;
+  is_zero_brokerage: boolean;
 }
 
 export class Plans {
