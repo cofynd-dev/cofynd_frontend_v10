@@ -20,7 +20,6 @@ import { AuthType } from '@app/core/enum/auth-type.enum';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 declare var $: any;
 declare let ga: any;
 
@@ -57,6 +56,8 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() city: string;
   @Input() locality: string;
   @Input() forAll: boolean = true;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
   loading: boolean;
   isMobileResolution: boolean;
   activeSliderItem: number;
@@ -78,8 +79,6 @@ export class SearchCardComponent implements AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
-  activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -127,7 +126,6 @@ export class SearchCardComponent implements AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
   ) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
     this.activeSliderItem = 0;
@@ -144,10 +142,10 @@ export class SearchCardComponent implements AfterViewInit {
     var parts = url;
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.selectedCountry = this.activeCountries[0];
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -171,20 +169,6 @@ export class SearchCardComponent implements AfterViewInit {
     localStorage.setItem('property_url', `https://cofynd.com/coworking/${slug}`);
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
@@ -203,7 +187,7 @@ export class SearchCardComponent implements AfterViewInit {
       otp: [''],
       mx_Page_Url: ['City Page'],
     };
-    form['mx_Space_Type'] = ['Web Office Space'];
+    form['mx_Space_Type'] = ['Web Coliving'];
     form['mx_Move_In_Date'] = [null, Validators.required];
     form['no_of_person'] = [null, Validators.required];
     form['interested_in'] = [null, Validators.required];

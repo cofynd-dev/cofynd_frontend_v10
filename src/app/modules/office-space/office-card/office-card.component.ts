@@ -55,6 +55,8 @@ interface ImageGallery {
 export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
   isMobileResolution: boolean;
   activeSliderItem: number;
   @ViewChild('myModal', { static: false }) myModal: ElementRef;
@@ -76,8 +78,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   spaceName: string;
   pageName: string;
   city: string;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -139,10 +139,10 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
     var parts = url;
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.selectedCountry = this.activeCountries[0];
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -164,20 +164,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
 
   getQuote(slug: any) {
     localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${slug}`);
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

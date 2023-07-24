@@ -60,11 +60,10 @@
             <a (click)="openWorkSpace(coLiving.slug)" target="_blank" tabindex="0">Explore More</a>
         </div>
         <div class="button">
-            <a type="button"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+            <a type="button" (click)="getQuote(coLiving.slug)"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
         </div>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade office_card_popup"
@@ -91,7 +90,7 @@
                                 aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
-                        <!-- <form class="form"
+                        <form class="form"
                             [formGroup]="enquiryForm"
                             (ngSubmit)="onSubmit()">
                             <div class="row">
@@ -194,7 +193,7 @@
                                         <ng-select placeholder="Type" appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficePlans"
+                                            [items]="coLivingPlans"
                                             bindLabel="label"
                                             bindValue="value"
                                             formControlName="interested_in">
@@ -208,7 +207,7 @@
                                         <ng-select placeholder="Budget" appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficeBudgets"
+                                            [items]="Budgets"
                                             bindLabel="label"
                                             bindValue="value"
                                             formControlName="mx_BudgetPrice">
@@ -239,7 +238,7 @@
                                         class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
                                 </div>
                             </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>

@@ -21,13 +21,13 @@ export enum ENQUIRY_STEPS {
 export class SearchContactUsText2Component implements OnInit {
   @Input() pageNo: any;
   @Input() microlocation: any;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   pageUrl: string;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   resendDisabled = false;
@@ -54,7 +54,6 @@ export class SearchContactUsText2Component implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   submitted = false;
@@ -66,6 +65,7 @@ export class SearchContactUsText2Component implements OnInit {
   finalCities: any = [];
 
   ngOnInit() {
+    this.selectedCountry = this.activeCountries[0];
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
@@ -89,20 +89,6 @@ export class SearchContactUsText2Component implements OnInit {
 
   get mobno() {
     return this.enterpriseFormGroup.controls;
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

@@ -1,32 +1,55 @@
-<div class="similar-workspaces" *ngIf="!loading && workSpaces.length">
-    <ngu-carousel #similarCarousel [inputs]="carouselConfig" [dataSource]="workSpaces" (onMove)="onSliderMove($event)">
-        <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
+<div class="similar-workspaces"
+    *ngIf="!loading && workSpaces.length">
+    <ngu-carousel #similarCarousel
+        [inputs]="carouselConfig"
+        [dataSource]="workSpaces"
+        (onMove)="onSliderMove($event)">
+        <div *nguCarouselDef="let office;let i = index;"
+            class="item"
+            [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
 
-            <div class="property_item property_item2" style="cursor: pointer;">
+            <div class="property_item property_item2"
+                style="cursor: pointer;">
                 <div class="property-img">
-                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link"
+                        alt=""
+                        class="img-fluid">
                 </div>
 
-                <div class="property-dis" [routerLink]="['/co-living/', office.slug]" style="cursor: pointer;">
+                <div class="property-dis"
+                    [routerLink]="['/co-living/', office.slug]"
+                    style="cursor: pointer;">
                     <h4>{{ office.name }}</h4>
-                    <p class="address"><img [lazyLoad]="'assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ office.location.address }}</p>
+                    <p class="address"><img [lazyLoad]="'assets/images/icons/location-icon.svg'"
+                            alt=""
+                            class="img-fluid"> {{ office.location.address }}</p>
                     <div class="row align-items-end">
                         <div class="col-md-7 col-7">
-                            <p class="capacity"><img class="img-fluid" alt="" [lazyLoad]="'assets/images/amenities/save-money.svg'"> Best Price</p>
-                    <p class="capacity light_blue"><img class="img-fluid" alt="" [lazyLoad]="'assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
+                            <p class="capacity"><img class="img-fluid"
+                                    alt=""
+                                    [lazyLoad]="'assets/images/amenities/save-money.svg'"> Best Price</p>
+                            <p class="capacity light_blue"><img class="img-fluid"
+                                    alt=""
+                                    [lazyLoad]="'assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
                         </div>
                         <div class="col-md-5 col-5 justify-content-end d-flex">
-                            <div class="price"><span class="rent_title">Starting from</span>₹{{office.starting_price}}<span>/ month</span></div>
+                            <div class="price"><span class="rent_title">Starting
+                                    from</span>₹{{office.starting_price}}<span>/ month</span></div>
                         </div>
                     </div>
                 </div>
-                    
+
                 <div class="property-foot align-items-end">
                     <div class="button">
-                        <a [routerLink]="['/co-living/', office.slug]" target="_blank" tabindex="0">Explore More</a>
+                        <a [routerLink]="['/co-living/', office.slug]"
+                            target="_blank"
+                            tabindex="0">Explore More</a>
                     </div>
                     <div class="button">
-                        <a type="button"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        <a type="button"
+                            (click)="getQuote(office)"
+                            data-toggle="modal"
+                            data-target="#exampleModal">Get Quote</a>
                     </div>
                 </div>
 
@@ -46,10 +69,16 @@
 
     </ngu-carousel>
 
-    <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left">
-  </button>
-    <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right">
-  </button>
+    <button type="button"
+        (click)="goToPrev()"
+        [disabled]="similarCarousel.isFirst"
+        class="carousel-arrow icon-back fas fa-angle-left">
+    </button>
+    <button type="button"
+        (click)="goToNext()"
+        [disabled]="similarCarousel.isLast"
+        class="carousel-arrow icon-next fas fa-angle-right">
+    </button>
 </div>
 
 <!-- Modal -->
@@ -77,7 +106,7 @@
                                 aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
-                        <!-- <form class="form"
+                        <form class="form"
                             [formGroup]="enquiryForm"
                             (ngSubmit)="onSubmit()">
                             <div class="row">
@@ -177,10 +206,11 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <ng-select placeholder="Type" appendTo="body"
+                                        <ng-select placeholder="Type"
+                                            appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficePlans"
+                                            [items]="coLivingPlans"
                                             bindLabel="label"
                                             bindValue="value"
                                             formControlName="interested_in">
@@ -191,10 +221,11 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <ng-select placeholder="Budget" appendTo="body"
+                                        <ng-select placeholder="Budget"
+                                            appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficeBudgets"
+                                            [items]="Budgets"
                                             bindLabel="label"
                                             bindValue="value"
                                             formControlName="mx_BudgetPrice">
@@ -208,7 +239,8 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <ng-select placeholder="Move In" appendTo="body"
+                                        <ng-select placeholder="Move In"
+                                            appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
                                             [items]="MoveIn"
@@ -225,18 +257,13 @@
                                         class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
                                 </div>
                             </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
 
 <!-- <section class="near-vitual-office best-vitual-office onlyMobile" *ngIf="!loading && workSpaces.length">
     <div class="container">

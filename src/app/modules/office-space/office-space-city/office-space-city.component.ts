@@ -20,6 +20,7 @@ import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-office-space-city',
@@ -60,6 +61,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   filterValue: any;
   selectedValue: any = 'Select Price';
   selectedOption: any = 'SortBy';
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -71,6 +74,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
+    private workSpaceService: WorkSpaceService,
   ) {
     // Handle header position on scroll
     this.configService.updateConfig({ headerClass: 'search-listing' });
@@ -81,6 +85,7 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     this.officeType = localStorage.getItem('officeType');
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       if (this.activatedRoute.snapshot.url && this.activatedRoute.snapshot.url.length) {
@@ -130,6 +135,19 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     //     this.setHeaderScript(scrt);
     //   }
     // }
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   sortByHighLow(sortByLowToHigh) {
