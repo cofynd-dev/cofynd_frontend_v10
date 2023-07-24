@@ -1,4 +1,4 @@
-<div class="property_item listing_card">
+<div class="property_item property_item2 listing_card">
     <div *ngIf="workspace.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
             <div *nguCarouselDef="let images; let i = index;" class="item" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
@@ -7,43 +7,226 @@
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
             <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
             <ul class="myPoint onlyMobile" NguCarouselPoint>
-                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+                <li *ngFor="let j of imageGalleryCarousel.pointNumbers | slice:0:5; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
             </ul>
         </ngu-carousel>
     </div>
     <div class="image" *ngIf="!workspace.images.length"></div>
-    <!-- <app-favorite-button class="btn-favorite" [isFavorite]="workspace.is_favorite" [loading]="loading" (addedToFavoriteChange)="markAsFavorite(workspace.is_favorite)">
-    </app-favorite-button> -->
-    <div class="space_details" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
-        <div class="property-dis">
-            <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
-            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
-            <p class="capacity"><img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
-            <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
+    <div class="property-dis" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
+        <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
+        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
+        <div class="row align-items-end">
+            <div class="col-md-6 col-6">
+                <p class="capacity"><img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
+                <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
+            </div>
+            <div class="col-md-6 col-6 justify-content-end d-flex">
+                <div *ngIf="workspace.show_price" class="price">
+                    <ng-template [ngIf]="forAll">
+                        <span class="rent_title">Starting from</span>
+                        <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }} <span>/ {{ workspace.price_type }}</span></div>
+                        <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span> / {{ workspace.price_type }}</span></div>
+                    </ng-template>
+                    <ng-template [ngIf]="!forAll">
+                        <span class="rent_title">Starting from</span>
+                        <ng-container *ngFor="let item of workspace?.plans">
+                            <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
+                                <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }} <span>/ {{item?.duration }}</span>
+                            </div>
+                        </ng-container>
+                    </ng-template>
+                </div>
+            </div>
         </div>
-        <div class="property-foot align-items-end">
-            <div *ngIf="workspace.show_price" class="price">
-                <ng-template [ngIf]="forAll">
-                    <span class="rent_title">Starting from</span>
-                    <div *ngIf="!workspace.currency_code"><i class="icon-rupee"></i>{{ workspace.starting_price }} <span>/ {{ workspace.price_type }}</span></div>
-                    <div *ngIf="workspace.currency_code">{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}}<span> / {{ workspace.price_type }}</span></div>
-                </ng-template>
-                <ng-template [ngIf]="!forAll">
-                    <span class="rent_title">Starting from</span>
-                    <ng-container *ngFor="let item of workspace?.plans">
-                        <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
-                            <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }} <span>/ {{item?.duration }}</span>
+    </div>
+        
+    <div class="property-foot align-items-end">
+        <div class="button">
+            <a (click)="openWorkSpace(workspace)" target="_blank" tabindex="0">Explore More</a>
+        </div>
+        <div class="button">
+            <a type="button" (click)="getQuote(office.slug)" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade office_card_popup"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    #myModal>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body"
+                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                <div class="enquire-box">
+                    <div class="form-section enquire-box-content">
+                        <div class="title">
+                            <h4 class="heading">
+                                <button type="button"
+                                    class="fas fa-close"></button> Yes, I'm Interested!
+                            </h4>
+                            <p>Know More About this property</p>
+
+                            <button type="button"
+                                data-dismiss="modal"
+                                aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
-                    </ng-container>
-                </ng-template>
+
+                        <!-- <form class="form"
+                            [formGroup]="enquiryForm"
+                            (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="name"
+                                            placeholder="Name*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.name">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                            type="text"
+                                            formControlName="email"
+                                            placeholder="Email*"
+                                            appMaterialInput />
+                                        <app-input-validation [control]="enquiryForm.controls.email">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 country_phone">
+                                    <div class="form-group city_card_phone">
+                                        <div class="flag-container">
+                                            <div (click)="showcountry = !showcountry"
+                                                class="selected-flag">
+                                                <div class="flag in"
+                                                    *ngIf="activeCountries.length">
+                                                    <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                                                    <span class="arrow arrow-up"><i
+                                                            class="fa-solid fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                            <ul *ngIf="showcountry"
+                                                class="country-list">
+                                                <li (click)="hideCountry(country)"
+                                                    class="country active"
+                                                    tabindex="-1"
+                                                    *ngFor="let country of activeCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                                width="18px" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{country?.name}}</span>
+                                                    <span class="dial-code">{{country?.dial_code}}</span>
+                                                </li>
+
+                                                <li class="divider"></li>
+
+                                                <li (click)="hideCountry(inactive)"
+                                                    class="country selected"
+                                                    *ngFor="let inactive of inActiveCountries">
+                                                    <div class="flag-box">
+                                                        <div class="flag af"><img
+                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                    </div>
+                                                    <span class="country-name">{{inactive?.name}}</span>
+                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
+                                                </li>
+                                            </ul>
+                                            <input class="form-control"
+                                                maxlength="10"
+                                                type="text"
+                                                formControlName="phone_number"
+                                                placeholder="Phone*"
+                                                appMaterialInput />
+                                        </div>
+                                        <app-input-validation [control]="enquiryForm.controls.phone_number">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group otp-form"
+                                *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                <input class="form-control"
+                                    placeholder="Enter Otp"
+                                    type="password"
+                                    formControlName="otp"
+                                    appMaterialInput
+                                    autofocus />
+                                <app-input-validation [control]="enquiryForm.controls.otp">
+                                </app-input-validation>
+                                <button [disabled]="resendDisabled"
+                                    (click)="resendOTP()"
+                                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Type" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficePlans"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="interested_in">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.interested_in">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Budget" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="OfficeBudgets"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_BudgetPrice">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <ng-select placeholder="Move In" appendTo="body"
+                                            [clearable]="true"
+                                            [searchable]="false"
+                                            [items]="MoveIn"
+                                            bindLabel="label"
+                                            bindValue="value"
+                                            formControlName="mx_Move_In_Date">
+                                        </ng-select>
+                                        <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                                        </app-input-validation>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit"
+                                        class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+                                </div>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
             </div>
-            <div *ngIf="!workspace.show_price" class="price">
-                <span class="rent_title">Starting from</span> on request
-            </div>
-            <!-- <ng-template [ngIf]="forAll">
-                    <span class="rent_title">Starting from</span>₹{{ workspace.plans[workspace.plans.length - 1].price.toLocaleString('en-IN') }}/- <span class="rent_duration">{{workspace.plans[workspace.plans.length - 1].duration }}</span>
-                </ng-template></div> -->
-            <div class="button"><a>Explore More</a></div>
         </div>
     </div>
 </div>
