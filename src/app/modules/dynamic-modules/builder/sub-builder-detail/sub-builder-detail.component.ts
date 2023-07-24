@@ -65,6 +65,7 @@ export class SubBuilderDetailComponent implements OnInit {
   planId: any;
   floorPlan: any = [];
   builderLogoUrl: string;
+  isMobileResolution: boolean;
   builderId: any;
   residentailPlans: any = [];
   commercialPlans: any = [];
@@ -158,7 +159,13 @@ export class SubBuilderDetailComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
 
   getMorePropertiesByBuilder(param) {
     this.builderService.getBuilderComResiProjects(sanitizeParams(param)).subscribe((allCommProjects: any) => {

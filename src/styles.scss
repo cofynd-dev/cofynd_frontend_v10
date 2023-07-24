@@ -6864,10 +6864,11 @@ h3.site_title {
 .office_card_popup .modal-content .modal-body {
 	padding: 30px 25px;
 	background-size: cover;
+	border-radius: 20px;
 }
 .office_card_popup .modal-content {
 	border-radius: 20px;
-	overflow: hidden;
+	// overflow: hidden;
 	border: 1px solid rgba(0,0,0,0.1);
 }
 .office_card_popup .form-select {
@@ -6907,10 +6908,14 @@ h3.site_title {
 
 .office_card_popup .title button {
 	position: absolute;
-	top: 3px;
-	right: 0px;
-	font-size: 20px;
+	top: -45px;
+	right: -45px;
+	font-size: 24px;
 	z-index: 99 !important;
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	border-radius: 50px;
 }
 
 .about_details .building_experience {
