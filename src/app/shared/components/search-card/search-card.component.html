@@ -2,7 +2,7 @@
     <div *ngIf="workspace.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
             <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
-                <img rel="preload" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
+                <img rel="preload" (click)="openWorkSpace(workspace)" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
             </div>
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
             <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
