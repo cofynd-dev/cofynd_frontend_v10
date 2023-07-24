@@ -25,7 +25,7 @@
             <app-search-similar-location *ngIf="!loading" [relativeUrl]="'office-space/rent'" [cityName]="title" [popularLocationList]="cityWisePopularLocation">
             </app-search-similar-location>
 
-            <section class="for_email_sec">
+            <section class="for_email_sec mobilehide">
                 <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3178e0cd0b21178e626195ffde0edbf7e1947382.png');">
                     <div class="row align-items-center">
                         <div class="col-md-8 col-12">
@@ -122,6 +122,25 @@
                 </div>
 
             </div>
+
+            <section class="for_email_sec desktophide mt-4">
+                <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3178e0cd0b21178e626195ffde0edbf7e1947382.png');">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 col-12">
+                            <div class="for_email_content">
+                                <h3>Find your Office Space with Cofynd</h3>
+                                <p>Send us an email with your Office Space requirements – Area, Team Size, Location, Start Date … and our office space experts will connect back within 24 Hrs with the best options.</p>
+                                <p class="email_id align-items-center"><img [lazyLoad]="'assets/images/icons/email_id.svg'" alt="Email Icon"> hello@cofynd.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mobilehide">
+                            <div class="for_email_img">
+                                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/00e405e2b9a8afc8ac552ea76d1ba5e698ba9b48.png" alt="Email Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <div *ngIf="!loading && offices.length" class="pagination-container">
                 <pagination [totalItems]="totalRecords" [itemsPerPage]="20" [(ngModel)]="page" [maxSize]="maxSize" (pageChanged)="loadMore($event)">
