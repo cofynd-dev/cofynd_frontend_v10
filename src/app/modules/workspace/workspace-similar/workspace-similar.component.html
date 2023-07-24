@@ -30,7 +30,7 @@
                         <a (click)="openDetailsPage(workspace.slug)" target="_blank" tabindex="0">Explore More</a>
                     </div>
                     <div class="button">
-                        <a type="button"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        <a type="button" (click)="getQuote(workspace)" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
                     </div>
                 </div>
 
@@ -55,7 +55,6 @@
     <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left"></button>
     <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right"></button>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade office_card_popup"
@@ -82,7 +81,7 @@
                                 aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
-                        <!-- <form class="form"
+                        <form class="form"
                             [formGroup]="enquiryForm"
                             (ngSubmit)="onSubmit()">
                             <div class="row">
@@ -185,7 +184,7 @@
                                         <ng-select placeholder="Type" appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficePlans"
+                                            [items]="coworkingPlans"
                                             bindLabel="label"
                                             bindValue="value"
                                             formControlName="interested_in">
@@ -196,15 +195,15 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <ng-select placeholder="Budget" appendTo="body"
+                                        <ng-select placeholder="No. of Seats" appendTo="body"
                                             [clearable]="true"
                                             [searchable]="false"
-                                            [items]="OfficeBudgets"
+                                            [items]="coworkingNoOfSeats"
                                             bindLabel="label"
                                             bindValue="value"
-                                            formControlName="mx_BudgetPrice">
+                                            formControlName="no_of_person">
                                         </ng-select>
-                                        <app-input-validation [control]="enquiryForm.controls.mx_BudgetPrice">
+                                        <app-input-validation [control]="enquiryForm.controls.no_of_person">
                                         </app-input-validation>
                                     </div>
                                 </div>
@@ -230,7 +229,7 @@
                                         class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
                                 </div>
                             </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>

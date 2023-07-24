@@ -66,6 +66,8 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   mySubscription: any;
   shouldReloadEnquiryForm: boolean;
   selectedOption: any = 'SortBy';
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -97,6 +99,7 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
     localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
@@ -300,6 +303,19 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   loadWorkSpaces(param: {}) {
