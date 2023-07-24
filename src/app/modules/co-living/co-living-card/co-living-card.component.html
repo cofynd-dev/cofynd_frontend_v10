@@ -1,11 +1,11 @@
 <div class="property_item property_item2 listing_card">
     <div class="property-img">
-        <div *ngIf="coLiving.images.length" [attr.id]="carouselId" class="carousel slide" data-ride="carousel" data-interval="5000" data-touch="true">
+        <div *ngIf="coLiving.images.length" [attr.id]="carouselId" class="carousel slide" data-interval="false" data-touch="true" data-ride="carousel">
         
             <!-- Slides -->
             <div class="carousel-inner">
                 <div *ngFor="let image of coLiving.images; let i = index" class="carousel-item" [class.active]="i === 0" style="cursor: pointer;">
-                    <img [lazyLoad]="image?.image?.s3_link" class="d-block w-100" [src]="image?.image?.s3_link" [alt]="image?.image?.alt ? image?.image?.alt : ''">
+                    <img [lazyLoad]="image?.image?.s3_link" (click)="openWorkSpace(coLiving.slug)" class="d-block w-100" [src]="image?.image?.s3_link" [alt]="image?.image?.alt ? image?.image?.alt : ''">
                 </div>
             </div>
             
