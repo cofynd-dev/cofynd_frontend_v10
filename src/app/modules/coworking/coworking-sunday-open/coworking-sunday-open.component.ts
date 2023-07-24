@@ -43,6 +43,8 @@ export class CoworkingSundayOpenComponent implements OnInit, OnDestroy {
   maxSize = 10;
   totalRecords: number;
   breadcrumbs: BreadCrumb[];
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -63,6 +65,7 @@ export class CoworkingSundayOpenComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -77,6 +80,19 @@ export class CoworkingSundayOpenComponent implements OnInit, OnDestroy {
         this.loadWorkSpaces(this.queryParams);
         this.addSeoTags();
       });
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   createBreadcrumb() {
