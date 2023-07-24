@@ -1,7 +1,7 @@
 <div class="property_item property_item2 listing_card">
     <div *ngIf="workspace.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
-            <div *nguCarouselDef="let images; let i = index;" class="item" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
+            <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
                 <img rel="preload" as="image" [lazyLoad]="images.image.s3_link" style="display: block; height: 100%; width: 100%;" [alt]="images.image.alt ? images.image.alt : ''">
             </div>
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
