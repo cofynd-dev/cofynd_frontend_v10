@@ -57,6 +57,8 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
   selectedOption: any = 'SortBy';
   footerScriptAdded = false;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(DOCUMENT) private _document: Document,
@@ -78,6 +80,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
@@ -130,6 +133,19 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     if (this.subTitle == 'goregaon') {
       this.setHeaderScript();
     }
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   routeToMicro(item) {

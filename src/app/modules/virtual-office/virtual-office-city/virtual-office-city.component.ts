@@ -54,6 +54,8 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadCrumb[];
   IMAGE_STATIC_ALT = [];
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -76,6 +78,7 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -116,11 +119,19 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         this.createBreadcrumb();
         this.loadWorkSpaces(this.queryParams);
       });
-    // if (this.title) {
-    //   for (let scrt of script.virtualOffice[this.title]) {
-    //     this.setHeaderScript(scrt);
-    //   }
-    // }
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   createBreadcrumb() {

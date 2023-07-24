@@ -47,6 +47,8 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
   totalRecords: number;
   urlPath: string[] = [];
   selectedCity: string;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -65,7 +67,22 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
     this.urlChangeCall();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
+  }
 
   createBreadcrumb() {
     if (this.urlPath.length > 1 && !this.isColiving) {

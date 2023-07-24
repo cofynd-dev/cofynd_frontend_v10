@@ -50,6 +50,8 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   countryId: any;
   noDataRouteUrl: string;
   number_record: number = 20;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -70,6 +72,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -105,11 +108,19 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           });
         });
       });
-    // if (this.title) {
-    //   for (let scrt of script.coliving[this.title]) {
-    //     this.setHeaderScript(scrt);
-    //   }
-    // }
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   createBreadcrumb() {
