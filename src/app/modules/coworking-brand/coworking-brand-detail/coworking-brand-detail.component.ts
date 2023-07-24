@@ -18,7 +18,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-coworking-brand-detail',
   templateUrl: './coworking-brand-detail.component.html',
-  styleUrls: ['./coworking-brand-detail.component.scss']
+  styleUrls: ['./coworking-brand-detail.component.scss'],
 })
 export class CoworkingBrandDetailComponent implements OnInit {
   loading: boolean;
@@ -49,7 +49,8 @@ export class CoworkingBrandDetailComponent implements OnInit {
   urlPath: string[] = [];
   selectedCity: string;
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
-
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -68,7 +69,22 @@ export class CoworkingBrandDetailComponent implements OnInit {
     this.urlChangeCall();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
+  }
 
   createBreadcrumb() {
     if (this.urlPath.length > 1 && !this.isColiving) {
@@ -288,7 +304,9 @@ export class CoworkingBrandDetailComponent implements OnInit {
 
   setWorkspaceDetail(allWorkSpaces) {
     this.workSpaces = allWorkSpaces.data;
-    this.workSpaces = this.workSpaces.filter((item: any) => { return item.location.country == '6231ae062a52af3ddaa73a39' })
+    this.workSpaces = this.workSpaces.filter((item: any) => {
+      return item.location.country == '6231ae062a52af3ddaa73a39';
+    });
     this.totalRecords = allWorkSpaces.totalRecords;
     if (this.workSpaces.length) {
       this.brand = this.workSpaces[0].brand;
@@ -309,7 +327,6 @@ export class CoworkingBrandDetailComponent implements OnInit {
       }
     } else {
       this.addSeoTags();
-
     }
     this.createBreadcrumb();
     this.count = this.workSpaces.length;
@@ -328,5 +345,4 @@ export class CoworkingBrandDetailComponent implements OnInit {
   //   this.pageScrollSubject.next();
   //   this.pageScrollSubject.complete();
   // }
-
 }

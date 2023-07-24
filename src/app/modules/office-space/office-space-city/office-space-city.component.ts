@@ -130,11 +130,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.addSeoTags('rent');
       }
     });
-    // if (this.title) {
-    //   for (let scrt of script.officespace[this.title]) {
-    //     this.setHeaderScript(scrt);
-    //   }
-    // }
   }
 
   getCountries() {

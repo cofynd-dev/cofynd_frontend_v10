@@ -18,6 +18,7 @@ import { PriceFilter } from '@app/core/models/workspace.model';
 import { script } from '@app/core/config/script';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-co-living-locality',
@@ -58,6 +59,8 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   filterValue: any;
   selectedValue: any = 'Select Price';
   selectedOption: any = 'SortBy';
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -69,6 +72,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
+    private workSpaceService: WorkSpaceService,
   ) {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
@@ -77,6 +81,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     this.featuredColiving = localStorage.getItem('featuredColiving');
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
@@ -143,6 +148,19 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           }
         }
       });
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   createBreadcrumb() {

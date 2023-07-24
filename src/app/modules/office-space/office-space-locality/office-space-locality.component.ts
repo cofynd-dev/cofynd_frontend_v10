@@ -20,9 +20,9 @@ import {
   SizeFilter as SizeFilterData,
   TypeFilter,
 } from '@app/core/config/office-filter-data';
-import { Location } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-office-space-locality',
@@ -61,18 +61,20 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
   sizeFilter = SizeFilterData;
   typeFilter = TypeFilter;
   selectedOption: any = 'SortBy';
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
     private _renderer2: Renderer2,
     private officeSpaceService: OfficeSpaceService,
-    private location: Location,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
+    private workSpaceService: WorkSpaceService,
   ) {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
@@ -81,6 +83,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -122,6 +125,19 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
         this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
         this.addSeoTags(results.routeParams[1].path.toLowerCase());
       });
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
+    });
   }
 
   sortByHighLow(sortByLowToHigh) {

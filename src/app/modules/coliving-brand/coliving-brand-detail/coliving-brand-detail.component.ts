@@ -18,7 +18,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-coliving-brand-detail',
   templateUrl: './coliving-brand-detail.component.html',
-  styleUrls: ['./coliving-brand-detail.component.scss']
+  styleUrls: ['./coliving-brand-detail.component.scss'],
 })
 export class ColivingBrandDetailComponent implements OnInit {
   loading: boolean;
@@ -47,9 +47,11 @@ export class ColivingBrandDetailComponent implements OnInit {
   urlPath: string[] = [];
   selectedCity: string;
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
+  activeCountries: any = [];
+  inActiveCountries: any = [];
 
-
-  constructor(@Inject(PLATFORM_ID) private platformId: any,
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
     private coLivingService: CoLivingService,
@@ -57,12 +59,14 @@ export class ColivingBrandDetailComponent implements OnInit {
     private seoService: SeoService,
     private brandService: BrandService,
     private router: Router,
-    private el: ElementRef,) {
+    private el: ElementRef,
+  ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
   }
 
   ngOnInit() {
     this.getQueryParam();
+    this.getCountries();
   }
 
   getQueryParam() {
@@ -74,6 +78,19 @@ export class ColivingBrandDetailComponent implements OnInit {
       }
       this.loadWorkSpaceByBrand(this.brandSlug, this.queryParams);
       this.page = params['page'] ? +params['page'] : 1;
+    });
+  }
+
+  getCountries() {
+    this.workSpaceService.getCountry({}).subscribe((res: any) => {
+      if (res.data) {
+        this.activeCountries = res.data.filter(v => {
+          return v.for_coWorking === true;
+        });
+        this.inActiveCountries = res.data.filter(v => {
+          return v.for_coWorking == false;
+        });
+      }
     });
   }
 
@@ -226,5 +243,4 @@ export class ColivingBrandDetailComponent implements OnInit {
     this.pageScrollSubject.next();
     this.pageScrollSubject.complete();
   }
-
 }
