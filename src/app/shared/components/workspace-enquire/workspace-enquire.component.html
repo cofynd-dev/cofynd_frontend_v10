@@ -12,19 +12,8 @@
             <p class="light_blue">Minimum stay 3 months</p>
         </div>
 
-        <!-- <div *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS" class="success-box">
-            <app-check-mark-circle></app-check-mark-circle>
-            <h6>Hi! {{ user.name }}</h6>
-            <h3>Thank You for Your Query</h3>
-            <p>Your request has been initiated and a Cofynd executive will contact you shortly for further details.</p>
-            <a href="/coworking">Search More Spaces</a>
-        </div> -->
-
         <form *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY || ENQUIRY_STEP === ENQUIRY_STEPS.OTP" class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
-
             <div class="row" [class.disabled]="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-
-
                 <div class="col-md-12">
                     <div class="form-group">
                         <input class="form-control" type="text" formControlName="name" placeholder="Name*" appMaterialInput />
@@ -32,7 +21,6 @@
                         </app-input-validation>
                     </div>
                 </div>
-
                 <div class="col-md-12">
                     <div class="form-group">
                         <input class="form-control" type="text" formControlName="email" placeholder="Email*" appMaterialInput />
@@ -46,7 +34,6 @@
                         <div class="flag-container">
                             <div (click)="showcountry = !showcountry" class="selected-flag">
                                 <div class="flag in" *ngIf="activeCountries.length">
-                                    <!-- <img [lazyLoad]="selectedCountry?.image?.s3_link" width="18px" /> -->
                                     <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                     <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                 </div>
@@ -169,7 +156,6 @@
             </div>
             <div class="contact-info">
                 <p class="heading">Get in Touch</p>
-                <!-- <a *ngIf="phoneflag" class="phone_text" [href]="'tel:' + supportPhone.phone">{{ supportPhone.phone }}</a> -->
                 <p style="text-transform: none;" class="email_text" *ngIf="!phoneflag" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ supportPhone.email }}
                 </p>
                 <p *ngIf="phoneflag" style="text-transform: none;" class="email_text" [appCustomEventAnalytics]='{"category":"INITIATED_EMAIL","action":"click", "label": "OPEN_EMAIL"}'>{{ forNoColiving.email }}

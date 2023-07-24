@@ -55,6 +55,8 @@ interface ImageGallery {
 export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
   isMobileResolution: boolean;
   activeSliderItem: number;
   @ViewChild('myModal', { static: false }) myModal: ElementRef;
@@ -63,21 +65,19 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 600,
+    speed: 700, // Increase for slower slide transition
+    easing: 'ease-in-out', // Use a different easing function
     point: {
       visible: true,
     },
-    load: 5,
+    load: 3,
     velocity: 0,
     touch: true,
     loop: true,
-    easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
   spaceName: string;
   pageName: string;
   city: string;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -139,10 +139,10 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
     var parts = url;
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.selectedCountry = this.activeCountries[0];
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -164,20 +164,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
 
   getQuote(slug: any) {
     localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${slug}`);
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

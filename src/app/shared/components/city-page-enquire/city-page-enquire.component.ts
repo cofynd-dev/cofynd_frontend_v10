@@ -45,6 +45,8 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
 
   enquiryForm: FormGroup;
   loading: boolean;
@@ -126,8 +128,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   pageName: string;
   pageUrl: string;
   city: string;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -159,21 +159,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
@@ -182,6 +167,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.selectedCountry = this.activeCountries[0];
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
   }
 

@@ -65,6 +65,8 @@ export class WorkspaceBannerComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.images);
+
     if (this.helperService.getIsMobileMode()) {
       this.initSlideSettings();
     }

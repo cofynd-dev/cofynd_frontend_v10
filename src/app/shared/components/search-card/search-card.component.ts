@@ -8,14 +8,32 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ViewChild,
-  OnChanges,
   HostListener,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { WorkSpace } from '@app/core/models/workspace.model';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthType } from '@app/core/enum/auth-type.enum';
+import { isPlatformBrowser } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Enquiry } from '@app/core/models/enquiry.model';
+declare var $: any;
+declare let ga: any;
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
+
+export enum ENQUIRY_TYPES {
+  COWORKING,
+  OFFICE,
+  COLIVING,
+}
 
 interface ImageGallery {
   id: number;
@@ -38,6 +56,8 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() city: string;
   @Input() locality: string;
   @Input() forAll: boolean = true;
+  @Input() activeCountries: any;
+  @Input() inActiveCountries: any;
   loading: boolean;
   isMobileResolution: boolean;
   activeSliderItem: number;
@@ -59,17 +79,73 @@ export class SearchCardComponent implements AfterViewInit {
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
 
+  showcountry: boolean = false;
+  selectedCountry: any = {};
+
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  btnLabel = 'submit';
+  enquiryForm: FormGroup;
+  user: any;
+  pageName: string;
+
+  coworkingPlans = [
+    { label: 'Hot Desk', value: 'hot-desk' },
+    { label: 'Dedicated Desk', value: 'dedicated-desk' },
+    { label: 'Private Cabin', value: 'private-cabin' },
+    { label: 'Virtual Office', value: 'virtual-office' },
+    { label: 'Office Suite', value: 'office-suite' },
+    { label: 'Custom Buildout', value: 'custom-buildout' },
+  ];
+
+  coworkingNoOfSeats = [
+    { label: '1-10', value: '1-10' },
+    { label: `11-20`, value: '11-20' },
+    { label: '21-50', value: '21-50' },
+    { label: '51-100', value: '51-100' },
+    { label: '100+', value: '100+' },
+  ];
+
+  MoveIn = [
+    { label: 'Immediate', value: 'Immediate' },
+    { label: 'Within This Month', value: 'Within This Month' },
+    { label: '1-2 Month', value: '1-2 Month' },
+    { label: '3-4 Month', value: '3-4 Month' },
+    { label: 'After 4 Month', value: 'After 4 Month' },
+  ];
+
   constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     private userService: UserService,
     private authService: AuthService,
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    private formBuilder: FormBuilder,
   ) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
     this.activeSliderItem = 0;
+    this.buildForm();
+    if (this.isAuthenticated()) {
+      this.user = this.authService.getLoggedInUser();
+    }
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enquiryForm.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
+    }
+    let url = this.router.url.split('/');
+    var parts = url;
+    this.city = parts[parts.length - 1];
+    this.pageName = url[1];
   }
+
   ngOnInit() {
+    this.selectedCountry = this.activeCountries[0];
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -77,12 +153,188 @@ export class SearchCardComponent implements AfterViewInit {
     }
   }
 
+  dismissModal(): void {
+    $('#exampleModal').modal('hide');
+  }
+
+  private resetForm() {
+    this.enquiryForm.reset();
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getQuote(slug: any) {
+    localStorage.setItem('property_url', `https://cofynd.com/coworking/${slug}`);
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
   }
+
+  private buildForm() {
+    const form = {
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone_number: ['', Validators.required],
+      otp: [''],
+      mx_Page_Url: ['City Page'],
+    };
+    form['mx_Space_Type'] = ['Web Coliving'];
+    form['mx_Move_In_Date'] = [null, Validators.required];
+    form['no_of_person'] = [null, Validators.required];
+    form['interested_in'] = [null, Validators.required];
+    this.enquiryForm = this.formBuilder.group(form);
+  }
+
+  onSubmit() {
+    this.addValidationOnMobileField();
+    this.enquiryForm.markAllAsTouched();
+    if (this.enquiryForm.invalid) {
+      return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
+    } else {
+      this.getOtp();
+    }
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
+      this.loading = true;
+      const formValues: Enquiry = this.enquiryForm.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
+      this.userService.addUserEnquiry(formValues).subscribe(
+        () => {
+          this.loading = false;
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.addValidationOnOtpField();
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+        },
+      );
+    } else {
+      this.validateOtp();
+    }
+  }
+
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enquiryForm.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  validateOtp() {
+    const phone = this.enquiryForm.get('phone_number').value;
+    const otp = this.enquiryForm.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  async createEnquiry() {
+    try {
+      this.loading = true;
+      const formValues: Enquiry = this.enquiryForm.getRawValue();
+      const phone = this.enquiryForm.get('phone_number').value;
+      formValues['phone_number'] = `${this.selectedCountry.dial_code}-${phone}`;
+      formValues['mx_Space_Type'] = 'Web Coworking';
+      formValues['mx_Page_Url'] = localStorage.getItem('property_url');
+      formValues['city'] = this.city;
+      this.btnLabel = 'Submitting...';
+      this.userService.createEnquiry(formValues).subscribe(
+        () => {
+          this.loading = false;
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
+          this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
+          /** 
+          Will open it after discussion 
+          const interestedIn = this.enquiryForm.get('interested_in').value;
+          if (this.payementModeOnList.indexOf(interestedIn) >= 0) {
+            this.router.navigate(['/booking'], {
+              queryParams: { workspace: this.workSpaceId, interestedIn },
+            });
+          }
+        */
+          this.resetForm();
+          this.dismissModal();
+          localStorage.removeItem('property_url');
+          this.router.navigate(['/thank-you']);
+        },
+        error => {
+          this.loading = false;
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+        },
+      );
+    } catch (error) {
+      this.loading = false;
+      this.toastrService.error(error.message || 'Something broke the server, Please try again later');
+    }
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.enquiryForm.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  addValidationOnMobileField() {
+    const otpControl = this.enquiryForm.get('phone_number');
+    otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  sendGaEvent(category: string, action: string, label: string) {
+    if (environment.options.GA_ENABLED && isPlatformBrowser(this.platformId)) {
+      ga('send', 'event', category, action, label);
+    }
+  }
+
   openWorkSpace(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
@@ -94,8 +346,6 @@ export class SearchCardComponent implements AfterViewInit {
       workspace.plans
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/coworking/${workspace.slug}`]));
-      // this.router.navigateByUrl(url);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {
@@ -116,8 +366,6 @@ export class SearchCardComponent implements AfterViewInit {
         country_name = workspace.location.country.name;
       }
       var url = `/${country_name.toLowerCase().trim()}/coworking-details/${workspace.slug.toLowerCase().trim()}`;
-      // this.router.navigate([url]);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {
@@ -133,8 +381,6 @@ export class SearchCardComponent implements AfterViewInit {
       workspace.coliving_plans
     ) {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${workspace.slug}`]));
-      // this.router.navigateByUrl(url);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {
@@ -156,8 +402,6 @@ export class SearchCardComponent implements AfterViewInit {
         country_name = workspace.location.country.name;
       }
       var url = `/${country_name.toLowerCase().trim()}/co-living-details/${workspace.slug.toLowerCase().trim()}`;
-      // this.router.navigate([url]);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {
@@ -165,6 +409,7 @@ export class SearchCardComponent implements AfterViewInit {
       }
     }
   }
+
   openDetailsPage(workspace) {
     localStorage.setItem('country_name', workspace.country_dbname);
     localStorage.setItem('country_id', workspace.location.country);
