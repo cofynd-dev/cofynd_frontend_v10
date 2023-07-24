@@ -311,6 +311,19 @@
     </div>
 </section>
 
+<section class="fixed-bottom desktophide fixed_price_area">
+    <div class="container" *ngIf="!loading && workspace">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <p class="price"><span class="rent_title">Starting</span>₹{{ (workspace.starting_price).toLocaleString('en-IN') }} <span class="rent_type">/ {{ workspace.price_type }}</span></p>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <button class="btn site_btn" (click)="openEnquireModal()" >Enquire Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- <section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile mobile_footer">
     <div class="container" *ngIf="!loading && workspace">
         <div class="row">
