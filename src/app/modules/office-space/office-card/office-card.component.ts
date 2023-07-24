@@ -63,15 +63,15 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     slide: 1,
-    speed: 600,
+    speed: 700, // Increase for slower slide transition
+    easing: 'ease-in-out', // Use a different easing function
     point: {
       visible: true,
     },
-    load: 5,
+    load: 3,
     velocity: 0,
     touch: true,
     loop: true,
-    easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
   spaceName: string;
   pageName: string;
