@@ -172,11 +172,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           this.loadWorkSpaces(this.queryParams);
         });
       });
-    // if (this.title) {
-    //   // for (let scrt of script.coworking[this.title]) {
-    //   //   this.setHeaderScript(scrt);
-    //   // }
-    // }
   }
 
   routeToMicro(item) {
