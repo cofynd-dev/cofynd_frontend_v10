@@ -21,29 +21,6 @@
     </div>
 </section>
 
-<!-- <section class="innerpage_banner coliving_banner mobilehide">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="innerpage_content mb-0">
-                    <div class="main_heading">
-                        <h1>Find the Best<br><span>Coliving Spaces</span> in India</h1>
-                    </div>
-                </div>
-                <div class="city-list">
-                    <a *ngFor="let city of cities" [routerLink]="city.name">
-                        <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="innerbanner_img tabhide">
-        <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="">
-    </div>
-
-</section> -->
-
 <!--------------------- Mobile Banner -------------------->
 
 <section class="innerpage_banner onlyMobile" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');">
@@ -190,22 +167,6 @@
     </div>
 </section>
 
-<!-- We are ready for the new normal! -->
-<!-- <section class="covid-safety pt-3 pb-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title">
-                    <h2>We are ready for the new normal!</h2>
-                </div>
-            </div>
-            <div class="col-12">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2668743ac49bb77be7c2e4ad7cc4a17d32148248.png'" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
 </app-carousel-item>
 
@@ -239,27 +200,6 @@
 </app-carousel-item>
 
 <app-search-contact-us-text1></app-search-contact-us-text1>
-
-<!-- <section class="cofynd_advantage_area coworking_advantage_area mobilehide">
-    <div class="container">
-        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
-            <div class="col-md-3 col-12">
-                <h3>CoFynd Advantages</h3>
-            </div>
-            <div class="col-md-3 col-4" *ngFor="let data of coFyndAdvantages">
-                <div class="advantage_item">
-                    <div class="icon">
-                        <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                    </div>
-                    <div class="content">
-                        <h4>{{data.title}}</h4>
-                        <p class="tabhide">{{data.description}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
 </app-carousel-item>

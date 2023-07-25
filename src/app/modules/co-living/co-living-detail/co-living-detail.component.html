@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="relative" *ngIf="!loading">
-                    <app-social-share class="hideOnMobile" *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
+                    <app-social-share class="mobilehide" *ngIf="workspace" [title]="workspace.name" [description]="workspace.description" [image]="shareImageUrl">
                     </app-social-share>
 
                     <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name" [favoriteOption]="false">
@@ -170,22 +170,22 @@
                                         <img [lazyLoad]="plan?.planId?.icons?.s3_link" alt="">
                                     </div>
                                     <h4 class="text-capitalize">{{plan.planId.name}}</h4>
-                                    <p class="hideOnMobile">{{plan.planId.description}}</p>
+                                    <p class="mobilehide">{{plan.planId.description}}</p>
                                     <div class="action-box">
                                         <div class="price">
-                                            <span class="hideOnMobile">starting</span>
+                                            <span class="mobilehide">starting</span>
                                             <div>
                                                 {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small *ngIf="!plan.duration" class="small_text">/- month</small><small *ngIf="plan?.duration" class="small_text">/- {{plan.duration}}</small>
                                             </div>
                                         </div>
-                                        <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton hideOnMobile">Enquire<small class="icon-next fas fa-angle-right"></small></button>
+                                        <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton mobilehide">Enquire<small class="icon-next fas fa-angle-right"></small></button>
                                     </div>
                                 </div>
                             </div>
                         </ng-container>
                     </div>
 
-                    <div class="row onlyMobile" (click)="openEnquireModal()">
+                    <div class="row desktophide" (click)="openEnquireModal()">
                         <div class="col-12">
                             <button class="btn btn-block bg-white" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>Enquire</button>
                         </div>
@@ -323,35 +323,3 @@
         </div>
     </div>
 </section>
-
-<!-- <section class="mobile-ftr-contact bg-white pb-0 pt-0 onlyMobile mobile_footer">
-    <div class="container" *ngIf="!loading && workspace">
-        <div class="row">
-            <div class="col-6 bottomPrize">
-                <p class="price"><span class="rent_title">Starting</span>₹{{ (workspace.starting_price).toLocaleString('en-IN') }}/- <span class="rent_type">{{ workspace.price_type }}</span></p>
-                <p class="mb-0 mt-0"><i class="fa-solid fa-indian-rupee-sign"></i><span> {{workspace.starting_price}}/month</span></p>
-            </div>
-            <div class="col-6">
-                <button class="btn btn-block mt-2 text-white" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'>
-          Enquire Now
-        </button>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
-<!-- <div class="affix-action-btn">
-  <a [href]="'tel:' + supportPhone"
-    [appCustomEventAnalytics]='{"category":"CALL_ON_SUPPORT","action":"click", "label": "SUPPORT_PHONE_NUMBER"}'
-    class="btn btn-primary">
-    <i class="icon-phone"></i>
-    {{supportPhone}}
-  </a>
-  <button type="button"
-    class="btn btn-primary"
-    [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}'
-    (click)="openEnquireModal()">
-    Enquire Now
-  </button>
-</div> -->
