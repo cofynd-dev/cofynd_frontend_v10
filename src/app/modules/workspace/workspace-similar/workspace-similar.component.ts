@@ -56,7 +56,7 @@ export class WorkspaceSimilarComponent implements OnInit {
   active = 0;
 
   carouselConfig: NguCarouselConfig = {
-    grid: { xs: 1.4, sm: 2.6, md: 3, lg: 3, all: 0 },
+    grid: { xs: 1.2, sm: 2.6, md: 3, lg: 3, all: 0 },
     slide: 1,
     speed: 250,
     point: {

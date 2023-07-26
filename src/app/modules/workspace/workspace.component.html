@@ -34,7 +34,7 @@
     </div>
 </section>
 
-<section class="breadcrumbs_sec desktophide">
+<!-- <section class="breadcrumbs_sec desktophide">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="details_area content" *ngIf="!loading && workspace">
     <div class="container">
@@ -63,7 +63,7 @@
                                     <div class="heading-info">
                                         <h1>{{ workspace.name }} {{ workspace.location.name }}</h1>
                                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
-                                        <p class="price"><span class="rent_title">Starting</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}} <span class="rent_type">/{{ workspace.price_type }}</span></p>
+                                        <p class="price mobilehide"><span class="rent_title">Starting</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}} <span class="rent_type">/{{ workspace.price_type }}</span></p>
                                     </div>
                                 </div>
                             </div>
