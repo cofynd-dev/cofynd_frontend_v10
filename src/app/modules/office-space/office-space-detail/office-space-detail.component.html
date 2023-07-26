@@ -39,26 +39,6 @@
     </div>
 </section>
 
-<!-- <section class="breadcrumbs_sec desktophide">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <nav *ngIf="!loading && workspace">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item">
-                            <a [routerLink]="['/office-space/rent/', workspace?.location?.city?.name.toLowerCase()]">{{workspace?.location?.city?.name}}</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a [routerLink]="['/office-space/rent/']">Office Space</a>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <section class="details_area content" *ngIf="!loading && workspace">
     <div class="container">
         <div class="row">
@@ -243,16 +223,6 @@
         
                                 <p class="moreless-button mt-1" *ngIf="workspace.description.length > 580" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                             </div>
-
-                            <!-- <div class="col-md-12">
-                                <p class="mobileabout" [innerHTML]="(workspace.description.slice(0,580) + '...')" *ngIf="seeMore; else hide">
-                                </p>
-                                <ng-template #hide>
-                                    <p [innerHTML]="workspace.description"> </p>
-                                </ng-template>
-
-                                <p (click)="toggleAboutMore()" *ngIf="workspace.description.length > 580" class="moreless-button mt-1">{{seeMore? "See More »":"See Less »"}}</p>
-                            </div> -->
                         </div>
 
                         <hr class="divider_line">
@@ -335,33 +305,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <hr class="divider_line">
-
-        <div class="main_builder_about">
-            <div class="container">
-                <div class="row about-area">
-                    <div class="col-md-12">
-                        <div class="about_details">
-                            <div class="logo_col">
-                                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/455e1023e1d67e5101548b3a059d6ec4e8291594.png" alt="Emaar">
-                            </div>
-                            <div class="building_experience">
-                                <h4>Emaar</h4>
-                                <p>1997</p>
-                            </div>
-                            <div class="building_totle_project">
-                                <h4>Projects</h4>
-                                <p>47</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <p>Emaar India is the biggest real estate developer in India which was earlier a subsidiary of Emaar Properties which is a Dubai-based real estate company. This company is involved in various segments like construction, residential, commercial, retail properties, etc. Emaar India has its projects spread across various prime locations in India such as Delhi, Gurgaon, Jaipur, Indore, Lucknow, Chennai, Mohali etc. This company has won several awards & accolades as it has given its massive contribution to the real estate industry.</p>
-                    </div>
-                </div>
-            </div>
-        </div>-->
 
         <hr class="divider_line"> 
 

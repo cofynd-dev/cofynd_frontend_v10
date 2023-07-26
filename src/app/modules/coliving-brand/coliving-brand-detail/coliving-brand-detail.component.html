@@ -55,12 +55,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div *ngIf="loading && isMapView" class="search-map-container">
-    </div>
-    <div *ngIf="!loading" class="search-map-container" [style.marginTop.px]="'-' + scrollCount" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
-        <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [workspaces]="workSpaces" [spaceType]="'coworking'"></app-search-map-view>
-    </div> -->
 </section>
 
 <section class="search-description" *ngIf="!loading" [class.no-padding]="!(footerTitle || footerDescription)">
