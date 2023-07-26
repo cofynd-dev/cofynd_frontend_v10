@@ -7858,7 +7858,7 @@ select.form-control{
 	font-size: 14px !important;
 	color: #fff !important;
 	background-color: #4343E8;
-	padding: 12px 17px !important;
+	padding: 10px 30px !important;
 	border: none;
 	font-weight: 600;
 	border-radius: 10px !important;
@@ -7899,6 +7899,15 @@ select.form-control{
 }
 .property_item .property-img .carousel-indicators .active {
 	opacity: 1;
+}
+.player-styles-leaom-10ba2v[class][class] {
+	position: absolute !important;
+	margin: auto !important;
+	inset: auto -18px 52px auto !important;
+	width: 60px !important;
+	height: 60px !important;
+	box-sizing: border-box !important;
+	z-index: 1000002 !important;
 }
 
 
@@ -8023,10 +8032,12 @@ select.form-control{
     .footer_bottom {
         padding-top: 10px;
     }
-    
     .container {
         max-width: 100%;
-        padding: 0 15px;
+        padding: 0 25px;
+    }
+    .breadcrumbs_sec .container-fluid {
+        padding: 0px 25px;
     }
     .popular-spaces .popular-space-carousel {
         padding: 0px 25px;
