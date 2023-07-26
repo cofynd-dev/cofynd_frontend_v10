@@ -871,7 +871,7 @@ Amenity Icons
             width: 100%;
             .search-grid-wrapper {
                 max-width: 100%;
-                padding: 0 15px;
+                padding: 0 25px;
             }
         }
         .search-map-container {
@@ -6515,7 +6515,7 @@ h3.site_title {
 }
 
 .footer_bottom {
-    padding: 15px 15px;
+	padding: 15px 15px !important;
 }
 
 .footer_bottom p {
@@ -7838,8 +7838,8 @@ select.form-control{
 .fixed_price_area {
 	background-color: #fff;
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
-	padding: 10px 0px;
-	box-shadow: 0px 0px 7px rgba(0,0,0,0.1);
+	padding: 15px 0px 25px;
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
 }
 .fixed_price_area .price .rent_title {
 	display: block;
@@ -7869,12 +7869,12 @@ select.form-control{
 .request_call_form .checkbox-container input {
 	height: auto;
 }
-.office_space_banner .ngucarousel .ngucarousel-items {
+.details_page_gallery .ngucarousel .ngucarousel-items {
 	position: relative;
 	display: flex;
 	height: 300px;
 }
-.office_space_banner .slider-item img {
+.details_page_gallery .slider-item img {
     height: 350px;
     object-fit: cover;
 }
@@ -8036,7 +8036,13 @@ select.form-control{
         max-width: 100%;
         padding: 0 25px;
     }
+    .footer-top .container-fluid {
+        padding: 0px 25px;
+    }
     .breadcrumbs_sec .container-fluid {
+        padding: 0px 25px;
+    }
+    .breadcrumb-wrapper .container-fluid {
         padding: 0px 25px;
     }
     .popular-spaces .popular-space-carousel {
@@ -8226,6 +8232,9 @@ select.form-control{
     }
     .details_page_gallery .banner-image-item.first-img, .banner-image-item.last-img {
         height: 360px;
+    }
+    .search-container .search-grid-container .search-grid-wrapper {
+        padding: 0 25px;
     }
     
 }
@@ -10442,10 +10451,9 @@ select.form-control{
         margin: 0;
     }
     .form_dream_ptoperty .site_btn {
-        // background-color: transparent !important;
-        border-color: #EAE6FF !important;
-        font-size: 9px !important;
-        padding: 5px 15px !important;
+        border-color: transparent !important;
+        font-size: 11px !important;
+        padding: 7px 15px !important;
         height: auto;
     }
     .form_cta_sec {
@@ -11384,7 +11392,7 @@ select.form-control{
         flex: 0 0 50%;
     }
     .details_area {
-        padding: 12px 0px 40px;
+        padding: 16px 0px 40px;
     }
     .heading-info .price {
         font-size: 16px !important;
@@ -12051,6 +12059,9 @@ select.form-control{
     .listing_card {
         padding: 0px !important;
     }
+    .office_card_popup, .request_call_form {
+        z-index: 9999999;
+    }
     .office_card_popup .modal-content .modal-body {
         padding: 10px 10px;
         background-size: cover;
@@ -12070,6 +12081,18 @@ select.form-control{
     }
     .office_card_popup .modal-content .modal-body .form-group {
         margin-bottom: 15px !important;
+    }
+    .office_card_popup .site_btn, .request_call_form .site_btn {
+        font-size: 13px !important;
+        text-transform: capitalize;
+        padding: 8px 15px !important;
+    }
+    .request_call_form .modal-content .modal-body {
+        padding: 10px 15px;
+    }
+    .request_call_form .title button {
+        top: -36px;
+        right: -35px;
     }
     .main_overview.mobile_view_overview {
         border: none !important;
