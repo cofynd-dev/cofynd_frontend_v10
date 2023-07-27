@@ -79,8 +79,6 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log(this.images);
-
     if (this.isSliderMode) {
       this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
     }
@@ -102,7 +100,6 @@ export class ImageGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
           title: sliderImage.image.title ? sliderImage.image.title : '',
         };
       });
-      console.log(this.sliderItems);
     }
   }
 
