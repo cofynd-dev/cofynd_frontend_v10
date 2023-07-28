@@ -132,6 +132,7 @@ export class DropdownItemComponent {
       });
     }
   }
+
   viewAllStaticCountry() {
     localStorage.setItem('country_name', this.countryNameGloble);
     localStorage.setItem('country_id', this.country_id);

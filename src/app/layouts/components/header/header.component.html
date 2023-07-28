@@ -86,7 +86,7 @@
                 </li> -->
 
                 <li class="mobile-phone-menu no-tablet">
-                    <button type="button"
+                    <button type="button" 
                         class="btn btn-primary login-btn"
                         data-toggle="modal"
                         data-target="#requestCallBack">
@@ -205,19 +205,6 @@
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
-                                                </li>
-
-                                                <li class="divider"></li>
-
-                                                <li (click)="hideCountry(inactive)"
-                                                    class="country selected"
-                                                    *ngFor="let inactive of inActiveCountries">
-                                                    <div class="flag-box">
-                                                        <div class="flag af"><img
-                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
-                                                    </div>
-                                                    <span class="country-name">{{inactive?.name}}</span>
-                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
 
@@ -403,14 +390,14 @@
                 class="collapse navbar-collapse">
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1"
+                        <a id="dropdownMenu1" (click)="getCitiesForCoworking()"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
                             class="nav-link dropdown-toggle">Coworking</a>
                         <ul aria-labelledby="dropdownMenu3"
                             class="dropdown-menu border-0 shadow">
-                            <li *ngFor="let city of cities"
+                            <li *ngFor="let city of cities | slice:0:18"
                                 class="cities-list">
                                 <a tabindex="-1"
                                     class="dropdown-item"
@@ -426,14 +413,14 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1"
+                        <a id="dropdownMenu1" (click)="getCityForColiving()"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
                             class="nav-link dropdown-toggle">Coliving</a>
                         <ul aria-labelledby="dropdownMenu2"
                             class="dropdown-menu border-0 shadow">
-                            <li *ngFor="let city of colivingCities"
+                            <li *ngFor="let city of colivingCities | slice:0:18"
                                 class="cities-list">
                                 <a tabindex="-1"
                                     class="dropdown-item"
@@ -449,7 +436,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a id="dropdownMenu1"
+                        <a id="dropdownMenu1" (click)="getCityForVirtualOffice()"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
