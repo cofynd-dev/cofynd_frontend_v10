@@ -93,15 +93,15 @@ option {
     border-radius: 0;
     .breadcrumb-item {
         font-size: 14px;
-        color: #222;
+        color: #222 !important;
         font-weight: 500;
         a {
-            color: #222;
+            color: #222 !important;
             font-weight: 500;
         }
         .breadcrumb-item {
             font-size: 14px;
-            color: #908f8f;
+            color: #222 !important;
             +.breadcrumb-item {
                 &::before {
                     content: "";
@@ -11392,7 +11392,11 @@ select.form-control{
         flex: 0 0 50%;
     }
     .details_area {
-        padding: 16px 0px 40px;
+        padding: 16px 0px 10px !important;
+    }
+    .video_area iframe {
+        margin-bottom: -5px;
+        height: 200px;
     }
     .heading-info .price {
         font-size: 16px !important;
@@ -11883,7 +11887,9 @@ select.form-control{
         height: 22px;
     }
     .card_form .site_btn {
-        height: 30px;
+        height: auto;
+        font-size: 13px !important;
+        padding: 6px 15px !important;
     }
     .virtual_service_item {
         margin-bottom: 20px;
@@ -12139,6 +12145,47 @@ select.form-control{
         font-size: 20px;
         width: 40px;
         height: 40px;
+    }
+    .properties_slider .property_item {
+        flex: 0 0 75%;
+        width: 75%;
+    }
+    .h3_heading {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .configuration_item {
+        flex: 0 0 70%;
+    }
+    .tab_area .tab_item {
+        flex: 0 0 45%;
+    }
+    .plans_slider .plan_item {
+        width: 85%;
+    }
+    .main_builder_about .about_details {
+        display: flex;
+        margin-bottom: 20px;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .main_builder_about .about_details .logo_col {
+        -webkit-box-flex: 0;
+        flex: 0 0 24%;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    .about_details .building_experience {
+        -webkit-box-flex: 0;
+        flex: 0 0 25%;
+        width: 25% !important;
+        margin-right: 20px;
+    }
+    .building_totle_project {
+        width: 20% !important;
+    }
+    .main_builder_about {
+        padding-bottom: 10px !important;
     }
 }
 
