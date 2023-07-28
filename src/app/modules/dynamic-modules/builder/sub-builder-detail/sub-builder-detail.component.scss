@@ -12,15 +12,15 @@
   }
 }
 
-section {
-  padding: 20px 0 50px;
-  @media (max-width: 767px) {
-      padding: 0px 0 40px;
-      .breadcrumb {
-          margin-bottom: 10px;
-      }
-  }
-}
+// section {
+//   padding: 20px 0 50px;
+//   @media (max-width: 767px) {
+//       padding: 0px 0 40px;
+//       .breadcrumb {
+//           margin-bottom: 10px;
+//       }
+//   }
+// }
 
 .sections {
   border-bottom: 1px solid #e5e5e5;
@@ -198,7 +198,6 @@ section {
 h1 {
   font-size: 40px;
   line-height: 45px;
-  color: #262626;
   margin-bottom: 5px;
   font-weight: 600;
   @media (max-width: 540px) {
@@ -212,15 +211,13 @@ h2 {
   // padding-left : 14px;
   font-size: 22px;
   line-height: 30px;
-  color: #595958;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-weight: 600;
 }
 
 .address {
   font-size: 16px;
   line-height: 20px;
-  color: #656565;
   margin: 0;
   position: relative;
   font-weight: 300;
@@ -234,7 +231,6 @@ h2 {
       max-width: 100%;
       font-size: 14px;
       line-height: 20px;
-      color: #717171;
       font-weight: 500;
   }
 }
