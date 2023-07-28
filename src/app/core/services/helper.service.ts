@@ -29,8 +29,6 @@ export class HelperService {
    */
   getIsMobileMode() {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('mobile mode', window.innerWidth < 767);
-
       return window.innerWidth < 767;
     }
   }
