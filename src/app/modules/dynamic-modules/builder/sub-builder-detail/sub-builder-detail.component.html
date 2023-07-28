@@ -20,32 +20,34 @@
     </div>
 </section>
 
-<!-- <section class="details_page_gallery"
+<section class="details_page_gallery"
     *ngIf="!loading && SubBuilder">
     <div class="container">
-        <div class="row"> -->
-            <div class="relative"
-                *ngIf="!loading">
-                <app-social-share class="hideOnMobile"
-                    *ngIf="SubBuilder"
-                    [title]="SubBuilder.name"
-                    [description]="SubBuilder.description"
-                    [image]="shareImageUrl">
-                </app-social-share>
-                <app-workspace-banner *ngIf="SubBuilder && SubBuilder.images.length > 3"
-                    [images]="SubBuilder.images"
-                    [workspaceId]="SubBuilder.id"
-                    [title]="SubBuilder.name"
-                    [favoriteOption]="false">
-                </app-workspace-banner>
-                <app-workspace-banner-blank *ngIf="SubBuilder && SubBuilder.images.length < 3"
-                    [workspaceId]="SubBuilder.id"
-                    [title]="SubBuilder.name">
-                </app-workspace-banner-blank>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="relative"
+                    *ngIf="!loading">
+                    <app-social-share class="hideOnMobile"
+                        *ngIf="SubBuilder"
+                        [title]="SubBuilder.name"
+                        [description]="SubBuilder.description"
+                        [image]="shareImageUrl">
+                    </app-social-share>
+                    <app-workspace-banner *ngIf="SubBuilder && SubBuilder.images.length > 3"
+                        [images]="SubBuilder.images"
+                        [workspaceId]="SubBuilder.id"
+                        [title]="SubBuilder.name"
+                        [favoriteOption]="false">
+                    </app-workspace-banner>
+                    <app-workspace-banner-blank *ngIf="SubBuilder && SubBuilder.images.length < 3"
+                        [workspaceId]="SubBuilder.id"
+                        [title]="SubBuilder.name">
+                    </app-workspace-banner-blank>
+                </div>
             </div>
-        <!-- </div>
+        </div>
     </div>
-</section> -->
+</section>
 
 <section class="details_area content"
     *ngIf="!loading && SubBuilder">
@@ -107,7 +109,7 @@
                                 *ngIf="SubBuilder.overview.build_up_area">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/ready-to-move.svg'" />
                                     </div>
                                     <div class="info">
                                         <h5>Project Status</h5>
