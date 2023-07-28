@@ -19,6 +19,8 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { log } from 'console';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
 
 interface PopularSpace {
   name: string;
@@ -43,15 +45,10 @@ export enum ENQUIRY_STEPS {
 export class HomeComponent implements OnInit {
   menuModalRef: BsModalRef;
   seoData: SeoSocialShareData;
-  coworkingBrands: Brand[] = [];
-  popularCoWorkingSpaces: PopularSpace[] = [];
-  coLivingBrands: Brand[] = [];
   coworkingImages: any = [];
   colivingImages: any = [];
   coworkingBrandAdsImages: any = [];
   colivingBrandAdsImages: any = [];
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   popularSpaceCarousel: NguCarousel<PopularSpace>;
   active = 0;
@@ -99,15 +96,16 @@ export class HomeComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService,
     private authService: AuthService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.addSeoTags();
     this.setScript();
-    this.getPopularCoworkingSpace();
     this.getFeaturedImages();
     this.getBrandAdsImages();
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
+    this.fetchCityList();
+    this.fetchCountryList();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -118,64 +116,42 @@ export class HomeComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   ngOnInit(): void {
-    this.getFeaturedImages();
-    forkJoin([
-      this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
-      this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
-    ]).subscribe(res => {
-      this.coLivingBrands = res[1];
-      this.coworkingBrands = res[0].filter(
-        brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
-      );
-    });
     this.loopColivingSliders();
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-    this.getCountries();
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
+  fetchCityList() {
+    this.cityService.fetchCityList().subscribe(
+      data => {
+        this.finalCities = data.data;
+        // Store the city list in the service
+        this.cityService.setCityList(data.data);
+      },
+      error => {
+        console.error('Error fetching city list:', error);
+      },
+    );
+  }
+
+  fetchCountryList() {
+    this.countryService.fetchCountryList({ for_queryform: true }).subscribe(
+      data => {
+        this.activeCountries = data.data;
         this.selectedCountry = this.activeCountries[0];
-      }
-    });
+        // Store the country list in the service
+        this.countryService.setCountryList(data.data);
+      },
+      error => {
+        console.error('Error fetching city list:', error);
+      },
+    );
   }
 
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSliderMove(slideData: NguCarouselStore) {
@@ -427,14 +403,6 @@ export class HomeComponent implements OnInit {
     this.popularCoLivingSpaces = [].concat.apply([], combinedArray);
   }
 
-  loopCoworkingSliders() {
-    let combinedArray = [];
-    for (let index = 0; index < this.popularCoWorkingSpaces.length * 4; index++) {
-      combinedArray.push(this.popularCoWorkingSpaces);
-    }
-    this.popularCoWorkingSpaces = [].concat.apply([], combinedArray);
-  }
-
   getFeaturedImages() {
     this.brandService.getFeaturedImages().subscribe((res: any) => {
       this.coworkingImages = res.filter(city => city.for_coWorking === true);
@@ -446,13 +414,6 @@ export class HomeComponent implements OnInit {
     this.brandService.getBrandAdsImages().subscribe((res: any) => {
       this.coworkingBrandAdsImages = res.filter(city => city.for_coWorking === true);
       this.colivingBrandAdsImages = res.filter(city => city.for_coLiving === true);
-    });
-  }
-
-  getPopularCoworkingSpace() {
-    this.workSpaceService.popularWorkSpacesCountryWise({ countryId: '6231ae062a52af3ddaa73a39' }).subscribe(spaces => {
-      this.popularCoWorkingSpaces = spaces;
-      this.loopCoworkingSliders();
     });
   }
 

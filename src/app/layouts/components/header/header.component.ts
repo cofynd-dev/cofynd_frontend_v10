@@ -1,7 +1,7 @@
 import { AVAILABLE_CITY, AVAILABLE_CITY_CO_LIVING } from './../../../core/config/cities';
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef, Inject } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { AuthType } from '@core/enum/auth-type.enum';
@@ -11,12 +11,13 @@ import { WorkSpaceService } from '@core/services/workspace.service';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AppConfig } from '@core/interface/config.interface';
 import { ConfigService } from '@core/services/config.service';
-import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
 import { environment } from '@env/environment';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '@app/core/services/user.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -25,7 +26,6 @@ export enum ENQUIRY_STEPS {
 }
 
 declare var $: any;
-declare let ga: any;
 
 @Component({
   selector: 'app-header',
@@ -34,7 +34,6 @@ declare let ga: any;
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
 })
 export class HeaderComponent implements AfterViewInit {
-  virtualOfficeCities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   userNameInitial: string;
   contactInfo = DEFAULT_APP_DATA.header_contact;
   phoneflag: boolean = true;
@@ -51,9 +50,9 @@ export class HeaderComponent implements AfterViewInit {
   menuPopularOffices: City[];
   menuPopularCoLiving: City[];
   countries: any[] = [];
-  colivingCountries: any[] = [];
   cities: any[] = [];
   colivingCities: any[] = [];
+  virtualOfficeCities: any[] = [];
 
   isMobileMenuOpen: boolean;
 
@@ -74,9 +73,6 @@ export class HeaderComponent implements AfterViewInit {
   loading: boolean;
   showSuccessMessage: boolean;
   contactUserName: string;
-  coworkingCities: any = [];
-  formColivingCities: any = [];
-  officeCities: any = [];
   finalCities: any = [];
   pageUrl: string;
   checkboxValue: boolean = false;
@@ -91,11 +87,11 @@ export class HeaderComponent implements AfterViewInit {
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-    this.getCitiesForOfficeSpace();
-    this.getVirtualOfficeCities();
+    this.fetchCityList();
+    this.fetchCountryList();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -106,7 +102,6 @@ export class HeaderComponent implements AfterViewInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
     }
@@ -123,38 +118,50 @@ export class HeaderComponent implements AfterViewInit {
         this.showSearch = true;
       }
     });
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      for (const key in res.data) {
-        if (res.data[key].name == 'India' || res.data[key].name == 'india' || res.data[key].name == 'INDIA') {
-          res.data[key].flag_image = '/assets/images/country/india-flag.png';
-        }
-        if (
-          res.data[key].name == 'singapore' ||
-          res.data[key].name == 'Singapore' ||
-          res.data[key].name == 'SINGAPORE'
-        ) {
-          res.data[key].flag_image = '/assets/images/country/singapore-flag1.jpg';
-        }
-        if (res.data[key].name == 'Dubai' || res.data[key].name == 'dubai' || res.data[key].name == 'DUBAI') {
-          res.data[key].flag_image = '/assets/images/country/dubai-flag.png';
-        }
-      }
-      this.countries = res.data.filter(city => city.for_coWorking === true);
-      this.colivingCountries = res.data.filter(city => city.for_coLiving === true);
-      this.OnCountryClick('6231ae062a52af3ddaa73a39');
+  }
+
+  fetchCityList() {
+    this.cityService.fetchCityList().subscribe(
+      data => {
+        this.finalCities = data.data;
+        // Store the city list in the service
+        this.cityService.setCityList(data.data);
+      },
+      error => {
+        console.error('Error fetching city list:', error);
+      },
+    );
+  }
+
+  fetchCountryList() {
+    this.countryService.fetchCountryList({ for_queryform: true }).subscribe(
+      data => {
+        this.activeCountries = data.data;
+        this.selectedCountry = this.activeCountries[0];
+        // Store the country list in the service
+        this.countryService.setCountryList(data.data);
+      },
+      error => {
+        console.error('Error fetching city list:', error);
+      },
+    );
+  }
+
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.cities = res.data;
     });
   }
 
-  getVirtualOfficeCities() {
+  getCityForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+    });
+  }
+
+  getCityForVirtualOffice() {
     this.workSpaceService.getCityForVirtualOffice('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.virtualOfficeCities = res.data;
-    });
-  }
-
-  OnCountryClick(countryId) {
-    this.workSpaceService.getCity(countryId).subscribe((res: any) => {
-      this.cities = res.data.filter(city => city.for_coWorking === true);
-      this.colivingCities = res.data.filter(city => city.for_coLiving === true);
     });
   }
 
@@ -289,48 +296,9 @@ export class HeaderComponent implements AfterViewInit {
     return this.enterpriseFormGroup.controls;
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-      this.removeDuplicateCities();
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.formColivingCities = res.data;
-      if (this.formColivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
-  }
-
-  getCitiesForOfficeSpace() {
-    this.workSpaceService.getCitiesForOfficeSpace('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.officeCities = res.data;
-      if (this.officeCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
   }
 
   resendOTP() {
@@ -362,15 +330,6 @@ export class HeaderComponent implements AfterViewInit {
         this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.formColivingCities, ...this.officeCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
-    this.finalCities = this.finalCities.sort((a, b) => {
-      return a.name.localeCompare(b.name);
-    });
   }
 
   onSubmit() {
