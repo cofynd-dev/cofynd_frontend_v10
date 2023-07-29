@@ -55,9 +55,10 @@ export class SearchCardComponent implements AfterViewInit {
   @Input() workspace: WorkSpace;
   @Input() city: string;
   @Input() locality: string;
-  @Input() forAll: boolean = true;
+  @Input() forAll: boolean;
   @Input() activeCountries: any;
   @Input() inActiveCountries: any;
+
   loading: boolean;
   isMobileResolution: boolean;
   activeSliderItem: number;
@@ -145,7 +146,9 @@ export class SearchCardComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    this.selectedCountry = this.activeCountries[0];
+    if (this.forAll == true) {
+      this.selectedCountry = this.activeCountries[0];
+    }
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {

@@ -128,7 +128,7 @@
             <div class="row" *ngIf="!loading">
                 <ng-container *ngFor="let space of workSpaces; let i = index">
                     <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
-                        <app-search-card [workspace]="space" [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries">
+                        <app-search-card [workspace]="space" [forAll]="true" [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries">
                         </app-search-card>
                     </div>
                     <ng-template [ngIf]="isMapView">
