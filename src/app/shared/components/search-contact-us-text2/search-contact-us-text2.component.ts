@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CityService } from '@app/core/services/city.service';
 import { UserService } from '@app/core/services/user.service';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
 
 export enum ENQUIRY_STEPS {
@@ -22,7 +22,6 @@ export class SearchContactUsText2Component implements OnInit {
   @Input() pageNo: any;
   @Input() microlocation: any;
   @Input() activeCountries: any;
-  @Input() inActiveCountries: any;
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
@@ -33,17 +32,20 @@ export class SearchContactUsText2Component implements OnInit {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  submitted = false;
+  loading: boolean;
+  showSuccessMessage: boolean;
+  contactUserName: string;
+  finalCities: any = [];
 
   constructor(
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
-    private workSpaceService: WorkSpaceService,
     private router: Router,
     private authService: AuthService,
+    private cityService: CityService,
   ) {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -56,18 +58,13 @@ export class SearchContactUsText2Component implements OnInit {
     }
   }
 
-  submitted = false;
-  loading: boolean;
-  showSuccessMessage: boolean;
-  contactUserName: string;
-  coworkingCities: any = [];
-  colivingCities: any = [];
-  finalCities: any = [];
-
   ngOnInit() {
-    this.selectedCountry = this.activeCountries[0];
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
+    if (this.activeCountries && this.activeCountries.length > 0) {
+      this.selectedCountry = this.activeCountries[0];
+    }
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -94,21 +91,6 @@ export class SearchContactUsText2Component implements OnInit {
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
   }
 
   resendOTP() {
@@ -140,12 +122,6 @@ export class SearchContactUsText2Component implements OnInit {
         this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {

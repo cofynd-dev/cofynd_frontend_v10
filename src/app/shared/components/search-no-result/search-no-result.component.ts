@@ -5,9 +5,10 @@ import { Router } from '@angular/router';
 import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -32,12 +33,9 @@ export class SearchNoResultComponent implements OnInit {
   loading: boolean = true;
   showSuccessMessage: boolean;
   contactUserName: string;
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -94,15 +92,14 @@ export class SearchNoResultComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService,
     private _formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
     private authService: AuthService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
     let url = this.router.url;
     this.pageUrl = `https://cofynd.com${url}`;
     var parts = url.split('/');
     this.city = parts[parts.length - 1];
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.loading = false;
     if (this.isAuthenticated()) {
       this.user = this.authService.getLoggedInUser();
@@ -112,42 +109,18 @@ export class SearchNoResultComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
-  hideCountry(country: any) {
-    this.selectedCountry = country;
-    this.showcountry = false;
-  }
-
-  enterpriseFormGroup: FormGroup = this._formBuilder.group({
-    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-    email: ['', [Validators.required, Validators.email]],
-    name: ['', Validators.required],
-    requirements: [''],
-  });
-
-  private isAuthenticated() {
-    return this.authService.getToken();
   }
 
   ngOnInit(): void {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
     if (this.title == 'Office') {
       let form = {
         phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
@@ -178,6 +151,22 @@ export class SearchNoResultComponent implements OnInit {
     }
   }
 
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
+  }
+
+  enterpriseFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    requirements: [''],
+  });
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
   get f(): { [key: string]: AbstractControl } {
     return this.enterpriseFormGroup.controls;
   }
@@ -188,21 +177,6 @@ export class SearchNoResultComponent implements OnInit {
 
   get mobno() {
     return this.enterpriseFormGroup.controls;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
   }
 
   resendOTP() {
@@ -234,12 +208,6 @@ export class SearchNoResultComponent implements OnInit {
         this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {

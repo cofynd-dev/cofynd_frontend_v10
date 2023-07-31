@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
-
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 
 interface newsLogoList {
@@ -21,22 +19,6 @@ export class HomeNewsListComponent implements OnInit {
   newsList: any;
   pageTitle = 'CoFynd in the News';
   newsMedia = ['your-story', 'the-statesman', 'et-prime', 'daily-hunt', 'inc42', 'tech-circle'];
-
-  // @ViewChild('myCarousel', { static: false })
-
-  @ViewChild('myCarousel', { static: false })
-  popularSpaceCarousel: NguCarousel<newsLogoList>;
-
-  active = 0;
-  public carouselTileItems: Array<any> = [0, 1, 2, 3, 4, 5];
-  public carouselTiles = {
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-  };
   public carouselTile: NguCarouselConfig = {
     grid: { xs: 3, sm: 5, md: 5, lg: 6, all: 0 },
     slide: 1,
@@ -50,12 +32,25 @@ export class HomeNewsListComponent implements OnInit {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
+  @ViewChild('myCarousel', { static: false })
+  popularSpaceCarousel: NguCarousel<newsLogoList>;
+
+  active = 0;
+  public carouselTileItems: Array<any> = [0, 1, 2, 3, 4, 5];
+  public carouselTiles = {
+    0: [],
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+  };
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
   }
 
-  constructor(private readonly workSpaceService: WorkSpaceService) {}
+  constructor() {}
 
   ngOnInit() {}
 
