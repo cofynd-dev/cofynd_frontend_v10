@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body"
-                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e68056858a71545a4cfba7013434076f71bd592d.png');">
+                style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
                 <div class="enquire-box">
                     <div class="form-section enquire-box-content">
                         <div class="title">
@@ -300,12 +300,12 @@
                             </div>
                             <div class="checkbox-container">
                                 <input type="checkbox" id="vehicle1" name="vehicle1 check_box" value="Bike" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" formControlName="privacy" >
-                                <label for="vehicle1" class="bold-text"> Send me alerts for similar spaces</label><br>
+                                <label for="vehicle1"> Send me alerts for similar spaces</label><br>
                             </div>
                             <div *ngIf="submitted && f['privacy'].errors" class="error-message">
-                            <div *ngIf="f['privacy'].errors['required']">Please check privacy & policy.
+                                <div *ngIf="f['privacy'].errors['required']">Please check privacy & policy.
+                                </div>
                             </div>
-                        </div>
                             <div class="privacy-policy-container">
                                 <p class="privacy-policy-text">Please visit the <a  data-dismiss="modal" [routerLink]="['/privacy-policy']">privacy policy</a> to understand how Cofynd handles your personal data.</p>
                             </div>
