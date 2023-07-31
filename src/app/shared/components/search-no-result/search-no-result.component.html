@@ -145,7 +145,7 @@
                                     <div class="form-input country_phone icon_phone_field">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
-                                                <div class="flag in" *ngIf="activeCountries.length">
+                                                <div class="flag in" *ngIf="activeCountries && activeCountries.length">
                                                     <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                     <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                 </div>
@@ -157,16 +157,6 @@
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
-                                                </li>
-
-                                                <li class="divider"></li>
-
-                                                <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
-                                                    <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
-                                                    </div>
-                                                    <span class="country-name">{{inactive?.name}}</span>
-                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
 

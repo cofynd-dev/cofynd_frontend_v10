@@ -25,8 +25,7 @@
                                     <div class="form-input">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
-                                                <div class="flag in" *ngIf="activeCountries.length">
-                                                    <!-- <img [lazyLoad]="selectedCountry?.image?.s3_link" width="18px" /> -->
+                                                <div class="flag in" *ngIf="activeCountries && activeCountries.length">
                                                     <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                     <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                 </div>
@@ -38,16 +37,6 @@
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
-                                                </li>
-
-                                                <li class="divider"></li>
-
-                                                <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
-                                                    <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
-                                                    </div>
-                                                    <span class="country-name">{{inactive?.name}}</span>
-                                                    <span class="dial-code">{{inactive?.dial_code}}</span>
                                                 </li>
                                             </ul>
 

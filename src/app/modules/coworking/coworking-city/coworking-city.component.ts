@@ -1,25 +1,22 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
-import { ConfigService } from '@core/services/config.service';
 import { SeoService } from '@core/services/seo.service';
 import { WorkSpaceService } from '@core/services/workspace.service';
 import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Location } from '@angular/common';
-import { script } from '@app/core/config/script';
-import { ViewportScroller } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
 import { AuthService } from '@app/core/services/auth.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { CountryService } from '@app/core/services/country.service';
 
 declare var $: any;
 
@@ -75,13 +72,11 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private _renderer2: Renderer2,
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
-    private configService: ConfigService,
     private seoService: SeoService,
-    private location: Location,
     private router: Router,
     private el: ElementRef,
-    private vps: ViewportScroller,
     private authService: AuthService,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
@@ -99,7 +94,9 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
     localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
@@ -298,19 +295,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
       this.workSpaces = this.workSpaces.sort((a, b) => b.starting_price - a.starting_price);
       this.loading = false;
     }
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   loadWorkSpaces(param: {}) {
