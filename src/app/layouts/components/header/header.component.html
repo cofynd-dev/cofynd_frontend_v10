@@ -186,7 +186,7 @@
                                             <div (click)="showcountry = !showcountry"
                                                 class="selected-flag">
                                                 <div class="flag in"
-                                                    *ngIf="activeCountries.length">
+                                                    *ngIf="activeCountries && activeCountries.length">
                                                     <!-- <img [lazyLoad]="selectedCountry?.image?.s3_link" width="18px" /> -->
                                                     <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                     <span class="arrow arrow-up"><i

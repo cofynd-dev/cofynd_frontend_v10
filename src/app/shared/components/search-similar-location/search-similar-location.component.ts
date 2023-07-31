@@ -1,14 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Input, OnChanges, Renderer2 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { generateSlug } from '@app/shared/utils';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
-import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscriber } from 'rxjs';
 import { script } from '../../../core/config/script';
-import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-search-similar-location',
@@ -24,33 +19,9 @@ export class SearchSimilarLocationComponent implements OnChanges {
   country: any;
   cityResponse: any;
 
-  constructor(
-    private router: Router,
-    @Inject(DOCUMENT) private _document: Document,
-    private _renderer2: Renderer2,
-    // private mapsAPILoader: MapsAPILoader,
-    private toastrService: ToastrService,
-    private activatedRoute: ActivatedRoute,
-    private workSpaceService: WorkSpaceService,
-  ) {}
+  constructor(private router: Router, @Inject(DOCUMENT) private _document: Document, private _renderer2: Renderer2) {}
 
-  ngOnInit() {
-    combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
-      .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
-      .subscribe(results => {
-        let cityName = results.routeParams[0].path;
-        this.workSpaceService.getByCityName1(cityName.toLowerCase()).subscribe((res: any) => {
-          this.cityResponse = res.data;
-          localStorage.setItem('country_name', this.cityResponse.country.name.toLowerCase());
-          localStorage.setItem('country_id', this.cityResponse.country.id);
-          localStorage.setItem('city_name', this.cityResponse.name.toLowerCase());
-        });
-      });
-  }
-
-  getSlug(location: string) {
-    return generateSlug(location);
-  }
+  ngOnInit() {}
 
   private getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {

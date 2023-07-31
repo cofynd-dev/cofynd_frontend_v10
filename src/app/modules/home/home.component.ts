@@ -71,7 +71,6 @@ export class HomeComponent implements OnInit {
   user: any;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 

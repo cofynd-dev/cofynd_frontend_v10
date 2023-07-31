@@ -11,6 +11,7 @@ import {
   HostListener,
   Inject,
   PLATFORM_ID,
+  OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { WorkSpace } from '@app/core/models/workspace.model';
@@ -20,6 +21,7 @@ import { AuthType } from '@app/core/enum/auth-type.enum';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 declare var $: any;
 declare let ga: any;
 
@@ -50,18 +52,12 @@ interface ImageGallery {
   styleUrls: ['./search-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchCardComponent implements AfterViewInit {
+export class SearchCardComponent implements OnInit, AfterViewInit {
   S3_URL = environment.images.S3_URL;
   @Input() workspace: WorkSpace;
   @Input() city: string;
   @Input() locality: string;
   @Input() forAll: boolean;
-  @Input() activeCountries: any;
-  @Input() inActiveCountries: any;
-
-  loading: boolean;
-  isMobileResolution: boolean;
-  activeSliderItem: number;
 
   @ViewChild('imageGalleryCarousel', { static: true })
   imageGalleryCarousel: NguCarousel<ImageGallery>;
@@ -82,7 +78,7 @@ export class SearchCardComponent implements AfterViewInit {
 
   showcountry: boolean = false;
   selectedCountry: any = {};
-
+  activeCountries: any = [];
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
@@ -93,6 +89,9 @@ export class SearchCardComponent implements AfterViewInit {
   enquiryForm: FormGroup;
   user: any;
   pageName: string;
+  loading: boolean;
+  isMobileResolution: boolean;
+  activeSliderItem: number;
 
   coworkingPlans = [
     { label: 'Hot Desk', value: 'hot-desk' },
@@ -127,6 +126,7 @@ export class SearchCardComponent implements AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private formBuilder: FormBuilder,
+    private countryService: CountryService,
   ) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
     this.activeSliderItem = 0;
@@ -145,10 +145,13 @@ export class SearchCardComponent implements AfterViewInit {
     this.pageName = url[1];
   }
 
-  ngOnInit() {
-    if (this.forAll == true) {
-      this.selectedCountry = this.activeCountries[0];
-    }
+  ngOnInit(): void {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {

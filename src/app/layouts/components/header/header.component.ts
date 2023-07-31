@@ -124,8 +124,10 @@ export class HeaderComponent implements AfterViewInit {
     this.cityService.fetchCityList().subscribe(
       data => {
         // Store the city list in the service
-        this.cityService.setCityList(data.data);
-        this.finalCities = data.data;
+        if (data) {
+          this.cityService.setCityList(data.data);
+          this.finalCities = data.data;
+        }
       },
       error => {
         console.error('Error fetching city list:', error);
@@ -136,11 +138,13 @@ export class HeaderComponent implements AfterViewInit {
   fetchCountryList() {
     this.countryService.fetchCountryList({ for_queryform: true }).subscribe(
       data => {
-        // Store the country list in the service
-        this.countryService.setCountryList(data.data);
-        this.activeCountries = data.data;
-        if (this.activeCountries && this.activeCountries.length > 0) {
-          this.selectedCountry = this.activeCountries[0];
+        if (data) {
+          // Store the country list in the service
+          this.countryService.setCountryList(data.data);
+          this.activeCountries = data.data;
+          if (this.activeCountries && this.activeCountries.length > 0) {
+            this.selectedCountry = this.activeCountries[0];
+          }
         }
       },
       error => {

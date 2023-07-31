@@ -17,7 +17,7 @@
             <div class="row" *ngIf="!loading">
                 <ng-container *ngFor="let space of workSpaces; let i = index">
                     <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
-                        <app-search-card [forAll]="true" [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries" [workspace]="space">
+                        <app-search-card [forAll]="true"  [workspace]="space">
                         </app-search-card>
                     </div>
                     <div class="col-sm-12" *ngIf="(i + 1) % 4 === 0">

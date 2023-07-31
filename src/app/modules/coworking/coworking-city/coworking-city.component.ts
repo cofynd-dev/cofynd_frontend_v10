@@ -106,8 +106,9 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         this.title = results.routeParams[0].path;
         this.workSpaceService.getByCityName1(this.title).subscribe((res: any) => {
           this.country_name = res.data.country.name;
-          localStorage.setItem('country_name', res.data.country.name);
+          localStorage.setItem('country_name', res.data.country.name.toLowerCase());
           localStorage.setItem('country_id', res.data.country.id);
+          localStorage.setItem('city_name', res.data.name.toLowerCase());
           this.filteredCity = this.availableCities.filter(
             city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
           );

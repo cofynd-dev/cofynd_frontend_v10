@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,11 @@ export class CityService {
   constructor(private http: HttpClient) {}
 
   fetchCityList(): Observable<any> {
-    return this.http.get<any>('/user/getActiveCityForAllSpaceTypes');
+    return this.http.get<any>('/user/getActiveCityForAllSpaceTypes').pipe(
+      tap(cityList => {
+        this.cityList$.next(cityList); // Cache the cityList
+      }),
+    );
   }
 
   getCityList(): Observable<any[]> {

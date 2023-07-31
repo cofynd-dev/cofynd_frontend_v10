@@ -32,7 +32,7 @@
                 <div class="form-group city_card_phone">
                     <div class="flag-container">
                         <div (click)="showcountry = !showcountry" class="selected-flag">
-                            <div class="flag in" *ngIf="activeCountries.length">
+                            <div class="flag in" *ngIf="activeCountries && activeCountries.length">
                                 <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                 <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                             </div>
