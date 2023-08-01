@@ -58,7 +58,7 @@ export class SearchCardComponent implements OnInit, AfterViewInit {
   @Input() city: string;
   @Input() locality: string;
   @Input() forAll: boolean;
-
+  @Input() showQuote: boolean;
   @ViewChild('imageGalleryCarousel', { static: true })
   imageGalleryCarousel: NguCarousel<ImageGallery>;
 
