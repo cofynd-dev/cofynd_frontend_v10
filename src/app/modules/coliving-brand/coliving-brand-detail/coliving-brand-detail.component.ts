@@ -95,7 +95,6 @@ export class ColivingBrandDetailComponent implements OnInit {
   }
 
   onFilterPriceChange(priceRange: PriceFilter) {
-    // Reset pagination to 1 & count to 0 & load more button to false for new results
     this.count = 0;
     this.page = 1;
     this.queryParams = {

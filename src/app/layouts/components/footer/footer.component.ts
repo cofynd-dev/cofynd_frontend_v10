@@ -10,7 +10,7 @@ import { DEFAULT_APP_DATA } from '@core/config/app-data';
 export class FooterComponent implements OnInit {
   contactInfo = DEFAULT_APP_DATA.contact;
   socialLinks = DEFAULT_APP_DATA.socialLinks;
-  footerLinks = DEFAULT_APP_DATA.footerLinks;
+  // footerLinks = DEFAULT_APP_DATA.footerLinks;
   coworkingLinks = DEFAULT_APP_DATA.footerCoworkingLinks;
   colivingLinks = DEFAULT_APP_DATA.footerColivingLinks;
   officeLinks = DEFAULT_APP_DATA.footerOfficeLinks;

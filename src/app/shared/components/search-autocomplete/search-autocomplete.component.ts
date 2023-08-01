@@ -29,7 +29,7 @@ import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/op
 })
 export class SearchAutocompleteComponent implements OnInit, OnDestroy {
   @ViewChild('hiddenMap', { static: true }) hiddenMap: ElementRef;
-  topLinks = DEFAULT_APP_DATA.footerLinks;
+  // topLinks = DEFAULT_APP_DATA.footerLinks;
   @Input() placeholder = '';
   @Input() isHomeSearch: boolean;
   @Output() locationSelected: EventEmitter<boolean> = new EventEmitter();

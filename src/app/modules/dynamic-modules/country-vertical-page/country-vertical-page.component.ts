@@ -90,12 +90,6 @@ export class CountryVerticalPageComponent implements OnInit {
       slug: 'pune',
       address: 'Queen of the Deccan',
     },
-    // {
-    //   name: 'Goa',
-    //   image: ' ',
-    //   slug: 'goa',
-    //   address: "Paradise of South Asia",
-    // },
   ];
 
   service = [
@@ -309,22 +303,6 @@ export class CountryVerticalPageComponent implements OnInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
-  // openModalWithComponent(openForDayPass = false) {
-  //   if (openForDayPass) {
-  //     const initialState = {
-  //       dayPassPopUp: true,
-  //       class: 'modal-dialog-centered',
-  //     };
-  //     this.menuModalRef = this.bsModalService.show(HomeMenuModalComponent, {
-  //       initialState,
-  //     });
-  //     return;
-  //   }
-
-  //   this.menuModalRef = this.bsModalService.show(HomeMenuModalComponent, {
-  //     class: 'modal-dialog-centered',
-  //   });
-  // }
 
   openModalWithComponent2(spaceType: string) {
     const initialState = {

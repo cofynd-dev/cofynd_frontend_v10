@@ -129,14 +129,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
           });
         });
       });
-
-    // if (this.title) {
-    //   if (this.title.length > 0) {
-    //     for (let scrt of script.coworking[this.title]) {
-    //       this.setHeaderScript(scrt);
-    //     }
-    //   }
-    // }
   }
 
   createBreadcrumb() {
@@ -330,9 +322,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
 
   setSubName() {
     let name = 'Coworking in ';
-    // if (this.subTitle) {
-    //   name += this.capitalize(this.subTitle) + ' ' + this.capitalize(this.title);
-    // } else {
     name += ' ' + this.capitalize(this.title);
     // }
     return name;

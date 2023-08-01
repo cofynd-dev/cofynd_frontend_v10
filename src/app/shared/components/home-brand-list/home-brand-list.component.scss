@@ -17,9 +17,6 @@
       &[disabled] {
           opacity: 0.4;
       }
-      // @media (max-width: 767px) {
-      //     display: none;
-      // }
   }
   .item {
       padding: 0 25px;
@@ -47,10 +44,6 @@
 }
 
 @media (max-width: 480px) {
-  
-//   .col-md-12.text-center {
-//     text-align: left !important;
-//   }
 .our_client_sec .col-12.mt-3 {
 margin-top: 0px !important;
 }

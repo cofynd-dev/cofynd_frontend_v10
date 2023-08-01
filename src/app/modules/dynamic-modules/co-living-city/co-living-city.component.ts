@@ -155,20 +155,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
         }
       });
 
-      // const found = this.coLivings.find(element => element.starting_price < 15000);
-      // const found1 = this.coLivings.find(obj => obj.starting_price >= 15000 && obj.starting_price <= 30000);
-      // const found2 = this.coLivings.find(obj => obj.starting_price >= 30000);
-      // if (found) {
-      //   this.price_filters.push({ id: '15000', value: 'Less than 15,000' });
-      // }
-
-      // if (found1) {
-      //   this.price_filters.push({ id: '29999', value: '15,000-30,000' });
-      // }
-      // if (found2) {
-      //   this.price_filters.push({ id: '30000', value: 'More than 30,000' });
-      // }
-
       if (allOffices.data.length) {
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         const filteredLocations = this.availableCities.filter(

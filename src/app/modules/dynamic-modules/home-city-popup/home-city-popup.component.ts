@@ -8,9 +8,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class HomeCityPopupComponent implements OnInit {
   constructor(private bsModalRef: BsModalRef, private router: Router) {
-    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
-    //   return false;
-    // };
   }
 
   city: string;

@@ -209,10 +209,6 @@
                             *ngIf="SubBuilder?.description.length > 580"
                             (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                     </div>
-
-                    <!-- <div class="col-md-12">
-                        <p>{{SubBuilder?.description}}</p>
-                    </div> -->
                 </div>
 
                 <hr class="divider_line"
@@ -264,10 +260,6 @@
                         <h3>{{SubBuilder?.name}} Configuration</h3>
                     </div>
                     <div class="col-md-12">
-                        <!-- <div class="tab_area">
-                            <div class="tab_item active"><button>Rent</button></div>
-                            <div class="tab_item"><button>Sale</button></div>
-                        </div> -->
 
                         <div class="configuration_list">
                             <div class="configuration_item"
@@ -709,7 +701,6 @@
                 *ngIf="SubBuilder?.builder?.description">
                 <p [innerHTML]="(SubBuilder?.builder?.description)">
                 </p>
-                <!-- <p>{{SubBuilder?.builder?.description}}</p> -->
             </div>
         </div>
     </div>

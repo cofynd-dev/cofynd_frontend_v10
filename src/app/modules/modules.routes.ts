@@ -75,8 +75,4 @@ export const routes: Routes = [
     path: ':country',
     loadChildren: () => import('./dynamic-modules/coworking.module').then(m => m.CoworkingModule),
   },
-  // {
-  //   path: 'hostel',
-  //   loadChildren: () => import('./hostel/hostel.module').then(m => m.HostelModule),
-  // },
 ];
