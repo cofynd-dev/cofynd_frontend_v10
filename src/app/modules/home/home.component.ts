@@ -1,24 +1,19 @@
 import { HomeMenuModalComponent } from './home-menu-modal/home-menu-modal.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ChangeDetectionStrategy, Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
 import { Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
 import { BrandService } from '@core/services/brand.service';
-import { sanitizeParams } from '@app/shared/utils';
-import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
-import { log } from 'console';
 import { CityService } from '@app/core/services/city.service';
 import { CountryService } from '@app/core/services/country.service';
 
@@ -76,7 +71,6 @@ export class HomeComponent implements OnInit {
   user: any;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -91,7 +85,6 @@ export class HomeComponent implements OnInit {
     private seoService: SeoService,
     private bsModalService: BsModalService,
     private router: Router,
-    private workSpaceService: WorkSpaceService,
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
@@ -104,8 +97,6 @@ export class HomeComponent implements OnInit {
     this.setScript();
     this.getFeaturedImages();
     this.getBrandAdsImages();
-    this.fetchCityList();
-    this.fetchCountryList();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -119,34 +110,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loopColivingSliders();
-  }
-
-  fetchCityList() {
-    this.cityService.fetchCityList().subscribe(
-      data => {
-        this.finalCities = data.data;
-        // Store the city list in the service
-        this.cityService.setCityList(data.data);
-      },
-      error => {
-        console.error('Error fetching city list:', error);
-      },
-    );
-  }
-
-  fetchCountryList() {
-    this.countryService.fetchCountryList({ for_queryform: true }).subscribe(
-      data => {
-        this.activeCountries = data.data;
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
         this.selectedCountry = this.activeCountries[0];
-        // Store the country list in the service
-        this.countryService.setCountryList(data.data);
-      },
-      error => {
-        console.error('Error fetching city list:', error);
-      },
-    );
+      }
+    });
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
+    this.loopColivingSliders();
   }
 
   hideCountry(country: any) {

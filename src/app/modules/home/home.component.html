@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="innerbanner_img">
-        <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9c7feb0ed4e930bce244d6a0d21fdee9e455b680.jpg'" alt="Home Page" />
+        <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9c7feb0ed4e930bce244d6a0d21fdee9e455b680.jpg'" alt="Home Page" />
     </div>
 </section>
 
@@ -91,12 +91,6 @@
                     <a routerLink="enterprise" class="stretched-link"></a>
                 </div>
             </div>
-            <!-- <div class="col-4 mb-2">
-                <div class="category_item coworking_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/44b6892625a3151fb4c02e09a09f7f99025a1f97.png');">
-                    <h3>Coliving Space</h3>
-                    <a routerLink="/co-living/" class="stretched-link"></a>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -296,7 +290,7 @@
                                         <div class="form-input">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
-                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                    <div class="flag in" *ngIf="activeCountries && activeCountries.length">
                                                         <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                         <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                     </div>
