@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CountryService } from '@app/core/services/country.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
@@ -118,7 +119,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   coLivingPlans = [{ label: `Any Other`, value: 'any-other' }];
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -136,6 +136,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     private coLivingService: CoLivingService,
     private helperService: HelperService,
     private router: Router,
+    private countryService: CountryService,
   ) {
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
@@ -146,7 +147,6 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     }
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
-    this.getCountries();
   }
 
   private buildForm() {
@@ -181,26 +181,15 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     this.enquiryForm = this.formBuilder.group(form);
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
   }
 
   ngOnInit(): void {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
       this.loadWorkSpace(this.workSpaceId);

@@ -79,14 +79,6 @@ export class WorkSpaceComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
   ) {
-    this.workSpaceService
-      .getProfileReviewByUser()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(review => {
-        if (review) {
-          this.userReview = review;
-        }
-      });
     this.activatedRoute.params.subscribe((param: Params) => {
       if (param && param.workspacename) {
         this.activeWorkSpaceId = param.workspacename;
@@ -114,7 +106,6 @@ export class WorkSpaceComponent implements OnInit {
       }
       if (this.activeWorkSpaceId) {
         this.getWorkSpace(this.activeWorkSpaceId);
-        this.getAverageRating(this.activeWorkSpaceId);
       }
     });
 
@@ -208,9 +199,6 @@ export class WorkSpaceComponent implements OnInit {
 
         if (workspaceDetail.images.length) {
           this.shareImageUrl = workspaceDetail.images[0].image.s3_link;
-        }
-        if (this.isAuthenticated()) {
-          this.getSpaceReviewByUser();
         }
       },
       error => {

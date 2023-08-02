@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CountryService } from '@app/core/services/country.service';
 import { UserService } from '@app/core/services/user.service';
 import { sanitizeParams } from '@app/shared/utils';
 import { WorkSpace } from '@core/models/workspace.model';
@@ -122,6 +123,7 @@ export class WorkspaceSimilarComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService,
     private formBuilder: FormBuilder,
+    private countryService: CountryService,
   ) {
     this.buildForm();
     if (this.isAuthenticated()) {
@@ -137,6 +139,9 @@ export class WorkspaceSimilarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
     this.loadWorkSpaces();
@@ -155,25 +160,10 @@ export class WorkspaceSimilarComponent implements OnInit {
   }
 
   getQuote(workspace: any) {
-    this.getCountries();
     localStorage.setItem('property_url', `https://cofynd.com/coworking/${workspace.slug}`);
     if (workspace.location.city.name) {
       this.city = workspace.location.city.name;
     }
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
