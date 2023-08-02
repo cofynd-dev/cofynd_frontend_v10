@@ -1,4 +1,4 @@
-<div class="marketing_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
+<!-- <div class="marketing_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
   <div class="form-section">
     <div class="title">
       <h4>Yes, I'm Interested!</h4>
@@ -10,29 +10,29 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <input class="form-control" type="text" formControlName="name" placeholder="Name*" />
-                    <!-- <app-input-validation [control]="enquiryForm.controls.name">
-                    </app-input-validation> -->
+                    <app-input-validation [control]="enquiryForm.controls.name">
+                    </app-input-validation>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <input class="form-control" type="text" formControlName="email" placeholder="Email*" />
-                    <!-- <app-input-validation [control]="enquiryForm.controls.email">
-                    </app-input-validation> -->
+                    <app-input-validation [control]="enquiryForm.controls.email">
+                    </app-input-validation>
                 </div>
             </div>
 
             <div class="col-md-12 country_phone">
               <div class="form-group city_card_phone">
                 <div class="flag-container">
-                  <!-- <div (click)="showcountry = !showcountry" class="selected-flag">
+                  <div (click)="showcountry = !showcountry" class="selected-flag">
                       <div class="flag in" *ngIf="activeCountries.length">
                           <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                           <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                       </div>
-                  </div> -->
-                  <!-- <ul *ngIf="showcountry"
+                  </div>
+                  <ul *ngIf="showcountry"
                       class="country-list">
                       <li (click)="hideCountry(country)"
                           class="country active"
@@ -58,16 +58,16 @@
                           <span class="country-name">{{inactive?.name}}</span>
                           <span class="dial-code">{{inactive?.dial_code}}</span>
                       </li>
-                  </ul> -->
+                  </ul>
                   <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" />
                 </div>
-                <!-- <app-input-validation [control]="enquiryForm.controls.phone_number">
-                </app-input-validation> -->
+                <app-input-validation [control]="enquiryForm.controls.phone_number">
+                </app-input-validation>
             </div>
           </div>
         </div>
 
-        <!-- <div class="form-group otp-form"
+        <div class="form-group otp-form"
             *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
             <input class="form-control"
                 placeholder="Enter Otp"
@@ -81,23 +81,23 @@
                 (click)="resendOTP()"
                 [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
             <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
-        </div> -->
+        </div>
 
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <ng-select placeholder="Type"  [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
                     </ng-select>
-                    <!-- <app-input-validation [control]="enquiryForm.controls.interested_in">
-                    </app-input-validation> -->
+                    <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <ng-select placeholder="No. of Seats"  [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
                     </ng-select>
-                    <!-- <app-input-validation [control]="enquiryForm.controls.no_of_person">
-                    </app-input-validation> -->
+                    <app-input-validation [control]="enquiryForm.controls.no_of_person">
+                    </app-input-validation>
                 </div>
             </div>
         </div>
@@ -107,8 +107,8 @@
                 <div class="form-group">
                     <ng-select placeholder="Move In"  [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">
                     </ng-select>
-                    <!-- <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
-                    </app-input-validation> -->
+                    <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                    </app-input-validation>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -117,9 +117,9 @@
         </div>
     </form>
   </div>
-</div>
+</div> -->
 
-<!-- <div #enquireBox
+<div #enquireBox
   class="enquire-box"
   [class.fixed]="isSticky"
   [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
@@ -224,4 +224,4 @@
     </div>
   </div>
 
-</div> -->
+</div>
