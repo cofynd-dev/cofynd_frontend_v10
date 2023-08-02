@@ -87,40 +87,6 @@ export class CountryColivingVerticalPageComponent implements OnInit {
       icon: 'amenities/meeting-room.svg',
     },
   ];
-
-  // service = [
-  //   {
-  //     title: 'High Speed WiFi',
-  //     description: 'High-Speed Wifi, HDTVs everything you need to do your best work.',
-  //     icon: 'amenities/wifi.svg',
-  //   },
-  //   {
-  //     title: 'Comfy Workstation',
-  //     description: 'Connect with other people and share your skills for better and quick growth.',
-  //     icon: 'amenities/workstation.svg',
-  //   },
-  //   {
-  //     title: 'Meeting Rooms',
-  //     description: 'Come up with great ideas and engage in valuable discussions in meeting rooms.',
-  //     icon: 'amenities/meeting-room.svg',
-  //   },
-  //   {
-  //     title: 'Printer',
-  //     description: 'Printing and scanning facilities available without any extra cost.',
-  //     icon: 'amenities/printer.svg',
-  //   },
-
-  //   {
-  //     title: 'Pantry',
-  //     description: 'Lounge, kitchen, breakout rooms, and more. mix of both work tables and lounge seating.',
-  //     icon: 'amenities/kitchen.svg',
-  //   },
-  //   {
-  //     title: 'Parking',
-  //     description: 'Avoid morning hassle with easy and convenient parking area availability.',
-  //     icon: 'amenities/bike-parking.svg',
-  //   },
-  // ];
   country_name: string;
   constructor(
     private _renderer2: Renderer2,
@@ -215,22 +181,6 @@ export class CountryColivingVerticalPageComponent implements OnInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
-  // openModalWithComponent(openForDayPass = false) {
-  //   if (openForDayPass) {
-  //     const initialState = {
-  //       dayPassPopUp: true,
-  //       class: 'modal-dialog-centered',
-  //     };
-  //     this.menuModalRef = this.bsModalService.show(HomeMenuModalComponent, {
-  //       initialState,
-  //     });
-  //     return;
-  //   }
-
-  //   this.menuModalRef = this.bsModalService.show(HomeMenuModalComponent, {
-  //     class: 'modal-dialog-centered',
-  //   });
-  // }
 
   openModalWithComponent2(spaceType: string) {
     const initialState = {

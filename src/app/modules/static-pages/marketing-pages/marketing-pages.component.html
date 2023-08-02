@@ -1,3 +1,246 @@
+<!-- <section class="marketing_header">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="marketing_logo">
+          <a href="/"><img src="assets/images/logo.svg" class="img-fluid" alt="Cofynd Logo"></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="head_contact">
+          <h4>Looking for workspace</h4>
+          <p><i class="fa-solid fa-phone"></i> <a href="tel:+919999108078">+91 9999 10 8078</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="marketing_banner" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d0e98b4682f79a7efcaaf95a14057501b331197f.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="banner_content">
+          <h1>Choose from 1,000+ OFFICE Spaces on Rent in <span style="color: #FFDD2C;">{{marketingData.location}}</span></h1>
+          <p>Offices at all prime locations of Gurugram - Udyog Vihar, Cyber City, Golf Course Road, MG Road, Sohna Road, Huda City Centre, Golf Course Extension Road and more ...</p>
+          <button class="site_btn btn">Book Now</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div [class.enquiry-modal]="isEnquireModal">
+          <app-general-enquire [isSticky]="isSticky" (backButtonClick)="closeEnquireModel()"></app-general-enquire>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facilities_sec coworking_facilities">
+  <div class="container">
+      <div class="row desktophide">
+          <div class="col-md-12 text-center">
+              <div class="main_heading title_divider">
+                  <h2>Amenities You will get</h2>
+              </div>
+          </div>
+      </div>
+      <div class="row amenities_row">
+          <div class="col-md-4 col-4" *ngFor="let data of service">
+              <div class="icon_item mb-5">
+                  <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                  <h4>{{data.title}}</h4>
+                  <p class="mobilehide">{{data.description}}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="cities_microlocation_sec" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9255de3c81e1744fdf1371e5d033c454371f7815.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="main_heading title_divider">
+          <h2>Top Coworking Offices in {{marketingData.location}}, at Prime Locations</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 pt-2">
+        <div class="top-city-item" style="cursor: pointer;">
+          <div class="top-city-img main_city">
+            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0f69a2654cc56ce52b573d0b6806ff2d27070aa6.jpg" class="img-fluid d-block m-auto">
+          </div>
+          <div class="top-city-text">
+            <h4><i class="fas fa-map-marker-alt"></i> Udyog Vihar</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1bf89962eac35c19ee012d8f8a3680c8cfb806fa.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> Sohna Road</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bac2ee483221a272058f69e8dedef46b2a4e2945.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> Golf Course Road</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e163a0c1e82dc9a7946f49a02b950da220423922.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> MG Road</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/346caa67f2cfc71b4946eba543b6e220c0a30ec2.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> Golf Course Extension</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/908a50c19ec19d829215f650dd5c1a5b2dd3b81c.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> Huda City Centre</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <div class="top-city-item" style="cursor: pointer;">
+              <div class="top-city-img">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d233b1d58bf54b8cd1c99072088bc1b792010365.jpg" class="img-fluid d-block m-auto">
+              </div>
+              <div class="top-city-text">
+                <h4><i class="fas fa-map-marker-alt"></i> DLF Cyber City</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="price_area">
+          <h2>Pricing Plans</h2>
+          <div class="plan-list row">
+            <div class="col-md-12 col-6" *ngFor="let plan of coworkingPlan">
+              <div class="plan-item">
+                <div class="img">
+                  <img [src]="plan.icon" class="img-fluid d-block" [alt]="plan.title">
+                </div>
+
+                <div class="plan-text">
+                  <h4 class="text-capitalize">{{ plan.title }}</h4>
+                  <p class="hideOnMobile tabhide">{{ plan.description }}</p>
+                </div>
+
+                <div class="plan-price">
+                  <span>starting from</span>
+                  <div class="price">{{ plan.price }}<small>Seat</small></div>
+                  <button>Enquire <i class="fa-solid fa-angle-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="coworking_partner_area">
+          <h2>Top Coworking Partners</h2>
+          <div class="row">
+            <div class="col-3 mt-3 mb-3" *ngFor="let partners of coworkingPartners">
+              <img [src]="partners.image" class="img-fluid" [alt]="partners.title">
+            </div>
+          </div>
+        </div>
+
+        <div class="marketing_about_content">
+          <h2>About CoFynd</h2>
+          <p>CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and Fulfilment. CoFynd gives you access to all the prime Office Space locations of Gurgaon - Udyog Vihar, Sohna Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space community in Gurgaon and meet like-minded leaders.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="marketing_side_form">
+          <app-general-enquire></app-general-enquire>
+
+          <div class="enquiry-footer">
+            <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
+              <div class="contact-image">
+                <img class="img-fluid  ng-lazyloaded" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png">
+              </div>
+              <div class="contact-info">
+                <p class="heading">Get in Touch</p>
+                <p class="email_text" style="text-transform: none;">hello@cofynd.com</p>
+              </div>
+            </div>
+            <p class="term-text">By clicking the above button you agree to our Terms of Service and have read and understood our <a class="ng-tns-c13-2" routerlink="/privacy-policy" ng-reflect-router-link="/privacy-policy" href="/privacy-policy">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marketing_coworking_client">
+  <app-our-clients></app-our-clients>
+</div>
+
+<section class="marketing_footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="logo">
+          <a routerlink="/">
+            <img alt="Cofynd" class="img-fluid" src="/assets/images/logo.svg">
+          </a>
+          <h5>Fynd the right space, Globally</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="footer_info">
+          <h4>Email :</h4>
+          <p><a href="mailto:hello@cofynd.com">hello@cofynd.com</a></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="footer_img">
+          <img lazyLoad="assets/images/marketing/coworking/gurugram/cofynd_desk.png" class="img-fluid" alt="CoFynd">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
 <section class="search-simple pt-5 pb-4">
   <div class="container">
     <div class="row">

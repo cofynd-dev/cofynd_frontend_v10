@@ -278,15 +278,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
         this.loading = false;
         this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
         this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
-        /** 
-          Will open it after discussion 
-          const interestedIn = this.enquiryForm.get('interested_in').value;
-          if (this.payementModeOnList.indexOf(interestedIn) >= 0) {
-            this.router.navigate(['/booking'], {
-              queryParams: { workspace: this.workSpaceId, interestedIn },
-            });
-          }
-        */
         this.resetForm();
         this.router.navigate(['/thank-you']);
       },

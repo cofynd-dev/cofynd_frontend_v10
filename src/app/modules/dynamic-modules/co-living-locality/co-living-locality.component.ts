@@ -66,10 +66,7 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private el: ElementRef,
   ) {
-    // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
-    // Init With Map View
-    // this.isMapView = true;
   }
 
   ngOnInit() {
@@ -108,7 +105,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           this.addSeoTags(results.routeParams[0].path.toLowerCase(), results.routeParams[1].path.toLowerCase());
           if (results.routeParams[1].path && script.coliving.microLocation[results.routeParams[1].path]) {
             for (let scrt of script.coliving.microLocation[results.routeParams[1].path]) {
-              // this.setHeaderScript(scrt);
             }
           }
         });
@@ -258,7 +254,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
       queryParamsHandling: 'merge',
     });
 
-    // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;
     this.isSearchFooterVisible = false;
@@ -269,7 +264,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   onFilterPriceChange(priceRange: PriceFilter) {
-    // Reset pagination to 1 & count to 0 & load more button to false for new results
     this.count = 0;
     this.page = 1;
     this.queryParams = {

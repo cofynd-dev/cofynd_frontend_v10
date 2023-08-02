@@ -1,6 +1,5 @@
 .popular-spaces {
   padding: 50px 0px 40px;
-  // background: #cacafa;
 
   &.white-layout {
     border-bottom: 0;
@@ -46,14 +45,12 @@
 
   .popular-space-carousel {
     position: relative;
-    // bottom: -50px;
     overflow: hidden;
   }
 
   .last-slide {
     @media (max-width:767px) {
 
-      // margin-left: 44px !important;
       .not-first-slide {
         width: 100% !important;
       }

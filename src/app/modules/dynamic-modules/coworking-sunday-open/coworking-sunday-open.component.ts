@@ -53,12 +53,9 @@ export class CoworkingSundayOpenComponent implements OnInit, OnDestroy {
     private router: Router,
     private el: ElementRef,
   ) {
-    // Remove Footer From Listing
-    // this.configService.updateConfig({ headerClass: 'search-listing' });
-
+    
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
 
-    // Init With Map View
     this.isMapView = true;
   }
 
@@ -163,14 +160,12 @@ export class CoworkingSundayOpenComponent implements OnInit, OnDestroy {
       queryParamsHandling: 'merge',
     });
 
-    // Reset All Scroll Activities
     this.isScrolled = false;
     this.scrollCount = 0;
     this.isSearchFooterVisible = false;
   }
 
   onFilterPriceChange(priceRange: PriceFilter) {
-    // Reset pagination to 1 & count to 0 & load more button to false for new results
     this.count = 0;
     this.page = 1;
 

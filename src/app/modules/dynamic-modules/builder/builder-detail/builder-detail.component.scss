@@ -119,9 +119,6 @@ section {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
-  // @media screen and (max-width: 560px) {
-  //   flex-direction: column;
-  // }
   @media screen and (max-width: 480px) {
       padding-top: 20px;
   }
@@ -141,15 +138,11 @@ section {
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  // @media screen and (max-width: 560px) {
-  //   flex-direction: column;
-  // }
   p {
       position: relative;
       padding-left: 45px;
       font-size: 16px;
       line-height: 22px;
-      // padding-right : 15px;
       padding-bottom: 8px;
       @media screen and (max-width: 560px) {
           font-size: 12px;
@@ -209,7 +202,6 @@ h1 {
 }
 
 h2 {
-  // padding-left : 14px;
   font-size: 22px;
   line-height: 30px;
   color: #595958;

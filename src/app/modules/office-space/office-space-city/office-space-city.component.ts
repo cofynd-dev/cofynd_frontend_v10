@@ -76,12 +76,8 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     private workSpaceService: WorkSpaceService,
   ) {
-    // Handle header position on scroll
     this.configService.updateConfig({ headerClass: 'search-listing' });
-    // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
-    // Init With Map View
-    //this.isMapView = true;
   }
 
   ngOnInit() {
@@ -115,7 +111,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.page = params['page'] ? +params['page'] : 1;
         this.addSeoTags(this.title.toLowerCase());
       } else {
-        // For Office Landing Page
         this.title = 'Office Space for rent';
         this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS, ...params };
         if (this.officeType) {

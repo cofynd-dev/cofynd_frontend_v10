@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
@@ -12,7 +11,6 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class HomeNearmePopupComponent implements OnInit {
   constructor(
-    // private mapsAPILoader: MapsAPILoader,
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,

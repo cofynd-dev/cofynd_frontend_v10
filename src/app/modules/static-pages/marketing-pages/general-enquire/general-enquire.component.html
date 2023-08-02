@@ -1,4 +1,125 @@
-<div #enquireBox
+<div class="marketing_form" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
+  <div class="form-section">
+    <div class="title">
+      <h4>Yes, I'm Interested!</h4>
+      <p>Know More About this property</p>
+    </div>
+
+    <form class="form">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="name" placeholder="Name*" />
+                    <!-- <app-input-validation [control]="enquiryForm.controls.name">
+                    </app-input-validation> -->
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="email" placeholder="Email*" />
+                    <!-- <app-input-validation [control]="enquiryForm.controls.email">
+                    </app-input-validation> -->
+                </div>
+            </div>
+
+            <div class="col-md-12 country_phone">
+              <div class="form-group city_card_phone">
+                <div class="flag-container">
+                  <!-- <div (click)="showcountry = !showcountry" class="selected-flag">
+                      <div class="flag in" *ngIf="activeCountries.length">
+                          <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
+                          <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                      </div>
+                  </div> -->
+                  <!-- <ul *ngIf="showcountry"
+                      class="country-list">
+                      <li (click)="hideCountry(country)"
+                          class="country active"
+                          tabindex="-1"
+                          *ngFor="let country of activeCountries">
+                          <div class="flag-box">
+                              <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                      width="18px" /></div>
+                          </div>
+                          <span class="country-name">{{country?.name}}</span>
+                          <span class="dial-code">{{country?.dial_code}}</span>
+                      </li>
+
+                      <li class="divider"></li>
+
+                      <li (click)="hideCountry(inactive)"
+                          class="country selected"
+                          *ngFor="let inactive of inActiveCountries">
+                          <div class="flag-box">
+                              <div class="flag af"><img
+                                      [lazyLoad]="inactive?.image?.s3_link" /></div>
+                          </div>
+                          <span class="country-name">{{inactive?.name}}</span>
+                          <span class="dial-code">{{inactive?.dial_code}}</span>
+                      </li>
+                  </ul> -->
+                  <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" />
+                </div>
+                <!-- <app-input-validation [control]="enquiryForm.controls.phone_number">
+                </app-input-validation> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group otp-form"
+            *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+            <input class="form-control"
+                placeholder="Enter Otp"
+                type="password"
+                formControlName="otp"
+                appMaterialInput
+                autofocus />
+            <app-input-validation [control]="enquiryForm.controls.otp">
+            </app-input-validation>
+            <button [disabled]="resendDisabled"
+                (click)="resendOTP()"
+                [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+            <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+        </div> -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <ng-select placeholder="Type" appendTo="body" [clearable]="true" [searchable]="false" [items]="coworkingPlans" bindLabel="label" bindValue="value" formControlName="interested_in">
+                    </ng-select>
+                    <!-- <app-input-validation [control]="enquiryForm.controls.interested_in">
+                    </app-input-validation> -->
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <ng-select placeholder="No. of Seats" appendTo="body" [clearable]="true" [searchable]="false" [items]="coworkingNoOfSeats" bindLabel="label" bindValue="value" formControlName="no_of_person">
+                    </ng-select>
+                    <!-- <app-input-validation [control]="enquiryForm.controls.no_of_person">
+                    </app-input-validation> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <ng-select placeholder="Move In" appendTo="body" [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">
+                    </ng-select>
+                    <!-- <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                    </app-input-validation> -->
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <button type="submit" class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div #enquireBox
   class="enquire-box"
   [class.fixed]="isSticky"
   [class.success-message]="ENQUIRY_STEP === ENQUIRY_STEPS.SUCCESS">
@@ -20,7 +141,7 @@
         class="header-side">
       <br />
       <p class="mb-0 font-medium">Office seat starting at</p>
-      <p class="mb-0 font-wt600 font-30">&#8377; 5000/* month</p>
+      <p class="mb-0 font-wt600 font-30">₹ 5000/* month</p>
     </div>
 
     <form *ngIf="ENQUIRY_STEP !== ENQUIRY_STEPS.SUCCESS"
@@ -103,4 +224,4 @@
     </div>
   </div>
 
-</div>
+</div> -->

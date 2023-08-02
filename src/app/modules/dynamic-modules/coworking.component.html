@@ -136,10 +136,6 @@
             </div>
 
             <div class="col-md-12">
-                <!-- <div class="page-title">
-                    <h2>Top Coliving in {{title}}</h2>
-                </div> -->
-
                 <div class="popular-space-carousel">
                     <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="popularCoLivingSpaces" (onMove)="onSliderMove($event)">
                         <div *nguCarouselDef="let space; let i = index;" class="item">

@@ -7909,6 +7909,31 @@ select.form-control{
 }
 
 
+.marketing_coworking_client .title_divider::after, .marketing_coworking_client .title_divider::before {
+	display: none;
+}
+.marketing_coworking_client .col-md-12.text-center {
+	text-align: left !important;
+}
+.marketing_coworking_client .main_heading {
+	display: block;
+	margin: 0 !important;
+}
+.marketing_coworking_client .main_heading h2 {
+	font-size: 25px;
+	line-height: 35px;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+.marketing_coworking_client {
+	padding: 30px 0px 130px;
+}
+.marketing_coworking_client .our_client_sec {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+
 @media (max-width:991px) {
 
     .details_page_gallery .container {
@@ -11236,6 +11261,7 @@ select.form-control{
         position: relative;
         border-radius: 8px;
         overflow: hidden;
+        cursor: pointer;
     }
     .curated-img {
         position: relative;

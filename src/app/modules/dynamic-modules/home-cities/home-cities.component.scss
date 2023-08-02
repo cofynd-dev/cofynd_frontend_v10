@@ -6,27 +6,20 @@
         overflow-y: hidden;
         overflow-x: auto;
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE 10+ */
         &::-webkit-scrollbar {
             width: 0px;
             background: transparent;
-            /* Chrome/Safari/Webkit */
         }
     }
 }
 
-// .city-list button {
-//     // border: 1px solid #ccc;
-// }
 .city-list a,
 .city-list button {
     width: 85px;
     height: 85px;
     border-radius: 100%;
     text-align: center;
-    /*    background: #f8f8f8;*/
     font-size: 12px;
     font-weight: 600;
     color: #000;
