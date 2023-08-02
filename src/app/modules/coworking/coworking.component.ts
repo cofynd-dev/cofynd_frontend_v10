@@ -13,7 +13,6 @@ import { Brand } from '@app/core/models/brand.model';
 import { BrandService } from '@app/core/services/brand.service';
 import { HomeMenuModalComponent } from '../home/home-menu-modal/home-menu-modal.component';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
-// import { MapsAPILoader } from '@app/core/map-api-loader/maps-api-loader';
 import { ToastrService } from 'ngx-toastr';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { Observable, Subscriber } from 'rxjs';
@@ -23,6 +22,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { UserService } from '@app/core/services/user.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -73,6 +74,28 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  gurugramSpaces: any = [];
+  bangloreSpaces: any = [];
+  hyderabadSpaces: any = [];
+  puneSpaces: any = [];
+  mumbaiSpaces: any = [];
+  noidaSpaces: any = [];
+  delhiSpaces: any = [];
+  ahmedaSpaces: any = [];
+  chennaiSpaces: any = [];
+  indoreSpaces: any = [];
+  submitted = false;
+  contactUserName: string;
+  showSuccessMessage: boolean;
+  coworkingCities: any = [];
+  colivingCities: any = [];
+  finalCities: any = [];
+  user: any;
+  pageUrl: string;
+  activeCountries: any = [];
+  showcountry: boolean = false;
+  selectedCountry: any = {};
+
   city = [
     {
       name: 'gurugram',
@@ -135,37 +158,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       seat: '14',
     },
   ];
-
-  resendOTP() {
-    // Disable the resend button and start the counter
-    this.resendDisabled = true;
-    this.resendIntervalId = setInterval(() => {
-      // Decrement the counter every second
-      this.resendCounter--;
-      if (this.resendCounter === 0) {
-        // If the counter reaches zero, enable the resend button
-        clearInterval(this.resendIntervalId);
-        this.resendDisabled = false;
-        this.resendCounter = 30;
-      }
-    }, 1000);
-    // TODO: Implement OTP resend logic here
-    let obj = {};
-    obj['dial_code'] = this.selectedCountry.dial_code;
-    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
-    this.userService.resendOtp(obj).subscribe(
-      (data: any) => {
-        if (data) {
-          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
-          this.btnLabel = 'Verify OTP';
-          this.addValidationOnOtpField();
-        }
-      },
-      error => {
-        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
-      },
-    );
-  }
 
   service = [
     {
@@ -240,29 +232,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     },
   ];
 
-  gurugramSpaces: any = [];
-  bangloreSpaces: any = [];
-  hyderabadSpaces: any = [];
-  puneSpaces: any = [];
-  mumbaiSpaces: any = [];
-  noidaSpaces: any = [];
-  delhiSpaces: any = [];
-  ahmedaSpaces: any = [];
-  chennaiSpaces: any = [];
-  indoreSpaces: any = [];
-  submitted = false;
-  contactUserName: string;
-  showSuccessMessage: boolean;
-  coworkingCities: any = [];
-  colivingCities: any = [];
-  finalCities: any = [];
-  user: any;
-  pageUrl: string;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
-  showcountry: boolean = false;
-  selectedCountry: any = {};
-
   constructor(
     private brandService: BrandService,
     private bsModalService: BsModalService,
@@ -276,6 +245,8 @@ export class CoworkingComponent implements OnInit, OnDestroy {
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     this.isMapView = true;
@@ -290,8 +261,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -302,50 +271,18 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
-  }
-
-  enterpriseFormGroup: FormGroup = this._formBuilder.group({
-    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-    email: ['', [Validators.required, Validators.email]],
-    name: ['', Validators.required],
-    city: ['', Validators.required],
-    requirements: [''],
-    otp: [''],
-  });
-
-  get f(): { [key: string]: AbstractControl } {
-    return this.enterpriseFormGroup.controls;
-  }
-
-  get emailid() {
-    return this.enterpriseFormGroup.controls;
-  }
-
-  get mobno() {
-    return this.enterpriseFormGroup.controls;
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
-  hideCountry(country: any) {
-    this.selectedCountry = country;
-    this.showcountry = false;
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.queryParams = { ...this.queryParams, ...params };
       this.page = params['page'] ? +params['page'] : 1;
@@ -427,29 +364,63 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.chennaiSpaces = this.formatSpaces(chennaiData);
       this.indoreSpaces = this.formatSpaces(indoreData);
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
   }
 
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
+  enterpriseFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    requirements: [''],
+    otp: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
   }
 
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
+  }
+
+  resendOTP() {
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
       }
-    });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
   }
 
   onSubmit() {
@@ -645,13 +616,6 @@ export class CoworkingComponent implements OnInit, OnDestroy {
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
-  }
-
-  getPopularWorSpaces() {
-    this.workSpaceService.getPopularWorSpaces().subscribe(spaces => {
-      this.popularCoWorkingSpaces = spaces;
-      this.cdr.detectChanges();
-    });
   }
 
   getPopularWorSpacesAsCountry() {
