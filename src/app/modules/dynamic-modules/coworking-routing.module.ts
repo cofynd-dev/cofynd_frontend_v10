@@ -99,8 +99,6 @@ const routes: Routes = [
     component: CoworkingNearMetroComponent,
   },
 
-  //builder module routing...
-
   {
     path: 'builder',
     component: BuilderComponent

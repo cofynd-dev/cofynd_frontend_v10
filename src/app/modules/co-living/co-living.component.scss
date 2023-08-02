@@ -37,9 +37,7 @@
     a {
       width                : 140px;
       height               : 160px;
-      /* border-radius     : 100%;*/
       text-align           : left;
-      /* background        : #f8f8f8;*/
       font-size            : 10px;
       font-weight          : 600;
       color                : #000;
@@ -80,7 +78,6 @@
   }
 
 
-  /*first section start*/
   .top-search {
     background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');
     background-size : cover;
@@ -105,11 +102,9 @@
   }
 
   .has-search .form-control::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color      : #6a6a6a;
     font-weight: 500;
     opacity    : 1;
-    /* Firefox */
   }
 
   .has-search .form-control-feedback {
@@ -131,8 +126,6 @@
     margin: 0 10%;
   }
 
-  /*First section end*/
-  /*second section start */
   .cities a {
     text-decoration: none;
   }
@@ -173,14 +166,10 @@
     font-weight: 600;
   }
 
-  /*second section end*/
-  /*third section*/
   .offer-img {
     border-radius: 20px;
   }
 
-  /*third end*/
-  /*fourth section*/
   .city-circle {
     height       : 60px;
     width        : 60px;
@@ -201,15 +190,11 @@
     font-weight: 500;
   }
 
-  /*fourth section end*/
-  /*fifth section */
   .covid-safety img {
     border-radius: 10px;
     box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
   }
 
-  /*fifth section end*/
-  /*six section*/
   .fw-600 {
     font-weight: 500;
   }
@@ -239,8 +224,6 @@
     border-radius: 10px;
   }
 
-  /*six section end*/
-  /*seven start*/
   .steps-opt {
     border-radius: 10px;
     box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.12);
@@ -257,29 +240,21 @@
     font-weight: 300;
   }
 
-  /*seven end*/
-  /*eight start*/
   .line_height {
     line-height: 18px;
   }
 
-  /*eight end*/
-  /*nine start*/
   .brand-img {
     padding   : 3px;
     width     : auto;
     object-fit: cover;
   }
 
-  /*nine end*/
-  /*tenth start*/
   .list-space-img {
     border-radius: 10px;
     box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
   }
 
-  /*tenth end*/
-  /*eleventh start*/
   .exp-button {
     border       : 1px solid #fff;
     border-radius: 20px;
@@ -295,8 +270,6 @@
     font-weight: 500;
   }
 
-  /*eleventh end*/
-  /*twelth start*/
   .card {
     border: none;
   }
@@ -317,8 +290,6 @@
     text-decoration: none;
   }
 
-  /*twelth end*/
-
   .item-info p:nth-child(1) {
     font-size  : 18px;
     font-weight: 500;
@@ -330,7 +301,6 @@
 
   .partners {
     overflow  : hidden;
-    // background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
     .page-title {
       padding: 16px 0 !important;
     }
@@ -396,7 +366,6 @@
       font-size               : 10px;
       font-weight             : 600;
       color                   : #000;
-      // margin-right         : 10px;
       margin-top              : 10px;
       text-transform          : capitalize;
       -webkit-transition      : .5s ease-in;

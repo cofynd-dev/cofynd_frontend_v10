@@ -56,7 +56,6 @@ export class CoworkingBrandComponent implements OnInit {
     private seoService: SeoService,
     private authService: AuthService,
   ) {
-    // this.router.navigate(['/404'], { skipLocationChange: true });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.pageUrl = this.router.url;
@@ -178,13 +177,10 @@ export class CoworkingBrandComponent implements OnInit {
   }
 
   resendOTP() {
-    // Disable the resend button and start the counter
     this.resendDisabled = true;
     this.resendIntervalId = setInterval(() => {
-      // Decrement the counter every second
       this.resendCounter--;
       if (this.resendCounter === 0) {
-        // If the counter reaches zero, enable the resend button
         clearInterval(this.resendIntervalId);
         this.resendDisabled = false;
         this.resendCounter = 30;

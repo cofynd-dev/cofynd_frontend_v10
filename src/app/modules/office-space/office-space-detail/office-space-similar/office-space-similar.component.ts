@@ -243,13 +243,10 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
   }
 
   resendOTP() {
-    // Disable the resend button and start the counter
     this.resendDisabled = true;
     this.resendIntervalId = setInterval(() => {
-      // Decrement the counter every second
       this.resendCounter--;
       if (this.resendCounter === 0) {
-        // If the counter reaches zero, enable the resend button
         clearInterval(this.resendIntervalId);
         this.resendDisabled = false;
         this.resendCounter = 30;
@@ -305,15 +302,6 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
         this.loading = false;
         this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
         this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
-        /** 
-          Will open it after discussion 
-          const interestedIn = this.enquiryForm.get('interested_in').value;
-          if (this.payementModeOnList.indexOf(interestedIn) >= 0) {
-            this.router.navigate(['/booking'], {
-              queryParams: { workspace: this.workSpaceId, interestedIn },
-            });
-          }
-        */
         this.resetForm();
         this.dismissModal();
         this.router.navigate(['/thank-you']);

@@ -95,10 +95,6 @@ export class HomeCityDropdownComponent {
       otp: [''],
     };
 
-    // if (this.enabledForCustomizeOffice) {
-    //   (form['area_sqft'] = ['', Validators.required]), (form['org_name'] = ['', Validators.required]);
-    // }
-
     this.enquiryForm = this.formBuilder.group(form);
   }
 
@@ -243,8 +239,6 @@ export class HomeCityDropdownComponent {
         phone_number: formValues.phone_number,
         email: formValues.email,
         name: formValues.name,
-        // org_name: formValues.org_name || null,
-        // area_sqft: formValues.area_sqft || null,
       },
       interested_in: this.interested_in,
       city: this.cityName,

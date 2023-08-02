@@ -16,7 +16,6 @@ import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -120,8 +119,6 @@ export class CoLivingDetailComponent implements OnInit {
         this.loading = false;
         this.addSeoTags(this.workspace);
         if (workspaceDetail.geometry) {
-          // lng , lat from api
-          // this.createMap(workspaceDetail.geometry.coordinates[1], workspaceDetail.geometry.coordinates[0]);
           this.options = {
             layers: [
               tileLayer(
@@ -199,7 +196,6 @@ export class CoLivingDetailComponent implements OnInit {
         iconAnchor: [13, 41],
         iconUrl: 'assets/images/marker-icon.png',
         iconRetinaUrl: 'assets/images/marker-icon.png',
-        // shadowUrl: 'assets/images/marker-icon.png1'
       }),
     });
     this.markers.push(newMarker);

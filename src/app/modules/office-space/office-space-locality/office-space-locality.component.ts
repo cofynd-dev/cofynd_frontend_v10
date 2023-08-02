@@ -76,10 +76,7 @@ export class OfficeSpaceLocalityComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     private workSpaceService: WorkSpaceService,
   ) {
-    // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
-    // Init With Map View
-    // this.isMapView = true;
   }
 
   ngOnInit() {

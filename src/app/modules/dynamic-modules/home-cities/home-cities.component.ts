@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit, ViewRef } from '@angular/core';
 import { Router } from '@angular/router';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { City } from '@core/models/city.model';
 import { BsModalService } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -13,21 +12,15 @@ import { HomeCityPopupComponent } from '../home-city-popup/home-city-popup.compo
   styleUrls: ['./home-cities.component.scss'],
 })
 export class HomeCitiesComponent implements OnInit {
-  // not showing Faridabad city for now
   countryCities: City[] = [];
   title: string;
-  // newarray: ['sachin', 'chandan']
   constructor(
-    // private mapsAPILoader: MapsAPILoader,
     private router: Router,
     private toastrService: ToastrService,
     private bsModalService: BsModalService,
     private cdr: ChangeDetectorRef,
     private workSpaceService: WorkSpaceService,
   ) {
-    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
-    //   return false;
-    // };
     var someString = this.router.url;
     someString = someString.replace(/\//g, '');
     this.title = someString;
@@ -60,10 +53,4 @@ export class HomeCitiesComponent implements OnInit {
       },
     });
   }
-
-  // ngAfterViewInit() {
-  //   if (!(this.cdr as any).destroyed) {
-  //     this.cdr.detectChanges();
-  //   }
-  // }
 }

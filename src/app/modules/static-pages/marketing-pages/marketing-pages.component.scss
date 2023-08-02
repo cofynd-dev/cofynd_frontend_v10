@@ -1,3 +1,174 @@
+.marketing_header {
+	padding: 10px 0px;
+}
+.marketing_header .marketing_logo img {
+	width: 250px;
+}
+.marketing_header .head_contact {
+	justify-items: end;
+	display: grid;
+}
+.marketing_header .head_contact h4 {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 600;
+	color: #4343E8;
+	margin-bottom: 4px;
+}
+.marketing_header .head_contact p {
+	margin-bottom: 0px;
+}
+.marketing_header .head_contact a {
+	color: #000;
+	font-size: 17px;
+	line-height: 24px;
+	font-weight: 600;
+}
+.marketing_header .head_contact i {
+	color: #4343E8;
+	margin-right: 8px;
+}
+
+.marketing_banner {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.marketing_banner .banner_content {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+.marketing_banner .banner_content h1 {
+	color: #fff;
+  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 52px;
+}
+.marketing_banner .banner_content p {
+	color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+}
+.marketing_banner .banner_content .site_btn {
+	font-weight: 600;
+	padding: 10px 25px;
+}
+.coworking_facilities {
+	padding-top: 60px;
+	padding-bottom: 30px;
+}
+
+.cities_microlocation_sec {
+	padding-top: 60px;
+	padding-bottom: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.plans_area {
+	padding: 50px 0px;
+}
+.plans_area h2 {
+	font-size: 25px;
+	line-height: 35px;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+.plan-item {
+	display: flex;
+	background-color: #F9F6FE;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	padding: 15px 15px;
+}
+.plan-item .img {
+	flex: 0 0 9%;
+	padding-right: 10px;
+}
+.plan-item .plan-text {
+	padding-left: 15px;
+	padding-right: 15px;
+	flex: 0 0 66%;
+}
+.plan-price {
+	flex: 0 0 25%;
+	justify-content: end;
+	display: grid;
+	text-align: right;
+	padding: 0px 15px;
+}
+.plan-price span {
+	font-size: 14px;
+  line-height: 20px;
+}
+.plan-price .price {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 34px;
+}
+.plan-price .price small {
+	font-size: 18px;
+	line-height: 20px;
+}
+.plan-price button {
+	text-align: right;
+	color: #4343E8;
+	font-weight: 600;
+}
+.plan-price button i {
+	font-size: 11px;
+}
+.coworking_partner_area img {
+	width: 160px;
+	height: 70px;
+	object-fit: contain;
+}
+.coworking_partner_area {
+	padding: 40px 0px 20px;
+}
+.marketing_about_content {
+	padding: 20px 0px 20px;
+}
+.marketing_side_form {
+	position: sticky;
+	top: 30px;
+}
+.marketing_footer {
+	background-color: #FFF9EA;
+	padding: 15px 0px;
+}
+.marketing_footer img {
+	width: 180px;
+	margin-bottom: 8px;
+}
+.marketing_footer h5 {
+	font-size: 12px;
+	line-height: 14px;
+}
+.footer_info {
+	margin-top: 0px;
+}
+.footer_info h4 {
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: 600;
+}
+.footer_info p, .footer_info p a {
+	margin-bottom: 0;
+	font-size: 15px;
+	line-height: 26px;
+}
+.footer_img img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin-bottom: 0px !important;
+}
+
+
 .logo-height {
   height: 50px;
   width: auto;

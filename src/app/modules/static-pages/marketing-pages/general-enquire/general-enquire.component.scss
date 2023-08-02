@@ -1,5 +1,30 @@
+.marketing_form {
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 0.7px solid rgba(33, 37, 41, 0.1);
+}
+.marketing_form .form-section h4 {
+	font-size: 20px;
+	line-height: 25px;
+	margin-top: 0;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: #000;
+	position: relative;
+}
+.marketing_form .form-section .title p {
+	margin-bottom: 15px;
+}
+.marketing_form .form-section .form-group .ng-select {
+	padding: 0px;
+}
+
+
 .enquire-box {
-  // position: absolute;
   width: 100%;
   max-width: 370px;
   top: -40px;
@@ -240,8 +265,3 @@
   height: 50px;
 }
 
-
-ng-select {
-  padding-left: 8%;
-  padding-top: 5%;
-}

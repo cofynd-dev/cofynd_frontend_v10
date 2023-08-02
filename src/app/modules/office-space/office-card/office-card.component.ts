@@ -285,15 +285,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
           this.loading = false;
           this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
           this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
-          /** 
-          Will open it after discussion 
-          const interestedIn = this.enquiryForm.get('interested_in').value;
-          if (this.payementModeOnList.indexOf(interestedIn) >= 0) {
-            this.router.navigate(['/booking'], {
-              queryParams: { workspace: this.workSpaceId, interestedIn },
-            });
-          }
-        */
+          
           this.resetForm();
           this.dismissModal();
           localStorage.removeItem('property_url');
@@ -346,13 +338,10 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
   }
 
   openoffice(slug: string) {
     const url = this.router.serializeUrl(this.router.createUrlTree([`/office-space/rent/${slug}`]));
-    // window.open(url, '_blank');
     if (this.isMobileResolution) {
       this.router.navigate([url]);
     } else {

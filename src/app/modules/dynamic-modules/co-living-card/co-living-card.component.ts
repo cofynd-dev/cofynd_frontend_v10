@@ -39,8 +39,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize($event: Event): void {
     this.ngOnInit();
-    // this.getScreenWidth = window.innerWidth;
-    // this.getScreenHeight = window.innerHeight;
   }
 
   openWorkSpace(coLiving) {
@@ -52,8 +50,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
       var url = `/${coLiving.country_dbname
         .toLowerCase()
         .trim()}/co-living-details/${coLiving.slug.toLowerCase().trim()}`;
-      // this.router.navigate([url]);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {
@@ -61,8 +57,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
       }
     } else {
       const url = this.router.serializeUrl(this.router.createUrlTree([`/co-living/${coLiving.slug}`]));
-      // this.router.navigate([url]);
-      // window.open(url, '_blank');
       if (this.isMobileResolution) {
         this.router.navigate([url]);
       } else {

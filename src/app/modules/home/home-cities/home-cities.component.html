@@ -4,7 +4,7 @@
       alt="'Office Space for Rent near me" />
     Near Me
   </button>
-    <a *ngFor="let city of cities" (click)="openModal(city,city.name)" style="cursor: pointer;">
+    <button *ngFor="let city of cities" (click)="openModal(city,city.name)" style="cursor: pointer;">
         <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-    </a>
+    </button>
 </div>

@@ -62,33 +62,28 @@
     <div class="container">
         <div class="row">
             <div class="col-8 mb-2">
-                <div class="category_item coworking_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e875e668d45247e30286efda65c19dfbd47d8cdc.png');">
+                <div routerLink="/coworking/" class="category_item coworking_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e875e668d45247e30286efda65c19dfbd47d8cdc.png');">
                     <h3>Coworking Office Space</h3>
-                    <a routerLink="/coworking/" class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4 mb-2">
-                <div class="category_item listing_item img-fuild" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ff4d310fe13a947109247bb22711973f02c2c38.png');">
+                <div routerLink="/list-your-space/" class="category_item listing_item img-fuild" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7ff4d310fe13a947109247bb22711973f02c2c38.png');">
                     <h3>List Property</h3>
-                    <a routerLink="/list-your-space/" class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4">
-                <div class="category_item virtual_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87c60ebbd17f52296b6ac7d74a127315cd574575.png');">
+                <div routerLink="virtual-office" class="category_item virtual_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/87c60ebbd17f52296b6ac7d74a127315cd574575.png');">
                     <h3>Virtual Office</h3>
-                    <a routerLink="virtual-office" class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4">
-                <div class="category_item officespace_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e85c1fc68d3ea6d2a8583f9699f70eac4b9649c6.png');">
+                <div routerLink="/office-space/rent/" class="category_item officespace_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e85c1fc68d3ea6d2a8583f9699f70eac4b9649c6.png');">
                     <h3>Private office</h3>
-                    <a routerLink="/office-space/rent/" class="stretched-link"></a>
                 </div>
             </div>
             <div class="col-4">
-                <div class="category_item enterprise_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/64516cb20024db15efbb92d51ac03086886c1e8f.png');">
+                <div routerLink="enterprise" class="category_item enterprise_item" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/64516cb20024db15efbb92d51ac03086886c1e8f.png');">
                     <h3>Enterprise Solutions</h3>
-                    <a routerLink="enterprise" class="stretched-link"></a>
                 </div>
             </div>
         </div>
@@ -172,40 +167,37 @@
         <div class="row">
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div (click)="openModal('10,000')" class="curated-item">
                         <div class="curated-img">
                             <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7adb2177f04d3cfde81f32dd4341d4bf1d45e47f.jpg'" alt="Low Cost" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Low Cost</h4>
                         </div>
-                        <a type="button" (click)="openModal('10,000')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div (click)="openModal('20,000')" class="curated-item">
                         <div class="curated-img">
                             <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/981e34872599dfa16e347790bfec45eabe6c9268.jpg'" alt="Affordable" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Affordable</h4>
                         </div>
-                        <a type="button" (click)="openModal('20,000')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div (click)="openModal('above 20,000')" class="curated-item">
                         <div class="curated-img">
                             <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3c1afd046765743278bb76f440b5454a157938af.jpg'" alt="Luxury" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Luxury</h4>
                         </div>
-                        <a type="button" (click)="openModal('above 20,000')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -226,9 +218,9 @@
             <div class="col-12">
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of coworkingImages">
-                        <a [routerLink]="item.description" target="_blank">
+                        <button [routerLink]="item.description">
                             <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -407,40 +399,37 @@
         <div class="row">
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div class="curated-item" (click)="openModal('Inclusive')">
                         <div class="curated-img">
                             <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008a8663bb6af0890c03005b643c4572a3484388.jpg" alt="Food Available" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Food Available</h4>
                         </div>
-                        <a type="button" (click)="openModal('Inclusive')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div class="curated-item" (click)="openModal('625698d3a91948671a4c590b')">
                         <div class="curated-img">
                             <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0905b0bd74dc081e5c8bce0c606d6b354c6104bf.jpg" alt="Private Room" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Private Room</h4>
                         </div>
-                        <a type="button" (click)="openModal('625698d3a91948671a4c590b')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="curated-box">
-                    <div class="curated-item">
+                    <div class="curated-item" (click)="openModal('625698e8a91948671a4c590c')">
                         <div class="curated-img">
                             <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/992cb7c6d50bccd39e9f553ebb43d76323ed182b.jpg" alt="Bangalore" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Twin Sharing</h4>
                         </div>
-                        <a type="button" (click)="openModal('625698e8a91948671a4c590c')" class="stretched-link"></a>
                     </div>
                 </div>
             </div>

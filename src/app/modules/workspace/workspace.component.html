@@ -34,22 +34,6 @@
     </div>
 </section>
 
-<!-- <section class="breadcrumbs_sec desktophide">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <nav *ngIf="!loading && workspace">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item"><a (click)="routetoCountryPage()">Coworking</a></li>
-                        <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <section class="details_area content" *ngIf="!loading && workspace">
     <div class="container">
         <div class="row">
@@ -106,9 +90,6 @@
                             <div class="col-md-12 mobilehide">
                                 <h2>About this property</h2>
                             </div>
-                            <!-- <div class="col-md-12 mobilehide">
-                                <p [innerHTML]="workspace.description"></p>
-                            </div> -->
                             <div class="col-md-12">
                                 <p class="mobileabout" [innerHTML]="(workspace.description.length > 500? workspace.description.slice(0,500) + '...' : workspace.description)" *ngIf="seeMore; else hide">
                                 </p>

@@ -41,7 +41,6 @@
 
   .img {
     margin-bottom   : 15px;
-    // height       : 190px;
     position        : relative;
     overflow        : hidden;
     background      : #e0dfdf url('/assets/images/no-img.svg') no-repeat center center;
@@ -145,13 +144,6 @@
     }
   }
 }
-
-// .last-slide {
-//   @media (max-width:767px) {
-//     margin-left: 25px;
-//     padding    : 0 !important;
-//   }
-// }
 
 ::ng-deep .ngucarousel-items {
   @media (max-width:767px) {
