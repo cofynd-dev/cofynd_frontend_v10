@@ -31,16 +31,16 @@
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#ffcc05">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
-    <link href='https://tiles.locationiq.com/v3/css/liq-styles-ctrl-gl.css?v=0.1.8' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" async>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' async />
+    <link href='https://tiles.locationiq.com/v3/css/liq-styles-ctrl-gl.css?v=0.1.8' rel='stylesheet' async />
     <meta name="msapplication-TileColor" content="#ffcc05">
     <meta name="facebook-domain-verification" content="4e4ndxqjp3sults4171n6bcpxc5dwj" />
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBCPM110WT"></script>
-    <script>
+    <script async>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -49,7 +49,7 @@
     </script>
 
     <!-- giosg tag -->
-    <script>
+    <script async>
         (function (w, t, f) {
             var s = 'script', o = '_giosg', h = 'https://service.giosg.com', e, n; e = t.createElement(s); e.async = 1; e.src = h + '/live2/' + f;
             w[o] = w[o] || function () { (w[o]._e = w[o]._e || []).push(arguments) }; w[o]._c = f; w[o]._h = h; n = t.getElementsByTagName(s)[0]; n.parentNode.insertBefore(e, n);
@@ -61,7 +61,7 @@
 
 <body>
     <app-root></app-root>
-    <script>
+    <script async>
         WebFontConfig = {
             google: {
                 families: ['Montserrat:300,400,500,600,700']
@@ -78,11 +78,11 @@
     </script>
 
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js' defer></script>
-    <script src='https://tiles.locationiq.com/v3/js/liq-styles-ctrl-gl.js?v=0.1.8' defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous" defer></script>
-    <script src="https://kit.fontawesome.com/c519d427f7.js" crossorigin="anonymous" defer></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js' async></script>
+    <script src='https://tiles.locationiq.com/v3/js/liq-styles-ctrl-gl.js?v=0.1.8' async></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous" async></script>
+    <script src="https://kit.fontawesome.com/c519d427f7.js" crossorigin="anonymous" async></script>
 </body>
 
 </html>
