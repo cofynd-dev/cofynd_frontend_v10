@@ -15,9 +15,6 @@ import { WorkSpaceService } from '@core/services/workspace.service';
 import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
-import axios from 'axios';
 import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 
 @Component({
@@ -77,16 +74,7 @@ export class WorkSpaceComponent implements OnInit {
     private seoService: SeoService,
     private authService: AuthService,
     private router: Router,
-    private http: HttpClient,
   ) {
-    this.workSpaceService
-      .getProfileReviewByUser()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(review => {
-        if (review) {
-          this.userReview = review;
-        }
-      });
     this.activatedRoute.params.subscribe((param: Params) => {
       if (param && param.workspacename) {
         this.activeWorkSpaceId = param.workspacename;
@@ -114,7 +102,6 @@ export class WorkSpaceComponent implements OnInit {
       }
       if (this.activeWorkSpaceId) {
         this.getWorkSpace(this.activeWorkSpaceId);
-        this.getAverageRating(this.activeWorkSpaceId);
       }
     });
 
@@ -196,7 +183,6 @@ export class WorkSpaceComponent implements OnInit {
                 { maxZoom: 18, attribution: 'Open Street Map' },
               ),
             ],
-
             zoom: 13,
             attributionControl: false,
             scrollWheelZoom: false,
@@ -208,9 +194,6 @@ export class WorkSpaceComponent implements OnInit {
 
         if (workspaceDetail.images.length) {
           this.shareImageUrl = workspaceDetail.images[0].image.s3_link;
-        }
-        if (this.isAuthenticated()) {
-          this.getSpaceReviewByUser();
         }
       },
       error => {
@@ -254,18 +237,8 @@ export class WorkSpaceComponent implements OnInit {
     }
   }
 
-  createMap1(lat, lng) {
-    axios
-      .get(
-        `https://us1.locationiq.com/v1/reverse.php?key=${environment.keys.LOCATIONIQ_MAP}&lat=${lat}&lon=${lng}&format=json`,
-        {},
-      )
-      .then(function(response) {});
-  }
-
   setMarker(position: google.maps.LatLng) {
     const infoWindowText = `<div id="map-title"><h4>${this.workspace.name}</h4><p>${this.workspace.location.address1}</p></div>`;
-
     this.infoWindow = new google.maps.InfoWindow({
       content: infoWindowText,
     });

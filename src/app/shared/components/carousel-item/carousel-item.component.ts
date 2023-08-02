@@ -43,12 +43,11 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     touch: true,
     easing: 'cubic-bezier(0, 0, 0.2, 1)',
   };
-  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) { }
+  constructor(private cdr: ChangeDetectorRef, private workSpaceService: WorkSpaceService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  ngOnChanges(): void { }
+  ngOnChanges(): void {}
 
   onSliderMove(slideData: NguCarouselStore) {
     this.active = slideData.currentSlide;
@@ -73,7 +72,6 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
     } else {
       this.router.navigate([`/coworking/${slug.toLowerCase().trim()}`]);
     }
-
   }
 
   openCoLivingSpace(slug: string, country: string) {
@@ -97,5 +95,4 @@ export class CarouselItemComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
-
 }
