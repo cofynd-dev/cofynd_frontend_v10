@@ -288,7 +288,7 @@
                                                     </div>
                                                 </div>
                                                 <ul *ngIf="showcountry" class="country-list">
-                                                    <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                                    <li (click)="hideCountry(country)" class="country active" tabindex="0" *ngFor="let country of activeCountries">
                                                         <div class="flag-box">
                                                             <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                         </div>

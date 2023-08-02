@@ -10,43 +10,29 @@
 
             <div class="property_item property_item2" style="cursor: pointer;">
                 <div class="property-img" [routerLink]="['/co-living/', office.slug]">
-                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="" class="img-fluid">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="Coliving Images" class="img-fluid">
                 </div>
 
-                <div class="property-dis"
-                    [routerLink]="['/co-living/', office.slug]"
-                    style="cursor: pointer;">
+                <div class="property-dis" [routerLink]="['/co-living/', office.slug]" style="cursor: pointer;">
                     <h4>{{ office.name }}</h4>
-                    <p class="address"><img [lazyLoad]="'assets/images/icons/location-icon.svg'"
-                            alt=""
-                            class="img-fluid"> {{ office.location.address }}</p>
+                    <p class="address"><img [lazyLoad]="'assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{ office.location.address }}</p>
                     <div class="row align-items-end">
                         <div class="col-md-7 col-7">
-                            <p class="capacity"><img class="img-fluid"
-                                    alt=""
-                                    [lazyLoad]="'assets/images/amenities/save-money.svg'"> Best Price</p>
-                            <p class="capacity light_blue"><img class="img-fluid"
-                                    alt=""
-                                    [lazyLoad]="'assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
+                            <p class="capacity"><img class="img-fluid" alt="Save Money" [lazyLoad]="'assets/images/amenities/save-money.svg'"> Best Price</p>
+                            <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" [lazyLoad]="'assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
                         </div>
                         <div class="col-md-5 col-5 justify-content-end d-flex">
-                            <div class="price"><span class="rent_title">Starting
-                                    from</span>₹{{office.starting_price}}<span>/ month</span></div>
+                            <div class="price"><span class="rent_title">Starting from</span>₹{{office.starting_price}}<span>/ month</span></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="property-foot align-items-end">
                     <div class="button">
-                        <a [routerLink]="['/co-living/', office.slug]"
-                            target="_blank"
-                            tabindex="0">Explore More</a>
+                        <button [routerLink]="['/co-living/', office.slug]" target="_blank" tabindex="0">Explore More</button>
                     </div>
                     <div class="button">
-                        <a type="button"
-                            (click)="getQuote(office)"
-                            data-toggle="modal"
-                            data-target="#exampleModal">Get Quote</a>
+                        <button type="button" (click)="getQuote(office)" data-toggle="modal" data-target="#exampleModal">Get Quote</button>
                     </div>
                 </div>
             </div>
@@ -54,16 +40,8 @@
 
     </ngu-carousel>
 
-    <button type="button"
-        (click)="goToPrev()"
-        [disabled]="similarCarousel.isFirst"
-        class="carousel-arrow icon-back fas fa-angle-left">
-    </button>
-    <button type="button"
-        (click)="goToNext()"
-        [disabled]="similarCarousel.isLast"
-        class="carousel-arrow icon-next fas fa-angle-right">
-    </button>
+    <button type="button" (click)="goToPrev()" [disabled]="similarCarousel.isFirst" class="carousel-arrow icon-back fas fa-angle-left"></button>
+    <button type="button" (click)="goToNext()" [disabled]="similarCarousel.isLast" class="carousel-arrow icon-next fas fa-angle-right"></button>
 </div>
 
 <!-- Modal -->
@@ -139,7 +117,7 @@
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
-                                                                width="18px" /></div>
+                                                                width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -152,7 +130,7 @@
                                                     *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
                                                         <div class="flag af"><img
-                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                                [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
