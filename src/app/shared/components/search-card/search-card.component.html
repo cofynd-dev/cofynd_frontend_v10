@@ -30,7 +30,7 @@
                     <ng-template [ngIf]="!forAll">
                         <span class="rent_title">Starting from</span>
                         <ng-container *ngFor="let item of workspace?.plans">
-                            <div *ngIf="item.category == '6231bca42a52af3ddaa73ab1'">
+                            <div *ngIf="item.category === '6231bca42a52af3ddaa73ab1'">
                                 <i class="fa-solid fa-indian-rupee-sign"></i> {{item?.price.toLocaleString('en-IN') }} <span>/ {{item?.duration }}</span>
                             </div>
                         </ng-container>
@@ -56,7 +56,7 @@
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
-    #myModal  *ngIf="forAll">
+    #myModal >
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body"
