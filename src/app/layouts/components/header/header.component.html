@@ -6,12 +6,12 @@
                 (click)="openMobileSearch()"
                 class="far fa-search mobile-search">
             </button>
-            <a (click)="logoClick()"
+            <div (click)="logoClick()"
                 class="logo"
                 routerLink="/">
                 <img [lazyLoad]="'assets/images/logo.svg'"
                     alt="">
-            </a>
+            </div>
 
             <div class="search"
                 *ngIf="showSearch || isSearchModal"

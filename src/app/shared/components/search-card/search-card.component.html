@@ -56,7 +56,7 @@
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
-    #myModal >
+    #myModal>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body"
@@ -75,9 +75,7 @@
                                 aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
 
-                        <form class="form"
-                            [formGroup]="enquiryForm"
-                            (ngSubmit)="onSubmit()">
+                        <form class="form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -142,21 +140,24 @@
                                 </div>
                             </div>
 
-
-                            <div class="form-group otp-form"
-                                *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
-                                <input class="form-control"
-                                    placeholder="Enter Otp"
-                                    type="password"
-                                    formControlName="otp"
-                                    appMaterialInput
-                                    autofocus />
-                                <app-input-validation [control]="enquiryForm.controls.otp">
-                                </app-input-validation>
-                                <button [disabled]="resendDisabled"
-                                    (click)="resendOTP()"
-                                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
-                                <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group otp-form"
+                                        *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
+                                        <input class="form-control"
+                                            placeholder="Enter Otp"
+                                            type="password"
+                                            formControlName="otp"
+                                            appMaterialInput
+                                            autofocus />
+                                        <app-input-validation [control]="enquiryForm.controls.otp">
+                                        </app-input-validation>
+                                        <button [disabled]="resendDisabled"
+                                            (click)="resendOTP()"
+                                            [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                                        <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row">

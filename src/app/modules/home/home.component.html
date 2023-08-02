@@ -94,7 +94,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5fe89b1ad0fdf44bbe39c8c7ea4ac8d936a6f730.png'" />
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5fe89b1ad0fdf44bbe39c8c7ea4ac8d936a6f730.png'" alt="Cities Banner" />
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg'" alt="CoFynd" />
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg'" alt="What You Get" />
             </div>
             <div class="col-md-6 right-part">
                 <div class="text-center">
@@ -290,7 +290,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                     <div class="cta_img tabhide">
-                        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/97c25bb142eb6cca3d810df493e12701599c5cb0.png" alt="" class="img-fluid" />
+                        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/97c25bb142eb6cca3d810df493e12701599c5cb0.png" alt="CTA Img" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -486,25 +486,25 @@
         <div class="row">
             <div class="col-6">
                 <div class="icon_box">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="" />
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="Exclusive Pricing" />
                     <h4>Exclusive Pricing</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="" />
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="Verified Spaces" />
                     <h4>Verified Spaces</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="" />
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="100% Support" />
                     <h4>100% Support</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="" />
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="Zero Brokerage" />
                     <h4>Zero Brokerage</h4>
                 </div>
             </div>
@@ -539,7 +539,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img lazyLoad="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid" />
+                <img lazyLoad="../../../assets/images/list-your-space-img.svg" alt="List Your Vacant Space" class="img-fluid" />
             </div>
         </div>
     </div>
@@ -552,8 +552,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="" />
-                    <h4>What's the CoFynd Desk ?</h4>
+                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="CoFynd Desk" />
+                    <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">
                         CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb to their highest in life.
                     </p>
