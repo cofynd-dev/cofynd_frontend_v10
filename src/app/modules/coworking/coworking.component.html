@@ -19,7 +19,7 @@
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg'" alt="" class="img-fluid">
+                    <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg'" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
 
 
 <!------------------- Mobile Best Coworking Near You ---------------->
-<section class="near-coworking-space desktophide">
+<section class="near-coworking-space desktophide" *ngIf="workSpaces && workSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -496,7 +496,7 @@
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
-                                                    <div class="flag in" *ngIf="activeCountries.length">
+                                                    <div class="flag in" *ngIf="activeCountries && activeCountries.length">
                                                         <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                         <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                                     </div>
@@ -508,16 +508,6 @@
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
-                                                    </li>
-
-                                                    <li class="divider"></li>
-
-                                                    <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
-                                                        <div class="flag-box">
-                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
-                                                        </div>
-                                                        <span class="country-name">{{inactive?.name}}</span>
-                                                        <span class="dial-code">{{inactive?.dial_code}}</span>
                                                     </li>
                                                 </ul>
 
