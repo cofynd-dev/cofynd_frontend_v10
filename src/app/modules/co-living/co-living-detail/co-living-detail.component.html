@@ -5,8 +5,8 @@
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item"><a [routerLink]="['/co-living/']">Co Living</a></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/']">Home</button></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/co-living/']">Co Living</button></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
@@ -40,8 +40,8 @@
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item"><a [routerLink]="['/co-living/']">Co Living</a></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/']">Home</button></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/co-living/']">Co Living</button></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
@@ -59,7 +59,7 @@
                         <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
                             <div class="heading-info">
                                 <h1>{{ workspace.name }}</h1>
-                                <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ workspace.location.address }}</p>
+                                <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{ workspace.location.address }}</p>
                                 <p class="price"><span class="rent_title">Starting</span>₹{{ (workspace.starting_price).toLocaleString('en-IN') }} <span class="rent_type">/ {{ workspace.price_type }}</span></p>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'../../../../assets/images/icons/bedroom-icon.svg'" />
+                                        <img [lazyLoad]="'../../../../assets/images/icons/bedroom-icon.svg'" [alt]="'Type'" />
                                     </div>
                                     <div class="info">
                                         <h5>Type</h5>
@@ -85,7 +85,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'../../../../assets/images/icons/security-deposit-icon.svg'" />
+                                        <img [lazyLoad]="'../../../../assets/images/icons/security-deposit-icon.svg'" [alt]="'Deposit'" />
                                     </div>
                                     <div class="info">
                                         <h5>Deposit</h5>
@@ -97,7 +97,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'../../../../assets/images/icons/breakfast-food-icon.svg'" />
+                                        <img [lazyLoad]="'../../../../assets/images/icons/breakfast-food-icon.svg'" [alt]="'Food & Bevarages'" />
                                     </div>
                                     <div class="info">
                                         <h5>Food & Bevarages</h5>
@@ -109,7 +109,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img alt="cash" [lazyLoad]="'/assets/images/icons/brokerage-icon.svg'" />
+                                        <img alt="cash" [lazyLoad]="'/assets/images/icons/brokerage-icon.svg'" [alt]="'Zero Brokerage'" />
                                     </div>
                                     <div class="info">
                                         <h5>Zero Brokerage</h5>
@@ -119,7 +119,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img alt="trusted" [lazyLoad]="'/assets/images/amenities/trusted.svg'" />
+                                        <img alt="trusted" [lazyLoad]="'/assets/images/amenities/trusted.svg'" [alt]="'Trusted Space'" />
                                     </div>
                                     <div class="info">
                                         <h5>Trusted Space</h5>
@@ -129,7 +129,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img alt="sanitizer" [lazyLoad]="'/assets/images/amenities/sanitized-icon.svg'" />
+                                        <img alt="sanitizer" [lazyLoad]="'/assets/images/amenities/sanitized-icon.svg'" [alt]="'Fully Sanitized'" />
                                     </div>
                                     <div class="info">
                                         <h5>Fully Sanitized</h5>
@@ -167,7 +167,7 @@
                             <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
                                 <div class="box price_box" (click)="openEnquireModal()">
                                     <div class="img">
-                                        <img [lazyLoad]="plan?.planId?.icons?.s3_link" alt="">
+                                        <img [lazyLoad]="plan?.planId?.icons?.s3_link" [alt]="[plan.planId.name]">
                                     </div>
                                     <h4 class="text-capitalize">{{plan.planId.name}}</h4>
                                     <p class="mobilehide">{{plan.planId.description}}</p>
@@ -199,7 +199,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="sleep_box">
-                                <div class="sleep_bad_img"><img [lazyLoad]="workspace.images[1].image.s3_link" class="img-fluid d-block"></div>
+                                <div class="sleep_bad_img"><img [lazyLoad]="workspace.images[1].image.s3_link" [alt]="'Where you sleep'" class="img-fluid d-block"></div>
                                 <div class="sleep_bad_content">
                                     <h4 class="mb-0 mt-2">Bedroom</h4>
                                     <p class="mb-0">Twin/Single Bed</p>
@@ -215,7 +215,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="sleep_box">
-                                <div class="sleep_bad_img"><img [lazyLoad]="workspace.sleepimg.s3_link" class="img-fluid d-block"></div>
+                                <div class="sleep_bad_img"><img [lazyLoad]="workspace.sleepimg.s3_link" [alt]="'Where you sleep'" class="img-fluid d-block"></div>
                                 <div class="sleep_bad_content">
                                     <h4 class="mb-0 mt-2">Bedroom</h4>
                                 </div>
@@ -274,7 +274,7 @@
                     <div class="col-md-12">
                         <h2>You'll be here</h2>
                         <p class="location-icon" *ngIf="workspace">
-                            <img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="" class="img-fluid"> {{ workspace.location.address }}
+                            <img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" [alt]="'Location'" class="img-fluid"> {{ workspace.location.address }}
                         </p>
                         <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                         </div>

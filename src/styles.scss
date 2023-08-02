@@ -95,6 +95,10 @@ option {
         font-size: 14px;
         color: #222 !important;
         font-weight: 500;
+        button {
+            color: #222 !important;
+            font-weight: 500;
+        }
         a {
             color: #222 !important;
             font-weight: 500;
@@ -102,6 +106,7 @@ option {
         .breadcrumb-item {
             font-size: 14px;
             color: #222 !important;
+            font-weight: 500;
             +.breadcrumb-item {
                 &::before {
                     content: "";
@@ -110,6 +115,7 @@ option {
                     height: 10px;
                     background-size: 9px auto;
                     margin-right: 6px;
+                    font-weight: 500;
                 }
             }
         }
@@ -6494,15 +6500,22 @@ h3.site_title {
     margin-bottom: 10px;
 }
 
-.footer_right li a {
+.footer_right li a, .footer_right li p {
     color: #111;
     font-size: 12px;
     line-height: 28px;
+    margin-bottom: 0px;
 }
 
 .footer_info,
 .footer_sm {
     margin-top: 15px;
+}
+.footer_info p {
+	margin-bottom: 0px;
+	font-size: 13px;
+	line-height: 18px;
+	margin-top: 2px;
 }
 
 .footer_info h5 {
@@ -9329,8 +9342,9 @@ select.form-control{
     }
     .breadcrumb .breadcrumb-item {
         font-size: 11px !important;
+        font-weight: 600 !important;
     }
-    .breadcrumb .breadcrumb-item a {
+    .breadcrumb .breadcrumb-item a, .breadcrumb .breadcrumb-item button {
         color: #272828 !important;
         font-weight: 600 !important;
     }
