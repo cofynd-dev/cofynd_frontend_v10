@@ -125,7 +125,7 @@
 <!-- Modal -->
 <div class="modal fade request_call_form"
     id="requestCallBack"
-    tabindex="-1"
+    tabindex="0"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -191,7 +191,7 @@
                                                 class="country-list">
                                                 <li (click)="hideCountry(country)"
                                                     class="country active"
-                                                    tabindex="-1"
+                                                    tabindex="0"
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
@@ -387,13 +387,13 @@
                             class="dropdown-menu border-0 shadow">
                             <li *ngFor="let city of cities | slice:0:18"
                                 class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name"
                                         [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/coworking/'">View All</a>
                             </li>
@@ -410,13 +410,13 @@
                             class="dropdown-menu border-0 shadow">
                             <li *ngFor="let city of colivingCities | slice:0:18"
                                 class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name"
                                         [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/co-living/'">View All</a>
                             </li>
@@ -433,13 +433,13 @@
                             class="dropdown-menu border-0 shadow">
                             <li *ngFor="let city of virtualOfficeCities | slice:0:18"
                                 class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/virtual-office/' + city.name.toLowerCase()"><img [alt]="city.name"
                                         [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
-                                <a tabindex="-1"
+                                <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/virtual-office/'">View All</a>
                             </li>
