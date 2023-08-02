@@ -15,9 +15,9 @@ import { AppConstant } from '@shared/constants/app.constant';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { uniqBy } from 'lodash';
-import { Location } from '@angular/common';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { CountryService } from '@app/core/services/country.service';
 
 @Component({
   selector: 'app-coworking-locality',
@@ -67,11 +67,11 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: any,
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
-    private location: Location,
     private configService: ConfigService,
     private seoService: SeoService,
     private router: Router,
     private el: ElementRef,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
 
@@ -80,7 +80,9 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.minPrice = localStorage.getItem('minPrice');
     this.maxPrice = localStorage.getItem('maxPrice');
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
@@ -133,19 +135,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     if (this.subTitle == 'goregaon') {
       this.setHeaderScript();
     }
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   routeToMicro(item) {
