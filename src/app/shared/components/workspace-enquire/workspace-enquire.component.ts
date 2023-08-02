@@ -189,6 +189,9 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
     });
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
