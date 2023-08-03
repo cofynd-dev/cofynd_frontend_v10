@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <nav *ngIf="!loading && builder &&  builder.location">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/']">Home</button></li>
                         <li class="breadcrumb-item text-overflow">{{builder?.location?.country?.name}}</li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{builder?.name}}</li>
                     </ol>
@@ -76,7 +76,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/pricing-tag-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/pricing-tag-icon.svg'" alt="Price" />
                                     </div>
                                     <div class="info">
                                         <h5>Starting Price</h5>
@@ -87,7 +87,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.configuration">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/configuration-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/configuration-icon.svg'" alt="Configuration" />
                                     </div>
                                     <div class="info">
                                         <h5>Configuration</h5>
@@ -98,7 +98,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.area">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/area-icon.svg'" alt="Area" />
                                     </div>
                                     <div class="info">
                                         <h5>Area</h5>
@@ -109,7 +109,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.comercial_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/comercial-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/comercial-icon.svg'" alt="Comercial Projects" />
                                     </div>
                                     <div class="info">
                                         <h5>Comercial Projects</h5>
@@ -120,7 +120,7 @@
                             <div class="col-md-4 col-6" *ngIf="builder.overview.residential_projects">
                                 <div class="overview-icons">
                                     <div class="icon">
-                                        <img [lazyLoad]="'assets/images/icons/residential-icon.svg'" />
+                                        <img [lazyLoad]="'assets/images/icons/residential-icon.svg'" alt="Residential Projects" />
                                     </div>
                                     <div class="info">
                                         <h5>Residential Projects</h5>
@@ -178,7 +178,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -188,7 +188,7 @@
 
                                                 <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
                         <div class="contact-image">
-                            <img class="img-fluid" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png'" />
+                            <img class="img-fluid" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png'" alt="Contact Image" />
                         </div>
                         <div class="contact-info">
                             <p class="heading">Get in Touch</p>
@@ -246,7 +246,7 @@
                 <h3 class="h3_heading">Residential Projects by {{builder?.name}} </h3>
             </div>
             <div class="col-md-4 col-4">
-                <p class="text-right"><a class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/residential'">View All</a></p>
+                <p class="text-right"><button class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/residential'">View All</button></p>
             </div>
         </div>
 
@@ -271,7 +271,7 @@
                 <h3 class="h3_heading">Commercial Projects by {{builder?.name}}</h3>
             </div>
             <div class="col-md-4 col-4">
-                <p class="text-right"><a class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/commercial'">View All</a></p>
+                <p class="text-right"><button class="btn_text" [routerLink]="'/'+builder?.location?.country.name.toLowerCase() + '/' + builder?.slug + '/commercial'">View All</button></p>
             </div>
         </div>
 

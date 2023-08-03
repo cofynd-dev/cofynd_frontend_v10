@@ -39,7 +39,7 @@
                         <ul *ngIf="showcountry" class="country-list">
                             <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                 <div class="flag-box">
-                                    <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                    <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" [alt]="country?.name" width="18px" /></div>
                                 </div>
                                 <span class="country-name">{{country?.name}}</span>
                                 <span class="dial-code">{{country?.dial_code}}</span>
@@ -49,7 +49,7 @@
 
                             <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                 <div class="flag-box">
-                                    <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                    <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" [alt]="inactive?.name" /></div>
                                 </div>
                                 <span class="country-name">{{inactive?.name}}</span>
                                 <span class="dial-code">{{inactive?.dial_code}}</span>

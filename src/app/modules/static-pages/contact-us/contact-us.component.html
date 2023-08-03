@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group align-items-center">
-                                    <img lazyLoad="assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/user-icon.svg" class="img-fluid" alt="User">
                                     <input type="text" class="form-control" placeholder="Name*" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name">
                                     <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                         <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -18,7 +18,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
-                                    <img lazyLoad="assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/email-icon.svg" class="img-fluid" alt="Email">
                                     <input type="text" class="form-control" placeholder="Email*" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email">
                                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                         <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -29,7 +29,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
-                                    <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
                                     <div class="form-input country_phone icon_phone_field">
                                         <div class="flag-container">
                                             <div (click)="showcountry = !showcountry" class="selected-flag">
@@ -41,7 +41,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flat" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -51,7 +51,7 @@
 
                                                 <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="Flat" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -70,7 +70,7 @@
 
                             <div class="col-md-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                 <div class="form-group align-items-center otp_field">
-                                    <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
                                     <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                     <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                         <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -82,7 +82,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
-                                    <img lazyLoad="assets/images/icons/save-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/save-icon.svg" class="img-fluid" alt="Save">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['interested_in'].errors }" placeholder="I am interested in*" formControlName="interested_in">
                                         <option value="" selected disabled style="display: none;">I am interested in*</option>
                                         <option value="Coworking Space">Coworking Space</option>
@@ -102,7 +102,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group align-items-center">
-                                    <img lazyLoad="assets/images/icons/location-icon.svg" class="img-fluid" alt="">
+                                    <img lazyLoad="assets/images/icons/location-icon.svg" class="img-fluid" alt="Location">
                                     <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city*" required aria-label="Default select example">
                                       <option value="" selected disabled style="display: none;">Select City*</option>
                                             <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
@@ -116,7 +116,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group message_field">
-                                    <img lazyLoad="assets/images/icons/message-icon.svg" alt="" class="img-fluid">
+                                    <img lazyLoad="assets/images/icons/message-icon.svg" alt="Message" class="img-fluid">
                                     <textarea type="text" class="form-control" placeholder="Requirements" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements"></textarea>
                                     <app-input-validation [control]="contactForm.controls.message"></app-input-validation>
                                 </div>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
 
-                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="" class="img-fluid">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8c42174e4c77a5bb470ba3901972cdbdef27c8bc.png" alt="Contact Image" class="img-fluid">
             </div>
         </div>
     </div>

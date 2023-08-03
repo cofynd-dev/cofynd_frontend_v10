@@ -3,7 +3,7 @@
         <div *nguCarouselDef="let office;let i = index;" class="item" [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
             <div class="box" [routerLink]="['/co-living/', office.slug]">
                 <div class="img">
-                    <img [lazyLoad]="office.images[0]?.image.s3_link" alt="">
+                    <img [lazyLoad]="office.images[0]?.image.s3_link" [alt]="office.name">
                 </div>
                 <div>
                     <h5 class="detail">{{ office.name }}</h5>

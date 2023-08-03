@@ -1,16 +1,18 @@
 <section class="cofynd_advantage_area city_advantage_area">
-    <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
-        <div class="col-md-3 col-12">
-            <h3>CoFynd Advantages</h3>
-        </div>
-        <div class="col-md-3 col-4" *ngFor="let data of coFyndAdvantages">
-            <div class="advantage_item">
-                <div class="icon">
-                    <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
-                </div>
-                <div class="content">
-                    <h4>{{data.title}}</h4>
-                    <p class="tabhide">{{data.description}}</p>
+    <div class="container">
+        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
+            <div class="col-md-3 col-12">
+                <h3>CoFynd Advantages</h3>
+            </div>
+            <div class="col-md-3 col-4" *ngFor="let data of coFyndAdvantages">
+                <div class="advantage_item">
+                    <div class="icon">
+                        <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    </div>
+                    <div class="content">
+                        <h4>{{data.title}}</h4>
+                        <p class="tabhide">{{data.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>

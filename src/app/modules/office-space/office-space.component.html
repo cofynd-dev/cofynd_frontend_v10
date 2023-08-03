@@ -8,18 +8,18 @@
                     <p>Find office space that supports your business in a conducive setting. Attentively designed
                         workspaces providing flexible and effective working environments.</p>
                     <div class="city-list">
-                        <a *ngFor="let city of officeCities"
+                        <button *ngFor="let city of officeCities"
                             [routerLink]="city.name.toLowerCase()">
                             <img [lazyLoad]="city?.icon?.s3_link"
                                 [alt]="city.name" /> {{ city.name }}
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
                     <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2b908e60b1582e6965c02a9b404f12b91f065760.jpg"
-                        alt=""
+                        alt="Office Space Banner"
                         class="img-fluid">
                 </div>
             </div>
@@ -79,7 +79,7 @@
                         <div class="property-dis">
                             <h4>{{_centerCity.name}}</h4>
                             <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                                    alt=""
+                                    alt="Location"
                                     class="img-fluid"> {{_centerCity.location.address}}</p>
                             <div class="amenities_card">
                                 <p class="capacity">
@@ -287,7 +287,7 @@
                     (click)="openWorkSpace(_centerCity?.location?.city?.name.toLowerCase())">
                     <div class="top-city-img main_city">
                         <img [lazyLoad]="_centerCity?.images[0]?.image?.s3_link"
-                            class="img-fluid d-block m-auto">
+                            class="img-fluid d-block m-auto" alt="Cities Image">
                     </div>
                     <div class="top-city-text">
                         <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity?.location?.city?.name.toLowerCase()}}
@@ -305,7 +305,7 @@
                             (click)="openWorkSpace(_centerCity?.location?.city?.name.toLowerCase())">
                             <div class="top-city-img">
                                 <img [lazyLoad]="_centerCity?.images[0]?.image?.s3_link"
-                                    class="img-fluid d-block m-auto">
+                                    class="img-fluid d-block m-auto" alt="Cities Image">
                             </div>
                             <div class="top-city-text">
                                 <h4><i class="fas fa-map-marker-alt"></i>
@@ -336,7 +336,7 @@
                         <div class="top-city-img"
                             (click)="openWorkSpace(_centerCity?.location?.city?.name)">
                             <img [lazyLoad]="_centerCity.images[0]?.image?.s3_link"
-                                class="img-fluid d-block m-auto">
+                                class="img-fluid d-block m-auto" alt="Cities Image">
                         </div>
                         <div class="top-city-text"
                             (click)="openWorkSpace(_centerCity?.location?.city?.name)">
@@ -388,7 +388,7 @@
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
-                            alt=""
+                            alt="Property Space Image"
                             class="img-fluid" (click)="goToLink(space?.slug)" style="cursor: pointer;">
                     </div>
                     <div class="property-dis" (click)="goToLink(space?.slug)" style="cursor: pointer;">
@@ -399,7 +399,7 @@
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                                alt=""
+                                alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
 
                         <div class="row align-items-end">
@@ -479,7 +479,7 @@
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
-                            alt=""
+                            alt="Property Space Image"
                             class="img-fluid" (click)="goToLink(space?.slug)" style="cursor: pointer;">
                     </div>
                     <div class="property-dis" (click)="goToLink(space?.slug)" style="cursor: pointer;">
@@ -490,7 +490,7 @@
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                                alt=""
+                                alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
 
                         <div class="row align-items-end">
@@ -570,7 +570,7 @@
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
-                            alt=""
+                            alt="Property Space Image"
                             class="img-fluid" (click)="goToLink(space?.slug)" style="cursor: pointer;">
                     </div>
                     <div class="property-dis" (click)="goToLink(space?.slug)" style="cursor: pointer;">
@@ -581,7 +581,7 @@
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
                         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                                alt=""
+                                alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
                         <div class="row align-items-end">
                             <div class="col-md-6 col-6">
@@ -674,7 +674,7 @@
             <div class="col-md-6 mobilehide tabhide">
                 <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/28ea3eaa2af7ac7991b576c496d9fbbe48267fa3.png"
                     class="img-fluid"
-                    alt="">
+                    alt="Form Image">
             </div>
 
             <div class="col-md-6">
@@ -692,7 +692,7 @@
                                     <div class="input-group align-items-center">
                                         <img lazyLoad="../../../assets/images/icons/user-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="User">
                                         <input type="text"
                                             [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
                                             formControlName="name"
@@ -709,7 +709,7 @@
                                     <div class="input-group align-items-center">
                                         <img lazyLoad="../../../assets/images/icons/email-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="Email">
                                         <input type="email"
                                             [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
                                             formControlName="email"
@@ -727,7 +727,7 @@
                                     <div class="input-group align-items-center">
                                         <img lazyLoad="../../../assets/images/icons/phone-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="Phone">
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry"
@@ -748,7 +748,7 @@
                                                         <div class="flag-box">
                                                             <div class="flag in"><img
                                                                     [lazyLoad]="country?.image?.s3_link"
-                                                                    width="18px" /></div>
+                                                                    width="18px" alt="Flat" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -761,7 +761,7 @@
                                                         *ngFor="let inactive of inActiveCountries">
                                                         <div class="flag-box">
                                                             <div class="flag af"><img
-                                                                    [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                                    [lazyLoad]="inactive?.image?.s3_link" alt="Flat" /></div>
                                                         </div>
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -791,7 +791,7 @@
                                     <div class="input-group align-items-center">
                                         <img lazyLoad="assets/images/icons/location-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="Location">
                                         <select class="form-select"
                                             [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
                                             formControlName="city"
@@ -818,7 +818,7 @@
                                     <div class="input-group align-items-center">
                                         <img lazyLoad="../../../assets/images/icons/phone-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="Phone">
                                         <input type="tel"
                                             [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }"
                                             formControlName="otp"
@@ -841,7 +841,7 @@
                                     <div class="input-group message_field align-items-center">
                                         <img lazyLoad="assets/images/icons/message-icon.svg"
                                             class="img-fluid"
-                                            alt="">
+                                            alt="Message">
                                         <textarea type="textarea"
                                             [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }"
                                             formControlName="requirements"
@@ -884,7 +884,7 @@
             </div>
             <div class="col-4 text-center">
                 <img lazyLoad="../../../assets/images/list-your-space-img.svg"
-                    alt=""
+                    alt="List Your Vacant"
                     class="img-fluid">
             </div>
         </div>
@@ -898,7 +898,7 @@
                 <div class="cofynd-desk text-center">
                     <img style="max-height: 200px;"
                         lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
-                        alt="">
+                        alt="What's the CoFynd Desk">
                     <h4>What's the CoFynd Desk?</h4>
                     <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in
                         between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets
@@ -1051,7 +1051,7 @@
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
-                                                                width="18px" /></div>
+                                                                width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -1064,7 +1064,7 @@
                                                     *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
                                                         <div class="flag af"><img
-                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                                [lazyLoad]="inactive?.image?.s3_link" alt="Flat" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>
