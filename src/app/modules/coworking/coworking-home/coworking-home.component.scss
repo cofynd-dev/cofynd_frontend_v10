@@ -151,33 +151,33 @@
       color: #010101;
     }
 
-    &.space-type-1 {
-      background-image: url('/assets/images/home/day-pass.svg');
+    // &.space-type-1 {
+    //   background-image: url('/assets/images/home/day-pass.svg');
 
-      &:hover {
-        background-image: url('/assets/images/home/day-pass-hover.svg');
-      }
-    }
+    //   &:hover {
+    //     background-image: url('/assets/images/home/day-pass-hover.svg');
+    //   }
+    // }
 
-    &.space-type-2 {
-      background-image: url('/assets/images/home/team.svg');
+    // &.space-type-2 {
+    //   background-image: url('/assets/images/home/team.svg');
 
-      &:hover {
-        background-image: url('/assets/images/home/team-hover.svg');
-      }
+    //   &:hover {
+    //     background-image: url('/assets/images/home/team-hover.svg');
+    //   }
 
-      span {
-        margin-bottom: 20px;
-      }
-    }
+    //   span {
+    //     margin-bottom: 20px;
+    //   }
+    // }
 
-    &.space-type-3 {
-      background-image: url('/assets/images/home/enterprise.svg');
+    // &.space-type-3 {
+    //   background-image: url('/assets/images/home/enterprise.svg');
 
-      &:hover {
-        background-image: url('/assets/images/home/enterprise-hover.svg');
-      }
-    }
+    //   &:hover {
+    //     background-image: url('/assets/images/home/enterprise-hover.svg');
+    //   }
+    // }
   }
 
   @media(max-width: 1200px) {
@@ -391,7 +391,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      background: #4243e8 url('/assets/images/home/pattern-eye.png') no-repeat center left;
+      // background: #4243e8 url('/assets/images/home/pattern-eye.png') no-repeat center left;
       height: 100%;
       border-radius: 0 0 100px 0;
     }

@@ -7,13 +7,13 @@
                     
                     <div class="city-list">
                         <button (click)="searchCoworking()" type="button">
-                        <img [lazyLoad]="'/assets/images/home/near-me.svg'"
+                        <img [lazyLoad]="'/assets/images/icons/near-me-icon.svg'"
                             alt="'Office Space for Rent near me" />
                         Near Me
                         </button>
-                        <a *ngFor="let city of cities" [routerLink]="city.name">
+                        <button *ngFor="let city of cities" [routerLink]="city.name">
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div> 

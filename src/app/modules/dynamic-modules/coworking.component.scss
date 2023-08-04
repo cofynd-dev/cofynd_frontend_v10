@@ -5,7 +5,6 @@
         padding: 80px 0;
     }
     .banner-bg {
-        background: url('/assets/images/home/JustCo-Cross-Street-Exchange-1-Reception.jpg') no-repeat top right;
         width: 50%;
         position: absolute;
         right: 0;
@@ -221,79 +220,79 @@
     }
 }
 
-.what-you-get {
-    padding: 80px 0;
-    .right-part {
-        padding-left: 100px;
-    }
-    ul {
-        li {
-            font-size: 20px;
-            color: #000;
-            font-weight: 300;
-            position: relative;
-            padding-left: 60px;
-            margin-bottom: 50px;
-            @media(max-width: 767px) {
-                br {
-                    display: none;
-                }
-            }
-            span {
-                font-weight: 600;
-            }
-            .wt-icon {
-                width: 50px;
-                height: 40px;
-                display: inline-block;
-                position: absolute;
-                left: 0;
-                top: -6px;
-                &.wt-icon-support {
-                    background: url('/assets/images/home/support.svg') no-repeat center center;
-                }
-                &.wt-icon-space {
-                    background: url('/assets/images/home/work-spaces.svg') no-repeat center center;
-                    top: 4px;
-                }
-                &.wt-icon-price {
-                    background: url('/assets/images/home/pricing.svg') no-repeat center center;
-                }
-                &.wt-icon-fee {
-                    background: url('/assets/images/home/fee.svg') no-repeat center center;
-                }
-                &.wt-icon-Coupon {
-                    background: url('/assets/images/home/exclusive-brand-coupons.svg') no-repeat center center;
-                }
-                @media (max-width: 480px) {
-                    top: 0;
-                    &.wt-icon-space {
-                        top: 0;
-                    }
-                    &.wt-icon-fee {
-                        top: -10px;
-                    }
-                }
-            }
-        }
-        li:last-child {
-            margin-bottom: 0px !important;
-        }
-    }
-    @media (max-width: 767px) {
-        display: none;
-        .row {
-            .col-md-6 {
-                &:first-child {
-                    display: none;
-                }
-            }
-        }
-        .right-part {
-            padding-left: 20px;
-        }
-    }
-}
+// .what-you-get {
+//     padding: 80px 0;
+//     .right-part {
+//         padding-left: 100px;
+//     }
+//     ul {
+//         li {
+//             font-size: 20px;
+//             color: #000;
+//             font-weight: 300;
+//             position: relative;
+//             padding-left: 60px;
+//             margin-bottom: 50px;
+//             @media(max-width: 767px) {
+//                 br {
+//                     display: none;
+//                 }
+//             }
+//             span {
+//                 font-weight: 600;
+//             }
+//             .wt-icon {
+//                 width: 50px;
+//                 height: 40px;
+//                 display: inline-block;
+//                 position: absolute;
+//                 left: 0;
+//                 top: -6px;
+//                 &.wt-icon-support {
+//                     background: url('/assets/images/home/support.svg') no-repeat center center;
+//                 }
+//                 &.wt-icon-space {
+//                     background: url('/assets/images/home/work-spaces.svg') no-repeat center center;
+//                     top: 4px;
+//                 }
+//                 &.wt-icon-price {
+//                     background: url('/assets/images/home/pricing.svg') no-repeat center center;
+//                 }
+//                 &.wt-icon-fee {
+//                     background: url('/assets/images/home/fee.svg') no-repeat center center;
+//                 }
+//                 &.wt-icon-Coupon {
+//                     background: url('/assets/images/home/exclusive-brand-coupons.svg') no-repeat center center;
+//                 }
+//                 @media (max-width: 480px) {
+//                     top: 0;
+//                     &.wt-icon-space {
+//                         top: 0;
+//                     }
+//                     &.wt-icon-fee {
+//                         top: -10px;
+//                     }
+//                 }
+//             }
+//         }
+//         li:last-child {
+//             margin-bottom: 0px !important;
+//         }
+//     }
+//     @media (max-width: 767px) {
+//         display: none;
+//         .row {
+//             .col-md-6 {
+//                 &:first-child {
+//                     display: none;
+//                 }
+//             }
+//         }
+//         .right-part {
+//             padding-left: 20px;
+//         }
+//     }
+// }
 
 .enquiry-section {
     padding: 60px;
