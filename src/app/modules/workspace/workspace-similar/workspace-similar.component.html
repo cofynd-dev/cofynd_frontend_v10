@@ -4,7 +4,7 @@
 
             <div class="property_item property_item2" style="cursor: pointer;">
                 <div class="property-img" (click)="openDetailsPage(workspace.slug)">
-                    <img [lazyLoad]="workspace.images[0]?.image.s3_link" alt="" class="img-fluid">
+                    <img [lazyLoad]="workspace.images[0]?.image.s3_link" [alt]="workspace.name" class="img-fluid">
                 </div>
 
                 <div class="property-dis" (click)="openDetailsPage(workspace.slug)" style="cursor: pointer;">
@@ -27,10 +27,10 @@
                     
                 <div class="property-foot align-items-end">
                     <div class="button">
-                        <a (click)="openDetailsPage(workspace.slug)" target="_blank" tabindex="0">Explore More</a>
+                        <button (click)="openDetailsPage(workspace.slug)" target="_blank" tabindex="0">Explore More</button>
                     </div>
                     <div class="button">
-                        <a type="button" (click)="getQuote(workspace)" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+                        <button type="button" (click)="getQuote(workspace)" data-toggle="modal" data-target="#exampleModal">Get Quote</button>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
-                                                                width="18px" /></div>
+                                                                width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>

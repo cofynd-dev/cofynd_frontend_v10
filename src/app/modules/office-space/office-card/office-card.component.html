@@ -8,7 +8,7 @@
                 <img [lazyLoad]="images?.image?.s3_link"
                     (click)="openoffice(office.slug)"
                     style="cursor: pointer; display: block; height: 100%; width: 100%;"
-                    [alt]="images?.image?.alt ? images?.image?.alt : ''">
+                    [alt]="images?.image?.alt ? images?.image?.alt : 'Office Space Banner'">
             </div>
             <button NguCarouselPrev
                 class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
@@ -31,7 +31,7 @@
             <br><span class="builder_name">{{office?.other_detail?.building_name}}</span>
         </h4>
         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                alt=""
+                alt=" Location"
                 class="img-fluid"> {{ office.location.address }}</p>
 
         <div class="row align-items-end">
@@ -50,10 +50,10 @@
     </div>
     <div class="property-foot align-items-end">
         <div class="button">
-            <a [routerLink]="['/office-space/rent/', office.slug]" target="_blank" tabindex="0">Explore More</a>
+            <button [routerLink]="['/office-space/rent/', office.slug]" target="_blank" tabindex="0">Explore More</button>
         </div>
         <div class="button">
-            <a type="button" (click)="getQuote(office.slug)" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+            <button type="button" (click)="getQuote(office.slug)" data-toggle="modal" data-target="#exampleModal">Get Quote</button>
         </div>
     </div>
 </div>
@@ -132,7 +132,7 @@
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
-                                                                width="18px" /></div>
+                                                                width="18px" alt="Flat" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -145,7 +145,7 @@
                                                     *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
                                                         <div class="flag af"><img
-                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                                [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>

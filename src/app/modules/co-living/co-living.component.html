@@ -6,15 +6,15 @@
                     <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coliving Spaces</span> in India</h1>
                     
                     <div class="city-list">
-                        <a *ngFor="let city of cities" [routerLink]="city.name">
+                        <button *ngFor="let city of cities" [routerLink]="city.name">
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="" class="img-fluid">
+                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="Coliving Banner" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -55,10 +55,10 @@
         <div class="row cities_list_row">
             <div class="col-md-3 col-6" *ngFor="let _city of city">
                 <div class="city-icon-box">
-                    <a [routerLink]="_city.name" class="text-dark">
+                    <button [routerLink]="_city.name" class="text-dark">
                         <div class="row align-items-center">
                             <div class="col-4 pr-0">
-                                <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" class="img-fluid citi-img">
+                                <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" alt="Cities Icon" class="img-fluid citi-img">
                             </div>
                             <div class="col-8">
                                 <div class="cities_box_content">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="col-12 mobilehide">
@@ -90,10 +90,10 @@
             </div>
             <br />
             <div class="col-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg'" class="img-fluid m-auto d-block offer-img">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg'" alt="Offer" class="img-fluid m-auto d-block offer-img">
             </div>
             <div class="col-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg'" class="img-fluid m-auto d-block offer-img">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg'" alt="Offer" class="img-fluid m-auto d-block offer-img">
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png'" alt="" class="img-fluid">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png'" alt="Lifestyle" class="img-fluid">
             </div>
         </div>
     </div>
@@ -141,7 +141,7 @@
             <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoLivingSpaces | slice:0:1">
                 <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                     <div class="top-city-img main_city">
-                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
+                        <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                     </div>
                     <div class="top-city-text">
                         <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
@@ -153,7 +153,7 @@
                     <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoLivingSpaces | slice:1:7">
                         <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                             <div class="top-city-img">
-                                <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
+                                <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                             </div>
                             <div class="top-city-text">
                                 <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
@@ -184,7 +184,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" (click)="goToBrand()">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png'" alt="" class="img-fluid">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png'" alt="Brand Image" class="img-fluid">
             </div>
         </div>
     </div>
@@ -268,11 +268,11 @@
                 <div class="cta_content">
                     <h4>List Your Vacant Space with Cofynd and Start Earning</h4>
                     <p class="hideOnMobile">List for free and leave rest on our experts. Stay organized, manage leads, and track your bookings - all in one place.</p>
-                    <a routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</a>
+                    <button routerLink="/list-your-space" class="btn site_btn border_btn">List Your Property</button>
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="" class="img-fluid">
+                <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="List Your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
@@ -283,8 +283,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
-                    <h4>What's the CoFynd Desk ?</h4>
+                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="What's the CoFynd Desk">
+                    <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>
                     <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>

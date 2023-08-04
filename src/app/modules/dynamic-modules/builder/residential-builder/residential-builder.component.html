@@ -4,10 +4,10 @@
             <div class="col-md-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">home</a></li>
+                        <li class="breadcrumb-item"><button href="/">home</button></li>
                         <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">{{builder?.location?.country?.name}}</span></li>
-                        <li class="breadcrumb-item active ng-star-inserted"><a [routerLink]="'/'+ builder?.location?.country.name.toLowerCase() + '/builder/' + builder?.slug"><span
-                                    class="ng-star-inserted">{{builder?.name}}</span></a></li>
+                        <li class="breadcrumb-item active ng-star-inserted"><button [routerLink]="'/'+ builder?.location?.country.name.toLowerCase() + '/builder/' + builder?.slug"><span
+                                    class="ng-star-inserted">{{builder?.name}}</span></button></li>
                         <li class="breadcrumb-item active ng-star-inserted"><span class="ng-star-inserted">{{builder?.name}} Residential Projects</span></li>
                     </ol>
                 </nav>
@@ -80,7 +80,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -90,7 +90,7 @@
 
                                                 <li (click)="hideCountry(inactive)" class="country selected" *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" />
+                                                        <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="Flag" />
                                                         </div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
@@ -125,7 +125,7 @@
                     </div>
                     <div class="contact-details" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1400395b5b72f417b2108d288877a8ec323817b4.png');">
                         <div class="contact-image">
-                            <img class="img-fluid" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" />
+                            <img class="img-fluid" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9767d9ef9766e8c572306101f7c1a71448d4ed30.png" alt="Contact Image" />
                         </div>
                         <div class="contact-info">
                             <p class="heading">Get in Touch</p>

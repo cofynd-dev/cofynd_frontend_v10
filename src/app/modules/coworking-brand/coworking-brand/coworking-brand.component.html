@@ -24,8 +24,6 @@
             <div class="col-12">
                 <div class="banner_content">
                     <h1 class="text-light text-center">Find the Best<br />Coworking Brand in India</h1>
-                    <div class="search-bar">
-                    </div>
                 </div>
             </div>
         </div>
@@ -88,7 +86,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 mobilehide">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png'" class="img-fluid" alt="">
+                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png'" class="img-fluid" alt="Quiery Image">
             </div>
 
             <div class="col-md-6 col-12">
@@ -104,7 +102,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/user-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/user-icon.svg'" class="img-fluid" alt="User">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                             <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -113,7 +111,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/email-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/email-icon.svg'" class="img-fluid" alt="Email">
                                         <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                             <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -123,7 +121,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="Phone">
                                         <div class="form-input country_phone simple_dropdown">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
@@ -135,7 +133,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -145,7 +143,7 @@
 
                                                     <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -163,7 +161,7 @@
                                 </div>
                                 <div class="col-md-6 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="Phone">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -174,7 +172,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/location-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/location-icon.svg'" class="img-fluid" alt="Location">
                                         <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
                                             <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
@@ -187,7 +185,7 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/message-icon.svg'" class="img-fluid" alt="">
+                                        <img [lazyLoad]="'assets/images/icons/message-icon.svg'" class="img-fluid" alt="Message">
                                         <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
@@ -222,7 +220,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img [lazyLoad]="'assets/images/list-your-space-img.svg'" alt="" class="img-fluid">
+                <img [lazyLoad]="'assets/images/list-your-space-img.svg'" alt="LIst Your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
@@ -233,8 +231,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'" alt="">
-                    <h4>What's the CoFynd Desk ?</h4>
+                    <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'" alt="What's the CoFynd Desk">
+                    <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>
                     <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>

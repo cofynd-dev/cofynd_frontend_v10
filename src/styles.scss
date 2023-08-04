@@ -3437,6 +3437,9 @@ h3.site_title {
 .slider-outer .next-item, .slider-outer .prev-item {
 	opacity: 1;
 }
+.singapore_cities_banner img {
+	border-radius: 30px;
+}
 .property_item .property-dis h4 .builder_name {
     color: #4343E8;
     font-size: 12px;
@@ -3518,7 +3521,7 @@ h3.site_title {
     width: 100%;
     text-align: right;
 }
-.property_item .property-foot .button a {
+.property_item .property-foot .button a, .property_item .property-foot .button button {
     width: 100%;
     font-size: 12px;
     font-weight: 500;

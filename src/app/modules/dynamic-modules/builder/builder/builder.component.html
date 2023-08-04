@@ -17,7 +17,7 @@
         <div class="banner_img">
           <img
           [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/80a37b29bf1855a660804865b5fe205483f3deba.jpg'"
-            alt=""
+            alt="Builder Banner"
             class="img-fluid">
         </div>
       </div>
@@ -44,7 +44,7 @@
               style="cursor: pointer;">
               <div class="top-city-img">
                 <img class="img-fluid d-block m-auto"
-                  [lazyLoad]="builder?.images[0]?.image?.s3_link">
+                  [lazyLoad]="builder?.images[0]?.image?.s3_link" alt="Featured Builder Image">
               </div>
               <div class="top-city-text">
                 <h4><i class="fas fa-map-marker-alt"
@@ -76,7 +76,7 @@
           style="cursor: pointer;">
           <div class="top-city-img main_city">
             <img class="img-fluid d-block m-auto"
-              [lazyLoad]="builder?.images[0]?.image?.s3_link">
+              [lazyLoad]="builder?.images[0]?.image?.s3_link" alt="Featured Builders">
           </div>
           <div class="top-city-text">
             <h4><i class="fas fa-map-marker-alt"
@@ -93,7 +93,7 @@
               style="cursor: pointer;">
               <div class="top-city-img">
                 <img class="img-fluid d-block m-auto"
-                  [lazyLoad]="builder?.images[0]?.image?.s3_link">
+                  [lazyLoad]="builder?.images[0]?.image?.s3_link" alt="Featured Builders">
               </div>
               <div class="top-city-text">
                 <h4><i class="fas fa-map-marker-alt"
@@ -155,7 +155,7 @@
       <div class="col-8">
         <div class="cta_content">
           <h4>Get the best premium flats in Mahindra Lifespaces at the best price</h4>
-          <a class="btn site_btn border_btn">Enquire Now</a>
+          <button class="btn site_btn border_btn">Enquire Now</button>
         </div>
       </div>
     </div>
@@ -210,7 +210,7 @@
       <div class="col-8">
         <div class="cta_content">
           <h4>Get the best premium flats in Puravankara at the best price</h4>
-          <a class="btn site_btn border_btn">Enquire Now</a>
+          <button class="btn site_btn border_btn">Enquire Now</button>
         </div>
       </div>
     </div>
@@ -265,7 +265,7 @@
       <div class="col-8">
         <div class="cta_content">
           <h4>Get the best premium flats in DLF at the best price</h4>
-          <a class="btn site_btn border_btn">Enquire Now</a>
+          <button class="btn site_btn border_btn">Enquire Now</button>
         </div>
       </div>
     </div>
@@ -320,7 +320,7 @@
       <div class="col-8">
         <div class="cta_content">
           <h4>Get the best premium flats in Adani at the best price</h4>
-          <a class="btn site_btn border_btn">Enquire Now</a>
+          <button class="btn site_btn border_btn">Enquire Now</button>
         </div>
       </div>
     </div>
@@ -380,7 +380,7 @@
     </div>
     <div class="row align-items-center">
       <div class="col-md-6 tabhide">
-        <img alt=""
+        <img alt="Query Image"
           class="img-fluid"
           [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/573637d053bf699f82147cddbf6ef8818803fd0f.png'">
       </div>
@@ -400,7 +400,7 @@
                   <div class="input-group align-items-center">
                     <img [lazyLoad]="'assets/images/icons/user-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="User">
                     <input type="text"
                       [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
                       formControlName="name"
@@ -417,7 +417,7 @@
                   <div class="input-group align-items-center">
                     <img [lazyLoad]="'assets/images/icons/email-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="Email">
                     <input type="email"
                       [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
                       formControlName="email"
@@ -435,7 +435,7 @@
                   <div class="input-group align-items-center">
                     <img [lazyLoad]="'assets/images/icons/phone-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="Phone">
 
                     <div class="form-input icon_phone_field">
                       <div class="flag-container">
@@ -467,7 +467,7 @@
                             (click)="hideCountry(inactive)"
                             *ngFor="let inactive of inActiveCountries">
                             <div class="flag-box">
-                              <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                              <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                             </div>
                             <span class="country-name">{{inactive?.name}}</span>
                             <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -495,7 +495,7 @@
                   <div class="input-group align-items-center">
                     <img [lazyLoad]="'assets/images/icons/location-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="Location">
                     <select class="form-select"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
@@ -522,7 +522,7 @@
                   <div class="input-group align-items-center">
                     <img [lazyLoad]="'assets/images/icons/phone-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="Phone">
                     <input type="tel"
                       [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }"
                       formControlName="otp"
@@ -545,7 +545,7 @@
                   <div class="input-group message_field align-items-center">
                     <img [lazyLoad]="'assets/images/icons/message-icon.svg'"
                       class="img-fluid"
-                      alt="">
+                      alt="Message">
                     <textarea type="textarea"
                       [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }"
                       formControlName="requirements"
@@ -590,8 +590,8 @@
         <div class="cofynd-desk text-center">
           <img style="max-height: 200px;"
           [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'"
-            alt="">
-          <h4>What's the CoFynd Desk ?</h4>
+            alt="What's the CoFynd Desk">
+          <h4>What's the CoFynd Desk?</h4>
           <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything
             in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd
             community Breathe, Connect and Climb

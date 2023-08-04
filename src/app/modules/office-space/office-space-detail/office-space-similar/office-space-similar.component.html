@@ -13,7 +13,7 @@
                     [routerLink]="['/office-space/rent/', office.slug]"
                     style="cursor: pointer;">
                     <img [lazyLoad]="office.images[0]?.image.s3_link"
-                        alt=""
+                        alt="Office space"
                         class="img-fluid">
                 </div>
                 <div class="property-dis"
@@ -25,16 +25,16 @@
                     <h4 *ngIf="!office.location.micro_location">Office Space for Rent in {{ office?.location?.city?.name
                         }} <br><span class="builder_name">{{office?.other_detail?.building_name}}</span></h4>
                     <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                            alt=""
+                            alt="Location"
                             class="img-fluid"> {{ office.location.address }}</p>
 
                     <div class="row align-items-end">
                         <div class="col-md-6 col-6">
                             <p class="capacity"><img class="img-fluid"
                                     lazyLoad="assets/images/icons/flexible-lease-icon.svg"
-                                    alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                                    alt="Flexible"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
                             <p class="capacity mb-0"><img lazyLoad="/assets/images/icons/furnished-status-icon.svg"
-                                    alt="wifi"
+                                    alt="Furnished"
                                     class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}
                             </p>
                         </div>
@@ -46,12 +46,12 @@
                     </div>
                 </div>
                 <div class="property-foot align-items-end">
-                    <div class="button"><a [routerLink]="['/office-space/rent/', office.slug]"
-                            tabindex="0">Explore More</a></div>
-                    <div class="button"><a type="button"
+                    <div class="button"><button [routerLink]="['/office-space/rent/', office.slug]"
+                            tabindex="0">Explore More</button></div>
+                    <div class="button"><button type="button"
                             (click)="getQuote(office)"
                             data-toggle="modal"
-                            data-target="#exampleModal">Get Quote</a></div>
+                            data-target="#exampleModal">Get Quote</button></div>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
                                                         <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
-                                                                width="18px" /></div>
+                                                                width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -154,7 +154,7 @@
                                                     *ngFor="let inactive of inActiveCountries">
                                                     <div class="flag-box">
                                                         <div class="flag af"><img
-                                                                [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                                [lazyLoad]="inactive?.image?.s3_link" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{inactive?.name}}</span>
                                                     <span class="dial-code">{{inactive?.dial_code}}</span>

@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-md-4 pt-2" style="cursor: pointer;" *ngFor=" let _centerCity of popularCoLivingSpaces | slice:0:1">
                     <div style="position: relative;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto" style="height:516px; object-fit:cover; border-radius:10px;">
+                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto" style="height:516px; object-fit:cover; border-radius:10px;" alt="Cities Image">
                         <div class="SpaceText">
                             <p class="mb-3 pl-2 text-center text-white" style="font-size: 20px; line-height: 26px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{removedash(_centerCity.address.split(",").pop()) | titlecase}}
                             </p>
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-md-4 p-2" style="cursor: pointer;" *ngFor="let _centerCity of popularCoLivingSpaces | slice:1:7">
                             <div class="spaceCenter" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
-                                <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
+                                <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                                 <div class="SpaceText">
                                     <p class="text-center text-white mb-3" style="font-size: 20px; font-weight: 500;"><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
                                     </p>
@@ -161,7 +161,7 @@
                     <p class="facility-head">We are ready for the new normal!</p>
                 </div>
                 <div class="col-12">
-                    <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/covid-2.png'" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="">
+                    <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/covid-2.png'" class="img-fluid m-auto d-block border pt-2 pl-2 pr-2" alt="Covid">
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="col-4 text-center">
-                    <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="" class="img-fluid">
+                    <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="List Your Vacant" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -189,9 +189,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="cofynd-desk text-center">
-                        <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'" alt="">
+                        <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png'" alt="What's the CoFynd Desk">
 
-                        <h4>What's the CoFynd Desk ?</h4>
+                        <h4>What's the CoFynd Desk?</h4>
                         <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and
                             Climb to their highest in life.</p>
                         <p class="link-text text-center">- Atul Gupta, Founder & CEO</p>

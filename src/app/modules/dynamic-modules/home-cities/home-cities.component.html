@@ -1,5 +1,5 @@
 <div class="city-list">
-    <a style="cursor: pointer;" *ngFor="let city of countryCities" (click)="openModal(city.name.toLowerCase(),city.Country.name.toLowerCase())">
+    <button style="cursor: pointer;" *ngFor="let city of countryCities" (click)="openModal(city.name.toLowerCase(),city.Country.name.toLowerCase())">
         <img [lazyLoad]="city?.image?.s3_link" [alt]="city.name"> {{ removedash(city.name) }}
-    </a>
+    </button>
 </div>

@@ -5,9 +5,9 @@
                 <div class="banner_content">
                     <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Virtual Office</span> in India</h1>
                     <div class="city-list">
-                        <a *ngFor="let city of cities | slice:0:17" [routerLink]="city.name">
+                        <button *ngFor="let city of cities | slice:0:17" [routerLink]="city.name">
                             <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                        </a>
+                        </button>
                         <button type="button" class="btn btn-primary more_cities_btn" data-toggle="modal" data-target="#exampleModal">
                             <img lazyLoad="assets/images/icons/more-icon.svg" alt="View All" /> View All
                           </button>
@@ -16,7 +16,7 @@
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg" alt="" class="img-fluid">
+                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/250c9f1c062c252977f4671527e6cf6da5510946.jpg" alt="Virtual Banner" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -35,9 +35,9 @@
             </div>
             <div class="modal-body">
                 <div class="city-list">
-                    <a *ngFor="let city of cities" [routerLink]="city.name" data-dismiss="modal">
+                    <button *ngFor="let city of cities" [routerLink]="city.name" data-dismiss="modal">
                         <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -98,11 +98,11 @@
 
                     <div class="property_item" (click)="routeTodetail(_centerCity.slug)" *ngFor=" let _centerCity of workSpaces">
                         <div class="property-img">
-                            <img [lazyLoad]="_centerCity.images[0].image.s3_link" alt="" class="img-fluid">
+                            <img [lazyLoad]="_centerCity.images[0].image.s3_link" [alt]="_centerCity.name" class="img-fluid">
                         </div>
                         <div class="property-dis">
                             <h4>{{_centerCity.name}}</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{_centerCity.location.address1}}</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{_centerCity.location.address1}}</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -168,7 +168,7 @@
                 <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef8e8be011b9d4ee403ae0442acbd0463fd28e4f.jpg" alt="Bangalore" class="img-fluid">
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ef8e8be011b9d4ee403ae0442acbd0463fd28e4f.jpg" alt="Company Registration" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Company Registration</h4>
@@ -181,7 +181,7 @@
                 <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd380f78173a8d346c958c49bce47374d922b3d6.jpg" alt="Bangalore" class="img-fluid">
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bd380f78173a8d346c958c49bce47374d922b3d6.jpg" alt="GST Registration" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>GST Registration</h4>
@@ -194,7 +194,7 @@
                 <div class="curated-box" (click)="openModal('virtualOffice')">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fec560c38b6611ac17f156bcbf3aac0834774ae.jpg" alt="Bangalore" class="img-fluid">
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2fec560c38b6611ac17f156bcbf3aac0834774ae.jpg" alt="Courier Handling" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Courier Handling</h4>
@@ -214,7 +214,7 @@
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Get your ideal Business Address</h4>
-                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</a>
+                    <button (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</button>
                 </div>
             </div>
         </div>
@@ -236,37 +236,37 @@
         <div class="row amenities_row">
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img lazyLoad="../../../assets/images/icons/day-pass.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/day-pass.svg" alt="Company Registation">
                     <h4>Company Registation</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img lazyLoad="../../../assets/images/icons/meeting-room.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/meeting-room.svg" alt="Meeting Room Access">
                     <h4>Meeting Room Access</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-4">
-                    <img lazyLoad="../../../assets/images/icons/hot-desk.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/hot-desk.svg" alt="GST Registration">
                     <h4>GST Registration</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="../../../assets/images/icons/dedicated-desk.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/dedicated-desk.svg" alt="Mailing Address">
                     <h4>Mailing Address</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="../../../assets/images/icons/private-cabin.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/private-cabin.svg" alt="Business Address">
                     <h4>Business Address</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="../../../assets/images/icons/reception.svg" alt="">
+                    <img lazyLoad="../../../assets/images/icons/reception.svg" alt="Reception Services">
                     <h4>Reception Services</h4>
                 </div>
             </div>
@@ -287,7 +287,7 @@
             <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularVirtualOffice | slice:0:1">
                 <div class="top-city-item" (click)="openWorkSpace(_centerCity.name.split(',').pop())">
                     <div class="top-city-img main_city">
-                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
+                        <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto" [alt]="_centerCity.name">
                     </div>
                     <div class="top-city-text">
                         <h4>{{_centerCity.name}}</h4>
@@ -300,7 +300,7 @@
                     <div class="col-md-4 p-2" *ngFor="let _centerCity of popularVirtualOffice | slice:1:7">
                         <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.name.split(',').pop())">
                             <div class="top-city-img">
-                                <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto">
+                                <img [lazyLoad]="_centerCity.image" class="img-fluid d-block m-auto" [alt]="_centerCity.name">
                             </div>
                             <div class="top-city-text">
                                 <h4>{{_centerCity.name}}</h4>
@@ -403,7 +403,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Rainmakers Workspace</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> MG Road, Bengaluru</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> MG Road, Bengaluru</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -425,7 +425,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Incubex HSR1</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> HSR Layout, Bengaluru</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> HSR Layout, Bengaluru</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -447,7 +447,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>BHIVE HSR</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> 2nd sector, Bangalore</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> 2nd sector, Bangalore</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -469,7 +469,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>365 Pinnacle HSR Layout</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Koramangala, Bengaluru</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Koramangala, Bengaluru</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -491,7 +491,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Workshaala HSR NR Towers</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> HSR Layout, Bengaluru</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> HSR Layout, Bengaluru</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -531,7 +531,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>CoworkInsta</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> DLF Phase - 4</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> DLF Phase - 4</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -553,7 +553,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Altf MG Road</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> JMD Empire Square</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> JMD Empire Square</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -575,7 +575,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>AltF MG Road</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Plaza Mall</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Plaza Mall</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -597,7 +597,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Fume</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Udyog Vihar - Phase IV</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt=" Location" class="img-fluid"> Udyog Vihar - Phase IV</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -619,7 +619,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>ReOffice</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Nirvana Courtyard</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Nirvana Courtyard</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -647,7 +647,7 @@
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Get the Perfect Virtual Office in your cities</h4>
-                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</a>
+                    <button (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</button>
                 </div>
             </div>
         </div>
@@ -673,7 +673,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Kontor Space Thane</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Wagle Industrial Estate, Mumbai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Wagle Industrial Estate, Mumbai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -695,7 +695,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Cowrks Powai</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Hiranandani Gardens, Mumbai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Hiranandani Gardens, Mumbai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -717,7 +717,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>My Desk Borivali West</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Borivali West, Mumbai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Borivali West, Mumbai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -739,7 +739,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Yessswork Andheri</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Kurla West, Mumbai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Kurla West, Mumbai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -761,7 +761,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>IKeva BKC</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> BKC, Mumbai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> BKC, Mumbai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -802,7 +802,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>CoWrks Skyview</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Hitech City, Hyderabad</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Hitech City, Hyderabad</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -824,7 +824,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Cokarma Hitech City</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Kondapur, Hyderabad</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Kondapur, Hyderabad</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -846,7 +846,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Cokarma Himayat Nagar</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Himayatnagar, Hyderabad</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Himayatnagar, Hyderabad</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -868,7 +868,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>SBC Coworking KPHB</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Kukatpally, Hyderabad</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Kukatpally, Hyderabad</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -890,7 +890,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>iKeva Banjara Hills</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Banjara Hills, Hyderabad</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Banjara Hills, Hyderabad</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -918,7 +918,7 @@
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Get your Virtual Office across Pan India</h4>
-                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</a>
+                    <button (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</button>
                 </div>
             </div>
         </div>
@@ -944,7 +944,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Level 212 coworks</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Camp, Pune</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Camp, Pune</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -966,7 +966,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Trios Viman Nagar</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Viman Nagar, Pune</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Viman Nagar, Pune</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -988,7 +988,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Trios Baner</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Baner Rd, Pune</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Baner Rd, Pune</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1010,7 +1010,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Synergy Office space</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Viman Nagar, Pune</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Viman Nagar, Pune</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1032,7 +1032,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Collab Workspaces</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Kharadi, Pune</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Kharadi, Pune</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1073,7 +1073,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>KraStay Saidullahjab</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Westend Marg</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Westend Marg</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1095,7 +1095,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Covork</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Paschim Vihar</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Paschim Vihar</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1117,7 +1117,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>InstaOffice</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Okhla Phase - II</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Okhla Phase - II</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1139,7 +1139,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>One Co.Work</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Connaught Place</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Connaught Place</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1161,7 +1161,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Coworkin</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Nehru Place</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Nehru Place</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1192,7 +1192,7 @@
                 <div class="cta_content">
                     <h4>Hurry! Choose your Space Now</h4>
                     <p>Gst Registration | Company Registration</p>
-                    <a (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</a>
+                    <button (click)="scrollToElement(target)" style="cursor: pointer;" class="site_btn border_btn">Enquire Now</button>
                 </div>
             </div>
         </div>
@@ -1218,7 +1218,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Nukleus</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 142</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Sector 142</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1240,7 +1240,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Reoffice</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 16 Noida</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Sector 16 Noida</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1262,7 +1262,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>AltF Expressway</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 132</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Sector 132</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1284,7 +1284,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Amigo CoWorking Space</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 8</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Sector 8</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1306,7 +1306,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Worxways Sector 63</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Sector 63, Noida</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Sector 63, Noida</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1347,7 +1347,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Spacelance Anna Salai</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Anna Salai, Chennai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Anna Salai, Chennai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1369,7 +1369,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>The Work Villa</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Anna Salai, Chennai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Anna Salai, Chennai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1391,7 +1391,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Trend India Workspaces Guindy</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Trend India Business Centre</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Trend India Business Centre</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1413,7 +1413,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>LM Tech Park</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Perungudi, Chennai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Perungudi, Chennai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1435,7 +1435,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>Ikeva Perungudi</h4>
-                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> Old Mahabalipuram Rd, Chennai</p>
+                            <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> Old Mahabalipuram Rd, Chennai</p>
                             <div class="amenities_card">
                                 <p class="capacity">
                                     <img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi"> High speed WiFi
@@ -1469,7 +1469,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 mobilehide tabhide">
-                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/55341250f6bdbb49a2425d48ae422e5ebe75ae69.png" class="img-fluid" alt="">
+                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/55341250f6bdbb49a2425d48ae422e5ebe75ae69.png" class="img-fluid" alt="Form Image">
             </div>
 
             <div class="col-md-6">
@@ -1484,7 +1484,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img lazyLoad="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="User">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Enter your Name*" required>
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                             <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -1493,7 +1493,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img lazyLoad="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="Email">
                                         <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                             <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -1503,7 +1503,7 @@
                                 </div>
                                 <div class="col-md-6 col-12 country_phone">
                                     <div class="input-group align-items-center">
-                                        <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
                                                 <div (click)="showcountry = !showcountry" class="selected-flag">
@@ -1515,7 +1515,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" alt="Flag" width="18px" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -1525,7 +1525,7 @@
 
                                                     <li class="country selected" (click)="hideCountry(inactive)" *ngFor="let inactive of inActiveCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" /></div>
+                                                            <div class="flag af"><img [lazyLoad]="inactive?.image?.s3_link" alt="flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{inactive?.name}}</span>
                                                         <span class="dial-code">{{inactive?.dial_code}}</span>
@@ -1556,7 +1556,7 @@
                                 </div>
                                 <div class="col-md-12 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -1567,7 +1567,7 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group message_field align-items-center">
-                                        <img lazyLoad="assets/images/icons/message-icon.svg" class="img-fluid" alt="">
+                                        <img lazyLoad="assets/images/icons/message-icon.svg" class="img-fluid" alt="Message">
                                         <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
@@ -1601,7 +1601,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img lazyLoad="../../../assets/images/list-your-space-img.svg" alt="" class="img-fluid">
+                <img lazyLoad="../../../assets/images/list-your-space-img.svg" alt="List Your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
@@ -1612,8 +1612,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="">
-                    <h4>What's the CoFynd Desk ?</h4>
+                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="What's the CoFynd Desk">
+                    <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>
                     <p class="link-text text-center title_name">Atul Gupta, Founder & CEO</p>

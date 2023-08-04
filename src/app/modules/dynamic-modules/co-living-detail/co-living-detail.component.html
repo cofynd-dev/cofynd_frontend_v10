@@ -6,12 +6,8 @@
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item">
-                            <a (click)="routetoCountryPage()">
-                Co Living
-              </a>
-                        </li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/']">Home</button></li>
+                        <li class="breadcrumb-item"><button (click)="routetoCountryPage()">Co Living</button></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
@@ -37,12 +33,8 @@
             <div class="col-md-12">
                 <nav *ngIf="!loading && workspace">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-                        <li class="breadcrumb-item">
-                            <a [routerLink]="['/co-living/']">
-                Co Living
-              </a>
-                        </li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/']">Home</button></li>
+                        <li class="breadcrumb-item"><button [routerLink]="['/co-living/']">Co Living</button></li>
                         <li class="breadcrumb-item text-overflow active" aria-current="page">{{ workspace.name }}</li>
                     </ol>
                 </nav>
@@ -90,7 +82,7 @@
                     <div class="facilities-points mt-2 onlyMobile">
                         <div class="row">
                             <div class="col-2">
-                                <img [lazyLoad]="'../../../../assets/images/housekeeping-Icon.png'" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/housekeeping-Icon.png'" alt="Housekeeping" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Regular Cleaning</p>
@@ -99,7 +91,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img [lazyLoad]="'../../../../assets/images/wi-fi-high.png'" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/wi-fi-high.png'" alt="High Speed WiFi" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">High Speed WiFi</p>
@@ -108,7 +100,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img [lazyLoad]="'../../../../assets/images/comfy-Bed.png'" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/comfy-Bed.png'" alt="Comfy Beds" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Comfy Beds</p>
@@ -117,7 +109,7 @@
                         </div>
                         <div class="row">
                             <div class="col-2">
-                                <img [lazyLoad]="'../../../../assets/images/heart-Icon.png'" class="img-fluid mt-1 d-block">
+                                <img [lazyLoad]="'../../../../assets/images/heart-Icon.png'" alt="Amazing Community" class="img-fluid mt-1 d-block">
                             </div>
                             <div class="col-10 pl-0">
                                 <p class="mb-0 facilities-heading">Amazing Community</p>
@@ -128,18 +120,15 @@
 
                     <!-- hide on mobile view -->
                     <div class="covid-info hideOnMobile">
-                        <p><img alt="Sanitized Spaces" [lazyLoad]="'/assets/images/amenities/sanitizer.svg'" width="35"> Fully sanitized</p>
-                        <p><img alt="CoFynd Zero Brokerage" [lazyLoad]="'/assets/images/amenities/cash.svg'" width="30"> zero brokerage </p>
-                        <p><img alt="CoFynd Trusted Partner" [lazyLoad]="'/assets/images/amenities/trusted.svg'" width="30"> Trusted space</p>
+                        <p><img alt="Sanitized Spaces" [lazyLoad]="'/assets/images/amenities/sanitizer.svg'" [alt]="'Fully sanitized'" width="35"> Fully sanitized</p>
+                        <p><img alt="CoFynd Zero Brokerage" [lazyLoad]="'/assets/images/amenities/cash.svg'" [alt]="'zero brokerage'" width="30"> zero brokerage </p>
+                        <p><img alt="CoFynd Trusted Partner" [lazyLoad]="'/assets/images/amenities/trusted.svg'" [alt]="'Trusted space'" width="30"> Trusted space</p>
                     </div>
 
                     <!-- hide on mobile view -->
                     <div class="facility-list hideOnMobile">
                         <ul class="row">
-                            <li class="col-6">
-                                Type
-                                <span>{{ workspace.other_detail.type_of_co_living }}</span>
-                            </li>
+                            <li class="col-6">Type <span>{{ workspace.other_detail.type_of_co_living }}</span></li>
                             <li class="col-6">
                                 <span *ngIf="workspace.duration == 'month'">Monthly Rent*</span>
                                 <span *ngIf="workspace.duration == 'year'">Yearly Rent*</span>
@@ -183,7 +172,7 @@
                                 <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
                                     <div class="box" (click)="openEnquireModal()">
                                         <div class="img">
-                                            <img [lazyLoad]="plan.planId.icons.s3_link" alt="">
+                                            <img [lazyLoad]="plan.planId.icons.s3_link" alt="Pricing Plan">
                                         </div>
                                         <h4 class="text-capitalize">{{plan.planId.name}}</h4>
                                         <p class="hideOnMobile">{{plan.planId.description}}</p>
@@ -230,7 +219,7 @@
                             <h2>Where you'll sleep</h2>
                         </div>
                         <div class="col-7">
-                            <img [lazyLoad]="workspace.images[1].image.s3_link" class="img-fluid d-block" style="border-radius: 10px;">
+                            <img [lazyLoad]="workspace.images[1].image.s3_link" class="img-fluid d-block" alt="Where you'll sleep" style="border-radius: 10px;">
                             <p class="mb-0 mt-2" style="color:#000;font-weight: 500;">Bedroom</p>
                             <p class="mb-0" style="font-weight: 300;">Twin/Single Bed</p>
                         </div>
