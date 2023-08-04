@@ -19,10 +19,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { Router } from '@angular/router';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '@env/environment';
 import { isPlatformBrowser } from '@angular/common';
+import { CountryService } from '@app/core/services/country.service';
 declare var $: any;
 
 export enum ENQUIRY_STEPS {
@@ -72,7 +72,6 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
   pageUrl: string;
   city: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -117,8 +116,8 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
     private userService: UserService,
     private authService: AuthService,
     private router: Router,
-    private workSpaceService: WorkSpaceService,
     private toastrService: ToastrService,
+    private countryService: CountryService,
   ) {
     this.buildForm();
     if (this.isAuthenticated()) {
@@ -134,10 +133,15 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
     var parts = url;
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     this.loadWorkSpaces();
   }
 
@@ -151,20 +155,6 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
 
   private isAuthenticated() {
     return this.authService.getToken();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   ngOnChanges(changes) {

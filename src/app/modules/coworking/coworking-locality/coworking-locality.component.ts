@@ -58,7 +58,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
   selectedOption: any = 'SortBy';
   footerScriptAdded = false;
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(DOCUMENT) private _document: Document,

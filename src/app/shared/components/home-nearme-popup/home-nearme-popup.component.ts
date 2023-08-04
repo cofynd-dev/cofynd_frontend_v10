@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
@@ -10,14 +9,9 @@ import { Observable, Subscriber } from 'rxjs';
   styleUrls: ['./home-nearme-popup.component.scss'],
 })
 export class HomeNearmePopupComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private toastrService: ToastrService,
-    private bsModalService: BsModalService,
-    private bsModalRef: BsModalRef,
-  ) { }
+  constructor(private router: Router, private bsModalRef: BsModalRef) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getCurrentPosition(): any {
     return new Observable((observer: Subscriber<any>) => {

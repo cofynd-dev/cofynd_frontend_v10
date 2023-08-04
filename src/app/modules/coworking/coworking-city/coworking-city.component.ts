@@ -64,7 +64,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
   shouldReloadEnquiryForm: boolean;
   selectedOption: any = 'SortBy';
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,

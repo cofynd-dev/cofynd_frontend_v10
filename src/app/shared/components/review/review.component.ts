@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Input, OnInit, Renderer2, TemplateRef } from '@angular/core';
+import { Component, Inject, Input, OnInit, Renderer2 } from '@angular/core';
 import { AuthType } from '@app/core/enum/auth-type.enum';
 import { User } from '@app/core/models/user.model';
 import { WorkSpace } from '@app/core/models/workspace.model';

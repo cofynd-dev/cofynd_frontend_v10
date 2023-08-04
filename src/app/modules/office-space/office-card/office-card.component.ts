@@ -18,7 +18,6 @@ import { intToOrdinalNumberString } from '@app/shared/utils';
 import { Enquiry } from '@core/models/enquiry.model';
 import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '@env/environment';
 import { isPlatformBrowser } from '@angular/common';
@@ -56,7 +55,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() office: OfficeSpace;
   @Input() loading: boolean;
   @Input() activeCountries: any;
-  @Input() inActiveCountries: any;
   isMobileResolution: boolean;
   activeSliderItem: number;
   @ViewChild('myModal', { static: false }) myModal: ElementRef;
@@ -121,7 +119,6 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
     private userService: UserService,
     private authService: AuthService,
     private router: Router,
-    private workSpaceService: WorkSpaceService,
     private toastrService: ToastrService,
   ) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
@@ -142,7 +139,9 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnInit() {
-    this.selectedCountry = this.activeCountries[0];
+    if (this.activeCountries && this.activeCountries.length > 0) {
+      this.selectedCountry = this.activeCountries[0];
+    }
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -285,7 +284,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
           this.loading = false;
           this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
           this.sendGaEvent('ENQUIRY_FORM_SUBMIT', 'click', 'FORM_SUBMIT');
-          
+
           this.resetForm();
           this.dismissModal();
           localStorage.removeItem('property_url');

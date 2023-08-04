@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
-import { AVAILABLE_CITY, AVAILABLE_CITY_VIRTUAL_OFFICE } from '@core/config/cities';
+import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
@@ -14,10 +14,8 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Location } from '@angular/common';
-import { virtual_Office_SeoData } from './virtual-office-SEO-data';
-import { script } from '@app/core/config/script';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { CountryService } from '@app/core/services/country.service';
 
 @Component({
   selector: 'app-virtual-office-city',
@@ -30,7 +28,7 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   loading = true;
   workSpaces: WorkSpace[];
 
-  queryParams: { [key: string]: string | number };
+  queryParams: { [key: string]: string | number | boolean };
   count = 0;
   page = 1;
   showLoadMore: boolean;
@@ -55,30 +53,28 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   IMAGE_STATIC_ALT = [];
   ENQUIRY_TYPE: number = ENQUIRY_TYPES.COWORKING;
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private _document: Document,
     private _renderer2: Renderer2,
-
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
     private configService: ConfigService,
     private seoService: SeoService,
-    private location: Location,
     private router: Router,
     private el: ElementRef,
+    private countryService: CountryService,
   ) {
-    // this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
-    this.queryParams = { limit: 500 };
-
+    this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
     this.isMapView = false;
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -88,9 +84,9 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         this.title = results.routeParams[0].path;
         const prevParam = JSON.parse(localStorage.getItem(AppConstant.LS_COWORKING_FILTER_KEY));
         this.queryParams = {
-          // ...AppConstant.DEFAULT_SEARCH_PARAMS,
-          limit: 500,
+          ...AppConstant.DEFAULT_SEARCH_PARAMS,
           city: filteredCity[0].id,
+          for_virtual: true,
           ...results.queryParams,
           ...prevParam,
         };
@@ -105,12 +101,11 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         );
         if (results.routeParams[1]) {
           this.subTitle = results.routeParams[1].path.replace(/-/g, ' ');
-          // this.addSeoTags(results.routeParams[1].path.toLowerCase() + '-' + this.title.toLowerCase());
           this.queryParams = {
-            // ...AppConstant.DEFAULT_SEARCH_PARAMS,
-            limit: 500,
+            ...AppConstant.DEFAULT_SEARCH_PARAMS,
             key: results.routeParams[1].path + '-' + this.title,
             city: filteredCity[0].id,
+            for_virtual: true,
             ...results.queryParams,
           };
         } else {
@@ -119,19 +114,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
         this.createBreadcrumb();
         this.loadWorkSpaces(this.queryParams);
       });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   createBreadcrumb() {
@@ -148,8 +130,6 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
       },
     ];
   }
-
-  footerData: any;
 
   addSeoTags(city: string) {
     this.seoService.getMeta(city + '-virtual-office').subscribe(seoMeta => {
@@ -186,17 +166,13 @@ export class VirtualOfficeCityComponent implements OnInit, OnDestroy {
   loadWorkSpaces(param: {}) {
     this.loading = true;
     this.workSpaceService.getWorkspaces(sanitizeParams(param)).subscribe(allWorkSpaces => {
-
-      this.workSpaces = allWorkSpaces.data.filter(
-        cat => cat.plans.filter(p => p.category === '6231bca42a52af3ddaa73ab1').length,
-      );
+      this.workSpaces = allWorkSpaces.data;
       if (allWorkSpaces.data.length) {
         const filteredLocations = this.availableCities.filter(city => city.name === this.title);
 
         if (filteredLocations && filteredLocations.length) {
           this.cityWisePopularLocation = filteredLocations[0].locations;
         }
-
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         if (this.workSpaces.length) {
           this.workSpaces[0].images.map((image, index) => {

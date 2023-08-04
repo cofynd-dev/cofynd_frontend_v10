@@ -15,6 +15,7 @@ import { CoLivingService } from './../co-living.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
+import { CountryService } from '@app/core/services/country.service';
 declare var $: any;
 
 @Component({
@@ -55,7 +56,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
   selectedOption: any = 'SortBy';
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -67,6 +67,7 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
     private workSpaceService: WorkSpaceService,
     private seoService: SeoService,
     private el: ElementRef,
+    private countryService: CountryService,
   ) {
     // Initial Query Params
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
@@ -75,7 +76,9 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.featuredColiving = localStorage.getItem('featuredColiving');
     localStorage.setItem('city_name', this.activatedRoute.snapshot.url[0].path);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -126,19 +129,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           this.page = params['page'] ? +params['page'] : 1;
           this.addSeoTags(this.title.toLowerCase());
         });
-    });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
     });
   }
 

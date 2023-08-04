@@ -2,7 +2,7 @@ import { OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WorkSpaceService } from '@core/services/workspace.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ChangeDetectionStrategy, Component, Inject, Renderer2 } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
@@ -13,7 +13,6 @@ import { sanitizeParams } from '@app/shared/utils';
 import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
 import { HomeMenuModalComponent } from '../../home/home-menu-modal/home-menu-modal.component';
-import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { City } from '@app/core/models/city.model';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -130,17 +129,20 @@ export class CountryVerticalPageComponent implements OnInit {
     {
       icon: 'home/work-spaces.svg',
       title: '100,000+ Spaces',
-      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+      description:
+        'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
       icon: 'icons/brokerage-icon.svg',
       title: 'Zero Brokerage',
-      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+      description:
+        'CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.',
     },
     {
       icon: 'home/support.svg',
       title: '100% Offline Support',
-      description: 'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
+      description:
+        'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
     },
   ];
 
@@ -161,7 +163,6 @@ export class CountryVerticalPageComponent implements OnInit {
       description: 'We cover India like no one else, Office Spaces across all major Indian Cities',
     },
   ];
-
 
   country_name: string;
   constructor(

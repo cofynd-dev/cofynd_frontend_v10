@@ -1,6 +1,6 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CountryService } from '@app/core/services/country.service';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { sanitizeParams } from '@app/shared/utils';
@@ -10,7 +10,6 @@ import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
 import { BrandService } from '@core/services/brand.service';
 import { ConfigService } from '@core/services/config.service';
 import { SeoService } from '@core/services/seo.service';
-import { WorkSpaceService } from '@core/services/workspace.service';
 import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { Subject } from 'rxjs';
@@ -48,25 +47,24 @@ export class ColivingBrandDetailComponent implements OnInit {
   selectedCity: string;
   enquiryType: number = ENQUIRY_TYPES.COLIVING;
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: any,
     private activatedRoute: ActivatedRoute,
-    private workSpaceService: WorkSpaceService,
     private coLivingService: CoLivingService,
     private configService: ConfigService,
     private seoService: SeoService,
     private brandService: BrandService,
     private router: Router,
-    private el: ElementRef,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.getQueryParam();
-    this.getCountries();
   }
 
   getQueryParam() {
@@ -78,19 +76,6 @@ export class ColivingBrandDetailComponent implements OnInit {
       }
       this.loadWorkSpaceByBrand(this.brandSlug, this.queryParams);
       this.page = params['page'] ? +params['page'] : 1;
-    });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
     });
   }
 

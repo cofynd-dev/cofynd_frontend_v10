@@ -4,7 +4,6 @@ import { intToOrdinalNumberString, sanitizeParams } from '@app/shared/utils';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { map } from 'rxjs/operators';
 import { OfficeSpace } from '@core/models/office-space.model';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { environment } from '@env/environment';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +12,7 @@ import { AuthService } from '@app/core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 
 declare var $: any;
 declare let ga: any;
@@ -60,7 +60,6 @@ export class CoLivingSimilarComponent implements OnInit {
   };
 
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -107,7 +106,7 @@ export class CoLivingSimilarComponent implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
+    private countryService: CountryService,
   ) {
     this.buildForm();
     if (this.isAuthenticated()) {
@@ -120,10 +119,12 @@ export class CoLivingSimilarComponent implements OnInit {
     }
     let url = this.router.url.split('/');
     this.pageName = url[1];
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.loadWorkSpaces();
   }
 
@@ -144,20 +145,6 @@ export class CoLivingSimilarComponent implements OnInit {
     if (coliving.location.city.name) {
       this.city = coliving.location.city.name;
     }
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

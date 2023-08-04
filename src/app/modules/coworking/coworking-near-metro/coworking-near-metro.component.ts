@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CountryService } from '@app/core/services/country.service';
 import { removeSpecialCharacterFromString, sanitizeParams } from '@app/shared/utils';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
@@ -43,7 +44,6 @@ export class CoworkingNearMetroComponent implements OnInit, OnDestroy {
   pageTitle: string;
   breadcrumbs: BreadCrumb[];
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -53,6 +53,7 @@ export class CoworkingNearMetroComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private router: Router,
     private el: ElementRef,
+    private countryService: CountryService,
   ) {
     // Remove Footer From Listing
     // this.configService.updateConfig({ headerClass: 'search-listing' });
@@ -64,7 +65,9 @@ export class CoworkingNearMetroComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -80,19 +83,6 @@ export class CoworkingNearMetroComponent implements OnInit, OnDestroy {
         this.page = results.queryParams['page'] ? +results.queryParams['page'] : 1;
         this.addSeoTags();
       });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   createBreadcrumb() {

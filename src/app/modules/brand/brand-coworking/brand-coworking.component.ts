@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CountryService } from '@app/core/services/country.service';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
 import { sanitizeParams } from '@app/shared/utils';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
@@ -48,7 +49,6 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
   urlPath: string[] = [];
   selectedCity: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -60,6 +60,7 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
     private brandService: BrandService,
     private router: Router,
     private el: ElementRef,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     // Init With Map View
@@ -68,19 +69,8 @@ export class BrandCoworkingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
     });
   }
 

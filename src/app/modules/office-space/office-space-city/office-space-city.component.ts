@@ -20,7 +20,7 @@ import { AVAILABLE_CITY } from './../../../core/config/cities';
 import { OfficeSpaceService } from './../office-space.service';
 import { generateSlug } from '@app/shared/utils';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { CountryService } from '@app/core/services/country.service';
 
 @Component({
   selector: 'app-office-space-city',
@@ -62,7 +62,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
   selectedValue: any = 'Select Price';
   selectedOption: any = 'SortBy';
   activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -74,14 +73,16 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
     private seoService: SeoService,
     private el: ElementRef,
-    private workSpaceService: WorkSpaceService,
+    private countryService: CountryService,
   ) {
     this.configService.updateConfig({ headerClass: 'search-listing' });
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.officeType = localStorage.getItem('officeType');
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       if (this.activatedRoute.snapshot.url && this.activatedRoute.snapshot.url.length) {
@@ -123,19 +124,6 @@ export class OfficeSpaceCityComponent implements OnInit, OnDestroy {
         this.getOfficeList(this.queryParams);
         this.page = params['page'] ? +params['page'] : 1;
         this.addSeoTags('rent');
-      }
-    });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
       }
     });
   }

@@ -16,7 +16,6 @@ import { AuthService } from '@app/core/services/auth.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { ENQUIRY_TYPES } from '@app/shared/components/workspace-enquire/workspace-enquire.component';
 import { VisibilityState } from '@core/enum/visibility-state.enum';
-// import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { WorkSpace } from '@core/models/workspace.model';
 import { SeoService } from '@core/services/seo.service';
@@ -24,11 +23,9 @@ import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { CoLiving } from './../co-living.model';
 import { CoLivingService } from './../co-living.service';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
-import { Location } from '@angular/common';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 import { Review } from '@app/core/models/review.model';
 import { AuthType } from '@app/core/enum/auth-type.enum';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 
 @Component({
   selector: 'app-co-living-detail',
@@ -79,13 +76,10 @@ export class CoLivingDetailComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private activatedRoute: ActivatedRoute,
     private coLivingService: CoLivingService,
-    // private mapsAPILoader: MapsAPILoader,
     private helperService: HelperService,
     private seoService: SeoService,
     private router: Router,
     private authService: AuthService,
-    private _location: Location,
-    private workSpaceService: WorkSpaceService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeWorkSpaceId = param.id;
@@ -107,7 +101,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;

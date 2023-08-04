@@ -17,7 +17,6 @@ import { WorkSpace } from '@app/core/models/workspace.model';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
 import { OfficeSpaceService } from '@app/modules/office-space/office-space.service';
 import { generateSlug } from '@app/shared/utils';
-import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { WorkSpaceService } from '@core/services/workspace.service';
 import { forkJoin, Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';

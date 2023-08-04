@@ -21,6 +21,7 @@ import { Enquiry } from '@app/core/models/enquiry.model';
 import { ToastrService } from 'ngx-toastr';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '@env/environment';
+import { CountryService } from '@app/core/services/country.service';
 declare var $: any;
 declare let ga: any;
 
@@ -55,7 +56,6 @@ export class OfficeSpaceComponent implements OnInit {
   user: any;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -106,6 +106,7 @@ export class OfficeSpaceComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService,
     private cdr: ChangeDetectorRef,
+    private countryService: CountryService,
   ) {
     this.buildForm();
     this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
@@ -132,7 +133,6 @@ export class OfficeSpaceComponent implements OnInit {
       this.queryFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
     this.getCitiesForOfficeSpace();
   }
 
@@ -227,20 +227,6 @@ export class OfficeSpaceComponent implements OnInit {
         this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
@@ -477,6 +463,9 @@ export class OfficeSpaceComponent implements OnInit {
   <p>All in all, our rental office spaces in India allow companies to reach employees distributed across the world and bring all the crucial resources together. With all the budget-friendly pricing schemes, we serve spaces such that businesses can reduce their costs and gain higher efficiency.&nbsp;</p>`;
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.getPopularOfficeSpaces();
     if (this.seoData) {
       this.addSeoTags(this.seoData);

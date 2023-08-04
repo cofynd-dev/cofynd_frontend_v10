@@ -3,10 +3,9 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CountryService } from '@app/core/services/country.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
-import { User } from '@core/models/user.model';
 import { UserService } from '@core/services/user.service';
-import { environment } from '@env/environment';
 import { ToastrService } from 'ngx-toastr';
 
 export enum ENQUIRY_STEPS {
@@ -35,7 +34,6 @@ export class EnterpriseComponent implements OnInit {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -50,6 +48,7 @@ export class EnterpriseComponent implements OnInit {
     private workSpaceService: WorkSpaceService,
     private authService: AuthService,
     private router: Router,
+    private countryService: CountryService,
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
@@ -63,10 +62,15 @@ export class EnterpriseComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
@@ -118,20 +122,6 @@ export class EnterpriseComponent implements OnInit {
         this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
