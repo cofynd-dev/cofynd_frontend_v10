@@ -124,6 +124,9 @@ export class CoLivingSimilarComponent implements OnInit {
   ngOnInit() {
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
     });
     this.loadWorkSpaces();
   }
