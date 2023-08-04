@@ -315,7 +315,7 @@ export class OfficeSpaceComponent implements OnInit {
 
   coFyndAdvantages = [
     {
-      icon: 'home/work-spaces.svg',
+      icon: 'icons/work-spaces.svg',
       title: '100,000+ Spaces',
       description:
         'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
@@ -327,7 +327,7 @@ export class OfficeSpaceComponent implements OnInit {
         'CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.',
     },
     {
-      icon: 'home/support.svg',
+      icon: 'icons/support.svg',
       title: '100% Offline Support',
       description:
         'We provide complete offline support from choosing the best space, scheduling site visits, bookings and after sales.',
