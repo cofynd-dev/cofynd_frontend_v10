@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="innerbanner_img">
-        <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7f70e46fbe159e7baa7b046e7575a42228b9e515.jpg'" alt="Home Page" />
+        <img rel="preload" [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7f70e46fbe159e7baa7b046e7575a42228b9e515.jpg'" alt="Home Page" />
     </div>
 </section>
 
@@ -94,7 +94,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5249839c7e03f082881b2b712dd810c74e3344ce.jpg" alt="Cities Banner" />
+                <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5249839c7e03f082881b2b712dd810c74e3344ce.jpg" alt="Cities Banner" />
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg'" alt="What You Get" />
+                <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e23851977631426a7ef3a48187a294d048fcbb63.jpg" alt="What You Get" />
             </div>
             <div class="col-md-6 right-part">
                 <div class="text-center">
@@ -169,7 +169,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('10,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecd5d47ca571e4ab80f3c51ad331e9ed94e400ac.jpg'" alt="Low Cost" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecd5d47ca571e4ab80f3c51ad331e9ed94e400ac.jpg" alt="Low Cost" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Low Cost</h4>
@@ -181,7 +181,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('20,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5588492e359995155c3e26500877ce9f48c35f76.jpg'" alt="Affordable" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5588492e359995155c3e26500877ce9f48c35f76.jpg" alt="Affordable" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Affordable</h4>
@@ -193,7 +193,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('above 20,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d131ba33b436d3d51732d4870dba1613fcadf1f3.jpg'" alt="Luxury" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d131ba33b436d3d51732d4870dba1613fcadf1f3.jpg" alt="Luxury" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Luxury</h4>
@@ -219,7 +219,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of coworkingImages">
                         <button [routerLink]="item.description">
-                            <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                            <img rel="preload" [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
                         </button>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
             <div class="col-12">
                 <div class="add-item-list">
                     <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of coworkingBrandAdsImages">
-                        <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                        <img rel="preload" [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -290,7 +290,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" class="country active" tabindex="0" *ngFor="let country of activeCountries">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
+                                                            <div class="flag in"><img rel="preload" [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                     <div class="cta_img tabhide">
-                        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/07cb41da2a5a58137ea3b5bcc35cead898194b69.png" alt="CTA Img" class="img-fluid" />
+                        <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/07cb41da2a5a58137ea3b5bcc35cead898194b69.png" alt="CTA Img" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -401,7 +401,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('Inclusive')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2f2e28cf1ea6f4dad9f68c17238a923fbaf958ac.jpg" alt="Food Available" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2f2e28cf1ea6f4dad9f68c17238a923fbaf958ac.jpg" alt="Food Available" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Food Available</h4>
@@ -413,7 +413,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('625698d3a91948671a4c590b')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2ed3c96e0f47e68913f89c76251a1149d81ffa3f.jpg" alt="Private Room" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2ed3c96e0f47e68913f89c76251a1149d81ffa3f.jpg" alt="Private Room" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Private Room</h4>
@@ -425,7 +425,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('625698e8a91948671a4c590c')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/40d08921e19106bb01f1fc130eff3d030c4e3561.jpg" alt="Twin Sharing" class="img-fluid" />
+                            <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/40d08921e19106bb01f1fc130eff3d030c4e3561.jpg" alt="Twin Sharing" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Twin Sharing</h4>
@@ -451,7 +451,7 @@
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of colivingImages">
                         <button [routerLink]="item.description" target="_blank">
-                            <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                            <img rel="preload" [lazyLoad]="item.image?.s3_link" [alt]="item.name" rel="preload" class="img-fluid" />
                         </button>
                     </div>
                 </div>
@@ -466,7 +466,7 @@
             <div class="col-12">
                 <div class="add-item-list">
                     <div class="add-item" [routerLink]="item?.slug" *ngFor="let item of colivingBrandAdsImages">
-                        <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
+                        <img rel="preload" [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -486,25 +486,25 @@
         <div class="row">
             <div class="col-6">
                 <div class="icon_box">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="Exclusive Pricing" />
+                    <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e696fea3c2dbe7dc3b55ae8f054e181a90f1f57a.png" alt="Exclusive Pricing" />
                     <h4>Exclusive Pricing</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="Verified Spaces" />
+                    <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ab5a398aa2c1315e52bea56443077f2749fd196c.png" alt="Verified Spaces" />
                     <h4>Verified Spaces</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="100% Support" />
+                    <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2a66271012d733da39a083a45abe618233458525.png" alt="100% Support" />
                     <h4>100% Support</h4>
                 </div>
             </div>
             <div class="col-6">
                 <div class="icon_box mb-0">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="Zero Brokerage" />
+                    <img rel="preload" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf8c9658e03feb37b8f7b4e82d4e96fc70eaf0cf.png" alt="Zero Brokerage" />
                     <h4>Zero Brokerage</h4>
                 </div>
             </div>
@@ -516,7 +516,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" (click)="openAdd()">
-                <img lazyLoad="	https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c1b1c61db7d1f83d0ba1c6ad8537106cc90bf99d.png" class="enquiry-box" alt="Enterprise Banner" />
+                <img rel="preload" lazyLoad="	https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c1b1c61db7d1f83d0ba1c6ad8537106cc90bf99d.png" class="enquiry-box" alt="Enterprise Banner" />
             </div>
         </div>
     </div>
@@ -539,7 +539,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img lazyLoad="assets/images/list-your-space-img.svg" alt="List Your Vacant Space" class="img-fluid" />
+                <img rel="preload" lazyLoad="assets/images/list-your-space-img.svg" alt="List Your Vacant Space" class="img-fluid" />
             </div>
         </div>
     </div>
@@ -552,7 +552,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="CoFynd Desk" />
+                    <img rel="preload" style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png" alt="CoFynd Desk" />
                     <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">
                         CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb to their highest in life.
