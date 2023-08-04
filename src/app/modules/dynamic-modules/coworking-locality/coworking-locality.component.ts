@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
-import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { PriceFilter, WorkSpace } from '@core/models/workspace.model';
 import { ConfigService } from '@core/services/config.service';
@@ -15,7 +14,6 @@ import { AppConstant } from '@shared/constants/app.constant';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { uniqBy } from 'lodash';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-coworking-locality',
@@ -59,7 +57,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: any,
     private activatedRoute: ActivatedRoute,
     private workSpaceService: WorkSpaceService,
-    private location: Location,
     private configService: ConfigService,
     private seoService: SeoService,
     private router: Router,

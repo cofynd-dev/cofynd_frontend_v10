@@ -23,10 +23,10 @@ import { environment } from '@env/environment';
 import { appAnimations } from '@shared/animations/animation';
 import { CoLiving } from '../../co-living/co-living.model';
 import { CoLivingService } from '../../co-living/co-living.service';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 import { Review } from '@app/core/models/review.model';
 import { AuthType } from '@app/core/enum/auth-type.enum';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
+
 @Component({
   selector: 'app-co-living-detail',
   templateUrl: './co-living-detail.component.html',
@@ -106,7 +106,7 @@ export class CoLivingDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getWorkSpace(workspaceId: string) {
     this.loading = true;

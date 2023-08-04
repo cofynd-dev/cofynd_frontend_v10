@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '@env/environment';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -39,7 +40,6 @@ export class CoworkingBrandComponent implements OnInit {
   user: any;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -55,6 +55,7 @@ export class CoworkingBrandComponent implements OnInit {
     private workSpaceService: WorkSpaceService,
     private seoService: SeoService,
     private authService: AuthService,
+    private countryService: CountryService,
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
@@ -68,21 +69,6 @@ export class CoworkingBrandComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
@@ -91,6 +77,9 @@ export class CoworkingBrandComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     this.addSeoTags();

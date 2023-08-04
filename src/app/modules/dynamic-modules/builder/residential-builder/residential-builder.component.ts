@@ -11,8 +11,8 @@ import { environment } from '@env/environment';
 import { AuthService } from '@app/core/services/auth.service';
 import { UserService } from '@app/core/services/user.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -34,7 +34,7 @@ export class ResidentialBuilderComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private _formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
   }
@@ -61,7 +61,6 @@ export class ResidentialBuilderComponent implements OnInit {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   // ...resend otp... //
@@ -71,6 +70,9 @@ export class ResidentialBuilderComponent implements OnInit {
   // ...resend otp end ...//
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -98,7 +100,6 @@ export class ResidentialBuilderComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -153,20 +154,6 @@ export class ResidentialBuilderComponent implements OnInit {
         // this.toastrService.error(error.message || 'Something broke the server, Please try latter');
       },
     );
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

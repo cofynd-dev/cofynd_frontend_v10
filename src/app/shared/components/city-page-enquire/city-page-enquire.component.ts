@@ -3,8 +3,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CityService } from '@app/core/services/city.service';
-import { CountryService } from '@app/core/services/country.service';
 import { HelperService } from '@app/core/services/helper.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
@@ -48,7 +46,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   @Input() enquiryType: number;
   @Input() shouldReload: boolean;
   @Input() activeCountries: any;
-  @Input() inActiveCountries: any;
 
   enquiryForm: FormGroup;
   loading: boolean;
@@ -147,8 +144,6 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     private coLivingService: CoLivingService,
     private helperService: HelperService,
     private router: Router,
-    private countryService: CountryService,
-    private cityService: CityService,
   ) {
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
@@ -171,7 +166,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    if (this.activeCountries && this.activeCountries.length) {
+    if (this.activeCountries && this.activeCountries.length > 0) {
       this.selectedCountry = this.activeCountries[0];
     }
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));

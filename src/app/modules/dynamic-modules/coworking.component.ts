@@ -1,5 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { WorkSpaceService } from '@core/services/workspace.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Inject, Renderer2 } from '@angular/core';
@@ -13,7 +12,6 @@ import { sanitizeParams } from '@app/shared/utils';
 import { Brand } from '@core/models/brand.model';
 import { DOCUMENT } from '@angular/common';
 import { HomeMenuModalComponent } from '../home/home-menu-modal/home-menu-modal.component';
-import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { City } from '@app/core/models/city.model';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 
@@ -75,7 +73,6 @@ export class CoworkingComponent implements OnInit {
     private seoService: SeoService,
     private bsModalService: BsModalService,
     private workSpaceService: WorkSpaceService,
-    private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function() {

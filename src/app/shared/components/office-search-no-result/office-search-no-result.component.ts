@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -36,7 +37,6 @@ export class OfficeSearchNoResultComponent implements OnInit {
   finalCities: any = [];
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -95,6 +95,7 @@ export class OfficeSearchNoResultComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private workSpaceService: WorkSpaceService,
     private authService: AuthService,
+    private countryService: CountryService,
   ) {
     let url = this.router.url;
     this.pageUrl = `https://cofynd.com${url}`;
@@ -111,21 +112,6 @@ export class OfficeSearchNoResultComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
@@ -145,6 +131,12 @@ export class OfficeSearchNoResultComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
     if (this.title == 'Office') {

@@ -5,7 +5,6 @@ import { PriceFilter } from '@app/core/models/workspace.model';
 import { sanitizeParams } from '@app/shared/utils';
 import { AVAILABLE_CITY_CO_LIVING } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
-import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { ConfigService } from '@core/services/config.service';
 import { SeoService } from '@core/services/seo.service';
@@ -13,7 +12,6 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { CoLiving } from '../../co-living/co-living.model';
 import { CoLivingService } from '../../co-living/co-living.service';
-import { script } from '../../../core/config/script';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -50,8 +48,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   countryId: any;
   noDataRouteUrl: string;
   number_record: number = 20;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -72,7 +68,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -108,19 +103,6 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           });
         });
       });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   createBreadcrumb() {

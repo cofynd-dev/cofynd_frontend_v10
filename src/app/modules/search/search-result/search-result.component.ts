@@ -13,6 +13,7 @@ import { combineLatest, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { CoLivingService } from '@app/modules/co-living/co-living.service';
+import { CountryService } from '@app/core/services/country.service';
 
 @Component({
   selector: 'app-search-result',
@@ -44,7 +45,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   globalUrl: any;
   spaceType: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   constructor(
     private workSpaceService: WorkSpaceService,
     private configService: ConfigService,
@@ -52,6 +52,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     private scrollService: ScrollService,
     private router: Router,
     private coLivingService: CoLivingService,
+    private countryService: CountryService,
   ) {
     this.configService.configs.footer = false;
     // Set map view true by default
@@ -60,7 +61,9 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     combineLatest(this.activatedRoute.params, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -104,19 +107,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
 
     // Load More Scroll Position
     this.scrollService.onScrolledDown$.pipe(takeUntil(this.pageScrollSubject)).subscribe(() => this.loadMore());
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   createBreadcrumb() {

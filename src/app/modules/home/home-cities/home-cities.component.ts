@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { City } from '@core/models/city.model';
 import { BsModalService } from 'ngx-bootstrap';
-import { ToastrService } from 'ngx-toastr';
 import { HomeCityPopupComponent } from '@app/shared/components/home-city-popup/home-city-popup.component';
 import { HomeNearmePopupComponent } from '@app/shared/components/home-nearme-popup/home-nearme-popup.component';
 
@@ -15,11 +14,7 @@ import { HomeNearmePopupComponent } from '@app/shared/components/home-nearme-pop
 export class HomeCitiesComponent {
   cities: City[] = AVAILABLE_CITY.filter(city => city.id !== '5fd088bb1be4d8562d3bc9be');
 
-  constructor(
-    private router: Router,
-    private toastrService: ToastrService,
-    private bsModalService: BsModalService,
-  ) { }
+  constructor(private router: Router, private bsModalService: BsModalService) {}
 
   locateMyLocation() {
     this.bsModalService.show(HomeNearmePopupComponent, {

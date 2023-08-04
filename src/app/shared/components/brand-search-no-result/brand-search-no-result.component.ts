@@ -1,13 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { City } from '@app/core/models/city.model';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { ToastrService } from 'ngx-toastr';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -28,7 +29,6 @@ export class BrandSearchNoResultComponent implements OnInit {
   @Input() type: string = 'for_office';
 
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   availableCities: City[] = AVAILABLE_CITY;
@@ -54,8 +54,8 @@ export class BrandSearchNoResultComponent implements OnInit {
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
+    private countryService: CountryService,
   ) {
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
@@ -69,10 +69,16 @@ export class BrandSearchNoResultComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
+  }
 
   private isAuthenticated() {
     return this.authService.getToken();
@@ -122,20 +128,6 @@ export class BrandSearchNoResultComponent implements OnInit {
 
   get mobno() {
     return this.enterpriseFormGroup.controls;
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

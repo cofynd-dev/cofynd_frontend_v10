@@ -14,7 +14,7 @@ import {
 import { Router } from '@angular/router';
 // import { MapsAPILoader } from '@core/map-api-loader/maps-api-loader';
 import { WorkSpace } from '@core/models/workspace.model';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer, Control } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 import { environment } from '@env/environment';
 import * as L from 'leaflet';
 
@@ -54,7 +54,7 @@ export class SearchMapViewComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: any,
     // private mapsAPILoader: MapsAPILoader,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.workspaces && this.workspaces.length) {
@@ -92,7 +92,7 @@ export class SearchMapViewComponent implements OnInit {
         // shadowUrl: 'assets/images/marker-icon.png'
       }),
     });
-    this.newMarker.on('click', function () {
+    this.newMarker.on('click', function() {
       if (
         workspace.country_dbname &&
         workspace.country_dbname !== 'india' &&

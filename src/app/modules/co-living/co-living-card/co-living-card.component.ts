@@ -18,7 +18,6 @@ import { Enquiry } from '@app/core/models/enquiry.model';
 import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { environment } from '@env/environment';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -56,7 +55,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @Input() loading: boolean;
   @Input() carouselId: string;
   @Input() activeCountries: any;
-  @Input() inActiveCountries: any;
   isMobileResolution: boolean;
   activeSliderItem: number;
 
@@ -121,7 +119,6 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
   ) {
     // initial set activeSliderItem to 0 otherwise not work because of undefined value
     this.activeSliderItem = 0;
@@ -141,7 +138,9 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.selectedCountry = this.activeCountries[0];
+    if (this.activeCountries && this.activeCountries.length > 0) {
+      this.selectedCountry = this.activeCountries[0];
+    }
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {

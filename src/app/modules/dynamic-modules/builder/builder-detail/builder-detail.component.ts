@@ -6,7 +6,6 @@ import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
 import { Builder } from '../builder.model';
 import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { BuilderService } from '../builder.services';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
@@ -15,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { sanitizeParams } from '@app/shared/utils';
 import { AppConstant } from '@shared/constants/app.constant';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -46,7 +46,6 @@ export class BuilderDetailComponent implements OnInit {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -72,8 +71,8 @@ export class BuilderDetailComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService,
     private authService: AuthService,
-    private workSpaceService: WorkSpaceService,
     private sanitizer: DomSanitizer,
+    private countryService: CountryService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeBuilderId = param.buildername;
@@ -91,7 +90,6 @@ export class BuilderDetailComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
@@ -147,7 +145,11 @@ export class BuilderDetailComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
+  }
 
   getBuilderComProjects(param) {
     this.loading = true;
@@ -169,20 +171,6 @@ export class BuilderDetailComponent implements OnInit {
     const otpControl = this.enterpriseFormGroup.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
     otpControl.updateValueAndValidity();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

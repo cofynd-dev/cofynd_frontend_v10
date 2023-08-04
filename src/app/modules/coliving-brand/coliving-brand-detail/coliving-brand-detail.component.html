@@ -20,7 +20,7 @@
                             <div class="col-sm-6" [class.col-md-6]="!isMapView" [class.col-md-6]="isMapView">
                                 <app-search-card *ngIf="!isColiving" [workspace]="space" [showQuote]="true" [forAll]="true">
                                 </app-search-card>
-                                <app-co-living-card [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries" *ngIf="isColiving" [coLiving]="space"></app-co-living-card>
+                                <app-co-living-card [activeCountries]="activeCountries" *ngIf="isColiving" [coLiving]="space"></app-co-living-card>
                             </div>
                             <ng-template [ngIf]="isMapView">
                                 <div class="enquire-box col-sm-12" *ngIf="(i + 1) % 4 === 0">
@@ -44,7 +44,7 @@
 
                 <div class="col-md-4">
                     <div class="enquiry_section brand_query_col">
-                        <app-city-page-enquire [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries" [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
+                        <app-city-page-enquire [activeCountries]="activeCountries"  [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                     </div>
                 </div>
             </div>

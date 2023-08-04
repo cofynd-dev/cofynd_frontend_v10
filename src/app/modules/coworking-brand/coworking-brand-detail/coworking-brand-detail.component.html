@@ -19,7 +19,7 @@
                             <div class="col-sm-6" [class.col-md-6]="!isMapView" [class.col-md-6]="isMapView">
                                 <app-search-card *ngIf="!isColiving" [showQuote]="true" [forAll]="true"  [workspace]="space">
                                 </app-search-card>
-                                <app-co-living-card  *ngIf="isColiving" [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries" [coLiving]="space"></app-co-living-card>
+                                <app-co-living-card  *ngIf="isColiving" [activeCountries]="activeCountries" [coLiving]="space"></app-co-living-card>
                             </div>
                         </ng-container>
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="col-md-4">
                     <div class="enquiry_section brand_query_col" *ngIf="workSpaces.length">
-                        <app-city-page-enquire [activeCountries]="activeCountries" [inActiveCountries]="inActiveCountries" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
+                        <app-city-page-enquire [activeCountries]="activeCountries" [enquiryType]="ENQUIRY_TYPE"></app-city-page-enquire>
                     </div>
                 </div>
             </div>

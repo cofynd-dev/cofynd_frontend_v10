@@ -73,7 +73,6 @@ export class WorkspaceSimilarComponent implements OnInit {
   maxPrice: string;
 
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
