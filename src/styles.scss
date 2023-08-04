@@ -8404,14 +8404,16 @@ select.form-control{
     .form_cta_sec .form_head {
         padding: 14px 15px;
         background-color: #fff8dd;
+        border-radius: 20px 20px 0px 0px;
     }
     .form_cta_sec .form_body {
         padding: 14px 15px;
         background-color: #fff;
+        border-radius: 0px 0px 20px 20px;
     }
     .form_cta_sec .cta_form {
         padding: 0px;
-        overflow: hidden;
+        // overflow: hidden;
         border: 1px solid rgba(0, 0, 0, .04);
         box-shadow: 4px 4px 10px rgba(33, 37, 41, .05);
     }
