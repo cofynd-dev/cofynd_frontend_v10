@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { icon, latLng, Map, marker, point, polyline, tileLayer, Layer } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
 
 @Component({
   selector: 'app-location-iq-import',
@@ -22,7 +22,7 @@ export class LocationIqImportComponent implements OnInit {
 
   markers: Layer[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.addMarker();

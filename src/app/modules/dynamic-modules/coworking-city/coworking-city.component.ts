@@ -1,8 +1,7 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
-import { AVAILABLE_CITY } from '@core/config/cities';
 import { BreadCrumb } from '@core/interface/breadcrumb.interface';
 import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
@@ -14,10 +13,6 @@ import { environment } from '@env/environment';
 import { AppConstant } from '@shared/constants/app.constant';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Location } from '@angular/common';
-import { script } from '@app/core/config/script';
-import { type } from 'os';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-coworking-city',
@@ -65,7 +60,6 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
     private workSpaceService: WorkSpaceService,
     private configService: ConfigService,
     private seoService: SeoService,
-    private location: Location,
     private router: Router,
     private el: ElementRef,
   ) {

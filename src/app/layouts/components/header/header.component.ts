@@ -57,7 +57,6 @@ export class HeaderComponent implements AfterViewInit {
   isMobileMenuOpen: boolean;
 
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 

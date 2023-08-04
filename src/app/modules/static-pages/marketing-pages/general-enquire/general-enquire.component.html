@@ -45,19 +45,6 @@
                           <span class="country-name">{{country?.name}}</span>
                           <span class="dial-code">{{country?.dial_code}}</span>
                       </li>
-
-                      <li class="divider"></li>
-
-                      <li (click)="hideCountry(inactive)"
-                          class="country selected"
-                          *ngFor="let inactive of inActiveCountries">
-                          <div class="flag-box">
-                              <div class="flag af"><img
-                                      [lazyLoad]="inactive?.image?.s3_link" /></div>
-                          </div>
-                          <span class="country-name">{{inactive?.name}}</span>
-                          <span class="dial-code">{{inactive?.dial_code}}</span>
-                      </li>
                   </ul>
                   <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" />
                 </div>

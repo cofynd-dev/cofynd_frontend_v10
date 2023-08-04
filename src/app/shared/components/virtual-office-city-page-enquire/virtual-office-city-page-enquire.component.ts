@@ -3,8 +3,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CountryService } from '@app/core/services/country.service';
 import { HelperService } from '@app/core/services/helper.service';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { Enquiry } from '@core/models/enquiry.model';
 import { AuthService } from '@core/services/auth.service';
@@ -71,7 +71,6 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   pageUrl: string;
   city: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   resendDisabled = false;
@@ -84,9 +83,9 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     private userService: UserService,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private workSpaceService: WorkSpaceService,
     private helperService: HelperService,
     private router: Router,
+    private countryService: CountryService,
   ) {
     if (router.url.search(/co-living/i) != -1) {
       this.phoneflag = false;
@@ -101,26 +100,11 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
     this.city = parts[parts.length - 1];
     this.pageName = url[1];
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
-    this.getCountries();
     if (this.user) {
       const { name, email, phone_number } = this.user;
       this.enquiryForm.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   resendOTP() {
@@ -160,6 +144,12 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   }
 
   ngOnInit(): void {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     this.helperService.animateEnquiryForm$.subscribe(animationState => (this.shakeTheForm = animationState));
   }
 

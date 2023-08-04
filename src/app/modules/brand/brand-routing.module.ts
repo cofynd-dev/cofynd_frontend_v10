@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandCoworkingComponent } from './brand-coworking/brand-coworking.component';
 import { BrandGostepsComponent } from './brand-gosteps/brand-gosteps.component';
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BrandRoutingModule { }
+export class BrandRoutingModule {}

@@ -3,7 +3,7 @@ import { Builder } from '../builder.model';
 import { BuilderService } from '../builder.services';
 import { AppConstant } from '@shared/constants/app.constant';
 import { sanitizeParams } from '@app/shared/utils';
-import { Observable, forkJoin } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '@app/core/services/user.service';
@@ -11,6 +11,7 @@ import { AuthService } from '@app/core/services/auth.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -38,7 +39,6 @@ export class BuilderComponent implements OnInit {
   resendCounter = 30;
   resendIntervalId: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
   submitted = false;
@@ -59,6 +59,7 @@ export class BuilderComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private workSpaceService: WorkSpaceService,
+    private countryService: CountryService,
   ) {
     this.queryParams = { ...AppConstant.DEFAULT_SEARCH_PARAMS };
     this.getCitiesForCoworking();
@@ -73,7 +74,6 @@ export class BuilderComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -97,26 +97,15 @@ export class BuilderComponent implements OnInit {
     return this.enterpriseFormGroup.controls;
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     this.getBuilders(this.queryParams);
     this.loading = true;
     const mumbaiqueryParams = { ...this.queryParams, city: '5f5b1f728bbbb85328976417', type: 'location' };

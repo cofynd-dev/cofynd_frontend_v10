@@ -18,4 +18,4 @@ import { GostepsCardComponent } from './brand-gosteps/gosteps-card/gosteps-card.
   ],
   imports: [CommonModule, SharedModule, BrandRoutingModule, CoLivingModule],
 })
-export class BrandModule { }
+export class BrandModule {}

@@ -6,13 +6,6 @@ import { SeoService } from '@core/services/seo.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CitySelectorModalComponent } from './../city-selector-modal/city-selector-modal.component';
 
-interface PopularSpace {
-  name: string;
-  address: string;
-  image: string;
-  id: string;
-  slug?: string;
-}
 @Component({
   selector: 'app-coworking-landing',
   templateUrl: './coworking-home.component.html',

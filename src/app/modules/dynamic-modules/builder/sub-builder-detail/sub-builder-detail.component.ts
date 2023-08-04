@@ -5,7 +5,6 @@ import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
 import { SubBuilder } from '../subbuilder.model';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { UserService } from '@core/services/user.service';
@@ -16,6 +15,7 @@ import { AppConstant } from '@shared/constants/app.constant';
 import { SubBuilderService } from '../subbuilder.service';
 import { BuilderService } from '../builder.services';
 import { icon, latLng, marker, tileLayer, Layer } from 'leaflet';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -47,7 +47,6 @@ export class SubBuilderDetailComponent implements OnInit {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -83,9 +82,9 @@ export class SubBuilderDetailComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService,
     private authService: AuthService,
-    private workSpaceService: WorkSpaceService,
     private sanitizer: DomSanitizer,
     private builderService: BuilderService,
+    private countryService: CountryService,
   ) {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.activeSubBuilderId = param.subuildername;
@@ -103,7 +102,6 @@ export class SubBuilderDetailComponent implements OnInit {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
     phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
@@ -160,6 +158,9 @@ export class SubBuilderDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+    });
     if (window.innerWidth < 768) {
       this.isMobileResolution = true;
     } else {
@@ -177,20 +178,6 @@ export class SubBuilderDetailComponent implements OnInit {
     const otpControl = this.enterpriseFormGroup.get('otp');
     otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
     otpControl.updateValueAndValidity();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {

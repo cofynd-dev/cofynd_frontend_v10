@@ -13,6 +13,7 @@ import { filter, finalize, map, take } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { UserService } from '@app/core/services/user.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum LOGIN_STEPS {
   PHONE,
@@ -50,7 +51,6 @@ export class LoginFormComponent {
   // show server side error message
   responseError: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -58,8 +58,6 @@ export class LoginFormComponent {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
-
-
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -72,6 +70,7 @@ export class LoginFormComponent {
     private location: Location,
     private workSpaceService: WorkSpaceService,
     private userService: UserService,
+    private countryService: CountryService,
   ) {
     // Create Form
     this.buildForm();
@@ -82,17 +81,12 @@ export class LoginFormComponent {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter((v) => { return v.for_coWorking === true });
-        this.inActiveCountries = res.data.filter((v) => { return v.for_coWorking == false });
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
         this.selectedCountry = this.activeCountries[0];
       }
-    })
+    });
   }
 
   hideCountry(country: any) {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AVAILABLE_CITY, AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
+import { AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
 import { Brand } from '@app/core/models/brand.model';
 import { City } from '@app/core/models/city.model';
 import { BrandService } from '@app/core/services/brand.service';
@@ -9,8 +9,7 @@ import { SeoSocialShareData } from '@core/models/seo.model';
 import { SeoService } from '@core/services/seo.service';
 import { environment } from '@env/environment';
 import { CoLivingService } from './co-living.service';
-import { forkJoin } from "rxjs";
-
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-co-living',
@@ -161,7 +160,6 @@ export class CoLivingComponent implements OnInit {
         starting: '18,000',
       },
     ],
-
 
     flock: [
       {
@@ -553,21 +551,29 @@ export class CoLivingComponent implements OnInit {
     {
       icon: 'home/work-spaces.svg',
       title: '100,000+ Spaces',
-      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+      description:
+        'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
     },
     {
       icon: 'icons/brokerage-icon.svg',
       title: 'Zero Brokerage',
-      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+      description:
+        'CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.',
     },
     {
       icon: 'home/support.svg',
       title: '100% Offline Support',
-      description: 'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
+      description:
+        'We provide you 100% offline support from giving you the various space options, scheduling the site visit, booking the space to the after-sales support also.',
     },
   ];
 
-  constructor(private brandService: BrandService, private coLivingService: CoLivingService, private seoService: SeoService, private router: Router) {
+  constructor(
+    private brandService: BrandService,
+    private coLivingService: CoLivingService,
+    private seoService: SeoService,
+    private router: Router,
+  ) {
     this.cities = AVAILABLE_CITY_CO_LIVING.filter(city => city.for_coLiving === true);
   }
 
@@ -576,43 +582,43 @@ export class CoLivingComponent implements OnInit {
     this.getBrands();
     let gurugramQueryParams = {
       limit: 8,
-      city: '5e3eb83c18c88277e81427d9'
+      city: '5e3eb83c18c88277e81427d9',
     };
     let bangaloreQueryParams = {
       limit: 8,
-      city: '5f2a4210ecdb5a5d67f0bbbc'
+      city: '5f2a4210ecdb5a5d67f0bbbc',
     };
     let hyderabadQueryParams = {
       limit: 8,
-      city: '5f338a5f59d5584617676837'
+      city: '5f338a5f59d5584617676837',
     };
     let puneQueryParams = {
       limit: 8,
-      city: '5e3eb83c18c88277e8142795'
+      city: '5e3eb83c18c88277e8142795',
     };
     let mumbaiQueryParams = {
       limit: 8,
-      city: '5f5b1f728bbbb85328976417'
+      city: '5f5b1f728bbbb85328976417',
     };
     let noidaQueryParams = {
       limit: 8,
-      city: '5e3e77de936bc06de1f9a5e2'
+      city: '5e3e77de936bc06de1f9a5e2',
     };
     let delhiQueryParams = {
       limit: 8,
-      city: '5e3e77c6936bc06de1f9a2d9'
+      city: '5e3e77c6936bc06de1f9a2d9',
     };
     let ahmedabadQueryParams = {
       limit: 8,
-      city: '5f7af1c48c4e6961990e620e'
+      city: '5f7af1c48c4e6961990e620e',
     };
     let chennaiQueryParams = {
       limit: 8,
-      city: '5f7410348c4e6961990e5a21'
+      city: '5f7410348c4e6961990e5a21',
     };
     let indoreQueryParams = {
       limit: 8,
-      city: '5f60926926e9e64d7b61b41b'
+      city: '5f60926926e9e64d7b61b41b',
     };
     const observables = [
       this.coLivingService.getCoLivings(sanitizeParams(gurugramQueryParams)),
@@ -647,7 +653,7 @@ export class CoLivingComponent implements OnInit {
       this.ahmedaSpaces = this.formatSpaces(ahmedaData);
       this.chennaiSpaces = this.formatSpaces(chennaiData);
       this.indoreSpaces = this.formatSpaces(indoreData);
-    })
+    });
   }
 
   formatSpaces(data) {
@@ -659,12 +665,11 @@ export class CoLivingComponent implements OnInit {
         image: data[index]['images'][0]['image']['s3_link'],
         slug: data[index]['slug'],
         starting: data[index]['starting_price'],
-      }
-      formattedData.push(obj)
+      };
+      formattedData.push(obj);
     }
     return formattedData;
   }
-
 
   getBrands() {
     this.brandService.getBrands(sanitizeParams({ type: 'coliving' })).subscribe(res => {

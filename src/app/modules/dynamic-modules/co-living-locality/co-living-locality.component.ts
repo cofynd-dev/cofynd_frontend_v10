@@ -2,7 +2,6 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { sanitizeParams } from '@app/shared/utils';
-import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
 import { ConfigService } from '@core/services/config.service';
 import { SeoService } from '@core/services/seo.service';
@@ -51,8 +50,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   countryId: any;
   price_filters = [];
   number_record: number = 20;
-  activeCountries: any = [];
-  inActiveCountries: any = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -70,7 +67,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getCountries();
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
@@ -109,19 +105,6 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
           }
         });
       });
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-      }
-    });
   }
 
   createBreadcrumb() {

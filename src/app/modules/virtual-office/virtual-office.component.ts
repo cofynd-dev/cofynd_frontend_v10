@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
-import { Brand } from '@app/core/models/brand.model';
 import { SeoSocialShareData } from '@app/core/models/seo.model';
-import { BrandService } from '@app/core/services/brand.service';
 import { SeoService } from '@app/core/services/seo.service';
 import { CuratedCityPopupComponent } from '@app/shared/components/curated-city-popup/curated-city-popup.component';
 import { sanitizeParams } from '@app/shared/utils';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { forkJoin } from 'rxjs';
 import { VirtualOfficeModalComponent } from './virtual-office-modal/virtual-office-modal.component';
 import { Observable, Subscriber } from 'rxjs';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
@@ -19,6 +16,8 @@ import { UserService } from '@app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -34,8 +33,6 @@ export enum ENQUIRY_STEPS {
 export class VirtualOfficeComponent implements OnInit {
   menuModalRef: BsModalRef;
   loading: boolean;
-  coworkingBrands: Brand[] = [];
-  coLivingBrands: Brand[] = [];
   seoData: SeoSocialShareData;
   cities = AVAILABLE_CITY_VIRTUAL_OFFICE.filter(city => city.for_virtualOffice === true);
   service = [
@@ -147,8 +144,6 @@ export class VirtualOfficeComponent implements OnInit {
   longitute: any;
   workSpaces: WorkSpace[];
   submitted = false;
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -156,7 +151,6 @@ export class VirtualOfficeComponent implements OnInit {
   user: any;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -167,13 +161,14 @@ export class VirtualOfficeComponent implements OnInit {
   constructor(
     private bsModalService: BsModalService,
     private workSpaceService: WorkSpaceService,
-    private brandService: BrandService,
     private seoService: SeoService,
     private router: Router,
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
     private authService: AuthService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
     this.loading = true;
     this.getCurrentPosition().subscribe((position: any) => {
@@ -186,8 +181,6 @@ export class VirtualOfficeComponent implements OnInit {
       };
       this.loadWorkSpacesByLatLong(queryParams);
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -198,7 +191,6 @@ export class VirtualOfficeComponent implements OnInit {
       this.queryFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
   }
 
   queryFormGroup: FormGroup = this._formBuilder.group({
@@ -253,59 +245,22 @@ export class VirtualOfficeComponent implements OnInit {
     );
   }
 
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
-  }
-
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
   }
 
   ngOnInit() {
-    forkJoin([
-      this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
-      this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
-    ]).subscribe(res => {
-      this.coLivingBrands = res[1];
-      this.coworkingBrands = res[0].filter(
-        brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
-      );
-    });
-    this.addSeoTags();
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
       }
     });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
+    this.addSeoTags();
   }
 
   getCurrentPosition(): any {

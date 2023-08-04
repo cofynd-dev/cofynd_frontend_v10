@@ -1,8 +1,7 @@
-import { ChangeDetectorRef, Component, Input, OnInit, ViewRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { City } from '@core/models/city.model';
 import { BsModalService } from 'ngx-bootstrap';
-import { ToastrService } from 'ngx-toastr';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { HomeCityPopupComponent } from '../home-city-popup/home-city-popup.component';
 
@@ -16,9 +15,7 @@ export class HomeCitiesComponent implements OnInit {
   title: string;
   constructor(
     private router: Router,
-    private toastrService: ToastrService,
     private bsModalService: BsModalService,
-    private cdr: ChangeDetectorRef,
     private workSpaceService: WorkSpaceService,
   ) {
     var someString = this.router.url;

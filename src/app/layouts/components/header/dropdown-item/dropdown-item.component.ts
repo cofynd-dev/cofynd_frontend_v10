@@ -1,6 +1,6 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { WorkSpaceService } from '@core/services/workspace.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
 import { AVAILABLE_CITY_VIRTUAL_OFFICE } from '@app/core/config/cities';
 

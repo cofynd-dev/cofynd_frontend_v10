@@ -5,7 +5,6 @@ import { DEFAULT_APP_DATA } from '@core/config/app-data';
 import { AVAILABLE_CITY } from '@core/config/cities';
 import { City } from '@core/models/city.model';
 import { SeoSocialShareData } from '@core/models/seo.model';
-import { User } from '@core/models/user.model';
 import { ConfigService } from '@core/services/config.service';
 import { SeoService } from '@core/services/seo.service';
 import { UserService } from '@core/services/user.service';
@@ -18,6 +17,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
+import { CountryService } from '@app/core/services/country.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -47,7 +47,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   pageUrl: string;
   activeCountries: any = [];
-  inActiveCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
 
@@ -65,6 +64,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private authService: AuthService,
     private router: Router,
+    private countryService: CountryService,
   ) {
     this.configService.configs.footer = false;
     this.addClass();
@@ -82,21 +82,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       this.enterpriseFormGroup.patchValue({ name, email, phone_number });
       this.selectedCountry['dial_code'] = this.user.dial_code;
     }
-    this.getCountries();
-  }
-
-  getCountries() {
-    this.workSpaceService.getCountry({}).subscribe((res: any) => {
-      if (res.data) {
-        this.activeCountries = res.data.filter(v => {
-          return v.for_coWorking === true;
-        });
-        this.inActiveCountries = res.data.filter(v => {
-          return v.for_coWorking == false;
-        });
-        this.selectedCountry = this.activeCountries[0];
-      }
-    });
   }
 
   hideCountry(country: any) {
@@ -105,6 +90,12 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
     this.getCitiesForCoworking();
     this.getCitiesForColiving();
   }
