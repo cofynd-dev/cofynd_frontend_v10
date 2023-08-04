@@ -25,7 +25,6 @@ option {
     font-family: 'Montserrat', sans-serif;
     ;
 }
-// Auth Dialog
 .auth-modal {
     max-width: 420px;
 }
@@ -78,7 +77,6 @@ option {
         border-radius: 0;
     }
 }
-// Breadcrumb 
 .breadcrumb {
     background: none;
     padding: 0;
@@ -113,13 +111,11 @@ option {
         }
     }
 }
-// Home Testimonial style
 .testimonial-section {
     .ngucarousel {
         overflow: initial !important;
     }
 }
-// User Profile Title
 .user-title {
     padding: 70px 0 30px;
     h2 {
@@ -146,9 +142,6 @@ option {
 .icon-rupee {
     font-size: 80%;
 }
-/*
-  Image Gallery
-*/
 .slider-outer .ngucarousel {
     overflow: visible;
 }
@@ -255,14 +248,12 @@ option {
             max-width: 275px;
         }
     }
-}
-// Listing Card Carouse 
+} 
 .listing-card {
     .carousel-control-next-icon::before {
         display: none;
     }
 }
-// DropDown
 .single-dropdown {
     .dropdown-button {
         background: #fff;
@@ -464,7 +455,6 @@ option {
 .menu_dropdown .dropdown-menu a {
     padding: 10px 0px !important;
 }
-// Image Gallery
 .slider-modal {
     .ngu-touch-container,
     .ngu-carousel-wrapper {
@@ -514,9 +504,6 @@ option {
         }
     }
 }
-/*
-Amenity Icons
-*/
 .amn-tv {
     background: url('/assets/images/amenities/tv.svg') no-repeat center center;
 }
@@ -731,7 +718,6 @@ Amenity Icons
 .amn-water-storage {
     background: url('/assets/images/amenities/water-storage.svg') no-repeat center center;
 }
-// Search Page
 .search-container {
     .search-grid-container {
         float: left;
@@ -950,11 +936,6 @@ Amenity Icons
         }
     }
 }
-// @media(max-width: 540px) {
-//     #chat-bot-launcher-container {
-//         bottom: 165px !important;
-//     }
-// }
 html,
 body {
     height: 100%;
@@ -1321,7 +1302,6 @@ body {
 }
 .cta_section span {
     font-weight: 600;
-    // margin-top: 10px;
     display: inline-block;
 }
 .cta_section .img-fluid {
@@ -1632,12 +1612,6 @@ h3.site_title {
     padding-top: 90px;
     padding-bottom: 90px;
 }
-// .enterprise_banner .banner_img {
-//     height: 550px;
-// }
-// .enterprise_banner .banner_img img {
-//     height: 550px;
-// }
 .top_icon_box img {
     background-color: #f8f8f8;
     width: 50px;
@@ -1973,7 +1947,6 @@ h3.site_title {
     background-color: #fff;
     padding: 10px 30px;
     border-radius: 20px;
-    // border: 1px solid rgba(0,0,0,0.05);
     box-shadow: 0px 0px 4px rgba(33, 37, 41, 0.07);
 }
 .cities_item_list .city_item {
@@ -2217,11 +2190,9 @@ h3.site_title {
     /* Firefox */
 }
 .virtual_query_form :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .virtual_query_form ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .form_query_text {
@@ -2297,7 +2268,6 @@ h3.site_title {
     right: auto;
     left: 20px;
 }
-// -----------------  New layout css
 .breadcrumbs_sec {
     padding: 10px 0px !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
@@ -2860,9 +2830,6 @@ h3.site_title {
     padding: 0px 0px 0px 0px;
     margin-right: 30px;
 }
-// .about_details .building_experience {
-//     flex: 0 0 25%;
-// }
 .about_details h4 {
     font-size: 14px;
     font-weight: 600;
@@ -2970,10 +2937,6 @@ h3.site_title {
     left: 7px;
     top: 20px;
 }
-// .enquiry_section .form-section .form .form-control.ng-invalid.ng-touched {
-//     border-color: transparent;
-//     background-color: transparent;
-// }
 .enquiry_section .form-section .form .ng-select.ng-invalid.ng-touched .ng-select-container {
     border-color: transparent;
     background-color: transparent;
@@ -3029,42 +2992,10 @@ h3.site_title {
     border-radius: 20px;
     padding: 14px 14px;
     white-space: normal;
-    // display: flex !important;
     padding: 20px 15px;
     -webkit-box-align: center;
     align-items: center;
 }
-// .places-tag-box {
-//     background: #FFFFFF;
-//     box-shadow: 0px 3px 10px rgba(33, 37, 41, 0.1);
-//     border-radius: 10px;
-//     display: -webkit-box !important;
-//     display: flex !important;
-//     padding: 15px;
-//     -webkit-box-align: center;
-//     align-items: center;
-//     margin: 10px 5px;
-// }
-// .places-tag-slider {
-//     display: block;
-//     width: 100%;
-//     height: auto;
-//     padding: 0px;
-//     margin: 0;
-//     white-space: nowrap;
-//     scrollbar-width: none !important;
-// }
-// .places-tag-slider .places-tag-item {
-//     display: inline-block;
-//     margin: 0 5px;
-//     background-size: cover;
-//     position: relative;
-//     -webkit-box-flex: 0;
-//     flex: 0 0 71.4285714286%;
-//     width: 38.429%;
-//     overflow: hidden;
-//     vertical-align: top;
-// }
 .places-tag-slider .places-tag-item .tag-text {
     position: relative;
     padding-left: 50px;
@@ -3132,12 +3063,6 @@ h3.site_title {
 .details_area .enquire-box .site_btn {
     height: 45px;
 }
-// .enquiry_section .form-section .row {
-// 	margin: -5px;
-// }
-// .enquiry_section .form-section .row .col-sm-6, .enquiry_section .form-section .row .col-sm-12 {
-// 	padding: 0px 5px;
-// }
 .enquiry_section .form-section .form .ng-select.ng-select-single .ng-select-container, .office_card_popup .form-section .form .ng-select-container {
     height: 45px;
     border: none;
@@ -3151,13 +3076,6 @@ h3.site_title {
     top: 12px !important;
     left: 10px;
 }
-// .ng-select .ng-select-container {
-// 	border-radius: 4px;
-// 	min-height: 45px;
-// 	box-shadow: none;
-// 	text-transform: capitalize;
-// 	border: none;
-// }
 .form .form-check {
     margin: 15px 0px;
 }
@@ -3394,7 +3312,6 @@ h3.site_title {
 }
 .listing_card .property-img .item img {
     height: 250px !important;
-    // border-radius: 20px;
 }
 .listing_card .carousel-arrow, .property_item .carousel-control-next, .property_item .carousel-control-prev {
     position: absolute;
@@ -3784,14 +3701,11 @@ h3.site_title {
 .form_dream_ptoperty .form-input ::placeholder {
     color: #000;
     opacity: 1;
-    /* Firefox */
 }
 .form_dream_ptoperty .form-input :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .form_dream_ptoperty .form-input ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .lifestyle_with_cofynd {
@@ -4034,11 +3948,6 @@ h3.site_title {
 .similar-places .visible-list {
 	margin-bottom: 10px;
 }
-// .visible-list::-webkit-scrollbar, .configuration_list::-webkit-scrollbar {
-//     display: none !important;
-//     height: 0 !important;
-//     width: 0 !important;
-// }
 .seo_content {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -4138,9 +4047,6 @@ h3.site_title {
     margin-right: 15px;
     flex: 0 0 16%;
 }
-// .flat_counter_row .content {
-// 	flex: 0 0 84%;
-// }
 .flat_counter_row .counter_item .number {
     font-size: 20px;
     font-weight: 700;
@@ -4167,9 +4073,6 @@ h3.site_title {
     display: flex;
     align-items: center;
 }
-// .flat-icons-box .flat-properties-icons .icon, .flat-icons-box .flat-properties-icons .info {
-// 	padding: 0px 15px;
-// }
 .flat-icons-box .flat-properties-icons .icon {
     flex: 0 0 25%;
 }
@@ -4910,7 +4813,6 @@ h3.site_title {
     -webkit-transition: border-color ease-out 0.5s;
     transition: border-color ease-out 0.5s;
     position: relative;
-    // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 .our_services_sec .service_item::before {
     content: "";
@@ -4971,10 +4873,6 @@ h3.site_title {
     padding-top: 0px !important;
     padding-bottom: 20px !important;
 }
-// .office_space_banner {
-//     padding-bottom: 100px;
-//     padding-top: 150px;
-// }
 .office_space_banner .innerbanner_img {
     height: 590px;
 }
@@ -5290,14 +5188,11 @@ h3.site_title {
 .query_from_sec ::placeholder {
     color: #000;
     opacity: 1;
-    /* Firefox */
 }
 .query_from_sec :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .query_from_sec ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .enterprise_query {
@@ -5533,14 +5428,11 @@ h3.site_title {
 .card_form ::placeholder {
     color: #000;
     opacity: 1;
-    /* Firefox */
 }
 .card_form :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .card_form ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .card_form .form_title span {
@@ -5694,10 +5586,6 @@ h3.site_title {
 .brant_item .brand_content {
     margin-top: 10px;
 }
-// .brant_item .brand_logo {
-// 	border-radius: 20px;
-// 	overflow: hidden;
-// }
 .brant_item .brand_img {
     height: 200px;
     overflow: hidden;
@@ -5738,10 +5626,6 @@ h3.site_title {
     line-height: 22px;
     font-weight: 500;
 }
-// .coliving_banner {
-//     padding-top: 120px;
-//     padding-bottom: 20px;
-// }
 .coworking_brand_list_space {
     padding-top: 30px;
 }
@@ -5785,9 +5669,6 @@ h3.site_title {
 .about_image_sec .site_title::before {
 	display: none;
 }
-// .about_image_sec .site_title::before {
-//     display: none;
-// }
 .about_image_sec {
     padding: 50px 0px;
 }
@@ -5946,7 +5827,6 @@ h3.site_title {
 }
 .office_card_popup .modal-content {
 	border-radius: 20px;
-	// overflow: hidden;
 	border: 1px solid rgba(0,0,0,0.1);
 }
 .office_card_popup .form-select {
@@ -5958,7 +5838,6 @@ h3.site_title {
     padding: 9px 12px;
     border-radius: 10px !important;
     height: 42px;
-    // box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
     border: none !important;
     background-color: #fff !important;
     width: 100%;
@@ -5966,14 +5845,11 @@ h3.site_title {
 .office_card_popup ::placeholder {
     color: #000;
     opacity: 1;
-    /* Firefox */
 }
 .office_card_popup :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .office_card_popup ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .office_card_popup .title {
@@ -5991,23 +5867,16 @@ h3.site_title {
 	border-radius: 50px;
 }
 .about_details .building_experience {
-    // -webkit-box-flex: 0;
-    // flex: 0 0 20%;
     margin-right: 50px;
 }
 .virtual_office_banner .main_heading h1 {
     margin-bottom: 0px;
 }
-// .form_dream_ptoperty .country_phone .form-control, .country_phone .form-control {
-// 	padding-left: 55px !important;
-// }
 .form_dream_ptoperty .country_phone .form-input input {
     box-shadow: none;
     border-radius: 0px !important;
     font-size: 13px !important;
-    // padding: 12px 15px !important;
     height: auto;
-    // background-color: #fff !important;
     border: none !important;
     width: 100%;
     font-weight: 400 !important;
@@ -6020,14 +5889,8 @@ h3.site_title {
 .form_dream_ptoperty .country_phone .form-input {
     box-shadow: 0px 0px 5px rgba(33, 37, 41, 0.03);
     border-radius: 10px !important;
-    // font-size: 13px !important;
     padding: 0px 15px !important;
-    // height: auto;
     background-color: #fff !important;
-    // border: none !important;
-    // width: 100%;
-    // font-weight: 400 !important;
-    // height: 42px;
 }
 .card_form .country_phone .city_card_phone {
     background-color: #fff !important;
@@ -6040,10 +5903,8 @@ h3.site_title {
     border: none !important;
     box-shadow: none;
     padding: 8px 12px;
-    // background-color: #fff !important;
     font-size: 13px;
     width: 100%;
-    // box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
 }
 .enquire-box .country_phone .city_card_phone {
     background-color: #fff !important;
@@ -6065,17 +5926,6 @@ h3.site_title {
     border: none !important;
     background-color: #fff !important;
 }
-// .card_form .form-control {
-// 	border: none !important;
-// 	box-shadow: none;
-// 	border-radius: 10px;
-// 	padding: 8px 12px;
-// 	height: 42px;
-// 	background-color: #fff !important;
-// 	font-size: 13px;
-// 	width: 100%;
-// 	box-shadow: 0px 0px 16px rgba(250, 234, 249, 0.5);
-// }
 .country_phone .selected-flag .flag {
     display: flex;
 }
@@ -6083,12 +5933,6 @@ h3.site_title {
     display: flex;
     align-items: center;
 }
-// .country_phone .selected-flag {
-// 	height: 42px;
-// }
-// .country_phone.icon_phone_field .selected-flag {
-// 	padding: 0px 10px 0px 0px;
-// }
 .country_phone .icon_phone_field .form-control {
     padding-left: 10px !important;
 }
@@ -6149,9 +5993,6 @@ h3.site_title {
     align-items: center;
     height: 42px;
 }
-// .country_phone.icon_phone_field .form-control {
-// 	padding-left: 74px !important;
-// }
 .cities_query_sec {
     padding: 0px 0px 40px;
     .cities_page_row {
@@ -6188,12 +6029,9 @@ h3.site_title {
                 z-index: 1;
             }
             .form-control {
-                //   border-bottom: 1px solid rgba(0,0,0,0.2) !important;
                 box-shadow: none;
                 border-radius: 0;
                 color: #212529;
-                //   height: auto;
-                //   padding: 10px 10px 10px 35px;
                 font-size: 13px;
                 width: 100%;
                 background-color: #fff;
@@ -6205,14 +6043,11 @@ h3.site_title {
              ::placeholder {
                 color: #212529;
                 opacity: 1;
-                /* Firefox */
             }
              :-ms-input-placeholder {
-                /* Internet Explorer 10-11 */
                 color: #212529;
             }
              ::-ms-input-placeholder {
-                /* Microsoft Edge */
                 color: #212529;
             }
         }
@@ -6794,7 +6629,6 @@ select.form-control{
 }
 .request_call_form .modal-content {
 	border-radius: 20px;
-	// overflow: hidden;
 	border: 1px solid rgba(0,0,0,0.1);
 }
 .request_call_form .form-select {
@@ -6814,14 +6648,11 @@ select.form-control{
 .request_call_form ::placeholder {
     color: #000;
     opacity: 1;
-    /* Firefox */
 }
 .request_call_form :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #000;
 }
 .request_call_form ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #000;
 }
 .request_call_form .title {
@@ -8291,10 +8122,6 @@ select.form-control{
         margin-left: 0px;
         margin-right: 0px;
     }
-    // .main_header .toggle_col {
-    //     display: flex;
-    //     align-items: center;
-    // }
     .breadcrumb_area {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
@@ -8614,7 +8441,6 @@ select.form-control{
     .top_cities_slider .main_heading {
         margin-bottom: 20px !important;
     }
-    // ------------ Listing Style  -----------
     .listing-card {
         margin-bottom: 30px !important;
         display: flex;
@@ -8720,7 +8546,6 @@ select.form-control{
     .listing-card .image img {
         border-radius: 15px !important;
     }
-    // ------------ Listing Style  -----------
     .space_carousel {
         display: block;
         width: 100%;
@@ -8898,7 +8723,6 @@ select.form-control{
     }
     .cta_section span {
         font-weight: 600;
-        // margin-top: 10px;
         display: inline-block;
     }
     .cta_section .img-fluid {
@@ -9005,7 +8829,6 @@ select.form-control{
         background-size: cover;
         background-position: center;
     }
-    /* top cities css */
     .cities_carousel {
         display: block;
         width: 100%;
@@ -9536,9 +9359,6 @@ select.form-control{
     .title_divider {
         padding-bottom: 0px;
     }
-    // .how_to_start_sec .step_item {
-    //     margin-bottom: 20px;
-    // }
     .why_list_sec {
         padding-top: 50px;
         padding-bottom: 40px;
@@ -9794,10 +9614,6 @@ select.form-control{
         margin-bottom: 5px;
         border-radius: 10px;
     }
-    // .property_item .property-img .item, .property_item .property-img .carousel-inner {
-    //     height: 130px;
-    //     width: 100%;
-    // }
     .property_item .property-img img {
         height: 130px !important;
     }
@@ -10804,9 +10620,6 @@ select.form-control{
         color: #000;
         height: auto;
     }
-    // .filter_col {
-    //     margin-top: 11px;
-    // }
     .filter_title {
         margin-bottom: 10px;
         margin-top: 10px;
