@@ -176,20 +176,20 @@
                 left: 0;
                 top: -6px;
                 &.wt-icon-support {
-                    background: url('/assets/images/home/support.svg') no-repeat center center;
+                    background: url('/assets/images/icons/support.svg') no-repeat center center;
                 }
                 &.wt-icon-space {
-                    background: url('/assets/images/home/work-spaces.svg') no-repeat center center;
+                    background: url('/assets/images/icons/work-spaces.svg') no-repeat center center;
                     top: 4px;
                 }
                 &.wt-icon-price {
-                    background: url('/assets/images/home/pricing.svg') no-repeat center center;
+                    background: url('/assets/images/icons/pricing.svg') no-repeat center center;
                 }
                 &.wt-icon-fee {
-                    background: url('/assets/images/home/fee.svg') no-repeat center center;
+                    background: url('/assets/images/icons/fee.svg') no-repeat center center;
                 }
                 &.wt-icon-Coupon {
-                    background: url('/assets/images/home/exclusive-brand-coupons.svg') no-repeat center center;
+                    background: url('/assets/images/icons/exclusive-brand-coupons.svg') no-repeat center center;
                 }
                 @media (max-width: 480px) {
                     top: 0;
@@ -546,6 +546,9 @@
     }
     .add-item-list .add-item:last-child {
         margin-bottom: 0px !important;
+    }
+    .add-item-list .add-item img {        
+        border-radius: 15px;
     }
     .cofynd_desk_sec {
         padding: 0px 0px 20px !important;
