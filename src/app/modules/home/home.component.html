@@ -169,7 +169,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('10,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7adb2177f04d3cfde81f32dd4341d4bf1d45e47f.jpg'" alt="Low Cost" class="img-fluid" />
+                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ecd5d47ca571e4ab80f3c51ad331e9ed94e400ac.jpg'" alt="Low Cost" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Low Cost</h4>
@@ -181,7 +181,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('20,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/981e34872599dfa16e347790bfec45eabe6c9268.jpg'" alt="Affordable" class="img-fluid" />
+                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5588492e359995155c3e26500877ce9f48c35f76.jpg'" alt="Affordable" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Affordable</h4>
@@ -193,7 +193,7 @@
                 <div class="curated-box">
                     <div (click)="openModal('above 20,000')" class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3c1afd046765743278bb76f440b5454a157938af.jpg'" alt="Luxury" class="img-fluid" />
+                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d131ba33b436d3d51732d4870dba1613fcadf1f3.jpg'" alt="Luxury" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Luxury</h4>
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                     <div class="cta_img tabhide">
-                        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/97c25bb142eb6cca3d810df493e12701599c5cb0.png" alt="CTA Img" class="img-fluid" />
+                        <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/07cb41da2a5a58137ea3b5bcc35cead898194b69.png" alt="CTA Img" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -401,7 +401,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('Inclusive')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/008a8663bb6af0890c03005b643c4572a3484388.jpg" alt="Food Available" class="img-fluid" />
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2f2e28cf1ea6f4dad9f68c17238a923fbaf958ac.jpg" alt="Food Available" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Food Available</h4>
@@ -413,7 +413,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('625698d3a91948671a4c590b')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0905b0bd74dc081e5c8bce0c606d6b354c6104bf.jpg" alt="Private Room" class="img-fluid" />
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2ed3c96e0f47e68913f89c76251a1149d81ffa3f.jpg" alt="Private Room" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Private Room</h4>
@@ -425,7 +425,7 @@
                 <div class="curated-box">
                     <div class="curated-item" (click)="openModal('625698e8a91948671a4c590c')">
                         <div class="curated-img">
-                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/992cb7c6d50bccd39e9f553ebb43d76323ed182b.jpg" alt="Twin Sharing" class="img-fluid" />
+                            <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/40d08921e19106bb01f1fc130eff3d030c4e3561.jpg" alt="Twin Sharing" class="img-fluid" />
                         </div>
                         <div class="curated-content">
                             <h4>Twin Sharing</h4>
@@ -450,9 +450,9 @@
             <div class="col-12">
                 <div class="feature_slides partner-carousel slider-on-mobile-view">
                     <div class="item" *ngFor="let item of colivingImages">
-                        <a [routerLink]="item.description" target="_blank">
+                        <button [routerLink]="item.description" target="_blank">
                             <img [lazyLoad]="item.image?.s3_link" [alt]="item.name" class="img-fluid" />
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -539,7 +539,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img lazyLoad="../../../assets/images/list-your-space-img.svg" alt="List Your Vacant Space" class="img-fluid" />
+                <img lazyLoad="assets/images/list-your-space-img.svg" alt="List Your Vacant Space" class="img-fluid" />
             </div>
         </div>
     </div>
