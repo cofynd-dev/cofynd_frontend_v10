@@ -7051,11 +7051,12 @@ select.form-control{
     }
     .virtual_query_form {
         padding: 0px;
-        overflow: hidden;
+        // overflow: hidden;
     }
     .virtual_query_form .form_head {
         padding: 14px 15px;
         background-color: #FFF8DD;
+        border-radius: 20px 20px 0px 0px;
     }
     .virtual_query_form .form_head h3 {
         font-size: 16px;
@@ -7068,6 +7069,7 @@ select.form-control{
     }
     .virtual_query_form .form_body {
         padding: 20px 20px;
+        border-radius: 0px 0px 20px 20px;
     }
     .no_result_banner {
         margin-left: -17px;
@@ -8392,10 +8394,10 @@ select.form-control{
     .cta_form .cta_img {
         display: none;
     }
-    ::selection {
-        color: #fff !important;
-        background: transparent !important;
-    }
+    // ::selection {
+    //     color: #fff !important;
+    //     background: transparent !important;
+    // }
     .cta_form .form_col {
         -webkit-box-flex: 0;
         flex: 0 0 100%;
@@ -9897,11 +9899,12 @@ select.form-control{
     }
     .virtual_query_form {
         padding: 0px;
-        overflow: hidden;
+        // overflow: hidden;
     }
     .virtual_query_form .form_head {
         padding: 14px 15px;
         background-color: #FFF8DD;
+        border-radius: 20px 20px 0px 0px;
     }
     .virtual_query_form .form_head h3 {
         font-size: 13px;
@@ -9914,6 +9917,7 @@ select.form-control{
     }
     .virtual_query_form .form_body {
         padding: 20px 20px;
+        border-radius: 0px 0px 20px 20px;
     }
     .virtual_query_form .form-control {
         font-size: 11px;
