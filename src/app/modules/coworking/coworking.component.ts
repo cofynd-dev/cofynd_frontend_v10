@@ -74,27 +74,71 @@ export class CoworkingComponent implements OnInit, OnDestroy {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
-  gurugramSpaces: any = [];
-  bangloreSpaces: any = [];
-  hyderabadSpaces: any = [];
-  puneSpaces: any = [];
-  mumbaiSpaces: any = [];
-  noidaSpaces: any = [];
-  delhiSpaces: any = [];
-  ahmedaSpaces: any = [];
-  chennaiSpaces: any = [];
-  indoreSpaces: any = [];
   submitted = false;
   contactUserName: string;
   showSuccessMessage: boolean;
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   user: any;
   pageUrl: string;
   activeCountries: any = [];
   showcountry: boolean = false;
   selectedCountry: any = {};
+
+  spacesByCity: { [key: string]: any[] } = {
+    gurugram: [],
+    banglore: [],
+    hyderabad: [],
+    pune: [],
+    mumbai: [],
+    noida: [],
+    delhi: [],
+    ahmedabad: [],
+    chennai: [],
+    indore: [],
+  };
+
+  coworkingHomeCities = [
+    {
+      name: 'gurugram',
+      id: '5e3eb83c18c88277e81427d9',
+    },
+    {
+      name: 'banglore',
+      id: '5f2a4210ecdb5a5d67f0bbbc',
+    },
+    {
+      name: 'hyderabad',
+      id: '5f338a5f59d5584617676837',
+    },
+    {
+      name: 'pune',
+      id: '5e3eb83c18c88277e8142795',
+    },
+    {
+      name: 'mumbai',
+      id: '5f5b1f728bbbb85328976417',
+    },
+    {
+      name: 'noida',
+      id: '5e3e77de936bc06de1f9a5e2',
+    },
+    {
+      name: 'delhi',
+      id: '5e3e77c6936bc06de1f9a2d9',
+    },
+    {
+      name: 'ahmedabad',
+      id: '5f7af1c48c4e6961990e620e',
+    },
+    {
+      name: 'chennai',
+      id: '5f7410348c4e6961990e5a21',
+    },
+    {
+      name: 'indore',
+      id: '5f60926926e9e64d7b61b41b',
+    },
+  ];
 
   city = [
     {
@@ -290,79 +334,16 @@ export class CoworkingComponent implements OnInit, OnDestroy {
       this.getBrands();
     });
     this.getPopularWorSpacesAsCountry();
-    let gurugramQueryParams = {
-      limit: 8,
-      city: '5e3eb83c18c88277e81427d9',
-    };
-    let bangaloreQueryParams = {
-      limit: 8,
-      city: '5f2a4210ecdb5a5d67f0bbbc',
-    };
-    let hyderabadQueryParams = {
-      limit: 8,
-      city: '5f338a5f59d5584617676837',
-    };
-    let puneQueryParams = {
-      limit: 8,
-      city: '5e3eb83c18c88277e8142795',
-    };
-    let mumbaiQueryParams = {
-      limit: 8,
-      city: '5f5b1f728bbbb85328976417',
-    };
-    let noidaQueryParams = {
-      limit: 8,
-      city: '5e3e77de936bc06de1f9a5e2',
-    };
-    let delhiQueryParams = {
-      limit: 8,
-      city: '5e3e77c6936bc06de1f9a2d9',
-    };
-    let ahmedabadQueryParams = {
-      limit: 8,
-      city: '5f7af1c48c4e6961990e620e',
-    };
-    let chennaiQueryParams = {
-      limit: 8,
-      city: '5f7410348c4e6961990e5a21',
-    };
-    let indoreQueryParams = {
-      limit: 8,
-      city: '5f60926926e9e64d7b61b41b',
-    };
-    const observables = [
-      this.workSpaceService.getWorkspaces(sanitizeParams(gurugramQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(bangaloreQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(hyderabadQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(puneQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(mumbaiQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(noidaQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(delhiQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(ahmedabadQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(chennaiQueryParams)),
-      this.workSpaceService.getWorkspaces(sanitizeParams(indoreQueryParams)),
-    ];
+
+    const observables = this.coworkingHomeCities.map(city => {
+      const queryParams = { limit: 8, city: city.id };
+      return this.workSpaceService.getWorkspaces(sanitizeParams(queryParams));
+    });
+
     forkJoin(observables).subscribe((res: any) => {
-      let gurugramData = res[0].data;
-      let bangloreData = res[1].data;
-      let hyderData = res[2].data;
-      let puneData = res[3].data;
-      let mumData = res[4].data;
-      let noidaData = res[5].data;
-      let delhiData = res[6].data;
-      let ahmedaData = res[7].data;
-      let chennaiData = res[8].data;
-      let indoreData = res[9].data;
-      this.gurugramSpaces = this.formatSpaces(gurugramData);
-      this.bangloreSpaces = this.formatSpaces(bangloreData);
-      this.hyderabadSpaces = this.formatSpaces(hyderData);
-      this.puneSpaces = this.formatSpaces(puneData);
-      this.mumbaiSpaces = this.formatSpaces(mumData);
-      this.noidaSpaces = this.formatSpaces(noidaData);
-      this.delhiSpaces = this.formatSpaces(delhiData);
-      this.ahmedaSpaces = this.formatSpaces(ahmedaData);
-      this.chennaiSpaces = this.formatSpaces(chennaiData);
-      this.indoreSpaces = this.formatSpaces(indoreData);
+      this.coworkingHomeCities.forEach((city, index) => {
+        this.spacesByCity[city.name] = this.formatSpaces(res[index].data);
+      });
     });
   }
 

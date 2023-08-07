@@ -14,7 +14,7 @@
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="Coliving Banner" class="img-fluid">
+                    <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="Coliving Banner" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -171,13 +171,13 @@
 </app-carousel-item>
 
 
-<app-carousel-item *ngIf="bangloreSpaces.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="bangloreSpaces">
+<app-carousel-item *ngIf="spacesByCity.banglore.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.banglore">
 </app-carousel-item>
 
-<app-carousel-item *ngIf="hyderabadSpaces.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="hyderabadSpaces">
+<app-carousel-item *ngIf="spacesByCity.hyderabad.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.hyderabad">
 </app-carousel-item>
 
-<app-carousel-item *ngIf="gurugramSpaces.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="gurugramSpaces">
+<app-carousel-item *ngIf="spacesByCity.gurugram.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.gurugram">
 </app-carousel-item>
 
 <section class="flock_banner">
@@ -190,18 +190,18 @@
     </div>
 </section>
 
-<app-carousel-item *ngIf="puneSpaces.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="puneSpaces">
+<app-carousel-item *ngIf="spacesByCity.pune.length" [pageTitle]="'Top Spaces in Pune'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.pune">
 </app-carousel-item>
 
-<app-carousel-item *ngIf="delhiSpaces.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="delhiSpaces">
+<app-carousel-item *ngIf="spacesByCity.delhi.length" [pageTitle]="'Top Spaces in Delhi'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.delhi">
 </app-carousel-item>
 
-<app-carousel-item *ngIf="noidaSpaces.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="noidaSpaces">
+<app-carousel-item *ngIf="spacesByCity.noida.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.noida">
 </app-carousel-item>
 
 <app-search-contact-us-text1></app-search-contact-us-text1>
 
-<app-carousel-item *ngIf="mumbaiSpaces.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="mumbaiSpaces">
+<app-carousel-item *ngIf="spacesByCity.mumbai.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.mumbai">
 </app-carousel-item>
 
 <app-carousel-item [pageTitle]="'Premium Coliving Flock'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.flock">
