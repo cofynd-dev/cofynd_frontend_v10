@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
+import { forkJoin } from 'rxjs';
 import { Brand } from '@app/core/models/brand.model';
 import { City } from '@app/core/models/city.model';
 import { BrandService } from '@app/core/services/brand.service';
-import { sanitizeParams } from '@app/shared/utils';
-import { SeoSocialShareData } from '@core/models/seo.model';
-import { SeoService } from '@core/services/seo.service';
-import { environment } from '@env/environment';
 import { CoLivingService } from './co-living.service';
-import { forkJoin } from 'rxjs';
+import { SeoService } from '@core/services/seo.service';
+import { SeoSocialShareData } from '@core/models/seo.model';
+import { environment } from '@env/environment';
+import { AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
+import { sanitizeParams } from '@app/shared/utils';
 
 @Component({
   selector: 'app-co-living',
@@ -21,16 +21,48 @@ export class CoLivingComponent implements OnInit {
   loading: boolean;
   coLivingBrands: Brand[] = [];
   cities: City[];
-  gurugramSpaces: any = [];
-  bangloreSpaces: any = [];
-  hyderabadSpaces: any = [];
-  puneSpaces: any = [];
-  mumbaiSpaces: any = [];
-  noidaSpaces: any = [];
-  delhiSpaces: any = [];
-  ahmedaSpaces: any = [];
-  chennaiSpaces: any = [];
-  indoreSpaces: any = [];
+
+  spacesByCity: { [key: string]: any[] } = {
+    gurugram: [],
+    banglore: [],
+    hyderabad: [],
+    pune: [],
+    mumbai: [],
+    noida: [],
+    delhi: [],
+  };
+
+  colivingHomeCities = [
+    {
+      name: 'gurugram',
+      id: '5e3eb83c18c88277e81427d9',
+    },
+    {
+      name: 'banglore',
+      id: '5f2a4210ecdb5a5d67f0bbbc',
+    },
+    {
+      name: 'hyderabad',
+      id: '5f338a5f59d5584617676837',
+    },
+    {
+      name: 'pune',
+      id: '5e3eb83c18c88277e8142795',
+    },
+    {
+      name: 'mumbai',
+      id: '5f5b1f728bbbb85328976417',
+    },
+    {
+      name: 'noida',
+      id: '5e3e77de936bc06de1f9a5e2',
+    },
+    {
+      name: 'delhi',
+      id: '5e3e77c6936bc06de1f9a2d9',
+    },
+  ];
+
   service = [
     {
       title: 'Fully Furnished',
@@ -484,6 +516,7 @@ export class CoLivingComponent implements OnInit {
       slug: 'helloworld-fitoor',
     },
   ];
+
   city = [
     {
       name: 'gurugram',
@@ -580,79 +613,16 @@ export class CoLivingComponent implements OnInit {
   ngOnInit() {
     this.addSeoTags();
     this.getBrands();
-    let gurugramQueryParams = {
-      limit: 8,
-      city: '5e3eb83c18c88277e81427d9',
-    };
-    let bangaloreQueryParams = {
-      limit: 8,
-      city: '5f2a4210ecdb5a5d67f0bbbc',
-    };
-    let hyderabadQueryParams = {
-      limit: 8,
-      city: '5f338a5f59d5584617676837',
-    };
-    let puneQueryParams = {
-      limit: 8,
-      city: '5e3eb83c18c88277e8142795',
-    };
-    let mumbaiQueryParams = {
-      limit: 8,
-      city: '5f5b1f728bbbb85328976417',
-    };
-    let noidaQueryParams = {
-      limit: 8,
-      city: '5e3e77de936bc06de1f9a5e2',
-    };
-    let delhiQueryParams = {
-      limit: 8,
-      city: '5e3e77c6936bc06de1f9a2d9',
-    };
-    let ahmedabadQueryParams = {
-      limit: 8,
-      city: '5f7af1c48c4e6961990e620e',
-    };
-    let chennaiQueryParams = {
-      limit: 8,
-      city: '5f7410348c4e6961990e5a21',
-    };
-    let indoreQueryParams = {
-      limit: 8,
-      city: '5f60926926e9e64d7b61b41b',
-    };
-    const observables = [
-      this.coLivingService.getCoLivings(sanitizeParams(gurugramQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(bangaloreQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(hyderabadQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(puneQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(mumbaiQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(noidaQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(delhiQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(ahmedabadQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(chennaiQueryParams)),
-      this.coLivingService.getCoLivings(sanitizeParams(indoreQueryParams)),
-    ];
+
+    const observables = this.colivingHomeCities.map(city => {
+      const queryParams = { limit: 8, city: city.id };
+      return this.coLivingService.getCoLivings(sanitizeParams(queryParams));
+    });
+
     forkJoin(observables).subscribe((res: any) => {
-      let gurugramData = res[0].data;
-      let bangloreData = res[1].data;
-      let hyderData = res[2].data;
-      let puneData = res[3].data;
-      let mumData = res[4].data;
-      let noidaData = res[5].data;
-      let delhiData = res[6].data;
-      let ahmedaData = res[7].data;
-      let chennaiData = res[8].data;
-      let indoreData = res[9].data;
-      this.gurugramSpaces = this.formatSpaces(gurugramData);
-      this.bangloreSpaces = this.formatSpaces(bangloreData);
-      this.hyderabadSpaces = this.formatSpaces(hyderData);
-      this.puneSpaces = this.formatSpaces(puneData);
-      this.mumbaiSpaces = this.formatSpaces(mumData);
-      this.noidaSpaces = this.formatSpaces(noidaData);
-      this.delhiSpaces = this.formatSpaces(delhiData);
-      this.ahmedaSpaces = this.formatSpaces(ahmedaData);
-      this.chennaiSpaces = this.formatSpaces(chennaiData);
-      this.indoreSpaces = this.formatSpaces(indoreData);
+      this.colivingHomeCities.forEach((city, index) => {
+        this.spacesByCity[city.name] = this.formatSpaces(res[index].data);
+      });
     });
   }
 
@@ -680,9 +650,11 @@ export class CoLivingComponent implements OnInit {
   openWorkSpace(slug: string) {
     this.router.navigate([`/co-living/${slug.toLowerCase().trim()}`]);
   }
+
   goToBrand() {
     this.router.navigate([`/brand/co-living/flock`]);
   }
+
   addSeoTags() {
     this.loading = true;
     this.seoService.getMeta('co-living').subscribe(seoMeta => {

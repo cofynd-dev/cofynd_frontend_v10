@@ -85,7 +85,6 @@ export class CoLivingDetailComponent implements OnInit {
       this.activeWorkSpaceId = param.id;
       if (param.id) {
         this.getWorkSpace(this.activeWorkSpaceId);
-        this.getAverageRating(this.activeWorkSpaceId);
       }
     });
 
