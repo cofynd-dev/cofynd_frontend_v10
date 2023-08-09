@@ -152,6 +152,18 @@ export class HeaderComponent implements AfterViewInit {
     );
   }
 
+  getCitiesForCoworking() {
+    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.cities = res.data;
+    });
+  }
+
+  getCityForColiving() {
+    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
+      this.colivingCities = res.data;
+    });
+  }
+
   getCityForVirtualOffice() {
     this.workSpaceService.getCityForVirtualOffice('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.virtualOfficeCities = res.data;
