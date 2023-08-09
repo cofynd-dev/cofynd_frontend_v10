@@ -271,7 +271,7 @@
     </div>
 </div>
 
-<section class="top_virtualoffice_city mobilehide tabhide">
+<section class="top_virtualoffice_city mobilehide tabhide" *ngIf="popularOfficeSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -319,7 +319,7 @@
     </div>
 </section>
 
-<section class="cities_section desktophide">
+<section class="cities_section desktophide" *ngIf="popularOfficeSpaces.length">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -372,7 +372,7 @@
     </div>
 </section>
 
-<section class="office_top_properties office_gurugram_properties">
+<section class="office_top_properties office_gurugram_properties" *ngIf="spacesByCity.gurugram">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -382,9 +382,9 @@
             </div>
         </div>
 
-        <div class="row office_top_properties_slider">
+        <div class="row office_top_properties_slider" >
             <div class="col-lg-4 col-md-4 col-sm-6"
-                *ngFor="let space of gurugramSpaces | slice:0:6">
+                *ngFor="let space of spacesByCity.gurugram | slice:0:6">
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
@@ -463,7 +463,7 @@
 </section>
 
 
-<section class="office_top_properties office_delhi_properties">
+<section class="office_top_properties office_delhi_properties" *ngIf="spacesByCity.delhi">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -475,7 +475,7 @@
 
         <div class="row office_top_properties_slider">
             <div class="col-lg-4 col-md-4 col-sm-6"
-                *ngFor="let space of delhiSpaces | slice:0:6">
+                *ngFor="let space of spacesByCity.delhi | slice:0:6">
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
@@ -554,7 +554,7 @@
 </section>
 
 
-<section class="office_top_properties office_noida_properties">
+<section class="office_top_properties office_noida_properties" *ngIf="spacesByCity.noida">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -564,9 +564,9 @@
             </div>
         </div>
 
-        <div class="row office_top_properties_slider">
+        <div class="row office_top_properties_slider" >
             <div class="col-lg-4 col-md-4 col-sm-6"
-                *ngFor="let space of noidaSpaces | slice:0:6">
+                *ngFor="let space of spacesByCity.noida | slice:0:6">
                 <div class="property_item property_item2">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"

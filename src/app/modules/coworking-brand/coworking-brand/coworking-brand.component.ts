@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { SeoSocialShareData } from '@app/core/models/seo.model';
 import { SeoService } from '@app/core/services/seo.service';
 import { UserService } from '@app/core/services/user.service';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '@env/environment';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { CountryService } from '@app/core/services/country.service';
+import { CityService } from '@app/core/services/city.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -28,8 +28,6 @@ export class CoworkingBrandComponent implements OnInit {
   showSuccessMessage: boolean;
   loading = true;
   finalCities: any = [];
-  coworkingCities: any = [];
-  colivingCities: any = [];
   show = 15;
   footerDescription: any;
   footerTitle: any;
@@ -52,13 +50,11 @@ export class CoworkingBrandComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private toastrService: ToastrService,
-    private workSpaceService: WorkSpaceService,
     private seoService: SeoService,
     private authService: AuthService,
     private countryService: CountryService,
+    private cityService: CityService,
   ) {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -79,9 +75,13 @@ export class CoworkingBrandComponent implements OnInit {
   ngOnInit() {
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
     this.addSeoTags();
   }
 
@@ -104,27 +104,6 @@ export class CoworkingBrandComponent implements OnInit {
 
   get mobno() {
     return this.enterpriseFormGroup.controls;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {
