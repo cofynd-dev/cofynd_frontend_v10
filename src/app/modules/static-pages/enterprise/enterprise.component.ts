@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { CityService } from '@app/core/services/city.service';
 import { CountryService } from '@app/core/services/country.service';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { UserService } from '@core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -26,8 +26,6 @@ export class EnterpriseComponent implements OnInit {
   loading: boolean;
   showSuccessMessage: boolean;
   contactUserName: string;
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -45,13 +43,11 @@ export class EnterpriseComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService,
     private _formBuilder: FormBuilder,
-    private workSpaceService: WorkSpaceService,
     private authService: AuthService,
     private router: Router,
     private countryService: CountryService,
+    private cityService: CityService,
   ) {
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -71,8 +67,9 @@ export class EnterpriseComponent implements OnInit {
         this.selectedCountry = this.activeCountries[0];
       }
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
   }
 
   enterpriseFormGroup: FormGroup = this._formBuilder.group({
@@ -127,27 +124,6 @@ export class EnterpriseComponent implements OnInit {
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   onSubmit() {

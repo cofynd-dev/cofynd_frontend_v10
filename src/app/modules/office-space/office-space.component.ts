@@ -1,10 +1,8 @@
 import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { AVAILABLE_CITY } from '@app/core/config/cities';
-import { Brand } from '@app/core/models/brand.model';
 import { City } from '@app/core/models/city.model';
 import { SeoSocialShareData } from '@app/core/models/seo.model';
-import { BrandService } from '@app/core/services/brand.service';
 import { SeoService } from '@app/core/services/seo.service';
 import { sanitizeParams } from '@app/shared/utils';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -14,7 +12,6 @@ import { OfficeSpace } from '@core/models/office-space.model';
 import { Observable, Subscriber } from 'rxjs';
 import { OfficeSpaceService } from './office-space.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { UserService } from '@app/core/services/user.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
@@ -22,6 +19,9 @@ import { ToastrService } from 'ngx-toastr';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '@env/environment';
 import { CountryService } from '@app/core/services/country.service';
+import { CityService } from '@app/core/services/city.service';
+import { WorkSpaceService } from '@app/core/services/workspace.service';
+
 declare var $: any;
 declare let ga: any;
 
@@ -39,16 +39,11 @@ export enum ENQUIRY_STEPS {
 export class OfficeSpaceComponent implements OnInit {
   menuModalRef: BsModalRef;
   cities: City[];
-  coworkingBrands: Brand[] = [];
-  coLivingBrands: Brand[] = [];
   latitute: any;
   longitute: any;
   offices: OfficeSpace[];
   loading: boolean;
   submitted = false;
-  coworkingCities: any = [];
-  colivingCities: any = [];
-  officeCities: any = [];
   finalCities: any = [];
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -63,12 +58,30 @@ export class OfficeSpaceComponent implements OnInit {
   resendCounter = 30;
   resendIntervalId: any;
   popularOfficeSpaces: any = [];
-  gurugramSpaces: any = [];
-  noidaSpaces: any = [];
-  delhiSpaces: any = [];
   isgetQuote: boolean = false;
   enquiryForm: FormGroup;
   city: any;
+  officeCities: any = [];
+  spacesByCity: { [key: string]: any[] } = {
+    gurugram: [],
+    noida: [],
+    delhi: [],
+  };
+
+  officeSpaceHomeCities = [
+    {
+      name: 'gurugram',
+      id: '5e3eb83c18c88277e81427d9',
+    },
+    {
+      name: 'noida',
+      id: '5e3e77de936bc06de1f9a5e2',
+    },
+    {
+      name: 'delhi',
+      id: '5e3e77c6936bc06de1f9a2d9',
+    },
+  ];
 
   OfficePlans = [
     { label: `Raw`, value: 'Raw' },
@@ -92,171 +105,6 @@ export class OfficeSpaceComponent implements OnInit {
     { label: '3-4 Month', value: '3-4 Month' },
     { label: 'After 4 Month', value: 'After 4 Month' },
   ];
-
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: any,
-    private seoService: SeoService,
-    private router: Router,
-    private bsModalService: BsModalService,
-    private brandService: BrandService,
-    private officeSpaceService: OfficeSpaceService,
-    private workSpaceService: WorkSpaceService,
-    private _formBuilder: FormBuilder,
-    private userService: UserService,
-    private authService: AuthService,
-    private toastrService: ToastrService,
-    private cdr: ChangeDetectorRef,
-    private countryService: CountryService,
-  ) {
-    this.buildForm();
-    this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
-    this.loading = true;
-    this.getCurrentPosition().subscribe((position: any) => {
-      this.latitute = position.latitude;
-      this.longitute = position.longitude;
-      let queryParams = {
-        limit: 20,
-        latitude: this.latitute,
-        longitude: this.longitute,
-      };
-      this.loadWorkSpacesByLatLong(queryParams);
-    });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-    this.pageUrl = this.router.url;
-    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
-    if (this.isAuthenticated()) {
-      this.user = this.authService.getLoggedInUser();
-    }
-    if (this.user) {
-      const { name, email, phone_number } = this.user;
-      this.queryFormGroup.patchValue({ name, email, phone_number });
-      this.selectedCountry['dial_code'] = this.user.dial_code;
-    }
-    this.getCitiesForOfficeSpace();
-  }
-
-  dismissModal(): void {
-    $('#exampleModal').modal('hide');
-  }
-
-  private resetForm() {
-    this.queryFormGroup.reset();
-  }
-
-  getQuote(item: any) {
-    this.isgetQuote = true;
-    localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${item.slug}`);
-    this.city = item.location.city.name;
-    this.buildForm();
-  }
-
-  private buildForm() {
-    const form = {
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      otp: [''],
-      mx_Page_Url: ['City Page'],
-    };
-    form['mx_Space_Type'] = ['Web Office Space'];
-    form['mx_Move_In_Date'] = [null, Validators.required];
-    form['mx_BudgetPrice'] = [null, Validators.required];
-    form['interested_in'] = [null, Validators.required];
-    this.enquiryForm = this._formBuilder.group(form);
-    if (this.user) {
-      const { name, email, phone_number } = this.user;
-      this.enquiryForm.patchValue({ name, email, phone_number });
-      this.selectedCountry['dial_code'] = this.user.dial_code;
-    }
-  }
-
-  queryFormGroup: FormGroup = this._formBuilder.group({
-    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-    email: ['', [Validators.required, Validators.email]],
-    name: ['', Validators.required],
-    city: ['', Validators.required],
-    requirements: [''],
-    otp: [''],
-  });
-
-  get f(): { [key: string]: AbstractControl } {
-    return this.queryFormGroup.controls;
-  }
-
-  get emailid() {
-    return this.queryFormGroup.controls;
-  }
-
-  get mobno() {
-    return this.queryFormGroup.controls;
-  }
-
-  resendOTP() {
-    let phoneNumber;
-    if (this.isgetQuote) {
-      phoneNumber = this.enquiryForm.controls['phone_number'].value;
-    } else {
-      phoneNumber = this.queryFormGroup.controls['phone_number'].value;
-    }
-    // Disable the resend button and start the counter
-    this.resendDisabled = true;
-    this.resendIntervalId = setInterval(() => {
-      // Decrement the counter every second
-      this.resendCounter--;
-      if (this.resendCounter === 0) {
-        // If the counter reaches zero, enable the resend button
-        clearInterval(this.resendIntervalId);
-        this.resendDisabled = false;
-        this.resendCounter = 30;
-      }
-    }, 1000);
-    // TODO: Implement OTP resend logic here
-    let obj = {};
-    obj['dial_code'] = this.selectedCountry.dial_code;
-    obj['phone_number'] = phoneNumber;
-    this.userService.resendOtp(obj).subscribe(
-      (data: any) => {
-        if (data) {
-          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
-          this.btnLabel = 'Verify OTP';
-          this.addValidationOnOtpField();
-        }
-      },
-      error => {
-        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
-      },
-    );
-  }
-
-  hideCountry(country: any) {
-    this.selectedCountry = country;
-    this.showcountry = false;
-  }
-
-  getCurrentPosition(): any {
-    return new Observable((observer: Subscriber<any>) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position: any) => {
-          observer.next({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-          observer.complete();
-        });
-      } else {
-        observer.error();
-      }
-    });
-  }
-
-  loadWorkSpacesByLatLong(param: {}) {
-    this.loading = true;
-    this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allWorkSpaces => {
-      this.offices = allWorkSpaces.data;
-      this.loading = false;
-    });
-  }
 
   service = [
     {
@@ -462,80 +310,201 @@ export class OfficeSpaceComponent implements OnInit {
   
   <p>All in all, our rental office spaces in India allow companies to reach employees distributed across the world and bring all the crucial resources together. With all the budget-friendly pricing schemes, we serve spaces such that businesses can reduce their costs and gain higher efficiency.&nbsp;</p>`;
 
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    private seoService: SeoService,
+    private router: Router,
+    private bsModalService: BsModalService,
+    private officeSpaceService: OfficeSpaceService,
+    private _formBuilder: FormBuilder,
+    private userService: UserService,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private cdr: ChangeDetectorRef,
+    private countryService: CountryService,
+    private cityService: CityService,
+    private workSpaceService: WorkSpaceService,
+  ) {
+    this.buildForm();
+    this.cities = AVAILABLE_CITY.filter(city => city.for_office === true);
+    this.loading = true;
+    this.getCurrentPosition().subscribe((position: any) => {
+      this.latitute = position.latitude;
+      this.longitute = position.longitude;
+      let queryParams = {
+        limit: 20,
+        latitude: this.latitute,
+        longitude: this.longitute,
+      };
+      this.loadWorkSpacesByLatLong(queryParams);
+    });
+    this.pageUrl = this.router.url;
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
+    if (this.isAuthenticated()) {
+      this.user = this.authService.getLoggedInUser();
+    }
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.queryFormGroup.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
+    }
+  }
+
   ngOnInit() {
+    const observables = this.officeSpaceHomeCities.map(city => {
+      const queryParams = { limit: 6, city: city.id };
+      return this.officeSpaceService.getOffices(sanitizeParams(queryParams));
+    });
+    forkJoin(observables).subscribe((res: any) => {
+      this.officeSpaceHomeCities.forEach((city, index) => {
+        this.spacesByCity[city.name] = res[index].data;
+      });
+    });
+
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
       if (this.activeCountries && this.activeCountries.length > 0) {
         this.selectedCountry = this.activeCountries[0];
       }
     });
+
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
+
     this.getPopularOfficeSpaces();
+    this.getCitiesForOfficeSpace();
     if (this.seoData) {
       this.addSeoTags(this.seoData);
     }
-    let gurugramQueryParams = {
-      limit: 8,
-      city: '5e3eb83c18c88277e81427d9',
-    };
-    let noidaQueryParams = {
-      limit: 8,
-      city: '5e3e77de936bc06de1f9a5e2',
-    };
-    let delhiQueryParams = {
-      limit: 8,
-      city: '5e3e77c6936bc06de1f9a2d9',
-    };
-    const observables = [
-      this.officeSpaceService.getOffices(sanitizeParams(gurugramQueryParams)),
-      this.officeSpaceService.getOffices(sanitizeParams(noidaQueryParams)),
-      this.officeSpaceService.getOffices(sanitizeParams(delhiQueryParams)),
-    ];
-    forkJoin(observables).subscribe((res: any) => {
-      this.gurugramSpaces = res[0].data;
-      this.noidaSpaces = res[1].data;
-      this.delhiSpaces = res[2].data;
-    });
-    forkJoin([
-      this.brandService.getBrands(sanitizeParams({ type: 'coworking' })),
-      this.brandService.getBrands(sanitizeParams({ type: 'coliving' })),
-    ]).subscribe(res => {
-      this.coLivingBrands = res[1];
-      this.coworkingBrands = res[0].filter(
-        brand => brand.name !== 'others' && brand.name !== 'AltF' && brand.name !== 'The Office Pass',
-      );
-    });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
-    });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
   }
 
   getCitiesForOfficeSpace() {
     this.workSpaceService.getCitiesForOfficeSpace('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
       this.officeCities = res.data;
-      if (this.officeCities.length) {
-        this.removeDuplicateCities();
+    });
+  }
+
+  dismissModal(): void {
+    $('#exampleModal').modal('hide');
+  }
+
+  private resetForm() {
+    this.queryFormGroup.reset();
+  }
+
+  getQuote(item: any) {
+    this.isgetQuote = true;
+    localStorage.setItem('property_url', `https://cofynd.com/office-space/rent/${item.slug}`);
+    this.city = item.location.city.name;
+    this.buildForm();
+  }
+
+  private buildForm() {
+    const form = {
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone_number: ['', Validators.required],
+      otp: [''],
+      mx_Page_Url: ['City Page'],
+    };
+    form['mx_Space_Type'] = ['Web Office Space'];
+    form['mx_Move_In_Date'] = [null, Validators.required];
+    form['mx_BudgetPrice'] = [null, Validators.required];
+    form['interested_in'] = [null, Validators.required];
+    this.enquiryForm = this._formBuilder.group(form);
+    if (this.user) {
+      const { name, email, phone_number } = this.user;
+      this.enquiryForm.patchValue({ name, email, phone_number });
+      this.selectedCountry['dial_code'] = this.user.dial_code;
+    }
+  }
+
+  queryFormGroup: FormGroup = this._formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    city: ['', Validators.required],
+    requirements: [''],
+    otp: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.queryFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.queryFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.queryFormGroup.controls;
+  }
+
+  resendOTP() {
+    let phoneNumber;
+    if (this.isgetQuote) {
+      phoneNumber = this.enquiryForm.controls['phone_number'].value;
+    } else {
+      phoneNumber = this.queryFormGroup.controls['phone_number'].value;
+    }
+    // Disable the resend button and start the counter
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      // Decrement the counter every second
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        // If the counter reaches zero, enable the resend button
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = phoneNumber;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
+  }
+
+  getCurrentPosition(): any {
+    return new Observable((observer: Subscriber<any>) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          observer.next({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          observer.complete();
+        });
+      } else {
+        observer.error();
       }
     });
   }
 
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities, ...this.officeCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
+  loadWorkSpacesByLatLong(param: {}) {
+    this.loading = true;
+    this.officeSpaceService.getOffices(sanitizeParams(param)).subscribe(allWorkSpaces => {
+      this.offices = allWorkSpaces.data;
+      this.loading = false;
+    });
   }
 
   onOfficeQuoteSubmit() {

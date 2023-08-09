@@ -15,9 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthType } from '@app/core/enum/auth-type.enum';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { WorkSpaceService } from '@app/core/services/workspace.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { CountryService } from '@app/core/services/country.service';
+import { CityService } from '@app/core/services/city.service';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -39,8 +39,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
   contactUserName: string;
   cities: City[] = AVAILABLE_CITY;
   submitted = false;
-  coworkingCities: any = [];
-  colivingCities: any = [];
   finalCities: any = [];
   btnLabel = 'submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
@@ -56,7 +54,6 @@ export class ContactUsComponent implements OnInit, OnDestroy {
 
   constructor(
     private configService: ConfigService,
-    private workSpaceService: WorkSpaceService,
     private userService: UserService,
     private formBuilder: FormBuilder,
     private helperService: HelperService,
@@ -65,13 +62,12 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     private countryService: CountryService,
+    private cityService: CityService,
   ) {
     this.configService.configs.footer = false;
     this.addClass();
     this.buildForm();
     this.addSeoTags();
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
     this.pageUrl = this.router.url;
     this.pageUrl = `https://cofynd.com${this.pageUrl}`;
     if (this.isAuthenticated()) {
@@ -96,29 +92,9 @@ export class ContactUsComponent implements OnInit, OnDestroy {
         this.selectedCountry = this.activeCountries[0];
       }
     });
-    this.getCitiesForCoworking();
-    this.getCitiesForColiving();
-  }
-
-  getCitiesForCoworking() {
-    this.workSpaceService.getCityForCoworking('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.coworkingCities = res.data;
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
     });
-  }
-
-  getCitiesForColiving() {
-    this.workSpaceService.getCityForColiving('6231ae062a52af3ddaa73a39').subscribe((res: any) => {
-      this.colivingCities = res.data;
-      if (this.colivingCities.length) {
-        this.removeDuplicateCities();
-      }
-    });
-  }
-
-  removeDuplicateCities() {
-    const key = 'name';
-    let allCities = [...this.coworkingCities, ...this.colivingCities];
-    this.finalCities = [...new Map(allCities.map(item => [item[key], item])).values()];
   }
 
   resendOTP() {
