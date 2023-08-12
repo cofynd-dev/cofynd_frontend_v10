@@ -1,7 +1,7 @@
 <section class="breadcrumb-wrapper" *ngIf="!loading">
     <div class="container-fluid">
         <div class="row">
-            <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-5'">
+            <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-6'">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><button (click)="removeLocalStorage()" [routerLink]="['/']">home</button></li>
@@ -11,7 +11,14 @@
                         </li>
                     </ol>
                 </nav>
+            </div>          
+
+            <div class="col-md-6 text-right" *ngIf="breadcumbType == 'coworking'">
+                <div class="breadcrumb_email">
+                    <p class="email_id align-items-center"><img alt="Email Icon" src="assets/images/icons/email_id.svg"> hello@cofynd.com</p>
+                </div>
             </div>
+
             <div class="col-md-6">
                 <div class="row formobile" *ngIf="filter">
                     <div class="col-md-2 col-sm-2 hide-mobile">&nbsp;</div>
@@ -93,12 +100,12 @@
           </select>
             </div>
 
-            <div class="col-md-1">
+            <!-- <div class="col-md-1">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="mapToggleSwitch" [(ngModel)]="isChecked" (change)="toggleMapView($event)">
                     <label *ngIf="spaceLength > 0" class="custom-control-label" for="mapToggleSwitch">Map</label>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
