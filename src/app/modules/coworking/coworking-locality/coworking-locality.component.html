@@ -34,7 +34,7 @@
             <app-search-similar-location *ngIf="!loading && cityWisePopularLocation.length" [cityName]="title" [relativeUrl]="'coworking'" [popularLocationList]="cityWisePopularLocation">
             </app-search-similar-location>
 
-            <section class="for_email_sec mobilehide">
+            <!-- <section class="for_email_sec mobilehide">
                 <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3178e0cd0b21178e626195ffde0edbf7e1947382.png');">
                     <div class="row align-items-center">
                         <div class="col-md-8 col-12">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <app-search-no-result *ngIf="!loading && !workSpaces.length" [title]="'Coworking'" [url]="'/coworking'">
             </app-search-no-result>
@@ -66,33 +66,10 @@
                         </app-search-card>
                     </div>
                     <ng-template [ngIf]="isMapView">
-                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
-                            <section class="gradient_cta_sec micro-location-cta">
-                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
-                                    <div class="col-8">
-                                        <div class="cta_content">
-                                            <h4>Get the Perfect Coworking in your city</h4>
-                                            <ul class="mobilehide">
-                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
-                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
-                                                </ng-container>
-                                                and More...
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
-                            <app-search-contact-us-text1>
-                            </app-search-contact-us-text1>
-                        </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle" [activeCountries]="activeCountries" >
                             </app-search-contact-us-text2>
                         </div>
-                    </ng-template>
-                    <ng-template [ngIf]="!isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
@@ -114,9 +91,32 @@
                             <app-search-contact-us-text1>
                             </app-search-contact-us-text1>
                         </div>
-                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                    </ng-template>
+                    <ng-template [ngIf]="!isMapView">
+                        <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <app-search-contact-us-text2 [pageNo]="'microlocation page'" [microlocation]="subTitle" [activeCountries]="activeCountries">
                             </app-search-contact-us-text2>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 12">
+                            <app-search-contact-us-text1>
+                            </app-search-contact-us-text1>
+                        </div>
+                        <div class="col-sm-12" *ngIf="(i + 1) === 18">
+                            <section class="gradient_cta_sec micro-location-cta">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ead20e07886ea0f6c46a5f79a5600408a0488907.png');">
+                                    <div class="col-8">
+                                        <div class="cta_content">
+                                            <h4>Get the Perfect Coworking in your city</h4>
+                                            <ul class="mobilehide">
+                                                <ng-container *ngFor="let item of cityWisePopularLocation | slice:0:9; let i=index">
+                                                    <li *ngIf="item != 'Near Me'" (click)="routeToMicro(item)">{{item}}</li>
+                                                </ng-container>
+                                                and More...
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </ng-template>
                 </ng-container>
