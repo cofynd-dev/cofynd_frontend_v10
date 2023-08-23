@@ -4,7 +4,7 @@
             <div [ngClass]="breadcumbType === 'coliving' && priceFilters.length > 0 ? 'col-md-4' : 'col-md-6'">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><button (click)="removeLocalStorage()" [routerLink]="['/']">home</button></li>
+                        <li class="breadcrumb-item"><button (click)="removeLocalStorage()" [routerLink]="['/']">Home</button></li>
                         <li class="breadcrumb-item" [class.active]="item.isActive" *ngFor="let item of breadcrumbs">
                             <button *ngIf="!item.isActive" (click)="removeLocalStorage()" [routerLink]="['/' + item.url + '/']">{{ removedash(item.title) }}</button>
                             <span *ngIf="item.isActive">{{ removedash(item.title) }}</span>
@@ -13,7 +13,7 @@
                 </nav>
             </div>          
 
-            <div class="col-md-6 text-right" *ngIf="breadcumbType == 'coworking'">
+            <div class="col-md-6 text-right mobilehide" *ngIf="breadcumbType == 'coworking'">
                 <div class="breadcrumb_email">
                     <p class="email_id align-items-center"><img alt="Email Icon" src="assets/images/icons/email_id.svg"> hello@cofynd.com</p>
                 </div>

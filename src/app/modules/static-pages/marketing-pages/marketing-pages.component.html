@@ -1,14 +1,14 @@
-<!-- <section class="marketing_header">
+<section class="marketing_header">
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-md-6 col-6">
         <div class="marketing_logo">
           <a href="/"><img src="assets/images/logo.svg" class="img-fluid" alt="Cofynd Logo"></a>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-6">
         <div class="head_contact">
-          <h4>Looking for workspace</h4>
+          <h4 class="mobilehide">Looking for workspace</h4>
           <p><i class="fa-solid fa-phone"></i> <a href="tel:+919999108078">+91 9999 10 8078</a></p>
         </div>
       </div>
@@ -21,15 +21,250 @@
     <div class="row align-items-center">
       <div class="col-md-8">
         <div class="banner_content">
-          <h1>Choose from 1,000+ OFFICE Spaces on Rent in <span style="color: #FFDD2C;">{{marketingData.location}}</span></h1>
-          <p>Offices at all prime locations of Gurugram - Udyog Vihar, Cyber City, Golf Course Road, MG Road, Sohna Road, Huda City Centre, Golf Course Extension Road and more ...</p>
-          <button class="site_btn btn">Book Now</button>
+          <h1>Choose from 1,000+ Coworking Spaces in <span style="color: #FFDD2C;">Gurugram</span></h1>
+          <p>All prime locations of Gurugram - Udyog Vihar, Cyber City, Golf Course Road, MG Road, Sohna Road, Sector 44, Golf Course Extension Road and more ...</p>
+          <button class="site_btn btn desktophide" data-toggle="modal" data-target="#banner_popup">Request Call Back</button>
+
+            <!-- Modal -->
+          <div class="modal fade banner_form_popup" id="banner_popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="enquire-box">
+                    <div class="form-section enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
+                      <div class="title">
+                          <h4>Coworking Space in Gurugram</h4>                
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                      </div>
+
+                      <form class="form">
+                        <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <input class="form-control" type="text" placeholder="Name*" />
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <input class="form-control" type="text" placeholder="Email*" />
+                              </div>
+                          </div>
+
+                          <div class="col-md-12 country_phone">
+                              <div class="form-group city_card_phone">
+                                  <div class="flag-container">
+                                      <div class="selected-flag">
+                                          <div class="flag in">
+                                              <span class="dial-code"> +91</span>
+                                              <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                          </div>
+                                      </div>
+                                      <ul class="country-list" style="display: none;">
+                                          <li class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                              <div class="flag-box">
+                                                  <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                              </div>
+                                              <span class="country-name">India</span>
+                                              <span class="dial-code">+91</span>
+                                          </li>
+                                      </ul>
+                                      <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="col-md-12">
+                            <div class="form-group floating-label otp-form" style="display: none;">
+                              <label>OTP</label>
+                              <input class="form-control" placeholder="Enter Otp" type="password" />
+                              <button Class="resend_otp">Resend OTP</button>
+                              <p>OTP will be resent in 15 seconds</p>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to understand how Cofynd handles your personal data.</p>
+                          </div>
+                          <div class="col-sm-12">
+                            <button type="submit" class="site_btn border_btn full_width_btn">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div [class.enquiry-modal]="isEnquireModal">
-          <app-general-enquire [isSticky]="isSticky" (backButtonClick)="closeEnquireModel()"></app-general-enquire>
+          <div class="banner_form enquire-box mobilehide">
+            <div class="form-section enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
+                <div class="title">
+                    <h4>Enquire Now</h4>
+                </div>
+
+                <form class="form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Name*" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Email*" />
+                            </div>
+                        </div>
+        
+                        <div class="col-md-12 country_phone">
+                            <div class="form-group city_card_phone">
+                                <div class="flag-container">
+                                    <div class="selected-flag">
+                                        <div class="flag in">
+                                            <span class="dial-code"> +91</span>
+                                            <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                        </div>
+                                    </div>
+                                    <ul class="country-list" style="display: none;">
+                                        <li class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                            <div class="flag-box">
+                                                <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                            </div>
+                                            <span class="country-name">India</span>
+                                            <span class="dial-code">+91</span>
+                                        </li>
+                                    </ul>
+                                    <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <div class="form-group floating-label otp-form" style="display: none;">
+                            <label>OTP</label>
+                            <input class="form-control" placeholder="Enter Otp" type="password" />
+                            <button Class="resend_otp">Resend OTP</button>
+                            <p>OTP will be resent in 15 seconds</p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to understand how Cofynd handles your personal data.</p>
+                        </div>
+                        <div class="col-sm-12">
+                          <button type="submit" class="site_btn border_btn full_width_btn">Submit</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prime_location_section" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/5958659d1ce62d07abc4c37967aac2aeea498cda.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="main_heading title_divider">
+          <h2>Prime Coworking Locations in Gurgaon</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-3 col-6" *ngFor="let data of primeLocation">
+        <div class="micro_location_card" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
+          <div class="card_img">
+            <img [src]="data.image" [alt]="data.title">
+          </div>
+          <div class="pricing_tag">
+            <p>Starting <span>{{data.price}}</span></p>
+          </div>
+          <div [class]="data.class">
+            <h4>Coworking Space in <br> {{data.title}}</h4>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade prime_location_popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="enquire-box">
+                  <div class="form-section enquire-box-content" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
+                    <div class="title">
+                        <h4>Coworking Space in {{data.title}}</h4>                
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+
+                    <form class="form">
+                      <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Name*" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Email*" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 country_phone">
+                            <div class="form-group city_card_phone">
+                                <div class="flag-container">
+                                    <div class="selected-flag">
+                                        <div class="flag in">
+                                            <span class="dial-code"> +91</span>
+                                            <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                        </div>
+                                    </div>
+                                    <ul class="country-list" style="display: none;">
+                                        <li class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                            <div class="flag-box">
+                                                <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                            </div>
+                                            <span class="country-name">India</span>
+                                            <span class="dial-code">+91</span>
+                                        </li>
+                                    </ul>
+                                    <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <div class="form-group floating-label otp-form" style="display: none;">
+                            <label>OTP</label>
+                            <input class="form-control" placeholder="Enter Otp" type="password" />
+                            <button Class="resend_otp">Resend OTP</button>
+                            <p>OTP will be resent in 15 seconds</p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to understand how Cofynd handles your personal data.</p>
+                        </div>
+                        <div class="col-sm-12">
+                          <button type="submit" class="site_btn border_btn full_width_btn">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="more_option_btn"  data-toggle="modal" data-target="#exampleModal">View more options <i class="fa-solid fa-angle-down"></i></button>
       </div>
     </div>
   </div>
@@ -37,11 +272,12 @@
 
 <section class="facilities_sec coworking_facilities">
   <div class="container">
-      <div class="row desktophide">
+      <div class="row">
           <div class="col-md-12 text-center">
               <div class="main_heading title_divider">
-                  <h2>Amenities You will get</h2>
+                  <h2>What You Get From Us</h2>
               </div>
+              <p>Across All Coworking Gurgaon Locations</p>
           </div>
       </div>
       <div class="row amenities_row">
@@ -56,7 +292,120 @@
   </div>
 </section>
 
-<section class="cities_microlocation_sec" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9255de3c81e1744fdf1371e5d033c454371f7815.jpg');">
+<section class="coworking_solution_section">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="main_heading title_divider">
+                <h2>Coworking Solutions</h2>
+            </div>
+            <p>Discover the Perfect Coworking Solution in Gurgaon</p>
+        </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-3 col-6" *ngFor="let solution of solutions">
+        <div class="solution_card">
+          <div class="card_img">
+            <img [src]="solution.image" [alt]="solution.title">
+          </div>
+          <div [class]="solution.class">
+            <h4>{{solution.title}}</h4>
+            <p>{{solution.tagline}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="marketing_query_form query_from_sec">
+  <div class="container">
+      <div class="row mobilehide tabhide">
+          <div class="col-md-12 text-center">
+              <div class="main_heading title_divider">
+                  <h2>Best Coworking Spaces in Gurgaon</h2>
+              </div>
+          </div>
+      </div>
+
+      <div class="row align-items-center">
+          <div class="col-md-6 mobilehide tabhide">
+              <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/223b893b1d4f5aa0830218676f386e84de5c1ee5.png" class="img-fluid" alt="Form Image">
+          </div>
+
+          <div class="col-md-6">
+              <div class="virtual_query_form">
+                  <div class="form_head">
+                      <h3 class="desktophide">Best Coworking Spaces in Gurgaon</h3>
+                      <h3 class="mobilehide">Our team is ready to provide you best solutions</h3>
+                  </div>
+
+                  <div class="form_body">
+                    <form class="form">
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="input-group align-items-center">
+                              <img lazyLoad="../../../assets/images/icons/user-icon.svg" class="img-fluid" alt="User">
+                                  <input class="form-control" type="text" placeholder="Name*" />
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="input-group align-items-center">
+                                <img lazyLoad="../../../assets/images/icons/email-icon.svg" class="img-fluid" alt="Email">
+                                  <input class="form-control" type="text" placeholder="Email*" />
+                              </div>
+                          </div>
+          
+                          <div class="col-md-12 country_phone">
+                            <div class="input-group align-items-center">
+                                <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
+                              <div class="form-group city_card_phone">
+                                  <div class="flag-container">
+                                      <div class="selected-flag">
+                                          <div class="flag in">
+                                              <span class="dial-code"> +91</span>
+                                              <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
+                                          </div>
+                                      </div>
+                                      <ul class="country-list" style="display: none;">
+                                          <li class="country active" tabindex="-1" *ngFor="let country of activeCountries">
+                                              <div class="flag-box">
+                                                  <div class="flag in"><img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fd0d8e6d752e27929c79e1b5984f63a1edbec49d.jpg" width="18px" /></div>
+                                              </div>
+                                              <span class="country-name">India</span>
+                                              <span class="dial-code">+91</span>
+                                          </li>
+                                      </ul>
+                                      <input class="form-control" maxlength="10" type="text" formControlName="phone_number" placeholder="Phone*" appMaterialInput />
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-12">
+                            <div class="form-group floating-label otp-form" style="display: none;">
+                              <label>OTP</label>
+                              <input class="form-control" placeholder="Enter Otp" type="password" />
+                              <button Class="resend_otp">Resend OTP</button>
+                              <p>OTP will be resent in 15 seconds</p>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to understand how Cofynd handles your personal data.</p>
+                          </div>
+                          <div class="col-sm-12">
+                            <button type="submit" class="site_btn border_btn full_width_btn">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- <section class="cities_microlocation_sec" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9255de3c81e1744fdf1371e5d033c454371f7815.jpg');">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -143,9 +492,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="plans_area">
+<!-- <section class="plans_area">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -208,16 +557,26 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <div class="marketing_coworking_client">
   <app-our-clients></app-our-clients>
 </div>
 
+<section class="footer_content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and Fulfilment. CoFynd gives you access to all the prime Office Space locations of Gurgaon - Udyog Vihar, Sohna Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space community in Gurgaon and meet like-minded leaders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="marketing_footer">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="logo">
           <a routerlink="/">
             <img alt="Cofynd" class="img-fluid" src="/assets/images/logo.svg">
@@ -225,7 +584,7 @@
           <h5>Fynd the right space, Globally</h5>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="footer_info">
           <h4>Email :</h4>
           <p><a href="mailto:hello@cofynd.com">hello@cofynd.com</a></p>
@@ -238,10 +597,34 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>
+
+<section class="footer_sticky_form fixed-bottom mobilehide">
+  <div class="container">
+    <form>
+      <div class="form_row">
+        <div class="form_col form_title_col">
+          <h4>Enquire Now</h4>
+        </div>
+        <div class="form_col">
+          <input type="text" class="form-control" placeholder="Name" required>
+        </div>
+        <div class="form_col">
+          <input type="tel" class="form-control" placeholder="Phone" required>
+        </div>
+        <div class="form_col">
+          <input type="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="form_col">
+          <button type="submit" class="btn">Request Call Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
 
 
-<section class="search-simple pt-5 pb-4">
+<!-- <section class="search-simple pt-5 pb-4">
   <div class="container">
     <div class="row">
 
@@ -607,4 +990,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
