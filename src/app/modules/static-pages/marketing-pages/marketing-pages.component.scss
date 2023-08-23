@@ -1,6 +1,7 @@
 .marketing_header {
   padding: 10px 0px;
   background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 
 .marketing_header .marketing_logo img {
@@ -95,6 +96,7 @@
 }
 .modal-dialog {
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .prime_location_section {
@@ -510,7 +512,10 @@ section.footer_content {
   margin-bottom: 20px;
   font-weight: 600;
 }
-
+.footer_content p {
+  color: #858585;
+  line-height: 25px;
+}
 
 .logo-height {
   height: 50px;
@@ -520,17 +525,29 @@ section.footer_content {
 
 @media (max-width: 480px) {
   .marketing_header {
-    padding: 16px 0px;
+    padding: 15px 0px;
+}
+  .marketing_banner {
+    padding-top: 130px;
+    padding-bottom: 90px;
+}
+.title_divider {
+  margin-bottom: 10px !important;
 }
   .marketing_header .marketing_logo img {
-    width: 170px !important;
+    width: 140px !important;
 }
-.marketing_banner {
-  padding-top: 100px;
-  padding-bottom: 100px;
+.marketing_header .head_contact a {
+  font-size: 14px;
+  line-height: 21px;
 }
+// .marketing_banner {
+//   padding-top: 100px;
+//   padding-bottom: 100px;
+// }
 .marketing_banner .banner_content {
   padding-top: 0;
+  text-align: center;
 }
 .marketing_banner .banner_content h1 {
   color: #fff !important;
@@ -545,6 +562,7 @@ section.footer_content {
   font-weight: 600;
   padding: 8px 15px !important;
   font-size: 12px !important;
+  margin: 0 auto;
 }
 .micro_location_card .card_details h4 {
   font-size: 12px;
@@ -591,7 +609,7 @@ section.coworking_solution_section {
   margin-top: 2px;
 }
 .marketing_footer {
-  padding-bottom: 30px;
+  padding-bottom: 80px;
 }
 .marketing_footer img {
   width: 110px;
@@ -609,6 +627,24 @@ section.coworking_solution_section {
   margin-bottom: 0;
   font-size: 12px;
   line-height: 18px;
+}
+.site_btn {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+.coworking_facilities .amenities_row .icon_item img {
+  margin: 0 auto !important;
+}
+.coworking_facilities .icon_item h4 {
+  text-align: center !important;
+}
+.cofynd-desk p {
+  font-size: 12px !important;
+  text-align: left !important;
+  line-height: 20px !important;
+}
+.main_heading:before {
+  display: none !important;
 }
 }
 
