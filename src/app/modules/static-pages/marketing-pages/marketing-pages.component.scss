@@ -1,5 +1,6 @@
 .marketing_header {
   padding: 10px 0px;
+  background-color: #fff;
 }
 
 .marketing_header .marketing_logo img {
@@ -36,7 +37,7 @@
 }
 
 .marketing_banner {
-  padding-top: 140px;
+  padding-top: 180px;
   padding-bottom: 140px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -89,7 +90,7 @@
 }
 
 .marketing_banner .banner_form .policy_content span {
-  font-weight: 600;
+  // font-weight: 600;
   cursor: pointer;
 }
 
@@ -151,19 +152,19 @@
 }
 
 .card_details.card-bg1 {
-  background: linear-gradient(360deg, #FFFBF8 44.27%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(360deg, #FFFBF8 44.27%, rgba(255, 255, 255, 0) 100%) !important;
 }
 
 .card_details.card-bg2 {
-  background: linear-gradient(360deg, #FFF5F8 44.27%, rgba(255, 255, 255, 0.00) 100%);
+  background: linear-gradient(360deg, #FFF5F8 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
 }
 
 .card_details.card-bg3 {
-  background: linear-gradient(360deg, #EFFCFF 44.27%, rgba(255, 255, 255, 0.00) 100%);
+  background: linear-gradient(360deg, #EFFCFF 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
 }
 
 .card_details.card-bg4 {
-  background: linear-gradient(360deg, #FFFCF6 44.27%, rgba(255, 255, 255, 0.00) 100%);
+  background: linear-gradient(360deg, #FFFCF6 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
 }
 
 .micro_location_card .card_details h4 {
@@ -329,7 +330,7 @@ section.coworking_solution_section {
   margin-right: 5px;
 }
 .marketing_query_form .policy_content span {
-  font-weight: 600;
+  // font-weight: 600;
   cursor: pointer;
 }
 section.footer_content {
