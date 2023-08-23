@@ -18,17 +18,41 @@ import { HelperService } from '@core/services/helper.service';
 import { SeoService } from '@core/services/seo.service';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 import { USER_REVIEWS } from '@core/config/reviews';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Enquiry } from '@core/models/enquiry.model';
+import { AuthService } from '@core/services/auth.service';
+import { UserService } from '@core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { CityService } from '@app/core/services/city.service';
+import { CountryService } from '@app/core/services/country.service';
+
+export enum ENQUIRY_STEPS {
+  ENQUIRY,
+  OTP,
+  SUCCESS,
+}
+
+export enum ENQUIRY_TYPES {
+  COWORKING,
+  OFFICE,
+  COLIVING,
+}
+
+declare let ga: any;
+
 interface MarketingPlan {
   name: string;
   description: string;
   price: number;
   type: 'day' | 'month' | 'hr';
 }
+
 interface Review {
   name: string;
   review: string;
   image?: string;
 }
+
 @Component({
   selector: 'app-marketing-pages',
   templateUrl: './marketing-pages.component.html',
@@ -49,6 +73,30 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
   reviewsCarousel: NguCarousel<Review>;
   carouselConfig: NguCarouselConfig;
 
+  enquiryForm: FormGroup;
+  loading: boolean;
+  user: any;
+  phoneflag: boolean = true;
+  ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
+  ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
+  ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
+  btnLabel = 'submit';
+
+  pageName: string;
+  pageUrl: string;
+  city: string;
+  showcountry: boolean = false;
+  selectedCountry: any = {};
+
+  resendDisabled = false;
+  resendCounter = 30;
+  resendIntervalId: any;
+  activeCountries: any = [];
+  finalCities: any = [];
+  submitted: boolean;
+  contactUserName: any;
+  showSuccessMessage: boolean;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
@@ -57,6 +105,12 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     private router: Router,
     private cdr: ChangeDetectorRef,
     private brandService: BrandService,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private cityService: CityService,
+    private countryService: CountryService,
   ) {
     this.plans = this.getPlans();
     this.carouselConfig = {
@@ -70,10 +124,186 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       interval: { timing: 4000 },
       animation: 'lazy',
     };
-    const url = this.router.url;
-    this.marketingData = DEFAULT_APP_DATA.marketing.coworking.find(x => x.url == url);
+    if (DEFAULT_APP_DATA.marketing.coworking) {
+      // this.marketingData = DEFAULT_APP_DATA.marketing.coworking.find((X: any) => X.url == url);
+    }
+    if (router.url.search(/co-living/i) != -1) {
+      this.phoneflag = false;
+    }
+    if (this.isAuthenticated()) {
+      this.user = this.authService.getLoggedInUser();
+    }
+    this.pageUrl = this.router.url;
+    let url = this.router.url.split('/');
+    var parts = url;
+    this.city = parts[parts.length - 1];
+    this.pageName = url[1];
+    this.pageUrl = `https://cofynd.com${this.pageUrl}`;
   }
 
+  hideCountry(country: any) {
+    this.selectedCountry = country;
+    this.showcountry = false;
+  }
+
+  enterpriseFormGroup: FormGroup = this.formBuilder.group({
+    phone_number: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    interested_in: ['', Validators.required],
+    city: ['', Validators.required],
+    otp: [''],
+  });
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get emailid() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  get mobno() {
+    return this.enterpriseFormGroup.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.enterpriseFormGroup.invalid) {
+      return;
+    }
+    if (this.isAuthenticated()) {
+      this.createEnquiry();
+    } else {
+      this.getOtp();
+    }
+  }
+
+  private isAuthenticated() {
+    return this.authService.getToken();
+  }
+
+  getOtp() {
+    if (this.ENQUIRY_STEP === ENQUIRY_STEPS.ENQUIRY) {
+      this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+      this.btnLabel = 'Verify OTP';
+      this.addValidationOnOtpField();
+      const formValues: Enquiry = this.enterpriseFormGroup.getRawValue();
+      formValues['dial_code'] = this.selectedCountry.dial_code;
+      this.userService.addUserEnquiry(formValues).subscribe(
+        (data: any) => {
+          if (data) {
+            this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+            this.btnLabel = 'Verify OTP';
+            this.addValidationOnOtpField();
+          }
+        },
+        error => {
+          this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+        },
+      );
+    } else {
+      this.validateOtp();
+    }
+  }
+
+  validateOtp() {
+    const phone = this.enterpriseFormGroup.controls['phone_number'].value;
+    const otp = this.enterpriseFormGroup.get('otp').value;
+    this.loading = true;
+    this.authService.verifyOtp(phone, otp).subscribe(
+      () => {
+        this.btnLabel = 'Verify OTP';
+        this.loading = false;
+        this.user = this.authService.getLoggedInUser();
+        this.createEnquiry();
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  resendOTP() {
+    this.resendDisabled = true;
+    this.resendIntervalId = setInterval(() => {
+      this.resendCounter--;
+      if (this.resendCounter === 0) {
+        clearInterval(this.resendIntervalId);
+        this.resendDisabled = false;
+        this.resendCounter = 30;
+      }
+    }, 1000);
+    // TODO: Implement OTP resend logic here
+    let obj = {};
+    obj['dial_code'] = this.selectedCountry.dial_code;
+    obj['phone_number'] = this.enterpriseFormGroup.controls['phone_number'].value;
+    this.userService.resendOtp(obj).subscribe(
+      (data: any) => {
+        if (data) {
+          this.ENQUIRY_STEP = ENQUIRY_STEPS.OTP;
+          this.btnLabel = 'Verify OTP';
+          this.addValidationOnOtpField();
+        }
+      },
+      error => {
+        this.toastrService.error(error.message || 'Something broke the server, Please try latter');
+      },
+    );
+  }
+
+  addValidationOnOtpField() {
+    const otpControl = this.enterpriseFormGroup.get('otp');
+    otpControl.setValidators([Validators.required, Validators.minLength(4), Validators.maxLength(4)]);
+    otpControl.updateValueAndValidity();
+  }
+
+  createEnquiry() {
+    this.loading = true;
+    let mx_Space_Type = '';
+    this.btnLabel = 'Submitting...';
+    this.contactUserName = this.enterpriseFormGroup.controls['name'].value;
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coworking') {
+      mx_Space_Type = 'Web Coworking';
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Coliving') {
+      mx_Space_Type = 'Web Coliving';
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Office Space') {
+      mx_Space_Type = 'Web Office Space';
+    }
+    if (this.enterpriseFormGroup.controls['interested_in'].value === 'Virtual Office') {
+      mx_Space_Type = 'Web Virtual Office';
+    }
+    const phone = this.enterpriseFormGroup.get('phone_number').value;
+    let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
+    const object = {
+      user: {
+        phone_number: phoneWithDialCode,
+        email: this.enterpriseFormGroup.controls['email'].value,
+        name: this.enterpriseFormGroup.controls['name'].value,
+      },
+      city: this.enterpriseFormGroup.controls['city'].value,
+      interested_in: this.enterpriseFormGroup.controls['interested_in'].value,
+      mx_Page_Url: this.pageUrl,
+      mx_Space_Type: mx_Space_Type,
+    };
+    this.userService.createLead(object).subscribe(
+      () => {
+        this.loading = false;
+        this.ENQUIRY_STEP = ENQUIRY_STEPS.SUCCESS;
+        this.showSuccessMessage = true;
+        this.enterpriseFormGroup.reset();
+        this.submitted = false;
+        this.router.navigate(['/thank-you']);
+      },
+      error => {
+        this.loading = false;
+        this.toastrService.error(error.message);
+      },
+    );
+  }
 
   primeLocation = [
     {
@@ -81,56 +311,56 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2878c50fff7c1deeb3e6a8a958dce4bdd8cbf142.jpg',
       title: 'Udyog Vihar',
       price: '₹ 5,499*',
-      class : 'card_details card-bg1',
+      class: 'card_details card-bg1',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a78af7a648f1a981f451a869b24ef51d95a5f0e.jpg',
       title: 'Sohna Road',
       price: '₹ 5,999*',
-      class : ' card_details card-bg2',
+      class: ' card_details card-bg2',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9a6c707ba63ad6d3a0e0c1f5e7d9e70962ecc77.jpg',
       title: 'Golf Course Road',
       price: '₹ 9,999*',
-      class : 'card_details card-bg3',
+      class: 'card_details card-bg3',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a2c43ad6ad92696e72063cccb3bc97db2860d70d.jpg',
       title: 'MG Road',
       price: '₹ 9,999*',
-      class : 'card_details card-bg4',
+      class: 'card_details card-bg4',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/389792781e667952808fc04215d3b1392c628f54.jpg',
       title: 'Golf Course Extension',
       price: '₹ 5,499*',
-      class : 'card_details card-bg1',
+      class: 'card_details card-bg1',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/252d462d4b7e583cf6f32608f83216531cfd8b49.jpg',
       title: 'Huda City Sector 44',
       price: '₹ 8,999*',
-      class : 'card_details card-bg2',
+      class: 'card_details card-bg2',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/426ce706a0f96b0c0b48956f38a2f142b55ef355.jpg',
       title: 'DLF Cyber City',
       price: '₹ 19,499*',
-      class : 'card_details card-bg3',
+      class: 'card_details card-bg3',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4aef1a1246000187c398e77e0c832ef5fe27b88d.jpg',
       title: 'DLF / Sushant Lok',
       price: '₹ 7,999*',
-      class : 'card_details card-bg4',
+      class: 'card_details card-bg4',
     },
   ];
 
@@ -170,30 +400,34 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
 
   solutions = [
     {
-      image : 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eae547550aca51cb96290b8ad4a8e8e0fec635c4.jpg',
-      title : 'Fixed Desks',
-      tagline : 'Your dedicated desk, personalized for productivity',
-      class : 'card_details card-bg1',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eae547550aca51cb96290b8ad4a8e8e0fec635c4.jpg',
+      title: 'Fixed Desks',
+      tagline: 'Your dedicated desk, personalized for productivity',
+      class: 'card_details card-bg1',
     },
     {
-      image : 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1297819e3de5d392ccca9e3aa84eb5d26b739aed.jpg',
-      title : 'Private Cabins',
-      tagline : 'Secluded productivity in your own private cabin',
-      class : 'card_details card-bg2',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1297819e3de5d392ccca9e3aa84eb5d26b739aed.jpg',
+      title: 'Private Cabins',
+      tagline: 'Secluded productivity in your own private cabin',
+      class: 'card_details card-bg2',
     },
     {
-      image : 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/411c78d656bd1b4b87aef7b7372ec2a8644bad88.jpg',
-      title : 'Virtual Office',
-      tagline : 'Elevate your business presence with a virtual office',
-      class : 'card_details card-bg3',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/411c78d656bd1b4b87aef7b7372ec2a8644bad88.jpg',
+      title: 'Virtual Office',
+      tagline: 'Elevate your business presence with a virtual office',
+      class: 'card_details card-bg3',
     },
     {
-      image : 'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1763020ba24780f224150cbf93b6846097ef98ec.jpg',
-      title : 'Customized Offices',
-      tagline : 'Tailored spaces, designed for your unique vision',
-      class : 'card_details card-bg4',
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/1763020ba24780f224150cbf93b6846097ef98ec.jpg',
+      title: 'Customized Offices',
+      tagline: 'Tailored spaces, designed for your unique vision',
+      class: 'card_details card-bg4',
     },
-  ]
+  ];
 
   // coworkingPlan = [
   //   {
@@ -265,6 +499,15 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
   ngOnInit() {
     this.addSeoTags();
     this.getBrands();
+    this.countryService.getCountryList().subscribe(countryList => {
+      this.activeCountries = countryList;
+      if (this.activeCountries && this.activeCountries.length > 0) {
+        this.selectedCountry = this.activeCountries[0];
+      }
+    });
+    this.cityService.getCityList().subscribe(cityList => {
+      this.finalCities = cityList;
+    });
   }
 
   addSeoTags() {
