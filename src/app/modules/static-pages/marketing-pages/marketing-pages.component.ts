@@ -80,7 +80,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2878c50fff7c1deeb3e6a8a958dce4bdd8cbf142.jpg',
       title: 'Udyog Vihar',
-      price: '₹ 5,499*',
+      price: '₹ 4,999*',
       class : 'card_details card-bg1',
     },
     {
@@ -92,37 +92,37 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     },
     {
       image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/252d462d4b7e583cf6f32608f83216531cfd8b49.jpg',
+      title: 'Huda City Sector 44',
+      price: '₹ 8,999*',
+      class : 'card_details card-bg3',
+    },
+    {
+      image:
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/389792781e667952808fc04215d3b1392c628f54.jpg',
+      title: 'Golf Course Extension',
+      price: '₹ 5,999*',
+      class : 'card_details card-bg4',
+    },
+    {
+      image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9a6c707ba63ad6d3a0e0c1f5e7d9e70962ecc77.jpg',
       title: 'Golf Course Road',
       price: '₹ 9,999*',
-      class : 'card_details card-bg3',
+      class : 'card_details card-bg1',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a2c43ad6ad92696e72063cccb3bc97db2860d70d.jpg',
       title: 'MG Road',
       price: '₹ 9,999*',
-      class : 'card_details card-bg4',
-    },
-    {
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/389792781e667952808fc04215d3b1392c628f54.jpg',
-      title: 'Golf Course Extension',
-      price: '₹ 5,499*',
-      class : 'card_details card-bg1',
-    },
-    {
-      image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/252d462d4b7e583cf6f32608f83216531cfd8b49.jpg',
-      title: 'Huda City Sector 44',
-      price: '₹ 8,999*',
       class : 'card_details card-bg2',
     },
     {
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/426ce706a0f96b0c0b48956f38a2f142b55ef355.jpg',
       title: 'DLF Cyber City',
-      price: '₹ 19,499*',
+      price: '₹ 19,999*',
       class : 'card_details card-bg3',
     },
     {
@@ -194,6 +194,24 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       class : 'card_details card-bg4',
     },
   ]
+
+  coFyndAdvantages = [
+    {
+      icon: 'icons/work-spaces.svg',
+      title: '100,000+ Spaces',
+      description: 'Get access to 100,000+ spaces with easy availability and convenience anytime and anywhere. Space Search Made Simple with CoFynd',
+    },
+    {
+      icon: 'icons/brokerage-icon.svg',
+      title: 'Zero Brokerage',
+      description: "CoFynd is India’s fastest growing space discovery platform that doesn’t charge any brokerage from the customers.",
+    },
+    {
+      icon: 'icons/support.svg',
+      title: '100% Offline Support',
+      description: 'We provide complete offline support from choosing the best space, scheduling site visits, bookings and after sales.',
+    },
+  ];
 
   // coworkingPlan = [
   //   {
