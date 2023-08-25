@@ -161,6 +161,10 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     this.fetchCountryList();
   }
 
+  viewMoreLocation() {
+    this.micro_title = 'gurugram';
+  }
+
   hideCountry(country: any) {
     this.selectedCountry = country;
     this.showcountry = false;
