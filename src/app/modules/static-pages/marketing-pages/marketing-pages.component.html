@@ -683,15 +683,14 @@
                   </div>
                 </div>
 
-                <div class="col-md-12"
-                  *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
-                  <div class="form-group floating-label otp-form">
-                    <label>OTP</label>
-                    <input class="form-control"
+                <div class="col-md-12" *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
+                  <div class="input-group align-items-center">
+                    <!-- <label>OTP</label> -->
+                    <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
+                    <input class="form-control border-light" id="mobilenumber" placeholder="Otp*"
                       [ngClass]="{ 'is-invalid': midbannersubmitted && m['otp'].errors }"
                       formControlName="otp"
                       required
-                      placeholder="Enter Otp"
                       type="password" />
                     <div *ngIf="midbannersubmitted && m['otp'].errors"
                       class="invalid-feedback">
@@ -699,11 +698,11 @@
                         Please enter 4 digit otp.
                       </div>
                     </div>
+                  </div>
                     <button [disabled]="resendDisabled"
                       (click)="resendmidBannerOtp()"
                       [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
                     <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
-                  </div>
                 </div>
                 <div class="col-sm-12 mt-2">
                   <button type="submit"
