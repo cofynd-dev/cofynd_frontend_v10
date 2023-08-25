@@ -1,0 +1,951 @@
+.marketing_header {
+  padding: 10px 0px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.marketing_header .marketing_logo img {
+  width: 250px;
+}
+
+.marketing_header .head_contact {
+  justify-items: end;
+  display: grid;
+}
+
+.marketing_header .head_contact h4 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #4343E8;
+  margin-bottom: 4px;
+}
+
+.marketing_header .head_contact p {
+  margin-bottom: 0px;
+}
+
+.marketing_header .head_contact a {
+  color: #000;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.marketing_header .head_contact i {
+  color: #4343E8;
+  margin-right: 8px;
+}
+
+.marketing_banner {
+  padding-top: 180px;
+  padding-bottom: 140px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.marketing_banner .banner_content {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.marketing_banner .banner_content h1 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.marketing_banner .banner_content p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 0px;
+}
+
+.marketing_banner .banner_content .site_btn {
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.marketing_banner .banner_form h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.marketing_banner .banner_form {
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.banner_form .form-section {
+  padding: 30px;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: .7px solid rgba(33, 37, 41, .1);
+}
+
+.marketing_banner .banner_form .policy_content span {
+  // font-weight: 600;
+  cursor: pointer;
+}
+.modal-dialog {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.prime_location_section {
+  padding: 80px 0px 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.prime_location_section .micro_location_card {
+  margin-bottom: 40px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.10);
+}
+
+.micro_location_card .card_img {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 300px;
+}
+
+.micro_location_card .card_img img {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.micro_location_card .pricing_tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.micro_location_card .pricing_tag p {
+  background-color: #fff;
+  margin-bottom: 0;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 13px;
+}
+
+.micro_location_card .pricing_tag p span {
+  color: #4343E8;
+  font-weight: 600;
+}
+
+.micro_location_card .card_details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(360deg, #FFFBF8 44.27%, rgba(255, 255, 255, 0) 100%);
+  padding: 100px 0px 15px;
+}
+
+.card_details.card-bg1 {
+  background: linear-gradient(360deg, #FFFBF8 44.27%, rgba(255, 255, 255, 0) 100%) !important;
+}
+
+.card_details.card-bg2 {
+  background: linear-gradient(360deg, #FFF5F8 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
+}
+
+.card_details.card-bg3 {
+  background: linear-gradient(360deg, #EFFCFF 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
+}
+
+.card_details.card-bg4 {
+  background: linear-gradient(360deg, #FFFCF6 44.27%, rgba(255, 255, 255, 0.00) 100%) !important;
+}
+
+.micro_location_card .card_details h4 {
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.more_option_btn {
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 600;
+  position: relative;
+}
+
+.more_option_btn i {
+  position: absolute;
+  right: -20px;
+  top: 6px;
+  font-size: 13px;
+}
+
+.coworking_facilities {
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.cities_microlocation_sec {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.coworking_facilities .amenities_row {
+  margin-top: 20px;
+}
+
+.plans_area {
+  padding: 50px 0px;
+}
+
+.plans_area h2 {
+  font-size: 25px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.plan-item {
+  display: flex;
+  background-color: #F9F6FE;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 15px 15px;
+}
+
+.plan-item .img {
+  flex: 0 0 9%;
+  padding-right: 10px;
+}
+
+.plan-item .plan-text {
+  padding-left: 15px;
+  padding-right: 15px;
+  flex: 0 0 66%;
+}
+
+.plan-price {
+  flex: 0 0 25%;
+  justify-content: end;
+  display: grid;
+  text-align: right;
+  padding: 0px 15px;
+}
+
+.plan-price span {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.plan-price .price {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+.plan-price .price small {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.plan-price button {
+  text-align: right;
+  color: #4343E8;
+  font-weight: 600;
+}
+
+.plan-price button i {
+  font-size: 11px;
+}
+
+section.coworking_solution_section {
+  background: linear-gradient(90deg, rgba(250, 233, 249, 0.10) 0%, rgba(250, 233, 249, 0.02) 100%), linear-gradient(180deg, rgba(234, 230, 255, 0.30) 0%, rgba(243, 240, 251, 0.14) 54.17%, rgba(237, 245, 253, 0.20) 100%);
+  padding: 80px 0px 40px;
+}
+
+.solution_card {
+  margin-bottom: 40px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.10);
+}
+
+.solution_card .card_img {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 350px;
+}
+
+.solution_card .card_img img {
+  height: 350px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.solution_card .card_details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(360deg, #FFFBF8 44.27%, rgba(255, 255, 255, 0) 100%);
+  padding: 100px 10px 15px;
+}
+
+.solution_card .card_details h4 {
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.solution_card .card_details p {
+  margin-bottom: 0px;
+  font-size: 13px;
+  line-height: 19px;
+  margin-top: 5px;
+}
+
+.marketing_query_form .country_phone .input-group {
+  padding-left: 32px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.marketing_query_form .form-group.city_card_phone {
+  width: 100%;
+  margin-bottom: 0px !important;
+}
+.marketing_query_form .form-group .selected-flag {
+  margin-right: 5px;
+}
+.marketing_query_form .policy_content span {
+  // font-weight: 600;
+  cursor: pointer;
+}
+section.footer_content {
+  background-color: #FFF9EA;
+  padding: 30px 0px 15px;
+}
+
+.coworking_partner_area img {
+  width: 160px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.coworking_partner_area {
+  padding: 40px 0px 20px;
+}
+
+.marketing_about_content {
+  padding: 20px 0px 20px;
+}
+
+.marketing_side_form {
+  position: sticky;
+  top: 30px;
+}
+
+.marketing_footer {
+  background-color: #FFF9EA;
+  padding: 15px 0px;
+  padding-bottom: 90px;
+}
+
+.marketing_footer img {
+  width: 180px;
+  margin-bottom: 8px;
+}
+
+.marketing_footer h5 {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.footer_info {
+  margin-top: 0px;
+}
+
+.footer_info h4 {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.footer_info p,
+.footer_info p a {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.footer_img img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0px !important;
+  opacity: 0.2;
+}
+.prime_location_popup .modal-content {
+  background-color: transparent;
+  border: none;
+}
+.prime_location_popup .modal-body {
+  padding: 0px;
+  border-radius: 20px !important;
+  // overflow: hidden;
+  background-color: #fff;
+}
+.prime_location_popup .modal-body .enquire-box {
+  padding: 0;
+}
+.prime_location_popup .enquire-box-content {
+  padding: 22px 26px;
+  border-radius: 20px;
+}
+.prime_location_popup .enquire-box-content button.btn-close {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 19px;
+}
+.prime_location_popup .enquire-box-content h4 {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer_sticky_form {
+  background-color: #F8F8FF;
+  padding: 14px 0px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.form_row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.form_row .form_col {
+  width: 100%;
+  padding: 0px 10px;
+}
+.form_col.form_title_col {
+  flex: 0 0 16%;
+}
+.footer_sticky_form h4 {
+  font-size: 18px;
+  line-height: 22px;
+  color: #4343E8;
+  font-weight: 600;
+}
+.footer_sticky_form .form-control {
+  padding: 10px 15px !important;
+  height: auto;
+  box-shadow: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #000 !important;
+}
+.footer_sticky_form .btn {
+  width: 100%;
+  background-color: #EAE6FF;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid #EAE6FF;
+  transition: all 0.5s;
+}
+.footer_sticky_form .btn:hover {
+  background-color: transparent;
+  border: 1px solid #EAE6FF;
+}
+.banner_form_popup .modal-content {
+  background-color: transparent;
+  border: none;
+}
+.banner_form_popup .modal-body {
+  padding: 0px;
+  border-radius: 20px !important;
+  // overflow: hidden;
+  background-color: #fff;
+}
+.banner_form_popup .modal-body .enquire-box {
+  padding: 0;
+}
+.banner_form_popup .enquire-box-content {
+  padding: 22px 26px;
+  border-radius: 20px;
+}
+.banner_form_popup .enquire-box-content button.btn-close {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 19px;
+}
+.banner_form_popup .enquire-box-content h4 {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer_content p {
+  color: #858585;
+  line-height: 25px;
+}
+
+.logo-height {
+  height: 50px;
+  width: auto;
+}
+
+
+@media (max-width: 480px) {
+  .marketing_header {
+    padding: 15px 0px;
+}
+  .marketing_banner {
+    padding-top: 130px;
+    padding-bottom: 90px;
+}
+.title_divider {
+  margin-bottom: 10px !important;
+}
+  .marketing_header .marketing_logo img {
+    width: 140px !important;
+}
+.marketing_header .head_contact a {
+  font-size: 14px;
+  line-height: 21px;
+}
+// .marketing_banner {
+//   padding-top: 100px;
+//   padding-bottom: 100px;
+// }
+.marketing_banner .banner_content {
+  padding-top: 0;
+  text-align: center;
+}
+.marketing_banner .banner_content h1 {
+  color: #fff !important;
+}
+.marketing_banner .banner_content p {
+  color: #fff !important;
+  font-size: 13px !important;
+  line-height: 21px !important;
+  margin-bottom: 10px;
+}
+.marketing_banner .banner_content .site_btn {
+  font-weight: 600;
+  padding: 8px 15px !important;
+  font-size: 12px !important;
+  margin: 0 auto;
+}
+.micro_location_card .card_details h4 {
+  font-size: 12px;
+  line-height: 16px;
+}
+.micro_location_card .card_img {
+  max-height: 220px;
+}
+.micro_location_card .card_img img {
+  height: 220px;
+}
+.coworking_facilities {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.coworking_facilities .main_heading {
+  margin-bottom: 10px !important;
+}
+.prime_location_section {
+  padding: 50px 0px 40px;
+}
+.more_option_btn {
+  font-size: 13px;
+}
+
+.coworking_solution_section .main_heading {
+  margin-bottom: 10px !important;
+}
+section.coworking_solution_section {
+  padding: 50px 0px 30px;
+}
+.solution_card .card_img {
+  max-height: 220px;
+}
+.solution_card .card_img img {
+  height: 220px;
+}
+.solution_card .card_details h4 {
+  font-size: 13px;
+  line-height: 20px;
+}
+.solution_card .card_details p {
+  line-height: 17px !important;
+  margin-top: 2px;
+}
+.marketing_footer {
+  padding-bottom: 80px;
+}
+.marketing_footer img {
+  width: 110px;
+  margin-bottom: 4px;
+}
+.marketing_footer h5 {
+  font-size: 10px;
+  line-height: 13px;
+}
+.marketing_footer h5 {
+  font-size: 10px;
+  line-height: 13px;
+}
+.footer_info p, .footer_info p a {
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 18px;
+}
+.site_btn {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+.coworking_facilities .amenities_row .icon_item img {
+  margin: 0 auto !important;
+}
+.coworking_facilities .icon_item h4 {
+  text-align: center !important;
+}
+.cofynd-desk p {
+  font-size: 12px !important;
+  text-align: left !important;
+  line-height: 20px !important;
+}
+.main_heading:before {
+  display: none !important;
+}
+}
+
+
+
+
+
+.spaces {
+  background: linear-gradient(180deg, #4343E8 65%, #fff 35%);
+}
+
+.font-28 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.font-30 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.font-wt500 {
+  font-weight: 500;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.lineHeight-35 {
+  line-height: 35px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+p.plan-pricing::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.plan-box {
+  padding-right: 15px;
+  padding-left: 15px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.border-rds10 {
+  border-radius: 10px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font-14-lite {
+  font-size: 14px;
+  line-height: 20px;
+  color: #272728;
+}
+
+.text-rt {
+  text-align: right;
+  padding-top: 30px;
+  margin-top: 15px;
+  padding-right: 25px;
+}
+
+.font-wt300 {
+  font-weight: 300;
+}
+
+.font-wt600 {
+  font-weight: 600
+}
+
+.main-blue {
+  color: #4343E8;
+}
+
+.mb-only {
+  display: none;
+}
+
+.box-detail {
+  padding-top: 25px;
+  margin-top: 3px;
+}
+
+.mb-only {
+  display: block;
+  position: relative;
+  right: 35px;
+  top: 0px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+h2.plug-play::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.font-size-14 {
+  font-size: 14;
+}
+
+.why-cofynd {
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.font-26-mid {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #262626;
+}
+
+h3.top-partner::before {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #FFE785;
+  display: block;
+  content: "";
+  position: relative;
+  top: 32px;
+  left: -20px;
+  z-index: -1;
+}
+
+.side-from {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.height-14 {
+  height: 14px;
+}
+
+.height-40 {
+  height: 40px;
+}
+
+.height-50 {
+  height: 50px;
+}
+
+.enquire-button {
+  font-size: 16px;
+  height: 45px;
+  background-color: #3131e6;
+}
+
+.num-border {
+  border: 1px solid #4343e8;
+  border-radius: 5px;
+}
+
+.contactWithC {
+  background-color: #4343e8;
+  width: 100%;
+}
+
+.cofynd-desk-image {
+  height: 160px;
+  width: auto;
+  position: absolute;
+  top: -80px;
+  right: -50px;
+  display: block
+}
+
+.in_mobileContact {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  position: fixed;
+  z-index: 999999
+}
+
+#as_form {
+  height: calc(100% - 44px);
+  position: fixed;
+  padding: 15px;
+  background: white;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none
+}
+
+#as_form .as_form-title {
+  font-size: 20px;
+  text-align: center
+}
+
+#as_form .as_form_close {
+  font-size: 26px;
+  margin-top: -3px;
+  border: 1px solid lightgray;
+  width: 35px;
+  color: lightgray;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%
+}
+
+.in_container {
+  position: relative;
+  text-align: center;
+  height: 44px
+}
+
+.side-fixed-part {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .font-28 {
+    font-size: 25px;
+  }
+
+  .font12 {
+    font-size: 18px;
+  }
+
+  .font-14-lite {
+    display: none;
+  }
+
+  .text-rt {
+    text-align: left;
+    padding-top: 0px;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+
+  .box-detail {
+    padding-top: 10px;
+  }
+
+  h2.plug-play::before {
+    height: 40px;
+    width: 40px;
+    left: -12px;
+    top: 30px;
+  }
+
+  .img-htw {
+    height: 50px;
+    width: auto;
+  }
+
+  h3.top-partner::before {
+    height: 40px;
+    width: 40px;
+    left: -12px;
+    top: 30px;
+  }
+
+  .cofynd-desk-image {
+    display: none;
+  }
+
+  .only-mobile {
+    margin: 20px 0px;
+  }
+
+  .in_mobileContact {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .spaces h1 {
+    font-size: 25px;
+  }
+}

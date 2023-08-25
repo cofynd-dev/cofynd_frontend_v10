@@ -53,11 +53,11 @@ interface Review {
 }
 
 @Component({
-  selector: 'app-marketing-pages',
-  templateUrl: './marketing-pages.component.html',
-  styleUrls: ['./marketing-pages.component.scss'],
+  selector: 'app-mumbai-marketing',
+  templateUrl: './mumbai-marketing.component.html',
+  styleUrls: ['./mumbai-marketing.component.scss'],
 })
-export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestroy {
   supportPhone = DEFAULT_APP_DATA.contact.phone;
   marketingData: any;
   plans: MarketingPlan[];

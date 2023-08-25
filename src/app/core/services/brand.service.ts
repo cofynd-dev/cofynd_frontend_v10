@@ -25,7 +25,7 @@ export class BrandService {
     }
     return this.http.get<ApiResponse<Brand[]>>(url).pipe(
       map(brandsList => {
-        if (params.indexOf('dropdown') > -1) {
+        if (params && params.indexOf('dropdown') > -1) {
           return brandsList.data;
         }
         return brandsList.data.filter(brand => brand.should_show_on_home && brand.image !== null);
