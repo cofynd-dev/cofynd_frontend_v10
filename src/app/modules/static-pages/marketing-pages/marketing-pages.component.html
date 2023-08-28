@@ -1,3 +1,7 @@
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-671913436/hqIgCL7D5NcYENyrssAC'});
+</script>
+
 <section class="marketing_header fixed-top">
   <div class="container">
     <div class="row align-items-center">
@@ -29,7 +33,8 @@
             Sector 44, Golf Course Extension Road and more ...</p>
           <button class="site_btn btn desktophide"
             data-toggle="modal"
-            data-target="#exampleModal" (click)="viewMoreLocation()">Enquire Now</button>
+            data-target="#exampleModal"
+            (click)="viewMoreLocation()">Enquire Now</button>
 
           <!-- Modal -->
           <div class="modal fade banner_form_popup"
@@ -186,15 +191,15 @@
                 <div class="col-md-12 country_phone">
                   <div class="form-group city_card_phone">
                     <div class="flag-container">
-                      <div (click)="showcountry = !showcountry"
+                      <!-- <div (click)="showcountry = !showcountry"
                         class="selected-flag">
                         <div class="flag in"
                           *ngIf="activeCountries && activeCountries.length">
                           <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                           <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                         </div>
-                      </div>
-                      <ul *ngIf="showcountry"
+                      </div> -->
+                      <!-- <ul *ngIf="showcountry"
                         class="country-list">
                         <li (click)="hideCountry(country)"
                           class="country active"
@@ -209,7 +214,7 @@
                           <span class="country-name">{{country?.name}}</span>
                           <span class="dial-code">{{country?.dial_code}}</span>
                         </li>
-                      </ul>
+                      </ul> -->
                       <input class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }"
                         maxlength="10"
@@ -361,15 +366,15 @@
                         <div class="col-md-12 country_phone">
                           <div class="form-group city_card_phone">
                             <div class="flag-container">
-                              <div (click)="showcountry = !showcountry"
+                              <!-- <div (click)="showcountry = !showcountry"
                                 class="selected-flag">
                                 <div class="flag in"
                                   *ngIf="activeCountries && activeCountries.length">
                                   <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                   <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                                 </div>
-                              </div>
-                              <ul *ngIf="showcountry"
+                              </div> -->
+                              <!-- <ul *ngIf="showcountry"
                                 class="country-list">
                                 <li (click)="hideCountry(country)"
                                   class="country active"
@@ -384,7 +389,7 @@
                                   <span class="country-name">{{country?.name}}</span>
                                   <span class="dial-code">{{country?.dial_code}}</span>
                                 </li>
-                              </ul>
+                              </ul> -->
                               <input class="form-control"
                                 [ngClass]="{ 'is-invalid': primesubmitted && p['phone_number'].errors }"
                                 maxlength="10"
@@ -454,7 +459,8 @@
       <div class="col-md-12 text-center">
         <button class="more_option_btn"
           data-toggle="modal"
-          data-target="#exampleModal" (click)="viewMoreLocation()">View more Locations <i class="fa-solid fa-angle-down"></i></button>
+          data-target="#exampleModal"
+          (click)="viewMoreLocation()">View more Locations <i class="fa-solid fa-angle-down"></i></button>
       </div>
     </div>
   </div>
@@ -639,15 +645,15 @@
                       alt="Phone">
                     <div class="form-group city_card_phone">
                       <div class="flag-container">
-                        <div (click)="showcountry = !showcountry"
+                        <!-- <div (click)="showcountry = !showcountry"
                           class="selected-flag">
                           <div class="flag in"
                             *ngIf="activeCountries && activeCountries.length">
                             <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                             <span class="arrow arrow-up"><i class="fa-solid fa-angle-down"></i></span>
                           </div>
-                        </div>
-                        <ul class="country-list"
+                        </div> -->
+                        <!-- <ul class="country-list"
                           style="display: none;">
                           <li class="country active"
                             tabindex="-1"
@@ -660,7 +666,7 @@
                             <span class="country-name">India</span>
                             <span class="dial-code">+91</span>
                           </li>
-                        </ul>
+                        </ul> -->
                         <input class="form-control"
                           [ngClass]="{ 'is-invalid': midbannersubmitted && m['phone_number'].errors }"
                           maxlength="10"
@@ -683,11 +689,16 @@
                   </div>
                 </div>
 
-                <div class="col-md-12" *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
+                <div class="col-md-12"
+                  *ngIf="ENQUIRY_STEP == ENQUIRY_STEPS.OTP">
                   <div class="input-group align-items-center">
                     <!-- <label>OTP</label> -->
-                    <img lazyLoad="../../../assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
-                    <input class="form-control border-light" id="mobilenumber" placeholder="Otp*"
+                    <img lazyLoad="../../../assets/images/icons/phone-icon.svg"
+                      class="img-fluid"
+                      alt="Phone">
+                    <input class="form-control border-light"
+                      id="mobilenumber"
+                      placeholder="Otp*"
                       [ngClass]="{ 'is-invalid': midbannersubmitted && m['otp'].errors }"
                       formControlName="otp"
                       required
@@ -699,10 +710,10 @@
                       </div>
                     </div>
                   </div>
-                    <button [disabled]="resendDisabled"
-                      (click)="resendmidBannerOtp()"
-                      [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
-                    <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
+                  <button [disabled]="resendDisabled"
+                    (click)="resendmidBannerOtp()"
+                    [ngClass]="{'resend_otp': resendDisabled === false}">Resend OTP</button>
+                  <p *ngIf="resendDisabled">OTP will be resent in {{resendCounter}} seconds</p>
                 </div>
                 <div class="col-sm-12 mt-2">
                   <button type="submit"
@@ -883,13 +894,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p>CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and
-          all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and
-          Fulfilment. CoFynd gives you access to all the prime Office Space locations of Gurgaon - Udyog Vihar, Sohna
-          Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a
-          startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides
-          customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space
-          community in Gurgaon and meet like-minded leaders.</p>
+          <p *ngIf="!showFullText">{{ previewText }}</p>
+          <p *ngIf="showFullText">{{ fullText }}</p>
+          <button (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }}</button>
       </div>
     </div>
   </div>
@@ -929,11 +936,14 @@
   <div class="container desktophide">
     <div class="row mobile_footer">
       <div class="col-md-6 col-6">
-        <a class="btn footer_btn" href="tel:+919311328047">Call Now</a>
+        <a class="btn footer_btn"
+          href="tel:+919311328047">Call Now</a>
       </div>
       <div class="col-md-6 col-6">
-        <button class="btn footer_btn" data-toggle="modal"
-        data-target="#exampleModal" (click)="viewMoreLocation()">Enquire Now</button>
+        <button class="btn footer_btn"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          (click)="viewMoreLocation()">Enquire Now</button>
       </div>
     </div>
   </div>

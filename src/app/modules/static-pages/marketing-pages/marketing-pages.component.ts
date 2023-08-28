@@ -99,6 +99,17 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
   micro_title: any;
   primesubmitted: boolean;
   midbannersubmitted: boolean;
+  fullText: string =
+    "CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and \
+  all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and \
+  Fulfilment. CoFynd gives you access to all the prime Office Space locations of Gurgaon - Udyog Vihar, Sohna \
+  Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a \
+  startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides \
+  customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space \
+  community in Gurgaon and meet like-minded leaders.";
+  previewText: string =
+    "CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and Fulfilment-";
+  showFullText: boolean = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -159,6 +170,10 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     this.addSeoTags();
     this.getBrands();
     this.fetchCountryList();
+  }
+
+  toggleText() {
+    this.showFullText = !this.showFullText;
   }
 
   viewMoreLocation() {
@@ -258,7 +273,8 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     if (this.isAuthenticated()) {
       this.createEnquiry();
     } else {
-      this.getOtp();
+      this.createEnquiry();
+      // this.getOtp();
     }
   }
 
@@ -270,7 +286,8 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     if (this.isAuthenticated()) {
       this.createPrimeEnquiry();
     } else {
-      this.getPrimeOtp();
+      this.createPrimeEnquiry();
+      // this.getPrimeOtp();
     }
   }
 
@@ -282,7 +299,8 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     if (this.isAuthenticated()) {
       this.createMidBannerEnquiry();
     } else {
-      this.getMidBannerOtp();
+      this.createMidBannerEnquiry();
+      // this.getMidBannerOtp();
     }
   }
 
