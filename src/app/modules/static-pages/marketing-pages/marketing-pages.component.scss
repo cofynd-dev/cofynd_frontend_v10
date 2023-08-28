@@ -434,6 +434,7 @@ section.footer_content {
   line-height: 28px;
   margin-bottom: 20px;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .footer_sticky_form {
   background-color: #F8F8FF;
@@ -569,10 +570,11 @@ section.footer_content {
   line-height: 16px;
 }
 .micro_location_card .card_img {
-  max-height: 220px;
+  max-height: 170px;
+  border-radius: 15px;
 }
 .micro_location_card .card_img img {
-  height: 220px;
+  height: 170px;
 }
 .coworking_facilities {
   padding-top: 50px;
@@ -594,11 +596,16 @@ section.footer_content {
 section.coworking_solution_section {
   padding: 50px 0px 30px;
 }
+.solution_card {
+	border-radius: 10px;
+}
+
 .solution_card .card_img {
-  max-height: 220px;
+  max-height: 170px;
+  border-radius: 15px;
 }
 .solution_card .card_img img {
-  height: 220px;
+  height: 170px;
 }
 .solution_card .card_details h4 {
   font-size: 13px;
@@ -640,11 +647,16 @@ section.coworking_solution_section {
 }
 .cofynd-desk p {
   font-size: 12px !important;
-  text-align: left !important;
   line-height: 20px !important;
 }
 .main_heading:before {
   display: none !important;
+}
+.modal-dialog {
+	max-width: 90%;
+}
+.prime_location_section .micro_location_card {
+	border-radius: 10px;
 }
 }
 
