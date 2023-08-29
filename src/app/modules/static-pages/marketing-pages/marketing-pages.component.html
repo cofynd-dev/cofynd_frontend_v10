@@ -504,7 +504,9 @@
     <div class="row mt-4">
       <div class="col-md-3 col-6"
         *ngFor="let solution of solutions">
-        <div class="solution_card">
+        <div class="solution_card"  data-toggle="modal" style="cursor: pointer;"
+        data-target="#exampleModal"
+        (click)="viewMoreLocation()">
           <div class="card_img">
             <img [src]="solution.image"
               [alt]="solution.title">
