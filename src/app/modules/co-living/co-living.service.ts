@@ -90,7 +90,7 @@ export class CoLivingService {
         });
       }
     }
-    coLiving.price_type = 'bed';
+    coLiving.price_type = 'month';
     coLiving.duration = 'month';
     if (miniPriceDuration.length) {
       coLiving.duration = miniPriceDuration[0]['duration'];
