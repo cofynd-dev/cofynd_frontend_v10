@@ -79,10 +79,12 @@
          button {
              color: #222 !important;
              font-weight: 500;
+             text-transform: capitalize;
         }
          a {
              color: #222 !important;
              font-weight: 500;
+             text-transform: capitalize;
         }
          .breadcrumb-item {
              font-size: 14px;
@@ -6179,6 +6181,7 @@
      color: #4343e8 !important;
      top: 0;
 }
+
  @media (max-width: 1366px) {
      .menu li .dropdown-list-menu span {
          font-size: 13px !important;
@@ -6714,4 +6717,67 @@
 }
 .form_email_id strong {
     font-weight: 600;
+}
+
+.quote_message {
+	background-color: #F6F1FF;
+	padding: 10px 10px;
+	border: 1px solid #EBE1FF;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 14px;
+}
+.space_contact_content .quote_message i {
+	color: orange !important;
+}
+.space_contact_content .brand_logo {
+	text-align: center !important;
+	margin-top: 35px !important;
+}
+.space_contact_content .brand_logo img {
+	width: 160px;
+	margin-bottom: 30px;
+}
+.space_contact_content .brand_logo h4 {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 30px;
+	margin-bottom: 30px;
+	color: rgba(0,0,0,0.7);
+}
+.space_contact_content .review_content {
+	text-align: center;
+}
+.space_contact_content .review_content p {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+.space_contact_content .review_content .review_rank {
+	margin-right: 7px;
+}
+.space_contact_content .review_content .checked {
+    color: orange;
+}
+.contact_details {
+	margin-top: 40px;
+}
+.contact_details .phone {
+	margin-bottom: 10px;
+	text-align: center;
+}
+.contact_details .email {
+	margin-bottom: 0px;
+	text-align: center;
+}
+.contact_details .phone img, .contact_details .email img {
+	width: 22px;
+	margin-right: 12px;
+}
+.contact_details .phone, .contact_details .phone a, .contact_details .email, .contact_details .email a {
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+	color: #494949;
 }
