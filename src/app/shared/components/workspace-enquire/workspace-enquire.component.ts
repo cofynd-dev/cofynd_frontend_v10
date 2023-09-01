@@ -58,6 +58,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   btnLabel = 'submit';
+  showbranddetails: boolean = false;
 
   minDate = new Date();
 
@@ -125,6 +126,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   resendDisabled = false;
   resendCounter = 30;
   resendIntervalId: any;
+  coliving: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -247,7 +249,8 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   }
 
   loadColiving(id: string) {
-    this.coLivingService.getCoLiving(id).subscribe(coliving => {
+    this.coLivingService.getCoLiving(id).subscribe((coliving: any) => {
+      this.coliving = coliving;
       let plans = coliving.coliving_plans.map(x => x.planId);
       plans = [...new Set(plans)];
       plans.forEach(plan => {
@@ -422,7 +425,19 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
           }
         */
         this.resetForm();
-        this.router.navigate(['/thank-you']);
+        if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+          if (
+            this.coliving.space_contact_details.email == '' ||
+            this.coliving.space_contact_details.phone == '' ||
+            !this.coliving.space_contact_details.show_on_website
+          ) {
+            this.router.navigate(['/thank-you']);
+          } else {
+            this.showbranddetails = true;
+          }
+        } else {
+          this.router.navigate(['/thank-you']);
+        }
       },
       error => {
         this.loading = false;
