@@ -2363,9 +2363,12 @@
      font-weight: 600;
      color: #4343e8;
      margin-bottom: 0px;
-     margin-top: 10px;
+     margin-top: 20px;
 }
- .heading-info .price .rent_title {
+.fixed-header .heading-info .price {
+	margin-top: 10px;
+}
+.heading-info .price .rent_title {
      display: block;
      font-size: 11px;
      line-height: 11px;
@@ -2601,7 +2604,7 @@
      font-size: 15px;
      margin-bottom: 0px;
      line-height: 20px;
-     font-weight: 600;
+    //  font-weight: 600;
      color: #212529;
 }
  .moretext {
@@ -6729,14 +6732,16 @@
 }
 .space_contact_content .quote_message i {
 	color: orange !important;
+	font-size: 16px;
+	margin-left: 4px;
 }
 .space_contact_content .brand_logo {
 	text-align: center !important;
-	margin-top: 35px !important;
 }
 .space_contact_content .brand_logo img {
-	width: 160px;
-	margin-bottom: 30px;
+	width: 180px;
+	margin-bottom: 40px;
+	margin-top: 50px;
 }
 .space_contact_content .brand_logo h4 {
 	font-size: 20px;
@@ -6780,4 +6785,53 @@
 	font-size: 18px;
 	font-weight: 600;
 	color: #494949;
+}
+.coliving_price_box {
+	position: relative;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 15px 0px;
+	margin-bottom: 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.coliving_price_box .img {
+	-webkit-box-flex: 0;
+	flex: 0 0 12%;
+	padding: 0px 15px;
+}
+.coliving_price_box .price_text {
+	width: 58%;
+	padding: 0px 15px;
+}
+.coliving_price_box .action-box {
+	text-align: right;
+	flex: 0 0 30%;
+	padding: 0px 15px;
+}
+.coliving_price_box .action-box button {
+	display: inline-block;
+}
+.coliving_price_box .action-box .price {
+	font-size: 18px;
+	color: #000;
+	font-weight: 700;
+	text-align: right;
+}
+.coliving_price_box .action-box .price span {
+	font-size: 15px;
+	font-weight: 300;
+}
+.coliving_price_box .price_text h4 {
+	text-transform: capitalize;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 600;
+}
+.coliving_price_box .price_text p {
+	margin-bottom: 0px;
 }
