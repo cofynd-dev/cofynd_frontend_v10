@@ -142,43 +142,27 @@
 
                 <hr class="divider_line">
 
-                <div class="row about-area" *ngIf="workspace.description">
-                    <div class="col-md-12 mobilehide">
-                        <h2>About this property</h2>
-                    </div>
-                    <div class="col-md-12">
-                        <p [innerHTML]="(workspace.description.length > 500? workspace.description.slice(0,500) + '...' : workspace.description)" *ngIf="seeMore; else hide">
-                        </p>
-                        <ng-template #hide>
-                            <p [innerHTML]="workspace.description">
-                            </p>
-                        </ng-template>
-
-                        <p class="moreless-button mt-1" *ngIf="workspace.description.length > 500" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
-                    </div>
-                </div>
-
-                <hr class="divider_line">
-
                 <div class="price_area">
                     <h2>Pricing Plans</h2>
-                    <div class="plan-list row">
+                    <div class="row">
                         <ng-container *ngIf="workspace.coliving_plans.length > 0">
                             <div class="col-md-12 col-6" *ngFor="let plan of workspace.coliving_plans">
-                                <div class="box price_box" (click)="openEnquireModal()">
+                                <div class="coliving_price_box" (click)="openEnquireModal()" style="background-image: url(https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/07fdc866a80741b83ac937eb2f809b3c8acce729.jpg);">
                                     <div class="img">
-                                        <img [lazyLoad]="plan?.planId?.icons?.s3_link" [alt]="[plan.planId.name]">
+                                        <img [lazyLoad]="plan?.planId?.icons?.s3_link" [alt]="[plan.planId.name]" class="img-fluid">
                                     </div>
-                                    <h4 class="text-capitalize">{{plan.planId.name}}</h4>
-                                    <p class="mobilehide">{{plan.planId.description}}</p>
+                                    <div class="price_text">
+                                        <h4 class="text-capitalize">{{plan.planId.name}}</h4>
+                                        <p class="mobilehide">{{plan.planId.description}}</p>
+                                    </div>
                                     <div class="action-box">
                                         <div class="price">
                                             <span class="mobilehide">starting</span>
                                             <div>
                                                 {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small *ngIf="!plan.duration" class="small_text">/- month</small><small *ngIf="plan?.duration" class="small_text">/- {{plan.duration}}</small>
                                             </div>
+                                            <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton mobilehide">Enquire Now <small class="icon-next fas fa-angle-right"></small></button>
                                         </div>
-                                        <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton mobilehide">Enquire<small class="icon-next fas fa-angle-right"></small></button>
                                     </div>
                                 </div>
                             </div>
@@ -253,6 +237,24 @@
                             </ng-template>
                         </div>
                         <p class="moreless-button" (click)="toggleAmenitiesDiv()">See {{haftAmenities? "More »": "Less »" }} </p>
+                    </div>
+                </div>
+
+                <hr class="divider_line">
+
+                <div class="row about-area" *ngIf="workspace.description">
+                    <div class="col-md-12 mobilehide">
+                        <h2>About this property</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <p [innerHTML]="(workspace.description.length > 500? workspace.description.slice(0,500) + '...' : workspace.description)" *ngIf="seeMore; else hide">
+                        </p>
+                        <ng-template #hide>
+                            <p [innerHTML]="workspace.description">
+                            </p>
+                        </ng-template>
+
+                        <p class="moreless-button mt-1" *ngIf="workspace.description.length > 500" (click)="toggleAboutMore()">{{seeMore? "See More »":"See Less »"}}</p>
                     </div>
                 </div>
 
