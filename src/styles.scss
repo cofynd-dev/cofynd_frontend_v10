@@ -6793,7 +6793,7 @@
 	-webkit-box-align: center;
 	align-items: center;
 	border-radius: 10px;
-	padding: 15px 0px;
+	padding: 25px 0px;
 	margin-bottom: 20px;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -6834,4 +6834,8 @@
 }
 .coliving_price_box .price_text p {
 	margin-bottom: 0px;
+}
+.price_area .price_tagline {
+	color: rgba(0,0,0,0.35);
+	font-size: 13px;
 }

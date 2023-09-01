@@ -60,7 +60,7 @@
                             <div class="heading-info">
                                 <h1>{{ workspace.name }}</h1>
                                 <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{ workspace.location.address }}</p>
-                                <p class="price"><span class="rent_title">Starting</span>₹{{ (workspace.starting_price).toLocaleString('en-IN') }} <span class="rent_type">/ {{ workspace.price_type }}</span></p>
+                                <p class="price"><span class="rent_title">Starting</span>₹{{ (workspace.starting_price).toLocaleString('en-IN') }}<span class="rent_type">/ * {{ workspace.price_type }}</span></p>
                             </div>
                         </div>
                     </div>
@@ -157,9 +157,9 @@
                                     </div>
                                     <div class="action-box">
                                         <div class="price">
-                                            <span class="mobilehide">starting</span>
+                                            <!-- <span class="mobilehide">starting</span> -->
                                             <div>
-                                                {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small *ngIf="!plan.duration" class="small_text">/- month</small><small *ngIf="plan?.duration" class="small_text">/- {{plan.duration}}</small>
+                                                {{ plan.price | currency: workspace.currency_code : 'symbol' : '1.0-0' }}<small *ngIf="!plan.duration" class="small_text">/- month</small><small *ngIf="plan?.duration" class="small_text">/ * {{plan.duration}}</small>
                                             </div>
                                             <button type="button" (click)="openEnquireModal()" [appCustomEventAnalytics]='{"category":"OPEN_ENQUIRY_FORM","action":"click", "label": "OPEN_FORM"}' class="btn-link enquireButton mobilehide">Enquire Now <small class="icon-next fas fa-angle-right"></small></button>
                                         </div>
@@ -167,6 +167,12 @@
                                 </div>
                             </div>
                         </ng-container>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="price_tagline">*Prices mentioned are starting price and may vary as per location, availability & services</p>
+                        </div>
                     </div>
 
                     <div class="row desktophide" (click)="openEnquireModal()">
