@@ -219,7 +219,7 @@ export class CoLivingDetailComponent implements OnInit {
     return {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center,
-      zoom: 12,
+      zoom: 8,
       mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
         position: google.maps.ControlPosition.TOP_RIGHT,
