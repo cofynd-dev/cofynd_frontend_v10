@@ -5205,6 +5205,31 @@
 	.main_builder_about {
 		padding-bottom: 10px !important;
 	}
+	.coliving_price_box {
+		display: block;
+		text-align: center;
+	}
+	.coliving_price_box .img img {
+		width: 50px;
+	}
+	.coliving_price_box .price_text {
+		width: 100%;
+	}
+	.coliving_price_box .price_text h4 {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.coliving_price_box .action-box .price {
+		font-size: 13px;
+		text-align: center;
+		color: #4343e8;
+	}
+	.coliving_price_box .action-box button {
+		display: none !important;
+	}
+	.coliving_price_box .action-box .price .small_text {
+		color: #000;
+	}
 }
 
 @media (max-width: 390px) {
