@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   HostListener,
   Inject,
   Input,
@@ -51,6 +52,7 @@ interface ImageGallery {
   styleUrls: ['./co-living-card.component.scss'],
 })
 export class CoLivingCardComponent implements OnInit, AfterViewInit {
+  @ViewChild('myModal', { static: false }) modal: ElementRef;
   @Input() coLiving: CoLiving;
   @Input() loading: boolean;
   @Input() carouselId: string;
@@ -83,11 +85,12 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   enquiryForm: FormGroup;
   user: any;
   pageName: string;
   city: string;
+  showbranddetails: boolean = false;
 
   coLivingPlans = [
     { label: `Triple Sharing`, value: 'triple-sharing' },
@@ -110,6 +113,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     { label: '3-4 Month', value: '3-4 Month' },
     { label: 'After 4 Month', value: 'After 4 Month' },
   ];
+  mycoliving: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -148,6 +152,28 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     }
   }
 
+  ngAfterViewInit() {
+    this.addClickOutsideListener();
+    this.cdr.detectChanges();
+  }
+
+  addClickOutsideListener() {
+    document.addEventListener('click', event => {
+      if (this.modal.nativeElement.contains(event.target)) {
+        // Click inside the modal; do nothing
+      } else {
+        // Click outside the modal; close the modal or perform other actions
+        this.showbranddetails = false;
+        this.btnLabel = 'Submit';
+        if (this.user) {
+          const { name, email, phone_number } = this.user;
+          this.enquiryForm.patchValue({ name, email, phone_number });
+          this.selectedCountry['dial_code'] = this.user.dial_code;
+        }
+      }
+    });
+  }
+
   dismissModal(): void {
     $('#exampleModal').modal('hide');
   }
@@ -160,8 +186,10 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     return this.authService.getToken();
   }
 
-  getQuote(slug: any) {
+  getQuote(slug: any, coliving: any) {
     localStorage.setItem('property_url', `https://cofynd.com/co-living/${slug}`);
+    // Convert to JSON and store in local storage
+    localStorage.setItem('coLivingData', JSON.stringify(coliving));
   }
 
   hideCountry(country: any) {
@@ -292,9 +320,27 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
           }
         */
           this.resetForm();
-          this.dismissModal();
           localStorage.removeItem('property_url');
-          this.router.navigate(['/thank-you']);
+          // Retrieve from local storage
+          const storedData = localStorage.getItem('coLivingData');
+          if (storedData) {
+            const coLiving = JSON.parse(storedData);
+            this.mycoliving = coLiving;
+            if (
+              this.mycoliving.space_contact_details.email == '' ||
+              this.mycoliving.space_contact_details.phone == '' ||
+              !this.mycoliving.space_contact_details.show_on_website
+            ) {
+              this.dismissModal();
+              this.router.navigate(['/thank-you']);
+            } else {
+              this.showbranddetails = true;
+            }
+            setTimeout(() => {
+              // Remove the item from local storage
+              localStorage.removeItem('coLivingData');
+            }, 300);
+          }
         },
         error => {
           this.loading = false;
@@ -359,14 +405,14 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     this.imageGalleryCarousel.moveTo(id);
   }
 
-  ngAfterViewInit() {
-    this.cdr.detectChanges();
-  }
-
   activeSlide = 0;
 
   nextSlide() {
     // Increment the activeSlide to show the next slide
     this.activeSlide = (this.activeSlide + 1) % this.coLiving.images.length;
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.addClickOutsideListener);
   }
 }

@@ -57,7 +57,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   showbranddetails: boolean = false;
 
   minDate = new Date();

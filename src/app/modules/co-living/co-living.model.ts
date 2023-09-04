@@ -10,4 +10,12 @@ export class CoLiving extends OfficeSpace {
   };
   sleepimg: any;
   duration: any;
+  space_contact_details: Space_Contact_Details = new Space_Contact_Details();
+}
+
+export class Space_Contact_Details {
+  name: string;
+  email: string;
+  phone: string;
+  show_on_website: boolean
 }

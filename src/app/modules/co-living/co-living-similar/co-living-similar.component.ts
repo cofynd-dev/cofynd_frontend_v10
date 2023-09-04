@@ -1,5 +1,5 @@
 import { CoLivingService } from './../co-living.service';
-import { ChangeDetectorRef, Component, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { intToOrdinalNumberString, sanitizeParams } from '@app/shared/utils';
 import { NguCarousel, NguCarouselConfig, NguCarouselStore } from '@ngu/carousel';
 import { map } from 'rxjs/operators';
@@ -35,6 +35,7 @@ export enum ENQUIRY_TYPES {
   styleUrls: ['./co-living-similar.component.scss'],
 })
 export class CoLivingSimilarComponent implements OnInit {
+  @ViewChild('myModal', { static: false }) modal: ElementRef;
   loading: boolean;
   @Input() address: string;
   @Input() workSpaceId: string;
@@ -69,11 +70,13 @@ export class CoLivingSimilarComponent implements OnInit {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   enquiryForm: FormGroup;
   user: any;
   pageName: string;
   city: string;
+  showbranddetails: boolean = false;
+  coLiving: any;
 
   coLivingPlans = [
     { label: `Triple Sharing`, value: 'triple-sharing' },
@@ -131,6 +134,28 @@ export class CoLivingSimilarComponent implements OnInit {
     this.loadWorkSpaces();
   }
 
+  ngAfterViewInit() {
+    this.addClickOutsideListener();
+  }
+
+  addClickOutsideListener() {
+    document.addEventListener('click', event => {
+      if (this.modal.nativeElement.contains(event.target)) {
+        // Click inside the modal; do nothing
+      } else {
+        // Click outside the modal; close the modal or perform other actions
+        this.showbranddetails = false;
+        this.btnLabel = 'Submit';
+        if (this.user) {
+          const { name, email, phone_number } = this.user;
+          this.enquiryForm.patchValue({ name, email, phone_number });
+          this.selectedCountry['dial_code'] = this.user.dial_code;
+
+        }
+      }
+    });
+  }
+
   dismissModal(): void {
     $('#exampleModal').modal('hide');
   }
@@ -144,6 +169,7 @@ export class CoLivingSimilarComponent implements OnInit {
   }
 
   getQuote(coliving: any) {
+    this.coLiving = coliving;
     localStorage.setItem('property_url', `https://cofynd.com/co-living/${coliving.slug}`);
     if (coliving.location.city.name) {
       this.city = coliving.location.city.name;
@@ -278,9 +304,17 @@ export class CoLivingSimilarComponent implements OnInit {
           }
         */
           this.resetForm();
-          this.dismissModal();
           localStorage.removeItem('property_url');
-          this.router.navigate(['/thank-you']);
+          if (
+            this.coLiving.space_contact_details.email == '' ||
+            this.coLiving.space_contact_details.phone == '' ||
+            !this.coLiving.space_contact_details.show_on_website
+          ) {
+            this.dismissModal();
+            this.router.navigate(['/thank-you']);
+          } else {
+            this.showbranddetails = true;
+          }
         },
         error => {
           this.loading = false;
@@ -346,5 +380,9 @@ export class CoLivingSimilarComponent implements OnInit {
 
   getFloorSuffix(floor: number) {
     return !isNaN(floor) ? intToOrdinalNumberString(floor) : floor;
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.addClickOutsideListener);
   }
 }
