@@ -190,6 +190,8 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     localStorage.setItem('property_url', `https://cofynd.com/co-living/${slug}`);
     // Convert to JSON and store in local storage
     localStorage.setItem('coLivingData', JSON.stringify(coliving));
+        console.log(coliving);
+        
   }
 
   hideCountry(country: any) {

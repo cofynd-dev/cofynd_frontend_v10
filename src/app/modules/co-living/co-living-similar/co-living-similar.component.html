@@ -180,9 +180,13 @@
                                             You Have Great Taste <br>This Property is AWESOME <i
                                                 class="fa-solid fa-bolt"></i>
                                         </div>
-                                        <div class="brand_logo">
+                                        <div class="brand_logo" *ngIf="coLiving?.brand?.image?.s3_link">
+                                            <img [src]="coLiving?.brand?.image?.s3_link" alt="Coliving Brand Logo">
+                                            <!-- <h4>Coliving with Cofynd</h4> -->
+                                        </div>
+                                        <div class="brand_logo" *ngIf="coLiving?.brandData?.imageData?.s3_link">
                                             <img [src]="coLiving?.brandData?.imageData?.s3_link" alt="Coliving Brand Logo">
-                                            <h4>Coliving with Cofynd</h4>
+                                            <!-- <h4>Coliving with Cofynd</h4> -->
                                         </div>
                                         <div class="review_content">
                                             <p><span class="review_rank">4.4</span> <span
