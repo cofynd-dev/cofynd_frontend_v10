@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Brand } from '@app/core/models/brand.model';
@@ -10,6 +10,7 @@ import { SeoSocialShareData } from '@core/models/seo.model';
 import { environment } from '@env/environment';
 import { AVAILABLE_CITY_CO_LIVING } from '@app/core/config/cities';
 import { sanitizeParams } from '@app/shared/utils';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-co-living',
@@ -602,6 +603,8 @@ export class CoLivingComponent implements OnInit {
   ];
 
   constructor(
+    @Inject(DOCUMENT) private _document: Document,
+    private _renderer2: Renderer2,
     private brandService: BrandService,
     private coLivingService: CoLivingService,
     private seoService: SeoService,
@@ -669,9 +672,23 @@ export class CoLivingComponent implements OnInit {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
       this.loading = false;
     });
+  }
+
+  setHeaderScript(cityScript) {
+    let script = this._renderer2.createElement('script');
+    script.type = `application/ld+json`;
+    script.text = `${cityScript} `;
+    this._renderer2.appendChild(this._document.head, script);
   }
 
   openCityListing(city: any) {
