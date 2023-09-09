@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SeoSocialShareData } from '@app/core/models/seo.model';
@@ -10,6 +10,7 @@ import { AuthService } from '@app/core/services/auth.service';
 import { Enquiry } from '@app/core/models/enquiry.model';
 import { CountryService } from '@app/core/services/country.service';
 import { CityService } from '@app/core/services/city.service';
+import { DOCUMENT } from '@angular/common';
 
 export enum ENQUIRY_STEPS {
   ENQUIRY,
@@ -46,6 +47,8 @@ export class CoworkingBrandComponent implements OnInit {
   resendIntervalId: any;
 
   constructor(
+    @Inject(DOCUMENT) private _document: Document,
+    private _renderer2: Renderer2,
     private _formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
@@ -241,9 +244,23 @@ export class CoworkingBrandComponent implements OnInit {
           footer_description: seoMeta.footer_description,
         };
         this.seoService.setData(this.seoData);
+        if (seoMeta && seoMeta.script) {
+          const array = JSON.parse(seoMeta.script);
+          for (let scrt of array) {
+            scrt = JSON.stringify(scrt);
+            this.setHeaderScript(scrt);
+          }
+        }
       }
       this.loading = false;
     });
+  }
+
+  setHeaderScript(cityScript) {
+    let script = this._renderer2.createElement('script');
+    script.type = `application/ld+json`;
+    script.text = `${cityScript} `;
+    this._renderer2.appendChild(this._document.head, script);
   }
 
   coworkingBrand = [
