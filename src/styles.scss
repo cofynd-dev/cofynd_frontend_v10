@@ -6273,12 +6273,13 @@
      padding-top: 0px;
      padding-bottom: 0px;
 }
- .search-grid-wrapper .city_page_title h1 {
-     font-size: 20px;
-     font-weight: 500;
-     color: #000;
-     line-height: 26px;
-     margin: 0;
+.search-grid-wrapper .city_page_title h1 {
+	font-size: 20px;
+	font-weight: 500;
+	color: #000;
+	line-height: 26px;
+	margin: 0;
+	text-transform: capitalize;
 }
  .search-container .search-grid-container {
      padding: 25px 0 25px !important;
@@ -6841,4 +6842,9 @@
 }
 .banner_form.enquire-box .country_phone .city_card_phone, .prime_location_popup .enquire-box .country_phone .city_card_phone {
 	padding: 0px;
+}
+.footer_read_more {
+	color: #424242;
+	line-height: 20px;
+	font-weight: 400;
 }

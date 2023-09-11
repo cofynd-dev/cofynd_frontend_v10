@@ -5248,6 +5248,12 @@
 		font-size: 11px;
 		line-height: 21px;
 	}
+	.property_item .property-dis p.mobilehide {
+		display: none !important;
+	}
+	.similar-workspaces .property_item2 .property-dis .price {
+		text-align: right !important;
+	}
 }
 
 @media (max-width: 390px) {

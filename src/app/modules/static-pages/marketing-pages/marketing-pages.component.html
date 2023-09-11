@@ -896,7 +896,7 @@
       <div class="col-md-12">
           <p *ngIf="!showFullText">{{ previewText }}</p>
           <p *ngIf="showFullText">{{ fullText }}</p>
-          <button (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }}</button>
+          <button class="footer_read_more" (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }}</button>
       </div>
     </div>
   </div>
