@@ -199,7 +199,9 @@
 <app-carousel-item *ngIf="spacesByCity.noida.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.noida">
 </app-carousel-item>
 
-<app-search-contact-us-text1></app-search-contact-us-text1>
+<div class="container">
+    <app-search-contact-us-text1></app-search-contact-us-text1>
+</div>
 
 <app-carousel-item *ngIf="spacesByCity.mumbai.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.mumbai">
 </app-carousel-item>
