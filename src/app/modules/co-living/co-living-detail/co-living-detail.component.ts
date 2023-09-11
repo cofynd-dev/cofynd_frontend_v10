@@ -118,10 +118,10 @@ export class CoLivingDetailComponent implements OnInit {
             layers: [
               tileLayer(
                 `https://{s}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=${environment.keys.LOCATIONIQ_MAP}`,
-                { maxZoom: 18, attribution: 'Open Cofynd Map' },
+                { maxZoom: 24, attribution: 'Open Cofynd Map' },
               ),
             ],
-            zoom: 10,
+            zoom: 13,
             attributionControl: false,
             scrollWheelZoom: false,
             dragging: true,
