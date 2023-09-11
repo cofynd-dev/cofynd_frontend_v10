@@ -3,15 +3,15 @@
     <div class="row align-items-center">
       <div class="col-md-6 col-6">
         <div class="marketing_logo">
-          <a href="/"><img src="assets/images/logo.svg"
+          <img src="assets/images/logo.svg"
               class="img-fluid"
-              alt="Cofynd Logo"></a>
+              alt="Cofynd Logo">
         </div>
       </div>
       <div class="col-md-6 col-6">
         <div class="head_contact">
           <h4 class="mobilehide">Looking for Office Space</h4>
-          <p><i class="fa-solid fa-phone"></i> <a href="tel:+919311328047">+91 9311 32 8047</a></p>
+          <p><i class="fa-solid fa-phone"></i> <a href="tel:+919811249423">+91 9811 24 9423</a></p>
         </div>
       </div>
     </div>
@@ -25,11 +25,11 @@
       <div class="col-md-8">
         <div class="banner_content">
           <h1>Choose from 1,000+ Coworking Spaces in <span style="color: #FFDD2C;">Mumbai</span></h1>
-          <p>Office at all prime locations of Gurugram - Udyog Vihar, Cyber City, Golf Course Road, MG Road, Sohna Road,
-            Sector 44, Golf Course Extension Road and more ...</p>
+          <p>Offices at All prime locations of Mumbai - Andheri, BKC, Goregaon, Lower Parel, Powai, Navi Mumbai, Vikhroli, Malad, Worli, Thane and more ...</p>
           <button class="site_btn btn desktophide"
             data-toggle="modal"
-            data-target="#banner_popup">Enquire Now</button>
+            data-target="#exampleModal"
+            (click)="viewMoreLocation()">Enquire Now</button>
 
           <!-- Modal -->
           <div class="modal fade banner_form_popup"
@@ -44,7 +44,7 @@
                     <div class="form-section enquire-box-content"
                       style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/753febf95bc0e22e68d7777d9df2fdda1aeec62f.png');">
                       <div class="title">
-                        <h4>Coworking Space in Gurugram</h4>
+                        <h4>Coworking Space in Mumbai</h4>
                         <button type="button"
                           class="btn-close"
                           data-dismiss="modal"
@@ -186,7 +186,7 @@
                 <div class="col-md-12 country_phone">
                   <div class="form-group city_card_phone">
                     <div class="flag-container">
-                      <div (click)="showcountry = !showcountry"
+                      <!-- <div (click)="showcountry = !showcountry"
                         class="selected-flag">
                         <div class="flag in"
                           *ngIf="activeCountries && activeCountries.length">
@@ -209,7 +209,7 @@
                           <span class="country-name">{{country?.name}}</span>
                           <span class="dial-code">{{country?.dial_code}}</span>
                         </li>
-                      </ul>
+                      </ul> -->
                       <input class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['phone_number'].errors }"
                         maxlength="10"
@@ -276,7 +276,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="main_heading title_divider">
-          <h2>Prime Coworking Locations in Gurgaon</h2>
+          <h2>Prime Coworking Locations in Mumbai</h2>
         </div>
       </div>
     </div>
@@ -361,7 +361,7 @@
                         <div class="col-md-12 country_phone">
                           <div class="form-group city_card_phone">
                             <div class="flag-container">
-                              <div (click)="showcountry = !showcountry"
+                              <!-- <div (click)="showcountry = !showcountry"
                                 class="selected-flag">
                                 <div class="flag in"
                                   *ngIf="activeCountries && activeCountries.length">
@@ -384,7 +384,7 @@
                                   <span class="country-name">{{country?.name}}</span>
                                   <span class="dial-code">{{country?.dial_code}}</span>
                                 </li>
-                              </ul>
+                              </ul> -->
                               <input class="form-control"
                                 [ngClass]="{ 'is-invalid': primesubmitted && p['phone_number'].errors }"
                                 maxlength="10"
@@ -454,7 +454,8 @@
       <div class="col-md-12 text-center">
         <button class="more_option_btn"
           data-toggle="modal"
-          data-target="#exampleModal">View more Locations <i class="fa-solid fa-angle-down"></i></button>
+          data-target="#exampleModal"
+          (click)="viewMoreLocation()">View more Locations <i class="fa-solid fa-angle-down"></i></button>
       </div>
     </div>
   </div>
@@ -490,7 +491,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="main_heading title_divider">
-          <h2>Discover the Perfect Coworking Offices in Gurgaon</h2>
+          <h2>Discover the Perfect Coworking Offices in Mumbai</h2>
         </div>
         <!-- <p>Discover the Perfect Coworking Solution in Gurgaon</p> -->
       </div>
@@ -498,7 +499,9 @@
     <div class="row mt-4">
       <div class="col-md-3 col-6"
         *ngFor="let solution of solutions">
-        <div class="solution_card">
+        <div class="solution_card"  data-toggle="modal" style="cursor: pointer;"
+        data-target="#exampleModal"
+        (click)="viewMoreLocation()">
           <div class="card_img">
             <img [src]="solution.image"
               [alt]="solution.title">
@@ -523,12 +526,12 @@
               style="max-height: 200px;"
               lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
               alt="CoFynd Desk" />
-            <h4>Looking for Office Space in Gurgaon</h4>
+            <h4>Looking for Office Space in Mumbai</h4>
             <p class="about_text">
-              Cofynd has extensive range of verified Office Spaces in Gurgaon ranging from Coworking Spaces, Private
+              Cofynd has extensive range of verified Office Spaces in Mumbai ranging from Coworking Spaces, Private
               Office, Customised Offices for enterprise teams and Virtual Offices to boost your business presence across
-              all major locations of Gurgaon with Zero Brokerage and offline Customer support. Office space search made
-              simple in Gurgaon with Cofynd.
+              all major locations of Mumbai with Zero Brokerage and offline Customer support. Office space search made
+              simple in Mumbai with Cofynd.
             </p>
           </div>
         </div>
@@ -567,7 +570,7 @@
     <div class="row mobilehide tabhide">
       <div class="col-md-12 text-center">
         <div class="main_heading title_divider">
-          <h2>Best Coworking Spaces in Gurgaon</h2>
+          <h2>Best Coworking Spaces in Mumbai</h2>
         </div>
       </div>
     </div>
@@ -639,7 +642,7 @@
                       alt="Phone">
                     <div class="form-group city_card_phone">
                       <div class="flag-container">
-                        <div (click)="showcountry = !showcountry"
+                        <!-- <div (click)="showcountry = !showcountry"
                           class="selected-flag">
                           <div class="flag in"
                             *ngIf="activeCountries && activeCountries.length">
@@ -660,7 +663,7 @@
                             <span class="country-name">India</span>
                             <span class="dial-code">+91</span>
                           </li>
-                        </ul>
+                        </ul> -->
                         <input class="form-control"
                           [ngClass]="{ 'is-invalid': midbannersubmitted && m['phone_number'].errors }"
                           maxlength="10"
@@ -709,7 +712,7 @@
                   <button type="submit"
                     class="site_btn border_btn full_width_btn">Enquire Now</button>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mt-2">
                   <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to
                     understand how Cofynd handles your personal data.</p>
                 </div>
@@ -884,13 +887,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p>CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Gurgaon and
+        <!-- <p>CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Mumbai and
           all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and
-          Fulfilment. CoFynd gives you access to all the prime Office Space locations of Gurgaon - Udyog Vihar, Sohna
+          Fulfilment. CoFynd gives you access to all the prime Office Space locations of Mumbai - Udyog Vihar, Sohna
           Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a
           startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides
           customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space
-          community in Gurgaon and meet like-minded leaders.</p>
+          community in Mumbai and meet like-minded leaders.</p> -->
+        <p *ngIf="!showFullText">{{ previewText }}</p>
+        <p *ngIf="showFullText">{{ fullText }}</p>
+        <button class="footer_read_more" (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }} »</button>
       </div>
     </div>
   </div>
@@ -930,10 +936,14 @@
   <div class="container desktophide">
     <div class="row mobile_footer">
       <div class="col-md-6 col-6">
-        <button class="btn footer_btn">+91 9311 32 8047</button>
+        <a class="btn footer_btn"
+          href="tel:+919811249423">Call Now</a>
       </div>
       <div class="col-md-6 col-6">
-        <button class="btn footer_btn">Enquire Now</button>
+        <button class="btn footer_btn"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        (click)="viewMoreLocation()">Enquire Now</button>
       </div>
     </div>
   </div>

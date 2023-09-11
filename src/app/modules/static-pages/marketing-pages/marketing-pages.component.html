@@ -7,9 +7,7 @@
     <div class="row align-items-center">
       <div class="col-md-6 col-6">
         <div class="marketing_logo">
-          <a href="/"><img src="assets/images/logo.svg"
-              class="img-fluid"
-              alt="Cofynd Logo"></a>
+          <img src="assets/images/logo.svg" class="img-fluid" alt="Cofynd Logo">
         </div>
       </div>
       <div class="col-md-6 col-6">
@@ -721,7 +719,7 @@
                   <button type="submit"
                     class="site_btn border_btn full_width_btn">Enquire Now</button>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                   <p class="policy_content">Please visit the <span routerLink="/privacy-policy">privacy policy</span> to
                     understand how Cofynd handles your personal data.</p>
                 </div>
@@ -898,7 +896,7 @@
       <div class="col-md-12">
           <p *ngIf="!showFullText">{{ previewText }}</p>
           <p *ngIf="showFullText">{{ fullText }}</p>
-          <button (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }}</button>
+          <button class="footer_read_more" (click)="toggleText()">Read {{ showFullText ? 'Less' : 'More' }}</button>
       </div>
     </div>
   </div>
