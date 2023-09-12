@@ -1,9 +1,25 @@
 <!-- Event snippet for Submit lead form (2) conversion page -->
-<script>
+<!-- <script>
     gtag('event', 'conversion', {
         'send_to': 'AW-671913436/lpuWCNzV8NkDENyrssAC'
     });
-</script>
+</script> -->
+<!-- Event snippet for thank-you-page lead form 9 sep conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-671913436/vMToCKzatd8YENyrssAC',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-671913436"></script>
 <script>
