@@ -102,8 +102,7 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
   fullText: string =
     "CoFynd is India's biggest platform for searching and booking the best Coworking Office spaces in Mumbai and \
   all across India. Our Office spaces boast of present-day amenities and reflect Freedom, Flexibility and \
-  Fulfilment. CoFynd gives you access to all the prime Office Space locations of Mumbai - Udyog Vihar, Sohna \
-  Road, MG Road, Golf Course Road, Golf Course Extension Road, DLF Cyber city and lot more. Whether you are a \
+  Fulfilment. CoFynd gives you access to all the prime Office Space locations of Mumbai - Andheri, BKC, Goregaon, Lower Parel, Powai, Navi Mumbai, Vikhroli, Malad, Worli, Thane and lot more. Whether you are a \
   startup, SME or a large Enterprise we have the right Office space solution for you. CoFynd also provides \
   customised Office spaces for larger teams and enterprise clients. Be a part of the biggest Office space \
   community in Mumbai and meet like-minded leaders.";
@@ -688,56 +687,56 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
   primeLocation = [
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/2878c50fff7c1deeb3e6a8a958dce4bdd8cbf142.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4cfe6bf4183ea9de9990c67ea08344edacfb5752.jpg',
       title: 'Andheri',
       price: '₹ 6,499*',
       class: 'card_details card-bg1',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0a78af7a648f1a981f451a869b24ef51d95a5f0e.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/983bfe1be7104d290dcfbbb655395c012becb78d.jpg',
       title: 'BKC',
       price: '₹ 15,999*',
       class: ' card_details card-bg2',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/252d462d4b7e583cf6f32608f83216531cfd8b49.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b0536ac23ed7f90a10814d02bb0182f9f401fd66.jpg',
       title: 'Goregaon',
       price: '₹ 6,499*',
       class: 'card_details card-bg3',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/389792781e667952808fc04215d3b1392c628f54.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/23f5841708eef0622bac391338c6cc49e1f4b7f6.jpg',
       title: 'Lower Parel',
       price: '₹ 7,999*',
       class: 'card_details card-bg4',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9a6c707ba63ad6d3a0e0c1f5e7d9e70962ecc77.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cf7c4db6649be277ae7c8f8ed8b9cc193f6bc12b.jpg',
       title: 'Powai',
       price: '₹ 8,999*',
       class: 'card_details card-bg1',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a2c43ad6ad92696e72063cccb3bc97db2860d70d.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/fee420bfa56a5f561658bc55ef408acc772cdbe1.jpg',
       title: 'Navi Mumbai',
       price: '₹ 6,999*',
       class: 'card_details card-bg2',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/426ce706a0f96b0c0b48956f38a2f142b55ef355.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f08aaa31a91467b924f0f521b54428384b5ded39.jpg',
       title: 'Vikhroli',
       price: '₹ 7,899*',
       class: 'card_details card-bg3',
     },
     {
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4aef1a1246000187c398e77e0c832ef5fe27b88d.jpg',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/af6f718e90b9887b9613470fcf137941f08f1248.jpg',
       title: 'Malad',
       price: '₹ 6,999*',
       class: 'card_details card-bg4',
