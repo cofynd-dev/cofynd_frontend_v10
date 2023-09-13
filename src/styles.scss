@@ -6730,6 +6730,12 @@
 	border-radius: 10px;
 	text-align: center;
 	font-size: 14px;
+    position: relative;
+}
+.quote_message img {
+	width: 42px;
+	position: absolute;
+	bottom: -1px;
 }
 .space_contact_content .quote_message i {
 	color: orange !important;
