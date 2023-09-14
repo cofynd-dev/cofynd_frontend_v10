@@ -85,7 +85,7 @@ export class SearchCardComponent implements OnInit, AfterViewInit {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   enquiryForm: FormGroup;
   user: any;
   pageName: string;
