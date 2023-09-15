@@ -55,7 +55,7 @@
             <a (click)="openWorkSpace(coLiving.slug)" target="_blank" tabindex="0">Explore More</a>
         </div>
         <div class="button">
-            <a type="button" (click)="getQuote(coLiving.slug, coLiving)"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+            <a type="button" (click)="getQuote(coLiving.slug, coLiving)"  data-toggle="modal" data-target="#exampleModal">Contact Owner</a>
         </div>
     </div>
 </div>
@@ -232,7 +232,7 @@
                                 <div class="col-md-12">
                                     <div class="space_contact_content">
                                         <div class="quote_message">
-                                            You Have Great Taste <br>This Property is AWESOME <i class="fa-solid fa-bolt"></i>
+                                            You Have Great Taste <br>This Property is AWESOME <img src="assets/images/thumb-gif-animation.gif" alt="">
                                         </div>
                                         <div class="brand_logo" *ngIf="mycoliving?.brand?.image?.s3_link">
                                             <img [src]="mycoliving?.brand?.image?.s3_link" alt="Coliving Brand Logo">
