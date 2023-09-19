@@ -5254,6 +5254,18 @@
 	.similar-workspaces .property_item2 .property-dis .price {
 		text-align: right !important;
 	}
+	.coliving-brands-carousel .ngucarousel .ngucarousel-items {
+		scrollbar-width: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		overflow-x: scroll;
+		-webkit-transition: none !important;
+		transition: none !important;
+		// padding-right: 50px;
+	}
+  .coliving-brands-carousel .item {
+    padding: 0 2px !important;
+  }
 }
 
 @media (max-width: 390px) {
