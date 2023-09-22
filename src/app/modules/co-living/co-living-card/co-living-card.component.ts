@@ -190,8 +190,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     localStorage.setItem('property_url', `https://cofynd.com/co-living/${slug}`);
     // Convert to JSON and store in local storage
     localStorage.setItem('coLivingData', JSON.stringify(coliving));
-        console.log(coliving);
-        
+    console.log(coliving);
   }
 
   hideCountry(country: any) {
@@ -301,11 +300,17 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     try {
       this.loading = true;
       const formValues: Enquiry = this.enquiryForm.getRawValue();
+      let colivingData = JSON.parse(localStorage.getItem('coLivingData'));
       const phone = this.enquiryForm.get('phone_number').value;
       formValues['phone_number'] = `${this.selectedCountry.dial_code}-${phone}`;
       formValues['mx_Space_Type'] = 'Web Coliving';
       formValues['mx_Page_Url'] = localStorage.getItem('property_url');
       formValues['city'] = this.city;
+      if (colivingData.space_contact_details.show_on_website == true) {
+        formValues['google_sheet'] = colivingData.brand.google_sheet_url;
+        formValues['micro_location'] = colivingData.location.name;
+      }
+
       this.btnLabel = 'Submitting...';
       this.userService.createEnquiry(formValues).subscribe(
         () => {
