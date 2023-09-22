@@ -42,6 +42,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   forNoColiving = DEFAULT_APP_DATA.allother;
   @Input() isSticky: boolean;
   @Input() workSpaceId: string;
+  @Input() workSpaceData: any;
   @Input() isOfficeEnquiry: boolean;
   @Input() isColivEnquiry: boolean;
   @Output() backButtonClick: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -191,6 +192,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
+      console.log('hear --------------', this.workSpaceData);
       if (this.activeCountries && this.activeCountries.length > 0) {
         this.selectedCountry = this.activeCountries[0];
       }
@@ -410,6 +412,12 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     let phoneWithDialCode = `${this.selectedCountry.dial_code}-${phone}`;
     formValues['phone_number'] = phoneWithDialCode;
     this.btnLabel = 'Submitting...';
+    if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      if (this.workSpaceData.space_contact_details.show_on_website == true) {
+        formValues['google_sheet'] = this.workSpaceData.brand.google_sheet_url;
+        formValues['micro_location'] = this.workSpaceData.location.name;
+      }
+    }
     this.userService.createEnquiry(formValues).subscribe(
       () => {
         this.loading = false;
