@@ -416,6 +416,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       if (this.workSpaceData.space_contact_details.show_on_website == true) {
         formValues['google_sheet'] = this.workSpaceData.brand.google_sheet_url;
         formValues['micro_location'] = this.workSpaceData.location.name;
+        formValues['property_name'] = this.workSpaceData.name;
       }
     }
     this.userService.createEnquiry(formValues).subscribe(

@@ -291,6 +291,7 @@ export class CoLivingSimilarComponent implements OnInit {
       if (this.coLiving.space_contact_details.show_on_website == true) {
         formValues['google_sheet'] = this.coLiving.brand.google_sheet_url;
         formValues['micro_location'] = this.coLiving.location.name;
+        formValues['property_name'] = this.coLiving.name;
       }
       this.userService.createEnquiry(formValues).subscribe(
         () => {
