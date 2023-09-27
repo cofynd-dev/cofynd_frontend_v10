@@ -309,6 +309,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
       if (colivingData.space_contact_details.show_on_website == true) {
         formValues['google_sheet'] = colivingData.brand.google_sheet_url;
         formValues['micro_location'] = colivingData.location.name;
+        formValues['property_name'] = colivingData.name;
       }
 
       this.btnLabel = 'Submitting...';
