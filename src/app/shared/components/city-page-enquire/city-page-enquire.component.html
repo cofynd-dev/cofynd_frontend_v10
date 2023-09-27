@@ -119,7 +119,21 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COWORKING || enquiryType == ENQUIRY_TYPES.OFFICE">
+            <!-- <div class="col-md-6">
+                <div class="form-group">
+                    <ng-select placeholder="Move In" [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">
+                    </ng-select>
+                    <app-input-validation [control]="enquiryForm.controls.mx_Move_In_Date">
+                    </app-input-validation>
+                </div>
+            </div> -->
+            <div class="col-md-6">
+                <button type="submit" class="site_btn border_btn full_width_btn">{{ btnLabel }}</button>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="enquiryType == ENQUIRY_TYPES.COLIVING">
             <div class="col-md-6">
                 <div class="form-group">
                     <ng-select placeholder="Move In" [clearable]="true" [searchable]="false" [items]="MoveIn" bindLabel="label" bindValue="value" formControlName="mx_Move_In_Date">

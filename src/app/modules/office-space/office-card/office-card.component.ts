@@ -179,7 +179,7 @@ export class OfficeCardComponent implements OnInit, AfterViewInit, OnChanges {
       mx_Page_Url: ['City Page'],
     };
     form['mx_Space_Type'] = ['Web Office Space'];
-    form['mx_Move_In_Date'] = [null, Validators.required];
+    // form['mx_Move_In_Date'] = [null, Validators.required];
     form['mx_BudgetPrice'] = [null, Validators.required];
     form['interested_in'] = [null, Validators.required];
     this.enquiryForm = this.formBuilder.group(form);

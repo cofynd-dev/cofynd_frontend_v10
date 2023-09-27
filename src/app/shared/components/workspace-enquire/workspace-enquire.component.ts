@@ -161,16 +161,16 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
       mx_Page_Url: ['Space Detail Page'],
     };
 
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Move_In_Date'] = [null, Validators.required];
-      form['interested_in'] = [null, Validators.required];
-    }
+    // if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+    //   form['interested_in'] = [null, Validators.required];
+    // }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING) {
       form['mx_Space_Type'] = ['Web Coworking'];
       form['no_of_person'] = [null, Validators.required];
       form['interested_in'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+      form['mx_Move_In_Date'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
       form['interested_in'] = [null, Validators.required];
@@ -178,7 +178,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
       form['mx_Space_Type'] = ['Web Office Space'];
       form['interested_in'] = [null, Validators.required];
-      form['mx_Move_In_Date'] = [null, Validators.required];
+      // form['mx_Move_In_Date'] = [null, Validators.required];
       form['mx_BudgetPrice'] = [null, Validators.required];
     }
     this.enquiryForm = this.formBuilder.group(form);
