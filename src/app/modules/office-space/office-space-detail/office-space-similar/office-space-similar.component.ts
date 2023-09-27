@@ -81,7 +81,7 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   enquiryForm: FormGroup;
   user: any;
 
@@ -187,7 +187,7 @@ export class OfficeSpaceSimilarComponent implements OnInit, OnChanges {
       mx_Page_Url: ['City Page'],
     };
     form['mx_Space_Type'] = ['Web Office Space'];
-    form['mx_Move_In_Date'] = [null, Validators.required];
+    // form['mx_Move_In_Date'] = [null, Validators.required];
     form['mx_BudgetPrice'] = [null, Validators.required];
     form['interested_in'] = [null, Validators.required];
     this.enquiryForm = this.formBuilder.group(form);
