@@ -96,10 +96,11 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   ];
 
   Budgets = [
-    { label: '10k to 15k', value: '10k to 15k' },
-    { label: `15k to 20k`, value: '15k to 20k' },
+    { label: 'Above 40k', value: 'Above 40k' },
+    { label: '30k to 40k', value: '30k to 40k' },
     { label: '20k to 30k', value: '20k to 30k' },
-    { label: '30k +', value: '30k +' },
+    { label: '15k to 20k', value: '15k to 20k' },
+    { label: '10k to 15k', value: '10k to 15k' },
   ];
 
   OfficeBudgets = [
