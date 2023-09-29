@@ -9,6 +9,7 @@ import {
   ViewChild,
   ChangeDetectorRef,
   AfterViewInit,
+  Renderer2,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { DEFAULT_APP_DATA } from '@core/config/app-data';
@@ -115,6 +116,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) private document: Document,
     private helperService: HelperService,
+    private _renderer2: Renderer2,
     private seoService: SeoService,
     private router: Router,
     private cdr: ChangeDetectorRef,
@@ -170,6 +172,17 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
     this.addSeoTags();
     this.getBrands();
     this.fetchCountryList();
+    this.setHeaderScript();
+  }
+  setHeaderScript() {
+    // let script = this._renderer2.createElement('script');
+    // script.type = `application/ld+json`;
+    // script.text = `${cityScript} `;
+    // this._renderer2.appendChild(this.document.head, script);
+    const script = this._renderer2.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-671913436';
+    this._renderer2.appendChild(document.head, script);
   }
 
   toggleText() {
@@ -562,7 +575,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       city: this.city,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -597,7 +610,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       city: this.city,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -633,7 +646,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       microlocation: this.micro_title,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -670,7 +683,7 @@ export class MarketingPagesComponent implements OnInit, AfterViewInit, OnDestroy
       microlocation: this.micro_title,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
