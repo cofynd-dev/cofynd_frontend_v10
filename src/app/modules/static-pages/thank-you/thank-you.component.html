@@ -49,3 +49,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
     </div>
 </section>
+
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-671913436/vMToCKzatd8YENyrssAC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
