@@ -42,7 +42,7 @@ export class SubBuilderDetailComponent implements OnInit {
   submitted = false;
   showSuccessMessage: boolean;
   contactUserName: string;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;
@@ -207,10 +207,10 @@ export class SubBuilderDetailComponent implements OnInit {
             : 'https://www.youtube.com/watch?v=Qs4g_87jTuI';
           if (this.SubBuilder.plans.length > 0) {
             this.residentailPlans = this.SubBuilder.plans.filter((item: any) => {
-              return item.project_type == 'residential';
+              return item.project_type == 'Residential';
             });
             this.commercialPlans = this.SubBuilder.plans.filter((item: any) => {
-              return item.project_type == 'commercial';
+              return item.project_type == 'Commercial';
             });
             if (this.residentailPlans.length > 0) {
               this.residentailFloorPlanClick(this.residentailPlans[0].planId['id']);
@@ -327,11 +327,15 @@ export class SubBuilderDetailComponent implements OnInit {
   }
 
   addSeoTags(SubBuilder: SubBuilder) {
+    const urlData: string = window.location.href;
+    const dataSplit: string[] = urlData.split("/");
+    const builderName: string = dataSplit[dataSplit.length - 2];
+
     this.seoData = {
       title: SubBuilder.seo.title ? SubBuilder.seo.title : 'CoFynd - ' + SubBuilder.name,
       description: SubBuilder.seo.description ? SubBuilder.seo.description : SubBuilder.description,
       keywords: SubBuilder.seo.keywords ? SubBuilder.seo.keywords : '',
-      url: environment.appUrl + '/india/SubBuilder/' + SubBuilder.slug,
+      url: environment.appUrl + '/india/' + builderName + "/" + SubBuilder.slug,
       image: this.shareImageUrl,
       type: 'website',
       footer_title: SubBuilder.seo.footer_title ? SubBuilder.seo.footer_title : '',
