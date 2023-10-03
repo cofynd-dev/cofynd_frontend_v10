@@ -327,11 +327,15 @@ export class SubBuilderDetailComponent implements OnInit {
   }
 
   addSeoTags(SubBuilder: SubBuilder) {
+    const urlData: string = window.location.href;
+    const dataSplit: string[] = urlData.split("/");
+    const builderName: string = dataSplit[dataSplit.length - 2];
+
     this.seoData = {
       title: SubBuilder.seo.title ? SubBuilder.seo.title : 'CoFynd - ' + SubBuilder.name,
       description: SubBuilder.seo.description ? SubBuilder.seo.description : SubBuilder.description,
       keywords: SubBuilder.seo.keywords ? SubBuilder.seo.keywords : '',
-      url: environment.appUrl + '/india/SubBuilder/' + SubBuilder.slug,
+      url: environment.appUrl + '/india/' + builderName + "/" + SubBuilder.slug,
       image: this.shareImageUrl,
       type: 'website',
       footer_title: SubBuilder.seo.footer_title ? SubBuilder.seo.footer_title : '',
