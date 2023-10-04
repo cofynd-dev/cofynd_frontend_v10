@@ -54,7 +54,7 @@ export class DropdownItemComponent {
           this.isSingle = true;
         }
         this.relativeUrl = '/coworking/';
-        this.open = !this.open;
+        // this.open = !this.open;
         if (data) {
           this.country_id = data._id;
           this.countryNameGloble = data.name;
@@ -117,7 +117,7 @@ export class DropdownItemComponent {
           this.isSingle = true;
         }
         this.relativeUrl = '/co-living/';
-        this.open = !this.open;
+        // this.open = !this.open;
         if (data) {
           this.country_id = data._id;
           this.countryNameGloble = data.name;
