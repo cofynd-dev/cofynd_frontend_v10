@@ -23,6 +23,10 @@ export class DropdownItemComponent {
   country_id: any;
   image_url: string = 'http://localhost:8081/img/';
   countryNameGloble: string;
+  defultCountry = {
+    _id: '6231ae062a52af3ddaa73a39',
+    name: 'India',
+  };
   constructor(private workSpaceService: WorkSpaceService, private Router: Router) {}
 
   open_menu(data: any, type: any) {

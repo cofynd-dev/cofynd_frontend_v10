@@ -1,8 +1,9 @@
 <div appClickOutside (clickOutside)="open = false">
-    <button class="dropdown-link" type="button" (click)="open_menu('','')">
+    <button class="dropdown-link" type="button" (click)="open_menu(defultCountry,title)">
     {{ title }} <i class="fa-solid fa-angle-down"></i>
   </button>
-    <div *ngIf="open" class="mega-menu" [class.mega-menu-col-1]="isSingle">
+  
+    <!-- <div *ngIf="open" class="mega-menu" [class.mega-menu-col-1]="isSingle">
         <div class="mega-menu-dropdown">
             <div class="mega-menu-column">
                 <ng-container *ngFor="let city of cities; let i = index">
@@ -64,10 +65,10 @@
                 <a class="view-link" *ngIf='relativeUrl == "/virtual-office/"' (click)="open = false" [routerLink]="relativeUrl"> View All</a>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
-<div *ngIf="open1 == true" class="mega-menu" [class.mega-menu-col-1]="isSingle">
+<div *ngIf="open" class="mega-menu" [class.mega-menu-col-1]="isSingle">
     <div class="mega-menu-dropdown">
         <div class="mega-menu-column">
             <ng-container *ngFor="let city of cities1; let i = index">
