@@ -16,6 +16,10 @@ const routes: Routes = [
     component: CoworkingCityComponent,
   },
   {
+    path: 'jodhpur',
+    component: CoworkingCityComponent,
+  },
+  {
     path: 'faridabad',
     component: CoworkingCityComponent,
   },
@@ -201,4 +205,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CoworkingRoutingModule { }
+export class CoworkingRoutingModule {}
