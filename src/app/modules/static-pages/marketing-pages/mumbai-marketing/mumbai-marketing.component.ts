@@ -272,7 +272,8 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
     if (this.isAuthenticated()) {
       this.createEnquiry();
     } else {
-      this.getOtp();
+      // this.getOtp();
+      this.createEnquiry();
     }
   }
 
@@ -284,7 +285,8 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
     if (this.isAuthenticated()) {
       this.createPrimeEnquiry();
     } else {
-      this.getPrimeOtp();
+      // this.getPrimeOtp();
+      this.createPrimeEnquiry();
     }
   }
 
@@ -296,7 +298,8 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
     if (this.isAuthenticated()) {
       this.createMidBannerEnquiry();
     } else {
-      this.getMidBannerOtp();
+      // this.getMidBannerOtp();
+      this.createMidBannerEnquiry();
     }
   }
 
@@ -558,7 +561,7 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
       city: this.city,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -593,7 +596,7 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
       city: this.city,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -629,7 +632,7 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
       microlocation: this.micro_title,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
@@ -666,7 +669,7 @@ export class MumbaiMarketingComponent implements OnInit, AfterViewInit, OnDestro
       microlocation: this.micro_title,
       mx_Page_Url: this.pageUrl,
       mx_Space_Type: mx_Space_Type,
-      source: 'PPC'
+      source: 'PPC',
     };
     this.userService.createLead(object).subscribe(
       () => {
