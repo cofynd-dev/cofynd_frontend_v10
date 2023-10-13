@@ -188,7 +188,7 @@ export class SearchCardComponent implements OnInit, AfterViewInit {
   private buildForm() {
     const form = {
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       phone_number: ['', Validators.required],
       otp: [''],
       mx_Page_Url: ['City Page'],
@@ -201,6 +201,7 @@ export class SearchCardComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
+    console.log(this.enquiryForm.controls.email);
     this.addValidationOnMobileField();
     this.enquiryForm.markAllAsTouched();
     if (this.enquiryForm.invalid) {
@@ -323,7 +324,10 @@ export class SearchCardComponent implements OnInit, AfterViewInit {
   addValidationOnMobileField() {
     const otpControl = this.enquiryForm.get('phone_number');
     otpControl.setValidators([Validators.required, Validators.minLength(10), Validators.maxLength(10)]);
+    const emailControl = this.enquiryForm.get('email');
+    emailControl.setValidators(Validators.compose([Validators.required, Validators.email]));
     otpControl.updateValueAndValidity();
+    emailControl.updateValueAndValidity();
   }
 
   sendGaEvent(category: string, action: string, label: string) {
