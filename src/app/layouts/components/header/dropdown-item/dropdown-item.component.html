@@ -89,7 +89,7 @@
         </div>
         <div class="mega-menu-column">
             <ng-container *ngFor="let city of cities1; let i = index">
-                <h5 *ngIf="i >= 12">
+                <h5 *ngIf="i >= 12 && i < 18">
                     <a class="city-link" (click)="closePopUp(relativeUrl + city.name,city.name)">
                         <img [lazyLoad]="city?.image?.s3_link" alt="">{{ removedash(city.name) }}
                     </a>
