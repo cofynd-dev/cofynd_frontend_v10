@@ -40,11 +40,11 @@
         <h4>{{ coLiving.name }}</h4>
         <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{ coLiving.location.address }}</p>
         <div class="row align-items-end">
-            <div class="col-md-6 col-6">
+            <div class="col-md-6 col-8">
                 <p class="capacity"><img class="img-fluid" alt="Save Money" [lazyLoad]="'../../../../assets/images/amenities/save-money.svg'"> Best Price</p>
         <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" [lazyLoad]="'../../../../assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
             </div>
-            <div class="col-md-6 col-6 justify-content-end d-flex">
+            <div class="col-md-6 col-4 justify-content-end d-flex">
                 <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }} <span class="rent_duration">/ {{ coLiving.duration }}</span></div>
             </div>
         </div>
@@ -52,10 +52,10 @@
         
     <div class="property-foot align-items-end">
         <div class="button">
-            <a (click)="openWorkSpace(coLiving.slug)" target="_blank" tabindex="0">Explore More</a>
+            <a (click)="openWorkSpace(coLiving.slug)" target="_blank" tabindex="0">Explore Now</a>
         </div>
         <div class="button">
-            <a type="button" (click)="getQuote(coLiving.slug, coLiving)"  data-toggle="modal" data-target="#exampleModal">Get Quote</a>
+            <a type="button" (click)="getQuote(coLiving.slug, coLiving)"  data-toggle="modal" data-target="#exampleModal">View Phone No.</a>
         </div>
     </div>
 </div>
@@ -232,7 +232,7 @@
                                 <div class="col-md-12">
                                     <div class="space_contact_content">
                                         <div class="quote_message">
-                                            You Have Great Taste <br>This Property is AWESOME <i class="fa-solid fa-bolt"></i>
+                                            You Have Great Taste <br>This Property is AWESOME <img src="assets/images/thumb-gif-animation.gif" alt="">
                                         </div>
                                         <div class="brand_logo" *ngIf="mycoliving?.brand?.image?.s3_link">
                                             <img [src]="mycoliving?.brand?.image?.s3_link" alt="Coliving Brand Logo">

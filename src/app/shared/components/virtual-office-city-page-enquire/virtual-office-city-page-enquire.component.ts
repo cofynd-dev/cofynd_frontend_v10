@@ -44,7 +44,7 @@ export class VirtualOfficeCityPageEnquireComponent implements OnInit, OnChanges 
   phoneflag: boolean = true;
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   minDate = new Date();
   // Mat Select
   isActiveLabel: boolean;

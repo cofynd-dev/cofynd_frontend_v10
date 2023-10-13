@@ -5373,8 +5373,9 @@
      font-weight: 600;
      margin-bottom: 5px;
 }
- .card_form .form_title p {
-     text-transform: capitalize;
+.card_form .form_title p {
+	text-transform: capitalize;
+	margin-bottom: 30px;
 }
  .card_form .col-md-5 {
      padding-left: 5px;
@@ -5766,7 +5767,7 @@
 }
  .property_item2 .property-foot .button a, .property_item2 .property-foot .button button {
      display: inline-block;
-     padding: 14px 20px;
+     padding: 14px 10px;
      color: #212529 !important;
      font-size: 14px;
 }

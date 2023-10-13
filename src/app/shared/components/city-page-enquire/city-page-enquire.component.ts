@@ -54,7 +54,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_TYPES: typeof ENQUIRY_TYPES = ENQUIRY_TYPES;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
 
   minDate = new Date();
 
@@ -96,10 +96,11 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   ];
 
   Budgets = [
-    { label: '10k to 15k', value: '10k to 15k' },
-    { label: `15k to 20k`, value: '15k to 20k' },
+    { label: 'Above 40k', value: 'Above 40k' },
+    { label: '30k to 40k', value: '30k to 40k' },
     { label: '20k to 30k', value: '20k to 30k' },
-    { label: '30k +', value: '30k +' },
+    { label: '15k to 20k', value: '15k to 20k' },
+    { label: '10k to 15k', value: '10k to 15k' },
   ];
 
   OfficeBudgets = [
@@ -409,22 +410,23 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
       mx_Page_Url: ['City Page'],
     };
 
-    if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
-      form['mx_Move_In_Date'] = [null, Validators.required];
-    }
+    // if (this.enquiryType == ENQUIRY_TYPES.COWORKING || this.enquiryType == ENQUIRY_TYPES.COLIVING) {
+    //   form['mx_Move_In_Date'] = [null, Validators.required];
+    // }
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING && this.pageName !== 'virtual-office') {
       form['interested_in'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coworking'];
-      form['no_of_person'] = [null, Validators.required];
+      form['no_of_person'] = [null, Validators.required]; 
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['interested_in'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coliving'];
       form['mx_BudgetPrice'] = [null, Validators.required];
+      form['mx_Move_In_Date'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.OFFICE) {
       form['mx_Space_Type'] = ['Web Office Space'];
-      form['mx_Move_In_Date'] = [null, Validators.required];
+      // form['mx_Move_In_Date'] = [null, Validators.required];
       form['mx_BudgetPrice'] = [null, Validators.required];
       form['interested_in'] = [null, Validators.required];
     }
