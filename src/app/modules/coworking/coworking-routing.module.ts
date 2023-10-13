@@ -100,6 +100,90 @@ const routes: Routes = [
     component: CoworkingCityComponent,
   },
   {
+    path: 'trivandrum',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'tiruchirappalli',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'guwahati',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'surat',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'kanpur',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'vadodara',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'dehradun',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'ghaziabad',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'patna',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'kottayam',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'jammu',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'ludhiana',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'faridabad',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'rajkot',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'dharamshala',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'tirunelveli',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'kozhikode',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'ranchi',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'faizabad',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'raipur',
+    component: CoworkingCityComponent,
+  },
+  {
+    path: 'ooty',
+    component: CoworkingCityComponent,
+  },
+  {
     path: 'delhi/:locality',
     component: CoworkingLocalityComponent,
   },
