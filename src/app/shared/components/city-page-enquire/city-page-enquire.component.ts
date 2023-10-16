@@ -404,7 +404,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
   private buildForm() {
     const form = {
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       phone_number: ['', Validators.required],
       otp: [''],
       mx_Page_Url: ['City Page'],
@@ -416,7 +416,7 @@ export class CityPageEnquireComponent implements OnInit, OnChanges {
     if (this.enquiryType == ENQUIRY_TYPES.COWORKING && this.pageName !== 'virtual-office') {
       form['interested_in'] = [null, Validators.required];
       form['mx_Space_Type'] = ['Web Coworking'];
-      form['no_of_person'] = [null, Validators.required]; 
+      form['no_of_person'] = [null, Validators.required];
     }
     if (this.enquiryType == ENQUIRY_TYPES.COLIVING) {
       form['interested_in'] = [null, Validators.required];
