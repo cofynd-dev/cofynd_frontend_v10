@@ -156,7 +156,7 @@ export class WorkspaceEnquireComponent implements OnInit, OnChanges {
   private buildForm() {
     const form = {
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       phone_number: ['', Validators.required],
       otp: [''],
       mx_Page_Url: ['Space Detail Page'],

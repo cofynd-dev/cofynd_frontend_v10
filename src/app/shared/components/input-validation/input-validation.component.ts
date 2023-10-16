@@ -24,11 +24,13 @@ export class InputValidationComponent {
   }
 
   getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
+    console.log(validatorName, validatorValue);
     const config = {
       required: 'This field can not be blank.',
       invalidNumber: 'Input should be an integer value',
       invalidPhone: 'Invalid phone number',
       invalidEmailAddress: 'Invalid email address',
+      email: 'Please enter valide email id.',
       numericAllowed: 'Only numeric values are allowed',
       emailTaken: 'Email id already taken',
       minlength: `Minimum length should be ${validatorValue.requiredLength} characters`,

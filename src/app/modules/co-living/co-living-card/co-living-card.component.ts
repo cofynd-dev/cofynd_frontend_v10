@@ -202,7 +202,7 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   private buildForm() {
     const form = {
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       phone_number: ['', Validators.required],
       otp: [''],
       mx_Page_Url: ['City Page'],
