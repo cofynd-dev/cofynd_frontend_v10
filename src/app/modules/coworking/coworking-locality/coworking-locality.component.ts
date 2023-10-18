@@ -77,7 +77,7 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
     // Init With Map View
     // this.isMapView = true;
   }
-
+ 
   ngOnInit() {
     this.countryService.getCountryList().subscribe(countryList => {
       this.activeCountries = countryList;
