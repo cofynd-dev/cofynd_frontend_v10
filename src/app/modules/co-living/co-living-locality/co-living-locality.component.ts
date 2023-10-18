@@ -87,6 +87,10 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
     combineLatest(this.activatedRoute.url, this.activatedRoute.queryParams)
       .pipe(map(results => ({ routeParams: results[0], queryParams: results[1] })))
       .subscribe(results => {
+        let url = `${results.routeParams[0]}/${results.routeParams[1]}`;
+        if (url === 'gurugram/sohna-road') {
+          this.router.navigateByUrl('co-living/gurugram/sector-49');
+        }
         const filteredCity = this.availableCities.filter(
           city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
         );
