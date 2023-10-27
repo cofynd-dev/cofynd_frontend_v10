@@ -11,6 +11,10 @@ const routes: Routes = [
     component: CoLivingComponent,
   },
   {
+    path: 'room-for-rent/gurugram',
+    component: CoLivingCityComponent,
+  },
+  {
     path: 'gurugram',
     component: CoLivingCityComponent,
   },

@@ -21,6 +21,10 @@ export const routes: Routes = [
     loadChildren: () => import('./co-living/co-living.module').then(m => m.CoLivingModule),
   },
   {
+    path: 'room-for-rent',
+    loadChildren: () => import('./co-living/co-living.module').then(m => m.CoLivingModule),
+  },
+  {
     path: 'office-space/rent',
     loadChildren: () => import('./office-space/office-space.module').then(m => m.OfficeSpaceModule),
   },
