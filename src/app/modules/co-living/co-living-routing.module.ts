@@ -10,10 +10,10 @@ const routes: Routes = [
     path: '',
     component: CoLivingComponent,
   },
-  {
-    path: 'room-for-rent/gurugram',
-    component: CoLivingCityComponent,
-  },
+  // {
+  //   path: 'room-for-rent/gurugram',
+  //   component: CoLivingCityComponent,
+  // },
   {
     path: 'gurugram',
     component: CoLivingCityComponent,
@@ -90,6 +90,10 @@ const routes: Routes = [
     path: 'lucknow',
     component: CoLivingCityComponent,
   },
+  // {
+  //   path: 'room-for-rent/gurugram/:locality',
+  //   component: CoLivingLocalityComponent,
+  // },
   {
     path: 'gurugram/:locality',
     component: CoLivingLocalityComponent,
