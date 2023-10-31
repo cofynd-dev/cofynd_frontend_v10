@@ -1232,9 +1232,7 @@
  .page_banner .col-md-6 {
      padding: 0;
 }
- .banner_content {
-     padding: 0px 40px 10px 120px;
-}
+
  .site_title {
      position: relative;
      display: inline-block;
@@ -1305,20 +1303,6 @@
      margin-bottom: 15px;
      font-size: 20px;
      line-height: 30px;
-}
- .banner_img {
-     border-radius: 0px 0px 0px 180px;
-     overflow: hidden;
-     height: 620px;
-}
- .banner_img img {
-     height: 620px;
-     width: 100%;
-     object-fit: cover;
-}
- .feature_sec {
-     padding-top: 70px;
-     padding-bottom: 80px;
 }
  .left_icon_box img {
      background-color: #f8f8f8;
@@ -1535,11 +1519,6 @@
 }
  .faqs_accordion .panel-body p:last-child {
      margin-bottom: 0px;
-}
- .innerpage_banner {
-     padding-top: 70px;
-     padding-bottom: 100px;
-     position: relative;
 }
  .virtual_office_banner {
      padding-top: 70px;
@@ -2028,10 +2007,6 @@
 
 
  .client_logo_sec {
-     padding-top: 60px;
-     padding-bottom: 20px;
-}
- .news_brands {
      padding-top: 60px;
      padding-bottom: 20px;
 }
@@ -4749,13 +4724,7 @@
      padding-top: 50px;
      padding-bottom: 80px;
 }
- .facilities_sec {
-     padding: 70px 0px 50px;
-}
- .coworking_facilities {
-     padding-top: 60px;
-     padding-bottom: 0px;
-}
+
  .virtual_office_banner .innerbanner_img {
      height: 670px;
 }
@@ -4765,19 +4734,6 @@
 }
  .vitual_facilities {
      padding-top: 70px;
-}
- .facilities_sec .icon_item img {
-     height: 40px;
-}
- .facilities_sec .icon_item h4 {
-     font-size: 14px;
-     font-weight: 600;
-     line-height: 24px;
-     color: #000;
-     margin-bottom: 3px;
-}
- .facilities_sec .icon_item p {
-     font-size: 14px;
 }
  .virtual_office_faqs {
      padding-top: 50px;
@@ -5326,25 +5282,9 @@
  .virtual_office_banner .main_heading h1 {
      margin-bottom: 0px;
 }
- .form_dream_ptoperty .country_phone .form-input input {
-     box-shadow: none;
-     border-radius: 0px !important;
-     font-size: 13px !important;
-     height: auto;
-     border: none !important;
-     width: 100%;
-     font-weight: 400 !important;
-     height: 42px;
-}
  .country_phone .flag-container .invalid-feedback {
      position: absolute;
      top: 40px;
-}
- .form_dream_ptoperty .country_phone .form-input {
-     box-shadow: 0px 0px 5px rgba(33, 37, 41, 0.03);
-     border-radius: 10px !important;
-     padding: 0px 15px !important;
-     background-color: #fff !important;
 }
  .card_form .country_phone .city_card_phone {
      background-color: #fff !important;
@@ -5876,25 +5816,7 @@
      margin-top: 0px;
      margin-bottom: 30px;
 }
- .news_brands .carousel-arrow {
-     position: absolute;
-     top: 18px;
-     color: #4343e8;
-     font-size: 26px;
-     font-weight: bold;
-}
- .news_brands .carousel-arrow.icon-next {
-     right: -20px;
-}
- .news_brands .carousel-arrow[disabled] {
-     opacity: 0.4;
-}
- .news_brands .carousel-arrow.icon-back {
-     left: -20px;
-}
- .news_brands .logos_slider {
-     margin-top: 10px;
-}
+ 
  .for_email_sec .container, .for_email_sec .container-fluid {
      background-size: cover;
      background-position: center;

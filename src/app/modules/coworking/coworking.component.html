@@ -7,12 +7,12 @@
                     
                     <div class="city-list">
                         <button (click)="searchCoworking()" type="button">
-                        <img [lazyLoad]="'/assets/images/icons/near-me-icon.svg'"
+                        <img [src]="'/assets/images/icons/near-me-icon.svg'"
                             alt="'Office Space for Rent near me" />
                         Near Me
                         </button>
                         <button *ngFor="let city of cities" [routerLink]="city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                            <img [src]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                         </button>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <a [routerLink]="_city.name" class="text-dark">
                         <div class="row align-items-center">
                             <div class="col-4 pr-0">
-                                <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" alt="Cities Image" class="img-fluid citi-img">
+                                <img [src]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" alt="Cities Image" class="img-fluid citi-img">
                             </div>
                             <div class="col-8">
                                 <div class="cities_box_content">
@@ -96,7 +96,7 @@
         <div class="row amenities_row">
             <div class="col-md-4 col-4" *ngFor="let data of service">
                 <div class="icon_item mb-5">
-                    <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     <h4>{{data.title}}</h4>
                     <p class="mobilehide">{{data.description}}</p>
                 </div>
@@ -121,17 +121,17 @@
                 <div class="space_carousel">
                     <div class="property_item" style="cursor: pointer;" (click)="routeTodetail(_centerCity.slug)" *ngFor="let _centerCity of workSpaces">
                         <div class="property-img">
-                            <img [lazyLoad]="_centerCity.images[1].image.s3_link" [alt]="_centerCity.name" class="img-fluid">
+                            <img [src]="_centerCity.images[1].image.s3_link" [alt]="_centerCity.name" class="img-fluid">
                         </div>
                         <div class="property-dis">
                             <h4>{{_centerCity.name}}</h4>
-                            <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{_centerCity.location.address1}}</p>
+                            <p class="address"><img [src]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{_centerCity.location.address1}}</p>
                             <div class="amenities_card">
                                 <p class="capacity">
-                                    <img [lazyLoad]="'assets/images/amenities/wifi.svg'" alt="wifi"> High speed WiFi
+                                    <img [src]="'assets/images/amenities/wifi.svg'" alt="wifi"> High speed WiFi
                                 </p>
                                 <p class="capacity">
-                                    <img [lazyLoad]="'assets/images/amenities/tea.svg'" alt="Coffee"> Coffee & Bar
+                                    <img [src]="'assets/images/amenities/tea.svg'" alt="Coffee"> Coffee & Bar
                                 </p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb5e9207e5f8829905ecf64de5ffb75b01d7e6a4.jpg'" alt="Low Cost" class="img-fluid">
+                            <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a4a2440021277f89ec1987d9061ab6a2a771ae7e.jpg'" alt="Low Cost" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Low Cost</h4>
@@ -174,7 +174,7 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/eb72b93ba681938b8e3151bae063eb8eaf2faa23.jpg'" alt="Affordable" class="img-fluid">
+                            <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ebb7c3f1686544a4a73a1b4811cbc4576e89487c.jpg'" alt="Affordable" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Affordable</h4>
@@ -187,7 +187,7 @@
                 <div class="curated-box">
                     <div class="curated-item">
                         <div class="curated-img">
-                            <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/74736bb62b2de3f0a4fb8c41cd07da4aa2ca1a98.jpg'" alt="Luxury" class="img-fluid">
+                            <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e0db4b335b0946b16766daa5057d3f5fa64ad252.jpg'" alt="Luxury" class="img-fluid">
                         </div>
                         <div class="curated-content">
                             <h4>Luxury</h4>
@@ -216,7 +216,7 @@
             <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoWorkingSpaces | slice:0:1">
                 <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                     <div class="top-city-img main_city">
-                        <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
+                        <img [src]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                     </div>
                     <div class="top-city-text">
                         <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
@@ -229,7 +229,7 @@
                     <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoWorkingSpaces | slice:1:7">
                         <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                             <div class="top-city-img">
-                                <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
+                                <img [src]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                             </div>
                             <div class="top-city-text">
                                 <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.city}}</h4>
@@ -249,12 +249,12 @@
                 <div class="for_email_content">
                     <h3>Find your Office Space with Cofynd</h3>
                     <p>Just drop us an email with your Office Space requirements – Number of Seat, Location, Start Date … and our team will connect back with you within 24 Hrs with the best possible options.</p>
-                    <p class="email_id align-items-center"><img [lazyLoad]="'assets/images/icons/email_id.svg'" alt="Email Icon"> hello@cofynd.com</p>
+                    <p class="email_id align-items-center"><img [src]="'assets/images/icons/email_id.svg'" alt="Email Icon"> hello@cofynd.com</p>
                 </div>
             </div>
             <div class="col-md-4 mobilehide">
                 <div class="for_email_img">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png'" alt="Email Image">
+                    <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/cfb9eccbf93ad5602e7931f4c50c3f034157c9f8.png'" alt="Email Image">
                 </div>
             </div>
         </div>
@@ -274,7 +274,7 @@
             <div class="col-md-4" *ngFor="let data of chooseCoworking">
                 <div class="left_icon_box2">
                     <div class="icon">
-                        <img [lazyLoad]="'assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        <img [src]="'assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
                         <h4>{{data.title}}</h4>
@@ -298,7 +298,7 @@
 
 <section class="gradient_cta_sec">
     <div class="container">
-        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/0344074be714d1b636f7e5fb5c8e4f6f42654591.jpg');">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9661499078f8ef5e7ef10ff311ed697ec5d86f01.jpg');">
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Get the Perfect Coworking Space in your City</h4>
@@ -320,14 +320,14 @@
 
 <section class="cofynd_advantage_area coworking_advantage_area tabhide">
     <div class="container">
-        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae369baf5407686f76d0e217cb479582f86d24e0.jpg');">
+        <div class="row" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f8b1c9483531686a41942f8b156c3b39e96296cd.jpg');">
             <div class="col-md-3">
                 <h3>CoFynd Advantages</h3>
             </div>
             <div class="col-md-3" *ngFor="let data of coFyndAdvantages">
                 <div class="advantage_item">
                     <div class="icon">
-                        <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                        <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     </div>
                     <div class="content">
                         <h4>{{data.title}}</h4>
@@ -341,7 +341,7 @@
 
 <section class="gradient_cta_sec desktophide">
     <div class="container">
-        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/49abcce4020748fa0d802f3c020a736fc6468f78.jpg');">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8789c100ed33f81a4bb8c3e165523da7daf92e72.jpg');">
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Get Suitable Coworking Space as per your need</h4>
@@ -364,7 +364,7 @@
 
 <section class="gradient_cta_sec">
     <div class="container">
-        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/7c425494164d14cf4a6cca4bdfbecf04f107a773.jpg');">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/15159bfc3d18b26887e6031643d176eb23e48c2d.jpg');">
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Customize Office Spaces as per <br>your Need</h4>
@@ -385,7 +385,7 @@
 
 <section class="gradient_cta_sec">
     <div class="container">
-        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/20735b677d2043695bb785976779bb00c9e75c19.jpg');">
+        <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4e730a6d3b701021fd96f6ce8734e681ac754a5e.jpg');">
             <div class="col-8">
                 <div class="cta_content">
                     <h4>Hurry ! Choose your Space Now</h4>
@@ -422,23 +422,23 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-12 mb-4">
                 <div class="feature_img" routerLink="quest-offices" style="cursor: pointer;">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/108f0a7431a67d92cb2050674a4a822624092519.png'" alt="Quest Coworks Mumbai" class="img-fluid mobilehide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/152f99486758b35bcb925f81e5eded554877bba9.png" alt="Quest Coworks Mumbai" class="img-fluid mobilehide">
 
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc75ca129b0975c09053254fa7ff48ecc81f46c4.png'" alt="Quest Coworks Mumbai" class="img-fluid desktophide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/add733e1d86985412ba20acb579475cdcad00752.png" alt="Quest Coworks Mumbai" class="img-fluid desktophide">
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-12 mb-4">
                 <div class="feature_img" routerLink="wework-mg-road-gurugram" style="cursor: pointer;">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/118929f10bf3365e7272ce5ecf4f98f9a0d744d0.png'" alt="Wework Gurgaon Feature" class="img-fluid mobilehide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f72af5bb3879352d51bbb73661ced2d7f700902b.png" alt="Wework Gurgaon Feature" class="img-fluid mobilehide">
 
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/feed75fe04bfee81e97a3c83c56df9c4da19bce7.png'" alt="Wework Gurgaon Feature" class="img-fluid desktophide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/852a6792ba9f953af35aedc752e5a1f6b81f1672.png" alt="Wework Gurgaon Feature" class="img-fluid desktophide">
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-12">
                 <div class="feature_img" routerLink="hustlehub-hsr-layout" style="cursor: pointer;">
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b82b3277466b4205541dae6ea865f385d8c4a6b0.png'" alt="Hustlehub Banglore" class="img-fluid mobilehide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/af894cde1fe0eb12050ba2d6d3a98ba34639ef78.png" alt="Hustlehub Banglore" class="img-fluid mobilehide">
 
-                    <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/391ab6648263c045c335d05eee11605bd115b0ec.png'" alt="Hustlehub Banglore" class="img-fluid desktophide">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/973eb2eca1490150ba74a6fa9e016b32e8e2a005.png" alt="Hustlehub Banglore" class="img-fluid desktophide">
                 </div>
             </div>
         </div>
@@ -457,7 +457,7 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 tabhide">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b7b34947ee86bdfae0ec326b230b97ac96f4238.png'" class="img-fluid" alt="Quiery Image">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e6f2c313624ede1da7beb517f34a2d278e42039c.png" class="img-fluid" alt="Quiery Image">
             </div>
 
             <div class="col-md-6 col-12">
@@ -472,7 +472,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/user-icon.svg'" class="img-fluid" alt="User">
+                                        <img src="assets/images/icons/user-icon.svg" class="img-fluid" alt="User">
                                         <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" formControlName="name" class="form-control" placeholder="Name*" required>
                                         <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                                             <div *ngIf="f['name'].errors['required']">Please enter your name.</div>
@@ -481,7 +481,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/email-icon.svg'" class="img-fluid" alt="Email">
+                                        <img src="assets/images/icons/email-icon.svg" class="img-fluid" alt="Email">
                                         <input type="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" class="form-control" placeholder="Email*" required>
                                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                                             <div *ngIf="f['email'].errors['required']">Please enter your email id.</div>
@@ -491,7 +491,7 @@
                                 </div>
                                 <div class="col-md-6 col-12 country_phone">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="Phone">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
 
                                         <div class="form-input icon_phone_field">
                                             <div class="flag-container">
@@ -504,7 +504,7 @@
                                                 <ul *ngIf="showcountry" class="country-list">
                                                     <li (click)="hideCountry(country)" *ngFor="let country of activeCountries" class="country active" tabindex="-1">
                                                         <div class="flag-box">
-                                                            <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
+                                                            <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" alt="Flag" /></div>
                                                         </div>
                                                         <span class="country-name">{{country?.name}}</span>
                                                         <span class="dial-code">{{country?.dial_code}}</span>
@@ -522,7 +522,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/location-icon.svg'" class="img-fluid" alt="Location">
+                                        <img src="assets/images/icons/location-icon.svg" class="img-fluid" alt="Location">
                                         <select class="form-select" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city" placeholder="select your city" required aria-label="Default select example">
                                             <option value="" selected disabled style="display: none;">Select City*</option>
                                             <option [value]="city.name" *ngFor="let city of finalCities">{{city.name}}</option>
@@ -535,7 +535,7 @@
                                 </div>
                                 <div class="col-md-12 col-12" *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/phone-icon.svg'" class="img-fluid" alt="Phone">
+                                        <img src="assets/images/icons/phone-icon.svg" class="img-fluid" alt="Phone">
                                         <input type="tel" [ngClass]="{ 'is-invalid': submitted && f['otp'].errors }" formControlName="otp" required class="form-control border-light" id="mobilenumber" placeholder="Otp*" aria-describedby="emailHelp">
                                         <div *ngIf="submitted && f['otp'].errors" class="invalid-feedback">
                                             <div *ngIf="f['otp'].errors['required']">Please enter 4 digit otp.</div>
@@ -546,7 +546,7 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="input-group message_field align-items-center">
-                                        <img [lazyLoad]="'assets/images/icons/message-icon.svg'" class="img-fluid" alt="Message">
+                                        <img src="assets/images/icons/message-icon.svg" class="img-fluid" alt="Message">
                                         <textarea type="textarea" [ngClass]="{ 'is-invalid': submitted && f['requirements'].errors }" formControlName="requirements" class="form-control" placeholder="Requirements"></textarea>
                                     </div>
                                 </div>
@@ -580,7 +580,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="List your Vacant" class="img-fluid">
+                <img src="../../../assets/images/list-your-space-img.svg" alt="List your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
@@ -591,7 +591,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/727de738fd2725e2045d19ac44a5873f25919b36.png'" alt="What is the cofynd desk">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/727de738fd2725e2045d19ac44a5873f25919b36.png" alt="What is the cofynd desk">
                     <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>

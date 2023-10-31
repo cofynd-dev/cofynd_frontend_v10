@@ -198,8 +198,122 @@
     line-height: 15px;
 }
 
+@media (max-width: 991px) {
+    .popular-spaces .popular-space-carousel {
+		padding: 0px 25px;
+	}
+	.popular-spaces .carousel-arrow.icon-back {
+		left: 10px;
+	}
+	.popular-spaces .carousel-arrow.icon-next {
+		right: 10px;
+	}
+}
+
+@media (max-width: 768px) {
+    .top_cities_slider .main_heading {
+		margin-bottom: 30px !important;
+	}
+    .top_cities_slider .carousel-arrow.icon-back {
+		left: 15px !important;
+	}
+
+	.top_cities_slider .carousel-arrow.icon-next {
+		right: 15px !important;
+	}
+}
+
 @media (max-width: 480px) {
     .popular-spaces .carousel-arrow {
         display: none;
     }
+    .top_cities_slider {
+		padding: 20px 0px !important;
+	}
+
+	.top_cities_slider .page-title {
+		text-align: left;
+		padding-left: 15px !important;
+	}
+    .top_cities_slider .text-center {
+		text-align: left !important;
+	}
+
+	.top_cities_slider .main_heading {
+		margin-bottom: 20px !important;
+	}
+
+	.top_cities_slider .page-title h2::after {
+		display: none;
+	}
+
+	.top_cities_slider .page-title h2 {
+		margin-bottom: 0px;
+	}
+    .popular-spaces .popular-space-carousel {
+		padding: 0px 0px;
+	}
+    .popular-spaces .item {
+		padding: 0 6px !important;
+	}
+	.top_cities_slider .popular-space-carousel .ngucarousel .ngucarousel-items {
+		display: block !important;
+		width: 100%;
+		height: auto !important;
+		overflow-x: scroll;
+		padding: 0px;
+		margin: 0;
+		white-space: nowrap;
+		scrollbar-width: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		-webkit-transition: none !important;
+		transition: none !important;
+	}
+
+	.top_cities_slider .popular-space-carousel .item {
+		padding: 0 !important;
+		display: inline-block;
+		margin: 0 5px;
+		height: auto;
+		background: transparent;
+		background-size: cover;
+		position: relative;
+		border-radius: 20px;
+		box-shadow: none;
+		-webkit-box-flex: 0;
+		flex: 0 0 71.4285714286%;
+		width: 71.4285714286%;
+		overflow: hidden;
+		padding: 0 5px;
+		width: 62% !important;
+	}
+
+	.top_cities_slider .popular-space-box {
+		height: 300px !important;
+	}
+    .top_cities_slider .top-city-img {
+		height: 240px;
+	}
+
+	.top_cities_slider .top-city-img img {
+		height: 240px;
+	}
+
+	.top_cities_slider .popular-space-box .space-detail {
+		padding: 10px 20px !important;
+	}
+
+	.top_cities_slider .popular-space-box h5 {
+		font-size: 19px;
+		line-height: 24px;
+		color: #fff;
+		margin-bottom: 5px;
+		font-weight: 700;
+	}
+
+	.top_cities_slider .popular-space-box p {
+		color: #fff !important;
+		margin: 0;
+	}
 }
