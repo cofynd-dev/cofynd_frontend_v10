@@ -39,12 +39,13 @@
 
             <div class="row" *ngIf="!loading">
                 <ng-container *ngFor="let coLiving of coLivings; let i = index">
-                    <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                    <!-- <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView"> -->
+                    <div class="col-sm-4">
                         <app-co-living-card [activeCountries]="activeCountries" [coLiving]="coLiving"></app-co-living-card>
                     </div>
 
 
-                    <ng-template [ngIf]="isMapView">
+                    <!-- <ng-template [ngIf]="isMapView"> -->
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9a0e263d79da3f58c4edfeb944679aab35c178ee.jpg');">
@@ -79,8 +80,8 @@
                             <app-search-contact-us-text2 [activeCountries]="activeCountries" [pageNo]="'microlocation page'" [microlocation]="subTitle">
                             </app-search-contact-us-text2>
                         </div>
-                    </ng-template>
-                    <ng-template [ngIf]="!isMapView">
+                    <!-- </ng-template> -->
+                    <!-- <ng-template [ngIf]="!isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <section class="gradient_cta_sec micro-location-cta">
                                 <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9a0e263d79da3f58c4edfeb944679aab35c178ee.jpg');">
@@ -115,11 +116,12 @@
                             <app-search-contact-us-text2 [activeCountries]="activeCountries" [pageNo]="'microlocation page'" [microlocation]="subTitle">
                             </app-search-contact-us-text2>
                         </div>
-                    </ng-template>
+                    </ng-template> -->
 
                 </ng-container>
 
-                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                <!-- <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView"> -->
+                <div class="col-md-4">
                     <app-city-page-enquire *ngIf="!loading && coLivings.length" [activeCountries]="activeCountries"  [enquiryType]="enquiryType" [isColivEnquiry]="true"></app-city-page-enquire>
                 </div>
             </div>
@@ -130,12 +132,12 @@
             </div>
         </div>
     </div>
-    <div *ngIf="loading" class="search-map-container">
+    <!-- <div *ngIf="loading" class="search-map-container">
     </div>
     <div *ngIf="!loading && isMapView" class="search-map-container" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
         <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'co-living'" [workspaces]="coLivings">
         </app-search-map-view>
-    </div>
+    </div> -->
 </section>
 <section class="search-description" *ngIf="!loading && seoData">
     <div class="container">
