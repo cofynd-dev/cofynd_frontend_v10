@@ -174,9 +174,9 @@ export class CoLivingDetailComponent implements OnInit {
   }
   addSeoTags(workspace: WorkSpace) {
     const seoData: SeoSocialShareData = {
-      title: workspace.seo.title ? workspace.seo.title : 'CoFynd - ' + workspace.name,
-      description: workspace.seo.description ? workspace.seo.description : workspace.description,
-      keywords: workspace.seo.keywords ? workspace.seo.keywords : '',
+      title: workspace.seo != null ? workspace.seo.title : 'CoFynd - ' + workspace.name,
+      description: workspace.seo != null ? workspace.seo.description : workspace.description,
+      keywords: workspace.seo != null ? workspace.seo.keywords : '',
       url: environment.appUrl + '/co-living/' + workspace.slug,
       image: this.shareImageUrl,
       type: 'website',
