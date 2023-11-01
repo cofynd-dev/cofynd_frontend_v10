@@ -230,7 +230,9 @@ export class CoLivingCityComponent implements OnInit, OnDestroy {
           'Shared Co Living Space in ' + altCity,
         ];
         this.coLivings[0].images.map((image, index) => {
-          image.image.alt = IMAGE_STATIC_ALT[index];
+          if (image.image != null) {
+            image.image.alt = IMAGE_STATIC_ALT[index];
+          }
         });
       }
       const found = this.coLivings.find(element => element.starting_price < 15000);
