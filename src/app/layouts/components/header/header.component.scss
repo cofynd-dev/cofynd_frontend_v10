@@ -263,7 +263,6 @@ header {
                     width: 100%;
                     display: block;
 
-                    // border-bottom: 1px solid #e5e5e5;
                     &:hover {
                         color: #4343e8;
                     }
@@ -607,7 +606,6 @@ a+a {
     }
 }
 
-//css for new mobile menu
 .onlyMobile {
     display: none;
 
@@ -675,6 +673,10 @@ a+a {
 
 .navbar-nav li .dropdown-menu li {
     margin-left: 0px;
+}
+.dropdown-menu li {
+    border-bottom: 1px solid #dce0e0;
+    padding: 0;
 }
 
 .main_header .nav-item .dropdown-menu .dropdown-item {
@@ -767,6 +769,39 @@ a+a {
     color: #fff;
 }
 
+.dropdown-link {
+    color: #272828;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 500;
+    &.active, &:hover {
+        color: #4243e8;
+   }
+    @media(max-width: 1320px) {
+        font-size: 13px;
+   }
+    @media(max-width: 1260px) {
+        font-size: 12px;
+   }
+}
+.dropdown-link i {
+    font-size: 11px;
+}
+
+.menu_dropdown .dropdown-menu {
+    width: 200px;
+    margin-left: -90px;
+  }
+  
+.menu_dropdown .dropdown-menu a {
+    padding: 10px 0px !important;
+}
+
+@media (max-width: 1366px) {
+    header .top-left .logo img {
+        max-width: 200px !important;
+   }
+}
 @media (max-width: 991px) {
     header {
         height: auto;
@@ -788,6 +823,15 @@ a+a {
         align-items: center;
         justify-content: right;
     }
+
+    .mobile_login .login-btn {
+		padding: 4px 11px;
+		background-color: transparent;
+		color: #4343e8;
+		font-weight: 500;
+		border-radius: 5px;
+		font-size: 10px;
+	}
 
     .user-header-menu .user-name {
         width: 28px;
@@ -967,14 +1011,11 @@ a+a {
 
 .checkbox-container input[type="checkbox"] {
     margin-right: 8px;
-    /* Adjust the value as needed for the desired spacing */
 }
 
 .error-message {
     margin-top: 1px;
-    /* Adjust the value as needed for the desired spacing */
     color: red;
-    /* Adjust the color as desired for the error message */
 }
 
 .bold-text {
@@ -984,7 +1025,6 @@ a+a {
 
 .privacy-policy-container {
     margin-top: 10px;
-    /* Adjust the value as needed to add space between rows */
 }
 
 .privacy-policy-text {

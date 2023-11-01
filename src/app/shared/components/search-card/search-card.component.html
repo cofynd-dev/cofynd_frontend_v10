@@ -1,4 +1,4 @@
-<div class="property_item property_item2 listing_card">
+<div class="property_item">
     <div *ngIf="workspace.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="workspace.images">
             <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
@@ -14,11 +14,11 @@
     <div class="image" *ngIf="!workspace.images.length"></div>
     <div class="property-dis" (click)="openWorkSpace(workspace)" style="cursor: pointer;">
         <h4>{{ workspace.name }} {{ workspace.location.name }}</h4>
-        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
+        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="" class="img-fluid"> {{ workspace.location.address1 }}</p>
         <div class="row align-items-end">
             <div class="col-md-6 col-6">
-                <p class="capacity"><img lazyLoad="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
-                <p class="capacity"><img class="img-fluid" lazyLoad="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
+                <p class="capacity"><img src="assets/images/amenities/wifi.svg" alt="wifi" class="img-fluid"> High speed WiFi</p>
+                <p class="capacity"><img class="img-fluid" src="assets/images/amenities/tea.svg" alt="Coffee"> Coffee & Bar</p>
             </div>
             <div class="col-md-6 col-6 justify-content-end d-flex">
                 <div *ngIf="workspace.show_price" class="price">
@@ -120,7 +120,7 @@
                                                     tabindex="-1"
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                        <div class="flag in"><img [src]="country?.image?.s3_link"
                                                                 width="18px" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>

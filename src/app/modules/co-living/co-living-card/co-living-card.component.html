@@ -1,27 +1,4 @@
-<div class="property_item property_item2 listing_card">
-    <!-- <div class="property-img">
-        <div *ngIf="coLiving.images.length" [attr.id]="carouselId" class="carousel slide" data-interval="false" data-touch="true" data-ride="carousel">
-        
-            <div class="carousel-inner">
-                <div *ngFor="let image of coLiving.images; let i = index" class="carousel-item" [class.active]="i === 0" style="cursor: pointer;">
-                    <img [lazyLoad]="image?.image?.s3_link" (click)="openWorkSpace(coLiving.slug)" class="d-block w-100" [src]="image?.image?.s3_link" [alt]="image?.image?.alt ? image?.image?.alt : ''">
-                </div>
-            </div>
-            
-            <ol class="carousel-indicators">
-                <li *ngFor="let image of coLiving.images | slice:0:5; let i = index" [attr.data-target]="'#' + carouselId" [attr.data-slide-to]="i" [class.active]="i == 0"></li>
-            </ol>
-        
-            <a class="carousel-control-prev hideOnMobile" [attr.href]="'#' + carouselId" role="button" data-slide="prev">
-                <i class="fas fa-chevron-left"></i>
-            </a>
-            <a class="carousel-control-next hideOnMobile" [attr.href]="'#' + carouselId" role="button" data-slide="next">
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-    </div> -->
-    
-
+<div class="property_item">
     <div *ngIf="coLiving.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="coLiving.images">
             <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
@@ -38,13 +15,13 @@
     <div class="image" *ngIf="!coLiving.images.length"></div>
     <div class="property-dis" (click)="openWorkSpace(coLiving.slug)" style="cursor: pointer;">
         <h4>{{ coLiving.name }}</h4>
-        <p class="address"><img [lazyLoad]="'../../../../assets/images/icons/location-icon.svg'" alt="Location" class="img-fluid"> {{ coLiving.location.address }}</p>
+        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ coLiving.location.address }}</p>
         <div class="row align-items-end">
-            <div class="col-md-6 col-8">
-                <p class="capacity"><img class="img-fluid" alt="Save Money" [lazyLoad]="'../../../../assets/images/amenities/save-money.svg'"> Best Price</p>
-        <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" [lazyLoad]="'../../../../assets/images/amenities/minimum-stay.svg'"> Minimum stay 3 months</p>
+            <div class="col-md-6 col-7">
+                <p class="capacity"><img class="img-fluid" alt="Save Money" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
+        <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
             </div>
-            <div class="col-md-6 col-4 justify-content-end d-flex">
+            <div class="col-md-6 col-5 justify-content-end d-flex">
                 <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }} <span class="rent_duration">/ {{ coLiving.duration }}</span></div>
             </div>
         </div>
@@ -132,7 +109,7 @@
                                                     tabindex="-1"
                                                     *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link"
+                                                        <div class="flag in"><img [src]="country?.image?.s3_link"
                                                                 width="18px" alt="Flag" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>

@@ -1,0 +1,199 @@
+.single-dropdown {
+  .dropdown-button {
+      background: #fff;
+      padding: 5px 15px;
+      border: 1px solid #dce0e0;
+      border-radius: 4px;
+      color: #757575;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      i {
+          font-size: 10px;
+     }
+      &.open {
+          .dropdown-button {
+              background: #e9e9ff;
+              border-color: #7d9dd9;
+              color: #4343e8;
+         }
+     }
+ }
+}
+.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  width: 160px;
+  margin-left: -80px;
+  border: 1px solid #dce0e0;
+  li {
+      border-bottom: 1px solid #dce0e0;
+      padding: 0;
+      &:last-child {
+          border-bottom: 0;
+     }
+      li {
+          border-bottom: 1px solid #dce0e0;
+          padding: 0;
+          &:last-child {
+              border-bottom: 0;
+         }
+          button {
+              padding: 10px;
+              font-size: 13px;
+              display: block;
+              width: 100%;
+              text-align: left;
+              &:hover {
+                  color: #4343e8;
+                  background: #e9e9ff;
+             }
+         }
+     }
+ }
+}
+
+.icon-down-arrow {
+  margin-left: 5px;
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+}
+
+.menu li .dropdown-list-menu span i {
+  font-size: 11px;
+}
+.selectedItem {
+  color: #4243e8;
+}
+.mega-menu-coliving {
+  width: 400px !important;
+}
+
+.dropdown-link {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.mega-menu {
+  width: 600px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  margin-left: -90px;
+  h5 {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #575757;
+      letter-spacing: 0.4px;
+      padding: 10px 0;
+      cursor: pointer;
+      a {
+          margin: 0;
+     }
+ }
+  &.mega-menu-col-1 {
+      width: 180px;
+      .mega-menu-dropdown {
+          .mega-menu-column {
+              flex: 0 0 100%;
+              max-width: 100%;
+         }
+     }
+ }
+  .mega-menu-dropdown {
+      display: flex;
+      flex-wrap: wrap;
+      .mega-menu-for-coliving {
+          flex: 0 0 50% !important;
+          max-width: 50% !important;
+     }
+      .mega-menu-column {
+          max-height: 100%;
+          padding: 0;
+          flex: 0 0 33.333333%;
+          max-width: 33.333333%;
+          position: relative;
+          padding: 0 15px;
+          .view-link {
+              color: #4243e8;
+              font-size: 12px;
+              text-transform: uppercase;
+              font-weight: 600;
+              padding: 20px 0 15px 0;
+              ;
+         }
+          h5 {
+              border-bottom: 1px solid #e5e5e5;
+              transition: all ease-in 500ms;
+              &:hover {
+                  cursor: pointer;
+             }
+              a {
+                  font-size: 13px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.2px;
+                  font-weight: 600;
+                  padding: 7px 0;
+             }
+              .city-link {
+                  display: flex;
+                  align-items: center;
+                  vertical-align: middle;
+                  img {
+                      height: 24px;
+                      max-width: 27px;
+                      display: inline-block;
+                      margin-right: 4px;
+                      border-radius: 50%;
+                 }
+             }
+         }
+          a {
+              border: none;
+              box-shadow: none;
+              outline: none;
+              font-size: 13px;
+              padding: 7px 15px;
+              display: block;
+              text-transform: capitalize;
+              width: 100%;
+              text-align: left;
+              color: #323232;
+              position: relative;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              &.active, &:hover {
+                  color: #4343e8 !important;
+                  .icon-next {
+                      color: #4343e8;
+                 }
+             }
+         }
+     }
+ }
+}
+
+
+@media (max-width: 1366px) {
+  .menu li .dropdown-list-menu span {
+      font-size: 13px !important;
+ }
+  header .icon-down-arrow {
+      margin-left: 2px !important;
+      font-size: 15px !important;
+      top: 2px !important;
+ }
+  .menu .dropdown-link {
+      font-size: 13px !important;
+ }
+  .menu li a {
+      font-size: 13px !important;
+ }
+}

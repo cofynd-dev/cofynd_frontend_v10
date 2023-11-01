@@ -1,10 +1,10 @@
 <div class="city-list">
     <button (click)="locateMyLocation()" type="button">
-    <img lazyLoad="/assets/images/icons/near-me-icon.svg"
+    <img src="/assets/images/icons/near-me-icon.svg"
       alt="'Office Space for Rent near me" />
     Near Me
   </button>
     <button *ngFor="let city of cities" (click)="openModal(city,city.name)" style="cursor: pointer;">
-        <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+        <img [src]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
     </button>
 </div>

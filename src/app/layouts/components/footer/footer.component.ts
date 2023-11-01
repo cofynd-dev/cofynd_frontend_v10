@@ -7,6 +7,7 @@ import { DEFAULT_APP_DATA } from '@core/config/app-data';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
+
 export class FooterComponent implements OnInit {
   contactInfo = DEFAULT_APP_DATA.contact;
   socialLinks = DEFAULT_APP_DATA.socialLinks;
