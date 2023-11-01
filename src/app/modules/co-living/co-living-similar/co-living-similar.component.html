@@ -3,7 +3,7 @@
         <div *nguCarouselDef="let office;let i = index;" class="item"
             [ngClass]="(i== workSpaces.length-1)?'last-slide':null">
 
-            <div class="property_item property_item2" style="cursor: pointer;">
+            <div class="property_item" style="cursor: pointer;">
                 <div class="property-img" [routerLink]="['/co-living/', office.slug]">
                     <img [lazyLoad]="office.images[0]?.image.s3_link" alt="Coliving Images" class="img-fluid">
                 </div>
