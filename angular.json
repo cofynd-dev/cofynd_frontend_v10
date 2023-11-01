@@ -55,7 +55,10 @@
                             "src/assets",
                             "src/robots.txt",
                             "src/sitemap.xml",
-                            "src/sitemap1.xml"
+                            "src/sitemap1.xml",
+                            "src/sitemap/all-spaces-sitemap.xml",
+                            "src/sitemap/city-sitemap.xml",
+                            "src/sitemap/locality-sitemap.xml"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
