@@ -7,7 +7,7 @@
                     
                     <div class="city-list">
                         <button *ngFor="let city of cities" [routerLink]="city.name">
-                            <img [lazyLoad]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
+                            <img [src]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                         </button>
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img [lazyLoad]="'../../../assets/images/list-your-space-img.svg'" alt="List Your Vacant" class="img-fluid">
+                <img [src]="'../../../assets/images/list-your-space-img.svg'" alt="List Your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
