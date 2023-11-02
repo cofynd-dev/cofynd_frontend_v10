@@ -14,7 +14,7 @@
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
-                    <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8ae994cd40789f6f0b2641fe5a6b54514305804b.jpg'" alt="Coliving Banner" class="img-fluid">
+                    <img [src]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ce0a387af999bca73c100a23ef20c5caaaa8edba.jpg'" alt="Coliving Banner" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
 
 <!--------------------- Mobile Banner -------------------->
 
-<section class="innerpage_banner onlyMobile" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');">
+<section class="innerpage_banner desktophide" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/e9cf315f29ff4e15f30ff54504dd3d8563a89577.jpg');">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-12">
@@ -58,7 +58,7 @@
                     <button [routerLink]="_city.name" class="text-dark">
                         <div class="row align-items-center">
                             <div class="col-4 pr-0">
-                                <img [lazyLoad]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" alt="Cities Icon" class="img-fluid citi-img">
+                                <img [src]="'../../../assets/images/co-living/colivingMain/city-Img/'+_city.img" alt="Cities Icon" class="img-fluid citi-img">
                             </div>
                             <div class="col-8">
                                 <div class="cities_box_content">
@@ -90,10 +90,10 @@
             </div>
             <br />
             <div class="col-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg'" alt="Offer" class="img-fluid m-auto d-block offer-img">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9cd622bc745a2800f0c19acc0767f288182c783b.jpg" alt="Offer" class="img-fluid m-auto d-block offer-img">
             </div>
             <div class="col-6">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg'" alt="Offer" class="img-fluid m-auto d-block offer-img">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/02da65deab34c13fa85842553e930bc2453f9ffd.jpg" alt="Offer" class="img-fluid m-auto d-block offer-img">
             </div>
         </div>
     </div>
@@ -112,20 +112,10 @@
         <div class="row amenities_row">
             <div class="col-md-4 col-4" *ngFor="let data of service">
                 <div class="icon_item mb-5">
-                    <img [lazyLoad]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
+                    <img [src]="'../../../assets/images/'+data.icon" class="img-fluid d-block" [alt]="data.title">
                     <h4>{{data.title}}</h4>
                     <p class="mobilehide">{{data.description}}</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="lifestyle_with_cofynd mobilehide">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8804128bda40d37afdace9be8e418c8512448103.png'" alt="Lifestyle" class="img-fluid">
             </div>
         </div>
     </div>
@@ -141,7 +131,7 @@
             <div class="col-md-4 pt-2" *ngFor=" let _centerCity of popularCoLivingSpaces | slice:0:1">
                 <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                     <div class="top-city-img main_city">
-                        <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
+                        <img [src]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                     </div>
                     <div class="top-city-text">
                         <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}</h4>
@@ -153,7 +143,7 @@
                     <div class="col-md-4 p-2" *ngFor="let _centerCity of popularCoLivingSpaces | slice:1:7">
                         <div class="top-city-item" style="cursor: pointer;" (click)="openWorkSpace(_centerCity.address.split(',').pop())">
                             <div class="top-city-img">
-                                <img [lazyLoad]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
+                                <img [src]="_centerCity.image" alt="Cities Image" class="img-fluid d-block m-auto">
                             </div>
                             <div class="top-city-text">
                                 <h4><i class="fas fa-map-marker-alt"></i> {{_centerCity.address.split(",").pop()}}
@@ -167,24 +157,35 @@
     </div>
 </section>
 
-<app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
-</app-carousel-item>
+<section class="lifestyle_with_cofynd mobilehide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/da6fae802ebc106b6f5c6ea89e6a7476bd12186b.png" alt="Lifestyle" class="img-fluid"> -->
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bc0ddb00c9142d8bdb45aab979dc92b759de75e4.jpg" alt="Lifestyle" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <app-carousel-item *ngIf="spacesByCity.banglore.length" [pageTitle]="'Top Spaces in Bangalore'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.banglore">
 </app-carousel-item>
 
+<app-carousel-item *ngIf="spacesByCity.gurugram.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.gurugram">
+</app-carousel-item>
+
 <app-carousel-item *ngIf="spacesByCity.hyderabad.length" [pageTitle]="'Top Spaces in Hyderabad'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.hyderabad">
 </app-carousel-item>
 
-<app-carousel-item *ngIf="spacesByCity.gurugram.length" [pageTitle]="'Top Spaces in Gurugram'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.gurugram">
+<app-carousel-item [pageTitle]="'Top Couple Living Spaces'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spaceForMobile.coupleLiving">
 </app-carousel-item>
 
 <section class="flock_banner">
     <div class="container">
         <div class="row">
             <div class="col-md-12" (click)="goToBrand()">
-                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png'" alt="Brand Image" class="img-fluid">
+                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3626058092e40a35abdafc1bab9c8370ac6103ed.png" alt="Brand Image" class="img-fluid">
             </div>
         </div>
     </div>
@@ -199,9 +200,9 @@
 <app-carousel-item *ngIf="spacesByCity.noida.length" [pageTitle]="'Top Spaces in Noida'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.noida">
 </app-carousel-item>
 
-<div class="container">
+<!-- <div class="container">
     <app-search-contact-us-text1></app-search-contact-us-text1>
-</div>
+</div> -->
 
 <app-carousel-item *ngIf="spacesByCity.mumbai.length" [pageTitle]="'Top Spaces in Mumbai'" [shouldCoWorkingVisible]="false" [shouldCoLivingVisible]="true" [coLivingSpaces]="spacesByCity.mumbai">
 </app-carousel-item>
@@ -274,7 +275,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img [src]="'../../../assets/images/list-your-space-img.svg'" alt="List Your Vacant" class="img-fluid">
+                <img src="assets/images/list-your-space-img.svg" alt="List Your Vacant" class="img-fluid">
             </div>
         </div>
     </div>
@@ -285,7 +286,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
-                    <img style="max-height: 200px;" lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/727de738fd2725e2045d19ac44a5873f25919b36.png" alt="What's the CoFynd Desk">
+                    <img style="max-height: 200px;" src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/727de738fd2725e2045d19ac44a5873f25919b36.png" alt="What's the CoFynd Desk">
                     <h4>What's the CoFynd Desk?</h4>
                     <p class="about_text">CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in between.<br /> As we grow, we think of ourselves as creating a shared Ecosystem, one that lets the Cofynd community Breathe, Connect and Climb
                         to their highest in life.</p>

@@ -55,7 +55,7 @@
   position: relative;
 }
 
-.property_item .item img:hover {
+.property_item .property-img img:hover {
   transform: scale(1.06);
 }
 
@@ -113,8 +113,8 @@
 // }
 
 .property_item .property-dis .address {
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+  padding-bottom: 7px;
+  margin-bottom: 7px;
   border-bottom: 1px solid rgba(0, 0, 0, .05);
   white-space: nowrap;
   scrollbar-width: none !important;
@@ -134,7 +134,7 @@
 .property_item .property-dis p {
   color: #212529;
   font-size: 12px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
 }
@@ -145,7 +145,7 @@
 
 .property_item .property-dis img,
 .property_item .property-dis .furnish_type img {
-  width: 20px;
+  width: 16px;
   margin-right: 8px;
 }
 

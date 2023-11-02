@@ -15,11 +15,11 @@
     <div class="image" *ngIf="!coLiving.images.length"></div>
     <div class="property-dis" (click)="openWorkSpace(coLiving.slug)" style="cursor: pointer;">
         <h4>{{ coLiving.name }}</h4>
-        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ coLiving.location.address }}</p>
+        <p class="address"><img src="assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ coLiving.location.address }}</p>
         <div class="row align-items-end">
             <div class="col-md-6 col-7">
-                <p class="capacity"><img class="img-fluid" alt="Save Money" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-        <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                <p class="capacity"><img class="img-fluid" alt="Fully Furnished" src="assets/images/amenities/fully-furnished.svg"> Fully Furnished</p>
+        <p class="capacity"><img class="img-fluid" alt="Community Events" src="assets/images/amenities/community-events.svg"> Community Events</p>
             </div>
             <div class="col-md-6 col-5 justify-content-end d-flex">
                 <div class="price"><span class="rent_title">Starting from</span>₹{{ coLiving.starting_price.toLocaleString('en-IN') }} <span class="rent_duration">/ {{ coLiving.duration }}</span></div>
