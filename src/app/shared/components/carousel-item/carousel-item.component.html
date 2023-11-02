@@ -13,7 +13,7 @@
                             <div class="item" *nguCarouselDef="let space; let i = index;" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">
                                 <div class="property_item" style="cursor: pointer;" (click)="openWorkSpace(space.slug,space.country)">
                                     <div class="property-img">
-                                        <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid">
+                                        <img [src]="space.image" [alt]="space.name" class="img-fluid">
                                     </div>
                                     <div class="property-dis">
                                         <h4>{{space.name}}</h4>
@@ -58,14 +58,14 @@
                             <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">
                                 <div class="property_item" style="cursor: pointer;" (click)="openCoLivingSpace(space.slug,space.country)">
                                     <div class="property-img">
-                                        <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid">
+                                        <img [src]="space.image" [alt]="space.name" class="img-fluid">
                                     </div>
                                     <div class="property-dis">
                                         <h4>{{space.name}}</h4>
                                         <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{space.address}}</p>
                                         <div class="amenities_card">
-                                          <p class="capacity"><img class="img-fluid" alt="Save Money" src="../../../../assets/images/amenities/save-money.svg"> Best Price</p>
-                                          <p class="capacity light_blue"><img class="img-fluid" alt="Minimum Stay" src="../../../../assets/images/amenities/minimum-stay.svg"> Minimum stay 3 months</p>
+                                          <p class="capacity"><img class="img-fluid" alt="Fully Furnished" src="assets/images/amenities/fully-furnished.svg"> Fully Furnished</p>
+                                          <p class="capacity"><img class="img-fluid" alt="Community Events" src="assets/images/amenities/community-events.svg"> Community Events</p>
                                         </div>
                                     </div>
                                     <div class="property-foot align-items-end">

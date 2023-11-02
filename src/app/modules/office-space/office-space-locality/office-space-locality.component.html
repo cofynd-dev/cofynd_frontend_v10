@@ -25,7 +25,7 @@
             <app-search-similar-location *ngIf="!loading" [relativeUrl]="'office-space/rent'" [cityName]="title" [popularLocationList]="cityWisePopularLocation">
             </app-search-similar-location>
 
-            <section class="for_email_sec mobilehide">
+            <!-- <section class="for_email_sec mobilehide">
                 <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3178e0cd0b21178e626195ffde0edbf7e1947382.png');">
                     <div class="row align-items-center">
                         <div class="col-md-8 col-12">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <app-search-no-result *ngIf="!loading && !offices.length" [title]="'Office'" [shouldShowContactForm]="true" [url]="'/office-space/rent/'">
             </app-search-no-result>

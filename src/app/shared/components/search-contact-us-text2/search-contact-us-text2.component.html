@@ -31,7 +31,7 @@
                                             <ul *ngIf="showcountry" class="country-list">
                                                 <li (click)="hideCountry(country)" class="country active" tabindex="-1" *ngFor="let country of activeCountries">
                                                     <div class="flag-box">
-                                                        <div class="flag in"><img [lazyLoad]="country?.image?.s3_link" width="18px" /></div>
+                                                        <div class="flag in"><img [src]="country?.image?.s3_link" width="18px" /></div>
                                                     </div>
                                                     <span class="country-name">{{country?.name}}</span>
                                                     <span class="dial-code">{{country?.dial_code}}</span>
@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="cta_img">
-                    <img lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc4e9e6f64e226bcf8a39fe4017573071d4fff40.png" alt="City Form Space" class="img-fluid">
+                    <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/dc4e9e6f64e226bcf8a39fe4017573071d4fff40.png" alt="City Form Space" class="img-fluid">
                 </div>
             </div>
         </div>

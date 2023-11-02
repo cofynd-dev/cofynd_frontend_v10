@@ -15,7 +15,7 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-co-living',
   templateUrl: './co-living.component.html',
-  styleUrls: ['./co-living.component.scss', '../virtual-office/virtual-office.component.scss'],
+  styleUrls: ['./co-living.component.scss'],
 })
 export class CoLivingComponent implements OnInit {
   seoData: SeoSocialShareData;
@@ -468,53 +468,53 @@ export class CoLivingComponent implements OnInit {
 
   popularCoLivingSpaces = [
     {
-      name: 'Hyphen Ombre',
+      // name: 'FF21 HBR Layout',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4c5e631024ca5353b29131e8b729c85ce7ce7b36.jpg',
-      address: 'HSR Layout, Bangalore',
-      slug: 'hyphen-ombre',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/67ad1e691ab3589c84affcc2d374ee9d247fdb48.jpg',
+      address: 'Bangalore',
+      // slug: 'ff21-hbr-layout',
     },
     {
-      name: 'Cofynd CoLo Oasis',
+      // name: 'Cofynd CoLo Oasis',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/ae636374fbff5e01efcb978b101a884b39e8ff8f.jpg',
-      address: 'Sector 40, Gurugram',
-      slug: 'flock-oasis',
+      address: 'Gurugram',
+      // slug: 'flock-oasis',
     },
     {
-      name: 'HelloWorld Siri',
+      // name: 'Orchid by Hive (Male)',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3cf39ce402e67c8fad130db6b0dae64915e20cd2.jpg',
-      address: 'B-56, Sector 22, Noida',
-      slug: 'helloworld-siri',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/8bb69ca0682134f7af65ae265837c4b752f0bda2.jpg',
+      address: 'Noida',
+      // slug: 'orchid-by-hive',
     },
     {
-      name: 'Orion Ursa(Girls)',
+      // name: 'Orion Ursa(Girls)',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3743430afbdc8daa04378e132689272483e9e539.jpg',
-      address: 'Kamla Nagar, Delhi',
-      slug: 'orion-ursa-kamla-nagar',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/bba782dcb4d9bdda525518a5710e84f80bcac47e.jpg',
+      address: 'Delhi',
+      // slug: 'orion-ursa-kamla-nagar',
     },
     {
-      name: 'Tribe Luxury Hostel Wakad',
+      // name: 'Tribe Luxury Hostel Wakad',
       image:
         'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4a4ec43ef01491c47a9f3a9c2089605e60413746.jpg',
-      address: 'ACE Almighty, Wakad, Pune',
-      slug: 'tribe-stays-wakad',
+      address: 'Pune',
+      // slug: 'tribe-stays-wakad',
     },
     {
-      name: `HelloWorld Harmony`,
+      // name: `HelloWorld Harmony`,
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/9b5dc544341221b96035907ff7c60710f0c2ba13.jpg',
-      address: 'Santacruz East, Mumbai',
-      slug: 'helloworld-harmony',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/f5be43157b1cd3847db4e02db467eb24f40260c6.jpg',
+      address: 'Mumbai',
+      // slug: 'helloworld-harmony',
     },
     {
-      name: 'HelloWorld Fitoor',
+      // name: 'Isthara Dsr Nilayam',
       image:
-        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/d73119104d471bba36644fbe8c79f7777b647315.jpg',
-      address: 'Indira Nagar, Gachibowli, Hyderabad',
-      slug: 'helloworld-fitoor',
+        'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3be117e91af025f1f09faf40fac4efa2b0baa745.jpg',
+      address: 'Hyderabad',
+      // slug: 'dsr-nilayam-isthara',
     },
   ];
 
