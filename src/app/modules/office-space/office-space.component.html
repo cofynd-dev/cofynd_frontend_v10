@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="space_carousel">
-                    <div class="property_item"
+                    <div class="property_item property_type2"
                         *ngFor=" let _centerCity of offices"
                         [routerLink]="['/office-space/rent/', _centerCity.slug]">
                         <div class="property-img">
@@ -91,7 +91,7 @@
                                         lazyLoad="assets/images/icons/flexible-lease-icon.svg"> Flexible Lease</p>
                             </div>
                         </div>
-                        <div class="property-foot property-foot2 align-items-end">
+                        <div class="property-foot align-items-end">
                             <div class="price"><span class="rent_title">Rent</span>{{
                                 (_centerCity.other_detail.area_for_lease_in_sq_ft *
                                 _centerCity.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}/- <span>month</span>
