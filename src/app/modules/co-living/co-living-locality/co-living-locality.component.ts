@@ -91,6 +91,9 @@ export class CoLivingLocalityComponent implements OnInit, OnDestroy {
         if (url === 'gurugram/sohna-road') {
           this.router.navigateByUrl('co-living/gurugram/sector-49');
         }
+        if (url === 'gurugram/mg-road') {
+          this.router.navigateByUrl('co-living/gurugram/mg-road-gurugram');
+        }
         const filteredCity = this.availableCities.filter(
           city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
         );

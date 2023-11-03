@@ -654,8 +654,14 @@ export class CoLivingComponent implements OnInit {
     this.router.navigate([`/co-living/${slug.toLowerCase().trim()}`]);
   }
 
-  goToBrand() {
-    this.router.navigate([`/brand/co-living/flock`]);
+  goCovieBrand() {
+    this.router.navigate([`co-living-brand/covie`]);
+  }
+  goSettlBrand() {
+    this.router.navigate([`co-living-brand/settl`]);
+  }
+  goTribeBrand() {
+    this.router.navigate([`co-living-brand/tribe`]);
   }
 
   addSeoTags() {
