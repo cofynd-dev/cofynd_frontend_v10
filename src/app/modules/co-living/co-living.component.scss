@@ -111,6 +111,7 @@
       color: #fff;
       line-height: 28px;
       transition: all 0.5s;
+      text-transform: capitalize;
     }
   }
 
@@ -313,26 +314,6 @@
       top: 0;
     }
   }
-
-  // .featured_overlay::after {
-  //   background: linear-gradient(90deg, rgb(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  // }
-
-  // .colving-bg .featured p,
-  // .colving-bg .featured button {
-  //   z-index: 99;
-  //   position: relative;
-  // }
-
-  // .colving-bg .featured 
-
-  // .colving-bg .featured 
 
   .amenities_row .icon_item img {
     height: 25px !important;
