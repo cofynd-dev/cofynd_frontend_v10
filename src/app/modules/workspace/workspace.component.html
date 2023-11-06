@@ -1,4 +1,4 @@
-<app-workspace-loader *ngIf="loading"></app-workspace-loader>
+<!-- <app-workspace-loader *ngIf="loading"></app-workspace-loader> -->
 <section class="breadcrumbs_sec mobilehide">
     <div class="container-fluid">
         <div class="row">
@@ -25,9 +25,8 @@
 
                     <app-workspace-banner *ngIf="workspace && workspace.images.length" [images]="workspace.images" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
                     </app-workspace-banner>
-
-                    <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
-                    </app-workspace-banner-blank>
+                    <!-- <app-workspace-banner-blank *ngIf="workspace && !workspace.images.length" [isFavorite]="workspace.is_favorite" [workspaceId]="workspace.id" [title]="workspace.name">
+                    </app-workspace-banner-blank> -->
                 </div>
             </div>
         </div>
@@ -46,7 +45,7 @@
                                 <div class="space_head " [@scrollAnimation]="isStickyHeaderVisible" [class.fixed-header]="isStickyHeaderVisible === visibilityState.Visible">
                                     <div class="heading-info">
                                         <h1>{{ workspace.name }} {{ workspace.location.name }}</h1>
-                                        <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace.location.address1 }}</p>
+                                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace.location.address1 }}</p>
                                         <p class="price mobilehide"><span class="rent_title">Starting</span>{{ workspace.starting_price | currency: workspace?.currency_code : 'symbol' : '1.0-0'}} <span class="rent_type">/{{ workspace.price_type }}</span></p>
                                     </div>
                                 </div>

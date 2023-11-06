@@ -12,7 +12,7 @@
                         <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==clients.length-1)?'last-slide':null">
                             <div class="our_client_item" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
                                 <div class="client-log">
-                                    <img [lazyLoad]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
+                                    <img [src]="space.image" [alt]="space.name" class="img-fluid d-block m-auto">
                                 </div>
                             </div>
                         </div>

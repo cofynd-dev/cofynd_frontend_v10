@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="space_carousel">
-                    <div class="property_item"
+                    <div class="property_item property_type2"
                         *ngFor=" let _centerCity of offices"
                         [routerLink]="['/office-space/rent/', _centerCity.slug]">
                         <div class="property-img">
@@ -385,7 +385,7 @@
         <div class="row office_top_properties_slider" >
             <div class="col-lg-4 col-md-4 col-sm-6"
                 *ngFor="let space of spacesByCity.gurugram | slice:0:6">
-                <div class="property_item property_item2">
+                <div class="property_item">
                     <div class="property-img">
                         <img [lazyLoad]="space?.images[0].image?.s3_link"
                             alt="Property Space Image"
@@ -884,7 +884,7 @@
             <div class="col-md-12">
                 <div class="cofynd-desk text-center">
                     <img style="max-height: 200px;"
-                        lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/c73da7d3135107aeb381095d5913bc54c77d5c4d.png"
+                        lazyLoad="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/727de738fd2725e2045d19ac44a5873f25919b36.png"
                         alt="What's the CoFynd Desk">
                     <h4>What's the CoFynd Desk?</h4>
                     <p>CoFynd is helping professionals find their perfect WorkSpace, Living Space & Everything in

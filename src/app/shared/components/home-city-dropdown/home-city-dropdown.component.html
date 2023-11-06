@@ -5,7 +5,7 @@
         <h4>Find the perfect {{spaces}} </h4>
         <p>Choose from 25,000+ Live Spaces, 700+ Locations & 18 Cities.</p>
     </div>
-    <div *ngIf="!enabledForm" class="form-layout-outline" [class.row]="!isModalView">
+    <div *ngIf="!enabledForm" class="form-layout-outline home_search_form" [class.row]="!isModalView">
         <div [class.col-md-4]="!isModalView">
             <div class="form-group">
                 <ng-select [placeholder]="typeLabel" [clearable]="false" [searchable]="false" (change)="onTypeChange($event)">
@@ -20,10 +20,10 @@
                 <ng-select [searchable]="false" [clearable]="false" [placeholder]="cityLabel" [notFoundText]="'Select Type First'" (change)="onCityChange($event)">
                     <ng-option *ngFor="let city of cities" [value]="city">
                         <ng-container *ngIf="isCountryLandingPage == false">
-                            <img lazyLoad="/assets/images/city/{{city.icon}}" width="20px" height="20px" />
+                            <img src="/assets/images/city/{{city.icon}}" width="20px" height="20px" />
                         </ng-container>
                         <ng-container *ngIf="isCountryLandingPage == true">
-                            <img [lazyLoad]="city?.icon?.s3_link" width="20px" height="20px" [alt]="city.name">
+                            <img [src]="city?.icon?.s3_link" width="20px" height="20px" [alt]="city.name">
                         </ng-container>
                         {{ removedash(city.name) }}
                     </ng-option>

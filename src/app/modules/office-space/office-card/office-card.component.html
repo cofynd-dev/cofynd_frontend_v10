@@ -1,4 +1,4 @@
-<div class="property_item property_item2 listing_card">
+<div class="property_item">
     <div *ngIf="office.images.length" class="property-img">
         <ngu-carousel #imageGalleryCarousel
             [inputs]="carouselTile"
@@ -31,29 +31,25 @@
             <br><span class="builder_name">{{office?.other_detail?.building_name}}</span>
         </h4>
         <p class="address"><img lazyLoad="../../../../assets/images/icons/location-icon.svg"
-                alt=" Location"
+                alt="Location"
                 class="img-fluid"> {{ office.location.address }}</p>
 
         <div class="row align-items-end">
-            <div class="col-md-6 col-6">
-                <p class="capacity">
-                    <img class="img-fluid" lazyLoad="assets/images/icons/flexible-lease-icon.svg" alt="Coffee"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
-                </p>
-                <p class="capacity mb-0">
-                    <img lazyLoad="/assets/images/icons/furnished-status-icon.svg" alt="wifi" class="img-fluid"> {{ getoffceType(office.other_detail.office_type) | titlecase}}
-                </p>
+            <div class="col-md-6 col-7">
+                <p class="capacity"><img class="img-fluid" alt="Fully Furnished" src="assets/images/icons/flexible-lease-icon.svg"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                <p class="capacity"><img class="img-fluid" alt="Community Events" src="/assets/images/icons/furnished-status-icon.svg"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
             </div>
-            <div class="col-md-6 col-6 justify-content-end d-flex">
+            <div class="col-md-6 col-5 justify-content-end d-flex">
                 <div class="price"><span class="rent_title">Rent</span>₹{{(office.other_detail.area_for_lease_in_sq_ft * office.other_detail.rent_in_sq_ft).toLocaleString('en-IN') }}</div>
             </div>
         </div>
     </div>
     <div class="property-foot align-items-end">
         <div class="button">
-            <button [routerLink]="['/office-space/rent/', office.slug]" target="_blank" tabindex="0">Explore More</button>
+            <a [routerLink]="['/office-space/rent/', office.slug]" target="_blank" tabindex="0">Explore More</a>
         </div>
         <div class="button">
-            <button type="button" (click)="getQuote(office.slug)" data-toggle="modal" data-target="#exampleModal">Get Quote</button>
+            <a type="button" (click)="getQuote(office.slug)" data-toggle="modal" data-target="#exampleModal">Get Quote</a>
         </div>
     </div>
 </div>

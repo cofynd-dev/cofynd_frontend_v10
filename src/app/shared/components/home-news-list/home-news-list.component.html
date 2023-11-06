@@ -11,7 +11,7 @@
           <ngu-carousel #myCarousel [inputs]="carouselTile" [dataSource]="carouselTileItems">
             <div *nguCarouselDef="let item; let i = index;" class="item">
               <div class="band-img" [ngClass]="(i==0)?'first-slide':'not-first-slide'">
-                <img [lazyLoad]="'../../../../assets/images/newsLogo/'+newsMedia[i]+'.png'" [alt]="newsMedia" />
+                <img [src]="'../../../../assets/images/newsLogo/'+newsMedia[i]+'.png'" [alt]="newsMedia" />
               </div>
             </div>
           <button type="button"  class="carousel-arrow icon-back fas fa-chevron-left">

@@ -1,80 +1,249 @@
-.customized {
-
-  img {
-    height: 50px;
-    width : auto;
-  }
-
-  .option-box {
-    box-shadow         : 0 6px 16px rgb(0 0 0 / 20%);
-    padding            : 10px;
-    border-radius      : 12px;
-    border             : 1px solid rgba(0, 0, 0, .02);
-    transition-delay   : .5s;
-    transition-duration: .7s;
-
-    p:first-child {
-      font-size  : 23px;
-      line-height: 32px;
-    }
-
-    .mt-20 {
-      margin-top: 20px;
-    }
-  }
-
-  @media (max-width:480px) {
-    padding: 70px 0 !important;
-
-    .hide-m {
-      display: none;
-    }
-
-  }
+.banner_content {
+  padding: 0px 40px 10px 120px;
 }
+
+.innerpage_banner {
+  padding-top: 70px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.banner_img {
+  border-radius: 0px 0px 0px 180px;
+  overflow: hidden;
+  height: 620px;
+}
+
+.banner_img img {
+  height: 620px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.top-city-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.top-city-img {
+  position: relative;
+  height: 230px;
+  transition: all 0.5s;
+}
+
+.top-city-img img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.top-city-img::before {
+  position: absolute;
+  content: "";
+  background: radial-gradient(44.97% 44.97% at 50% 55.03%, rgba(57, 68, 79, 0) 1%, rgba(57, 68, 79, 0.5) 72.92%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.top-city-item:hover .top-city-img::before {
+  opacity: 1;
+  background: radial-gradient(44.97% 44.97% at 50% 55.03%, rgba(57, 68, 79, 0.5) 1%, rgba(57, 68, 79, 0.8) 72.92%);
+}
+
+.top-city-text {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.top-city-item:hover .top-city-text {
+  bottom: 43%;
+}
+
+.top-city-text h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 28px;
+  transition: all 0.5s;
+}
+
+.top-city-img.main_city {
+  height: 476px;
+}
+
+.top-city-img.main_city img {
+  height: 476px;
+}
+
+// ------- Flag css
+
+.country_phone .selected-flag .flag {
+  display: flex;
+}
+
+.country_phone .flag-container {
+  display: flex;
+  align-items: center;
+}
+
+.country_phone .icon_phone_field .form-control {
+  padding-left: 10px !important;
+}
+
+.country_phone .input-group {
+  padding-left: 0;
+  border: none;
+}
+
+.country_phone .form-input.icon_phone_field {
+  padding-left: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.country_phone .flag img {
+  margin-right: 5px;
+  width: 18px !important;
+  position: relative !important;
+  height: auto !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.country_phone .selected-flag .flag .arrow {
+  font-size: 9px;
+  margin-left: 3px;
+}
+
+.country_phone .country-list {
+  position: absolute;
+  background-color: #fff;
+  top: 42px;
+  border-radius: 10px;
+  padding: 0px 12px;
+  width: 89%;
+  height: 250px;
+  overflow-y: scroll;
+  z-index: 9;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.country_phone .country-list .country {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 5px 0px;
+  font-size: 13px;
+}
+
+.country_phone .country-list .country .country-name {
+  font-size: 12px;
+}
+
+.country_phone .country-list .country .dial-code {
+  margin-left: 5px;
+}
+
+.country_phone .country-list .divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 5px 0px;
+}
+
+.country_phone.icon_phone_field .selected-flag .flag.in {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 42px;
+}
+
+
+/******** Old Css ******/
+// .customized {
+
+//   img {
+//     height: 50px;
+//     width : auto;
+//   }
+
+//   .option-box {
+//     box-shadow         : 0 6px 16px rgb(0 0 0 / 20%);
+//     padding            : 10px;
+//     border-radius      : 12px;
+//     border             : 1px solid rgba(0, 0, 0, .02);
+//     transition-delay   : .5s;
+//     transition-duration: .7s;
+
+//     p:first-child {
+//       font-size  : 23px;
+//       line-height: 32px;
+//     }
+
+//     .mt-20 {
+//       margin-top: 20px;
+//     }
+//   }
+
+//   @media (max-width:480px) {
+//     padding: 70px 0 !important;
+
+//     .hide-m {
+//       display: none;
+//     }
+
+//   }
+// }
 
 .city-list {
   max-width: 530px;
+  margin-top: 20px;
 
   @media screen and (max-width: 767px) {
-    max-width         : 100%;
-    white-space       : nowrap;
-    overflow-y        : hidden;
-    overflow-x        : auto;
-    scrollbar-width   : none;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-      width     : 0px;
+      width: 0px;
       background: transparent;
     }
   }
 
   button,
   a {
-    width          : 78px;
-    height         : 78px;
-    border-radius  : 100%;
-    text-align     : center;
-    background     : #f8f8f8;
-    font-size      : 10px;
-    font-weight    : 600;
-    color          : #000;
-    margin-right   : 10px;
-    text-transform : capitalize;
-    transition     : all ease-in .5s;
-    padding        : 0;
-    outline        : none;
-    vertical-align : middle;
-    margin-top     : 10px;
-    display        : inline-flex;
-    align-items    : center;
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    text-align: center;
+    background: #f8f8f8;
+    font-size: 10px;
+    font-weight: 600;
+    color: #000;
+    margin-right: 10px;
+    text-transform: capitalize;
+    transition: all ease-in .5s;
+    padding: 0;
+    outline: none;
+    vertical-align: middle;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    flex-direction : column;
+    flex-direction: column;
 
     img {
-      max-height   : 32px;
-      max-width    : 40px;
+      max-height: 32px;
+      max-width: 40px;
       margin-bottom: 2px;
     }
 
@@ -87,31 +256,84 @@
     }
 
     @media (max-width: 380px) {
-      width : 72px;
+      width: 72px;
       height: 72px;
     }
   }
 }
 
-.wrapper .banner .banner-bg {
-  background     : url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg') no-repeat top right;
-  width          : 50%;
-  position       : absolute;
-  right          : 0;
-  top            : 0;
-  height         : 100%;
-  border-radius  : 0 0 0 30%;
-  background-size: cover;
+// .wrapper .banner .banner-bg {
+//   background     : url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/b8213cdfc4034c116b80c1f3fa5e77617a33e00d.jpg') no-repeat top right;
+//   width          : 50%;
+//   position       : absolute;
+//   right          : 0;
+//   top            : 0;
+//   height         : 100%;
+//   border-radius  : 0 0 0 30%;
+//   background-size: cover;
 
-  @media (max-width: 767px) {
-    display: none;
-  }
-}
+//   @media (max-width: 767px) {
+//     display: none;
+//   }
+// }
 
 
 .hideInDesktop {
   display: none;
 
+}
+
+.coworking_top_city {
+  padding-top: 80px;
+  padding-bottom: 70px;
+}
+
+.facilities_sec {
+  padding: 70px 0px 50px;
+}
+
+.coworking_facilities {
+  padding-top: 60px;
+  padding-bottom: 0px;
+}
+
+.facilities_sec .icon_item img {
+  height: 40px;
+}
+
+.facilities_sec .icon_item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #000;
+  margin-bottom: 3px;
+}
+
+.facilities_sec .icon_item p {
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .banner_content {
+    padding: 0px 40px 10px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner_content h1 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+    margin-bottom: 10px;
+  }
+
+  .facilities_sec .icon_item img {
+    height: 30px;
+  }
+
+  .facilities_sec .icon_item h4 {
+    font-size: 13px;
+    line-height: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -123,389 +345,6 @@
     display: block;
   }
 
-
-
-  .top-coliving-spaces {
-    max-width         : 100%;
-    white-space       : nowrap;
-    overflow-y        : hidden;
-    overflow-x        : auto;
-    scrollbar-width   : none;
-    -ms-overflow-style: none;
-
-    a {
-      width                   : 140px;
-      height                  : 160px;
-      text-align              : left;
-      font-size               : 10px;
-      font-weight             : 600;
-      color                   : #000;
-      margin-right            : 10px;
-      text-transform          : capitalize;
-      -webkit-transition      : .5s ease-in;
-      transition              : all ease-in .5s;
-      padding                 : 0;
-      outline                 : 0;
-      vertical-align          : middle;
-      margin-top              : 10px;
-      display                 : -webkit-inline-box;
-      display                 : inline-flex;
-      -webkit-box-align       : center;
-      -webkit-box-pack        : center;
-      justify-content         : center;
-      -webkit-box-orient      : vertical;
-      -webkit-box-direction   : normal;
-      flex-direction          : column;
-
-      img {
-        max-width    : 150px;
-        width        : 140px;
-        margin-bottom: 2px;
-        object-fit   : cover;
-      }
-    }
-  }
-
-  .top-search {
-    background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d76dbae3fc984d286d56580f607710430cfea5a.jpg');
-    background-size : cover;
-    height          : 60vh;
-  }
-
-  .top-search h1 {
-    font-size  : 26px;
-    font-weight: 600;
-    line-height: 40px;
-    color      : #fff;
-  }
-
-  .has-search .form-control {
-    padding-left : 2.375rem;
-    height       : 50px;
-    text-align   : center;
-    padding      : 0.375rem 2.5rem;
-    border-radius: 50px;
-    border       : 1px solid #ccc;
-    width        : 85%;
-  }
-
-  .has-search .form-control::placeholder {
-    color      : #6a6a6a;
-    font-weight: 500;
-    opacity    : 1;
-  }
-
-  .has-search .form-control-feedback {
-    position      : absolute;
-    z-index       : 2;
-    display       : block;
-    top           : 8px;
-    left          : 2%;
-    width         : 2.375rem;
-    height        : 2.375rem;
-    text-align    : center;
-    line-height   : 2.375rem;
-    text-align    : center;
-    pointer-events: none;
-    color         : #aaa;
-  }
-
-  .search-bar {
-    margin: 0 10%;
-  }
-
-  .cities a {
-    text-decoration: none;
-  }
-
-  .facility-head i {
-    color    : #4343e8;
-    font-size: 14px;
-  }
-
-  .citi-img {
-    border-radius: 5px;
-    height       : 50px;
-    width        : 50px;
-  }
-
-  .bangalore {
-    font-weight  : 500;
-    padding-top  : 0px;
-    margin-bottom: 0px;
-    margin-top   : 5px;
-  }
-
-  .famous-name {
-    font-size    : 10px;
-    margin-bottom: 34px;
-  }
-
-  .live-spaces-button {
-    font-weight     : 500;
-    background-color: #4343e8;
-    font-size       : 12px;
-    border-radius   : 20px;
-  }
-
-  .facility-head {
-    font-size  : 19px;
-    line-height: 26px;
-    font-weight: 600;
-  }
-  
-  .offer-img {
-    border-radius: 20px;
-  }
-
-  .city-circle {
-    height       : 60px;
-    width        : 60px;
-    border-radius: 50%;
-    box-shadow   : 0px 4px 9px rgba(0, 0, 0, 0.12);
-  }
-
-  .city-circle img {
-    height  : 50px;
-    width   : 50px;
-    position: relative;
-    left    : 2px;
-    top     : 2px;
-  }
-
-  .font-14-mid {
-    font-size  : 14px;
-    font-weight: 500;
-  }
-
-  .covid-safety img {
-    border-radius: 10px;
-    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .fw-600 {
-    font-weight: 500;
-  }
-
-  .fw-300 {
-    font-weight: 300;
-  }
-
-  .fw-400 {
-    font-weight: 400;
-  }
-
-  .owl-dots {
-    display: none;
-  }
-
-  .owl-carousel .item {
-    margin-right: 10px;
-  }
-
-  .font-13 {
-    font-size: 12.5px;
-  }
-
-  .top-picks-img {
-    object-fit   : cover;
-    border-radius: 10px;
-  }
-
-  .steps-opt {
-    border-radius: 10px;
-    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.12);
-  }
-
-  .step-number {
-    font-weight: 500;
-    font-size  : 18px;
-    color      : #4343e8;
-  }
-
-  .font-14-lite {
-    font-size  : 13px;
-    font-weight: 300;
-  }
-
-  .line_height {
-    line-height: 18px;
-  }
-
-  .brand-img {
-    padding   : 3px;
-    width     : auto;
-    object-fit: cover;
-  }
-
-  .list-space-img {
-    border-radius: 10px;
-    box-shadow   : 0px 6px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .font-18 {
-    font-size  : 18px;
-    line-height: 25px;
-    font-weight: 500;
-  }
-
-  .card {
-    border: none;
-  }
-
-  .card-header {
-    background-color: transparent;
-  }
-
-  .card-header h5 button {
-    font-weight    : 600;
-    color          : #222;
-    text-decoration: none;
-    padding        : 0px;
-  }
-
-  .card-header h5 button:focus {
-    color          : #222;
-    text-decoration: none;
-  }
-
-
-  .item-info p:nth-child(1) {
-    font-size  : 18px;
-    font-weight: 500;
-  }
-
-  .item-info p:nth-child(2) {
-    font-size: 14px;
-  }
-
-  .partners {
-    overflow  : hidden;
-    background: #fff url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/a987f2b01a39adf7b57918f90183aa2733f6fb0b.png') no-repeat center center;
-
-    .page-title {
-      padding: 16px 0 !important;
-
-    }
-
-    .partner-carousel {
-      display        : -webkit-box;
-      justify-content: space-evenly;
-      margin-right   : 0;
-      margin-left    : 0;
-
-      .band-img {
-        flex-grow : 1;
-        text-align: center;
-      }
-
-      img {
-        cursor    : pointer;
-        max-width : 100%;
-        width     : 140px;
-        transition: filter 1000ms ease-out;
-      }
-
-      .brand-partner {
-        cursor: text !important;
-      }
-
-      .band-img {
-        flex-grow : 1;
-        max-width : 33%;
-        flex      : 0 0 33%;
-        padding   : 15px 5px;
-        text-align: center;
-      }
-
-      img {
-        max-width: 100%;
-      }
-    }
-
-    .slider-on-mobile-view {
-      justify-content: space-evenly;
-      width          : 100%;
-      overflow-y     : hidden;
-      white-space    : nowrap;
-      padding        : 0 15px;
-      overflow-x     : auto;
-      flex-wrap      : unset;
-    }
-  }
-
-  .inspiration {
-    max-width         : 100%;
-    white-space       : nowrap;
-    overflow-y        : hidden;
-    overflow-x        : none;
-    scrollbar-width   : none;
-    -ms-overflow-style: none;
-
-    .cityDiv {
-      width                   : 70%;
-      height                  : auto;
-      text-align              : left;
-      font-size               : 10px;
-      font-weight             : 600;
-      color                   : #000;
-      margin-top              : 10px;
-      text-transform          : capitalize;
-      -webkit-transition      : .5s ease-in;
-      transition              : all ease-in .5s;
-      padding                 : 0;
-      outline                 : 0;
-      vertical-align          : middle;
-      display                 : -webkit-inline-box;
-      display                 : inline-flex;
-      -webkit-box-align       : center;
-      align-items             : center;
-      -webkit-box-pack        : center;
-      justify-content         : center;
-      -webkit-box-orient      : vertical;
-      -webkit-box-direction   : normal;
-      flex-direction          : column;
-
-      img {
-        width        : 90%;
-        margin-bottom: 2px;
-        object-fit   : cover;
-      }
-
-      .detail {
-        font-size: 14px;
-        position : relative;
-        left     : -60px;
-
-      }
-    }
-  }
-
-  .faq {
-    .page-title {
-      h2::after {
-        bottom: -16px;
-      }
-    }
-  }
-
-
-}
-
-.coworking_top_city {
-	padding-top: 80px;
-	padding-bottom: 70px;
-}
-
-
-
-@media (max-width:480px) {
-  .col-md-12.text-center {
-    text-align: left !important;
-  }
-  .title_divider {
-    margin-bottom: 15px !important;
-  }
   .innerpage_banner {
     padding: 40px 10px !important;
     background-repeat: no-repeat;
@@ -513,32 +352,319 @@
     background-position: center;
     position: relative;
   }
+
+  .innerpage_banner::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   .banner_content {
     padding: 40px 15px 40px 15px;
   }
-  .banner_content h1 {
-    font-size: 20px !important;
-    line-height: 30px !important;
+
+  .cities_list_row {
+    width: 100%;
+    margin: 0 auto;
   }
+
+  .cities_list_row .col-6 {
+    padding: 0px 5px;
+  }
+
+  .city-icon-box {
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    margin-bottom: 14px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .city-icon-box .row {
+    margin: 0px !important;
+  }
+
+  .city-icon-box .col-4,
+  .city-icon-box .col-8 {
+    padding: 0px !important;
+  }
+
+  .city-icon-box a {
+    display: block;
+    width: 100%;
+  }
+
+  .city-icon-box .cities_box_content {
+    padding-left: 5px;
+  }
+
+  .city-icon-box h4 {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 0px !important;
+  }
+
+  .city-icon-box p {
+    font-size: 10px !important;
+    line-height: 14px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .citi-img {
+    border-radius: 5px;
+    height: 50px;
+    width: 50px;
+  }
+
+  .amenities_row .icon_item img {
+    height: 25px !important;
+    width: 25px !important;
+    margin: 0 !important;
+  }
+
+  .amenities_row h4 {
+    font-size: 10px !important;
+    line-height: 14px !important;
+    text-align: left !important;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+  }
+
+  .facilities_sec .icon_item.mb-5 {
+    margin-bottom: 20px !important;
+  }
+
+  .space_carousel {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    padding: 0px;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .space_carousel {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .space_carousel .property_item {
+    margin: 6px 7px;
+    width: 71%;
+  }
+
+  .property_item {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .property_item {
+    padding: 8px 8px 0px !important;
+    border-radius: 10px;
+  }
+
+  .property_item .property-img {
+    height: 130px !important;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+  }
+
+  .property_item .property-img img {
+    height: 130px !important;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100% !important;
+    -webkit-transition: .5s !important;
+    transition: all .5s !important;
+    position: relative;
+  }
+
+
+  .property_item .property-img,
+  .property_item .property-img .carousel-inner {
+    height: 130px !important;
+    margin-bottom: 5px;
+    border-radius: 10px;
+  }
+
+  .property_item .property-img img,
+  .property_item .property-img .item {
+    height: 130px !important;
+  }
+
+  .property_item .property-dis {
+    padding-bottom: 0px;
+    width: 100%;
+  }
+
+  .property_item .property-dis h4 {
+    font-size: 13px;
+    line-height: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .property_item .property-dis .address {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    padding-bottom: 7px;
+    margin-bottom: 7px !important;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    scrollbar-width: none !important;
+  }
+
+  .property_item .property-dis p {
+    font-size: 10px !important;
+    line-height: 15px !important;
+    margin-bottom: 3px !important;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  .amenities_card {
+    display: flex;
+    padding-top: 4px;
+  }
+
+  .amenities_card .capacity:first-child {
+    margin-right: 20px;
+  }
+
+  .property_item .property-dis .furnish_type img,
+  .property_item .property-dis img {
+    width: 16px;
+    border-radius: 0px !important;
+  }
+
+  .property_item .property-foot {
+    display: -webkit-box;
+    display: flex;
+    padding: 8px 0 0;
+    margin-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+  }
+
+  .property_item .property-foot .price {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .property_item .property-dis .price span {
+    color: #212529;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 13px;
+  }
+
+  .property_item .property-foot .price .rent_title {
+    display: block;
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 600;
+  }
+
+  .property_item .property-foot .button a {
+    font-size: 11px;
+  }
+
+  .property_item .property-foot .button a::before {
+    font-size: 6px !important;
+    line-height: 12px !important;
+  }
+
+  .curated-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .curated-img {
+    position: relative;
+    height: 100px;
+  }
+
+  .curated-img img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 120px;
+  }
+
+  .curated-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.34%, rgba(0, 0, 0, 0.447625) 50.99%, #000 98.69%);
+    padding: 30px 0px 0px;
+    transition: all 0.5s;
+  }
+
+  .curated-item:hover .curated-content {
+    padding-bottom: 15px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.34%, rgba(0, 0, 0, 0.447625) 50.99%, #000 98.69%);
+  }
+
+  .curated-content h4 {
+    margin-bottom: 7px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+
+  .col-md-12.text-center {
+    text-align: left !important;
+  }
+
+  .title_divider {
+    margin-bottom: 15px !important;
+  }
+
   .coworking_cities_list {
     padding-top: 50px !important;
     padding-bottom: 20px !important;
-}
-.facilities_sec {
-	padding: 20px 0px 20px;
-}
+  }
+
+  .facilities_sec {
+    padding: 20px 0px 0px;
+  }
+
   .search-bar {
     margin: 10px 0px 0px;
   }
+
   .near-coworking-space {
     padding: 40px 0px 30px !important;
   }
+
   .feature_sec {
     padding-top: 20px !important;
     padding-bottom: 50px !important;
   }
+
   .curated_section {
     padding-bottom: 30px;
   }
-  
+
 }

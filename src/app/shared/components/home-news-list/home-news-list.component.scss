@@ -1,4 +1,12 @@
 .news_brands {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.news_brands .main_heading {
+  margin-bottom: 10px !important;
+}
+
+.news_brands {
   .ngucarousel-items {
       margin: 0 -10px;
   }
@@ -41,6 +49,26 @@
           }
       }
   }
+}
+
+.news_brands .carousel-arrow {
+  position: absolute;
+  top: 18px;
+  color: #4343e8;
+  font-size: 26px;
+  font-weight: bold;
+}
+.news_brands .carousel-arrow.icon-next {
+  right: -20px;
+}
+.news_brands .carousel-arrow[disabled] {
+  opacity: 0.4;
+}
+.news_brands .carousel-arrow.icon-back {
+  left: -20px;
+}
+.news_brands .logos_slider {
+  margin-top: 10px;
 }
 
 .slider-on-mobile-view {

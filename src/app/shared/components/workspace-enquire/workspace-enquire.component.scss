@@ -55,7 +55,75 @@
   }
 }
 
+// ------- Flag css
 
+.country_phone .selected-flag .flag {
+  display: flex;
+}
+.country_phone .flag-container {
+  display: flex;
+  align-items: center;
+}
+.country_phone .icon_phone_field .form-control {
+  padding-left: 10px !important;
+}
+.country_phone .input-group {
+  padding-left: 0;
+  border: none;
+}
+.country_phone .form-input.icon_phone_field {
+  padding-left: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.country_phone .flag img {
+  margin-right: 5px;
+  width: 18px !important;
+  position: relative !important;
+  height: auto !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+.country_phone .selected-flag .flag .arrow {
+  font-size: 9px;
+  margin-left: 3px;
+}
+.country_phone .country-list {
+  position: absolute;
+  background-color: #fff;
+  top: 42px;
+  border-radius: 10px;
+  padding: 0px 12px;
+  width: 89%;
+  height: 250px;
+  overflow-y: scroll;
+  z-index: 9;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+.country_phone .country-list .country {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 5px 0px;
+  font-size: 13px;
+}
+.country_phone .country-list .country .country-name {
+  font-size: 12px;
+}
+.country_phone .country-list .country .dial-code {
+  margin-left: 5px;
+}
+.country_phone .country-list .divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 5px 0px;
+}
+.country_phone.icon_phone_field .selected-flag .flag.in {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 42px;
+}
 
 .success-box {
   text-align: center;

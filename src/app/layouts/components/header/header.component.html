@@ -9,8 +9,8 @@
             <div (click)="logoClick()"
                 class="logo"
                 routerLink="/">
-                <img [src]="'assets/images/logo.svg'"
-                    alt="">
+                <img src="assets/images/logo.svg"
+                    alt="Cofynd">
             </div>
 
             <div class="search"
@@ -181,7 +181,6 @@
                                                 class="selected-flag">
                                                 <div class="flag in"
                                                     *ngIf="activeCountries && activeCountries.length">
-                                                    <!-- <img [lazyLoad]="selectedCountry?.image?.s3_link" width="18px" /> -->
                                                     <span class="dial-code"> {{selectedCountry?.dial_code}}</span>
                                                     <span class="arrow arrow-up"><i
                                                             class="fa-solid fa-angle-down"></i></span>
@@ -326,7 +325,7 @@
             <div class="row">
                 <div class="col-9 logo_col">
                     <a class="navbar-brand mobile_space"
-                        routerLink="/"><img [lazyLoad]="'assets/images/logo.svg'"
+                        routerLink="/"><img src="assets/images/logo.svg"
                             alt="Cofynd"
                             class="img-fluid"></a>
                 </div>
@@ -390,7 +389,7 @@
                                 <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/coworking/' + city.name.toLowerCase()"><img [alt]="city.name"
-                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                                        [src]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
                                 <a tabindex="0"
@@ -413,7 +412,7 @@
                                 <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/co-living/' + city.name.toLowerCase()"><img [alt]="city.name"
-                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                                        [src]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
                                 <a tabindex="0"
@@ -436,7 +435,7 @@
                                 <a tabindex="0"
                                     class="dropdown-item"
                                     [routerLink]="'/virtual-office/' + city.name.toLowerCase()"><img [alt]="city.name"
-                                        [lazyLoad]="city?.image?.s3_link">{{city.name}}</a>
+                                        [src]="city?.image?.s3_link">{{city.name}}</a>
                             </li>
                             <li class="cities-list">
                                 <a tabindex="0"

@@ -2,6 +2,7 @@
     (mapViewChanged)="toggleMapView($event)">
 </app-search-breadcrumb>
 <section class="search-container clearfix cities_page_listing">
+    <!-- <div class="search-grid-container" [class.search-grid-full]="!isMapView"> -->
     <div class="search-grid-container" [class.search-grid-full]="!isMapView">
         <div class="search-grid-wrapper">
             <div class="row align-items-center filter_title">
@@ -41,11 +42,12 @@
 
             <div class="row" *ngIf="!loading">
                 <ng-container *ngFor="let space of workSpaces; let i = index">
-                    <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                    <!-- <div class="col-sm-6" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView"> -->
+                    <div class="col-sm-4">
                         <app-search-card [workspace]="space" [showQuote]="true" [forAll]="true">
                         </app-search-card>
                     </div>
-                    <ng-template [ngIf]="isMapView">
+                    <!-- <ng-template [ngIf]="isMapView">
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <app-search-contact-us-text2 [pageNo]="'city page'" [activeCountries]="activeCountries" >
                             </app-search-contact-us-text2>
@@ -56,7 +58,7 @@
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <section class="gradient_cta_sec micro-location-cta">
-                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18cdea27a9a3be653904081b3bb0223ed6e8b6c4.jpg');">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d32c317a746fc1d30d33b20e00493f3c5564d2a.jpg');">
                                     <div class="col-8">
                                         <div class="cta_content">
                                             <h4>Get the Perfect Coworking in Your City</h4>
@@ -71,8 +73,8 @@
                                 </div>
                             </section>
                         </div>
-                    </ng-template>
-                    <ng-template [ngIf]="!isMapView">
+                    </ng-template> -->
+                    
                         <div class="col-sm-12" *ngIf="(i + 1) === 6">
                             <app-search-contact-us-text2 [pageNo]="'city page'" [activeCountries]="activeCountries" >
                             </app-search-contact-us-text2>
@@ -83,7 +85,7 @@
                         </div>
                         <div class="col-sm-12" *ngIf="(i + 1) === 18">
                             <section class="gradient_cta_sec micro-location-cta">
-                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/18cdea27a9a3be653904081b3bb0223ed6e8b6c4.jpg');">
+                                <div class="row align-items-center" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/4d32c317a746fc1d30d33b20e00493f3c5564d2a.jpg');">
                                     <div class="col-8">
                                         <div class="cta_content">
                                             <h4>Get the Perfect Coworking in Your City</h4>
@@ -98,27 +100,26 @@
                                 </div>
                             </section>
                         </div>
-                    </ng-template>
                 </ng-container>
 
-                <div class="col-md-4" [class.col-md-4]="!isMapView" [class.col-md-6]="isMapView">
+                <div class="col-md-4">
                     <app-city-page-enquire *ngIf="workSpaces.length" [enquiryType]="ENQUIRY_TYPE" [activeCountries]="activeCountries"></app-city-page-enquire>
                 </div>
             </div>
 
             <section class="for_email_sec desktophide mt-4">
-                <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/3178e0cd0b21178e626195ffde0edbf7e1947382.png');">
+                <div class="container-fluid" style="background-image: url('https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/531127b12803d7a66c53322a4c180786e7fa3606.png');">
                     <div class="row align-items-center">
                         <div class="col-md-8 col-12">
                             <div class="for_email_content">
                                 <h3>Find your Office Space with Cofynd</h3>
                                 <p>Just drop us an email with your Office Space requirements – Number of Seat, Location, Start Date … and our team will connect back with you within 24 Hrs with the best possible options.</p>
-                                <p class="email_id align-items-center"><img [lazyLoad]="'assets/images/icons/email_id.svg'" alt="Email Icon"> hello@cofynd.com</p>
+                                <p class="email_id align-items-center"><img src="assets/images/icons/email_id.svg" alt="Email Icon"> hello@cofynd.com</p>
                             </div>
                         </div>
                         <div class="col-md-4 mobilehide">
                             <div class="for_email_img">
-                                <img [lazyLoad]="'https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/00e405e2b9a8afc8ac552ea76d1ba5e698ba9b48.png'" alt="Email Image">
+                                <img src="https://cofynd-staging.s3.ap-south-1.amazonaws.com/images/original/00e405e2b9a8afc8ac552ea76d1ba5e698ba9b48.png" alt="Email Image">
                             </div>
                         </div>
                     </div>
@@ -133,11 +134,11 @@
 
         </div>
     </div>
-    <div *ngIf="loading" class="search-map-container">
+    <!-- <div *ngIf="loading" class="search-map-container">
     </div>
     <div *ngIf="!loading && isMapView" class="search-map-container" [class.absolute-map]="isSearchFooterVisible" [class.hide-map]="!isMapView">
         <app-search-map-view (pageScrollEvent)="onPageScroll($event)" [spaceType]="'coworking'" [workspaces]="workSpaces"></app-search-map-view>
-    </div>
+    </div> -->
 </section>
 
 <section class="search-description" *ngIf="!loading && seoData" #target>

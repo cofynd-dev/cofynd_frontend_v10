@@ -64,6 +64,10 @@
     .our_client_sec .our-client-carousel {
         padding: 0px 30px;
     }
+    .our_client_sec {
+		padding-top: 40px !important;
+		padding-bottom: 30px !important;
+	}
 }
 
 @media (max-width: 480px) {
@@ -71,5 +75,6 @@
   .our_client_sec .col-12.mt-3 {
 	margin-top: 0px !important;
 }
+
     
 }

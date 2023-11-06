@@ -2,6 +2,73 @@
 	border-radius: 20px !important;
 	border: none !important;
 }
+.home_city_popup .modal-header {
+	display: block;
+	padding: 0px 20px 20px;
+	border-bottom: none;
+}
+.home_city_popup .modal-header .popup_icon {
+	display: inline-block;
+	background-color: #FEF7EA;
+	border-radius: 50%;
+	margin-top: -30px;
+	position: relative;
+	top: -24px;
+	width: 100px;
+	height: 100px;
+	line-height: 85px;
+}
+.home_city_popup .modal-header .popup_icon img {
+	width: 52%;
+}
+.home_city_popup .modal-header h5 {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+.home_city_popup .modal-header p {
+	margin-bottom: 0px;
+	font-weight: 500;
+	color: #4343E8;
+	font-size: 13px;
+	line-height: 20px;
+}
+.home_city_popup .cat_box {
+	-webkit-filter: drop-shadow(0px 4px 4px #FFF9EA);
+	filter: drop-shadow(0px 4px 4px #FFF9EA);
+	background-color: #fff;
+	border-radius: 50%;
+	width: 110px;
+	height: 110px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.home_city_popup .cat_box .img-box {
+	background-color: #FEF7EA;
+	height: 55px;
+	display: flex;
+}
+.home_city_popup .cat_box .img-box img {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+}
+.home_city_popup .cat_box .title-box {
+	text-align: center;
+}
+.home_city_popup .cat_box .title-box p {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.home_city_popup .cat_box.coworking-space-box .img-box img {
+	width: 30px;
+	height: 30px;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
 .home_city_popup .cat_box.coliving-space-box .img-box {
 	background-color: #4343e814;
 }
