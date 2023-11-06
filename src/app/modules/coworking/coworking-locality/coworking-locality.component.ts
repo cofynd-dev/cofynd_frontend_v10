@@ -91,9 +91,6 @@ export class CoworkingLocalityComponent implements OnInit, OnDestroy {
         if (url === 'gurugram/mg-road') {
           this.router.navigateByUrl('coworking/gurugram/mg-road-gurugram');
         }
-        if (url == 'gurugram/sohna-road') {
-          this.router.navigateByUrl('coworking/gurugram/sector-49');
-        }
         const filteredCity = this.availableCities.filter(
           city => city.name.toLowerCase() === this.activatedRoute.snapshot.url[0].path,
         );
