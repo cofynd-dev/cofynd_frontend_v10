@@ -319,7 +319,9 @@ export class CoworkingCityComponent implements OnInit, OnDestroy {
         }
         const altCity = this.title === 'gurugram' ? 'gurgaon' : this.title;
         this.workSpaces[0].images.map((image, index) => {
-          image.image.alt = this.IMAGE_STATIC_ALT[index];
+          if (image.image != null) {
+            image.image.alt = this.IMAGE_STATIC_ALT[index];
+          }
         });
       }
 
