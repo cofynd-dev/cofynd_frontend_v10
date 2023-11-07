@@ -45,7 +45,7 @@ export class OfficeSpaceComponent implements OnInit {
   loading: boolean;
   submitted = false;
   finalCities: any = [];
-  btnLabel = 'submit';
+  btnLabel = 'Submit';
   ENQUIRY_STEPS: typeof ENQUIRY_STEPS = ENQUIRY_STEPS;
   ENQUIRY_STEP = ENQUIRY_STEPS.ENQUIRY;
   user: any;

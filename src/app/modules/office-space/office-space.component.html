@@ -78,7 +78,7 @@
                         </div>
                         <div class="property-dis">
                             <h4>{{_centerCity.name}}</h4>
-                            <p class="address"><img src="../../../../assets/images/icons/location-icon.svg"
+                            <p class="address"><img src="assets/images/icons/location-icon.svg"
                                     alt="Location"
                                     class="img-fluid"> {{_centerCity.location.address}}</p>
                             <div class="amenities_card">
@@ -119,7 +119,7 @@
             <div class="col-md-4 col-4"
                 *ngFor="let data of service">
                 <div class="icon_item mb-5">
-                    <img [src]="'../../../assets/images/'+data.icon"
+                    <img [src]="'assets/images/'+data.icon"
                         class="img-fluid d-block"
                         [alt]="data.title">
                     <h4>{{data.title}}</h4>
@@ -192,7 +192,7 @@
                 *ngFor="let data of chooseOffice">
                 <div class="left_icon_box2">
                     <div class="icon">
-                        <img [src]="'../../../assets/images/'+data.icon"
+                        <img [src]="'assets/images/'+data.icon"
                             class="img-fluid d-block"
                             [alt]="data.title">
                     </div>
@@ -398,7 +398,7 @@
                         <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg"
+                        <p class="address"><img src="assets/images/icons/location-icon.svg"
                                 alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
 
@@ -407,7 +407,7 @@
                                 <p class="capacity">
                                     <img class="img-fluid"
                                         src="assets/images/icons/flexible-lease-icon.svg"
-                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                        alt="Flexible Lease"> {{(space.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN')}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
                                     <img src="assets/images/amenities/wifi.svg"
@@ -489,7 +489,7 @@
                         <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg"
+                        <p class="address"><img src="assets/images/icons/location-icon.svg"
                                 alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
 
@@ -498,7 +498,7 @@
                                 <p class="capacity">
                                     <img class="img-fluid"
                                         src="assets/images/icons/flexible-lease-icon.svg"
-                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                        alt="Flexible Lease"> {{(space.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN')}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
                                     <img src="assets/images/amenities/wifi.svg"
@@ -580,7 +580,7 @@
                         <h4 *ngIf="!space.location.micro_location">Office Space for Rent in {{
                             space?.location?.city?.name }} <br><span
                                 class="builder_name">{{space?.other_detail?.building_name}}</span></h4>
-                        <p class="address"><img src="../../../../assets/images/icons/location-icon.svg"
+                        <p class="address"><img src="assets/images/icons/location-icon.svg"
                                 alt="Location"
                                 class="img-fluid"> {{space?.location?.address}}</p>
                         <div class="row align-items-end">
@@ -588,7 +588,7 @@
                                 <p class="capacity">
                                     <img class="img-fluid"
                                         src="assets/images/icons/flexible-lease-icon.svg"
-                                        alt="Flexible Lease"> {{space.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.
+                                        alt="Flexible Lease"> {{(space.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN')}} Sq. Ft.
                                 </p>
                                 <p class="capacity mb-0">
                                     <img src="assets/images/amenities/wifi.svg"
@@ -690,7 +690,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="../../../assets/images/icons/user-icon.svg"
+                                        <img src="assets/images/icons/user-icon.svg"
                                             class="img-fluid"
                                             alt="User">
                                         <input type="text"
@@ -707,7 +707,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="input-group align-items-center">
-                                        <img src="../../../assets/images/icons/email-icon.svg"
+                                        <img src="assets/images/icons/email-icon.svg"
                                             class="img-fluid"
                                             alt="Email">
                                         <input type="email"
@@ -725,7 +725,7 @@
                                 </div>
                                 <div class="col-md-6 col-12 country_phone">
                                     <div class="input-group align-items-center">
-                                        <img src="../../../assets/images/icons/phone-icon.svg"
+                                        <img src="assets/images/icons/phone-icon.svg"
                                             class="img-fluid"
                                             alt="Phone">
                                         <div class="form-input icon_phone_field">
@@ -803,7 +803,7 @@
                                 <div class="col-md-12 col-12"
                                     *ngIf="ENQUIRY_STEP === ENQUIRY_STEPS.OTP">
                                     <div class="input-group align-items-center">
-                                        <img src="../../../assets/images/icons/phone-icon.svg"
+                                        <img src="assets/images/icons/phone-icon.svg"
                                             class="img-fluid"
                                             alt="Phone">
                                         <input type="tel"
@@ -870,7 +870,7 @@
                 </div>
             </div>
             <div class="col-4 text-center">
-                <img src="../../../assets/images/list-your-space-img.svg"
+                <img src="assets/images/list-your-space-img.svg"
                     alt="List Your Vacant"
                     class="img-fluid">
             </div>

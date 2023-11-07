@@ -13,7 +13,7 @@
                     alt="Cofynd">
             </div>
 
-            <div class="search"
+            <!-- <div class="search"
                 *ngIf="showSearch || isSearchModal"
                 [class.search-modal]="isSearchModal">
                 <button *ngIf="isSearchModal"
@@ -24,7 +24,7 @@
                 <app-search-autocomplete [placeholder]="'Start typing'"
                     (locationSelected)="closeMobileSearch()">
                 </app-search-autocomplete>
-            </div>
+            </div> -->
             <button (click)="openMobileMenu()"
                 class="hamburger">
                 <span></span>
@@ -52,6 +52,12 @@
                         [cities]="virtualOfficeCities">
                     </app-dropdown-item>
                 </li>
+                <li class="no-tablet">
+                    <div class="btn-group"
+                        dropdown>
+                        <a routerLink="/enterprise">For Enterprise</a>
+                    </div>
+                </li>
                 <li class="menu_dropdown no-tablet">
                     <div class="btn-group dropdown-list-menu"
                         dropdown>
@@ -63,7 +69,7 @@
                         <ul id="dropdown-animated"
                             *dropdownMenu
                             class="dropdown-menu">
-                            <li><a routerLink="/enterprise">Enterprise Solutions</a></li>
+                            <!-- <li><a routerLink="/enterprise">Enterprise Solutions</a></li> -->
                             <li><a routerLink="/about-us">About Us</a></li>
                             <li><a routerLink="/contact-us">Contact Us</a></li>
                         </ul>
