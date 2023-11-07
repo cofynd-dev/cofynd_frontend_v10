@@ -36,7 +36,7 @@
 
         <div class="row align-items-end">
             <div class="col-md-6 col-7">
-                <p class="capacity"><img class="img-fluid" alt="Fully Furnished" src="assets/images/icons/flexible-lease-icon.svg"> {{office.other_detail.area_for_lease_in_sq_ft}} Sq. Ft.</p>
+                <p class="capacity"><img class="img-fluid" alt="Fully Furnished" src="assets/images/icons/flexible-lease-icon.svg"> {{(office.other_detail.area_for_lease_in_sq_ft).toLocaleString('en-IN')}} Sq. Ft.</p>
                 <p class="capacity"><img class="img-fluid" alt="Community Events" src="/assets/images/icons/furnished-status-icon.svg"> {{ getoffceType(office.other_detail.office_type) | titlecase}}</p>
             </div>
             <div class="col-md-6 col-5 justify-content-end d-flex">

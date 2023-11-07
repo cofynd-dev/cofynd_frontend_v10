@@ -52,7 +52,7 @@
                 <div class="main_heading title_divider">
                     <h2>{{ pageTitle }}</h2>
                 </div>
-                <div class="populer_slider_area">
+                <div class="populer_slider_area popular_coworking_slider">
                     <div class="popular-space-carousel">
                         <ngu-carousel #popularSpaceCarousel [inputs]="carouselConfig" [dataSource]="coLivingSpaces" (onMove)="onSliderMove($event)">
                             <div *nguCarouselDef="let space; let i = index;" class="item" [ngClass]="(i==coWorkingSpaces.length-1)?'last-slide':null">

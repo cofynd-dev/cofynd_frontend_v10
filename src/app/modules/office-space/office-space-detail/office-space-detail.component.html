@@ -51,7 +51,7 @@
                                 <div class="space_head">
                                     <div class="heading-info">
                                         <h1>{{spaceName}}<br><span class="builder_name">{{workspace?.other_detail?.building_name}}</span></h1>
-                                        <p class="address"><img lazyLoad="assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace?.location?.address }}</p>
+                                        <p class="address"><img src="assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace?.location?.address }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/pricing-tag-icon.svg" alt="Price Tag" />
+                                            <img src="assets/images/icons/pricing-tag-icon.svg" alt="Price Tag" />
                                         </div>
                                         <div class="info">
                                             <h5>Rent</h5>
@@ -73,18 +73,18 @@
                                 <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/area-icon.svg" alt="Area" />
+                                            <img src="assets/images/icons/area-icon.svg" alt="Area" />
                                         </div>
                                         <div class="info">
                                             <h5>Area</h5>
-                                            <p>{{ workspace?.other_detail?.area_for_lease_in_sq_ft }} Sq. Ft.</p>
+                                            <p>{{ (workspace?.other_detail?.area_for_lease_in_sq_ft).toLocaleString('en-IN') }} Sq. Ft.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-6">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/space-status-icon.svg" alt="Status" />
+                                            <img src="assets/images/icons/space-status-icon.svg" alt="Status" />
                                         </div>
                                         <div class="info">
                                             <h5>Status</h5>
@@ -95,7 +95,7 @@
                                 <div class="col-md-4 col-6 desktophide">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/building-icon.svg" alt="Floor" />
+                                            <img src="assets/images/icons/building-icon.svg" alt="Floor" />
                                         </div>
                                         <div class="info">
                                             <h5>Floor</h5>
@@ -106,7 +106,7 @@
                                 <div class="col-md-4 col-6 desktophide">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/security-deposit-icon.svg" alt="Security Deposit" />
+                                            <img src="assets/images/icons/security-deposit-icon.svg" alt="Security Deposit" />
                                         </div>
                                         <div class="info">
                                             <h5>Security Deposit</h5>
@@ -118,7 +118,7 @@
                                 <div class="col-md-4 col-6 desktophide">
                                     <div class="overview-icons">
                                         <div class="icon">
-                                            <img lazyLoad="assets/images/icons/mainteance-icon.svg" alt="Maintenance" />
+                                            <img src="assets/images/icons/mainteance-icon.svg" alt="Maintenance" />
                                         </div>
                                         <div class="info">
                                             <h5>Maintenance</h5>
@@ -141,7 +141,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/building-icon-black.svg" alt="Floor" />
+                                                <img src="assets/images/icons/building-icon-black.svg" alt="Floor" />
                                             </div>
                                             <div class="info">
                                                 <h5>Floor</h5>
@@ -152,7 +152,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/security-deposit-black-icon.svg" alt="Security Deposit" />
+                                                <img src="assets/images/icons/security-deposit-black-icon.svg" alt="Security Deposit" />
                                             </div>
                                             <div class="info">
                                                 <h5>Security Deposit</h5>
@@ -164,7 +164,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/mainteance-black-icon.svg" alt="Maintenance" />
+                                                <img src="assets/images/icons/mainteance-black-icon.svg" alt="Maintenance" />
                                             </div>
                                             <div class="info">
                                                 <h5>Maintenance</h5>
@@ -176,7 +176,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/ready-to-move-black.svg" alt="Ready To Move" />
+                                                <img src="assets/images/icons/ready-to-move-black.svg" alt="Ready To Move" />
                                             </div>
                                             <div class="info">
                                                 <p>Ready To Move</p>
@@ -186,7 +186,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/flexible-lease-black-icon.svg" alt="Flexible Lease" />
+                                                <img src="assets/images/icons/flexible-lease-black-icon.svg" alt="Flexible Lease" />
                                             </div>
                                             <div class="info">
                                                 <p>Flexible Lease</p>
@@ -196,7 +196,7 @@
                                     <div class="col-md-4 col-6">
                                         <div class="overview-icons">
                                             <div class="icon">
-                                                <img lazyLoad="assets/images/icons/brokerage-black-icon.svg" alt="Value for Money" />
+                                                <img src="assets/images/icons/brokerage-black-icon.svg" alt="Value for Money" />
                                             </div>
                                             <div class="info">
                                                 <p>Value for Money</p>
@@ -263,7 +263,7 @@
                             <div class="col-md-12">
                                 <h2>Building Location</h2>
                                 <p class="location-icon" *ngIf="workspace">
-                                    <img lazyLoad="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace.location.address }}
+                                    <img src="../../../../assets/images/icons/location-icon.svg" alt="Location" class="img-fluid"> {{ workspace.location.address }}
                                 </p>
                                 <div *ngIf="options.zoom" style="height: 200px; border-radius: 20px;" leaflet [leafletOptions]="options" [leafletLayers]="markers">
                                 </div>
@@ -282,7 +282,7 @@
                                     <div class="places-tag-item">
                                         <div class="places-tag-box">
                                             <div class="tag-icon">
-                                                <img class="img-fluid" lazyLoad="../../../../assets/images/icons/metro-icon.svg" alt="Metro" />
+                                                <img class="img-fluid" src="../../../../assets/images/icons/metro-icon.svg" alt="Metro" />
                                             </div>
                                             <div class="tag-text">
                                                 <h5>Nearest Metro</h5>
