@@ -12,7 +12,7 @@
                 </div>
             </div>
             <ul class="myPoint onlyMobile" NguCarouselPoint>
-                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+                <li *ngFor="let propertyPoint3 of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
             </ul>
             <button NguCarouselPrev class="left-crl-arrow hideOnMobile"></button>
             <button NguCarouselNext class="right-crl-arrow hideOnMobile"></button>

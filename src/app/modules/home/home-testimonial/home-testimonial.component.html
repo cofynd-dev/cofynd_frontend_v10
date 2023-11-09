@@ -29,7 +29,7 @@
       </div>
       <ul class="carousel-point"
         NguCarouselPoint>
-        <li *ngFor="let i of reviewsCarousel.pointNumbers; let i = index;"
+        <li *ngFor="let carouselPoint of reviewsCarousel.pointNumbers; let i = index;"
           [class.active]="i==reviewsCarousel.activePoint"
           (click)="reviewsCarousel.moveTo(i)"></li>
       </ul>
