@@ -16,7 +16,7 @@
                 class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
             <ul class="myPoint onlyMobile"
                 NguCarouselPoint>
-                <li *ngFor="let j of imageGalleryCarousel.pointNumbers; let j = index"
+                <li *ngFor="let propertyPoint2 of imageGalleryCarousel.pointNumbers; let j = index"
                     [class.active]="j==imageGalleryCarousel.activePoint"
                     (click)="imageGalleryCarousel.moveTo(j)"></li>
             </ul>
