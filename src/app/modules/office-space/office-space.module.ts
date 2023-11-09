@@ -20,4 +20,4 @@ import { OfficeSpaceModalComponent } from './office-space-modal/office-space-mod
   entryComponents: [OfficeSpaceModalComponent],
   exports: [OfficeSpaceModalComponent],
 })
-export class OfficeSpaceModule {}
+export class OfficeSpaceModule { }
