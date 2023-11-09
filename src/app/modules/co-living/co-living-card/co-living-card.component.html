@@ -7,7 +7,11 @@
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
             <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
             <ul class="myPoint onlyMobile" NguCarouselPoint>
+<<<<<<< HEAD
                 <li *ngFor="let f of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+=======
+                <li *ngFor="let propertyPoint of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
+>>>>>>> fe6fc4b531297ac4d50f9bb8cebb616e34fbec92
             </ul>
         </ngu-carousel>
     </div>

@@ -32,7 +32,11 @@
         "@angular/forms": "^9.1.13",
         "@angular/platform-browser": "^9.1.13",
         "@angular/platform-browser-dynamic": "^9.1.13",
+<<<<<<< HEAD
         "@angular/platform-server": "^9.1.13",
+=======
+        "@angular/platform-server": "~8.2.14",
+>>>>>>> fe6fc4b531297ac4d50f9bb8cebb616e34fbec92
         "@angular/router": "^9.1.13",
         "@asymmetrik/ngx-leaflet": "^7.0.1",
         "@ng-select/ng-select": "^3.7.1",
