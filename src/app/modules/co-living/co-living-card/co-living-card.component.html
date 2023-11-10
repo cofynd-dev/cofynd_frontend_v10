@@ -1,19 +1,15 @@
 <div class="property_item">
     <div *ngIf="coLiving.images.length" class="property-img">
-        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="coLiving.images">
+        <ngu-carousel #imageGalleryCarousel [inputs]="carouselTile" [dataSource]="coLiving.images"> 
             <div *nguCarouselDef="let images; let i = index;" class="item" style="cursor: pointer;">
                 <img [lazyLoad]="images?.image?.s3_link" (click)="openWorkSpace(coLiving.slug)" style="display: block; height: 100%; width: 100%;" [alt]="images?.image?.alt ? images?.image?.alt : ''">
             </div>
             <button NguCarouselPrev class='carousel-arrow icon-back fas fa-chevron-left hideOnMobile'></button>
             <button NguCarouselNext class='carousel-arrow icon-next fas fa-chevron-right hideOnMobile'></button>
             <ul class="myPoint onlyMobile" NguCarouselPoint>
-<<<<<<< HEAD
-                <li *ngFor="let f of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
-=======
-                <li *ngFor="let propertyPoint of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="j==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
->>>>>>> fe6fc4b531297ac4d50f9bb8cebb616e34fbec92
+                <li *ngFor="let propertyPoint of imageGalleryCarousel.pointNumbers; let j = index" [class.active]="propertyPoint==imageGalleryCarousel.activePoint" (click)="imageGalleryCarousel.moveTo(j)"></li>
             </ul>
-        </ngu-carousel>
+        </ngu-carousel>    
     </div>
 
     <div class="image" *ngIf="!coLiving.images.length"></div>

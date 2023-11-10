@@ -22,6 +22,10 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '@env/environment';
 import { isPlatformBrowser } from '@angular/common';
 
+
+
+
+
 declare var $: any;
 declare let ga: any;
 
@@ -59,9 +63,9 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   @Input() activeCountries: any;
   isMobileResolution: boolean;
   activeSliderItem: number;
-
   @ViewChild('imageGalleryCarousel', { static: true })
   imageGalleryCarousel: NguCarousel<ImageGallery>;
+
 
   carouselTile: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
@@ -123,9 +127,8 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
     private toastrService: ToastrService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {
-    // initial set activeSliderItem to 0 otherwise not work because of undefined value
     this.activeSliderItem = 0;
     this.buildForm();
     if (this.isAuthenticated()) {
@@ -419,9 +422,12 @@ export class CoLivingCardComponent implements OnInit, AfterViewInit {
   nextSlide() {
     // Increment the activeSlide to show the next slide
     this.activeSlide = (this.activeSlide + 1) % this.coLiving.images.length;
+
   }
+
 
   ngOnDestroy() {
     document.removeEventListener('click', this.addClickOutsideListener);
   }
+
 }
