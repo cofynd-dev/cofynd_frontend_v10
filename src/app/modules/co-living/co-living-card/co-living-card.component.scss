@@ -1,5 +1,9 @@
 @import "base/variable";
 
+
+.carousel-inner {
+  transition: transform 0.5s ease; /* Adjust the duration as needed */
+}
 .property_item {
   margin-bottom: 50px;
   display: inline-block;

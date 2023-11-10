@@ -4,13 +4,12 @@
             <div class="col-md-6 col-12 order-2 order-md-1">
                 <div class="banner_content">
                     <h1 class="site_title">Find the Best<br /><span style="color: #1313E6;">Coliving Spaces</span> in India</h1>
-                    
                     <div class="city-list">
                         <button *ngFor="let city of cities" [routerLink]="city.name">
                             <img [src]="'/assets/images/city/' + city.icon" [alt]="city.name" /> {{ city.name }}
                         </button>
                     </div>
-                </div>
+                </div> 
             </div> 
             <div class="col-md-6 col-12 order-1 order-md-2">
                 <div class="banner_img">
